@@ -9,6 +9,7 @@
 ----------------------------
 
 ## Course Information
+
 * Winter 2018
 * Graduate Business, Leavey School of Business
 * Course MSIS 2641: Big Data Modeling & Analytics
@@ -19,16 +20,20 @@
 	* Thursday: 5:45pm - 7:00pm PST
 * Class room: Lucas Hall 310 
 * Office: 321 T, Lucas Hall
-* Required books and papers (all resources are online):
-	* [1. A  Very Brief  Introduction  to  MapReduce by Diana  MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
-	* [2. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
-	* [3. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-	* [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
+
+## Required Books and Papers 
+
+* [1. A  Very Brief  Introduction  to  MapReduce by Diana  MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+* [2. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+* [3. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+* [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
 ## [Syllabus](./syllabus/2018-Winter/)
 
-## Exam Dates
+## Midterm Exam 
 * Midterm Exam: February 13, @ 5:45pm to 7:00pm PST
+
+## Final Exam 
 * Final Exam: Thursday, March 22, 2018 @ 5:45pm-7:45pm PST
 
 ## Course Description
