@@ -1,6 +1,6 @@
 [Santa Clara University](http://scu.edu/)
 -----------------------------------------
-[![Data Algorithms Book](images/big-data-words.jpg =400x400))](http://shop.oreilly.com/product/0636920033950.do)
+[![Data Algorithms Book](images/big-data-words.jpg =400x400)](http://shop.oreilly.com/product/0636920033950.do)
 
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
