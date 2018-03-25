@@ -25,8 +25,8 @@
 ## [Syllabus](./syllabus/2018-Winter/)
 
 ## Exam Dates
-* Midterm Exam: February 2018 (TBDL), from 5:45pm to 7:00pm PST
-* Final Exam: March 19-23, 2018 from 5:45pm-7:45pm PST
+* Midterm Exam: February 13, @ 5:45pm to 7:00pm PST
+* Final Exam: Thursday, March 22, 2018 @ 5:45pm-7:45pm PST
 
 ## Course Description
 The main focus of this class is to cover the following concepts:

@@ -108,7 +108,8 @@ F     | 0.0
 
 
 ## Grading Scale 
-Letter Grade | Percentage Points
+
+Letter Grade | Percentage Points
 -------------| -----------------
 A+           | 100 – 97
 A            | 96.9 – 93
@@ -311,7 +312,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* 20: March 19-22, 2018, 5:45-7:45 PST: **FINAL Exam**
+* 20: March 22, 2018, 5:45-7:45 PST: **FINAL Exam**
 
 ----------------	
 
