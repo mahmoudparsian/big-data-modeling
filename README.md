@@ -1,11 +1,6 @@
 [Santa Clara University](http://scu.edu/)
 -----------------------------------------
 
-<img src="images/big-data-words.jpg" width="400" height="400" />
-
-<img src="images/big-data-words2.png" width="400" height="400" />
-
-<img src="images/big-data-words2.png" width="1200" height="600" />
 
 <img src="images/big-data-words2.png"/>
 
