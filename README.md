@@ -7,6 +7,9 @@
 
 <img src="images/big-data-words2.png" width="2267" height="1147" />
 
+<img src="images/big-data-words2.png"/>
+
+
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
