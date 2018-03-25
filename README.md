@@ -5,7 +5,7 @@
 
 <img src="images/big-data-words2.png" width="400" height="400" />
 
-<img src="images/big-data-words2.png" width="2267" height="1147" />
+<img src="images/big-data-words2.png" width="1200" height="600" />
 
 <img src="images/big-data-words2.png"/>
 
