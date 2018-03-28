@@ -8,16 +8,13 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Course Information
-
-* Winter 2018
+## Course Information: Spring 2018
 * Graduate Business, Leavey School of Business
 * Course MSIS 2641: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
-* Class duration: January 8 - March 22, 2018
-* Class hours: 
-	* Tuesday: 5:45pm - 7:00pm PST
-	* Thursday: 5:45pm - 7:00pm PST
+* Class Meeting dates: 04/03/2018 - 06/08/2018
+* Class hours: Class Number 68044: TTh 5:45PM - 7:00PM PST
+* Class hours: Class Number 68041: TTh 7:35PM - 8:50PM PST
 * Class room: Lucas Hall 310 
 * Office: 321 T, Lucas Hall
 
@@ -28,13 +25,15 @@
 * [3. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
-## [Syllabus](./syllabus/2018-Winter/)
+## [Syllabus](./syllabus/2018-Spring/)
 
 ## Midterm Exam 
-* Midterm Exam: February 13, @ 5:45pm to 7:00pm PST
+* Midterm Exam: TBDL, @ 5:45pm to 7:00pm PST
+* Midterm Exam: TBDL, @ 7:35pm to 8:50pm PST
 
 ## Final Exam 
-* Final Exam: Thursday, March 22, 2018 @ 5:45pm-7:45pm PST
+* Final Exam: TBDL, @ 5:45pm-7:30pm PST
+* Final Exam: TBDL, @ 7:30pm-9:00pm PST
 
 ## Course Description
 The main focus of this class is to cover the following concepts:
