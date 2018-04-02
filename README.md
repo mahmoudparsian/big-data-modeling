@@ -31,9 +31,17 @@
 * Midterm Exam: TBDL, @ 5:45pm to 7:00pm PST
 * Midterm Exam: TBDL, @ 7:35pm to 8:50pm PST
 
-## Final Exam 
-* Final Exam: TBDL, @ 5:45pm-7:30pm PST
-* Final Exam: TBDL, @ 7:30pm-9:00pm PST
+## [Final Exam](./finals/Spring_2018_finals_schedule.pdf)
+
+### Final Exam Class Number 68044
+* Class hours: TTh 5:45PM - 7:00PM PST
+* Final Exam: *Tuesday, June 12, 2018*
+
+
+### Final Exam Class Number 68041
+* Class hours: TTh 7:35PM - 8:50PM PST
+* Final Exam: *Thursday, June 14, 2018*
+
 
 ## Course Description
 The main focus of this class is to cover the following concepts:
