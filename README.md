@@ -26,6 +26,8 @@
 * [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
 ## [Syllabus](./syllabus/2018-Spring/)
+----------------------------
+
 
 ## Midterm Exam 
 * Midterm Exam: TBDL, @ 5:45pm to 7:00pm PST
@@ -41,7 +43,6 @@
 ### Final Exam Class Number 68041
 * Class hours: TTh 7:35PM - 8:50PM PST
 * Final Exam: *Thursday, June 14, 2018*
-
 ----------------------------
 
 
@@ -58,7 +59,6 @@ The main focus of this class is to cover the following concepts:
 * Apache Spark: http://spark.apache.org/
 * Use Spark, Py-Spark, Hadoop, and Java to teach MapReduce and distributed computing
 * SQL for NoSQL Data, How?
-
 ---------------------------
 
 ## My latest book: 
