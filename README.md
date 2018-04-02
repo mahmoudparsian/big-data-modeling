@@ -42,6 +42,8 @@
 * Class hours: TTh 7:35PM - 8:50PM PST
 * Final Exam: *Thursday, June 14, 2018*
 
+----------------------------
+
 
 ## Course Description
 The main focus of this class is to cover the following concepts:
