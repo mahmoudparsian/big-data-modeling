@@ -1,13 +1,6 @@
+# Spring 2018 Course Information
+
 ## [Santa Clara University](http://scu.edu/)
-
-
-## Big Data Modeling and Analytics
-
-Course Information: 
-
-* Spring  2018
-
-* Class Meeting dates: 04/03/2018 - 06/08/2018
 
 ## [MSIS 2627 : Big Data Modeling and Analytics](https://legacy.scu.edu/legacy/courseavail/t4/catalog.cfm?subject=MSIS&acad_career=GRAD#collapse11)
 
@@ -15,17 +8,19 @@ Course Information:
 	* Class Number 68044: TTh 5:45PM - 7:00PM PST
 	* Class Number 68041: TTh 7:35PM - 8:50PM PST
 
- * Class room: Lucas Hall 310
+* Class room: Lucas Hall 310
 
- * Adjunct Professor: Mahmoud Parsian
+* Adjunct Professor: Mahmoud Parsian
 	* Ph.D in Computer Science
 	* Lead Big Data Team @Illumina
 	* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian)
 	* Email: mparsian@scu.edu
- * [Class GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
+ 
+* [Class GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
- * Office Location: 321 T, Lucas Hall
- * Office Hours: TBDL
+* Office Location: 321 T, Lucas Hall
+
+* Office Hours: TBDL
 
 
 ## Course Description & Objectives
@@ -96,7 +91,8 @@ Midterm and final exams are closed book/notes.
   Assignment-5 | 10%     
   Midterm Exam | 20%     
   Final Exam   | 30%  
-  Bonus        | 5%   
+  -------------|-----
+  Bonus        | 3%   
 
 
 ## Letter Grade Distribution:
@@ -305,16 +301,22 @@ However, you must keep up with the reading assignments.
 ----------------
 * 17: May 29, 2018
 
+	* Introduction to HBase (Hadoop Database)  
 	* Relational Algebra and Big Data  
 	
 ----------------
 * 18: May 31, 2018
 
+	* Relational Algebra and Big Data  
+	
+----------------
+* 19: June 5, 2018
+
 	* Review for Final Exam  
 
 ----------------
 
-* 19: June 4-7, 2018, 5:45-7:45 PST: **FINAL Exam Week**
+* 20: June 11-14, 2018, 5:45-7:45 PST: **FINAL Exam Week**
 
 ----------------	
 

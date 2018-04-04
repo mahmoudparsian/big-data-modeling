@@ -91,7 +91,8 @@ Midterm and final exams are closed book/notes.
   Assignment-5 | 10%     
   Midterm Exam | 20%     
   Final Exam   | 30%  
-  Bonus        | 5%   
+  -------------|-----
+  Bonus        | 3%   
 
 
 ## Letter Grade Distribution:
