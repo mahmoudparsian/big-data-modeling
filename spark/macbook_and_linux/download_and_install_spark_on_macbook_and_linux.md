@@ -178,7 +178,9 @@ check:  `http://localhost:8080`
 /home/alex/spark-2.3.0/zbin/start-spark.sh
 ````
 
-15. Now Start PySpark Shell:
+## Start PySpark Shell
+
+To start interactive PySpark Shell, execute the following:
 
 ````
 /home/alex/spark-2.3.0/zbin/start-pyspark-shell.sh
