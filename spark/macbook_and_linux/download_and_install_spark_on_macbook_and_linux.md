@@ -226,3 +226,18 @@ SparkSession available as 'spark'.
 ]
 >>>
 ````
+
+## Error running `start-all.sh` Connection refused
+
+If you are on a MacBook and run into the following error when running 
+
+````
+/home/alex/spark-2.3.0/zbin/start-spark.sh
+
+starting org.apache.spark.deploy.master.Master, logging to ...
+localhost: ssh: connect to host localhost port 22: Connection refused
+````
+
+THEN you need to enable "Remote Login" for your machine. 
+From `System Preferences`, select `Sharing`, and then turn on `Remote Login`.
+
