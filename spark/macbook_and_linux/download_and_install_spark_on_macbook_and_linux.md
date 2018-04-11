@@ -166,7 +166,7 @@ check:  `http://localhost:8080`
 Now you will enter shell and see the following:
 
 ````
-Python 2.7.10 (default, Feb  7 2017, 00:08:15)
+Python 2.7.10 (default, Apr  7 2018, 00:08:15)
 Setting default log level to "WARN".
 Welcome to
       ____              __
