@@ -38,13 +38,13 @@
 ### Final Exam Class Number 68044
 * Class hours: TTh 5:45PM - 7:00PM PST
 * Final Exam Date: **Tuesday, June 12, 2018**
-* Final Exam Time: **5:45PM - 7:00PM PST**
+* Final Exam Time: **5:45PM - 7:45PM PST**
 
 
 ### Final Exam Class Number 68041
 * Class hours: TTh 7:35PM - 8:50PM PST
 * Final Exam Date: **Thursday, June 14, 2018**
-* Final Exam Time: **5:45PM - 7:00PM PST**
+* Final Exam Time: **5:45PM - 7:45PM PST**
 ----------------------------
 
 
