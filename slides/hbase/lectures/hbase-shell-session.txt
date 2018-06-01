@@ -1,0 +1,1311 @@
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ ./bin/hbase shell
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-hive.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-pig.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-thin-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.8.0/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+
+hbase(main):001:0> list
+TABLE
+big_table
+bigtable22
+employees
+emps
+t1
+table2
+6 row(s) in 0.1740 seconds
+
+=> ["big_table", "bigtable22", "employees", "emps", "t1", "table2"]
+hbase(main):002:0> scan 'big_table'
+ROW                         COLUMN+CELL
+ 0000100                    column=cf1:k1, timestamp=1523424295064, value=v1
+ 0000100                    column=cf1:k2, timestamp=1523424304894, value=v2
+ 0000100                    column=cf1:k3, timestamp=1523424315455, value=v3
+ 0000100                    column=cf2:c1, timestamp=1523424348523, value=d1
+ 0000100                    column=cf2:c2, timestamp=1523424354666, value=d2
+ 0000200                    column=cf1:k1, timestamp=1523424420616, value=z1
+ 0000200                    column=cf1:k2, timestamp=1523424425712, value=z2
+ 0000200                    column=cf2:c1, timestamp=1523424466263, value=p1
+ 0000200                    column=cf2:c2, timestamp=1523424471668, value=p2
+ 0000200                    column=cf2:c3, timestamp=1523424479988, value=p3
+ 0000200                    column=cf2:c4, timestamp=1523424486228, value=p4
+ 0000300                    column=cf1:k1, timestamp=1523424530052, value=m1
+ 0000300                    column=cf1:k2, timestamp=1523424536698, value=m2
+3 row(s) in 0.1120 seconds
+
+hbase(main):003:0> diable 'big_table'
+NoMethodError: undefined method `diable' for #<Object:0x5b35c7d>
+
+hbase(main):004:0> help
+HBase Shell, version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+Type 'help "COMMAND"', (e.g. 'help "get"' -- the quotes are necessary) for help on a specific command.
+Commands are grouped. Type 'help "COMMAND_GROUP"', (e.g. 'help "general"') for help on a command group.
+
+COMMAND GROUPS:
+  Group name: general
+  Commands: status, table_help, version, whoami
+
+  Group name: ddl
+  Commands: alter, alter_async, alter_status, create, describe, disable, disable_all, drop, drop_all, enable, enable_all, exists, get_table, is_disabled, is_enabled, list, locate_region, show_filters
+
+  Group name: namespace
+  Commands: alter_namespace, create_namespace, describe_namespace, drop_namespace, list_namespace, list_namespace_tables
+
+  Group name: dml
+  Commands: append, count, delete, deleteall, get, get_counter, get_splits, incr, put, scan, truncate, truncate_preserve
+
+  Group name: tools
+  Commands: assign, balance_switch, balancer, balancer_enabled, catalogjanitor_enabled, catalogjanitor_run, catalogjanitor_switch, close_region, compact, compact_rs, flush, major_compact, merge_region, move, normalize, normalizer_enabled, normalizer_switch, split, trace, unassign, wal_roll, zk_dump
+
+  Group name: replication
+  Commands: add_peer, append_peer_tableCFs, disable_peer, disable_table_replication, enable_peer, enable_table_replication, list_peers, list_replicated_tables, remove_peer, remove_peer_tableCFs, set_peer_tableCFs, show_peer_tableCFs
+
+  Group name: snapshots
+  Commands: clone_snapshot, delete_all_snapshot, delete_snapshot, list_snapshots, restore_snapshot, snapshot
+
+  Group name: configuration
+  Commands: update_all_config, update_config
+
+  Group name: quotas
+  Commands: list_quotas, set_quota
+
+  Group name: security
+  Commands: grant, list_security_capabilities, revoke, user_permission
+
+  Group name: procedures
+  Commands: abort_procedure, list_procedures
+
+  Group name: visibility labels
+  Commands: add_labels, clear_auths, get_auths, list_labels, set_auths, set_visibility
+
+SHELL USAGE:
+Quote all names in HBase Shell such as table and column names.  Commas delimit
+command parameters.  Type <RETURN> after entering a command to run it.
+Dictionaries of configuration used in the creation and alteration of tables are
+Ruby Hashes. They look like this:
+
+  {'key1' => 'value1', 'key2' => 'value2', ...}
+
+and are opened and closed with curley-braces.  Key/values are delimited by the
+'=>' character combination.  Usually keys are predefined constants such as
+NAME, VERSIONS, COMPRESSION, etc.  Constants do not need to be quoted.  Type
+'Object.constants' to see a (messy) list of all constants in the environment.
+
+If you are using binary keys or values and need to enter them in the shell, use
+double-quote'd hexadecimal representation. For example:
+
+  hbase> get 't1', "key\x03\x3f\xcd"
+  hbase> get 't1', "key\003\023\011"
+  hbase> put 't1', "test\xef\xff", 'f1:', "\x01\x33\x40"
+
+The HBase shell is the (J)Ruby IRB with the above HBase-specific commands added.
+For more on the HBase Shell, see http://hbase.apache.org/book.html
+hbase(main):005:0> disable 'big_table'
+0 row(s) in 2.2940 seconds
+
+hbase(main):006:0> drop 'big_table'
+0 row(s) in 1.2550 seconds
+
+hbase(main):007:0> list
+TABLE
+bigtable22
+employees
+emps
+t1
+table2
+5 row(s) in 0.0120 seconds
+
+=> ["bigtable22", "employees", "emps", "t1", "table2"]
+hbase(main):008:0> scan 'bigtable22'
+ROW                         COLUMN+CELL
+ row100                     column=c:age, timestamp=1527047501499, value=40
+ row100                     column=c:name, timestamp=1527047488092, value=alex
+ row100                     column=d:salary, timestamp=1527047559594, value=1000000
+ row100                     column=d:state, timestamp=1527047571958, value=CA
+1 row(s) in 0.0360 seconds
+
+hbase(main):009:0> scan
+
+ERROR: wrong number of arguments (0 for 1)
+
+Here is some help for this command:
+Scan a table; pass table name and optionally a dictionary of scanner
+specifications.  Scanner specifications may include one or more of:
+TIMERANGE, FILTER, LIMIT, STARTROW, STOPROW, ROWPREFIXFILTER, TIMESTAMP,
+MAXLENGTH or COLUMNS, CACHE or RAW, VERSIONS, ALL_METRICS or METRICS
+
+If no columns are specified, all columns will be scanned.
+To scan all members of a column family, leave the qualifier empty as in
+'col_family'.
+
+The filter can be specified in two ways:
+1. Using a filterString - more information on this is available in the
+Filter Language document attached to the HBASE-4176 JIRA
+2. Using the entire package name of the filter.
+
+If you wish to see metrics regarding the execution of the scan, the
+ALL_METRICS boolean should be set to true. Alternatively, if you would
+prefer to see only a subset of the metrics, the METRICS array can be
+defined to include the names of only the metrics you care about.
+
+Some examples:
+
+  hbase> scan 'hbase:meta'
+  hbase> scan 'hbase:meta', {COLUMNS => 'info:regioninfo'}
+  hbase> scan 'ns1:t1', {COLUMNS => ['c1', 'c2'], LIMIT => 10, STARTROW => 'xyz'}
+  hbase> scan 't1', {COLUMNS => ['c1', 'c2'], LIMIT => 10, STARTROW => 'xyz'}
+  hbase> scan 't1', {COLUMNS => 'c1', TIMERANGE => [1303668804, 1303668904]}
+  hbase> scan 't1', {REVERSED => true}
+  hbase> scan 't1', {ALL_METRICS => true}
+  hbase> scan 't1', {METRICS => ['RPC_RETRIES', 'ROWS_FILTERED']}
+  hbase> scan 't1', {ROWPREFIXFILTER => 'row2', FILTER => "
+    (QualifierFilter (>=, 'binary:xyz')) AND (TimestampsFilter ( 123, 456))"}
+  hbase> scan 't1', {FILTER =>
+    org.apache.hadoop.hbase.filter.ColumnPaginationFilter.new(1, 0)}
+  hbase> scan 't1', {CONSISTENCY => 'TIMELINE'}
+For setting the Operation Attributes
+  hbase> scan 't1', { COLUMNS => ['c1', 'c2'], ATTRIBUTES => {'mykey' => 'myvalue'}}
+  hbase> scan 't1', { COLUMNS => ['c1', 'c2'], AUTHORIZATIONS => ['PRIVATE','SECRET']}
+For experts, there is an additional option -- CACHE_BLOCKS -- which
+switches block caching for the scanner on (true) or off (false).  By
+default it is enabled.  Examples:
+
+  hbase> scan 't1', {COLUMNS => ['c1', 'c2'], CACHE_BLOCKS => false}
+
+Also for experts, there is an advanced option -- RAW -- which instructs the
+scanner to return all cells (including delete markers and uncollected deleted
+cells). This option cannot be combined with requesting specific COLUMNS.
+Disabled by default.  Example:
+
+  hbase> scan 't1', {RAW => true, VERSIONS => 10}
+
+Besides the default 'toStringBinary' format, 'scan' supports custom formatting
+by column.  A user can define a FORMATTER by adding it to the column name in
+the scan specification.  The FORMATTER can be stipulated:
+
+ 1. either as a org.apache.hadoop.hbase.util.Bytes method name (e.g, toInt, toString)
+ 2. or as a custom class followed by method name: e.g. 'c(MyFormatterClass).format'.
+
+Example formatting cf:qualifier1 and cf:qualifier2 both as Integers:
+  hbase> scan 't1', {COLUMNS => ['cf:qualifier1:toInt',
+    'cf:qualifier2:c(org.apache.hadoop.hbase.util.Bytes).toInt'] }
+
+Note that you can specify a FORMATTER by column only (cf:qualifier).  You cannot
+specify a FORMATTER for all columns of a column family.
+
+Scan can also be used directly from a table, by first getting a reference to a
+table, like such:
+
+  hbase> t = get_table 't'
+  hbase> t.scan
+
+Note in the above situation, you can still provide all the filtering, columns,
+options, etc as described above.
+
+
+
+hbase(main):010:0> put
+
+ERROR: wrong number of arguments (0 for 4)
+
+Here is some help for this command:
+Put a cell 'value' at specified table/row/column and optionally
+timestamp coordinates.  To put a cell value into table 'ns1:t1' or 't1'
+at row 'r1' under column 'c1' marked with the time 'ts1', do:
+
+  hbase> put 'ns1:t1', 'r1', 'c1', 'value'
+  hbase> put 't1', 'r1', 'c1', 'value'
+  hbase> put 't1', 'r1', 'c1', 'value', ts1
+  hbase> put 't1', 'r1', 'c1', 'value', {ATTRIBUTES=>{'mykey'=>'myvalue'}}
+  hbase> put 't1', 'r1', 'c1', 'value', ts1, {ATTRIBUTES=>{'mykey'=>'myvalue'}}
+  hbase> put 't1', 'r1', 'c1', 'value', ts1, {VISIBILITY=>'PRIVATE|SECRET'}
+
+The same commands also can be run on a table reference. Suppose you had a reference
+t to table 't1', the corresponding command would be:
+
+  hbase> t.put 'r1', 'c1', 'value', ts1, {ATTRIBUTES=>{'mykey'=>'myvalue'}}
+
+
+hbase(main):011:0> create
+
+ERROR: wrong number of arguments (0 for 1)
+
+Here is some help for this command:
+Creates a table. Pass a table name, and a set of column family
+specifications (at least one), and, optionally, table configuration.
+Column specification can be a simple string (name), or a dictionary
+(dictionaries are described below in main help output), necessarily
+including NAME attribute.
+Examples:
+
+Create a table with namespace=ns1 and table qualifier=t1
+  hbase> create 'ns1:t1', {NAME => 'f1', VERSIONS => 5}
+
+Create a table with namespace=default and table qualifier=t1
+  hbase> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+  hbase> # The above in shorthand would be the following:
+  hbase> create 't1', 'f1', 'f2', 'f3'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 1, TTL => 2592000, BLOCKCACHE => true}
+  hbase> create 't1', {NAME => 'f1', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '10'}}
+
+Table configuration options can be put at the end.
+Examples:
+
+  hbase> create 'ns1:t1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS_FILE => 'splits.txt', OWNER => 'johndoe'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 5}, METADATA => { 'mykey' => 'myvalue' }
+  hbase> # Optionally pre-split the table into NUMREGIONS, using
+  hbase> # SPLITALGO ("HexStringSplit", "UniformSplit" or classname)
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit'}
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit', REGION_REPLICATION => 2, CONFIGURATION => {'hbase.hregion.scan.loadColumnFamiliesOnDemand' => 'true'}}
+  hbase> create 't1', {NAME => 'f1', DFS_REPLICATION => 1}
+
+You can also keep around a reference to the created table:
+
+  hbase> t1 = create 't1', 'f1'
+
+Which gives you a reference to the table named 't1', on which you can then
+call methods.
+
+
+hbase(main):012:0> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+
+ERROR: Table already exists: t1!
+
+Here is some help for this command:
+Creates a table. Pass a table name, and a set of column family
+specifications (at least one), and, optionally, table configuration.
+Column specification can be a simple string (name), or a dictionary
+(dictionaries are described below in main help output), necessarily
+including NAME attribute.
+Examples:
+
+Create a table with namespace=ns1 and table qualifier=t1
+  hbase> create 'ns1:t1', {NAME => 'f1', VERSIONS => 5}
+
+Create a table with namespace=default and table qualifier=t1
+  hbase> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+  hbase> # The above in shorthand would be the following:
+  hbase> create 't1', 'f1', 'f2', 'f3'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 1, TTL => 2592000, BLOCKCACHE => true}
+  hbase> create 't1', {NAME => 'f1', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '10'}}
+
+Table configuration options can be put at the end.
+Examples:
+
+  hbase> create 'ns1:t1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS_FILE => 'splits.txt', OWNER => 'johndoe'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 5}, METADATA => { 'mykey' => 'myvalue' }
+  hbase> # Optionally pre-split the table into NUMREGIONS, using
+  hbase> # SPLITALGO ("HexStringSplit", "UniformSplit" or classname)
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit'}
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit', REGION_REPLICATION => 2, CONFIGURATION => {'hbase.hregion.scan.loadColumnFamiliesOnDemand' => 'true'}}
+  hbase> create 't1', {NAME => 'f1', DFS_REPLICATION => 1}
+
+You can also keep around a reference to the created table:
+
+  hbase> t1 = create 't1', 'f1'
+
+Which gives you a reference to the table named 't1', on which you can then
+call methods.
+
+
+hbase(main):013:0> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+
+ERROR: Table already exists: t1!
+
+Here is some help for this command:
+Creates a table. Pass a table name, and a set of column family
+specifications (at least one), and, optionally, table configuration.
+Column specification can be a simple string (name), or a dictionary
+(dictionaries are described below in main help output), necessarily
+including NAME attribute.
+Examples:
+
+Create a table with namespace=ns1 and table qualifier=t1
+  hbase> create 'ns1:t1', {NAME => 'f1', VERSIONS => 5}
+
+Create a table with namespace=default and table qualifier=t1
+  hbase> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+  hbase> # The above in shorthand would be the following:
+  hbase> create 't1', 'f1', 'f2', 'f3'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 1, TTL => 2592000, BLOCKCACHE => true}
+  hbase> create 't1', {NAME => 'f1', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '10'}}
+
+Table configuration options can be put at the end.
+Examples:
+
+  hbase> create 'ns1:t1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS_FILE => 'splits.txt', OWNER => 'johndoe'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 5}, METADATA => { 'mykey' => 'myvalue' }
+  hbase> # Optionally pre-split the table into NUMREGIONS, using
+  hbase> # SPLITALGO ("HexStringSplit", "UniformSplit" or classname)
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit'}
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit', REGION_REPLICATION => 2, CONFIGURATION => {'hbase.hregion.scan.loadColumnFamiliesOnDemand' => 'true'}}
+  hbase> create 't1', {NAME => 'f1', DFS_REPLICATION => 1}
+
+You can also keep around a reference to the created table:
+
+  hbase> t1 = create 't1', 'f1'
+
+Which gives you a reference to the table named 't1', on which you can then
+call methods.
+
+
+hbase(main):014:0> list
+TABLE
+bigtable22
+employees
+emps
+t1
+table2
+5 row(s) in 0.0130 seconds
+
+=> ["bigtable22", "employees", "emps", "t1", "table2"]
+hbase(main):015:0> desc 't1'
+Table t1 is ENABLED
+t1
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'cf1', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALS
+E', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCA
+CHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'cf2', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALS
+E', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCA
+CHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+2 row(s) in 0.0360 seconds
+
+hbase(main):016:0> create 't5', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+0 row(s) in 1.2450 seconds
+
+=> Hbase::Table - t5
+hbase(main):017:0> desc 't5'
+Table t5 is ENABLED
+t5
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'f1', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE
+', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCAC
+HE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f2', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE
+', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCAC
+HE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f3', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE
+', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCAC
+HE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+3 row(s) in 0.0190 seconds
+
+hbase(main):018:0> create
+
+ERROR: wrong number of arguments (0 for 1)
+
+Here is some help for this command:
+Creates a table. Pass a table name, and a set of column family
+specifications (at least one), and, optionally, table configuration.
+Column specification can be a simple string (name), or a dictionary
+(dictionaries are described below in main help output), necessarily
+including NAME attribute.
+Examples:
+
+Create a table with namespace=ns1 and table qualifier=t1
+  hbase> create 'ns1:t1', {NAME => 'f1', VERSIONS => 5}
+
+Create a table with namespace=default and table qualifier=t1
+  hbase> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+  hbase> # The above in shorthand would be the following:
+  hbase> create 't1', 'f1', 'f2', 'f3'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 1, TTL => 2592000, BLOCKCACHE => true}
+  hbase> create 't1', {NAME => 'f1', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '10'}}
+
+Table configuration options can be put at the end.
+Examples:
+
+  hbase> create 'ns1:t1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS_FILE => 'splits.txt', OWNER => 'johndoe'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 5}, METADATA => { 'mykey' => 'myvalue' }
+  hbase> # Optionally pre-split the table into NUMREGIONS, using
+  hbase> # SPLITALGO ("HexStringSplit", "UniformSplit" or classname)
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit'}
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit', REGION_REPLICATION => 2, CONFIGURATION => {'hbase.hregion.scan.loadColumnFamiliesOnDemand' => 'true'}}
+  hbase> create 't1', {NAME => 'f1', DFS_REPLICATION => 1}
+
+You can also keep around a reference to the created table:
+
+  hbase> t1 = create 't1', 'f1'
+
+Which gives you a reference to the table named 't1', on which you can then
+call methods.
+
+
+hbase(main):019:0> create 't22', {NAME => 'f1', NAME => 'f2', VERSIONS => 5}
+0 row(s) in 2.2300 seconds
+
+=> Hbase::Table - t22
+hbase(main):020:0> desc 't22'
+Table t22 is ENABLED
+t22
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'f2', BLOOMFILTER => 'ROW', VERSIONS => '5', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE
+', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCAC
+HE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+1 row(s) in 0.0270 seconds
+
+hbase(main):021:0> disable 't22'
+0 row(s) in 2.2520 seconds
+
+hbase(main):022:0> drop 't22'
+0 row(s) in 1.2330 seconds
+
+hbase(main):023:0> create 't22', {NAME => 'f1', VERSIONS => 5}, {NAME => 'f2', VERSIONS => 3}
+0 row(s) in 2.2290 seconds
+
+=> Hbase::Table - t22
+hbase(main):024:0> desc 't22'
+Table t22 is ENABLED
+t22
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'f1', BLOOMFILTER => 'ROW', VERSIONS => '5', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE
+', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCAC
+HE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f2', BLOOMFILTER => 'ROW', VERSIONS => '3', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE
+', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCAC
+HE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+2 row(s) in 0.0170 seconds
+
+hbase(main):025:0> mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ jps
+19250 ResourceManager
+19362 NodeManager
+18405 NameNode
+18662 DataNode
+37389 Jps
+18959 SecondaryNameNode
+20399 HMaster
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ kill -9 19250 19362 18405 18662 18959 20399
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ jps
+37941 Jps
+37821 HMaster
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ kill -9 37821
+-bash: kill: (37821) - No such process
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ jps
+38365 Jps
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ ls -l
+total 640
+-rw-r--r--@   1 mparsian  897801646  129552 May 28  2017 CHANGES.txt
+-rw-r--r--@   1 mparsian  897801646     261 May 29  2017 LEGAL
+-rw-r--r--@   1 mparsian  897801646  143082 May 29  2017 LICENSE.txt
+-rw-r--r--@   1 mparsian  897801646   42115 May 29  2017 NOTICE.txt
+-rw-r--r--@   1 mparsian  897801646    1477 Dec 26  2015 README.txt
+drwxr-xr-x@  31 mparsian  897801646    1054 Jan 28  2016 bin
+drwxr-xr-x@   9 mparsian  897801646     306 May 28  2017 conf
+drwxr-xr-x@  51 mparsian  897801646    1734 May 29  2017 docs
+drwxr-xr-x@   7 mparsian  897801646     238 May 28  2017 hbase-webapps
+drwxr-xr-x  153 mparsian  897801646    5202 Jun 14  2017 lib
+drwxr-xr-x    6 mparsian  897801646     204 May 24 16:03 logs
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ jps
+61912 Jps
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ cd conf/
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $ ls -l
+total 80
+-rw-r--r--@ 1 mparsian  897801646  1811 Dec 26  2015 hadoop-metrics2-hbase.properties
+-rw-r--r--@ 1 mparsian  897801646  4537 Jan 28  2016 hbase-env.cmd
+-rw-r--r--@ 1 mparsian  897801646  7573 Nov 27 15:15 hbase-env.sh
+-rw-r--r--@ 1 mparsian  897801646  2257 Dec 26  2015 hbase-policy.xml
+-rw-r--r--@ 1 mparsian  897801646  2610 Jun 14  2017 hbase-site.xml
+-rw-r--r--@ 1 mparsian  897801646  4603 May 28  2017 log4j.properties
+-rw-r--r--@ 1 mparsian  897801646    10 Dec 26  2015 regionservers
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $ more hbase-site.xml
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+
+-->
+<configuration>
+
+  <property>
+    <name>hbase.rootdir</name>
+    <!-- <value>file:///Users/mparsian/HBASE-STORE/hbase</value> -->
+        <value>hdfs://localhost:9000/hbase</value>
+
+  </property>
+
+  <!--
+  <property>
+    <name>zookeeper.znode.parent</name>
+    <value>/hbase</value>
+  </property>
+  -->
+  <!--
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+    <value>/Users/mparsian/DATA/HBASE/zookeeper</value>
+  </property>
+    -->
+<!--
+<property>
+<name>hbase.coprocessor.user.region.classes</name>
+<value>
+com.illumina.caselog.bigdatastore.coprocessor.AlleleCountEndPoint,
+com.illumina.caselog.bigdatastore.coprocessor.AllelicFrequencyEndPoint,
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $ cd ..
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ ./bin/start-hbase.sh
+starting master, logging to /Users/mparsian/hbase-1.2.6/bin/../logs/hbase-mparsian-master-Mahmouds-MacBook.local.out
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ ./bin/hbase shell
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-hive.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-pig.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-thin-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.8.0/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+
+hbase(main):001:0>
+hbase(main):002:0*
+hbase(main):003:0*
+hbase(main):004:0* list
+TABLE
+bigtable22
+employees
+emps
+t1
+t22
+t5
+table2
+7 row(s) in 0.1720 seconds
+
+=> ["bigtable22", "employees", "emps", "t1", "t22", "t5", "table2"]
+hbase(main):005:0> create
+
+ERROR: wrong number of arguments (0 for 1)
+
+Here is some help for this command:
+Creates a table. Pass a table name, and a set of column family
+specifications (at least one), and, optionally, table configuration.
+Column specification can be a simple string (name), or a dictionary
+(dictionaries are described below in main help output), necessarily
+including NAME attribute.
+Examples:
+
+Create a table with namespace=ns1 and table qualifier=t1
+  hbase> create 'ns1:t1', {NAME => 'f1', VERSIONS => 5}
+
+Create a table with namespace=default and table qualifier=t1
+  hbase> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+  hbase> # The above in shorthand would be the following:
+  hbase> create 't1', 'f1', 'f2', 'f3'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 1, TTL => 2592000, BLOCKCACHE => true}
+  hbase> create 't1', {NAME => 'f1', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '10'}}
+
+Table configuration options can be put at the end.
+Examples:
+
+  hbase> create 'ns1:t1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS_FILE => 'splits.txt', OWNER => 'johndoe'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 5}, METADATA => { 'mykey' => 'myvalue' }
+  hbase> # Optionally pre-split the table into NUMREGIONS, using
+  hbase> # SPLITALGO ("HexStringSplit", "UniformSplit" or classname)
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit'}
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit', REGION_REPLICATION => 2, CONFIGURATION => {'hbase.hregion.scan.loadColumnFamiliesOnDemand' => 'true'}}
+  hbase> create 't1', {NAME => 'f1', DFS_REPLICATION => 1}
+
+You can also keep around a reference to the created table:
+
+  hbase> t1 = create 't1', 'f1'
+
+Which gives you a reference to the table named 't1', on which you can then
+call methods.
+
+
+hbase(main):006:0> create 'tablex', {NAME => 'f1', VERSIONS => 5}, {NAME => 'f2', VERSIONS => 3}, {NAME => 'f3'}
+0 row(s) in 2.2940 seconds
+
+=> Hbase::Table - tablex
+hbase(main):007:0> desc 'tablex'
+Table tablex is ENABLED
+tablex
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'f1', BLOOMFILTER => 'ROW', VERSIONS => '5', IN_MEMORY => 'false', KEEP_DELETED_CELLS => '
+FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0'
+, BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f2', BLOOMFILTER => 'ROW', VERSIONS => '3', IN_MEMORY => 'false', KEEP_DELETED_CELLS => '
+FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0'
+, BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f3', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => '
+FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0'
+, BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+3 row(s) in 0.0760 seconds
+
+hbase(main):008:0> scan 'tablex'
+ROW                       COLUMN+CELL
+0 row(s) in 0.0270 seconds
+
+hbase(main):009:0> put 'tablex', '1000', 'f1:name', 'jane'
+0 row(s) in 0.0640 seconds
+
+hbase(main):010:0> put 'tablex', '1000', 'f1:city', 'cupertino'
+0 row(s) in 0.0030 seconds
+
+hbase(main):011:0> put 'tablex', '1000', 'f1:state', 'ca'
+0 row(s) in 0.0030 seconds
+
+hbase(main):012:0> scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+1 row(s) in 0.0210 seconds
+
+hbase(main):013:0> ROW                       COLUMN+CELL
+NameError: uninitialized constant CELL
+
+hbase(main):014:0>  1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+SyntaxError: (hbase):14: syntax error, unexpected tIDENTIFIER
+
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+                               ^
+
+hbase(main):015:0>  1000                     column=f1:name, timestamp=1527211836432, value=jane
+SyntaxError: (hbase):15: syntax error, unexpected tIDENTIFIER
+
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+                               ^
+
+hbase(main):016:0>  1000                     column=f1:state, timestamp=1527211858538, value=ca
+SyntaxError: (hbase):16: syntax error, unexpected tIDENTIFIER
+
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+                               ^
+
+hbase(main):017:0>
+hbase(main):018:0*
+hbase(main):019:0*
+hbase(main):020:0* scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+1 row(s) in 0.0060 seconds
+
+hbase(main):021:0> put 'tablex', '1000', 'f2:name', 'jane'
+0 row(s) in 0.0040 seconds
+
+hbase(main):022:0> scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+ 1000                     column=f2:name, timestamp=1527211917209, value=jane
+1 row(s) in 0.0160 seconds
+
+hbase(main):023:0> put 'tablex', '1000', 'f2:salary', '340000'
+0 row(s) in 0.0020 seconds
+
+hbase(main):024:0> put 'tablex', '1000', 'f2:dept', 'sales'
+0 row(s) in 0.0030 seconds
+
+hbase(main):025:0> scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+ 1000                     column=f2:dept, timestamp=1527211990617, value=sales
+ 1000                     column=f2:name, timestamp=1527211917209, value=jane
+ 1000                     column=f2:salary, timestamp=1527211977394, value=340000
+1 row(s) in 0.0170 seconds
+
+hbase(main):026:0> put 'tablex', '1000', 'f2:age', '54'
+0 row(s) in 0.0030 seconds
+
+hbase(main):027:0> scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+ 1000                     column=f2:age, timestamp=1527212020669, value=54
+ 1000                     column=f2:dept, timestamp=1527211990617, value=sales
+ 1000                     column=f2:name, timestamp=1527211917209, value=jane
+ 1000                     column=f2:salary, timestamp=1527211977394, value=340000
+1 row(s) in 0.0080 seconds
+
+hbase(main):028:0> put 'tablex', '2000', 'f2:age', '77'
+0 row(s) in 0.0040 seconds
+
+hbase(main):029:0> put 'tablex', '2000', 'f2:dept', 'business'
+0 row(s) in 0.0030 seconds
+
+hbase(main):030:0> scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+ 1000                     column=f2:age, timestamp=1527212020669, value=54
+ 1000                     column=f2:dept, timestamp=1527211990617, value=sales
+ 1000                     column=f2:name, timestamp=1527211917209, value=jane
+ 1000                     column=f2:salary, timestamp=1527211977394, value=340000
+ 2000                     column=f2:age, timestamp=1527212064633, value=77
+ 2000                     column=f2:dept, timestamp=1527212076886, value=business
+2 row(s) in 0.0140 seconds
+
+hbase(main):031:0> get 'tablex', '2000'
+COLUMN                    CELL
+ f2:age                   timestamp=1527212064633, value=77
+ f2:dept                  timestamp=1527212076886, value=business
+2 row(s) in 0.0230 seconds
+
+hbase(main):032:0> get 'tablex', '1000'
+COLUMN                    CELL
+ f1:city                  timestamp=1527211847549, value=cupertino
+ f1:name                  timestamp=1527211836432, value=jane
+ f1:state                 timestamp=1527211858538, value=ca
+ f2:age                   timestamp=1527212020669, value=54
+ f2:dept                  timestamp=1527211990617, value=sales
+ f2:name                  timestamp=1527211917209, value=jane
+ f2:salary                timestamp=1527211977394, value=340000
+7 row(s) in 0.0040 seconds
+
+hbase(main):033:0> get 'tablex', '9000'
+COLUMN                    CELL
+0 row(s) in 0.0020 seconds
+
+hbase(main):034:0> get
+
+ERROR: wrong number of arguments (0 for 2)
+
+Here is some help for this command:
+Get row or cell contents; pass table name, row, and optionally
+a dictionary of column(s), timestamp, timerange and versions. Examples:
+
+  hbase> get 'ns1:t1', 'r1'
+  hbase> get 't1', 'r1'
+  hbase> get 't1', 'r1', {TIMERANGE => [ts1, ts2]}
+  hbase> get 't1', 'r1', {COLUMN => 'c1'}
+  hbase> get 't1', 'r1', {COLUMN => ['c1', 'c2', 'c3']}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', TIMESTAMP => ts1}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', TIMERANGE => [ts1, ts2], VERSIONS => 4}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', TIMESTAMP => ts1, VERSIONS => 4}
+  hbase> get 't1', 'r1', {FILTER => "ValueFilter(=, 'binary:abc')"}
+  hbase> get 't1', 'r1', 'c1'
+  hbase> get 't1', 'r1', 'c1', 'c2'
+  hbase> get 't1', 'r1', ['c1', 'c2']
+  hbase> get 't1', 'r1', {COLUMN => 'c1', ATTRIBUTES => {'mykey'=>'myvalue'}}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', AUTHORIZATIONS => ['PRIVATE','SECRET']}
+  hbase> get 't1', 'r1', {CONSISTENCY => 'TIMELINE'}
+  hbase> get 't1', 'r1', {CONSISTENCY => 'TIMELINE', REGION_REPLICA_ID => 1}
+
+Besides the default 'toStringBinary' format, 'get' also supports custom formatting by
+column.  A user can define a FORMATTER by adding it to the column name in the get
+specification.  The FORMATTER can be stipulated:
+
+ 1. either as a org.apache.hadoop.hbase.util.Bytes method name (e.g, toInt, toString)
+ 2. or as a custom class followed by method name: e.g. 'c(MyFormatterClass).format'.
+
+Example formatting cf:qualifier1 and cf:qualifier2 both as Integers:
+  hbase> get 't1', 'r1' {COLUMN => ['cf:qualifier1:toInt',
+    'cf:qualifier2:c(org.apache.hadoop.hbase.util.Bytes).toInt'] }
+
+Note that you can specify a FORMATTER by column only (cf:qualifier).  You cannot specify
+a FORMATTER for all columns of a column family.
+
+The same commands also can be run on a reference to a table (obtained via get_table or
+create_table). Suppose you had a reference t to table 't1', the corresponding commands
+would be:
+
+  hbase> t.get 'r1'
+  hbase> t.get 'r1', {TIMERANGE => [ts1, ts2]}
+  hbase> t.get 'r1', {COLUMN => 'c1'}
+  hbase> t.get 'r1', {COLUMN => ['c1', 'c2', 'c3']}
+  hbase> t.get 'r1', {COLUMN => 'c1', TIMESTAMP => ts1}
+  hbase> t.get 'r1', {COLUMN => 'c1', TIMERANGE => [ts1, ts2], VERSIONS => 4}
+  hbase> t.get 'r1', {COLUMN => 'c1', TIMESTAMP => ts1, VERSIONS => 4}
+  hbase> t.get 'r1', {FILTER => "ValueFilter(=, 'binary:abc')"}
+  hbase> t.get 'r1', 'c1'
+  hbase> t.get 'r1', 'c1', 'c2'
+  hbase> t.get 'r1', ['c1', 'c2']
+  hbase> t.get 'r1', {CONSISTENCY => 'TIMELINE'}
+  hbase> t.get 'r1', {CONSISTENCY => 'TIMELINE', REGION_REPLICA_ID => 1}
+
+
+hbase(main):035:0> scan 'tablex'
+ROW                       COLUMN+CELL
+ 1000                     column=f1:city, timestamp=1527211847549, value=cupertino
+ 1000                     column=f1:name, timestamp=1527211836432, value=jane
+ 1000                     column=f1:state, timestamp=1527211858538, value=ca
+ 1000                     column=f2:age, timestamp=1527212020669, value=54
+ 1000                     column=f2:dept, timestamp=1527211990617, value=sales
+ 1000                     column=f2:name, timestamp=1527211917209, value=jane
+ 1000                     column=f2:salary, timestamp=1527211977394, value=340000
+ 2000                     column=f2:age, timestamp=1527212064633, value=77
+ 2000                     column=f2:dept, timestamp=1527212076886, value=business
+2 row(s) in 0.0140 seconds
+
+hbase(main):036:0> get 'tablex', '1000', {COLUMN => 'f1'}
+COLUMN                    CELL
+ f1:city                  timestamp=1527211847549, value=cupertino
+ f1:name                  timestamp=1527211836432, value=jane
+ f1:state                 timestamp=1527211858538, value=ca
+3 row(s) in 0.0120 seconds
+
+hbase(main):037:0> list
+TABLE
+bigtable22
+employees
+emps
+t1
+t22
+t5
+table2
+tablex
+8 row(s) in 0.0170 seconds
+
+=> ["bigtable22", "employees", "emps", "t1", "t22", "t5", "table2", "tablex"]
+hbase(main):038:0> scan 'employees'
+ROW                       COLUMN+CELL
+ row100                   column=cf1:age, timestamp=1520989913290, value=20
+ row100                   column=cf1:city, timestamp=1520989939168, value=Ames
+ row100                   column=cf1:gender, timestamp=1520989925472, value=male
+ row100                   column=cf1:name, timestamp=1520989895822, value=alex
+ row100                   column=cf1:state, timestamp=1520990072256, value=IA
+ row15000                 column=cf1:city, timestamp=1520991807661, value=hyderabad
+ row15000                 column=cf1:name, timestamp=1520991807661, value=raju
+ row15000                 column=cf1:state, timestamp=1520992312695, value=California
+ row15000                 column=cf2:designation, timestamp=1520991807661, value=manager
+ row15000                 column=cf2:salary, timestamp=1520991807661, value=50000
+ row25000                 column=cf1:city333, timestamp=1520991807671, value=hyderabadrrr4444
+ row25000                 column=cf1:name22, timestamp=1520991807671, value=raju444
+ row25000                 column=cf2:designation4444, timestamp=1520991807671, value=manager4444
+ row25000                 column=cf2:salary, timestamp=1520991807671, value=50000
+ row300                   column=cf1:city, timestamp=1520990153901, value=Sunnyvale
+ row300                   column=cf1:name, timestamp=1520990133830, value=jane
+ row300                   column=cf1:state, timestamp=1520990123046, value=CA
+ row300                   column=cf2:k1, timestamp=1520990171933, value=value1
+ row300                   column=cf2:k2, timestamp=1520990177901, value=value2
+ row400                   column=cf3:k111, timestamp=1520990531361, value=value111
+ row400                   column=cf3:k222, timestamp=1520990540940, value=value222
+5 row(s) in 0.0270 seconds
+
+hbase(main):039:0> get 'employees', 'row400'
+COLUMN                    CELL
+ cf3:k111                 timestamp=1520990531361, value=value111
+ cf3:k222                 timestamp=1520990540940, value=value222
+2 row(s) in 0.0160 seconds
+
+hbase(main):040:0> get 'employees', 'row888000'
+COLUMN                    CELL
+0 row(s) in 0.0110 seconds
+
+hbase(main):041:0> get 'employees', 'row999000'
+COLUMN                    CELL
+0 row(s) in 0.0010 seconds
+
+hbase(main):042:0> get 'employees', 'row999000'
+COLUMN                    CELL
+ cf1:city                 timestamp=1527213370767, value=hyderabad
+ cf1:name                 timestamp=1527213370767, value=raju
+ cf2:dept                 timestamp=1527213370767, value=business
+ cf2:designation          timestamp=1527213370767, value=manager
+ cf2:salary               timestamp=1527213370767, value=990000
+5 row(s) in 0.0110 seconds
+
+hbase(main):043:0> get 'employees', 'row888000'
+COLUMN                    CELL
+ cf1:city333              timestamp=1527213370778, value=hyderabadrrr4444
+ cf1:name22               timestamp=1527213370778, value=raju444
+ cf2:dept                 timestamp=1527213370778, value=sales
+ cf2:designation4444      timestamp=1527213370778, value=manager4444
+ cf2:salary               timestamp=1527213370778, value=50000
+5 row(s) in 0.0030 seconds
+
+hbase(main):044:0> Killed: 9
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ cd conf
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $ ls -l
+total 80
+-rw-r--r--@ 1 mparsian  897801646  1811 Dec 26  2015 hadoop-metrics2-hbase.properties
+-rw-r--r--@ 1 mparsian  897801646  4537 Jan 28  2016 hbase-env.cmd
+-rw-r--r--@ 1 mparsian  897801646  7573 Nov 27 15:15 hbase-env.sh
+-rw-r--r--@ 1 mparsian  897801646  2257 Dec 26  2015 hbase-policy.xml
+-rw-r--r--@ 1 mparsian  897801646  2610 Jun 14  2017 hbase-site.xml
+-rw-r--r--@ 1 mparsian  897801646  4603 May 28  2017 log4j.properties
+-rw-r--r--@ 1 mparsian  897801646    10 Dec 26  2015 regionservers
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $ more hbase-site.xml
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+
+-->
+<configuration>
+
+  <property>
+    <name>hbase.rootdir</name>
+    <!-- <value>file:///Users/mparsian/HBASE-STORE/hbase</value> -->
+        <value>hdfs://localhost:9000/hbase</value>
+
+  </property>
+
+  <!--
+  <property>
+    <name>zookeeper.znode.parent</name>
+    <value>/hbase</value>
+  </property>
+  -->
+  <!--
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6/conf $ cd ..
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ ./bin/start-hbase.sh
+starting master, logging to /Users/mparsian/hbase-1.2.6/bin/../logs/hbase-mparsian-master-Mahmouds-MacBook.local.out
+mparsian@Mahmouds-MacBook ~/hbase-1.2.6 $ ./bin/hbase shell
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-hive.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-pig.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/phoenix-4.10.0-HBase-1.2-thin-client.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/hbase-1.2.6/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.8.0/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+
+hbase(main):001:0> list
+TABLE
+bigtable22
+employees
+emps
+t1
+t22
+t5
+table2
+tablex
+8 row(s) in 0.1650 seconds
+
+=> ["bigtable22", "employees", "emps", "t1", "t22", "t5", "table2", "tablex"]
+hbase(main):002:0> create
+
+ERROR: wrong number of arguments (0 for 1)
+
+Here is some help for this command:
+Creates a table. Pass a table name, and a set of column family
+specifications (at least one), and, optionally, table configuration.
+Column specification can be a simple string (name), or a dictionary
+(dictionaries are described below in main help output), necessarily
+including NAME attribute.
+Examples:
+
+Create a table with namespace=ns1 and table qualifier=t1
+  hbase> create 'ns1:t1', {NAME => 'f1', VERSIONS => 5}
+
+Create a table with namespace=default and table qualifier=t1
+  hbase> create 't1', {NAME => 'f1'}, {NAME => 'f2'}, {NAME => 'f3'}
+  hbase> # The above in shorthand would be the following:
+  hbase> create 't1', 'f1', 'f2', 'f3'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 1, TTL => 2592000, BLOCKCACHE => true}
+  hbase> create 't1', {NAME => 'f1', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '10'}}
+
+Table configuration options can be put at the end.
+Examples:
+
+  hbase> create 'ns1:t1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS => ['10', '20', '30', '40']
+  hbase> create 't1', 'f1', SPLITS_FILE => 'splits.txt', OWNER => 'johndoe'
+  hbase> create 't1', {NAME => 'f1', VERSIONS => 5}, METADATA => { 'mykey' => 'myvalue' }
+  hbase> # Optionally pre-split the table into NUMREGIONS, using
+  hbase> # SPLITALGO ("HexStringSplit", "UniformSplit" or classname)
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit'}
+  hbase> create 't1', 'f1', {NUMREGIONS => 15, SPLITALGO => 'HexStringSplit', REGION_REPLICATION => 2, CONFIGURATION => {'hbase.hregion.scan.loadColumnFamiliesOnDemand' => 'true'}}
+  hbase> create 't1', {NAME => 'f1', DFS_REPLICATION => 1}
+
+You can also keep around a reference to the created table:
+
+  hbase> t1 = create 't1', 'f1'
+
+Which gives you a reference to the table named 't1', on which you can then
+call methods.
+
+
+hbase(main):003:0> create 'tabx', {NAME => 'f1', VERSIONS => 5}, {NAME => 'f2', VERSIONS => 3}, {NAME => 'f3'}
+0 row(s) in 1.2750 seconds
+
+=> Hbase::Table - tabx
+hbase(main):004:0>
+hbase(main):005:0*
+hbase(main):006:0*
+hbase(main):007:0*
+hbase(main):008:0* desc 'tabx'
+Table tabx is ENABLED
+tabx
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'f1', BLOOMFILTER => 'ROW', VERSIONS => '5', IN_MEMORY => 'false', KEEP_DELETED_CELLS => '
+FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0'
+, BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f2', BLOOMFILTER => 'ROW', VERSIONS => '3', IN_MEMORY => 'false', KEEP_DELETED_CELLS => '
+FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0'
+, BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'f3', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => '
+FALSE', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0'
+, BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+3 row(s) in 0.0800 seconds
+
+hbase(main):009:0> scan 'tabx'
+ROW                       COLUMN+CELL
+0 row(s) in 0.0260 seconds
+
+hbase(main):010:0> put 'tabx', '10000', 'f1:name', 'alex'
+0 row(s) in 0.0620 seconds
+
+hbase(main):011:0> put 'tabx', '10000', 'f1:lastname', 'smith'
+0 row(s) in 0.0040 seconds
+
+hbase(main):012:0> put 'tabx', '10000', 'f1:city', 'cupertino'
+0 row(s) in 0.0030 seconds
+
+hbase(main):013:0> scan 'tabx'
+ROW                       COLUMN+CELL
+ 10000                    column=f1:city, timestamp=1527217484757, value=cupertino
+ 10000                    column=f1:lastname, timestamp=1527217471883, value=smith
+ 10000                    column=f1:name, timestamp=1527217461429, value=alex
+1 row(s) in 0.0100 seconds
+
+hbase(main):014:0> put 'tabx', '10000', 'f2:city', 'sunnyvale'
+0 row(s) in 0.0030 seconds
+
+hbase(main):015:0> put 'tabx', '10000', 'f2:mylist', 'a1,a2,a3,a4'
+0 row(s) in 0.0040 seconds
+
+hbase(main):016:0> scan 'tabx'
+ROW                       COLUMN+CELL
+ 10000                    column=f1:city, timestamp=1527217484757, value=cupertino
+ 10000                    column=f1:lastname, timestamp=1527217471883, value=smith
+ 10000                    column=f1:name, timestamp=1527217461429, value=alex
+ 10000                    column=f2:city, timestamp=1527217531952, value=sunnyvale
+ 10000                    column=f2:mylist, timestamp=1527217551489, value=a1,a2,a3,a4
+1 row(s) in 0.0200 seconds
+
+hbase(main):017:0> put 'tabx', '20000', 'f2:mylist', 'a1,a2,a3,a4,a5,dt'
+0 row(s) in 0.0030 seconds
+
+hbase(main):018:0> put 'tabx', '20000', 'f2:dept', 'marketing'
+0 row(s) in 0.0030 seconds
+
+hbase(main):019:0> scan 'tabx'
+ROW                       COLUMN+CELL
+ 10000                    column=f1:city, timestamp=1527217484757, value=cupertino
+ 10000                    column=f1:lastname, timestamp=1527217471883, value=smith
+ 10000                    column=f1:name, timestamp=1527217461429, value=alex
+ 10000                    column=f2:city, timestamp=1527217531952, value=sunnyvale
+ 10000                    column=f2:mylist, timestamp=1527217551489, value=a1,a2,a3,a4
+ 20000                    column=f2:dept, timestamp=1527217616034, value=marketing
+ 20000                    column=f2:mylist, timestamp=1527217597572, value=a1,a2,a3,a4,a5,dt
+2 row(s) in 0.0250 seconds
+
+hbase(main):020:0> get 'tabx', '10000'
+COLUMN                    CELL
+ f1:city                  timestamp=1527217484757, value=cupertino
+ f1:lastname              timestamp=1527217471883, value=smith
+ f1:name                  timestamp=1527217461429, value=alex
+ f2:city                  timestamp=1527217531952, value=sunnyvale
+ f2:mylist                timestamp=1527217551489, value=a1,a2,a3,a4
+5 row(s) in 0.0170 seconds
+
+hbase(main):021:0> get 'tabx', '20000'
+COLUMN                    CELL
+ f2:dept                  timestamp=1527217616034, value=marketing
+ f2:mylist                timestamp=1527217597572, value=a1,a2,a3,a4,a5,dt
+2 row(s) in 0.0020 seconds
+
+hbase(main):022:0> list
+TABLE
+bigtable22
+employees
+emps
+t1
+t22
+t5
+table2
+tablex
+tabx
+9 row(s) in 0.0200 seconds
+
+=> ["bigtable22", "employees", "emps", "t1", "t22", "t5", "table2", "tablex", "tabx"]
+hbase(main):023:0>
+hbase(main):024:0*
+hbase(main):025:0*
+hbase(main):026:0* scan 't5'
+ROW                       COLUMN+CELL
+0 row(s) in 0.0160 seconds
+
+hbase(main):027:0> scan 't22'
+ROW                       COLUMN+CELL
+0 row(s) in 0.0140 seconds
+
+hbase(main):028:0> scan 't1'
+ROW                       COLUMN+CELL
+ r1                       column=cf1:k1, timestamp=1511824712916, value=value1
+1 row(s) in 0.0100 seconds
+
+hbase(main):029:0> scan 'emps'
+ROW                       COLUMN+CELL
+ row001                   column=cf1:age, timestamp=1511836038807, value=55
+ row001                   column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                   column=cf1:name, timestamp=1511835965777, value=alex
+ row002                   column=cf1:age, timestamp=1511836073423, value=60
+ row002                   column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                   column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                   column=cf3:state, timestamp=1511836211136, value=ca
+ row003                   column=cf1:key1, timestamp=1511836496377, value=value1111111
+ row004                   column=cf1:key1000, timestamp=1511836513460, value=value1000
+ row004                   column=cf1:key7000, timestamp=1520979612842, value=value7000
+ row15000                 column=cf1:city, timestamp=1520991759574, value=hyderabad
+ row15000                 column=cf1:name, timestamp=1520991759574, value=raju
+ row15000                 column=cf2:designation, timestamp=1520991759574, value=manager
+ row15000                 column=cf2:salary, timestamp=1520991759574, value=50000
+ row25000                 column=cf1:city333, timestamp=1520991759591, value=hyderabadrrr4444
+ row25000                 column=cf1:name22, timestamp=1520991759591, value=raju444
+ row25000                 column=cf2:designation4444, timestamp=1520991759591, value=manager4444
+ row25000                 column=cf2:salary, timestamp=1520991759591, value=50000
+ row25001                 column=cf1:country, timestamp=1527034706470, value=USA
+7 row(s) in 0.0320 seconds
+
+hbase(main):030:0> disable 'emps'
+0 row(s) in 2.2840 seconds
+
+hbase(main):031:0> drop 'emps'
+0 row(s) in 1.2530 seconds
+
+hbase(main):032:0> list
+TABLE
+bigtable22
+employees
+t1
+t22
+t5
+table2
+tablex
+tabx
+8 row(s) in 0.0100 seconds
+
+=> ["bigtable22", "employees", "t1", "t22", "t5", "table2", "tablex", "tabx"]
+hbase(main):033:0>
+hbase(main):034:0*
+hbase(main):035:0*
+hbase(main):036:0*
+hbase(main):037:0*
+hbase(main):038:0*
+hbase(main):039:0*
+hbase(main):040:0*
+hbase(main):041:0* scan 'employees'
+ROW                       COLUMN+CELL
+ row100                   column=cf1:age, timestamp=1520989913290, value=20
+ row100                   column=cf1:city, timestamp=1520989939168, value=Ames
+ row100                   column=cf1:gender, timestamp=1520989925472, value=male
+ row100                   column=cf1:name, timestamp=1520989895822, value=alex
+ row100                   column=cf1:state, timestamp=1520990072256, value=IA
+ row15000                 column=cf1:city, timestamp=1520991807661, value=hyderabad
+ row15000                 column=cf1:name, timestamp=1520991807661, value=raju
+ row15000                 column=cf1:state, timestamp=1520992312695, value=California
+ row15000                 column=cf2:designation, timestamp=1520991807661, value=manager
+ row15000                 column=cf2:salary, timestamp=1520991807661, value=50000
+ row25000                 column=cf1:city333, timestamp=1520991807671, value=hyderabadrrr4444
+ row25000                 column=cf1:name22, timestamp=1520991807671, value=raju444
+ row25000                 column=cf2:designation4444, timestamp=1520991807671, value=manager4444
+ row25000                 column=cf2:salary, timestamp=1520991807671, value=50000
+ row300                   column=cf1:city, timestamp=1520990153901, value=Sunnyvale
+ row300                   column=cf1:name, timestamp=1520990133830, value=jane
+ row300                   column=cf1:state, timestamp=1520990123046, value=CA
+ row300                   column=cf2:k1, timestamp=1520990171933, value=value1
+ row300                   column=cf2:k2, timestamp=1520990177901, value=value2
+ row400                   column=cf3:k111, timestamp=1520990531361, value=value111
+ row400                   column=cf3:k222, timestamp=1520990540940, value=value222
+ row888000                column=cf1:city333, timestamp=1527213370778, value=hyderabadrrr4444
+ row888000                column=cf1:name22, timestamp=1527213370778, value=raju444
+ row888000                column=cf2:dept, timestamp=1527213370778, value=sales
+ row888000                column=cf2:designation4444, timestamp=1527213370778, value=manager4444
+ row888000                column=cf2:salary, timestamp=1527213370778, value=50000
+ row999000                column=cf1:city, timestamp=1527213370767, value=hyderabad
+ row999000                column=cf1:name, timestamp=1527213370767, value=raju
+ row999000                column=cf2:dept, timestamp=1527213370767, value=business
+ row999000                column=cf2:designation, timestamp=1527213370767, value=manager
+ row999000                column=cf2:salary, timestamp=1527213370767, value=990000
+7 row(s) in 0.0500 seconds
+
+hbase(main):042:0> get 'employees', 'row-99991111'
+COLUMN                    CELL
+0 row(s) in 0.0150 seconds
+
+hbase(main):043:0> get 'employees', 'row-99992222'
+COLUMN                    CELL
+0 row(s) in 0.0020 seconds
+
+hbase(main):044:0> get 'employees', 'row-99991111'
+COLUMN                    CELL
+ cf1:city                 timestamp=1527219195011, value=hyderabad
+ cf1:name                 timestamp=1527219195011, value=raju
+ cf2:dept                 timestamp=1527219195011, value=business
+ cf2:designation          timestamp=1527219195011, value=manager
+ cf2:salary               timestamp=1527219195011, value=990000
+5 row(s) in 0.0040 seconds
+
+hbase(main):045:0> get 'employees', 'row-99992222'
+COLUMN                    CELL
+ cf1:city333              timestamp=1527219195021, value=hyderabadrrr4444
+ cf1:name22               timestamp=1527219195021, value=raju444
+ cf2:dept                 timestamp=1527219195021, value=sales
+ cf2:designation4444      timestamp=1527219195021, value=manager4444
+ cf2:salary               timestamp=1527219195021, value=50000
+5 row(s) in 0.0040 seconds
+
+hbase(main):046:0> put 'employees', 'row-99993333', 'cf1:name', 'jane'
+0 row(s) in 0.0140 seconds
+
+hbase(main):047:0> put 'employees', 'row-99993333', 'cf1:lastname', 'smith'
+0 row(s) in 0.0030 seconds
+
+hbase(main):048:0> put 'employees', 'row-99993333', 'cf1:state', 'CA'
+0 row(s) in 0.0030 seconds
+
+hbase(main):049
