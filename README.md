@@ -8,13 +8,15 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Course Information: Spring 2018
-* Graduate Business, Leavey School of Business
-* Course MSIS 2641: Big Data Modeling & Analytics
+## Course Information: Fall 2018
+* Graduate School, Leavey School of Business
+* Department of Information Systems & Analytics
+* Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
-* Class Meeting dates: 04/03/2018 - 06/08/2018
-* Class hours: Class Number 68044: TTh 5:45PM - 7:00PM PST
-* Class hours: Class Number 68041: TTh 7:35PM - 8:50PM PST
+* Class Meeting dates: 09/18/2018 - 12/7/2018
+* Class hours:  
+	** Tuesday 5:45PM - 7:00PM PST
+	** Thursday 5:45PM - 7:00PM PST
 * Class room: Lucas Hall 310 
 * Office: 321 T, Lucas Hall
 
@@ -25,26 +27,19 @@
 * [3. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](./slides/mapreduce/MapReduce-algorithms-by-Jimmy-Lin.pdf)
 * [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
-## [Syllabus](./syllabus/2018-Spring/)
+## [Syllabus](./syllabus/2018-Fall/)
 ----------------------------
 
 
 ## Midterm Exam 
 * Midterm Exam: TBDL, @ 5:45pm to 7:00pm PST
-* Midterm Exam: TBDL, @ 7:35pm to 8:50pm PST
 
-## [Final Exam](./finals/Spring_2018_finals_schedule.pdf)
+## [Final Exam](./finals/Fall_2018_finals_schedule.pdf)
 
-### Final Exam Class Number 68044
-* Class hours: TTh 5:45PM - 7:00PM PST
-* Final Exam Date: **Tuesday, June 12, 2018**
+### Final Exam 
+* Final Exam Date: **December 3-7, 2018**
 * Final Exam Time: **5:45PM - 7:45PM PST**
 
-
-### Final Exam Class Number 68041
-* Class hours: TTh 7:35PM - 8:50PM PST
-* Final Exam Date: **Thursday, June 14, 2018**
-* Final Exam Time: **5:45PM - 7:45PM PST**
 ----------------------------
 
 
