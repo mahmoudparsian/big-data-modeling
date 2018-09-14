@@ -8,7 +8,7 @@
 	** Tuesday 5:45PM - 7:00PM PST
 	** Thursday 5:45PM - 7:00PM PST
 
-* Class room: Lucas Hall 310
+* Class room: Lucas Hall 210
 
 * Adjunct Professor: Mahmoud Parsian
 	* Ph.D in Computer Science

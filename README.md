@@ -17,7 +17,7 @@
 * Class hours:  
 	** Tuesday 5:45PM - 7:00PM PST
 	** Thursday 5:45PM - 7:00PM PST
-* Class room: Lucas Hall 310 
+* Class room: Lucas Hall 210 
 * Office: 321 T, Lucas Hall
 
 ## Required Books and Papers 
