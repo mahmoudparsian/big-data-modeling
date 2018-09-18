@@ -15,8 +15,8 @@
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class Meeting dates: 09/18/2018 - 12/7/2018
 * Class hours:  
-	** Tuesday 5:45PM - 7:00PM PST
-	** Thursday 5:45PM - 7:00PM PST
+** Tuesday 5:45PM - 7:00PM PST
+** Thursday 5:45PM - 7:00PM PST
 * Class room: Lucas Hall 210 
 * Office: 321 T, Lucas Hall
 
