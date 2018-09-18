@@ -321,7 +321,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* 21: December 3-7, 2018, 5:45-7:45 PST: **Final Exam**
+* 21: December 6, 2018, 5:45-7:45 PST: **Final Exam**
 
 ----------------	
 

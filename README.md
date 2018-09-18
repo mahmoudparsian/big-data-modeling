@@ -32,12 +32,11 @@
 
 
 ## Midterm Exam 
-* Midterm Exam: TBDL, @ 5:45pm to 7:00pm PST
+* Midterm Exam Date: **Thursday, October 18, 2018**
+* Midterm Exam Time: **5:45PM - 7:00PM PST**
 
-## [Final Exam](./finals/Fall_2018_finals_schedule.pdf)
-
-### Final Exam 
-* Final Exam Date: **December 3-7, 2018**
+## Final Exam 
+* Final Exam Date: **Thursday, December 6, 2018**
 * Final Exam Time: **5:45PM - 7:45PM PST**
 
 ----------------------------
