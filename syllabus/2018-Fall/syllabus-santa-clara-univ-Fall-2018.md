@@ -277,7 +277,7 @@ However, you must keep up with the reading assignments.
 ----------------
 * 13: October 30, 2018
 
-	* MapReduce Design Pattern: Clustering Algorithms 
+	* MapReduce Design Pattern: Graph Algorithms 
 
 	 
 ----------------
