@@ -52,7 +52,7 @@ At the completion of this course, students will be able to understand:
 
 * [1. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 
-* [2. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](./../../../slides/mapreduce/MapReduce-algorithms-by-Jimmy-Lin.pdf)
+* [2. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
 * [3. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
