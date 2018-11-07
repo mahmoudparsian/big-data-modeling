@@ -1,0 +1,188 @@
+GraphFrames: https://graphframes.github.io
+
+$ ./bin/pyspark --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11
+Python 2.7.10 (default, Aug 17 2018, 17:41:52)
+[GCC 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.0.42)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Ivy Default Cache set to: /Users/mparsian/.ivy2/cache
+The jars for the packages stored in: /Users/mparsian/.ivy2/jars
+:: loading settings :: url = jar:file:/Users/mparsian/spark-2.3.0/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+graphframes#graphframes added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent;1.0
+	confs: [default]
+	found graphframes#graphframes;0.6.0-spark2.3-s_2.11 in spark-packages
+	found com.typesafe.scala-logging#scala-logging-api_2.11;2.1.2 in local-m2-cache
+	found com.typesafe.scala-logging#scala-logging-slf4j_2.11;2.1.2 in local-m2-cache
+	found org.scala-lang#scala-reflect;2.11.0 in local-m2-cache
+	found org.slf4j#slf4j-api;1.7.7 in local-m2-cache
+:: resolution report :: resolve 274ms :: artifacts dl 9ms
+	:: modules in use:
+	com.typesafe.scala-logging#scala-logging-api_2.11;2.1.2 from local-m2-cache in [default]
+	com.typesafe.scala-logging#scala-logging-slf4j_2.11;2.1.2 from local-m2-cache in [default]
+	graphframes#graphframes;0.6.0-spark2.3-s_2.11 from spark-packages in [default]
+	org.scala-lang#scala-reflect;2.11.0 from local-m2-cache in [default]
+	org.slf4j#slf4j-api;1.7.7 from local-m2-cache in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   5   |   0   |   0   |   0   ||   5   |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent
+	confs: [default]
+	0 artifacts copied, 5 already retrieved (0kB/7ms)
+18/11/06 18:18:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 2.3.0
+      /_/
+
+Using Python version 2.7.10 (default, Aug 17 2018 17:41:52)
+SparkSession available as 'spark'.
+>>> vertices = spark.createDataFrame([
+...   ("a", "Alice", 34),
+...   ("b", "Bob", 36),
+...   ("c", "Charlie", 30),
+...   ("d", "David", 29),
+...   ("e", "Esther", 32),
+...   ("f", "Fanny", 36),
+...   ("g", "Gabby", 60)], ["id", "name", "age"])
+
+>>>
+>>> vertices.show()
++---+-------+---+
+| id|   name|age|
++---+-------+---+
+|  a|  Alice| 34|
+|  b|    Bob| 36|
+|  c|Charlie| 30|
+|  d|  David| 29|
+|  e| Esther| 32|
+|  f|  Fanny| 36|
+|  g|  Gabby| 60|
++---+-------+---+
+
+>>> vertices.count()
+7
+>>> edges = sqlContext.createDataFrame([
+...   ("a", "b", "friend"),
+...   ("b", "c", "follow"),
+...   ("c", "b", "follow"),
+...   ("f", "c", "follow"),
+...   ("e", "f", "follow"),
+...   ("e", "d", "friend"),
+...   ("d", "a", "friend"),
+...   ("a", "e", "friend")
+... ], ["src", "dst", "relationship"])
+>>>
+>>> edges.show()
++---+---+------------+
+|src|dst|relationship|
++---+---+------------+
+|  a|  b|      friend|
+|  b|  c|      follow|
+|  c|  b|      follow|
+|  f|  c|      follow|
+|  e|  f|      follow|
+|  e|  d|      friend|
+|  d|  a|      friend|
+|  a|  e|      friend|
++---+---+------------+
+
+>>> from functools import reduce
+>>> from pyspark.sql.functions import col, lit, when
+>>> from graphframes import *
+>>>
+>>> g = GraphFrame(vertices, edges)
+>>> g
+GraphFrame(v:[id: string, name: string ... 1 more field], e:[src: string, dst: string ... 1 more field])
+>>> g.vertices.show()
++---+-------+---+
+| id|   name|age|
++---+-------+---+
+|  a|  Alice| 34|
+|  b|    Bob| 36|
+|  c|Charlie| 30|
+|  d|  David| 29|
+|  e| Esther| 32|
+|  f|  Fanny| 36|
+|  g|  Gabby| 60|
++---+-------+---+
+
+>>> g.edges.show()
++---+---+------------+
+|src|dst|relationship|
++---+---+------------+
+|  a|  b|      friend|
+|  b|  c|      follow|
+|  c|  b|      follow|
+|  f|  c|      follow|
+|  e|  f|      follow|
+|  e|  d|      friend|
+|  d|  a|      friend|
+|  a|  e|      friend|
++---+---+------------+
+
+>>> g.inDegrees.show()
++---+--------+
+| id|inDegree|
++---+--------+
+|  f|       1|
+|  e|       1|
+|  d|       1|
+|  c|       2|
+|  b|       2|
+|  a|       1|
++---+--------+
+
+>>> g.outDegrees.show()
++---+---------+
+| id|outDegree|
++---+---------+
+|  f|        1|
+|  e|        2|
+|  d|        1|
+|  c|        1|
+|  b|        1|
+|  a|        2|
++---+---------+
+
+>>> youngest = g.vertices.groupBy().min("age")
+>>> youngest.show()
++--------+
+|min(age)|
++--------+
+|      29|
++--------+
+
+>>> numFollows = g.edges.filter("relationship = 'follow'").count()
+>>> numFollows
+4
+>>>
+>>>
+>>> motifs = g.find("(a)-[e]->(b); (b)-[e2]->(a)")
+>>> motifs.show()
++----------------+--------------+----------------+--------------+
+|               a|             e|               b|            e2|
++----------------+--------------+----------------+--------------+
+|[c, Charlie, 30]|[c, b, follow]|    [b, Bob, 36]|[b, c, follow]|
+|    [b, Bob, 36]|[b, c, follow]|[c, Charlie, 30]|[c, b, follow]|
++----------------+--------------+----------------+--------------+
+
+>>> results = g.triangleCount()
+>>> results.show()
+18/11/06 18:42:12 WARN BlockManager: Block rdd_106_0 already exists on this machine; not re-adding it
++-----+---+-------+---+
+|count| id|   name|age|
++-----+---+-------+---+
+|    0|  g|  Gabby| 60|
+|    0|  f|  Fanny| 36|
+|    1|  e| Esther| 32|
+|    1|  d|  David| 29|
+|    0|  c|Charlie| 30|
+|    0|  b|    Bob| 36|
+|    1|  a|  Alice| 34|
++-----+---+-------+---+
+
