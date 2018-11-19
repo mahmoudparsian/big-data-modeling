@@ -1,0 +1,622 @@
+Id,Label,type,xcoord,ycoord,category,Modularity Class,Eigenvector Centrality,In Degree,Out Degree,Degree,Weighted Degree
+1,Robert C. Allen,person,0.0,0.0,individual,0,0.1708217782071894,0,2,2,2
+2,Philip Ethington,person,0.0,0.0,individual,0,0.11525159594332783,0,2,2,2
+3,Chien-Yi Hou,person,0.0,0.0,individual,0,0.1708217782071894,0,2,2,2
+4,Christopher Johanson,person,0.0,0.0,individual,0,0.16513694022027706,0,3,3,3
+5,Pamella Lach,person,0.0,0.0,individual,0,0.1708217782071894,0,2,2,2
+6,Richard Marciano,person,0.0,0.0,individual,0,0.19173144637683673,0,3,3,3
+7,Todd Presner,person,0.0,0.0,individual,0,0.15210367898200244,0,2,2,2
+8,David Shepard,person,0.0,0.0,individual,0,0.15210367898200244,0,2,2,2
+9,Natasha Smith,person,0.0,0.0,individual,0,0.1708217782071894,0,2,2,2
+10,Chris Speed,person,0.0,0.0,individual,0,0.1107045008795827,0,2,2,2
+11,Maciej Eder,person,0.0,0.0,individual,1,0.047918491401628883,0,3,3,3
+12,David L. Hoover,person,0.0,0.0,individual,27,0.04930806299576735,0,3,3,3
+13,Jan Rybicki,person,0.0,0.0,individual,1,0.05757793992174084,0,4,4,4
+14,Julia Flanders,person,0.0,0.0,individual,50,0.10260663252608737,0,3,3,3
+15,Rombert Stapel,person,0.0,0.0,individual,2,0.012145697327603951,0,2,2,2
+16,Willeke Wendrich,person,0.0,0.0,individual,0,0.05944109733472149,0,2,2,2
+17,Jacqueline Wernimont,person,0.0,0.0,individual,50,0.02157655570303109,0,2,2,2
+18,Paul Caton,person,0.0,0.0,individual,21,0.23443632826688643,0,2,2,2
+19,Marie Luce Demonet,person,0.0,0.0,individual,64,0.023053862200161916,0,2,2,2
+20,Natalia Ermolaev,person,0.0,0.0,individual,3,0.022368834398077214,0,2,2,2
+21,Toma Tasovac,person,0.0,0.0,individual,3,0.022368834398077214,0,2,2,2
+22,Ed Finn,person,0.0,0.0,individual,4,0.15182781253206312,0,2,2,2
+23,Zephyr Frank,person,0.0,0.0,individual,4,0.15182781253206312,0,2,2,2
+24,Rhiannon Lewis,person,0.0,0.0,individual,4,0.15182781253206312,0,2,2,2
+25,Franco Moretti,person,0.0,0.0,individual,4,0.15182781253206312,0,2,2,2
+26,Arno Bosse,person,0.0,0.0,individual,5,0.03546316887205981,0,2,2,2
+27,Keith Brisson,person,0.0,0.0,individual,5,0.03546316887205981,0,2,2,2
+28,Jeremy Douglass,person,0.0,0.0,individual,6,0.02305386220016192,0,2,2,2
+29,William Huber,person,0.0,0.0,individual,6,0.028181274297837015,0,2,2,2
+30,Steven E. Jones,person,0.0,0.0,individual,7,0.022368834398077214,0,2,2,2
+31,Lev Manovich,person,0.0,0.0,individual,6,0.028181274297837015,0,2,2,2
+32,George K. Thiruvathukal,person,0.0,0.0,individual,7,0.022368834398077214,0,2,2,2
+33,Yuri Tsivian,person,0.0,0.0,individual,5,0.03546316887205981,0,2,2,2
+34,Steven Bird,person,0.0,0.0,individual,36,0.05610030680233061,0,3,3,3
+35,Marco Buchler,person,0.0,0.0,individual,22,0.04463333414836044,0,2,2,2
+36,Thomas Eckart,person,0.0,0.0,individual,22,0.04463333414836044,0,2,2,2
+37,Christopher Hirt,person,0.0,0.0,individual,36,0.047913164218195615,0,2,2,2
+38,Joshua Hou,person,0.0,0.0,individual,36,0.04038995267995252,0,2,2,2
+39,Claus Huitfeldt,person,0.0,0.0,individual,8,0.02369176031010584,0,2,2,2
+40,Yves Marcoux,person,0.0,0.0,individual,8,0.02369176031010584,0,2,2,2
+41,David Pansch,person,0.0,0.0,individual,22,0.04463333414836044,0,2,2,2
+42,Sven Pedersen,person,0.0,0.0,individual,36,0.047913164218195615,0,2,2,2
+43,Gary F. Simons,person,0.0,0.0,individual,36,0.06296253035396167,0,3,3,3
+44,Michael Sperberg-McQueen,person,0.0,0.0,individual,8,0.03268963880651282,0,3,3,3
+45,Yaacov Choueka,person,0.0,0.0,individual,9,0.05102140604177004,0,2,2,2
+46,Nachum Dershowitz,person,0.0,0.0,individual,9,0.044422302795212865,0,2,2,2
+47,Sebastian Heath,person,0.0,0.0,individual,27,0.03953680683303295,0,2,2,2
+48,Roni Shweka,person,0.0,0.0,individual,9,0.05102140604177004,0,2,2,2
+49,Jacob Thaisen,person,0.0,0.0,individual,10,0.012145697327603951,0,2,2,2
+50,Lior Wolf,person,0.0,0.0,individual,9,0.044422302795212865,0,2,2,2
+51,Masha Zeldin,person,0.0,0.0,individual,9,0.05102140604177004,0,2,2,2
+52,Karl Grossner,person,0.0,0.0,individual,50,0.07225344865841347,0,2,2,2
+53,Ramesh Jain,person,0.0,0.0,individual,11,0.054565896026511566,0,2,2,2
+54,Vitit Kantabutra,person,0.0,0.0,individual,11,0.07546015618083596,0,3,3,3
+55,Elijah Meeks,person,0.0,0.0,individual,11,0.15786450114396275,0,2,2,2
+56,Ruth Mostern,person,0.0,0.0,individual,11,0.054565896026511566,0,2,2,2
+57,Ryan Shaw,person,0.0,0.0,individual,11,0.11664373055005503,0,2,2,2
+58,John G. Keating,person,0.0,0.0,individual,12,0.03546316887205981,0,2,2,2
+59,Lisa Spiro,person,0.0,0.0,individual,13,0.012145697327603951,0,2,2,2
+60,Joshua Sternfeld,person,0.0,0.0,individual,14,0.012145697327603951,0,2,2,2
+61,Aja Teehan,person,0.0,0.0,individual,12,0.03546316887205981,0,2,2,2
+62,Sharon Webb,person,0.0,0.0,individual,12,0.03546316887205981,0,2,2,2
+63,Reinhild Barkey,person,0.0,0.0,individual,15,0.07196494233035411,0,2,2,2
+64,Alan Galey,person,0.0,0.0,individual,22,0.018946326657655735,0,2,2,2
+65,Erhard Hinrichs,person,0.0,0.0,individual,15,0.07196494233035411,0,2,2,2
+66,Christina Hoppermann,person,0.0,0.0,individual,15,0.07196494233035411,0,2,2,2
+67,Michele Pasin,person,0.0,0.0,individual,21,0.26369627010857316,0,3,3,3
+68,Thorsten Trippel,person,0.0,0.0,individual,15,0.07196494233035411,0,2,2,2
+69,Claus Zinn,person,0.0,0.0,individual,15,0.07196494233035411,0,2,2,2
+70,Tobias Blanke,person,0.0,0.0,individual,21,0.3138087263279933,0,3,3,3
+71,Richard Connor,person,0.0,0.0,individual,21,0.08114268676830778,0,2,2,2
+72,Mark Hedges,person,0.0,0.0,individual,21,0.3162739297506599,0,3,3,3
+73,Conny Kristel,person,0.0,0.0,individual,21,0.07429861963900616,0,2,2,2
+74,Cara Leitch,person,0.0,0.0,individual,54,0.03546316887205981,0,2,2,2
+75,Peter Organisciak,person,0.0,0.0,individual,50,0.147058334645606,0,3,3,3
+76,Mike Priddy,person,0.0,0.0,individual,21,0.28660020261176183,0,2,2,2
+77,Ray Siemens,person,0.0,0.0,individual,54,0.03546316887205981,0,2,2,2
+78,Fabio Simeoni,person,0.0,0.0,individual,21,0.08114268676830778,0,2,2,2
+79,Meagan B Timney,person,0.0,0.0,individual,54,0.03546316887205981,0,2,2,2
+80,Relja Arandjelovia,person,0.0,0.0,individual,16,0.027341960365656788,0,1,1,1
+81,Andrew Thomas Ashton,person,0.0,0.0,individual,50,0.03448948170307883,0,2,2,2
+82,Charlotte Becker,person,0.0,0.0,individual,50,0.03835973501663222,0,2,2,2
+83,Anna Bentkowska-Kafel,person,0.0,0.0,individual,21,0.24432845262518282,0,2,2,2
+84,Giles Bergel,person,0.0,0.0,individual,63,0.03190660529433644,0,2,2,2
+85,Hanno Biber,person,0.0,0.0,individual,51,0.012145697327603951,0,2,2,2
+86,Cory Bohon,person,0.0,0.0,individual,17,0.022368834398077214,0,2,2,2
+87,Elizabeth Bonsignore,person,0.0,0.0,individual,18,0.10221148447549,0,2,2,2
+88,John Bradley,person,0.0,0.0,individual,21,0.24689138818919426,0,2,2,2
+89,Gerhard Brey,person,0.0,0.0,individual,21,0.23443632826688643,0,2,2,2
+90,Susan Brown,person,0.0,0.0,individual,41,0.18575185114545598,0,4,4,4
+91,Alexandra Chassanoff,person,0.0,0.0,individual,0,0.09098361950216637,0,2,2,2
+92,Szu-Pei Chen,person,0.0,0.0,individual,44,0.14278527044202918,0,3,3,3
+93,Worawat Choensawat,person,0.0,0.0,individual,19,0.1385345100038287,0,2,2,2
+94,Warwick Claire,person,0.0,0.0,individual,22,0.18155386994039163,0,2,2,2
+95,Neil Coffee,person,0.0,0.0,individual,59,0.06051188792254308,0,2,2,2
+96,James Cummings,person,0.0,0.0,individual,63,0.04539100191227414,0,3,3,3
+97,Alexander Dutton,person,0.0,0.0,individual,16,0.027341960365656788,0,1,1,1
+98,Michael Eberle-Sinatra,person,0.0,0.0,individual,34,0.03994255364463454,0,3,3,3
+99,Thomas Robert Elliott,person,0.0,0.0,individual,27,0.04547245136684669,0,2,2,2
+100,Barbara Fennell,person,0.0,0.0,individual,46,0.04244573168445423,0,2,2,2
+101,Leticia Flores,person,0.0,0.0,individual,22,0.07833672048497754,0,2,2,2
+102,Christopher Forstall,person,0.0,0.0,individual,59,0.045032901832281876,0,2,2,2
+1382,Digital Humanities Observatory,university,53.42,-8.24,location,42,0.023791376401399215,1,0,1,1
+104,Christiane Fritze,person,0.0,0.0,individual,21,0.03414972674457687,0,2,2,2
+105,Christos Giachritsis,person,0.0,0.0,individual,21,0.030508052701609046,0,2,2,2
+106,Joseph Gilbert,person,0.0,0.0,individual,41,0.07922936775094894,0,2,2,2
+107,Sean Gillies,person,0.0,0.0,individual,27,0.04547245136684669,0,2,2,2
+108,Rafael Gomez,person,0.0,0.0,individual,22,0.07833672048497754,0,2,2,2
+109,Georgina Goodlander,person,0.0,0.0,individual,18,0.05360331467491653,0,2,2,2
+110,Kozaburo Hachimura,person,0.0,0.0,individual,19,0.1385345100038287,0,2,2,2
+111,derek hansen,person,0.0,0.0,individual,18,0.10221148447549,0,2,2,2
+112,Katherine D. Harris,person,0.0,0.0,individual,58,0.012145697327603951,0,2,2,2
+113,Timothy Hill,person,0.0,0.0,individual,21,0.24689138818919426,0,2,2,2
+114,Hou-Ieong Ho,person,0.0,0.0,individual,44,0.14278527044202918,0,3,3,3
+115,Martin Holmes,person,0.0,0.0,individual,41,0.05374416809000935,0,3,3,3
+116,Wallace Edd Hooper,person,0.0,0.0,individual,30,0.20642096312402655,0,2,2,2
+117,Jieh Hsiang,person,0.0,0.0,individual,44,0.14278527044202918,0,3,3,3
+118,Andrew Hudson-Smith,person,0.0,0.0,individual,22,0.18155386994039163,0,2,2,2
+119,Lorna Hughes,person,0.0,0.0,individual,42,0.24761906324123115,0,2,2,2
+120,Sho Itsubo,person,0.0,0.0,individual,19,0.15425812725017873,0,2,2,2
+121,Fotis Jannidis,person,0.0,0.0,individual,42,0.03391334929842464,0,2,2,2
+122,Margeaux Johnson,person,0.0,0.0,individual,18,0.05360331467491653,0,2,2,2
+123,Ilkka Juuso,person,0.0,0.0,individual,60,0.0846768369678772,0,3,3,3
+124,Takanori Kawashima,person,0.0,0.0,individual,38,0.036232333682564226,0,2,2,2
+125,Andy Keenan,person,0.0,0.0,individual,41,0.14746938751431596,0,2,2,2
+126,Fuminori Kimura,person,0.0,0.0,individual,19,0.15425812725017873,0,2,2,2
+127,Graham Klyne,person,0.0,0.0,individual,16,0.027341960365656788,0,1,1,1
+128,Douglas Knox,person,0.0,0.0,individual,20,0.012145697327603951,0,2,2,2
+129,J.-P. Koenig,person,0.0,0.0,individual,59,0.06051188792254308,0,2,2,2
+130,Kari Michaele Kraus,person,0.0,0.0,individual,18,0.10221148447549,0,2,2,2
+131,Donna Kurtz,person,0.0,0.0,individual,16,0.027341960365656788,0,1,1,1
+132,Seamus Lawless,person,0.0,0.0,individual,46,0.03073727952134729,0,2,2,2
+133,Eleonora Litta,person,0.0,0.0,individual,21,0.2602938924742103,0,2,2,2
+134,Akira Maeda,person,0.0,0.0,individual,19,0.15425812725017873,0,2,2,2
+135,Simon Mahony,person,0.0,0.0,individual,22,0.2045548542696308,0,2,2,2
+136,Christopher Maraffi,person,0.0,0.0,individual,50,0.01835355776480236,0,2,2,2
+137,Carnall Mark,person,0.0,0.0,individual,22,0.18155386994039163,0,2,2,2
+138,Julie Meloni,person,0.0,0.0,individual,41,0.06593924034546148,0,2,2,2
+139,Shannon Meyer,person,0.0,0.0,individual,50,0.03835973501663222,0,2,2,2
+140,Aditi Muralidharan,person,0.0,0.0,individual,39,0.030761605726796336,0,2,2,2
+141,Kiyonori Nagasaki,person,0.0,0.0,individual,38,0.02887485371697831,0,2,2,2
+142,Minako Nakamura,person,0.0,0.0,individual,19,0.04189193278375558,0,2,2,2
+143,Angel David Nieves,person,0.0,0.0,individual,57,0.012145697327603951,0,2,2,2
+144,Geoffroy Noel,person,0.0,0.0,individual,21,0.2602938924742103,0,2,2,2
+145,Bethany Nowviskie,person,0.0,0.0,individual,39,0.15922085259118057,0,4,4,4
+146,Julianne Nyhan,person,0.0,0.0,individual,22,0.2045548542696308,0,2,2,2
+147,Deirdre O'Regan,person,0.0,0.0,individual,46,0.04244573168445423,0,2,2,2
+148,Tomaz Onic,person,0.0,0.0,individual,60,0.017781586296084784,0,2,2,2
+149,Lisa Lena Opas-Hanninen,person,0.0,0.0,individual,60,0.0846768369678772,0,3,3,3
+150,Roeland Ordelman,person,0.0,0.0,individual,23,0.021694787933893588,0,3,3,3
+151,Takahiko Osaki,person,0.0,0.0,individual,19,0.15425812725017873,0,2,2,2
+152,Roelant Ossewaarde,person,0.0,0.0,individual,59,0.06051188792254308,0,2,2,2
+153,Elena Pierazzo,person,0.0,0.0,individual,21,0.2602938924742103,0,2,2,2
+154,Shakthi Poornima,person,0.0,0.0,individual,59,0.06051188792254308,0,2,2,2
+155,Dot Porter,person,0.0,0.0,individual,30,0.2775017163845279,0,3,3,3
+156,Ernesto Priani,person,0.0,0.0,individual,22,0.09471303056892418,0,3,3,3
+157,Ernesto Priego,person,0.0,0.0,individual,22,0.16598778476775614,0,2,2,2
+158,David Prytherch,person,0.0,0.0,individual,21,0.030508052701609046,0,2,2,2
+159,Sebastian Rahtz,person,0.0,0.0,individual,16,0.027341960365656788,0,1,1,1
+160,Jean-Yves RAMEL,person,0.0,0.0,individual,64,0.028181274297837018,0,2,2,2
+161,Douglas Reside,person,0.0,0.0,individual,30,0.09289723724653466,0,2,2,2
+162,Frank Rinaldo,person,0.0,0.0,individual,19,0.13245733521304165,0,2,2,2
+163,Laurent Romary,person,0.0,0.0,individual,21,0.03414972674457687,0,2,2,2
+164,Claire Ross,person,0.0,0.0,individual,22,0.07978148335500519,0,1,1,1
+165,Claire Stephanie Ross,person,0.0,0.0,individual,22,0.18155386994039163,0,2,2,2
+166,Walter J Scheirer,person,0.0,0.0,individual,59,0.018396136108285232,0,2,2,2
+167,Susan Schreibman,person,0.0,0.0,individual,42,0.06476421910025802,0,4,4,4
+168,Masahiro Shimoda,person,0.0,0.0,individual,38,0.03369163188821004,0,2,2,2
+169,Kim Shortreed-Webb,person,0.0,0.0,individual,41,0.04166758431875949,0,2,2,2
+170,Nicolas Sidere,person,0.0,0.0,individual,64,0.028181274297837018,0,2,2,2
+171,Stefan Sinclair,person,0.0,0.0,individual,41,0.1620262175998653,0,4,4,4
+172,Kingkarn Sookhanaphibarn,person,0.0,0.0,individual,19,0.13245733521304165,0,2,2,2
+173,Jane Stadler,person,0.0,0.0,individual,24,0.012145697327603951,0,2,2,2
+174,Russell Stephenson,person,0.0,0.0,individual,11,0.028890376963299852,0,2,2,2
+175,Mark Sweetnam,person,0.0,0.0,individual,46,0.04244573168445423,0,2,2,2
+176,Victoria Szabo,person,0.0,0.0,individual,27,0.02418069740888518,0,2,2,2
+177,Sachie Takahashi,person,0.0,0.0,individual,19,0.1385345100038287,0,2,2,2
+178,Melissa Terras,person,0.0,0.0,individual,22,0.2613353532953966,0,3,3,3
+179,Taro Tezuka,person,0.0,0.0,individual,19,0.15425812725017873,0,2,2,2
+180,Ruck Thawonmas,person,0.0,0.0,individual,19,0.13245733521304165,0,2,2,2
+181,Ulrich Tiedau,person,0.0,0.0,individual,22,0.2045548542696308,0,2,2,2
+182,Norio Togiya,person,0.0,0.0,individual,38,0.028916368794834772,0,2,2,2
+183,Toru Tomabechi,person,0.0,0.0,individual,38,0.02887485371697831,0,2,2,2
+184,Kathryn Tomasek,person,0.0,0.0,individual,43,0.02684903896535227,0,3,3,3
+185,Ellen Truxaw,person,0.0,0.0,individual,4,0.12185884149276693,0,2,2,2
+186,Hsieh-Chang Tu,person,0.0,0.0,individual,44,0.09494432558651672,0,2,2,2
+187,Raffaele Viglianti,person,0.0,0.0,individual,27,0.28557917175129205,0,3,3,3
+188,Amanda Visconti,person,0.0,0.0,individual,18,0.10221148447549,0,2,2,2
+189,John A. Walsh,person,0.0,0.0,individual,30,0.24275172270495102,0,3,3,3
+190,Claire Warwick,person,0.0,0.0,individual,22,0.252460377873991,0,3,3,3
+191,Anne Welsh,person,0.0,0.0,individual,22,0.2045548542696308,0,2,2,2
+192,George H. Williams,person,0.0,0.0,individual,17,0.022368834398077214,0,2,2,2
+193,Daniel Zavala,person,0.0,0.0,individual,22,0.07833672048497754,0,2,2,2
+194,Andrew Zisserman,person,0.0,0.0,individual,16,0.027341960365656788,0,1,1,1
+195,Simon Zupan,person,0.0,0.0,individual,60,0.03466484601865576,0,2,2,2
+196,Jean-Francois Blanchette,person,0.0,0.0,individual,0,0.07360547099651445,0,2,2,2
+197,Johanna Drucker,person,0.0,0.0,individual,0,0.07360547099651445,0,2,2,2
+198,Matthew Kirschenbaum,person,0.0,0.0,individual,0,0.07881609655479271,0,2,2,2
+199,Laura Mandell,person,0.0,0.0,individual,42,0.024757353236186663,0,2,2,2
+200,Stephen Olsen,person,0.0,0.0,individual,42,0.01799220379698489,0,1,1,1
+201,Karina van Dalen-Oskam,person,0.0,0.0,individual,39,0.04197242725652898,0,2,2,2
+202,Elisabeth Burr,person,0.0,0.0,individual,22,0.07362011596478069,0,2,2,2
+203,Richard Cunningham,person,0.0,0.0,individual,22,0.055924252521502966,0,2,2,2
+204,Wendy Duff,person,0.0,0.0,individual,22,0.0604330852604063,0,2,2,2
+205,Dominic Forest,person,0.0,0.0,individual,34,0.06230321216204807,0,2,2,2
+206,Fenella G France,person,0.0,0.0,individual,33,0.01575741853985095,0,2,2,2
+207,Isabel Galina,person,0.0,0.0,individual,22,0.053498616715793874,0,2,2,2
+208,Lynne Siemens,person,0.0,0.0,individual,41,0.07532844891340647,0,2,2,2
+209,Michael B Toth,person,0.0,0.0,individual,33,0.009427452205499055,0,1,1,1
+210,Ping-Yen Chen,person,0.0,0.0,individual,44,0.10300714868928901,0,2,2,2
+211,Sean Gouglas,person,0.0,0.0,individual,41,0.20082430742644908,0,2,2,2
+212,Sophia Hoosein,person,0.0,0.0,individual,41,0.20082430742644908,0,2,2,2
+213,Yu-Ming Huang,person,0.0,0.0,individual,44,0.10300714868928901,0,2,2,2
+214,A. Charles Muller,person,0.0,0.0,individual,38,0.023405288130767005,0,2,2,2
+215,Harvey Quamen,person,0.0,0.0,individual,41,0.20082430742644908,0,2,2,2
+216,Geoffrey Rockwell,person,0.0,0.0,individual,41,0.39278130089523644,0,5,5,5
+217,Victoria Susan Smith,person,0.0,0.0,individual,41,0.20082430742644908,0,2,2,2
+218,Mihaela Ilovan,person,0.0,0.0,individual,41,0.23256341774828812,0,2,2,2
+219,Milena Radzikowska,person,0.0,0.0,individual,41,0.23256341774828812,0,2,2,2
+220,Stan Ruecker,person,0.0,0.0,individual,41,0.35188462853494584,0,4,4,4
+221,Daniel Sondheim,person,0.0,0.0,individual,41,0.23256341774828812,0,2,2,2
+222,Ryan Heuser,person,0.0,0.0,individual,4,0.13099799405615237,0,2,2,2
+223,Matthew Jockers,person,0.0,0.0,individual,4,0.12185884149276693,0,2,2,2
+224,Long Le-Khac,person,0.0,0.0,individual,4,0.13099799405615237,0,2,2,2
+225,Allen Beye Riddell,person,0.0,0.0,individual,27,0.02418069740888518,0,2,2,2
+226,Peter Ainsworth,person,0.0,0.0,individual,37,0.22063200644796488,0,2,2,2
+227,Yahya Ahmed Ali Al-Hajj,person,0.0,0.0,individual,66,0.022368834398077214,0,2,2,2
+228,Simon Appleford,person,0.0,0.0,individual,37,0.26133328684030305,0,2,2,2
+229,Peter Bajcsy,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+230,Steve Benford,person,0.0,0.0,individual,4,0.05539246911332824,0,2,2,2
+231,Steve Cohen,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+232,Matthew Geimer,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+233,Gabriella Giannachi,person,0.0,0.0,individual,4,0.0427295355156323,0,2,2,2
+234,Jennifer Guiliano,person,0.0,0.0,individual,37,0.21358393137301976,0,2,2,2
+235,Natalie Hanson,person,0.0,0.0,individual,37,0.26133328684030305,0,2,2,2
+236,Anne D. Hedeman,person,0.0,0.0,individual,37,0.26133328684030305,0,2,2,2
+237,Rob Kooper,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+238,Marc Wilhelm Kuster,person,0.0,0.0,individual,66,0.022368834398077214,0,2,2,2
+239,Henry Lowood,person,0.0,0.0,individual,4,0.1464959600696135,0,2,2,2
+240,Luigi Marini,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+241,Robert Markley,person,0.0,0.0,individual,37,0.26133328684030305,0,2,2,2
+242,Michael Meredith,person,0.0,0.0,individual,37,0.22063200644796488,0,2,2,2
+243,Dominic Price,person,0.0,0.0,individual,4,0.05539246911332824,0,2,2,2
+244,Dean Rehberger,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+245,Justine Richardson,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+246,Duncan Rowland,person,0.0,0.0,individual,4,0.05539246911332824,0,2,2,2
+247,Tenzing Shaw,person,0.0,0.0,individual,37,0.24675187307415197,0,2,2,2
+248,Michael Simeone,person,0.0,0.0,individual,37,0.26133328684030305,0,2,2,2
+249,Marc Alexander,person,0.0,0.0,individual,36,0.041036054703259044,0,2,2,2
+250,Jean Gilmour Anderson,person,0.0,0.0,individual,36,0.041036054703259044,0,2,2,2
+251,Nuria Rodriguez,person,0.0,0.0,individual,45,0.041526002257733764,0,3,3,3
+252,Sulman Sarwar,person,0.0,0.0,individual,36,0.030373027518243733,0,2,2,2
+253,Richard Sinnott,person,0.0,0.0,individual,36,0.0375406295887247,0,2,2,2
+254,Craig Stroupe,person,0.0,0.0,individual,61,0.012145697327603951,0,2,2,2
+255,Monica Brown,person,0.0,0.0,individual,41,0.07900534291005339,0,2,2,2
+256,Teresa M. Dobson,person,0.0,0.0,individual,41,0.07900534291005339,0,2,2,2
+257,Dustin Grue,person,0.0,0.0,individual,41,0.07900534291005339,0,2,2,2
+258,Piotr Michura,person,0.0,0.0,individual,41,0.06492994803426977,0,2,2,2
+259,Omar Rodriguez,person,0.0,0.0,individual,41,0.1933236770872043,0,2,2,2
+260,Hiroyuki Akama,person,0.0,0.0,individual,38,0.04281337488904815,0,2,2,2
+261,Deborah Anderson,person,0.0,0.0,individual,39,0.030761605726796336,0,2,2,2
+262,David Beavan,person,0.0,0.0,individual,36,0.024476394933025464,0,2,2,2
+263,Molly Dolan,person,0.0,0.0,individual,50,0.04853376335532824,0,2,2,2
+264,Jeana Jorgensen,person,0.0,0.0,individual,30,0.20895910281551805,0,2,2,2
+265,Jaeyoung Jung,person,0.0,0.0,individual,38,0.04281337488904815,0,2,2,2
+266,Maki Miyake,person,0.0,0.0,individual,38,0.04281337488904815,0,2,2,2
+267,Trevor Munoz,person,0.0,0.0,individual,50,0.07427750018403678,0,2,2,2
+268,Allen Renear,person,0.0,0.0,individual,50,0.07427750018403678,0,2,2,2
+269,Kevin Trainor,person,0.0,0.0,individual,50,0.07427750018403678,0,2,2,2
+270,Virgil Varvel,person,0.0,0.0,individual,50,0.07427750018403678,0,2,2,2
+271,Scott Weingart,person,0.0,0.0,individual,30,0.32070914228567904,0,3,3,3
+272,Cameron Blevins,person,0.0,0.0,individual,4,0.12185884149276693,0,2,2,2
+273,Angela Courtney,person,0.0,0.0,individual,30,0.2042178566361781,0,2,2,2
+274,Thomas Crochunis,person,0.0,0.0,individual,34,0.024071260984814963,0,2,2,2
+275,Michelle Dalmau,person,0.0,0.0,individual,30,0.2042178566361781,0,2,2,2
+276,Stephen Paling,person,0.0,0.0,individual,65,0.012145697327603951,0,2,2,2
+277,Matteo Romanello,person,0.0,0.0,individual,21,0.2482103077119834,0,2,2,2
+278,Jon Sachs,person,0.0,0.0,individual,34,0.024071260984814963,0,2,2,2
+279,Tara Andrews,person,0.0,0.0,individual,39,0.0711379766387876,0,2,2,2
+280,Catherine Blake,person,0.0,0.0,individual,56,0.022368834398077214,0,2,2,2
+281,Wayne Graham,person,0.0,0.0,individual,39,0.06049496278077305,0,2,2,2
+282,Ana Lucic,person,0.0,0.0,individual,56,0.022368834398077214,0,2,2,2
+283,Gregor Middell,person,0.0,0.0,individual,39,0.0711379766387876,0,2,2,2
+284,Malte Rehbein,person,0.0,0.0,individual,25,0.012145697327603951,0,2,2,2
+285,Doug Reside,person,0.0,0.0,individual,39,0.09689152136498533,0,2,2,2
+286,Radu Suciu,person,0.0,0.0,individual,26,0.012145697327603951,0,2,2,2
+287,Dirk Van Hulle,person,0.0,0.0,individual,39,0.0711379766387876,0,2,2,2
+288,Joris van Zundert,person,0.0,0.0,individual,39,0.0711379766387876,0,2,2,2
+289,Ryan Baumann,person,0.0,0.0,individual,27,0.0561515014784328,0,2,2,2
+290,Gabriel Bodard,person,0.0,0.0,individual,27,0.26902751376338835,0,2,2,2
+291,Hugh Cayless,person,0.0,0.0,individual,27,0.08041145243416459,0,2,2,2
+292,Joshua Sosin,person,0.0,0.0,individual,27,0.06580920182668534,0,2,2,2
+293,Eugene Chung,person,0.0,0.0,individual,28,0.07196494233035411,0,2,2,2
+294,John Funchion,person,0.0,0.0,individual,50,0.01806719235916359,0,2,2,2
+295,Anthony W. Johnson,person,0.0,0.0,individual,60,0.06139916219396149,0,2,2,2
+296,Beom-mo Kang,person,0.0,0.0,individual,28,0.07196494233035411,0,2,2,2
+297,Heunggyu Kim,person,0.0,0.0,individual,28,0.07196494233035411,0,2,2,2
+298,Ilhwan Kim,person,0.0,0.0,individual,28,0.07196494233035411,0,2,2,2
+299,Do-Gil Lee,person,0.0,0.0,individual,28,0.07196494233035411,0,2,2,2
+300,John Melson,person,0.0,0.0,individual,50,0.03898063808806015,0,2,2,2
+301,Tapio Seppanen,person,0.0,0.0,individual,60,0.06139916219396149,0,2,2,2
+302,Brett Barney,person,0.0,0.0,individual,52,0.03546316887205981,0,2,2,2
+303,Jacob Cantrell,person,0.0,0.0,individual,62,0.051844243821856435,0,2,2,2
+304,Grant De Lozier,person,0.0,0.0,individual,62,0.051844243821856435,0,2,2,2
+305,Fred Gibbs,person,0.0,0.0,individual,55,0.012145697327603951,0,2,2,2
+306,Liz Lorang,person,0.0,0.0,individual,52,0.03546316887205981,0,2,2,2
+307,John McIntosh,person,0.0,0.0,individual,62,0.051844243821856435,0,2,2,2
+308,Kenneth M. Price,person,0.0,0.0,individual,52,0.03546316887205981,0,2,2,2
+309,May Yuan,person,0.0,0.0,individual,62,0.051844243821856435,0,2,2,2
+310,Krishna Janakiraman,person,0.0,0.0,individual,39,0.04898491496348115,0,2,2,2
+311,Ray Larson,person,0.0,0.0,individual,39,0.04898491496348115,0,2,2,2
+312,Daniel Pitti,person,0.0,0.0,individual,39,0.06601509521846362,0,2,2,2
+313,Brian Tingle,person,0.0,0.0,individual,39,0.03241523374514222,0,2,2,2
+314,Sandy Baldwin,person,0.0,0.0,individual,50,0.044501203905319434,0,2,2,2
+315,John Cayley,person,0.0,0.0,individual,50,0.058390178060026825,0,2,2,2
+316,Nick Montfort,person,0.0,0.0,individual,50,0.0385227108869246,0,2,2,2
+317,Rita Raley,person,0.0,0.0,individual,50,0.05675912811585652,0,2,2,2
+318,Noah Wardrip-Fruin,person,0.0,0.0,individual,50,0.04302084482177721,0,2,2,2
+319,Elton T.E. Barker,person,0.0,0.0,individual,40,0.0285319794118379,0,2,2,2
+320,Kate Byrne,person,0.0,0.0,individual,40,0.0285319794118379,0,2,2,2
+321,Leif Isaksen,person,0.0,0.0,individual,40,0.0285319794118379,0,2,2,2
+322,Alida Isolani,person,0.0,0.0,individual,45,0.043940946523046386,0,2,2,2
+323,Eric Christopher Kansa,person,0.0,0.0,individual,40,0.0285319794118379,0,2,2,2
+324,Dianella Lombardini,person,0.0,0.0,individual,45,0.043940946523046386,0,2,2,2
+325,Daniele Marotta,person,0.0,0.0,individual,45,0.043940946523046386,0,2,2,2
+326,Allison Marsh,person,0.0,0.0,individual,37,0.024110677555391667,0,2,2,2
+327,Susana Smith Bautista,person,0.0,0.0,individual,0,0.02096040729393163,0,2,2,2
+328,Meagan Timney,person,0.0,0.0,individual,41,0.012076583771249831,0,1,1,1
+329,Sheila Anderson,person,0.0,0.0,individual,21,0.2503414476973532,0,2,2,2
+330,Adam Brin,person,0.0,0.0,individual,53,0.022368834398077214,0,2,2,2
+331,Francis Pierce-McManamon,person,0.0,0.0,individual,53,0.022368834398077214,0,2,2,2
+332,Tanya Clement,person,0.0,0.0,individual,39,0.11677605243960239,0,2,2,2
+333,Eric Rochester,person,0.0,0.0,individual,39,0.10092262748852576,0,2,2,2
+334,Bruce Barton,person,0.0,0.0,individual,29,0.016573720850397582,0,1,1,1
+335,Joseph Biberstine,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+336,Katy Borner,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+337,Timothy Cole,person,0.0,0.0,individual,29,0.016573720850397582,0,1,1,1
+338,Rebecca Frost Davis,person,0.0,0.0,individual,43,0.018186407228468378,0,2,2,2
+339,Russell Duhon,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+340,Neil Fraistat,person,0.0,0.0,individual,29,0.016573720850397582,0,1,1,1
+341,Charlotte Gooskens,person,0.0,0.0,individual,31,0.07196494233035411,0,2,2,2
+342,David Greenbaum,person,0.0,0.0,individual,29,0.016573720850397582,0,1,1,1
+343,Peter Kleiweg,person,0.0,0.0,individual,31,0.07196494233035411,0,2,2,2
+344,Chin Hua Kong,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+345,Therese Leinonen,person,0.0,0.0,individual,31,0.07196494233035411,0,2,2,2
+346,Micah Linnemeier,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+347,Christopher Manning,person,0.0,0.0,individual,4,0.12185884149276693,0,2,2,2
+348,John Nerbonne,person,0.0,0.0,individual,31,0.07196494233035411,0,2,2,2
+349,Patrick Phillips,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+350,Sebastian P.Q. Rahtz,person,0.0,0.0,individual,63,0.03190660529433644,0,2,2,2
+351,Chintan Tank,person,0.0,0.0,individual,30,0.2927114214997726,0,2,2,2
+352,Martjin Wieling,person,0.0,0.0,individual,31,0.07196494233035411,0,2,2,2
+353,Virtual Cities/Digital Histories,Panel,0.0,0.0,session,0,0.40087839458538654,10,0,10,10
+354,"Do Birds of a Feather Really Flock Together, or How to Choose Test Samples for Authorship Attribution",Long Paper,0.0,0.0,session,1,0.041055602166989356,2,0,2,2
+355,The Tutor's Story: A Case Study of Mixed Authorship,Long Paper,0.0,0.0,session,27,0.019039415297903095,1,0,1,1
+356,Alma Cardell Curtin and Jeremiah Curtin: The Translator's Stylistic Fingerprint.,Long Paper,0.0,0.0,session,1,0.02241877309420518,1,0,1,1
+357,Possible Worlds: Authorial markup and digital scholarship,Long Paper,0.0,0.0,session,50,0.041182251257390834,2,0,2,2
+358,"Layer upon layer. Computational ""archaeology"" in 15th century Middle Dutch historiography.",Long Paper,0.0,0.0,session,2,0.008310085698683281,1,0,1,1
+359,The UCLA Encyclopedia of Egyptology: lessons learned,Long Paper,0.0,0.0,session,0,0.01891561573425562,1,0,1,1
+360,On the meaning of the term 'text' in digital humanities.,Long Paper,0.0,0.0,session,21,0.052383072807019065,1,0,1,1
+361,Corpora for Early Modern classics: are they reusable?,Long Paper,0.0,0.0,session,64,0.011298074945774726,1,0,1,1
+362,A User-Centered Digital Edition of Vuk Stefanovia's Lexicon Serbico-Germanico-Latinum,Long Paper,0.0,0.0,session,3,0.022368834398077214,2,0,2,2
+363,"NETWORKS, LITERATURE, CULTURE",Panel,0.0,0.0,session,4,0.1555405318365635,4,0,4,4
+364,Cinemetrics,Long Paper,0.0,0.0,session,5,0.04358437737846283,3,0,3,3
+365,Digital image analysis and interactive visualization of 1000000 manga pages,Long Paper,0.0,0.0,session,6,0.036772152741435256,3,0,3,3
+366,The Object of Platform Studies: Relational Materialities and the Social Platform (the case of the Nintendo Wii),Long Paper,0.0,0.0,session,7,0.022368834398077214,2,0,2,2
+367,Mining language resources from institutional repositories,Long Paper,0.0,0.0,session,36,0.09353293016049381,5,0,5,5
+368,Integration of Distributed Text Resources by Using Schema Matching Techniques,Long Paper,0.0,0.0,session,22,0.04981421926644474,3,0,3,3
+369,Expressive power of markup languages and graph structures,Long Paper,0.0,0.0,session,8,0.03809148617309705,3,0,3,3
+370,Automatic Extraction of Catalog Data from Genizah Fragments' images,Long Paper,0.0,0.0,session,9,0.08793643251819756,5,0,5,5
+371,The Digital Materiality of Early Christian Visual Culture: an example from John 20:29,Long Paper,0.0,0.0,session,27,0.015234554559539638,1,0,1,1
+372,PROBABILISTIC ANALYSIS OF MIDDLE ENGLISH ORTHOGRAPHY: THE AUCHINLECK MANUSCRIPT,Long Paper,0.0,0.0,session,10,0.008310085698683281,1,0,1,1
+373,"Modeling Event-Based Historical Narratives: A Conversation Between Digital Humanists, Information Scientists and Computer Scientists",Panel,0.0,0.0,session,11,0.15719737539789766,6,0,6,6
+374,The Born Digital Graduate: Multiple representations of and within Digital Humanities PhD theses,Long Paper,0.0,0.0,session,12,0.04358437737846283,3,0,3,3
+375,Knowing and Doing: Understanding the Digital Humanities Curriculum,Long Paper,0.0,0.0,session,13,0.008310085698683281,1,0,1,1
+376,Reforming Digital Historical Peer Review: Guidelines for Applying Digital Historiography to the Evaluative Process,Long Paper,0.0,0.0,session,14,0.008310085698683281,1,0,1,1
+377,Trailblazing through Forests of Resources in Linguistics,Long Paper,0.0,0.0,session,15,0.11405521692634533,5,0,5,5
+378,Approaching the Coasts of Utopia: Visualization Strategies for Mapping Early Modern Paratexts,Long Paper,0.0,0.0,session,22,0.010010898106376282,1,0,1,1
+379,Browsing highly interconnected humanities databases through multi-result faceted browsers,Long Paper,0.0,0.0,session,21,0.05972286156506015,1,0,1,1
+380,gMan: Creating general-purpose virtual environments for (digital) archival research,Long Paper,0.0,0.0,session,21,0.2726485182268873,6,0,6,6
+381,Opening the Gates: A New Model for Edition Production in a Time of Collaboration,Long Paper,0.0,0.0,session,54,0.04358437737846283,3,0,3,3
+382,When to ask for help: Evaluating projects for crowdsourcing,Long Paper,0.0,0.0,session,50,0.03820394478898158,1,0,1,1
+383,CLAROS: collaborating on delivering the future of the past,Poster / Demo,0.0,0.0,session,16,0.06794800289767151,6,0,6,6
+384,Semantically Rich Tools for Text Exploration: TEI and SEASR,Poster / Demo,0.0,0.0,session,50,0.013805988407752939,1,0,1,1
+385,Extending the Life of the Broadside Ballad: The English Broadside Ballad Archive from Microfilm to Color Photography,Poster / Demo,0.0,0.0,session,50,0.029964596194636404,2,0,2,2
+386,Virtual Touch. Towards an Interdisciplinary Research Agenda for the Arts and Humanities,Poster / Demo,0.0,0.0,session,21,0.07995314861031168,3,0,3,3
+387,Wandering Jew's Chronicle Research Archive,Poster / Demo,0.0,0.0,session,63,0.03190660529433644,2,0,2,2
+388,"Improving the AAC-FACKEL, a Scholarly Digital Edition of the Satirical Journal ""Die Fackel""",Poster / Demo,0.0,0.0,session,51,0.008310085698683281,1,0,1,1
+389,Constructing DARIAH the e-Infrastructure for the Arts and Humanities,Poster / Demo,0.0,0.0,session,21,0.09733936748151224,3,0,3,3
+390,BrailleSC.org: Applying Universal Design Principles to a Digital Humanities Project,Poster / Demo,0.0,0.0,session,17,0.022368834398077214,2,0,2,2
+391,The Arcane Gallery of Gadgetry: A Design Case Study of an Alternate Reality Game,Poster / Demo,0.0,0.0,session,18,0.15358760283416184,6,0,6,6
+392,When WordHoard met Pliny: breaking down of interaction silos between applications,Poster / Demo,0.0,0.0,session,21,0.10979193363655607,2,0,2,2
+393,The Wellcome Arabic Manuscript Project,Poster / Demo,0.0,0.0,session,21,0.052383072807019065,1,0,1,1
+394,The Canadian Writing Research Collaboratory: Infrastructure Development through Partnership,Poster / Demo,0.0,0.0,session,41,0.04635232097453472,1,0,1,1
+395,"Digital Scholarship in the Age of Overabundance: Accessing, Curating, and Preserving Digital Humanities Data",Poster / Demo,0.0,0.0,session,0,0.0737730197039016,2,0,2,2
+396,Discovering Citation Relations among the Imperial Court Documents of Qing China,Poster / Demo,0.0,0.0,session,44,0.14387252261112515,4,0,4,4
+397,A Labanotation Editing Tool for Description and Reproduction of Stylized Traditional Dance Body Motion,Poster / Demo,0.0,0.0,session,19,0.12332268384585914,4,0,4,4
+398,Enhancing Museum Narratives: Tales of Things and UCLA Grant Museum,Poster / Demo,0.0,0.0,session,22,0.23497159488761923,5,0,5,5
+399,The Tesserae Project: Intertextual Analysis of Latin Poetry,Poster / Demo,0.0,0.0,session,59,0.09822123632936536,5,0,5,5
+400,"Synergies: On the production of a sustainable, open, e-publication infrastructure for the academy",Poster / Demo,0.0,0.0,session,34,0.01692269895950314,1,0,1,1
+401,Stylometry with R,Poster / Demo,0.0,0.0,session,1,0.041055602166989356,2,0,2,2
+402,Pleiades: the un-GIS for ancient geography,Poster / Demo,0.0,0.0,session,27,0.03360435652604364,2,0,2,2
+403,A Collaborative Linguistic Research Interface for the 1641 Depositions,Poster / Demo,0.0,0.0,session,46,0.06195410545522906,4,0,4,4
+404,Documenting Horizons of Interpretation in Philosophy,Poster / Demo,0.0,0.0,session,22,0.14207391720543172,5,0,5,5
+405,Visualizing sound as functional n-grams in Homeric Greek poetry,Poster / Demo,0.0,0.0,session,59,0.02659739719833308,2,0,2,2
+406,DHAnswers: Building a Community-Based Q&A Board for the Digital Humanities,Poster / Demo,0.0,0.0,session,41,0.1335009079658584,4,0,4,4
+407,Pedagogy & Play: Revising Learning through Digital Humanities,Poster / Demo,0.0,0.0,session,58,0.008310085698683281,1,0,1,1
+408,The Colonial Despatches of Vancouver Island and British Columbia: a digital edition of a large-scale document collection,Poster / Demo,0.0,0.0,session,41,0.035925466046448376,2,0,2,2
+409,Computational Discovery and Visualization of the Underlying Semantic Structure of Complicated Historical and Literary Corpora,Poster / Demo,0.0,0.0,session,30,0.10270050118634662,2,0,2,2
+410,NeDiMAH a Network for Digital Arts and Humanities,Poster / Demo,0.0,0.0,session,42,0.0927323067599125,3,0,3,3
+411,Visualization of Co-occurrence Relationships Using the Historical Persons and Locational Names from Historical Documents,Poster / Demo,0.0,0.0,session,19,0.19612199432236405,5,0,5,5
+412,Building a tool for the analysis of translations: the case of epistemic modality in Edgar Allan PoeÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s stories,Poster / Demo,0.0,0.0,session,60,0.06863110602252931,3,0,3,3
+413,Better Software Tools for the Humanities and the Social Sciences: a Computer Science Perspective,Poster / Demo,0.0,0.0,session,11,0.03737750239671731,2,0,2,2
+414,A System for Referencing Personal Names through Iconography and Sharing an Authoritative Information Source for Personal Names by API,Poster / Demo,0.0,0.0,session,38,0.027507484529401806,2,0,2,2
+415,The Effect of Cheating on Player Engagement in Video Games,Poster / Demo,0.0,0.0,session,41,0.03556362112374645,1,0,1,1
+416,Between close and distant: historical editing methods at intermediate scale,Poster / Demo,0.0,0.0,session,20,0.008310085698683281,1,0,1,1
+417,Modelling a web based editing environment for critical editions,Poster / Demo,0.0,0.0,session,21,0.17265178619642968,3,0,3,3
+418,UCLDH: Big Tent Digital Humanities in practice,Poster / Demo,0.0,0.0,session,22,0.335562539690788,7,0,7,7
+419,A Dramatic Approach to Gestural Mimicry and Improvisation in Games,Poster / Demo,0.0,0.0,session,50,0.009925388012498825,1,0,1,1
+420,A Visual Interface for Exploring Language Use in Slave Narratives,Poster / Demo,0.0,0.0,session,39,0.013155122481103404,1,0,1,1
+421,Toward a Digital Research Environment for Buddhist Studies,Poster / Demo,0.0,0.0,session,38,0.03994069170442614,3,0,3,3
+422,ArchiTrace: An Urban Social History and Mapping Platform,Poster / Demo,0.0,0.0,session,57,0.008310085698683281,1,0,1,1
+423,An Analysis of Recurrences in Harold Pinter's Plays Using CATMA Concordancing Software,Poster / Demo,0.0,0.0,session,60,0.0098270169656405,1,0,1,1
+424,Distributed Acces to Oral History collections: Fitting Access Technology to the Needs of Collection Owners and Researchers,Poster / Demo,0.0,0.0,session,23,0.012151091793607283,1,0,1,1
+425,The Story of TILE: Making Modular & Reusable Tools,Poster / Demo,0.0,0.0,session,30,0.14610360758413485,3,0,3,3
+426,Layout analysis and content extraction in Historical Printed Books using AGORA software,Poster / Demo,0.0,0.0,session,64,0.02547407779566053,2,0,2,2
+427,Visualization of Visitor Circulation in Arts and Cultural Exhibition,Poster / Demo,0.0,0.0,session,19,0.1037415347961375,3,0,3,3
+428,"Mashing up the Map: Film Geography, Digital Cartography and a Cultural Atlas of Australian Narrative Fiction",Poster / Demo,0.0,0.0,session,24,0.008310085698683281,1,0,1,1
+429,The Ethics of Virtual Cultural Representation,Poster / Demo,0.0,0.0,session,27,0.011460909637375158,1,0,1,1
+430,The Wheaton College Digital History Project: Digital Humanities and Undergraduate Research,Poster / Demo,0.0,0.0,session,43,0.013594372799790838,1,0,1,1
+431,"""The Start of a New Chapter"": Serialization and the 19th-century Novel",Poster / Demo,0.0,0.0,session,4,0.03233370800971806,1,0,1,1
+432,Adapting EATS for crowdsourcing: Register Medicorum Medii Aevi,Poster / Demo,0.0,0.0,session,27,0.06504518820899936,1,0,1,1
+433,New Models of Digital Materialities,Panel,0.0,0.0,session,0,0.06861565710969438,3,0,3,3
+434,Modes of Composition in Three Authors,Long Paper,0.0,0.0,session,27,0.019039415297903095,1,0,1,1
+435,Evaluating Digital Scholarship: A Case Study in the Field of Literature,Long Paper,0.0,0.0,session,42,0.04388580754862097,3,0,3,3
+436,Names in novels: an experiment in computational stylistics,Long Paper,0.0,0.0,session,39,0.015550957584432654,1,0,1,1
+437,A Trip Around the World: Balancing Geographical Diversity in Academic Research Teams,Long Paper,0.0,0.0,session,22,0.16568355879813224,6,0,6,6
+438,Knowledge and reasoning: connecting scientific data and cultural heritage,Long Paper,0.0,0.0,session,33,0.01575741853985095,2,0,2,2
+439,Is there anybody out there? Discovering new DH practitioners in other countries,Long Paper,0.0,0.0,session,22,0.04742012858778877,2,0,2,2
+440,Discovering Land Transaction Relations from Land Deeds of Taiwan,Long Paper,0.0,0.0,session,44,0.17437012912741484,5,0,5,5
+441,Computing in Canada: A History of the Incunabular Years,Long Paper,0.0,0.0,session,41,0.2758795574672355,5,0,5,5
+442,The Digital Dictionary of Buddhism: A Collaborative XML-Based Reference Work that has become a Field Standard: Technology and Sustainable Management Strategies,Long Paper,0.0,0.0,session,38,0.011355885286407588,1,0,1,1
+443,The Interface of the Collection,Panel,0.0,0.0,session,41,0.4149186888397157,7,0,7,7
+444,Abstract Values in the 19th Century British Novel: Decline and Transformation of a Semantic Field,Long Paper,0.0,0.0,session,4,0.06877159146084981,2,0,2,2
+445,Detecting and Characterizing National Style in the 19th Century Novel,Long Paper,0.0,0.0,session,4,0.03233370800971806,1,0,1,1
+446,Revisiting Moretti's Graphs: New Directions in the Sociology of Literary Form,Long Paper,0.0,0.0,session,27,0.011460909637375158,1,0,1,1
+447,Supporting Scientific Discoveries to Answer Art Authorship Related Questions Across Diverse Disciplines and Geographically Distributed Resources,Long Paper,0.0,0.0,session,37,0.8815901872614662,16,0,16,16
+448,The Text-Image-Link-Editor (A tool for linking facsimiles & transcriptions and image annotations),Long Paper,0.0,0.0,session,66,0.022368834398077214,2,0,2,2
+449,CloudPad - a cloud-based documentation and archiving tool for mixed reality artworks,Long Paper,0.0,0.0,session,4,0.11111816758963189,5,0,5,5
+450,A Grid Based e-Research Infrastructure for Language and Literature,Long Paper,0.0,0.0,session,36,0.060103114222540395,4,0,4,4
+451,DESARROLLO DE PROYECTOS DIGITALES COMO ESTRATEGIAS DE APRENDIZAJE. LA EXPERIENCIA DESINGCREA/DISEÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¹Ã…â€œOTECA,Long Paper,0.0,0.0,session,45,0.017191711176131,1,0,1,1
+452,"You Suck at Narrative: Disciplinarity, Popular Culture, and the Database Logic of Photoshop",Long Paper,0.0,0.0,session,61,0.008310085698683281,1,0,1,1
+453,The Theory and Design of PlotVis,Panel,0.0,0.0,session,41,0.21675872310889727,6,0,6,6
+454,"Automatic Extraction of Hidden Keywords by Producing ""Homophily"" within Semantic Networks",Short Paper,0.0,0.0,session,38,0.04898044419278872,3,0,3,3
+455,Handling Glyph Variants: Issues and Developments,Short Paper,0.0,0.0,session,39,0.013155122481103404,1,0,1,1
+456,ComPair: Compare and Visualise the Usage of Language,Short Paper,0.0,0.0,session,36,0.011531220068473517,1,0,1,1
+457,Tasks vs. Roles: A Center Perspective on Data Curation Needs in the Humanities,Short Paper,0.0,0.0,session,50,0.11000366203072434,5,0,5,5
+458,Computational Analysis of Gender and the Body in European Fairy Tales,Short Paper,0.0,0.0,session,30,0.11781319654809577,2,0,2,2
+459,Topic Modeling Historical Sources: Analyzing the Diary of Martha Ballard,Short Paper,0.0,0.0,session,4,0.03233370800971806,1,0,1,1
+460,Victorian Women Writers Project Revived: A Case Study in Sustainability,Short Paper,0.0,0.0,session,30,0.09277154332115274,2,0,2,2
+461,Joanna Baillie's Witchcraft: from Hypermedia Edition to Resonant Responses,Short Paper,0.0,0.0,session,34,0.03998451267896948,3,0,3,3
+462,The Cultural Impact of New Media on American Literary Writing: Refining a Conceptual Framework,Short Paper,0.0,0.0,session,65,0.008310085698683281,1,0,1,1
+463,An Ontological View of Canonical Citations,Short Paper,0.0,0.0,session,21,0.11489932711070365,2,0,2,2
+464,"Interedition Principles, Practice and Products of an Open Collaborative Development Model for Digital Scholarly Edition",Short Paper,0.0,0.0,session,39,0.11821330356036636,5,0,5,5
+465,Comparing the Similarities and Differences between Burton Pike's and Stephen Mitchell's Translation of The Notebooks of Malte Laurids Brigge by Rainer Maria Rilke,Short Paper,0.0,0.0,session,56,0.022368834398077214,2,0,2,2
+466,"Historic Interpretation, Preservation, and Augmented Reality in Falmouth Jamaica",Short Paper,0.0,0.0,session,39,0.06399646516046273,2,0,2,2
+467,A Data Model for Visualising Textuality The Wurzburg Saint Matthew,Short Paper,0.0,0.0,session,25,0.008310085698683281,1,0,1,1
+468,Medical Case Studies on Renaissance Melancholy. An Online Publication Projet,Short Paper,0.0,0.0,session,26,0.008310085698683281,1,0,1,1
+469,Integrating Digital Papyrology,Panel,0.0,0.0,session,27,0.1875808572035918,5,0,5,5
+470,Trends 21 Corpus: A Large Annotated Korean Newspaper Corpus for Linguistic and Cultural Studies,Long Paper,0.0,0.0,session,28,0.11405521692634533,5,0,5,5
+471,Charlotte's Web: Encoding the Literary History of the Sentimental Novel,Long Paper,0.0,0.0,session,50,0.025012867941639795,2,0,2,2
+472,The Time Machine: Capturing Worlds across Time in Texts,Long Paper,0.0,0.0,session,60,0.09507008891309823,4,0,4,4
+473,"Civil War Washington: An Experiment in Freedom, Integration, and Constraint",Long Paper,0.0,0.0,session,52,0.04358437737846283,3,0,3,3
+474,Towards a Narrative GIS,Long Paper,0.0,0.0,session,62,0.07354916214034855,4,0,4,4
+475,Moving Beyond Anecdotal History,Long Paper,0.0,0.0,session,55,0.008310085698683281,1,0,1,1
+476,Social Networks and Archival Context Project,Panel,0.0,0.0,session,39,0.07059890846333632,4,0,4,4
+477,"Literary Practice and the Digital Humanities, Redux: Data as/and Poetry",Panel,0.0,0.0,session,50,0.08785451299934591,5,0,5,5
+478,Googling Ancient Places,Short Paper,0.0,0.0,session,40,0.05117915718034744,4,0,4,4
+479,Image Markup Tool 2.0,Short Paper,0.0,0.0,session,41,0.02711184071142934,2,0,2,2
+480,RELIGO: A RELATIONSHIP SYSTEM,Short Paper,0.0,0.0,session,45,0.06691946449342924,4,0,4,4
+481,Omeka in the Classroom: The Challenges of Teaching Material Culture in a Digital World,Short Paper,0.0,0.0,session,37,0.010764330962416932,1,0,1,1
+482,Lurking in Museums: In Support of Passive Participation,Short Paper,0.0,0.0,session,0,0.01030978583238741,1,0,1,1
+483,Content patterns in digital humanities: a framework for sustainability and reuse of digital resources,Long Paper,0.0,0.0,session,21,0.1265072358243427,2,0,2,2
+484,The Digital Archaeological Record - an Analytic Data Repository for Archaeology,Short Paper,0.0,0.0,session,53,0.022368834398077214,2,0,2,2
+485,GEO-TEMPORAL ARGUMENTATION: THE ROMAN FUNERAL ORATION,Long Paper,0.0,0.0,session,0,0.04333652510790237,1,0,1,1
+486,The Track: Digital Humanists off the Straight and Narrow Path to Tenure,Panel,0.0,0.0,session,39,0.22721930487226205,6,0,6,6
+487,Building Cyberinfrastructure for the Arts and Humanities - A Report from the Bamboo Technology Project,Poster / Demo,0.0,0.0,session,29,0.0339590614934363,4,0,4,4
+488,Network and Topical Analysis for the Humanities using NWB and Sci2,Pre-Conference Tutorial,0.0,0.0,session,30,0.5156761393789249,8,0,8,8
+489,Workshop: Visualization for literary history,Pre-Conference Workshop,0.0,0.0,session,41,0.2621120585304488,4,0,4,4
+490,Introductory TEI ODD,Pre-Conference Tutorial,0.0,0.0,session,63,0.03190660529433644,2,0,2,2
+491,Integrating Digital Humanities Projects into the Undergraduate Curriculum,Pre-Conference Workshop,0.0,0.0,session,43,0.023563316881057287,2,0,2,2
+492,gabmap - a web application for analyzing linguistic variation,Pre-Conference Tutorial,0.0,0.0,session,31,0.11405521692634533,5,0,5,5
+493,Natural Language Processing Tools for the Digital Humanities,Pre-Conference Tutorial,0.0,0.0,session,4,0.03233370800971806,1,0,1,1
+494,Introduction to Text Analysis With Voyeur Tools,Pre-Conference Tutorial,0.0,0.0,session,41,0.13434388820994936,2,0,2,2
+495,An introduction to XForms for digital humanists: how XForms can help your project,Pre-Conference Tutorial,0.0,0.0,session,8,0.015151445359708202,1,0,1,1
+1384,Goettingen State and University Library,university,51.47,9.96,location,21,0.013020275261300859,1,0,1,1
+1390,"International Institute for Digital Humanities, Japan",university,37.49,139.84,location,38,0.02570329627985209,2,0,2,2
+1393,Library of Congress,university,38.89,-77.01,location,33,0.009427452205499055,1,0,1,1
+1394,McMaster University,university,43.26,-79.92,location,41,0.04414997752261035,1,0,1,1
+1395,Netherlands Institute for Sound and Vision,university,52.11,5.33,location,23,0.012151091793607283,1,0,1,1
+1396,University of Guelph,university,43.53,-80.22,location,41,0.04635232097453472,1,0,1,1
+1398,University of California,university,37.87,-122.26,location,40,0.01279478929508688,1,0,1,1
+1400,Scripps College,university,34.1,-117.71,location,50,0.010498818917373722,1,0,1,1
+1401,SIL International,university,48.6,-93.4,location,36,0.03989595204877947,2,0,2,2
+1403,The Friedberg Genizah Project,university,31.39,35.36,location,9,0.05477499599718113,3,0,3,3
+1405,Universitie de Montreal,university,45.5,-73.62,location,34,0.037027979294769316,2,0,2,2
+1407,University of Aberdeen,university,57.16,-2.1,location,46,0.048801526077884426,3,0,3,3
+1408,University of Alberta,university,53.52,-113.52,location,41,0.5975658108200143,11,0,11,11
+1409,University of British Columbia,university,49.26,-123.25,location,41,0.069633043334665,3,0,3,3
+1410,UC Santa Barbara,university,34.42,-119.7,location,50,0.07264004545103414,4,0,4,4
+1411,University of Exeter,university,50.74,-3.53,location,4,0.015652307785232255,1,0,1,1
+1412,University of Glasgow,university,55.87,-4.29,location,36,0.04360474631701505,3,0,3,3
+1414,University of Maryland,university,39.29,-76.63,location,18,0.1993952279924091,7,0,7,7
+1415,University of Montreal,university,45.51,-73.58,location,8,0.011470020406694436,1,0,1,1
+1416,UNC Chapel Hill,university,35.91,-79.06,location,0,0.2758949041395304,7,0,7,7
+1417,University of South Carolina,university,34.0,-81.03,location,37,0.059740975950049686,2,0,2,2
+1418,University of Tokyo,university,35.67,139.74,location,38,0.038449582612480854,3,0,3,3
+1420,University of Virginia,university,38.03,-78.52,location,39,0.1373557655345063,5,0,5,5
+1422,UC San Diego,university,32.72,-117.16,location,6,0.025474077795660525,2,0,2,2
+1425,University of Southampton,university,50.93,-1.4,location,40,0.01279478929508688,1,0,1,1
+1426,Black Mesa Technologies LLC,university,37.17,-95.85,location,8,0.015151445359708202,1,0,1,1
+1429,Concordia University,university,33.66,-117.81,location,34,0.011530906859733172,1,0,1,1
+1432,Korea University,university,37.59,127.03,location,28,0.11405521692634533,5,0,5,5
+1434,Edinburgh College of Art,university,55.94,-3.2,location,0,0.029429567367673933,1,0,1,1
+1436,Graduate Institute of Applied Linguistics,university,44.89,-87.29,location,36,0.03989595204877947,2,0,2,2
+1438,University of Victoria,university,48.47,-123.31,location,41,0.08030473449410606,4,0,4,4
+1440,INRIA,university,48.12,-1.64,location,21,0.013020275261300859,1,0,1,1
+1441,Miami University of Ohio,university,39.51,-84.73,location,42,0.011630892143112491,1,0,1,1
+1442,National Center for Supercomputing Applications,university,47.11,-101.3,location,37,0.22103546459122375,4,0,4,4
+1443,National Institute for Technology in Liberal Education,university,37.03,-100.93,location,43,0.009968944081266464,1,0,1,1
+1446,National Taiwan University,university,23.6,121.02,location,44,0.20109810308955609,6,0,6,6
+1447,Ritsumeikan University,university,35.01,135.74,location,19,0.40834976661954764,11,0,11,11
+1448,Scuola Normale Superiore di Pisa,university,43.71,10.4,location,45,0.04972775331729825,3,0,3,3
+1449,Smithsonian American Art Museum,university,38.89,-77.04,location,18,0.01799215921390659,1,0,1,1
+1450,The California Institute for Telecommunications and Information Technology,university,32.72,-117.16,location,6,0.011298074945774728,1,0,1,1
+1451,Stanford University,university,37.43,-122.17,location,4,0.43359730446799954,12,0,12,12
+1452,University of Birmingham,university,52.45,-1.93,location,21,0.012385410111022736,1,0,1,1
+1453,Tel Aviv University,university,32.05,34.77,location,9,0.03316143652101641,2,0,2,2
+1456,Trinity College Dublin,university,53.34,-6.26,location,46,0.013152579377344644,1,0,1,1
+1457,UC Merced,university,37.3,-120.49,location,11,0.01820380596562197,1,0,1,1
+1461,University of Colorado at Colorado Springs,university,38.91,-104.77,location,59,0.009930117631680398,1,0,1,1
+1466,University of Miami,university,25.7,-80.29,location,50,0.009876064218022495,1,0,1,1
+1467,University of Strathclyde,university,55.86,-4.24,location,21,0.045576301703177224,2,0,2,2
+1469,University of Twente,university,52.31,6.7,location,23,0.012151091793607283,1,0,1,1
+1472,University of Wurzburg,university,49.79,9.94,location,42,0.01307980229138202,1,0,1,1
+1473,West Virginia University,university,39.65,-79.96,location,50,0.03380050555898861,2,0,2,2
+1476,"Academy of Fine Arts, Krakow",university,50.06,19.93,location,41,0.01975571058809513,1,0,1,1
+1477,Acadia University,university,45.09,-64.37,location,22,0.018391494606133884,1,0,1,1
+1478,California Digital Library,university,37.27,-119.27,location,39,0.013416192542477709,1,0,1,1
+1479,The Open University,university,52.02,-0.71,location,40,0.01279478929508688,1,0,1,1
+1482,Ochanomizu University,university,35.72,139.73,location,19,0.014836446344812985,1,0,1,1
+1486,MIT,university,35.5,-119.18,location,50,0.01501941321374516,1,0,1,1
+1488,National e-Science Centre,university,34.15,-85.68,location,36,0.013094609541856067,1,0,1,1
+1489,Netherlands Institute of War Documentation,university,52.11,5.33,location,21,0.021101350697322947,1,0,1,1
+1491,Royal Irish Academy Address,university,53.42,-8.24,location,42,0.023791376401399215,1,0,1,1
+1492,Shippensburg University,university,34.37,-89.53,location,34,0.011530906859733172,1,0,1,1
+1495,UCLA,university,34.06,-118.44,location,0,0.18527711313957804,6,0,6,6
+1496,University of Bergen,university,60.39,5.33,location,8,0.011470020406694436,1,0,1,1
+1497,University of Florida,university,29.65,-82.34,location,18,0.01799215921390659,1,0,1,1
+1499,University of Illinois at Urbana-Champaign,university,40.11,-83.75,location,50,0.13099754753194484,5,0,5,5
+1500,University of Kentucky,university,38.03,-84.5,location,27,0.01767077339600745,1,0,1,1
+1502,University of Melbourne,university,-37.8,144.96,location,36,0.03576403518925419,2,0,2,2
+1503,University of Nottingham,university,52.96,-1.15,location,4,0.05673043937478592,3,0,3,3
+1504,Birmingham City University,university,52.52,-1.9,location,21,0.012385410111022736,1,0,1,1
+1507,University of Edinburgh,university,55.95,-3.19,location,40,0.01279478929508688,1,0,1,1
+1508,Michigan State University,university,42.73,-84.49,location,37,0.22103546459122375,4,0,4,4
+1512,UC Santa CRuz,university,36.97,-122.03,location,50,0.026276425410144834,2,0,2,2
+1513,University of Pennsylvania,university,39.95,-75.19,location,36,0.02082905675711141,1,0,1,1
+1514,University of Toronto,university,43.67,-79.4,location,22,0.029735156437167693,2,0,2,2
+1515,Brown University,university,41.83,-71.4,location,50,0.07973387778874094,4,0,4,4
+1519,University of Sheffield,university,53.38,-1.49,location,37,0.10006889668255425,2,0,2,2
+1520,University of Washington,university,47.65,-122.31,location,36,0.015454667148562739,1,0,1,1
+1521,UC Irvine,university,33.64,-117.84,location,11,0.01820380596562197,1,0,1,1
+1523,An Foras Feasa,university,53.42,-8.24,location,12,0.04358437737846283,3,0,3,3
+1524,University of Southern California,university,34.02,-118.28,location,0,0.04107626477206088,2,0,2,2
+1525,Austrian Academy of Sciences,university,30.98,-97.34,location,51,0.008310085698683281,1,0,1,1
+1528,King's College London,university,51.54,-0.16,location,21,1.0,17,0,17,17
+1529,University of Nebraska-Lincoln,university,40.82,-96.7,location,52,0.04358437737846283,3,0,3,3
+1530,Center for Digtial Humanities (Belgrade),university,47.11,-101.3,location,3,0.022368834398077214,2,0,2,2
+1534,Digital Antiquity,university,38.95,-81.91,location,53,0.022368834398077214,2,0,2,2
+1536,Duke University,university,36.0,-78.94,location,27,0.04336658760959439,3,0,3,3
+1537,Electronic Textual Cultures Laboratory,university,56.95,-98.31,location,54,0.04358437737846283,3,0,3,3
+1538,Rice University,university,29.72,-95.39,location,13,0.008310085698683281,1,0,1,1
+1539,Fryske Akademy/Leiden University,university,52.15,4.49,location,2,0.008310085698683281,1,0,1,1
+1540,George Mason University,university,38.83,-77.31,location,55,0.008310085698683281,1,0,1,1
+1541,Graduate School of Library and Information Science,university,37.17,-95.85,location,56,0.022368834398077214,2,0,2,2
+1542,Hamilton College,university,43.05,-75.41,location,57,0.008310085698683281,1,0,1,1
+1544,Huygens ING - Royal Netherlands Academy of Arts and Sciences,university,52.11,5.33,location,39,0.1062189123510789,5,0,5,5
+1545,Idaho State University,university,42.86,-112.43,location,11,0.03737750239671731,2,0,2,2
+1546,Indiana University,university,39.17,-86.53,location,30,0.8224631884142642,14,0,14,14
+1548,New York University,university,40.73,-74.0,location,27,0.09197407286922461,5,0,5,5
+1550,Loyola University Chicago,university,42.0,-87.66,location,7,0.022368834398077214,2,0,2,2
+1551,National Endowment for the Humanities,university,37.17,-95.85,location,14,0.008310085698683281,1,0,1,1
+1553,Newberry Library,university,40.29,-80.01,location,20,0.008310085698683281,1,0,1,1
+1555,"Pedagogical University, Krakow",university,50.06,19.93,location,1,0.041055602166989356,2,0,2,2
+1556,Rijksuniversiteit Groningen,university,53.22,6.56,location,31,0.11405521692634533,5,0,5,5
+1558,San Jose State University,university,37.34,-121.88,location,58,0.008310085698683281,1,0,1,1
+1561,Tokyo Institute of Technology,university,35.6,139.68,location,38,0.06363162682069139,4,0,4,4
+1562,UC Berkeley,university,37.87,-122.26,location,39,0.06215315061744914,4,0,4,4
+1563,University College London,university,51.52,-0.13,location,22,0.5296313748999643,11,0,11,11
+1566,Universidad Nacional Autonoma de Mexico,university,19.43,-99.13,location,22,0.11911622179292103,5,0,5,5
+1567,Universitat Wurzburg,university,49.79,9.94,location,25,0.008310085698683281,1,0,1,1
+1569,University Denis-Diderot Paris VII,university,48.85,2.36,location,26,0.008310085698683281,1,0,1,1
+1570,SUNY Buffalo,university,42.69,-73.82,location,59,0.08155395676271278,4,0,4,4
+1576,University of Chicago,university,41.79,-87.6,location,5,0.04358437737846283,3,0,3,3
+1578,University of Illinois,university,40.11,-88.23,location,37,0.29047371640882935,5,0,5,5
+1579,University of Leipzig,university,51.34,12.38,location,22,0.07289231118529549,4,0,4,4
+1580,"University of MaÃƒâ€šÃ‚Â¡laga, Spain",university,36.72,-4.42,location,45,0.017191711176131,1,0,1,1
+1581,University of Maribor,university,46.56,15.65,location,60,0.023735508989739633,2,0,2,2
+1583,University of Minnesota Duluth,university,46.81,-92.07,location,61,0.008310085698683281,1,0,1,1
+1584,University of Oklahoma,university,35.21,-97.45,location,62,0.07354916214034855,4,0,4,4
+1585,University of Oulu,university,65.06,25.47,location,60,0.09507008891309823,4,0,4,4
+1586,Oxford,university,51.75,-1.26,location,63,0.04539100191227414,3,0,3,3
+1587,University of Queensland,university,-27.5,153.01,location,24,0.008310085698683281,1,0,1,1
+1589,University of Stavanger,university,58.97,5.73,location,10,0.008310085698683281,1,0,1,1
+1592,University of Tours,university,47.39,0.69,location,64,0.036772152741435256,3,0,3,3
+1594,"University of Tabingen, Germany",university,48.52,9.05,location,15,0.11405521692634533,5,0,5,5
+1596,University of Wisconsin-Madison,university,43.08,-89.4,location,65,0.008310085698683281,1,0,1,1
+1597,USC Upstate,university,34.02,-118.28,location,17,0.022368834398077214,2,0,2,2
+1598,Wheaton College,university,41.97,-71.18,location,43,0.013594372799790838,1,0,1,1
+1599,Worms University of Applied Sciences,university,49.63,8.36,location,66,0.022368834398077214,2,0,2,2
