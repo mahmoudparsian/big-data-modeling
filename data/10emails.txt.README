@@ -1,0 +1,9 @@
+The 10emails.txt file has 10 emails and each record has the following format:
+<email-ID><TAB><email>
+
+When you report your results, the output will have the following format:
+
+<email-ID> <TAG>
+
+where TAG can be in {spam, nospam}
+
