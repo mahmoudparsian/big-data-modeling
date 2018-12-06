@@ -1,0 +1,226 @@
+$ ./bin/hbase shell
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+
+hbase(main):010:0* list
+TABLE
+t1
+table2
+2 row(s) in 0.1500 seconds
+
+=> ["t1", "table2"]
+
+hbase(main):019:0* create 'emps', 'cf1', 'cf2', 'cf3'
+0 row(s) in 2.2990 seconds
+
+=> Hbase::Table - emps
+hbase(main):020:0> list
+TABLE
+emps
+t1
+table2
+3 row(s) in 0.0110 seconds
+
+=> ["emps", "t1", "table2"]
+hbase(main):021:0>
+hbase(main):028:0* describe 'emps'
+Table emps is ENABLED
+emps
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'cf1', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALS
+E', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCA
+CHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'cf2', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALS
+E', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCA
+CHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+{NAME => 'cf3', BLOOMFILTER => 'ROW', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALS
+E', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS => '0', BLOCKCA
+CHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}
+3 row(s) in 0.0800 seconds
+
+hbase(main):029:0> scan 'emps'
+ROW                         COLUMN+CELL
+0 row(s) in 0.0260 seconds
+
+hbase(main):030:0> put 'emps', 'row001', 'cf1:name', 'alex'
+0 row(s) in 0.0630 seconds
+
+hbase(main):031:0> put 'emps', 'row001', 'cf1:lastname', 'smith'
+0 row(s) in 0.0040 seconds
+
+hbase(main):032:0> put 'emps', 'row001', 'cf1:age', '34'
+0 row(s) in 0.0030 seconds
+
+hbase(main):033:0> scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511835991489, value=34
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+1 row(s) in 0.0200 seconds
+
+hbase(main):034:0> put 'emps', 'row001', 'cf1:age', '55'
+0 row(s) in 0.0030 seconds
+
+hbase(main):035:0> scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+1 row(s) in 0.0140 seconds
+
+hbase(main):036:0>
+hbase(main):037:0*
+hbase(main):038:0*
+hbase(main):039:0* put 'emps', 'row002', 'cf1:age', '60'
+0 row(s) in 0.0120 seconds
+
+hbase(main):040:0> put 'emps', 'row002', 'cf2:salary', '600000'
+0 row(s) in 0.0050 seconds
+
+hbase(main):041:0> scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+2 row(s) in 0.0180 seconds
+
+hbase(main):042:0> put 'emps', 'row002', 'cf3:city', 'sunnyvale'
+0 row(s) in 0.0050 seconds
+
+hbase(main):043:0> put 'emps', 'row002', 'cf3:state', 'ca'
+0 row(s) in 0.0030 seconds
+
+hbase(main):049:0* scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+2 row(s) in 0.0230 seconds
+
+
+hbase(main):001:0> scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+2 row(s) in 0.1870 seconds
+
+hbase(main):002:0>
+hbase(main):003:0*
+hbase(main):004:0*
+hbase(main):005:0* get 'emps', 'row001'
+COLUMN                      CELL
+ cf1:age                    timestamp=1511836038807, value=55
+ cf1:lastname               timestamp=1511835977357, value=smith
+ cf1:name                   timestamp=1511835965777, value=alex
+3 row(s) in 0.0300 seconds
+
+hbase(main):006:0> get 'emps', 'row002'
+COLUMN                      CELL
+ cf1:age                    timestamp=1511836073423, value=60
+ cf2:salary                 timestamp=1511836099382, value=600000
+ cf3:city                   timestamp=1511836200345, value=sunnyvale
+ cf3:state                  timestamp=1511836211136, value=ca
+4 row(s) in 0.0050 seconds
+
+hbase(main):007:0>
+hbase(main):008:0* get 'emps', 'row002000'
+COLUMN                      CELL
+0 row(s) in 0.0010 seconds
+
+
+hbase(main):011:0* scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+2 row(s) in 0.0260 seconds
+
+hbase(main):012:0> put 'emps', 'row003', 'cf1:key1', 'value1111111'
+0 row(s) in 0.0500 seconds
+
+hbase(main):013:0> put 'emps', 'row004', 'cf1:key1000', 'value1000'
+0 row(s) in 0.0030 seconds
+
+hbase(main):014:0> scan 'emps'
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+ row003                     column=cf1:key1, timestamp=1511836496377, value=value1111111
+ row004                     column=cf1:key1000, timestamp=1511836513460, value=value1000
+4 row(s) in 0.0200 seconds
+
+hbase(main):015:0> scan 'emps' ,
+hbase(main):016:0* {STARTROW => 'row000'}
+ROW                         COLUMN+CELL
+ row001                     column=cf1:age, timestamp=1511836038807, value=55
+ row001                     column=cf1:lastname, timestamp=1511835977357, value=smith
+ row001                     column=cf1:name, timestamp=1511835965777, value=alex
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+ row003                     column=cf1:key1, timestamp=1511836496377, value=value1111111
+ row004                     column=cf1:key1000, timestamp=1511836513460, value=value1000
+4 row(s) in 0.0210 seconds                                                      ^
+
+hbase(main):002:0> scan 'emps', {STARTROW => 'row002', STOPROW => 'row004'}
+ROW                         COLUMN+CELL
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+ row003                     column=cf1:key1, timestamp=1511836496377, value=value1111111
+2 row(s) in 0.1780 seconds
+
+hbase(main):003:0> scan 'emps', {STARTROW => 'row002', STOPROW => 'row005'}
+ROW                         COLUMN+CELL
+ row002                     column=cf1:age, timestamp=1511836073423, value=60
+ row002                     column=cf2:salary, timestamp=1511836099382, value=600000
+ row002                     column=cf3:city, timestamp=1511836200345, value=sunnyvale
+ row002                     column=cf3:state, timestamp=1511836211136, value=ca
+ row003                     column=cf1:key1, timestamp=1511836496377, value=value1111111
+ row004                     column=cf1:key1000, timestamp=1511836513460, value=value1000
+3 row(s) in 0.0100 seconds
+
+hbase(main):004:0> get 'emps', 'row004'
+COLUMN                      CELL
+ cf1:key1000                timestamp=1511836513460, value=value1000
+1 row(s) in 0.0260 seconds
+
+hbase(main):005:0> get 'emps', 'row002'
+COLUMN                      CELL
+ cf1:age                    timestamp=1511836073423, value=60
+ cf2:salary                 timestamp=1511836099382, value=600000
+ cf3:city                   timestamp=1511836200345, value=sunnyvale
+ cf3:state                  timestamp=1511836211136, value=ca
+4 row(s) in 0.0060 seconds
+
+hbase(main):006:0> get 'emps', 'row001'
+COLUMN                      CELL
+ cf1:age                    timestamp=1511836038807, value=55
+ cf1:lastname               timestamp=1511835977357, value=smith
+ cf1:name                   timestamp=1511835965777, value=alex
+3 row(s) in 0.0040 seconds
+
+hbase(main):007:0>
