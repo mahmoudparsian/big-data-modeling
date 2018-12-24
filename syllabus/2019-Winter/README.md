@@ -25,11 +25,9 @@
 
 ## Course Description & Objectives
 
-* The purpose of this class is to understand the fundamentals 
-of big data, MapReduce, and use Spark, PySpark, and Hadoop to 
-solve simple big data problems. 
-
-* Another purpose is to use SQL for NoSQL data
+* Understand the fundamentals of big data and MapReduce
+* Use Spark and PySpark to solve big data problems
+* Use SQL for NoSQL data (DataFrames in Spark)
 
 ## Objectives
 
