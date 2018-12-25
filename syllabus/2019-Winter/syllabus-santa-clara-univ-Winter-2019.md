@@ -185,142 +185,184 @@ The weekly coverage might change as it depends on the progress of the class.
 However, you must keep up with the reading assignments.
 
 ----------------
-* 1: January 8, 2019
-
-	* Introduction to Big Data
-	* [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
-	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf)
-
-		    
-----------------		
-* 2: January 10, 2019
-
-	* Introduction to Big Data
-	* [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
-	* [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
-
-		    
-----------------			
-* 3: January 15, 2019
-
-	* Introduction to MapReduce: Watch a Video    
-	* [The Future of Big Data by Matei Zaharia](https://www.youtube.com/watch?v=oSj2vYw5RLs)    
-	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)    
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
-	 
+   
 ----------------
-* 4: January 17, 2019
+| Session-1:  January 8, 2019 |
+|:----------------------------|
+| 	* Introduction to Big Data |
+|	* [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
+|	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf) |
+|	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) |
 
-	* Introduction to MapReduce: Watch a Video    
-	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)    
-	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)    
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)    
-	   
-----------------
-* 5: January 22, 2019
-
-	* Introduction to MapReduce/Hadoop/Spark    
-	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)    
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
-	 
-----------------
-* 6: January 24, 2019
-
-	* Practice MapReduce/Hadoop/Spark    
-	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)    
-	* [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)    
-
-	
-----------------
-* 7: January 29, 2019
-
-	* Spark Nuts and Bolts  
-	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI)    
-	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)    
-	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) 
-
-	   
-----------------
-* 8: January 31, 2019
-
-	* MapReduce Design Patterns:
-		* MinMax
-		* Top-10  
-	* [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
 
 ----------------	
-* 9: February 5, 2019
-	* Review Midterm Exam
 
 ----------------
-* 10: February 7, 2019  
-	* Midterm Exam: closed book/notes 
+| Session-2: January 10, 2019  |
+|:-----------------------------|
+|	* Introduction to Big Data |
+|	* [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf) |
+|	* [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |
+
+
+----------------	
+		    
+----------------			
+| Session-3: January 15, 2019 |
+|:----------------------------|
+| * Introduction to MapReduce: Watch a Video   |  
+|	* [The Future of Big Data by Matei Zaharia](https://www.youtube.com/watch?v=oSj2vYw5RLs)  |  
+|	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  |  
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+	 
+----------------
+
+----------------			
+| Session-4: January 17, 2019 |
+|:------------|
+| * Introduction to MapReduce: Watch a Video    
+|	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  |  
+|	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |   
+	   
+----------------
+
+----------------			
+| Session-5: January 22, 2019 |
+|:------------|
+| * Introduction to MapReduce/Hadoop/Spark |   
+|	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+	 
+----------------
+
+----------------			
+| Session-6: January 24, 2019 |
+|:------------|
+|   * Practice MapReduce/Hadoop/Spark  |  
+|   * [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
+|   * [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  |  
+
+	
+----------------
+
+----------------			
+| Session-7: January 29, 2019 |
+|:------------|
+|   * Spark Nuts and Bolts    |
+|	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) |   
+|	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
+|	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) | 
+
+	   
+----------------
+
+----------------			
+| Session-8: January 31, 2019  |
+|:------------|
+| * MapReduce Design Patterns: |
+| * MinMax                     |
+| * Top-10                     |
+| * [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |  
+
+----------------	
+
+----------------			
+| Session-9: February 5, 2019  |
+|:------------|
+|	* Review Midterm Exam      |
+
+----------------
+
+----------------			
+| Session-10: February 7, 2019 |
+|:------------|
+|	* Midterm Exam: closed book/notes |
  
 ----------------
-* 11: February 12, 2019
-	* MapReduce Design Patterns
-	* Top-10 Algorithm
-	* MinMax Algorithm
-	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) 
+
+----------------			
+| Session-11: February 12, 2019 |
+|:------------|
+|	* MapReduce Design Patterns |
+|	* Top-10 Algorithm          |
+|	* MinMax Algorithm          |
+|	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
 	   
+----------------
 
 ----------------
-* 12: February 14, 2019
+| Session-12: February 14, 2019 |
+|:------------|
+| * MapReduce Design Pattern: mapPartitions()  |
 
-	* MapReduce Design Pattern: mapPartitions()  
-
+----------------
 	
 ----------------
-* 13: February 19, 2019
-
-	* MapReduce Design Pattern: Graph Algorithms 
+| Session-13: February 19, 2019 |
+|:------------|
+| * MapReduce Design Pattern: Graph Algorithms |
 
 	 
 ----------------
-* 14: February 21, 2019
-
-	* MapReduce Design Pattern: Clustering Algorithms  
-
-	
-----------------
-* 15: February 26, 2019
-
-	* MapReduce Design Pattern: Recommendation Algorithms 
+| Session-14: February 21, 2019 |
+|:------------|
+|* MapReduce Design Pattern: Clustering Algorithms |  
 
 	
 ----------------
-* 16: February 28, 2019
 
-	* Introduction to HBase (Hadoop Database)  
+----------------
+| Session-15: February 26, 2019 |
+|:------------|
+| * MapReduce Design Pattern: Recommendation Algorithms |
 
 	
 ----------------
-* 17: March 5, 2019
 
-	* Introduction to HBase (Hadoop Database)  
-	* Relational Algebra and Big Data  
+----------------
+| Session-16: February 28, 2019 |
+|:------------|
+| * Introduction to HBase (Hadoop Database) | 
+
 	
 ----------------
-* 18: March 7, 2019
 
-	* Relational Algebra and Big Data  
+----------------
+| Session-17: March 5, 2019     |
+|:------------|
+| * Introduction to HBase (Hadoop Database) | 
+| * Relational Algebra and Big Data         |
 	
 ----------------
-* 19: March 12, 2019
 
-	* Review for Final Exam 
+----------------	
+| Session-18: March 7, 2019     |
+|:------------|
+| * Relational Algebra and Big Data  |
+	
+----------------
+
+----------------	
+| Session-19: March 12, 2019    |
+|:------------|
+| * Review for Final Exam       |
 	 
 ----------------
-* 20: March 14, 2018
 
-	* Review for Final Exam  
+----------------	
+| Session-20: March 14, 2018    |
+|:------------|
+| * Review for Final Exam       |
 
 ----------------
 
-* 21: **Winter Final Exam** 
-	* Date: TBDL, 5:45-7:45 PST
+----------------	
+| Session-21: **Winter Final Exam** |
+|:------------|
+| * Date: TBDL, 5:45-7:45 PST       |
+
 
 ----------------	
 
