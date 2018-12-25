@@ -304,6 +304,7 @@ However, you must keep up with the reading assignments.
 |:------------|
 | * MapReduce Design Pattern: Graph Algorithms |
 
+----------------
 	 
 ----------------
 | Session-14: February 21, 2019 |
