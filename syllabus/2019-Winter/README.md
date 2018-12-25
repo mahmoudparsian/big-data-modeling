@@ -280,68 +280,88 @@ However, you must keep up with the reading assignments.
 |	* Midterm Exam: closed book/notes |
  
 ----------------
-* 11: February 12, 2019
-	* MapReduce Design Patterns
-	* Top-10 Algorithm
-	* MinMax Algorithm
-	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) 
+
+----------------			
+| Session-11: February 12, 2019 |
+| ---------------------------   |
+|	* MapReduce Design Patterns |
+|	* Top-10 Algorithm          |
+|	* MinMax Algorithm          |
+|	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
 	   
+----------------
 
 ----------------
-* 12: February 14, 2019
+| Session-12: February 14, 2019 |
+| ---------------------------   |
+| * MapReduce Design Pattern: mapPartitions()  |
 
-	* MapReduce Design Pattern: mapPartitions()  
-
+----------------
 	
 ----------------
-* 13: February 19, 2019
-
-	* MapReduce Design Pattern: Graph Algorithms 
+| Session-13: February 19, 2019 |
+| ---------------------------   |
+| * MapReduce Design Pattern: Graph Algorithms |
 
 	 
 ----------------
-* 14: February 21, 2019
-
-	* MapReduce Design Pattern: Clustering Algorithms  
-
-	
-----------------
-* 15: February 26, 2019
-
-	* MapReduce Design Pattern: Recommendation Algorithms 
+| Session-14: February 21, 2019 |
+| ---------------------------   |
+|* MapReduce Design Pattern: Clustering Algorithms |  
 
 	
 ----------------
-* 16: February 28, 2019
 
-	* Introduction to HBase (Hadoop Database)  
+----------------
+| Session-15: February 26, 2019 |
+| ---------------------------   |
+| * MapReduce Design Pattern: Recommendation Algorithms |
 
 	
 ----------------
-* 17: March 5, 2019
 
-	* Introduction to HBase (Hadoop Database)  
-	* Relational Algebra and Big Data  
+----------------
+| Session-16: February 28, 2019 |
+| ---------------------------   |
+| * Introduction to HBase (Hadoop Database) | 
+
 	
 ----------------
-* 18: March 7, 2019
 
-	* Relational Algebra and Big Data  
+----------------
+| Session-17: March 5, 2019     |
+| ---------------------------   |
+| * Introduction to HBase (Hadoop Database) | 
+| * Relational Algebra and Big Data         |
 	
 ----------------
-* 19: March 12, 2019
 
-	* Review for Final Exam 
+----------------	
+| Session-18: March 7, 2019     |
+| ---------------------------   |
+| * Relational Algebra and Big Data  |
+	
+----------------
+
+----------------	
+| Session-19: March 12, 2019    |
+| ---------------------------   |
+| * Review for Final Exam       |
 	 
 ----------------
-* 20: March 14, 2018
 
-	* Review for Final Exam  
+----------------	
+| Session-20: March 14, 2018    |
+| ---------------------------   |
+| * Review for Final Exam       |
 
 ----------------
 
-* 21: **Winter Final Exam** 
-	* Date: TBDL, 5:45-7:45 PST
+----------------	
+| Session-21: **Winter Final Exam** |
+| ---------------------------       |
+| * Date: TBDL, 5:45-7:45 PST       |
+
 
 ----------------	
 
