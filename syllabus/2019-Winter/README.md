@@ -5,8 +5,8 @@
 ## [MSIS 2627 : Big Data Modeling and Analytics](https://legacy.scu.edu/legacy/courseavail/t4/catalog.cfm?subject=MSIS&acad_career=GRAD#collapse11)
 
 * Class hours: 
-	** Tuesday 5:45PM - 7:00PM PST
-	** Thursday 5:45PM - 7:00PM PST
+	* Tuesday 5:45PM - 7:00PM PST
+	* Thursday 5:45PM - 7:00PM PST
 
 * Class room: Lucas Hall 210
 
@@ -20,7 +20,7 @@
 
 * Office Location: 321 T, Lucas Hall
 
-* Office Hours: TBDL
+* Office Hours: By Appointment
 
 
 ## Course Description & Objectives
