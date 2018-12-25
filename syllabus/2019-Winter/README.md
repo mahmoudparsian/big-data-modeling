@@ -194,6 +194,8 @@ However, you must keep up with the reading assignments.
 |	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf) |
 |	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) |
 
+----------------	
+
 ----------------
 | Session-2: January 10, 2019 |
 | --------------------------- |
@@ -235,37 +237,47 @@ However, you must keep up with the reading assignments.
 ----------------
 
 ----------------			
-* 6: January 24, 2019         |
+| Session-6: January 24, 2019 |
 | --------------------------- |
-|   * Practice MapReduce/Hadoop/Spark    
+|   * Practice MapReduce/Hadoop/Spark  |  
 |   * [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
 |   * [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  |  
 
 	
 ----------------
-* 7: January 29, 2019
 
-	* Spark Nuts and Bolts  
-	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI)    
-	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)    
-	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) 
+----------------			
+| Session-7: January 29, 2019 |
+| --------------------------- |
+|   * Spark Nuts and Bolts    |
+|	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) |   
+|	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
+|	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) | 
 
 	   
 ----------------
-* 8: January 31, 2019
 
-	* MapReduce Design Patterns:
-		* MinMax
-		* Top-10  
-	* [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
+----------------			
+| Session-8: January 31, 2019  |
+| ---------------------------  |
+| * MapReduce Design Patterns: |
+| * MinMax                     |
+| * Top-10                     |
+| * [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |  
 
 ----------------	
-* 9: February 5, 2019
-	* Review Midterm Exam
+
+----------------			
+| Session-9: February 5, 2019  |
+| ---------------------------  |
+|	* Review Midterm Exam      |
 
 ----------------
-* 10: February 7, 2019  
-	* Midterm Exam: closed book/notes 
+
+----------------			
+| Session-10: February 7, 2019 |
+| ---------------------------  |
+|	* Midterm Exam: closed book/notes |
  
 ----------------
 * 11: February 12, 2019
