@@ -104,9 +104,9 @@ B+    | 3.3
 B     | 3.0
 B-    | 2.7
 C+    | 2.3
-C     | 2.0		
+C     | 2.0
 C-    | 1.7
-F     | 0.0		
+F     | 0.0
 
 
 ## Grading Scale 
@@ -195,7 +195,7 @@ However, you must keep up with the reading assignments.
 |	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) |
 
 
-----------------	
+----------------
 
 ----------------
 | Session-2: January 10, 2019  |
@@ -206,9 +206,9 @@ However, you must keep up with the reading assignments.
 |	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |
 
 
-----------------	
-		    
-----------------			
+----------------
+    
+----------------
 | Session-3: January 15, 2019 |
 |:----------------------------|
 | * Introduction to MapReduce: Watch a Video   |  
@@ -218,7 +218,7 @@ However, you must keep up with the reading assignments.
 	 
 ----------------
 
-----------------			
+----------------
 | Session-4: January 17, 2019 |
 |:------------|
 | * Introduction to MapReduce: Watch a Video    
@@ -228,7 +228,7 @@ However, you must keep up with the reading assignments.
 	   
 ----------------
 
-----------------			
+----------------
 | Session-5: January 22, 2019 |
 |:------------|
 | * Introduction to MapReduce/Hadoop/Spark |   
@@ -237,7 +237,7 @@ However, you must keep up with the reading assignments.
 	 
 ----------------
 
-----------------			
+----------------
 | Session-6: January 24, 2019 |
 |:------------|
 |   * Practice MapReduce/Hadoop/Spark  |  
@@ -247,7 +247,7 @@ However, you must keep up with the reading assignments.
 	
 ----------------
 
-----------------			
+----------------
 | Session-7: January 29, 2019 |
 |:------------|
 |   * Spark Nuts and Bolts    |
@@ -258,7 +258,7 @@ However, you must keep up with the reading assignments.
 	   
 ----------------
 
-----------------			
+----------------
 | Session-8: January 31, 2019  |
 |:------------|
 | * MapReduce Design Patterns: |
@@ -266,16 +266,16 @@ However, you must keep up with the reading assignments.
 | * Top-10                     |
 | * [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |  
 
-----------------	
+----------------
 
-----------------			
+----------------
 | Session-9: February 5, 2019  |
 |:------------|
 |	* Review Midterm Exam      |
 
 ----------------
 
-----------------			
+----------------
 | Session-10: February 7, 2019 |
 |:------------|
 |	* Midterm Exam: closed book/notes |

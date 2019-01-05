@@ -33,11 +33,11 @@
 
 
 ## Midterm Exam 
-* Midterm Exam Date: **TBDL**
+* Midterm Exam Date: **February 7, 2019**
 * Midterm Exam Time: **5:45PM - 7:00PM PST**
 
 ## Final Exam 
-* Final Exam Date: **TBDL**
+* Final Exam Date: **March 19, 2019**
 * Final Exam Time: **5:45PM - 7:45PM PST**
 
 ----------------------------
