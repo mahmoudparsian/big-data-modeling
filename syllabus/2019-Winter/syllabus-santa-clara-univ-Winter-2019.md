@@ -8,7 +8,7 @@
 	* Tuesday 5:45PM - 7:00PM PST
 	* Thursday 5:45PM - 7:00PM PST
 
-* Class room: Lucas Hall 210
+* Class room: Lucas Hall 309
 
 * Adjunct Professor: Mahmoud Parsian
 	* Ph.D in Computer Science
@@ -18,7 +18,7 @@
  
 * [Class GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
-* Office Location: 321 T, Lucas Hall
+* Office Location: 221 W, Lucas Hall
 
 * Office Hours: By Appointment
 
