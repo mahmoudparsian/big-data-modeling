@@ -21,6 +21,7 @@
 * 3.5 Spark's DataFrames
 * 3.6 Spark's SQL
 * 3.7 SQL for No-SQL 
+* 3.8 Graph Algorithms and Motif finding
 
 #### 4. Amazon Athena
 * 4.1 What is Athena?
