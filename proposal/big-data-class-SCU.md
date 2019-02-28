@@ -57,7 +57,7 @@
 
 ## Required Books, Papers, and Documentation 
 
-* [1. PySpark in Action by Mahmoud Parsian, to be published by end of 2019](https://www.manning.com)
+* [1. PySpark in Action book by Mahmoud Parsian, to be published by Manning by end of 2019](https://www.manning.com)
 * [2. A Very Brief Introduction to MapReduce by Diana MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 * [3. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 * [4. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
