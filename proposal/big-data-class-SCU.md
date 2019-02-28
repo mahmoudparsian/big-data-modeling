@@ -29,12 +29,12 @@
 * 4.4 Data partitioning and Performance
 * 4.5 SQL for No-SQL 
 
-#### 5. Machine Learning Algorithms on Big Data
+#### 5. Machine Learning Algorithms on Big Data (Spark solutions)
 * 5.1 Logistic Regression 
 * 5.2 Recommendation systems
 * 5.3 Classification
 
-#### 6. MapReduce Design Patterns
+#### 6. MapReduce Design Patterns (Spark solutions)
 * 6.1 Top-N algorithms
 * 6.2 MinMax Algorithm
 * 6.3 InMapper Combining
