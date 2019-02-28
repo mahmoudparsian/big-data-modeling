@@ -63,3 +63,4 @@
 * [4. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * [5. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 * [6. Apache Spark](http://spark.apache.org/)
+* [7. Amazon Athena](https://aws.amazon.com/athena/)
