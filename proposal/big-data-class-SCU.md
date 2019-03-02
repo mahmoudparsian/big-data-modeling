@@ -12,6 +12,7 @@
 * 2.2 Distributed and functional programming
 * 2.3 MapReduce paradigm: `map()`, `reduce()`, `combine()`
 * 2.4 Fault Tolerance and replication of data
+* 2.5 Correctness of MapReduce Algorithms and Monoids
 
 #### 3. Introduction to Spark
 * 3.1 Very brief History of Hadoop and Spark
@@ -42,18 +43,15 @@
 * 6.4 Filtering patterns
 * 6.5 Mapping Partitions
 
-#### 7. Correctness of MapReduce Algorithms
-* 7.1  Understand Monoids
-* 7.2  Mapping Relational to MapReduce
 
-#### 8. Big Data Databases
-* 8.1 Google Big Table
-* 8.2 HBase (Hadoop database)
-* 8.3 ElasticSearch 
+#### 7. Big Data Databases
+* 7.1 Google Big Table
+* 7.2 HBase: Hadoop Database
+* 7.3 ElasticSearch 
 
-#### 9. Streaming Data
-* 9.1 What is Streaming
-* 9.2 Streaming in Spark
+#### 8. Streaming Data
+* 8.1 What is Streaming
+* 8.2 Streaming in Spark
 
 
 ## Required Books, Papers, and Documentation 
