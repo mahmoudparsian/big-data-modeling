@@ -358,7 +358,7 @@ Required Reading:
 
 1. [A Gentle Introduction to Stream Processing](https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97)
 
-2.[What is Streaming Data?](https://aws.amazon.com/streaming-data/)
+2. [What is Streaming Data?](https://aws.amazon.com/streaming-data/)
 
 3. [Streaming data with Spark](https://spark.apache.org/streaming/)
 	   
