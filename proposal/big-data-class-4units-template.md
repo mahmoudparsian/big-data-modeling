@@ -104,17 +104,13 @@ Upon successful completion of the course, students will be able to:
 
 Required Reading:
 
-1. [THE 4 V’S OF BIG DATA]
-	(https://www.dummies.com/careers/find-a-job/the-4-vs-of-big-data/)
+1. [THE 4 V’S OF BIG DATA](https://www.dummies.com/careers/find-a-job/the-4-vs-of-big-data/)
 
-2. [Chapter 1 of Data-Intensive Text Processing with MapReduce]
-	(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+2. [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-3. [A Very Brief Introduction to MapReduce]
-	(http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+3. [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
  
-4. [Introduction to MapReduce]
-	(http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf)
+4. [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf)
 
 
 ### Session-2
@@ -123,14 +119,11 @@ Required Reading:
 
 Required Reading:
 
-1. [Introduction to MapReduce by Mahmoud Parsian]
-(http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+1. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 
-2. [Chapter 2 of Data-Intensive Text Processing with MapReduce]
-(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+2. [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-3. [Introduction to MapReduce and Hadoop by Matei Zaharia]
-(https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+3. [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
 
     
 ### Session-3: 
@@ -143,20 +136,15 @@ Required Reading:
 
 Required Reading:
 
-1. [Introduction to MapReduce]
-(https://www.youtube.com/watch?v=ht3dNvdNDzI)
+1. [Introduction to MapReduce](https://www.youtube.com/watch?v=ht3dNvdNDzI)
 
-2. [The Future of Big Data by Matei Zaharia]
-(https://www.youtube.com/watch?v=oSj2vYw5RLs)
+2. [The Future of Big Data by Matei Zaharia](https://www.youtube.com/watch?v=oSj2vYw5RLs)
 
-3. [Chapter 3 of Data-Intensive Text Processing with MapReduce]
-(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+3. [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-4. [Introduction to MapReduce and Hadoop by Matei Zaharia]
-(https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+4. [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
 
-5. [Chapters 1 & 2 of Mining of Massive Datasets book]
-(http://infolab.stanford.edu/~ullman/mmds/book.pdf)
+5. [Chapters 1 & 2 of Mining of Massive Datasets book](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
  
  
 ### Session-4: 
