@@ -28,6 +28,8 @@ This class will introduce the concept of
 * Big Data analytics with MapReduce and Spark
 * Graph algorithms
 * Basic Machine Learning algorithms
+	* Logistic Regression
+	* Linear Regression
 * Big Data Streaming
 * Big data databases:
 	* Google's BigTable
