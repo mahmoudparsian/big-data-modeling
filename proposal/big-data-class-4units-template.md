@@ -23,9 +23,16 @@ to processing large amounts of text with MapReduce, Spark,
 and Amazon Athena (an interactive query service that makes 
 it easy to analyze data in Amazon S3 using standard SQL).
 
-This class will introduce the concept of big data databases:
-Google's BigTable, HBase (Hadoop Database), and ElasticSearch
-(a distributed, multitenant-capable full-text search engine).
+This class will introduce the concept of 
+
+* Big Data analytics with MapReduce and Spark
+* Graph algorithms
+* Basic Machine Learning algorithms
+* Big Data Streaming
+* Big data databases:
+	* Google's BigTable
+	* HBase (Hadoop Database)
+	* ElasticSearch (a distributed, multitenant-capable full-text search engine).
 
 
 
@@ -158,14 +165,11 @@ Required Reading:
 
 Required Reading:
 
-1. [What is Spark? by Matei Zaharia]
-(https://www.youtube.com/watch?v=2lypTlbjqHE)
+1. [What is Spark? by Matei Zaharia](https://www.youtube.com/watch?v=2lypTlbjqHE)
 
-2. [Simplifying Big Data Applications with Apache Spark by Matei Zaharia]
-(https://www.youtube.com/watch?v=Zb9YW8XjxnE)
+2. [Simplifying Big Data Applications with Apache Spark by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)
 
-3. [Chapter 3 of Data-Intensive Text Processing with MapReduce]
-(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+3. [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
 
 
@@ -181,14 +185,11 @@ Required Reading:
 
 Required Reading: 
 
-1. [Manipulating Data by Spark]
-(https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
+1. [Manipulating Data by Spark](https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
 
-2. [Introduction to Spark]
-(https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
+2. [Introduction to Spark](https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
 
-3. [Spark API and Documentation]
-(https://spark.apache.org/docs/latest/sql-programming-guide.html)
+3. [Spark API and Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html)
 
 
 ### Session-6: 
@@ -199,20 +200,15 @@ Required Reading:
 
 Required Reading: 
 
-1. [Manipulating Data by Spark]
-(https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
+1. [Manipulating Data by Spark](https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
 
-2. [Introduction to Spark]
-(https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
+2. [Introduction to Spark](https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
 
-3. [Chapter 4 of Data-Intensive Text Processing with MapReduce]
-(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  
+3. [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  
 
-4. [Introduction to MapReduce and Hadoop by Matei Zaharia]
-(https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+4. [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)
 
-6. [Spark API and Documentation]
-(https://spark.apache.org/docs/latest/sql-programming-guide.html)
+6. [Spark API and Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html)
 	
 	 
 ### Session-7: 
@@ -223,23 +219,17 @@ Required Reading:
 
 Required Reading: 
 
-1. [Introduction to DataFrames - Python]
-(https://docs.databricks.com/spark/latest/dataframes-datasets/introduction-to-dataframes-python.html)
+1. [Introduction to DataFrames - Python](https://docs.databricks.com/spark/latest/dataframes-datasets/introduction-to-dataframes-python.html)
 
-2. [Manipulating Data by Spark]
-(https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
+2. [Manipulating Data by Spark](https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
 
-3. [Introduction to Spark]
-(https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
+3. [Introduction to Spark](https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
 
-4. [Introduction to Spark]
-(http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
+4. [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
 
-5. [Introduction to Spark]
-(http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)
+5. [Introduction to Spark](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)
 
-6. [Spark API and Documentation]
-(https://spark.apache.org/docs/latest/sql-programming-guide.html)
+6. [Spark API and Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html)
 
 	
 ### Session-8: 
@@ -250,17 +240,13 @@ Required Reading:
 
 Required Reading: 
 
-1. [Making Big Data Simple: by Matei Zaharia]
-(https://www.youtube.com/watch?v=Nev1s6fHwMI) 
+1. [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) 
 
-2. [Introduction to Spark]
-(http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
+2. [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
 
-3. [Parallel-Programming-With-Spark-Matei-Zaharia]
-(http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx)  
+3. [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx)  
 
-4. [Spark API and Documentation]
-(https://spark.apache.org/docs/latest/sql-programming-guide.html)
+4. [Spark API and Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html)
 
 	   
 ### Session-9: Review for Midterm Exam
@@ -283,11 +269,9 @@ Required Reading:
 
 Required Reading:                     
 
-1. [Chapter 3 & 4 of Data-Intensive Text Processing with MapReduce]
-(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+1. [Chapter 3 & 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-2. [MapReduce Design Patterns by Donald Miner]
-(https://www.slideshare.net/DonaldMiner/mapreduce-design-patterns)
+2. [MapReduce Design Patterns by Donald Miner](https://www.slideshare.net/DonaldMiner/mapreduce-design-patterns)
 
 
 ### Session-12: 
@@ -301,11 +285,9 @@ Required Reading:
 
 Required Reading:
 
-1. [Amazon Athena]
-(https://aws.amazon.com/athena/)
+1. [Amazon Athena](https://aws.amazon.com/athena/)
 
-2. [Performance with Athena]
-(https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/)
+2. [Performance with Athena](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/)
 
 
 ### Session-13: 
@@ -318,11 +300,9 @@ Required Reading:
 
 Required Reading:   
                 
-1. [Introduction to Logistic Regression]
-(http://www-hsc.usc.edu/~eckel/biostat2/slides/lecture13.pdf)
+1. [Introduction to Logistic Regression](http://www-hsc.usc.edu/~eckel/biostat2/slides/lecture13.pdf)
 
-2. [Spark API and Documentation]
-(http://spark.apache.org/docs/latest/api/python/pyspark.ml.html?highlight=logistic#pyspark.ml.classification.LogisticRegression)
+2. [Spark API and Documentation](http://spark.apache.org/docs/latest/api/python/pyspark.ml.html?highlight=logistic#pyspark.ml.classification.LogisticRegression)
 
 
 ### Session-14: 
@@ -334,11 +314,9 @@ Required Reading:
 
 Required Reading:                     
 
-1. [Introduction to Linear Regression]
-(https://databricks.com/spark/getting-started-with-apache-spark/machine-learning)
+1. [Introduction to Linear Regression](https://databricks.com/spark/getting-started-with-apache-spark/machine-learning)
 
-2. [Spark API and Documentation]
-(https://spark.apache.org/docs/latest/ml-classification-regression.html#linear-regression)
+2. [Spark API and Documentation](https://spark.apache.org/docs/latest/ml-classification-regression.html#linear-regression)
 
 
 ### Session-15: 
@@ -350,11 +328,9 @@ Required Reading:
 
 Required Reading:                     
 
-1. Introduction to graphs
-http://pages.cs.wisc.edu/~paton/readings/Old/fall08/GRAPH.html
+1. [Introduction to graphs](http://pages.cs.wisc.edu/~paton/readings/Old/fall08/GRAPH.html)
 
-2. GraphFrames documentation and API
-http://graphframes.github.io/graphframes/docs/_site/index.html
+2. [GraphFrames documentation and API](http://graphframes.github.io/graphframes/docs/_site/index.html)
 
 	   
 ### Session-16: 
@@ -366,11 +342,9 @@ http://graphframes.github.io/graphframes/docs/_site/index.html
     
 Required Reading:                     
 
-1. [Introduction to graphs]
-(http://pages.cs.wisc.edu/~paton/readings/Old/fall08/GRAPH.html)
+1. [Introduction to graphs](http://pages.cs.wisc.edu/~paton/readings/Old/fall08/GRAPH.html)
 
-2. [GraphFrames documentation and API]
-(http://graphframes.github.io/graphframes/docs/_site/index.html)
+2. [GraphFrames documentation and API](http://graphframes.github.io/graphframes/docs/_site/index.html)
 
 	   
 ### Session-17: 
@@ -380,14 +354,11 @@ Required Reading:
     
 Required Reading:                     
 
-1. [A Gentle Introduction to Stream Processing]
-(https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97)
+1. [A Gentle Introduction to Stream Processing](https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97)
 
-2.[What is Streaming Data?]
-(https://aws.amazon.com/streaming-data/)
+2.[What is Streaming Data?](https://aws.amazon.com/streaming-data/)
 
-3. [Streaming data with Spark]
-(https://spark.apache.org/streaming/)
+3. [Streaming data with Spark](https://spark.apache.org/streaming/)
 	   
 
 ### Session-18: 
@@ -398,14 +369,11 @@ Required Reading:
     
 Required Reading:                     
 
-1. [Bigtable: A Distributed Storage System for Structured Data]
-(https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
+1. [Bigtable: A Distributed Storage System for Structured Data](https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
 
-2. [What is HBase?]
-(https://hbase.apache.org)
+2. [What is HBase?](https://hbase.apache.org)
 
-3. [HBase data model]
-(https://www.netwoven.com/2013/10/10/hbase-overview-of-architecture-and-data-model/)
+3. [HBase data model](https://www.netwoven.com/2013/10/10/hbase-overview-of-architecture-and-data-model/)
 
 
 
