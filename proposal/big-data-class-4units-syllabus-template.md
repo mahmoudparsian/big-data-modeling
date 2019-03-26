@@ -58,12 +58,17 @@ Upon successful completion of the course, students will be able to:
   * Perform ETL and big data analysis
   
 * Understand partitioning big data for faster queries
+
 * Understand Spark's data abstractions: RDDs and DataFrames
+
 * Understand basics of data streaming and processing
+
 * Understand graph algorithms on big data such as Motif Finding
+
 * How to use Amazon's Athena (an interactive query 
   service that makes it easy to analyze data in Amazon 
   S3 using standard SQL)
+  
 * Use basic Machine Learning algorithms on big data:
 	* Logistic regression
 	* classification algorithms
@@ -111,7 +116,7 @@ Upon successful completion of the course, students will be able to:
 * Introduction to data analytics
 * Distributed and cluster computing
 
-Required Reading:
+#### Required Reading:
 
 1. [THE 4 V’S OF BIG DATA](https://www.dummies.com/careers/find-a-job/the-4-vs-of-big-data/)
 
@@ -126,7 +131,8 @@ Required Reading:
 * Introduction to Big Data 
 * Introduction to MapReduce paradigm
 
-Required Reading:
+
+#### Required Reading:
 
 1. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 
@@ -143,7 +149,7 @@ Required Reading:
 * Reducers as reduce() and combine()
 * Mining of massive datasets
 
-Required Reading:
+#### Required Reading:
 
 1. [Introduction to MapReduce](https://www.youtube.com/watch?v=ht3dNvdNDzI)
 
@@ -164,8 +170,7 @@ Required Reading:
 * Spark's actions
 * Data Partitioning
 
-
-Required Reading:
+#### Required Reading:
 
 1. [What is Spark? by Matei Zaharia](https://www.youtube.com/watch?v=2lypTlbjqHE)
 
@@ -185,7 +190,7 @@ Required Reading:
 	* Collections
 	* Amazon S3
 
-Required Reading: 
+#### Required Reading: 
 
 1. [Manipulating Data by Spark](https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
 
@@ -200,7 +205,7 @@ Required Reading:
 * Transformations: reducers, aggrgators, combiners, ...
 * Lazy Evaluation
 
-Required Reading: 
+#### Required Reading: 
 
 1. [Manipulating Data by Spark](https://pages.databricks.com/201808-EB-Mini-eBook-4-Manipulating-Data_landing.html)
 
@@ -219,7 +224,8 @@ Required Reading:
 * SQL Transformations
 * Relational Algebra and Big Data
 
-Required Reading: 
+
+#### Required Reading: 
 
 1. [Introduction to DataFrames - Python](https://docs.databricks.com/spark/latest/dataframes-datasets/introduction-to-dataframes-python.html)
 
@@ -240,7 +246,7 @@ Required Reading:
 * Data Partitioning 
 * SQL Transformations
 
-Required Reading: 
+#### Required Reading: 
 
 1. [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) 
 
@@ -260,6 +266,13 @@ Required Reading:
 
 ### Session-10: Midterm Exam
 
+#### Required Assignment #3: 
+
+* Objectives: to write a basic PySpark/Spark to 
+  read big data and analyze using DataFrames, SQL 
+  for NoSQL.  Generate the desired data format with 
+  some basic statistics
+
 
 ### Session-11: 
 * MapReduce Design Pattern: mapPartitions()
@@ -269,7 +282,7 @@ Required Reading:
 * MinMax                     
 * Top-10 
 
-Required Reading:                     
+#### Required Reading:                     
 
 1. [Chapter 3 & 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
@@ -285,7 +298,7 @@ Required Reading:
 * JDBC Access to Athena
 
 
-Required Reading:
+#### Required Reading:
 
 1. [Amazon Athena](https://aws.amazon.com/athena/)
 
@@ -300,7 +313,7 @@ Required Reading:
 * How to Predict using LR Model
 
 
-Required Reading:   
+#### Required Reading:   
                 
 1. [Introduction to Logistic Regression](http://www-hsc.usc.edu/~eckel/biostat2/slides/lecture13.pdf)
 
@@ -314,7 +327,7 @@ Required Reading:
 * How to Predict using LR Model
 
 
-Required Reading:                     
+#### Required Reading:                     
 
 1. [Introduction to Linear Regression](https://databricks.com/spark/getting-started-with-apache-spark/machine-learning)
 
@@ -328,7 +341,8 @@ Required Reading:
 	* Motif finding
 	* Triangle finding
 
-Required Reading:                     
+
+#### Required Reading:                     
 
 1. [Introduction to graphs](http://pages.cs.wisc.edu/~paton/readings/Old/fall08/GRAPH.html)
 
@@ -369,7 +383,7 @@ Required Reading:
 	* HBase: Hadoop database
 	* ElasticSearch
     
-Required Reading:                     
+#### Required Reading:                     
 
 1. [Bigtable: A Distributed Storage System for Structured Data](https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
 
@@ -396,10 +410,25 @@ Required Reading:
 # Assignments
 Match the above-stated learning objectives with the assignments used to grade students.
 
+### Required Assignment #1: 
+
+* Objectives: to write a basic MapReduce algorithm to 
+  perform some useful ETL and solve a problem similar
+  to "word count"
+
 ### Assignment #1: Learning objectives
 * Understand MapReduce paradigm
 * Use map() and reduce() functions to solve "word count" problem
 * Understand Sort and Shuffle phase of MapReduce Paradigm
+
+
+### Required Assignment #2: 
+
+* Objectives: to write a basic PySpark/Spark to 
+  read big data and perform several transformations
+  (such as filtering, mapping, reducing) and finally
+  generate the desired data format with some basic 
+  statistics
 	
 ### Assignment #2: Learning objectives
 * Understand ETL by using Spark: extended word count and bigrams
@@ -407,21 +436,38 @@ Match the above-stated learning objectives with the assignments used to grade st
 * Use Spark's transformations: map(), filter(), reduceByKey(), ...
 * Understand Lazy Evaluation
 
+
 ### Assignment #3: Learning objectives
 * Understand Spark's DataFrames
 * Use SQL on NoSQL data
 * Perform data analytics (such as ETL, mapping, aggregation) 
 
-### Assignment #4: Learning objectives
-* How to build a social graph
-* Use Motif Finding to solve a data problem
-* Understand graph algorithms
+### Required Assignment #4: 
+* Objectives: to write a basic Machine Learning program in PySpark/Spark to 
+	* Build a Logistic Regression Model using training data
+	* Measure accuracy of the built model
+	* Predict the new data using the built model
 
-### Assignment #5: Learning objectives
+
+### Assignment #4: Learning objectives
 * Implement Logistic Regression for Spam/NoSpam Detection
 * Build an LR Model with training data
 * Use the built model for Prediction
 * Measure accuracy of the built model
+
+
+### Required Assignment #5: 
+
+* Objectives: to write a basic program in PySpark/Spark to 
+	* Build a graph from vertices and edges
+	* Analyze the built graph
+	* Find interesting patterns using "Motif Finding"
+
+### Assignment #5: Learning objectives
+* How to build a social graph
+* Use Motif Finding to solve a data problem
+* Understand graph algorithms
+
 
 
 # Points:
