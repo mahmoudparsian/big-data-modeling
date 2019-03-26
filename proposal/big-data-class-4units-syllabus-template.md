@@ -266,13 +266,6 @@ Upon successful completion of the course, students will be able to:
 
 ### Session-10: Midterm Exam
 
-#### Required Assignment #3: 
-
-* Objectives: to write a basic PySpark/Spark to 
-  read big data and analyze using DataFrames, SQL 
-  for NoSQL.  Generate the desired data format with 
-  some basic statistics
-
 
 ### Session-11: 
 * MapReduce Design Pattern: mapPartitions()
@@ -356,7 +349,7 @@ Upon successful completion of the course, students will be able to:
 	* Connected components algorithm
    * Shortest path
     
-Required Reading:                     
+#### Required Reading:                     
 
 1. [Introduction to graphs](http://pages.cs.wisc.edu/~paton/readings/Old/fall08/GRAPH.html)
 
@@ -368,7 +361,7 @@ Required Reading:
 * Data Streaming with Big Data
 * Streaming data with Spark
     
-Required Reading:                     
+#### Required Reading:                     
 
 1. [A Gentle Introduction to Stream Processing](https://medium.com/stream-processing/what-is-stream-processing-1eadfca11b97)
 
@@ -412,61 +405,67 @@ Match the above-stated learning objectives with the assignments used to grade st
 
 ### Required Assignment #1: 
 
-* Objectives: to write a basic MapReduce algorithm to 
-  perform some useful ETL and solve a problem similar
-  to "word count"
+* Objectives: 
+	* Write a basic MapReduce algorithm
+	* Perform some useful ETL and solve a problem similar to "word count"
 
-### Assignment #1: Learning objectives
-* Understand MapReduce paradigm
-* Use map() and reduce() functions to solve "word count" problem
-* Understand Sort and Shuffle phase of MapReduce Paradigm
+* Learning objectives:
+	* Understand MapReduce paradigm
+	* Use map() and reduce() functions to solve "word count" problem
+	* Understand Sort and Shuffle phase of MapReduce Paradigm
 
 
 ### Required Assignment #2: 
 
-* Objectives: to write a basic PySpark/Spark to 
-  read big data and perform several transformations
-  (such as filtering, mapping, reducing) and finally
-  generate the desired data format with some basic 
-  statistics
+* Objectives: 
+	* Write a basic PySpark/Spark to read big data and perform 
+	several transformations (such as filtering, mapping, reducing)
+	* Generate the desired data format with some basic statistics
 	
-### Assignment #2: Learning objectives
-* Understand ETL by using Spark: extended word count and bigrams
-* Understand loading, reading, and saving data
-* Use Spark's transformations: map(), filter(), reduceByKey(), ...
-* Understand Lazy Evaluation
+* Learning objectives
+	* Understand ETL by using Spark: extended word count and bigrams
+	* Understand loading, reading, and saving data
+	* Use Spark's transformations: map(), filter(), reduceByKey(), ...
+	* Understand Lazy Evaluation
 
+### Required Assignment #3: 
 
-### Assignment #3: Learning objectives
-* Understand Spark's DataFrames
-* Use SQL on NoSQL data
-* Perform data analytics (such as ETL, mapping, aggregation) 
+* Objectives: 
+	* Write a basic PySpark/Spark to read big data and analyze 
+	using DataFrames, SQL for NoSQL.  
+	* Generate the desired data format with some basic statistics
+
+* Learning objectives
+	* Understand Spark's DataFrames
+	* Use SQL on NoSQL data
+	* Perform data analytics (such as ETL, mapping, aggregation) 
 
 ### Required Assignment #4: 
-* Objectives: to write a basic Machine Learning program in PySpark/Spark to 
+* Objectives: 
+	* Write a basic Machine Learning program in PySpark/Spark 
 	* Build a Logistic Regression Model using training data
 	* Measure accuracy of the built model
 	* Predict the new data using the built model
 
-
-### Assignment #4: Learning objectives
-* Implement Logistic Regression for Spam/NoSpam Detection
-* Build an LR Model with training data
-* Use the built model for Prediction
-* Measure accuracy of the built model
+* Learning objectives
+	* Implement Logistic Regression for Spam/NoSpam Detection
+	* Build an LR Model with training data
+	* Use the built model for Prediction
+	* Measure accuracy of the built model
 
 
 ### Required Assignment #5: 
 
-* Objectives: to write a basic program in PySpark/Spark to 
+* Objectives: 
+	* Write a basic program in PySpark/Spark  
 	* Build a graph from vertices and edges
 	* Analyze the built graph
 	* Find interesting patterns using "Motif Finding"
 
-### Assignment #5: Learning objectives
-* How to build a social graph
-* Use Motif Finding to solve a data problem
-* Understand graph algorithms
+* Learning objectives
+	* How to build a social graph
+	* Use Motif Finding to solve a data problem
+	* Understand graph algorithms
 
 
 
