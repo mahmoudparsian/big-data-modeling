@@ -8,17 +8,19 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Course Information: Winter 2019
+## Spring 2019
+## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
-* Class Meeting dates: January 8, 2019 - March 21, 2019
+* Class Meeting dates: April 2, 2019 - June 12, 2019
 * Class hours:  
 	* Tuesday 5:45PM - 7:00PM PST
 	* Thursday 5:45PM - 7:00PM PST
-* Class room: Lucas Hall 309 
+* Class room: Lucas Hall 306 
 * Office: 221 W, Lucas Hall
+* Office Hours: by appointment
 
 ## Required Books, Papers, and Documentation 
 
@@ -28,16 +30,16 @@
 * [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 * [5. Apache Spark](http://spark.apache.org/)
 
-## [Syllabus](./syllabus/2019-Winter/)
+## [Syllabus](./syllabus/2019-Spring/)
 ----------------------------
 
 
 ## Midterm Exam 
-* Midterm Exam Date: **February 7, 2019**
+* Midterm Exam Date: **May TBDL, 2019**
 * Midterm Exam Time: **5:45PM - 7:00PM PST**
 
 ## Final Exam 
-* Final Exam Date: **March 19, 2019**
+* Final Exam Date: **June TBDL, 2019**
 * Final Exam Time: **5:45PM - 7:45PM PST**
 
 ----------------------------
@@ -56,6 +58,7 @@ The main focus of this class is to cover the following concepts:
 * Apache Spark: http://spark.apache.org/
 * Use Spark, Py-Spark, Hadoop, and Java to teach MapReduce and distributed computing
 * SQL for NoSQL Data, How?
+* Amazon Athena
 ---------------------------
 
 ## My latest book: 

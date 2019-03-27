@@ -20,3 +20,15 @@ of Big Data. Students will use Spark cluster and
 MapReduce fundamentals to solve big data problems (such
 as ETL, transformations and analytics, and basics of
 machine learning and streaming).
+
+	Introduce Big Data concepts and role of MapReduce
+	paradigm, Apache Spark, and Amazon Athena in enabling 
+	data analytics and Business Intelligence. Todays useful 
+	data has velocity, variety and volume. SQL databases 
+	do not scale-out and are not fit to handle the new 
+	data requirements. Term Big Data was coined to solve 
+	the emerging data problems. This course is about Big 
+	Data and its role in carrying out modern business 
+	intelligence for actionable insight to address new 
+	business needs.
+
