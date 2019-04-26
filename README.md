@@ -35,7 +35,7 @@
 
 
 ## Midterm Exam 
-* Midterm Exam Date: **May TBDL, 2019**
+* Midterm Exam Date: **Thursday, May 2, 2019**
 * Midterm Exam Time: **5:45PM - 7:00PM PST**
 
 ## Final Exam 
