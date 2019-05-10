@@ -39,7 +39,7 @@
 * Midterm Exam Time: **5:45PM - 7:00PM PST**
 
 ## Final Exam 
-* Final Exam Date: **June TBDL, 2019**
+* Final Exam Date: **Thursday, June 13, 2019**
 * Final Exam Time: **5:45PM - 7:45PM PST**
 
 ----------------------------
