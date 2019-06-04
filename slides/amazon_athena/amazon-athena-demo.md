@@ -4,7 +4,7 @@
 * Date: *June 4, 2019*
 
 
-## 1. Input Prep: Create a Data File
+## 1. Input Prep: Create a Data File(s)
 
 Record format:
 
@@ -104,6 +104,9 @@ CREATE DATABASE sampledb;
 ````
 
 and choose Run Query.
+
+For details on creating a database and schema, see 
+[How to create a database in Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/getting-started.html#step-1-create-a-database)
 
 
 ## 5. Create scahema and point to the output created by PySpark program (in Athena Web Console)
