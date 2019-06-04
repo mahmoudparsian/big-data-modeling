@@ -97,6 +97,14 @@ spark.stop()
 
 ## 4. Create a sample database (catalog) called sampledb
 
+A database in Athena is a logical grouping for tables you create in it. Open the [Athena console](https://console.aws.amazon.com/athena/) . Enter 
+
+````
+CREATE DATABASE sampledb; 
+````
+
+and choose Run Query.
+
 
 ## 5. Create scahema and point to the output created by PySpark program (in Athena Web Console)
 
