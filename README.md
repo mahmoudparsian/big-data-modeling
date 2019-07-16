@@ -69,8 +69,7 @@ The main focus of this class is to cover the following concepts:
 ======================
 PySpark Algorithms
 
-
-[![PySpark Algorithms Book](images/pyspark_algorithms.jpg)](https://github.com/mahmoudparsian/pyspark-algorithms)
+<img src="./images/pyspark_algorithms.jpg" alt="drawing" width="500" height="300"/>
 
 
 
