@@ -24,11 +24,12 @@
 
 ## Required Books, Papers, and Documentation 
 
-* [1. A  Very Brief  Introduction  to  MapReduce by Diana  MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
-* [2. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
-* [3. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-* [4. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
-* [5. Apache Spark](http://spark.apache.org/)
+* [1. PySpark Algorithms Book](https://github.com/mahmoudparsian/pyspark-algorithms)
+* [2. A  Very Brief  Introduction  to  MapReduce by Diana  MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+* [3. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+* [4. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+* [5. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
+* [6. Apache Spark](http://spark.apache.org/)
 
 ## [Syllabus](./syllabus/2019-Spring/)
 ----------------------------
@@ -58,10 +59,21 @@ The main focus of this class is to cover the following concepts:
 * Apache Spark: http://spark.apache.org/
 * Use Spark, Py-Spark, Hadoop, and Java to teach MapReduce and distributed computing
 * SQL for NoSQL Data, How?
-* Amazon Athena
+* Amazon Athena   
 ---------------------------
 
-## My latest book: 
+## My latest books: 
+
+
+[PySpark Algorithms Book](https://github.com/mahmoudparsian/pyspark-algorithms)
+======================
+PySpark Algorithms
+
+
+[![PySpark Algorithms Book](images/pyspark_algorithms.jpg)](https://github.com/mahmoudparsian/pyspark-algorithms)
+
+
+
 
 [Data Algorithms Book](http://shop.oreilly.com/product/0636920033950.do)
 ======================
