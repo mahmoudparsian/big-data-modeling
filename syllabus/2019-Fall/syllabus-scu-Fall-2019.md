@@ -181,212 +181,157 @@ be clearly documented, cited, and attributed, regardless of media or distributio
 The weekly coverage might change as it depends on the progress of the class.  
 However, you must keep up with the reading assignments.
 
-----------------
 
 ----------------
-* Session-1:  September 23, 2019
+
+* **Session-1:  September 23, 2019**
 	* Introduction to Big Data
-	* [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
-	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf) |
-	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) |
-
-
-----------------
-
-----------------
-| Session-1:  September 23, 2019    |
-|:-----------------------------|
-|* Introduction to Big Data |
-|	* [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
-|	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf) |
-|	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) |
-
+	* [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) 
+	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf) 
+	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) 
 
 ----------------
 
-----------------
-| Session-2: September 25, 2019     |
-|:-----------------------------|
-|* Introduction to Big Data |
-|	* [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf) |
-|	* [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |
-
-
-----------------
-    
-----------------
-| Session-3: September 30, 2019    |
-|:----------------------------|
-|* Introduction to MapReduce: Watch a Video   |  
-|	* [The Future of Big Data by Matei Zaharia](https://www.youtube.com/watch?v=oSj2vYw5RLs)  |  
-|	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  |  
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+* **Session-2: September 25, 2019**
+	* Introduction to Big Data 
+	* [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf) 
+	* [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) 
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) 
 
 ----------------
 
-----------------
-| Session-4: October 2, 2019 |
-|:--------------------------|
-|* Introduction to MapReduce: Watch a Video    
-|	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  |  
-|	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |   
+* **Session-3: September 30, 2019**
+	* Introduction to MapReduce: Watch a Video 
+	* [The Future of Big Data by Matei Zaharia -- Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)   
+	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)  
 
 ----------------
 
-----------------
-| Session-5: October 7, 2019 |
-|:------------|
-|* Introduction to MapReduce/Hadoop/Spark |   
-|	* [Chapters 1, 2 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) |
-|	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+* **Session-4: October 2, 2019**
+	* Introduction to MapReduce: Watch a Video    
+	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  
+	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) 
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
 
 ----------------
 
-----------------
-| Session-6: October 9, 2019 |
-|:------------|
-|* Practice MapReduce/Hadoop/Spark  |  
-|	* [Chapters 1, 2, 3 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) |
-|	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
-|	* [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  |  
+* **Session-5: October 7, 2019**
+	* Introduction to MapReduce/Hadoop/Spark 
+	* [Chapters 1, 2 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
+	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) 
 
 ----------------
 
-----------------
-| Session-7: October 14, 2019 |
-|:------------|
-|* Spark Nuts and Bolts    |
-|	* [Chapters 4, 5 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) |
-|	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) |   
-|	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
-|	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) | 
+* **Session-6: October 9, 2019**
+	* Practice MapReduce/Hadoop/Spark...
+	* [Chapters 1, 2, 3 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
+	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  
+	* [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  
 
 ----------------
 
-----------------
-| Session-8: October 16, 2019  |
-|:-----------------------------|
-|* MapReduce Design Patterns:  |
-|	* MinMax                   |
-|	* Top-10                   |
-|	* [Chapters 4, 5, 6 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) |
-|	* [Chapter 3, 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |  
+* **Session-7: October 14, 2019**
+	* Spark's Nuts and Bolts    |
+	* [Chapters 4, 5 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) 
+	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  
+	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) 
 
 ----------------
 
-----------------
-| Session-9: October 21, 2019|
-|:---------------------------|
-| * Review Midterm Exam      |
+* **Session-8: October 16, 2019**
+	* MapReduce Design Patterns
+	* MinMax  
+	* Top-10  
+	* [Chapters 4, 5, 6 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
+	* [Chapter 3, 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  
 
 ----------------
 
+* **Session-9: October 21, 2019**
+	* Review Midterm Exam 
+
 ----------------
 
-| Session-10: October 23, 2019        |
-|:------------------------------------|
-| * Midterm Exam: closed book/notes   |
+
+* **Session-10: October 23, 2019**
+	* Midterm Exam: closed book/notes
  
 ----------------
 
-----------------
 
-| Session-11: October 28, 2019       |
-|:------------------------------|
-| * MapReduce Design Patterns |
-| * Top-10 Algorithm          |
-| * MinMax Algorithm          |
-| * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-----------------
+* **Session-11: October 28, 2019**
+	* MapReduce Design Patterns 
+	* Top-10 Algorithm   
+	* MinMax Algorithm  
+	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
-| Session-12: October 30, 2019                 |
-|:---------------------------------------------|
-| * MapReduce Design Pattern: mapPartitions()  |
-| * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+
+* **Session-12: October 30, 2019**
+	* MapReduce Design Pattern: mapPartitions() 
+	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
-	
-----------------
-| Session-13: November 4, 2019      |
-|:------------------------------|
-| * MapReduce Design Pattern: Graph Algorithms |
-| * [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
-----------------
-	 
-----------------
-| Session-14: November 6, 2019 |
-|:-----------------------------|
-|* MapReduce Design Pattern: Clustering Algorithms |  
-| * [Chapters 9 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-----------------
-
-----------------
-| Session-15: November 11, 2019 |
-|:------------------------------|
-| * MapReduce Design Pattern: Recommendation Algorithms |
-| * [Chapters 10 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-
-	
-----------------
-
-----------------
-| Session-16: November 13, 2019 |
-|:------------|
-| * Introduction to Serverless Analytics | 
-| * SQL Access: Amazon Athena | 
-| * SQL Access: Google BigQuery | 
-
-	
-----------------
-
-----------------
-| Session-17: November 18, 2019                  |
-|:------------------------------------------|
-| * Introduction to Serverless Analytics | 
-| * SQL Access: Apache Presto | 
-| * SQL Access: Amazon Athena | 
-| * SQL Access: Google BigQuery | 
-	
-----------------
-
-----------------	
-| Session-18: November 20, 2019           |
-|:-----------------------------------|
-| * Relational Algebra and Big Data  |
-| * SQL Access to Big Data  |
-	
-----------------
-
-----------------	
-| Session-19: December 2, 2019      |
-|:------------------------------|
-| * Stream Processing       |
-| * [Spark Streaming](https://spark.apache.org/streaming/) |
-| * [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark) |
+* **Session-13: November 4, 2019**
+	* MapReduce Design Pattern: Graph Algorithms 
+	* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
  
 ----------------
 
-----------------	
-| Session-20: December 4, 2019            |
-|:------------------------------------|
-| * Review for Final Exam       |
+* **Session-14: November 6, 2019**
+	* MapReduce Design Pattern: Clustering Algorithms 
+	* [Chapters 9 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
 
+* **Session-15: November 11, 2019**
+	* MapReduce Design Pattern: Recommendation Algorithms 
+	* [Chapters 10 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+
 ----------------
-| Session-21: **Final Exam**             |
-|:---------------------------------------|
-| * Date: December 9-13, 2019 |
+
+* **Session-16: November 13, 2019**
+	* Introduction to Serverless Analytics  
+	* SQL Access: Amazon Athena 
+	* SQL Access: Google BigQuery 
+
+----------------
+
+* **Session-17: November 18, 2019**
+	* Introduction to Serverless Analytics 
+	* SQL Access: Apache Presto 
+	* SQL Access: Amazon Athena 
+	* SQL Access: Google BigQuery 
+
+----------------
+
+* **Session-18: November 20, 2019**
+	* Relational Algebra and Big Data  
+	* SQL Access to Big Data  
+
+----------------
+
+* **Session-19: December 2, 2019**
+	* Stream Processing 
+	* [Spark Streaming](https://spark.apache.org/streaming/) 
+	* [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark)
+ 
+----------------
+
+* **Session-20: December 4, 2019**
+	* Review for Final Exam 
+
+----------------
+
+* **Session-21: Final Exam**  
+	* Date: December 9-13, 2019 
 
 
 ----------------
-----------------
-
 
 
 References:
