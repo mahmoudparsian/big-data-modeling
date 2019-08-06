@@ -328,8 +328,8 @@ However, you must keep up with the reading assignments.
 | Session-16: November 13, 2019 |
 |:------------|
 | * Introduction to Serverless Analytics | 
-| * Amazon Athena | 
-| * Google BigQuery | 
+| * SQL Access: Amazon Athena | 
+| * SQL Access: Google BigQuery | 
 
 	
 ----------------
@@ -338,8 +338,9 @@ However, you must keep up with the reading assignments.
 | Session-17: November 18, 2019                  |
 |:------------------------------------------|
 | * Introduction to Serverless Analytics | 
-| * Amazon Athena | 
-| * Google BigQuery | 
+| * SQL Access: Apache Presto | 
+| * SQL Access: Amazon Athena | 
+| * SQL Access: Google BigQuery | 
 	
 ----------------
 
@@ -355,7 +356,9 @@ However, you must keep up with the reading assignments.
 | Session-19: December 2, 2019      |
 |:------------------------------|
 | * Stream Processing       |
-	 
+| * [Spark Streaming](https://spark.apache.org/streaming/) |
+| * [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark) |
+ 
 ----------------
 
 ----------------	
