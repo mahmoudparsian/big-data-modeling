@@ -14,10 +14,12 @@
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
-* Class Meeting dates: September 2019 - December 2019
+* Class meeting dates: 
+	* Start: September 23, 2019
+	* End: December 7, 2019
 * Class hours:  
-	* MSIS 2627  MW 5:45:00 PM 7:20:00 PM (4 units)
-	* MSIS 2627  MW 7:35:00 PM 8:50:00 PM (3 units)
+	* MSIS 2627-01 (92426)  MW 5:45:00 PM 7:20:00 PM
+	* MSIS 2627-02 (92427)  MW 7:35:00 PM 9:10:00 PM
 * Class room: TBDL 
 * Office: 221 W, Lucas Hall
 * Office Hours: by appointment
