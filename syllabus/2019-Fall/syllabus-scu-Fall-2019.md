@@ -259,9 +259,9 @@ However, you must keep up with the reading assignments.
 ----------------
 | Session-8: October 16, 2019  |
 |:-----------------------------|
-|* MapReduce Design Patterns: |
-|	* MinMax                     |
-|	* Top-10                     |
+|* MapReduce Design Patterns:  |
+|	* MinMax                   |
+|	* Top-10                   |
 |	* [Chapters 4, 5, 6 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) |
 |	* [Chapter 3, 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |  
 
@@ -284,88 +284,95 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-| Session-11: May 7, 2019       |
+| Session-11: October 28, 2019       |
 |:------------------------------|
 | * MapReduce Design Patterns |
 | * Top-10 Algorithm          |
 | * MinMax Algorithm          |
-| * [Chapters 6, 7 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+| * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 ----------------
 
 ----------------
-| Session-12: May 9, 2019                      |
+| Session-12: October 30, 2019                 |
 |:---------------------------------------------|
 | * MapReduce Design Pattern: mapPartitions()  |
+| * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
 	
 ----------------
-| Session-13: May 14, 2019      |
+| Session-13: November 4, 2019      |
 |:------------------------------|
 | * MapReduce Design Pattern: Graph Algorithms |
+| * [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
 	 
 ----------------
-| Session-14: May 16, 2019 |
-|:-------------------------|
+| Session-14: November 6, 2019 |
+|:-----------------------------|
 |* MapReduce Design Pattern: Clustering Algorithms |  
-
-	
+| * [Chapters 9 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 ----------------
 
 ----------------
-| Session-15: May 21, 2019 |
-|:------------|
+| Session-15: November 11, 2019 |
+|:------------------------------|
 | * MapReduce Design Pattern: Recommendation Algorithms |
+| * [Chapters 10 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 	
 ----------------
 
 ----------------
-| Session-16: May 23, 2019 |
+| Session-16: November 13, 2019 |
 |:------------|
-| * Introduction to HBase (Hadoop Database) | 
+| * Introduction to Serverless Analytics | 
+| * Amazon Athena | 
+| * Google BigQuery | 
 
 	
 ----------------
 
 ----------------
-| Session-17: May 28, 2019                  |
+| Session-17: November 18, 2019                  |
 |:------------------------------------------|
-| * Introduction to HBase (Hadoop Database) | 
-| * Relational Algebra and Big Data         |
+| * Introduction to Serverless Analytics | 
+| * Amazon Athena | 
+| * Google BigQuery | 
 	
 ----------------
 
 ----------------	
-| Session-18: May 30, 2019           |
+| Session-18: November 20, 2019           |
 |:-----------------------------------|
 | * Relational Algebra and Big Data  |
+| * SQL Access to Big Data  |
 	
 ----------------
 
 ----------------	
-| Session-19: June 4, 2019      |
+| Session-19: December 2, 2019      |
 |:------------------------------|
-| * Review for Final Exam       |
+| * Stream Processing       |
 	 
 ----------------
 
 ----------------	
-| Session-20: June 6, 2019            |
+| Session-20: December 4, 2019            |
 |:------------------------------------|
-| * TBDL: Review for Final Exam       |
+| * Review for Final Exam       |
 
 ----------------
 
-----------------	
+----------------
 | Session-21: **Final Exam**             |
 |:---------------------------------------|
-| * Date: June TBDL, 2019, 5:45-7:45 PST |
+| * Date: December 9-13, 2019 |
 
 
-----------------	
+----------------
+----------------
 
 
 
