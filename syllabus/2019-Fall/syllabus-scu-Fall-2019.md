@@ -182,7 +182,17 @@ The weekly coverage might change as it depends on the progress of the class.
 However, you must keep up with the reading assignments.
 
 ----------------
-   
+
+----------------
+* Session-1:  September 23, 2019
+	* Introduction to Big Data
+	* [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
+	* [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf) |
+	* [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf) |
+
+
+----------------
+
 ----------------
 | Session-1:  September 23, 2019    |
 |:-----------------------------|
