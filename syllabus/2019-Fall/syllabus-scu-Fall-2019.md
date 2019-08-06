@@ -387,3 +387,7 @@ References:
 * [MapReduce examples](http://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf)
 
 * [MapReduce and relational algebra](http://www.cs.kent.edu/~jin/Cloud12Spring/DatabaseMapReduce.pptx)
+
+* [Spark Streaming Tutorial](https://www.edureka.co/blog/spark-streaming/)
+
+* [1.1 Billion Taxi Rides on Amazon Athena](https://tech.marksblogg.com/billion-nyc-taxi-rides-aws-athena.html)
