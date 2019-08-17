@@ -26,7 +26,8 @@
 
 ## Required Books
 
-* [1. PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+* [1. PySpark Algorithms Book by Mahmoud Parsian -- amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+* [1. PySpark Algorithms Book by Mahmoud Parsian -- github.com](https://github.com/mahmoudparsian/pyspark-algorithms)
 * [2. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * [3. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
