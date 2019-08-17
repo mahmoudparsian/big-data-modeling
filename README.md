@@ -26,7 +26,7 @@
 
 ## Required Books
 
-* 1. PySpark Algorithms Book by Mahmoud Parsian
+* `1.` PySpark Algorithms Book by Mahmoud Parsian
 	* [Buy from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
 	* [Source code @github.com](https://github.com/mahmoudparsian/pyspark-algorithms)
 * [2. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
