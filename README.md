@@ -26,11 +26,12 @@
 
 ## Required Books
 
-* `1.` PySpark Algorithms Book by Mahmoud Parsian
-	* [Buy from amazon.com -- PySpark Algorithms Book by Mahmoud Parsian](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+* `1.`[PySpark Algorithms Book by Mahmoud Parsian](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
+	* [Buy from amazon.com -- PySpark Algorithms Book -- PDF Version](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+	* [Buy from amazon.com -- PySpark Algorithms Book -- Kindle Version](www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
 	* [Source code @github.com -- PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-* `2.` [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-* `3.` [Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
+* `2.`[Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+* `3.`[Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
 
 ## Required Introduction to MapReduce and Spark 
 
@@ -65,19 +66,20 @@ The main focus of this class is to cover the following concepts:
 * Distributed File Systems
 * Distributed Computing
 * Distributed and Parallel Algorithms
-* MapReduce Paradigm
-* MapReduce Algorithms
+* [MapReduce Paradigm](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+* [MapReduce Algorithms](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * Scale-out Architectures (using Hadoop, Spark, PySpark)
-* Apache Spark: http://spark.apache.org/
+* [Apache Spark](http://spark.apache.org/)
 * Use Spark, Py-Spark, and Python to teach MapReduce and distributed computing
 * SQL for NoSQL Data, How?
-* Amazon Athena, S3, Data Partitioning   
+* [Amazon Athena](https://aws.amazon.com/athena/)
+* [Amazon Athena, S3, Data Partitioning](https://aws.amazon.com/athena/)
 ---------------------------
 
 ## My latest books: 
 
 
-[PySpark Algorithms Book](https://github.com/mahmoudparsian/pyspark-algorithms)
+[PySpark Algorithms Book](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
 ======================
 PySpark Algorithms
 
