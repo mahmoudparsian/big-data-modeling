@@ -83,15 +83,13 @@ The main focus of this class is to cover the following concepts:
 ======================
 PySpark Algorithms
 
-<img src="./images/pyspark_algorithms.jpg" alt="drawing" width="500" height="500"/>
-
+[![PySpark Algorithms Book](images/pyspark_algorithms.jpg)](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
 
 
 
 [Data Algorithms Book](http://shop.oreilly.com/product/0636920033950.do)
 ======================
 Data Algorithms: Recipes for Scaling up with Hadoop and Spark
-
 
 [![Data Algorithms Book](images/large-image.jpg)](http://shop.oreilly.com/product/0636920033950.do)
 
