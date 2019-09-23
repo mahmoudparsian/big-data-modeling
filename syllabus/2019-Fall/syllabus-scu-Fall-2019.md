@@ -2,7 +2,7 @@
 
 ## [Santa Clara University](http://scu.edu/)
 
-## [MSIS 2627 : Big Data Modeling and Analytics](https://legacy.scu.edu/legacy/courseavail/t4/catalog.cfm?subject=MSIS&acad_career=GRAD#collapse11)
+## [MSIS 2627 : Big Data Modeling and Analytics](www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 
 * Class hours:  
 	* MSIS 2627-01 (92426)  MW 5:45:00 PM 7:20:00 PM
