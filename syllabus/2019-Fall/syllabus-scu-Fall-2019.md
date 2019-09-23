@@ -8,7 +8,7 @@
 	* MSIS 2627-01 (92426)  MW 5:45:00 PM 7:20:00 PM
 	* MSIS 2627-02 (92427)  MW 7:35:00 PM 9:10:00 PM
 
-* Class room: TBA
+* Class room: Lucas Hall 307
 
 * Instructor:
 	* Adjunct Professor: Mahmoud Parsian
@@ -19,7 +19,7 @@
  
 * [Class GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
-* Office Location: 221 W, Lucas Hall
+* Office Location: 216AA, Lucas Hall
 
 * Office Hours: By Appointment
 
