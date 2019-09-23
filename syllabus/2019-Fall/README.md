@@ -11,10 +11,10 @@
 * Class room: Lucas Hall 307
 
 * Instructor:
-	* Adjunct Professor: Mahmoud Parsian
+	* [Adjunct Professor: Mahmoud Parsian](https://www.linkedin.com/in/mahmoudparsian/)
 	* Ph.D in Computer Science
 	* Lead Big Data Team @Illumina
-	* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian)
+	* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian/)
 	* Email: mparsian@scu.edu
  
 * [Class GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
