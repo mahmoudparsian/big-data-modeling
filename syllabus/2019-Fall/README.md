@@ -251,22 +251,22 @@ However, you must keep up with the reading assignments.
 ----------------
 
 * **Session-9: October 21, 2019**
-	* Review Midterm Exam 
+	* MapReduce Design Patterns 
+	* Top-10 Algorithm   
+	* MinMax Algorithm  
+	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
 
 
 * **Session-10: October 23, 2019**
-	* Midterm Exam: closed book/notes
+	* Review Midterm Exam 
  
 ----------------
 
 
 * **Session-11: October 28, 2019**
-	* MapReduce Design Patterns 
-	* Top-10 Algorithm   
-	* MinMax Algorithm  
-	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+	* Midterm Exam: closed book/notes
 
 ----------------
 
