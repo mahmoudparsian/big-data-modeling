@@ -48,9 +48,10 @@
 ----------------------------
 
 
-## Midterm Exam 
-* Midterm Exam Date: **TBDL, 2019**
-* Midterm Exam Time: **TBDL PST**
+## Midterm Exam : October 28, 2019
+* MSIS 2627-01 (92426): Monday, 5:45:00 PM 7:20:00 PM, PST
+* MSIS 2627-02 (92427): Monday, 7:35:00 PM 9:10:00 PM, PST
+
 
 ## Final Exam 
 * Final Exam Date: **TBDL 2019**
