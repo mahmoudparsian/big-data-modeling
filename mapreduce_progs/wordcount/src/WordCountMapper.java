@@ -34,7 +34,10 @@ public class WordCountMapper
 	// called once for each key/value pair in the input split. 
 	// most applications should override this, but the default 
 	// is the identity function.
-	public void map(LongWritable key, Text value, Context context)
+	public void map(
+		LongWritable key, 
+		Text value, 
+		Context context)
 		throws IOException, InterruptedException {
 		
 	  	String line = value.toString().trim();	  	
@@ -57,6 +60,7 @@ public class WordCountMapper
 	  	    	word = word.substring(0, word.length() -1); 
 	  	    }
 			reducerKey.set(word);
+			// emit(reducerKey, one)
 			context.write(reducerKey, one);
 	 	}
 	}

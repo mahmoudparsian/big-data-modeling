@@ -27,6 +27,7 @@ public class TelecomReducer extends
         //
         if (sum >= 60) {
             LongWritable result = new LongWritable(sum);
+            // emit(key, result)
             context.write(key, result);
         }
         else {

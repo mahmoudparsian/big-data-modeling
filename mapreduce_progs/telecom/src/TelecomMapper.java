@@ -48,6 +48,7 @@ public class TelecomMapper extends
             // create value 
             LongWritable durationInMinutes = new LongWritable(durationAsMinutes);
             //
+            // emit(phoneNumber, durationInMinutes)
             context.write(phoneNumber, durationInMinutes);
         }
     }
