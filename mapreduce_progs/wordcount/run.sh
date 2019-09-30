@@ -1,13 +1,13 @@
 #/bin/bash
 MP=/Users/mparsian
-WORDCOUNT=$MP/zmp/BigData-MapReduce-Course/programs/wordcount
+WORDCOUNT=$MP/zmp/github/big-data-mapreduce-course/mapreduce_progs/wordcount
 # define the installation dir for hadoop
-export HADOOP_HOME=$MP/zmp/zs/hadoop-2.6.0
+export HADOOP_HOME=$MP/zmp/zs/hadoop-2.8.0
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export HADOOP_HOME_WARN_SUPPRESS=true
 
 # define your Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
 echo "JAVA_HOME=$JAVA_HOME"
 
 # define PATH: where programs will be found
