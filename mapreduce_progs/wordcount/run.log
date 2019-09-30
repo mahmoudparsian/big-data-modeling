@@ -1,0 +1,146 @@
+# ./run.sh
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home
+Note: src/WordCountDriver.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+added manifest
+adding: WordCountDriver.class(in = 2945) (out= 1428)(deflated 51%)
+adding: WordCountDriver.java(in = 2889) (out= 955)(deflated 66%)
+adding: WordCountMapper.class(in = 2705) (out= 1113)(deflated 58%)
+adding: WordCountMapper.java(in = 1882) (out= 825)(deflated 56%)
+adding: WordCountReducer.class(in = 1602) (out= 669)(deflated 58%)
+adding: WordCountReducer.java(in = 1244) (out= 496)(deflated 60%)
+rmr: DEPRECATED: Please use 'rm -r' instead.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+15/01/11 19:23:06 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+15/01/11 19:23:06 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /wordcount/input/Document-1
+15/01/11 19:23:06 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /wordcount/input/Document-2
+15/01/11 19:23:06 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /wordcount/input/Document-3
+15/01/11 19:23:06 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /wordcount/input/file1.txt
+15/01/11 19:23:06 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /wordcount/input/file2.txt
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+15/01/11 19:23:07 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+rmr: DEPRECATED: Please use 'rm -r' instead.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+15/01/11 19:23:09 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+15/01/11 19:23:10 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /wordcount/output
+15/01/11 19:23:10 INFO WordCountDriver: inputDir=/wordcount/input
+15/01/11 19:23:10 INFO WordCountDriver: outputDir=/wordcount/output
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/mparsian/zmp/zs/hadoop-2.6.0/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+15/01/11 19:23:11 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+15/01/11 19:23:11 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+15/01/11 19:23:12 INFO input.FileInputFormat: Total input paths to process : 5
+15/01/11 19:23:12 INFO mapreduce.JobSubmitter: number of splits:5
+15/01/11 19:23:12 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1420946216806_0009
+15/01/11 19:23:12 INFO impl.YarnClientImpl: Submitted application application_1420946216806_0009
+15/01/11 19:23:12 INFO mapreduce.Job: The url to track the job: http://Mahmouds-MacBook-2.local:8088/proxy/application_1420946216806_0009/
+15/01/11 19:23:12 INFO mapreduce.Job: Running job: job_1420946216806_0009
+15/01/11 19:23:17 INFO mapreduce.Job: Job job_1420946216806_0009 running in uber mode : false
+15/01/11 19:23:17 INFO mapreduce.Job:  map 0% reduce 0%
+15/01/11 19:23:23 INFO mapreduce.Job:  map 100% reduce 0%
+15/01/11 19:23:28 INFO mapreduce.Job:  map 100% reduce 100%
+15/01/11 19:23:28 INFO mapreduce.Job: Job job_1420946216806_0009 completed successfully
+15/01/11 19:23:28 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=310
+		FILE: Number of bytes written=637717
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=787
+		HDFS: Number of bytes written=89
+		HDFS: Number of read operations=18
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters
+		Launched map tasks=5
+		Launched reduce tasks=1
+		Data-local map tasks=5
+		Total time spent by all maps in occupied slots (ms)=19717
+		Total time spent by all reduces in occupied slots (ms)=2253
+		Total time spent by all map tasks (ms)=19717
+		Total time spent by all reduce tasks (ms)=2253
+		Total vcore-seconds taken by all map tasks=19717
+		Total vcore-seconds taken by all reduce tasks=2253
+		Total megabyte-seconds taken by all map tasks=20190208
+		Total megabyte-seconds taken by all reduce tasks=2307072
+	Map-Reduce Framework
+		Map input records=13
+		Map output records=41
+		Map output bytes=356
+		Map output materialized bytes=334
+		Input split bytes=563
+		Combine input records=41
+		Combine output records=28
+		Reduce input groups=13
+		Reduce shuffle bytes=334
+		Reduce input records=28
+		Reduce output records=13
+		Spilled Records=56
+		Shuffled Maps =5
+		Failed Shuffles=0
+		Merged Map outputs=5
+		GC time elapsed (ms)=113
+		CPU time spent (ms)=0
+		Physical memory (bytes) snapshot=0
+		Virtual memory (bytes) snapshot=0
+		Total committed heap usage (bytes)=1207959552
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters
+		Bytes Read=224
+	File Output Format Counters
+		Bytes Written=89
+15/01/11 19:23:28 INFO WordCountDriver: run(): status=true
+15/01/11 19:23:28 INFO WordCountDriver: returnStatus=0
+
+
+# hadoop fs -ls /wordcount/output/
+Found 2 items
+-rw-r--r--   1 mparsian supergroup          0 2015-01-11 19:23 /wordcount/output/_SUCCESS
+-rw-r--r--   1 mparsian supergroup         89 2015-01-11 19:23 /wordcount/output/part-r-00000
+
+# hadoop fs -cat /wordcount/output/part-r-00000
+cat	3
+fast	5
+fat	2
+fence	2
+fox	9
+good	1
+here	2
+jumped	4
+over	2
+ran	1
+red	5
+there	1
+was	4
