@@ -1,0 +1,35 @@
+Advantages of Hadoop MapReduce Programming
+   https://www.tutorialspoint.com/articles/advantages-of-hadoop-mapreduce-programming
+
+Formalize MapReduce:
+
+Let [...] denotes a list of objects
+
+map(k, v) -> [(k2, v2)]
+reduce(k2, [v2]) -> [(k3, v3)]
+
+
+what does MapReduce offer:
+
+MapReduce programming offers several benefits 
+to help you gain valuable insights from your 
+big data:
+
+Scalability. Businesses can process petabytes 
+             of data stored in the Hadoop Distributed 
+             File System (HDFS).
+             
+Flexibility. Hadoop enables easier access to multiple 
+             sources of data and multiple types of data.
+             
+Speed. With parallel processing and minimal data movement, 
+       Hadoop offers fast processing of massive amounts 
+       of data.
+       
+Simple. Developers can write code in a choice of languages, 
+        including Java, C++ and Python.
+        
+Fault Tolerance: Given that you have a replication for your
+                 cluster, your MR job will complete if even
+                 some of the nodes crash/die
+
