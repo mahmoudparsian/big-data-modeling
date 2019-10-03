@@ -28,7 +28,7 @@
 
 * `1.`[PySpark Algorithms Book by Mahmoud Parsian](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
 	* [Buy from amazon.com -- PySpark Algorithms Book -- PDF Version](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
-	* [Buy from amazon.com -- PySpark Algorithms Book -- Kindle Version](www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
+	* [Buy from amazon.com -- PySpark Algorithms Book -- Kindle Version](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/)
 	* [Source code @github.com -- PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 * `2.`[Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * `3.`[Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
@@ -85,7 +85,7 @@ The main focus of this class is to cover the following concepts:
 ======================
 PySpark Algorithms
 
-[![PySpark Algorithms Book](images/pyspark_algorithms.jpg)](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
+[![PySpark Algorithms Book](images/pyspark_algorithms.jpg)](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/)
 
 
 
