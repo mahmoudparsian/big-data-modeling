@@ -20,7 +20,7 @@
 * Class hours:  
 	* MSIS 2627-01 (92426)  MW 5:45:00 PM 7:20:00 PM
 	* MSIS 2627-02 (92427)  MW 7:35:00 PM 9:10:00 PM
-* Instructor [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+* Instructor: [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 * Class room: Lucas Hall 307 
 * Office: 216AA, 2nd Floor, Lucas Hall
 * Office Hours: by appointment
