@@ -56,8 +56,10 @@
 
 
 ## Final Exam 
-* Final Exam Date: **TBDL 2019**
-* Final Exam Time: **TBDL PST**
+* Mon/Wed 5:45 pm classes
+	* Monday, December 9, 2019, 5:45 – 7:45 pm, PST
+* Mon/Wed 7:35 pm classes 
+	* Wednesday, December 11, 2019, 5:45 – 7:45 pm, PST
 
 ----------------------------
 
