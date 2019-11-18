@@ -1,0 +1,314 @@
+GraphFrames Demo Session
+
+vertices = spark.createDataFrame([('1', 'Carter', 'Derrick', 50), 
+                                  ('2', 'May', 'Derrick', 26),
+                                 ('3', 'Mills', 'Jeff', 80),
+                                  ('4', 'Hood', 'Robert', 65),
+                                  ('5', 'Banks', 'Mike', 93),
+                                 ('98', 'Berg', 'Tim', 28),
+                                 ('99', 'Page', 'Allan', 16)],
+                                 ['id', 'name', 'firstname', 'age'])
+                                 
+edges = spark.createDataFrame([('1', '2', 'friend'), 
+                               ('2', '1', 'friend'),
+                              ('3', '1', 'friend'),
+                              ('1', '3', 'friend'),
+                               ('2', '3', 'follows'),
+                               ('3', '4', 'friend'),
+                               ('4', '3', 'friend'),
+                               ('5', '3', 'friend'),
+                               ('3', '5', 'friend'),
+                               ('4', '5', 'follows'),
+                              ('98', '99', 'friend'),
+                              ('99', '98', 'friend')],
+                              ['src', 'dst', 'type'])
+                              
+g = GraphFrame(vertices, edges)
+
+## Take a look at the DataFrames
+g.vertices.show()
+
+g.edges.show()
+
+## Check the number of edges of each vertex
+g.degrees.show()
+
+g.vertices.filter("age > 30").show()
+
+g.inDegrees.filter("inDegree >= 2").sort("inDegree", ascending=False).show()
+
+g.edges.filter('type == "friend"')
+
+
+Practically, GraphFrames requires you to set a directory 
+where it can save checkpoints. Create such a folder in your 
+working directory and drop the following line (where 
+graphframes_cps is your new folder) in Jupyter to set the 
+checkpoint directory.
+
+sc.setCheckpointDir('graphframes_cps')
+
+
+g.connectedComponents().show()
+
+Motif finding
+Finding motifs helps to execute queries to discover structural 
+patterns in graphs. Network motifs are patterns that occur 
+repeatedly in the graph and represent the relationships between 
+the vertices. GraphFrames motif finding uses a declarative Domain 
+Specific Language (DSL) for expressing structural queries.
+The query can be invoked by using the find-function, where the 
+motif (in quotation marks) is expressed as the first parameter 
+of the function.
+
+The following example will search for pairs of vertices a,b 
+connected by edge e and pairs of vertices b,c connected by 
+edge e2. It will return a DataFrame of all such structures 
+in the graph, with columns for each of the named elements 
+(vertices or edges) in the motif.
+
+g.find("(a)-[e]->(b); (b)-[e2]->(a)").show()
+
+If edges and/or vertices are anonymous, they won’t be displayed 
+in the resulting DataFrame. Motifs can be joined by a semicolon 
+and can be negated with a exclamation mark. More details about 
+the Domain Specific Language can be found in the documentation.
+As an example we can try to find the mutual friends for any pair 
+of users a and c. In order to be a mutual friend b, b must be a 
+friend with both a and c (and not just followed by c, for example).
+
+mutualFriends = 
+g.find("(a)-[]->(b); (b)-[]->(c); (c)-[]->(b); (b)-[]->(a)")\
+.dropDuplicates()
+
+---
+
+To query all the mutual friends between 2 and 3 we can 
+filter the DataFrame.
+
+mutualFriends.filter('a.id == 2 and c.id == 3').show()
+
+
+pr = g.pageRank(resetProbability=0.15, tol=0.01)
+
+## look at the pagerank score for every vertex
+pr.vertices.show()
+
+## look at the weight of every edge
+pr.edges.show()
+
+
+===== DEMO ======
+$ ./bin/pyspark --packages graphframes:graphframes:0.7.0-spark2.4-s_2.11
+Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Ivy Default Cache set to: /Users/mparsian/.ivy2/cache
+The jars for the packages stored in: /Users/mparsian/.ivy2/jars
+:: loading settings :: url = jar:file:/Users/mparsian/spark-2.4.4/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+graphframes#graphframes added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-fdccb0a1-c26b-44ea-b433-6cbf6e24f919;1.0
+	confs: [default]
+	found graphframes#graphframes;0.7.0-spark2.4-s_2.11 in spark-packages
+	found org.slf4j#slf4j-api;1.7.16 in local-m2-cache
+downloading https://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.7.0-spark2.4-s_2.11/graphframes-0.7.0-spark2.4-s_2.11.jar ...
+	[SUCCESSFUL ] graphframes#graphframes;0.7.0-spark2.4-s_2.11!graphframes.jar (308ms)
+downloading file:/Users/mparsian/.m2/repository/org/slf4j/slf4j-api/1.7.16/slf4j-api-1.7.16.jar ...
+	[SUCCESSFUL ] org.slf4j#slf4j-api;1.7.16!slf4j-api.jar (2ms)
+:: resolution report :: resolve 2183ms :: artifacts dl 316ms
+	:: modules in use:
+	graphframes#graphframes;0.7.0-spark2.4-s_2.11 from spark-packages in [default]
+	org.slf4j#slf4j-api;1.7.16 from local-m2-cache in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   2   |   2   |   2   |   0   ||   2   |   2   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-fdccb0a1-c26b-44ea-b433-6cbf6e24f919
+	confs: [default]
+	2 artifacts copied, 0 already retrieved (411kB/7ms)
+19/11/13 15:20:17 WARN Utils: Your hostname, Mahmouds-MacBook.local resolves to a loopback address: 127.0.0.1; using 172.31.38.57 instead (on interface en0)
+19/11/13 15:20:17 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+19/11/13 15:20:18 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 2.4.4
+      /_/
+
+Using Python version 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018 02:44:43)
+SparkSession available as 'spark'.
+>>> vertices = spark.createDataFrame([('1', 'Carter', 'Derrick', 50),
+...                                   ('2', 'May', 'Derrick', 26),
+...                                  ('3', 'Mills', 'Jeff', 80),
+...                                   ('4', 'Hood', 'Robert', 65),
+...                                   ('5', 'Banks', 'Mike', 93),
+...                                  ('98', 'Berg', 'Tim', 28),
+...                                  ('99', 'Page', 'Allan', 16)],
+...                                  ['id', 'name', 'firstname', 'age'])
+>>>
+>>> edges = spark.createDataFrame([('1', '2', 'friend'),
+...                                ('2', '1', 'friend'),
+...                               ('3', '1', 'friend'),
+...                               ('1', '3', 'friend'),
+...                                ('2', '3', 'follows'),
+...                                ('3', '4', 'friend'),
+...                                ('4', '3', 'friend'),
+...                                ('5', '3', 'friend'),
+...                                ('3', '5', 'friend'),
+...                                ('4', '5', 'follows'),
+...                               ('98', '99', 'friend'),
+...                               ('99', '98', 'friend')],
+...                               ['src', 'dst', 'type'])
+>>>
+>>>
+
+>>> from graphframes import *
+>>> g = GraphFrame(vertices, edges)
+>>> g
+GraphFrame(v:[id: string, name: string ... 2 more fields], e:[src: string, dst: string ... 1 more field])
+>>> g.vertices.show()
++---+------+---------+---+
+| id|  name|firstname|age|
++---+------+---------+---+
+|  1|Carter|  Derrick| 50|
+|  2|   May|  Derrick| 26|
+|  3| Mills|     Jeff| 80|
+|  4|  Hood|   Robert| 65|
+|  5| Banks|     Mike| 93|
+| 98|  Berg|      Tim| 28|
+| 99|  Page|    Allan| 16|
++---+------+---------+---+
+
+>>> g.edges.show()
++---+---+-------+
+|src|dst|   type|
++---+---+-------+
+|  1|  2| friend|
+|  2|  1| friend|
+|  3|  1| friend|
+|  1|  3| friend|
+|  2|  3|follows|
+|  3|  4| friend|
+|  4|  3| friend|
+|  5|  3| friend|
+|  3|  5| friend|
+|  4|  5|follows|
+| 98| 99| friend|
+| 99| 98| friend|
++---+---+-------+
+
+>>> g.vertices.filter("age > 30").show()
++---+------+---------+---+
+| id|  name|firstname|age|
++---+------+---------+---+
+|  1|Carter|  Derrick| 50|
+|  3| Mills|     Jeff| 80|
+|  4|  Hood|   Robert| 65|
+|  5| Banks|     Mike| 93|
++---+------+---------+---+
+
+>>> g.inDegrees.filter("inDegree >= 2").sort("inDegree", ascending=False).show()
++---+--------+
+| id|inDegree|
++---+--------+
+|  3|       4|
+|  1|       2|
+|  5|       2|
++---+--------+
+
+>>> g.edges.filter('type == "friend"')
+DataFrame[src: string, dst: string, type: string]
+
+>>> sc.setCheckpointDir('/tmp/graphframes_cps')
+>>> g.connectedComponents().show()
++---+------+---------+---+------------+
+| id|  name|firstname|age|   component|
++---+------+---------+---+------------+
+|  1|Carter|  Derrick| 50|154618822656|
+|  2|   May|  Derrick| 26|154618822656|
+|  3| Mills|     Jeff| 80|154618822656|
+|  4|  Hood|   Robert| 65|154618822656|
+|  5| Banks|     Mike| 93|154618822656|
+| 98|  Berg|      Tim| 28|317827579904|
+| 99|  Page|    Allan| 16|317827579904|
++---+------+---------+---+------------+
+
+>>> mutualFriends = g.find("(a)-[]->(b); (b)-[]->(c); (c)-[]->(b); (b)-[]->(a)").dropDuplicates()
+>>> mutualFriends.show()
++--------------------+--------------------+--------------------+
+|                   a|                   b|                   c|
++--------------------+--------------------+--------------------+
+|[4, Hood, Robert,...|[3, Mills, Jeff, 80]|[4, Hood, Robert,...|
+|[3, Mills, Jeff, 80]|[1, Carter, Derri...|[2, May, Derrick,...|
+|[5, Banks, Mike, 93]|[3, Mills, Jeff, 80]|[1, Carter, Derri...|
+|[4, Hood, Robert,...|[3, Mills, Jeff, 80]|[1, Carter, Derri...|
+|[3, Mills, Jeff, 80]|[1, Carter, Derri...|[3, Mills, Jeff, 80]|
+|[5, Banks, Mike, 93]|[3, Mills, Jeff, 80]|[5, Banks, Mike, 93]|
+|[5, Banks, Mike, 93]|[3, Mills, Jeff, 80]|[4, Hood, Robert,...|
+|[1, Carter, Derri...|[2, May, Derrick,...|[1, Carter, Derri...|
+|[1, Carter, Derri...|[3, Mills, Jeff, 80]|[4, Hood, Robert,...|
+|[2, May, Derrick,...|[1, Carter, Derri...|[3, Mills, Jeff, 80]|
+|[1, Carter, Derri...|[3, Mills, Jeff, 80]|[5, Banks, Mike, 93]|
+|[1, Carter, Derri...|[3, Mills, Jeff, 80]|[1, Carter, Derri...|
+|[99, Page, Allan,...| [98, Berg, Tim, 28]|[99, Page, Allan,...|
+| [98, Berg, Tim, 28]|[99, Page, Allan,...| [98, Berg, Tim, 28]|
+|[3, Mills, Jeff, 80]|[5, Banks, Mike, 93]|[3, Mills, Jeff, 80]|
+|[4, Hood, Robert,...|[3, Mills, Jeff, 80]|[5, Banks, Mike, 93]|
+|[2, May, Derrick,...|[1, Carter, Derri...|[2, May, Derrick,...|
+|[3, Mills, Jeff, 80]|[4, Hood, Robert,...|[3, Mills, Jeff, 80]|
++--------------------+--------------------+--------------------+
+
+>>> mutualFriends.filter('a.id == 2 and c.id == 3').show()
++--------------------+--------------------+--------------------+
+|                   a|                   b|                   c|
++--------------------+--------------------+--------------------+
+|[2, May, Derrick,...|[1, Carter, Derri...|[3, Mills, Jeff, 80]|
++--------------------+--------------------+--------------------+
+
+>>> mutualFriends.filter('a.id == 2 and c.id == 3').show(truncate=False)
++---------------------+------------------------+--------------------+
+|a                    |b                       |c                   |
++---------------------+------------------------+--------------------+
+|[2, May, Derrick, 26]|[1, Carter, Derrick, 50]|[3, Mills, Jeff, 80]|
++---------------------+------------------------+--------------------+
+
+>>> pr = g.pageRank(resetProbability=0.15, tol=0.01)
+
+>>> pr.vertices.show()
++---+------+---------+---+------------------+
+| id|  name|firstname|age|          pagerank|
++---+------+---------+---+------------------+
+|  1|Carter|  Derrick| 50|0.9055074972891308|
+|  3| Mills|     Jeff| 80| 1.853919642738813|
+|  2|   May|  Derrick| 26|0.5377967999474921|
+|  4|  Hood|   Robert| 65|0.6873519241384106|
+| 98|  Berg|      Tim| 28|1.0225331112091938|
+|  5| Banks|     Mike| 93|0.9703579134677663|
+| 99|  Page|    Allan| 16|1.0225331112091938|
++---+------+---------+---+------------------+
+
+>>> pr.edges.show()
++---+---+-------+------------------+
+|src|dst|   type|            weight|
++---+---+-------+------------------+
+|  1|  2| friend|               0.5|
+| 99| 98| friend|               1.0|
+|  1|  3| friend|               0.5|
+|  4|  5|follows|               0.5|
+|  5|  3| friend|               1.0|
+| 98| 99| friend|               1.0|
+|  3|  5| friend|0.3333333333333333|
+|  4|  3| friend|               0.5|
+|  2|  1| friend|               0.5|
+|  3|  4| friend|0.3333333333333333|
+|  3|  1| friend|0.3333333333333333|
+|  2|  3|follows|               0.5|
++---+---+-------+------------------+
+
+>>>
