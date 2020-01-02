@@ -8,18 +8,17 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Fall 2019
+## Winter 2020
 ## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: September 23, 2019
-	* End: December 7, 2019
+	* Start: January 6, 2020
+	* End: March 11, 2019
 * Class hours:  
-	* MSIS 2627-01 (92426)  MW 5:45:00 PM 7:20:00 PM
-	* MSIS 2627-02 (92427)  MW 7:35:00 PM 9:10:00 PM
+	* MW 5:45:00 PM 7:20:00 PM
 * Instructor: [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 * Class room: Lucas Hall 307 
 * Office: 216AA, 2nd Floor, Lucas Hall
@@ -46,20 +45,15 @@
 
 
 
-## [Syllabus](./syllabus/2019-Fall/)
+## [Syllabus](./syllabus/2020-Winter/)
 ----------------------------
 
 
-## Midterm Exam : October 28, 2019
-* MSIS 2627-01 (92426): Monday, 5:45:00 PM 7:20:00 PM, PST
-* MSIS 2627-02 (92427): Monday, 7:35:00 PM 9:10:00 PM, PST
+## Midterm Exam : February DD, 2020 (5:45:00 PM 7:20:00 PM, PST)
 
 
-## Final Exam 
-* Mon/Wed 5:45 pm classes
-	* Monday, December 9, 2019, 5:45 – 7:45 pm, PST
-* Mon/Wed 7:35 pm classes 
-	* Wednesday, December 11, 2019, 5:45 – 7:45 pm, PST
+## Final Exam, March 16-19, 2020
+
 
 ----------------------------
 
