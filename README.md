@@ -43,14 +43,17 @@
 * [Apache Spark Site](http://spark.apache.org/)
 * [Apache Spark Download](https://www.apache.org/dyn/closer.lua/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz)
 
-
-
-## [Syllabus](./syllabus/2020-Winter/)
 ----------------------------
 
+## [Syllabus](./syllabus/2020-Winter/)
+
+
+----------------------------
 
 ## Midterm Exam : Monday, February 10, 2020 (5:45 PM 7:20 PM, PST)
 
+
+----------------------------
 
 ## Final Exam, Wednesday, March 18, 2020 (5:45 PM 7:45 PM, PST)
 
