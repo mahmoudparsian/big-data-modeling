@@ -1,4 +1,4 @@
-# Winter 2019 Course Information
+# Winter 2020 Course Information
 
 ## [Santa Clara University](http://scu.edu/)
 
