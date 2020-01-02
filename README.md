@@ -18,9 +18,9 @@
 	* Start: January 6, 2020
 	* End: March 11, 2019
 * Class hours:  
-	* MW 5:45:00 PM 7:20:00 PM
+	* MW 5:45 PM 7:20 PM PST
 * Instructor: [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
-* Class room: Lucas Hall 307 
+* Class room: Lucas Hall 310 
 * Office: 216AA, 2nd Floor, Lucas Hall
 * Office Hours: by appointment
 
@@ -49,10 +49,10 @@
 ----------------------------
 
 
-## Midterm Exam : February DD, 2020 (5:45:00 PM 7:20:00 PM, PST)
+## Midterm Exam : Monday, February 10, 2020 (5:45 PM 7:20 PM, PST)
 
 
-## Final Exam, March 16-19, 2020
+## Final Exam, Wednesday, March 18, 2020 (5:45 PM 7:45 PM, PST)
 
 
 ----------------------------
