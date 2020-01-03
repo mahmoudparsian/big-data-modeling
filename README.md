@@ -78,22 +78,9 @@ The main focus of this class is to cover the following concepts:
 * [Amazon Athena, S3, Data Partitioning](https://aws.amazon.com/athena/)
 ---------------------------
 
-## My latest books: 
+## Mahmoud Parsian's Latest Books: 
 
-
-[PySpark Algorithms Book](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
-======================
-PySpark Algorithms
-
-[![PySpark Algorithms Book](images/pyspark_algorithms.jpg)](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/)
-
-
-
-[Data Algorithms Book](http://shop.oreilly.com/product/0636920033950.do)
-======================
-Data Algorithms: Recipes for Scaling up with Hadoop and Spark
-
-[![Data Algorithms Book](images/large-image.jpg)](http://shop.oreilly.com/product/0636920033950.do)
+### PySpark Algorithms Book
 
 <a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
     <img 
@@ -103,6 +90,8 @@ Data Algorithms: Recipes for Scaling up with Hadoop and Spark
         height="500"
     >
 </a>
+
+### Data Algorithms Book
 
 <a href="http://shop.oreilly.com/product/0636920033950.do">
     <img 
