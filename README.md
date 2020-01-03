@@ -99,7 +99,8 @@ Data Algorithms: Recipes for Scaling up with Hadoop and Spark
     <img 
         alt="PySpark Algorithms Book" 
         src="images/pyspark_algorithms.jpg"
-        width="500" height="500"
+        width="550" 
+        height="500"
     >
 </a>
 
@@ -107,6 +108,7 @@ Data Algorithms: Recipes for Scaling up with Hadoop and Spark
     <img 
         alt="Data Algorithms Book" 
         src="images/large-image.jpg"
-        width="500" height="700"
+        width="550" 
+        height="700"
     >
 </a>
