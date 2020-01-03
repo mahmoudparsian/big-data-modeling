@@ -95,3 +95,10 @@ Data Algorithms: Recipes for Scaling up with Hadoop and Spark
 
 [![Data Algorithms Book](images/large-image.jpg)](http://shop.oreilly.com/product/0636920033950.do)
 
+<a href="http://shop.oreilly.com/product/0636920033950.do">
+    <img 
+        alt="Data Algorithms Book" 
+        src="images/large-image.jpg"
+        width="450" height="370"
+    >
+</a>
