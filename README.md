@@ -99,6 +99,6 @@ Data Algorithms: Recipes for Scaling up with Hadoop and Spark
     <img 
         alt="Data Algorithms Book" 
         src="images/large-image.jpg"
-        width="500" height="750"
+        width="500" height="700"
     >
 </a>
