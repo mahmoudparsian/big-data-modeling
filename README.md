@@ -95,6 +95,14 @@ Data Algorithms: Recipes for Scaling up with Hadoop and Spark
 
 [![Data Algorithms Book](images/large-image.jpg)](http://shop.oreilly.com/product/0636920033950.do)
 
+<a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
+    <img 
+        alt="PySpark Algorithms Book" 
+        src="images/pyspark_algorithms.jpg"
+        width="500" height="700"
+    >
+</a>
+
 <a href="http://shop.oreilly.com/product/0636920033950.do">
     <img 
         alt="Data Algorithms Book" 
