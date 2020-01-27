@@ -72,7 +72,13 @@ ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:195
 >>> key_value_pairs.count()
 5
 >>> key_value_pairs.collect()
-[('alex', 2), ('alex', 20), ('alex', 40), ('jane', 100), ('jane', 400)]
+[
+ ('alex', 2), 
+ ('alex', 20), 
+ ('alex', 40), 
+ ('jane', 100), 
+ ('jane', 400)
+]
 >>>
 >>>
 >>> grouped = key_value_pairs.groupByKey()
@@ -83,10 +89,16 @@ ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:195
 ]
 >>>
 >>> grouped.map(lambda x: (x[0], list(x[1]))).collect()
-[('alex', [2, 20, 40]), ('jane', [100, 400])]
+[
+ ('alex', [2, 20, 40]), 
+ ('jane', [100, 400])
+]
 >>> grouped_sum = grouped.map(lambda x: (x[0], sum(x[1])))
 >>> grouped_sum.collect()
-[('alex', 62), ('jane', 500)]
+[
+ ('alex', 62),
+ ('jane', 500)
+]
 >>>
 >>>
 >>> grouped.collect()
@@ -96,5 +108,9 @@ ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:195
 ]
 >>> grouped_sum_2 = grouped.mapValues(lambda x: sum(x))
 >>> grouped_sum_2.collect()
-[('alex', 62), ('jane', 500)]
+[
+ ('alex', 62), 
+ ('jane', 500)
+]
 >>>
+
