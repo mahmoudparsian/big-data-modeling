@@ -1,0 +1,61 @@
+$ cat /tmp/foxdata.txt
+red fox jumped high
+fox jumped over high fence
+red fox jumped
+
+$ cat /tmp/wordcount.py
+from __future__ import print_function
+
+import sys
+
+from pyspark.sql import SparkSession
+
+#
+print ("This is the name of the script: ", sys.argv[0])
+print ("Number of arguments: ", len(sys.argv))
+print ("The arguments are: " , str(sys.argv))
+#
+
+#   DEFINE your input path
+input_path = sys.argv[1]
+print("input_path: ", input_path)
+
+  
+#   CREATE an instance of a SparkSession object
+spark = SparkSession\
+    .builder\
+    .appName("PythonWordCount")\
+    .getOrCreate()
+
+#   CREATE a new RDD[String]
+#lines = spark.sparkContext.textFile(input_path)
+    
+#   APPLY a SET of TRANSFORMATIONS...
+#counts = lines.flatMap(lambda x: x.split(' ')) \
+#                .map(lambda x: (x, 1)) \
+#                .reduceByKey(lambda a,b : a+b)
+
+counts = spark.sparkContext.textFile(input_path)\
+    .flatMap(lambda x: x.split(' ')) \
+    .map(lambda x: (x, 1)) \
+    .reduceByKey(lambda a,b : a+b)
+
+#   output = [(word1, count1), (word2, count2), ...]                  
+output = counts.collect()
+for (word, count) in output:
+    print("%s: %i" % (word, count))
+
+#  DONE!
+spark.stop()
+
+$ ./spark-2.4.4/bin/spark-submit /tmp/wordcount.py /tmp/foxdata.txt
+This is the name of the script:  /tmp/wordcount.py
+Number of arguments:  2
+The arguments are:  ['/tmp/wordcount.py', '/tmp/foxdata.txt']
+input_path:  foxdata.txt
+high: 2
+fence: 1
+red: 2
+fox: 3
+jumped: 3
+over: 1
