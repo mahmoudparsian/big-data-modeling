@@ -253,7 +253,7 @@ However, you must keep up with the reading assignments.
 ----------------
 
 * **Session-9: February 3, 2020**
-	* MapReduce Design Patterns 
+	* MapReduce Design Patterns: InMapper Combiner, mapPartitions
 	* Top-10 Algorithm   
 	* MinMax Algorithm  
 	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
@@ -273,8 +273,9 @@ However, you must keep up with the reading assignments.
 ----------------
 
 * **Session-12: February 12, 2020**
-	* MapReduce Design Pattern: mapPartitions() 
+	* Spark's DataFrames 
 	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
 
 ----------------
 
