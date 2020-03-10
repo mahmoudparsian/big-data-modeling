@@ -1,0 +1,129 @@
+What is Amazon Athena?
+======================
+Amazon Athena is an analytics 
+and interactive query service 
+that use interactive standard 
+SQL to analyze data stored on 
+Simple Storage Service (S3).
+
+What kind of service is that?
+=============================
+It is a serverless service i.e. 
+there is no need to setup the 
+instances for the datastore and 
+manage the infrastructure. 
+
+How do we analyze data?
+=======================
+Also, there is no need to load 
+data to Athena or run complex 
+ETL processes. All you need to 
+do is to point the data from the 
+application to AWS S3. You can 
+also simply store the logs on S3 
+to analyze with them with SQL 
+queries.
+
+
+What Kind of Data 
+Amazon Athena Analyzes?
+=======================
+Amazon Athena is capable of 
+analyzing and processing  the  
+structured  data  sets in 
+the form of tables, semi-structured 
+and unstructured data in any format. 
+
+Data Format
+===========
+There are various formats like CSV, 
+JSON, columnar data formats such as 
+Apache Parquet and Apache ORC. 
+
+
+Report Generation
+=================
+You can also use Amazon Athena to 
+generate reports or to explore data 
+with business intelligence tools or 
+SQL clients, connected via a JDBC driver.
+
+
+Back-End Structure 
+of Amazon Athena
+==================
+Amazon Athena uses a distributed SQL 
+engine to run the queries called Presto. 
+
+It uses  Apache Hive  to  store the 
+structured data. Apache Hive is a data 
+warehouse tool that creates, drops and 
+alters tables and partitions in the 
+datasets.
+
+Query Editor
+============
+Amazon Athena provides its query editor 
+that help developers to create a query 
+on the data, which is written on Apache 
+Hive. These queries are compliant DDL 
+Create Table statements or DDL drafted 
+in Apache Hive, which facilitates reading, 
+writing, and managing large and distributed 
+data sets. Apache Hive supports various 
+SQL functions and provides data partitioning 
+similar to the concept of external tables. 
+
+Athena metadata store is a repository 
+that stores metadata such as column 
+names and table definitions. It also 
+supports various window functions, 
+complex joins, and nested queries; and 
+uses an approach known as schema-on-read, 
+which allows developers to project their 
+schema on the data at the same time when 
+the query is executed.
+
+
+Athena use compute resources or pools 
+from multiple AZs (availability zones) 
+to accelerate the performance of a query. 
+Also, it allows developers to run queries 
+in parallell on massive data size which 
+may be in Terabytes or Petabytes.)
+
+Pricing of Amazon Athena
+=========================
+Amazon Athena is a pay-as-you-go 
+service, which is charged based on 
+the number of queries executed. Since 
+the data is stored on AWS S3, the charges 
+are $5 per TB of scanned data from Amazon 
+S3. 
+
+Meta Data
+=========
+Athena does not charge anything on the 
+failed queries. DDL Statements like 
+   * CREATE, 
+   * ALTER, 
+   * DROP and 
+   * partitioning queries 
+   
+are totally free. 
+
+If you cancel a query, you will be charged 
+only for the scanned data up to that point. 
+Of course, you can reduce costs by using 
+columnar formats, compression, and partitions. 
+With all such techniques, Athena scans fewer 
+data from Amazon S3.
+
+It is simple to calculate the charges for 
+AWS Athena as it is based on the amount of 
+data that needs to be analyzed. It improves 
+the performance of the query and helps 
+organizations to save cost by converting 
+the data to the columnar formats by using 
+open-source tools such as Apache Parquet 
+and Apache ORC. 

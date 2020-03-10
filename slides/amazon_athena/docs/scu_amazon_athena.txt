@@ -1,0 +1,5 @@
+city,city_ascii,lat,lng,country,iso2,iso3,admin_name,capital,population,id
+Malishevë,Malisheve,42.4822,20.7458,Kosovo,XK,XKS,Malishevë,admin,,1901597212
+
+--OK
+CREATE EXTERNAL TABLE IF NOT EXISTS scu_world_cities (
