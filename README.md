@@ -51,12 +51,16 @@
 
 ----------------------------
 
-## Midterm Exam : Thursday, April 30, 2020 (5:45 PM 7:20 PM, PST)
+## Midterm Exam: 
+* Tuesday, May 5, 2020 (5:45 PM 7:20 PM, PST)
+* Midterm exam is closed book/notes/friends/internet
 
 
 ----------------------------
 
-## Final Exam, June 8-11, 2020 (5:45 PM 7:45 PM, PST)
+## Final Exam:
+* June 8-11, 2020 (5:45 PM 7:45 PM, PST)
+* Final exam is closed book/notes/friends/internet
 
 
 ----------------------------
