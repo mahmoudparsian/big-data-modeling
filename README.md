@@ -52,13 +52,14 @@
 ----------------------------
 
 ## Midterm Exam: 
-* Tuesday, May 5, 2020 (5:45 PM 7:20 PM, PST)
+* Date: Tuesday, May 5, 2020 
+* Time: 5:45 PM - 7:20 PM, PST
 * Midterm exam is closed book/notes/friends/internet
 
 
 ----------------------------
 
-## Final Exam:
+## [Final Exam:](./exam_dates/Spring_2020_Finals_Schedule.pdf)
 * Date: Thursday, June 11, 2020 
 * Time: 5:45 PM - 7:45 PM, PST
 * Final exam is closed book/notes/friends/internet
