@@ -59,7 +59,8 @@
 ----------------------------
 
 ## Final Exam:
-* June 8-11, 2020 (5:45 PM 7:45 PM, PST)
+* Date: Thursday, June 11, 2020 
+* Time: 5:45 PM - 7:45 PM, PST
 * Final exam is closed book/notes/friends/internet
 
 
