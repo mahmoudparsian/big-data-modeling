@@ -8,22 +8,22 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Spring 2020
+## Summer 2020
 ## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: March 30, 2020
-	* End: June 11, 2019
+	* Start: June 15, 2020
+	* End: August 20, 2020
 * Class hours:  
-	* Tuesday 5:45 PM 7:20 PM PST
-	* Thursday 5:45 PM 7:20 PM PST	
+	* Monday 5:45 PM 7:20 PM PST (via Zoom)
+	* Wednesday 5:45 PM 7:20 PM PST	(via Zoom)
 * Instructor: [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 * Class room: online via Zoom
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used now due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
-* Office Hours: by appointment
+* Office Hours: TBDL
 
 ## Required Books
 
@@ -42,27 +42,27 @@
 ## Required Software: 
 
 * [Apache Spark Site](http://spark.apache.org/)
-* [Apache Spark Download](https://www.apache.org/dyn/closer.lua/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz)
+* [Apache Spark Download](https://www.apache.org/dyn/closer.lua/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz)
 
 ----------------------------
 
-## [Syllabus](./syllabus/2020-Spring/)
+## [Syllabus](./syllabus/2020-summer/)
 
 
 ----------------------------
 
 ## Midterm Exam: 
-* Date: Tuesday, May 5, 2020 
+* Date: Monday, July 20, 2020 
 * Time: 5:45 PM - 7:20 PM, PST
-* Midterm exam is closed book/notes/friends/internet
+* Midterm exam is closed book/notes/friends/internet/phone
 
 
 ----------------------------
 
 ## [Final Exam:](./exam_dates/Spring_2020_Finals_Schedule.pdf)
-* Date: Thursday, June 11, 2020 
+* Date: August NN, 2020 (TBDL)
 * Time: 5:45 PM - 7:45 PM, PST
-* Final exam is closed book/notes/friends/internet
+* Final exam is closed book/notes/friends/internet/phone
 
 
 ----------------------------
