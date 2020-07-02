@@ -1,4 +1,4 @@
-cat cat /Users/mparsian/spark-3.0.0/zbin/foxdata.txt
+cat /Users/mparsian/spark-3.0.0/zbin/foxdata.txt
 red fox jumped high
 fox jumped over high fence
 red fox jumped
@@ -114,8 +114,15 @@ SparkSession available as 'spark'.
 116
 
 >>> partition-1: 1, 2, 3, 5, 6, 7, 8
+partition-1: will sum up to: 32
 
->>> partition-2: -1, -4, 77, 99, -87
+>>> partition-2: -1, -4, 77, 99 
+partition-2: will sum up to: 171
 
-    partition-3: -100, 100
+>>> partition-3: -87, -100, 100
+partition-3: will sum up to: -87
+
+===============
+partition-1 & partition-2 will result in: 203
+203 & partition-3 will result in: 116 (Final result)
                      ^
