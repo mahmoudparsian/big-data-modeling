@@ -60,7 +60,7 @@
 ----------------------------
 
 ## [Final Exam:](./exam_dates/Spring_2020_Finals_Schedule.pdf)
-* Date: August NN, 2020 (TBDL)
+* Date: Wednesday, August 26, 2020
 * Time: 5:45 PM - 7:45 PM, PST
 * Final exam is closed book/notes/friends/internet/phone
 
