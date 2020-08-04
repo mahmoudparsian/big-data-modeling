@@ -1,0 +1,23 @@
+Join
+
+1. Join operation on Classic MapReduce
+   1.1 presented Inner Join By Example
+   1.2 Question: write a Classic MR to perform Left-Join
+   1.3 Question: write a Classic MR to perform Right-Join
+
+2. SQL Join
+    https://www.w3schools.com/sql/sql_join.asp
+    
+3. PySpark Join
+   http://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=join#pyspark.sql.DataFrame.join
+
+4. Pyspark Joins by Example
+   http://www.learnbymarketing.com/1100/pyspark-joins-by-example/#:~:text=Summary%3A%20Pyspark%20DataFrames%20have%20a,left_outer%2C%20right_outer%2C%20leftsemi).
+
+5. PySpark Join Explained
+   https://dzone.com/articles/pyspark-join-explained-with-examples
+
+6. Cartesian Product example
+   https://www.chegg.com/homework-help/definitions/cartesian-product-33
+
+
