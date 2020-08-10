@@ -59,7 +59,7 @@
 
 ----------------------------
 
-## [Final Exam:](./exam_dates/Spring_2020_Finals_Schedule.pdf)
+## [Final Exam:](./exam_dates/Summer_2020_Final_Exams.pdf)
 * Date: Wednesday, August 26, 2020
 * Time: 5:45 PM - 7:45 PM, PST
 * Final exam is closed book/notes/friends/internet/phone
