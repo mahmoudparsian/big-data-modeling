@@ -8,18 +8,18 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Summer 2020
+## Fall 2020
 ## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: June 15, 2020
-	* End: August 20, 2020
+	* Start: September 21, 2020
+	* End: December 28, 2020
 * Class hours:  
-	* Monday 5:45 PM 7:20 PM PST (via Zoom)
-	* Wednesday 5:45 PM 7:20 PM PST	(via Zoom)
+	* Monday 7:35 PM - 9:10 PM PST (via Zoom)
+	* Wednesday 7:35 PM - 9:10 PM PST	(via Zoom)
 * Instructor: [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 * Class room: online via Zoom
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used now due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
@@ -42,26 +42,26 @@
 ## Required Software: 
 
 * [Apache Spark Site](http://spark.apache.org/)
-* [Apache Spark Download](https://www.apache.org/dyn/closer.lua/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz)
+* [Apache Spark Download](http://spark.apache.org/downloads.html), Use version 3.0.0+
 
 ----------------------------
 
-## [Syllabus](./syllabus/2020-Summer/)
+## [Syllabus](./syllabus/2020-Fall/)
 
 
 ----------------------------
 
 ## Midterm Exam: 
-* Date: Monday, July 20, 2020 
-* Time: 5:45 PM - 7:20 PM, PST
+* Date: TBDL, 2020 
+* Time: 7:35 PM - 9:10 PM, PST
 * Midterm exam is closed book/notes/friends/internet/phone
 
 
 ----------------------------
 
-## [Final Exam:](./exam_dates/Summer_2020_Final_Exams.pdf)
-* Date: Wednesday, August 26, 2020
-* Time: 5:45 PM - 7:45 PM, PST
+## Final Exam:
+* Date: TBDL, 2020
+* Time: 7:35 PM - 9:10 PM, PST
 * Final exam is closed book/notes/friends/internet/phone
 
 
@@ -87,7 +87,18 @@ The main focus of this class is to cover the following concepts:
 
 ## Mahmoud Parsian's Latest Books: 
 
-### PySpark Algorithms Book
+### Data Algorithms with Spark 
+
+<a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md">
+    <img 
+        alt="Data Algorithms with Spark" 
+        src="images/data_algorithms_with_spark.jpg"
+        width="550" 
+        height="500"
+    >
+</a>
+
+### PySpark Algorithms 
 
 <a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
     <img 
@@ -98,7 +109,7 @@ The main focus of this class is to cover the following concepts:
     >
 </a>
 
-### Data Algorithms Book
+### Data Algorithms 
 
 <a href="http://shop.oreilly.com/product/0636920033950.do">
     <img 
