@@ -94,7 +94,7 @@ The main focus of this class is to cover the following concepts:
         alt="Data Algorithms with Spark" 
         src="images/data_algorithms_with_spark.jpg"
         width="550" 
-        height="500"
+        height="600"
     >
 </a>
 
@@ -105,7 +105,7 @@ The main focus of this class is to cover the following concepts:
         alt="PySpark Algorithms Book" 
         src="images/pyspark_algorithms.jpg"
         width="550" 
-        height="500"
+        height="600"
     >
 </a>
 
