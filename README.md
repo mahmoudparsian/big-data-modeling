@@ -20,7 +20,7 @@
 * Class hours:  
 	* Monday 7:35 PM - 9:10 PM PST (via Zoom)
 	* Wednesday 7:35 PM - 9:10 PM PST	(via Zoom)
-* Instructor: [Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+* Instructor: [Mahmoud Parsian](./instructor.md)
 * Class room: online via Zoom
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used now due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
 * Office Hours: TBDL
