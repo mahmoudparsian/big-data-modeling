@@ -1,6 +1,10 @@
 ## Python Tutorials
 
-* https://developers.google.com/edu/python/
+* [Tutorial - Learn Python in 10 minutes](https://www.stavros.io/tutorials/python/)
 
-* https://www.w3schools.com/python/python_intro.asp
+* [Google's Python Class](https://developers.google.com/edu/python/)
+
+* [Python Introduction](https://www.w3schools.com/python/python_intro.asp)
+
+ 
 
