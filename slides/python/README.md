@@ -6,5 +6,5 @@
 
 * [Python Introduction](https://www.w3schools.com/python/python_intro.asp)
 
- 
+* [Fundamentals of Python Programming Book](./zpython-book.pdf) 
 
