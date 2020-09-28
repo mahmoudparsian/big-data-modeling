@@ -1,4 +1,4 @@
-# Summer 2020 Course Information
+# Fall 2020 Course Information
 
 ## [Santa Clara University](http://scu.edu/)
 
