@@ -6,7 +6,7 @@ spark = SparkSession.builder\
     .getOrCreate()
 
 
-input_path= 's3://mydevbucket/db/Countries-Continents.csv'
+input_path= 's3://mydevbucket/db/continents_countries.csv'
 # input_path = sys.argv[1]
 
 df = spark.read.format("csv").option("header","true")\
