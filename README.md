@@ -51,18 +51,20 @@
 
 ----------------------------
 
+
 ## Midterm Exam: 
-* Date: TBDL, 2020 
-* Time: 7:35 PM - 9:10 PM, PST
-* Midterm exam is closed book/notes/friends/internet/phone
+#### &#x1F34F; Date: TBDL, 2020 
+#### &#x1F34F; Time: 7:35 PM - 9:10 PM, PST
+#### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone
 
 
 ----------------------------
 
+
 ## Final Exam:
-#### &#x1F34E; : Date: Wednesday, December 9th, 2020
-#### &#x1F34E; : Time: 5:45 PM - 7:45 PM, PST
-#### &#x1F34E; : Final exam is closed book/notes/friends/internet/phone
+#### &#x1F34E; Date: Wednesday, December 9th, 2020
+#### &#x1F34E; Time: 5:45 PM - 7:45 PM, PST
+#### &#x1F34E; Final exam is closed book/notes/friends/internet/phone
 
 
 ----------------------------
