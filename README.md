@@ -60,9 +60,9 @@
 ----------------------------
 
 ## Final Exam:
-* Date: TBDL, 2020
-* Time: 7:35 PM - 9:10 PM, PST
-* Final exam is closed book/notes/friends/internet/phone
+#### Date: Wednesday, December 9th, 2020
+#### Time: 5:45 PM - 7:45 PM, PST
+#### Final exam is closed book/notes/friends/internet/phone
 
 
 ----------------------------
