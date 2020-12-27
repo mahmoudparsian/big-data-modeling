@@ -53,7 +53,7 @@
 
 
 ## Midterm Exam: 
-#### &#x1F34F; Date: February TBDL, 2021 
+#### &#x1F34F; Date: February 9, 2021 
 #### &#x1F34F; Time: 7:35 PM - 9:10 PM, PST
 #### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone
 
@@ -62,7 +62,7 @@
 
 
 ## Final Exam:
-#### &#x1F34E; Date: March TBDL, 2021
+#### &#x1F34E; Date: March 15-19, 2021
 #### &#x1F34E; Time: 5:45 PM - 7:45 PM, PST
 #### &#x1F34E; Final exam is closed book/notes/friends/internet/phone
 
