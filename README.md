@@ -31,8 +31,8 @@
 	* [Buy from amazon.com -- PySpark Algorithms Book -- PDF Version](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 	* [Buy from amazon.com -- PySpark Algorithms Book -- Kindle Version](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/)
 	* [Source code @github.com -- PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-* `2.`[Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-* `3.`[Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book.pdf)
+* `2.`[Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer(http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+* `3.`[Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman(http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
 
 ## Required Introduction to MapReduce and Spark 
 
