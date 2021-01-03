@@ -16,7 +16,7 @@
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
 	* Start: January 5, 2021
-	* End: March TBDL, 2021
+	* End: March 19, 2021
 * Class hours:  
 	* Tuesday 7:35 PM - 9:10 PM PST (via Zoom)
 	* Thursday 7:35 PM - 9:10 PM PST	(via Zoom)
