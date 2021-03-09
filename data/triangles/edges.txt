@@ -17,3 +17,7 @@
 1,13,follow
 2,12,friend
 3,13,follow
+1,14,follow
+14,15,follow
+15,16,follow
+16,1,friend
