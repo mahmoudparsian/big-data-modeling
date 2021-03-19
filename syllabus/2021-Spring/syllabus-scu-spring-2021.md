@@ -211,7 +211,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-3: Tuesday, April 5, 2021**
+* **Session-3: Monday, April 5, 2021**
 	* Introduction to MapReduce: Watch a Video 
 	* [The Future of Big Data by Matei Zaharia -- Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)   
 	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
@@ -219,7 +219,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-4: Thursday, April 7, 2021**
+* **Session-4: Wednesday, April 7, 2021**
 	* Introduction to MapReduce: Watch a Video    
 	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  
 	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) 
@@ -229,7 +229,7 @@ However, you must keep up with the reading assignments.
 	* Classic Join in MapReduce
 ----------------
 
-* **Session-5: Tuesday, April 12, 2021**
+* **Session-5: Monday, April 12, 2021**
 	* Introduction to MapReduce/Hadoop/Spark 
 	* [Chapters 1, 2 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
 	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  
@@ -237,7 +237,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-6: Thursday, April 14, 2021**
+* **Session-6: Wednesday, April 14, 2021**
 	* Practice MapReduce/Hadoop/Spark...
 	* [Chapters 1, 2, 3 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
 	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  
@@ -245,7 +245,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-7: Tuesday, April 19, 2021**
+* **Session-7: Monday, April 19, 2021**
 	* Spark's Nuts and Bolts    
 	* [Chapters 4, 5 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) 
@@ -254,7 +254,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-8: Thursday, April 21, 2021**
+* **Session-8: Wednesday, April 21, 2021**
 	* MapReduce Design Patterns
 	* MinMax  
 	* Top-10  
@@ -263,7 +263,7 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-9: Tuesday, April 26, 2021**
+* **Session-9: Monday, April 26, 2021**
 	* MapReduce Design Patterns: InMapper Combiner, mapPartitions
 	* Top-10 Algorithm   
 	* MinMax Algorithm  
@@ -272,50 +272,50 @@ However, you must keep up with the reading assignments.
 ----------------
 
 
-* **Session-10: Thursday, April 28, 2021**
+* **Session-10: Wednesday, April 28, 2021**
 	* Review Midterm Exam 
  
 ----------------
 
 
-* **Session-11: Tuesday, May 3, 2021**
+* **Session-11: Monday, May 3, 2021**
 	* Midterm Exam: closed book/notes/friend/internet
 
 ----------------
 
-* **Session-12: Thursday, May 5, 2021**
+* **Session-12: Wednesday, May 5, 2021**
 	* Spark's DataFrames 
 	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
 
 ----------------
 
-* **Session-13: Tuesday, May 10, 2021**
+* **Session-13: Monday, May 10, 2021**
 	* MapReduce Design Pattern: Graph Algorithms 
 	* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
  
 ----------------
 
-* **Session-14: Thursday, May 12, 2021**
+* **Session-14: Wednesday, May 12, 2021**
 	* MapReduce Design Pattern: Clustering Algorithms 
 	* [Chapters 9 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
 
-* **Session-15: Tuesday, May 17, 2021**
+* **Session-15: Monday, May 17, 2021**
 	* MapReduce Design Pattern: Recommendation Algorithms 
 	* [Chapters 10 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 ----------------
 
-* **Session-16: Thursday, May 19, 2021**
+* **Session-16: Wednesday, May 19, 2021**
 	* Introduction to Serverless Analytics  
 	* SQL Access: Amazon Athena 
 	* SQL Access: Google BigQuery 
 
 ----------------
 
-* **Session-17: Tuesday, May 24, 2021**
+* **Session-17: Monday, May 24, 2021**
 	* Introduction to Serverless Analytics 
 	* SQL Access: Apache Presto 
 	* SQL Access: Amazon Athena 
@@ -323,20 +323,20 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-* **Session-18: Thursday, May 26, 2021**
+* **Session-18: Wednesday, May 26, 2021**
 	* Relational Algebra and Big Data  
 	* SQL Access to Big Data  
 
 ----------------
 
-* **Session-19: Tuesday, May 31, 2021**
+* **Session-19: Monday, May 31, 2021**
 	* Stream Processing 
 	* [Spark Streaming](https://spark.apache.org/streaming/) 
 	* [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark)
  
 ----------------
 
-* **Session-20: Thursday, June 2, 2021**
+* **Session-20: Wednesday, June 2, 2021**
 	* Review for Final Exam 
 
 ----------------
