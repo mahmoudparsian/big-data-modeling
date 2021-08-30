@@ -1,4 +1,5 @@
-# Big Data Modeling & Analytics
+# [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/admissions/ms-programs/ms-business-analytics/course-descriptions/)
+
 
 ## [Santa Clara University](http://scu.edu/)
 
@@ -6,7 +7,6 @@
 <img src="images/big-data-words2.png"/>
 
 
-[Big Data Modeling & Analytics](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
 ## Fall Quarter 2021
@@ -27,6 +27,8 @@
 * Office Hours: Thursday 2:00 pm PST (or by appointment)
 * Office Hours ethics: if you are planning to attend an office hour, then you should send me an email
 
+----------------------------
+
 ## Required Books
 
 * `1.`[PySpark Algorithms Book by Mahmoud Parsian](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
@@ -36,10 +38,14 @@
 * `2.`[Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * `3.`[Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
 
+----------------------------
+
 ## Required Introduction to MapReduce and Spark 
 
 * [1. A Very Brief Introduction to MapReduce by Diana MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 * [2. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+
+----------------------------
 
 ## Required Software: 
 
