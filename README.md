@@ -54,7 +54,7 @@
 
 ----------------------------
 
-## [Syllabus](./syllabus/2021-Fall/)
+## [Syllabus, Fall Quarter 2021](./syllabus/2021-Fall/)
 
 
 ----------------------------
