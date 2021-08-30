@@ -1,11 +1,12 @@
-[Santa Clara University](http://scu.edu/)
------------------------------------------
+# Big Data Modeling & Analytics
+
+## [Santa Clara University](http://scu.edu/)
 
 
 <img src="images/big-data-words2.png"/>
 
 
-[Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
+[Big Data Modeling & Analytics](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
 ## Fall Quarter 2021
