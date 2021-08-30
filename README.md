@@ -8,22 +8,23 @@
 [Big-Data-MapReduce-Course](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
 ----------------------------
 
-## Spring 2021
+## Fall Quarter 2021
 ## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: March 29, 2021
-	* End: June 10, 2021
+	* Start: September 20, 2021
+	* End: December 1, 2021
 * Class hours:  
 	* Monday 7:35 PM - 9:10 PM PST (via Zoom)
 	* Wednesday 7:35 PM - 9:10 PM PST	(via Zoom)
 * Instructor: [Mahmoud Parsian](./instructor.md)
 * Class room: online via Zoom
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used now due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
-* Office Hours: Tuesday 2:00 pm PST (or by appointment)
+* Office Hours: Thursday 2:00 pm PST (or by appointment)
+* Office Hours ethics: if you are planning to attend an office hour, then you should send me an email
 
 ## Required Books
 
@@ -46,14 +47,14 @@
 
 ----------------------------
 
-## [Syllabus](./syllabus/2021-Spring/)
+## [Syllabus](./syllabus/2021-Fall/)
 
 
 ----------------------------
 
 
 ## Midterm Exam: 
-#### &#x1F34F; Date: Monday, May 3, 2021
+#### &#x1F34F; Date: Wednesday, October 27, 2021
 #### &#x1F34F; Time: 7:35 PM - 9:10 PM, PST
 #### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone
 
@@ -62,8 +63,8 @@
 
 
 ## Final Exam:
-#### &#x1F34E; Date: Wednesday, June 9th, 2021
-#### &#x1F34E; Time: 5:45 PM - 7:45 PM, PST
+#### &#x1F34E; Date: December TBDL, 2021
+#### &#x1F34E; Time: TBDL, PST
 #### &#x1F34E; Final exam is closed book/notes/friends/internet/phone
 
 
