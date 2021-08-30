@@ -265,22 +265,20 @@ However, you must keep up with the reading assignments.
 
 ----------------
 
-
 * **Session-10: Wednesday, October 20, 2021**
+	* Spark's DataFrames 
+	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
+
+----------------
+
+* **Session-11: Monday, October 25, 2021**
 	* Review Midterm Exam 
  
 ----------------
 
-
-* **Session-11: Monday, October 25, 2021**
-	* Midterm Exam: closed book/notes/friend/internet
-
-----------------
-
 * **Session-12: Wednesday, October 27, 2021**
-	* Spark's DataFrames 
-	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
+	* Midterm Exam: closed book/notes/friend/internet
 
 ----------------
 
