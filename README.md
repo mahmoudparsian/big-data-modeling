@@ -22,7 +22,7 @@
 	* Monday 7:35 PM - 9:10 PM PST (via Zoom)
 	* Wednesday 7:35 PM - 9:10 PM PST	(via Zoom)
 * Instructor: [Mahmoud Parsian](./instructor.md)
-* Class room: online via Zoom
+* Class room: Lucas Hall 210
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used now due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
 * Office Hours: Thursday 2:00 pm PST (or by appointment)
 * Office Hours ethics: if you are planning to attend an office hour, then you should send me an email
