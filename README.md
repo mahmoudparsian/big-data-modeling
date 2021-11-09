@@ -61,7 +61,7 @@
 
 
 ## Midterm Exam: 
-#### &#x1F34F; Date: Wednesday, October 27, 2021
+#### &#x1F34F; Date: Wednesday, October 27, 2021 (10/27/2021)
 #### &#x1F34F; Time: 7:35 PM - 9:10 PM, PST
 #### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone
 
@@ -70,8 +70,8 @@
 
 
 ## Final Exam:
-#### &#x1F34E; Date: December TBDL, 2021
-#### &#x1F34E; Time: TBDL, PST
+#### &#x1F34E; Date: Wednesday, December 8, 2021 (12/08/2021)
+#### &#x1F34E; Time: 7:30 PM, PST
 #### &#x1F34E; Final exam is closed book/notes/friends/internet/phone
 
 
