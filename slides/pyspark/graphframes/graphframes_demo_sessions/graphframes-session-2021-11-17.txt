@@ -1,0 +1,93 @@
+$ ./bin/pyspark --packages graphframes:graphframes:0.8.2-spark3.2-s_2.12
+Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
+...
+graphframes#graphframes added as a dependency
+...
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.2.0
+      /_/
+
+Using Python version 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018 02:44:43)
+Spark context Web UI available at http://10.0.0.93:4040
+Spark context available as 'sc' (master = local[*], app id = local-1637212656502).
+SparkSession available as 'spark'.
+
+>>> vertices = \
+... [(1, 'Alice', 'PHD', 34), \
+... (2, 'Bob', 'MS', 36), \
+... (3, 'Charlie', 'MS', 30), \
+... (4, 'David', 'BS', 29), \
+... (5, 'Esther', 'BS', 32), \
+... (6, 'Fanny', 'MS', 36), \
+... (7, 'Gabby', 'MS', 60)]
+
+>>> v = spark.createDataFrame(vertices, ["id", "name", "degree", "age"])
+>>> v.show(truncate=False)
++---+-------+------+---+
+|id |name   |degree|age|
++---+-------+------+---+
+|1  |Alice  |PHD   |34 |
+|2  |Bob    |MS    |36 |
+|3  |Charlie|MS    |30 |
+|4  |David  |BS    |29 |
+|5  |Esther |BS    |32 |
+|6  |Fanny  |MS    |36 |
+|7  |Gabby  |MS    |60 |
++---+-------+------+---+
+
+>>> edges = \
+... [(1, 2, 'friend'),
+... (2, 3, 'follow'), \
+... (3, 2, 'follow'), \
+... (6, 3, 'follow'), \
+... (5, 6, 'follow'), \
+... (5, 4, 'friend'), \
+... (4, 1, 'friend'), \
+... (1, 5, 'friend'), \
+... (3, 7, 'follow'), \
+... (7, 6, 'follow')]
+>>>
+>>> e = spark.createDataFrame(edges, ["src", "dst", "relationship"])
+>>> e.show(truncate=False)
++---+---+------------+
+|src|dst|relationship|
++---+---+------------+
+|1  |2  |friend      |
+|2  |3  |follow      |
+|3  |2  |follow      |
+|6  |3  |follow      |
+|5  |6  |follow      |
+|5  |4  |friend      |
+|4  |1  |friend      |
+|1  |5  |friend      |
+|3  |7  |follow      |
+|7  |6  |follow      |
++---+---+------------+
+
+>>> graph = GraphFrame(v, e)
+>>> triangles1 = graph.find("(a)-[e1]->(b); (b)-[e2]->(c); (c)-[e3]->(a)")
+>>> triangles1.show(truncate=False)
++--------------------+--------------+--------------------+--------------+--------------------+--------------+
+|a                   |e1            |b                   |e2            |c                   |e3            |
++--------------------+--------------+--------------------+--------------+--------------------+--------------+
+|{3, Charlie, MS, 30}|{3, 7, follow}|{7, Gabby, MS, 60}  |{7, 6, follow}|{6, Fanny, MS, 36}  |{6, 3, follow}|
+|{4, David, BS, 29}  |{4, 1, friend}|{1, Alice, PHD, 34} |{1, 5, friend}|{5, Esther, BS, 32} |{5, 4, friend}|
+|{1, Alice, PHD, 34} |{1, 5, friend}|{5, Esther, BS, 32} |{5, 4, friend}|{4, David, BS, 29}  |{4, 1, friend}|
+|{5, Esther, BS, 32} |{5, 4, friend}|{4, David, BS, 29}  |{4, 1, friend}|{1, Alice, PHD, 34} |{1, 5, friend}|
+|{6, Fanny, MS, 36}  |{6, 3, follow}|{3, Charlie, MS, 30}|{3, 7, follow}|{7, Gabby, MS, 60}  |{7, 6, follow}|
+|{7, Gabby, MS, 60}  |{7, 6, follow}|{6, Fanny, MS, 36}  |{6, 3, follow}|{3, Charlie, MS, 30}|{3, 7, follow}|
++--------------------+--------------+--------------------+--------------+--------------------+--------------+
+
+>>> triangles2 = graph.find("(a)-[e1]->(b); (b)-[e2]->(c); (c)-[e3]->(a)").filter("e1.src < e1.dst")
+>>> triangles2.show(truncate=False)
++--------------------+--------------+-------------------+--------------+------------------+--------------+
+|a                   |e1            |b                  |e2            |c                 |e3            |
++--------------------+--------------+-------------------+--------------+------------------+--------------+
+|{3, Charlie, MS, 30}|{3, 7, follow}|{7, Gabby, MS, 60} |{7, 6, follow}|{6, Fanny, MS, 36}|{6, 3, follow}|
+|{1, Alice, PHD, 34} |{1, 5, friend}|{5, Esther, BS, 32}|{5, 4, friend}|{4, David, BS, 29}|{4, 1, friend}|
++--------------------+--------------+-------------------+--------------+------------------+--------------+
+
+>>>
