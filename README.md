@@ -9,22 +9,22 @@
 
 ----------------------------
 
-## Fall Quarter 2021
+## Spring Quarter 2022
 ## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: September 20, 2021
-	* End: December 1, 2021
+	* Start: March 28, 2022
+	* End: June 9, 2022
 * Class hours:  
-	* Monday 7:35 PM - 9:10 PM PST (via Zoom)
-	* Wednesday 7:35 PM - 9:10 PM PST	(via Zoom)
+	* Tuesday 7:35 PM - 9:10 PM PST (online, via Zoom)
+	* Thursday 7:35 PM - 9:10 PM PST (online, via Zoom)
 * Instructor: [Mahmoud Parsian](./instructor.md)
 * Class room: Lucas Hall 210
-* Office: 216AA, 2nd Floor, Lucas Hall ([not used now due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
-* Office Hours: Thursday 2:00 pm PST (or by appointment)
+* Office: 216AA, 2nd Floor, Lucas Hall ([not used due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
+* Office Hours: Monday 2:00 pm PST (or by appointment)
 * Office Hours ethics: if you are planning to attend an office hour, then you should send me an email
 
 ----------------------------
@@ -50,18 +50,18 @@
 ## Required Software: 
 
 * [Apache Spark Site](http://spark.apache.org/)
-* [Apache Spark Download](http://spark.apache.org/downloads.html), Use version 3.0.0+
+* [Apache Spark Download](http://spark.apache.org/downloads.html), Use version 3.2.1
 
 ----------------------------
 
-## [Syllabus, Fall Quarter 2021](./syllabus/2021-Fall/)
+## [Syllabus, Spring Quarter 2022](./syllabus/2022-Spring/)
 
 
 ----------------------------
 
 
 ## Midterm Exam: 
-#### &#x1F34F; Date: Wednesday, October 27, 2021 (10/27/2021)
+#### &#x1F34F; Date: Thursday, May 5, 2022 
 #### &#x1F34F; Time: 7:35 PM - 9:10 PM, PST
 #### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone
 
@@ -70,7 +70,7 @@
 
 
 ## Final Exam:
-#### &#x1F34E; Date: Wednesday, December 8, 2021 (12/08/2021)
+#### &#x1F34E; Date: June 6-9, 2022 (TBDL)
 #### &#x1F34E; Time: 7:30 PM, PST
 #### &#x1F34E; Final exam is closed book/notes/friends/internet/phone
 
@@ -129,3 +129,4 @@ The main focus of this class is to cover the following concepts:
         height="700"
     >
 </a>
+
