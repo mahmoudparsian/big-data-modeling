@@ -1,0 +1,70 @@
+% ls -l /tmp/data/
+-rwxr-xr-x@ 1 mparsian  wheel   84 Apr 26 22:02 f1
+-rwxr-xr-x@ 1 mparsian  wheel   83 Apr 26 22:02 f2
+-rwxr-xr-x@ 1 mparsian  wheel  126 Apr 26 22:02 f3
+
+% cat /tmp/data/f1
+a red fox jumped of high and low
+fox jumped over a high fence
+red of fox jumped fox
+
+% cat /tmp/data/f2
+a red fox jumped of high
+fox jumped over a high fence
+fox of fox red of fox jumped
+
+% cat /tmp/data/f3
+a red fox jumped of high
+fox jumped over a high fence
+red of fox jumped red of fox jumped red of fox jumped red of fox jumped
+
+
+
+% $SPARK_HOME/bin/spark-submit wordcount_demo.py  /tmp/data/f3
+This is the name of the script:  /Users/mparsian/spark-3.2.0/zmp/wordcount_demo.py
+Number of arguments:  2
+The arguments are:  ['/Users/mparsian/spark-3.2.0/zmp/wordcount_demo.py', '/tmp/data/f3']
+input_path:  /tmp/data/f3
+====== output =======
+of: 5
+high: 2
+fence: 1
+a: 2
+red: 5
+fox: 6
+jumped: 6
+over: 1
+======= output2 ======
+of: 5
+high: 2
+a: 2
+red: 5
+fox: 6
+jumped: 6
+
+
+% $SPARK_HOME/bin/spark-submit wordcount_demo.py  /tmp/data/
+This is the name of the script:  /Users/mparsian/spark-3.2.0/zmp/wordcount_demo.py
+Number of arguments:  2
+The arguments are:  ['/Users/mparsian/spark-3.2.0/zmp/wordcount_demo.py', '/tmp/data/']
+input_path:  /tmp/data/
+====== output =======
+fox: 15
+of: 10
+high: 6
+over: 3
+fence: 3
+and: 1
+a: 6
+red: 9
+jumped: 12
+low: 1
+======= output2 ======
+fox: 15
+of: 10
+high: 6
+over: 3
+fence: 3
+a: 6
+red: 9
+jumped: 12
