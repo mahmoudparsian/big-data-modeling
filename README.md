@@ -102,7 +102,7 @@ The main focus of this class is to cover the following concepts:
 <a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md">
     <img 
         alt="Data Algorithms with Spark" 
-        src="images/data_algorithms_with_spark.jpg"
+        src="images/Data_Algorithms_with_Spark_COVER_9781492082385.png"
         width="550" 
         height="600"
     >
