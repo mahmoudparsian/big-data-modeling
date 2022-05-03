@@ -266,38 +266,37 @@ However, you must keep up with the reading assignments.
 ----------------
 
 * **Session-10: Thursday, April 28, 2022**
-	* Spark's DataFrames 
-	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
+	* Spark's mapPartitions() Transformation
 
 ----------------
 
 * **Session-11: Tuesday, May 3, 2022**
-	* Review Midterm Exam 
+	* Review mapPartitions(), reducers (groupByKey()  and reduceByKey())
  
 ----------------
 
 * **Session-12: Thursday, May 5, 2022**
+	* Review Midterm Exam 
+	
+----------------
+
+* **Session-13: Tuesday, May 10, 2022**
 	* Midterm Exam: closed book/notes/friend/internet
 
 ----------------
 
-* **Session-13: Tuesday, May 10, 2022**
-	* MapReduce Design Pattern: Graph Algorithms 
-	* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
- 
-----------------
-
 * **Session-14: Thursday, May 12, 2022**
-	* MapReduce Design Pattern: Clustering Algorithms 
-	* [Chapters 9 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+	* Spark's DataFrames 
+	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
+
 
 ----------------
 
 * **Session-15: Tuesday, May 17, 2022**
-	* MapReduce Design Pattern: Recommendation Algorithms 
-	* [Chapters 10 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-
+	* MapReduce Design Pattern: Graph Algorithms 
+	* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+ 
 ----------------
 
 * **Session-16: Thursday, May 19, 2022**
