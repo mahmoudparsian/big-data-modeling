@@ -137,9 +137,9 @@ root
 +----+---+------+----+---+-------+
 only showing top 20 rows
 
->>> cart                                                                                                                                                      p
->>> Frame[name: string, age: bigint, salary: bigint, name: string, age: bigint, salary: bigint]                                      y                        2
->>>                                                                                                                                 r                        p"
+>>> cart                                                                                                   
+>>> Frame[name: string, age: bigint, salary: bigint, name: string, age: bigint, salary: bigint]      
+>>>                                                          
 
 >>> cart2 = spark.sql("select p1.name as name, p2.age as age, p1.salary as salary, p2.name as name2, p2.age as age2, p2.salary as salary2 from people p1, people p2")
 >>> cart2.show()
