@@ -1,5 +1,7 @@
 # Fall 2022 Course Information
 
+----------------
+
 ## [Santa Clara University](http://scu.edu/)
 
 ## [MSIS 2627: Big Data Modeling and Analytics](https://www.scu.edu/business/ms-information-systems/curriculum/msis-courses/)
@@ -40,16 +42,18 @@ At the completion of this course, students will be able to understand:
 * [2. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
 ## Extra books (all resources are online):
-* [3. Data Algorithms with Spark by Mahmoud Parsian](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/)
+
+* [1. PySpark Algorithms by Mahmoud Parsian](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218)
+* [2. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
 
 ------------------
 
-## Required Software
+## Required Software, API, and Documentation
 
-* [Apache Spark](http://spark.apache.org)
-
-* [PySpark: Python API for Spark](http://spark.apache.org/docs/latest/api/python/index.html)
-
+* [Apache Spark (main site)](http://spark.apache.org)
+* [PySpark API and documentation](https://spark.apache.org/docs/latest/api/python/index.html)
+* [RDD Programming Guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html)
+* [DataFrame Programming Guide](https://spark.apache.org/docs/latest/api/python/getting_started/quickstart_df.html)
 
 -------------------
 
@@ -117,7 +121,7 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-### Session-5: Tuesday, April 12, 2022
+### Session-5: Tuesday, October 4, 2022
 
 * Introduction to MapReduce/Spark 
 * [Chapters 1, 2 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
@@ -126,7 +130,7 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-### Session-6: Thursday, April 14, 2022
+### Session-6: Thursday, October 6, 2022
 
 * Practice MapReduce/Spark/...
 * [Chapters 1, 2, 3 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms) 
@@ -135,7 +139,7 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-### Session-7: Tuesday, April 19, 2022
+### Session-7: Tuesday, October 11, 2022
 
 * Spark's Nuts and Bolts    
 * [Chapters 4, 5 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
@@ -145,7 +149,7 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-### Session-8: Thursday, April 21, 2022
+### Session-8: Thursday, October 13, 2022
 
 * MapReduce Design Patterns
 * MinMax  
@@ -155,7 +159,7 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-### Session-9: Tuesday, April 26, 2022**
+### Session-9: Tuesday, October 18, 2022
 
 * MapReduce Design Patterns: InMapper Combiner, mapPartitions
 * Top-10 Algorithm   
@@ -164,82 +168,81 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-### Session-10: Thursday, April 28, 2022
+### Session-10: Thursday, October 20, 2022
 
 * Spark's RDD Partitioning
 * Spark's `mapPartitions()` Transformation
-
-----------------
-
-### Session-11: Tuesday, May 3, 2022
-	
 * Review reducers: `groupByKey()` and `reduceByKey()`
 * Review `mapPartitions()` Transformation
- 
 ----------------
 
-### Session-12: Thursday, May 5, 2022
+### Session-11: Tuesday, October 25, 2022
 	
-* Review Midterm Exam, Answer questions 
+* Review Midterm Exam, 
+* Q/A session 
 	
 ----------------
-
-### Session-13: Tuesday, May 10, 2022
+### Session-12: Tuesday, October 27, 2022
 	
 * Midterm Exam: closed book/notes/friend/internet/software
 
 ----------------
-
-### Session-14: Thursday, May 12, 2022
+### Session-13: Tuesday, November 1, 2022
 	
-* Spark's DataFrames 
+* Midterm Exam Discussion and Review
+
+----------------
+
+### Session-14: Thursday, November 3, 2022
+	
+* Spark's DataFrames (1)
 * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 * [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
 
 ----------------
+### Session-15: Thursday, November 8, 2022
+	
+* Spark's DataFrames (2)
+* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
 
-### Session-15: Tuesday, May 17, 2022
+----------------
+### Session-16: Tuesday, November 10, 2022
+	
+* MapReduce Design Pattern: Graph Algorithms 
+* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+ 
+----------------
+### Session-17: Tuesday, November 15, 2022
 	
 * MapReduce Design Pattern: Graph Algorithms 
 * [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
  
 ----------------
 
-### Session-16: Thursday, May 19, 2022
+### Session-18: Thursday, November 17, 2022
 	
 * Introduction to Serverless Analytics  
 * SQL Access: Amazon Athena 
-* SQL Access: Google BigQuery 
+* SQL Access: Google BigQuery 	
 
 ----------------
 
-### Session-17: Tuesday, May 24, 2022
+### Session-19: Thursday, November 29, 2022
 	
-* Introduction to Serverless Analytics 
-* SQL Access: Apache Presto 
+* Introduction to Serverless Analytics  
 * SQL Access: Amazon Athena 
-* SQL Access: Google BigQuery 
-
-----------------
-
-### Session-18: Thursday, May 26, 2022
-	
+* SQL Access: Google BigQuery 	
 * Relational Algebra and Big Data  
 * SQL Access to Big Data  
 
+
 ----------------
 
-### Session-19: Tuesday, May 31, 2022
-	
-* Stream Processing 
-* [Spark Streaming](https://spark.apache.org/streaming/) 
-* [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark)
- 
-----------------
-
-### Session-20: Thursday, June 2, 2022
+### Session-20: Thursday, December 1, 2022
 	
 * Review for Final Exam 
+* Q/A session 
 
 ----------------
 
