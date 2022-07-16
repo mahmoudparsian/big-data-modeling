@@ -164,75 +164,87 @@ keep up with the reading and programming assignments.
 
 ----------------
 
-* **Session-10: Thursday, April 28, 2022**
-	* Spark's mapPartitions() Transformation
+### Session-10: Thursday, April 28, 2022
+
+* Spark's RDD Partitioning
+* Spark's `mapPartitions()` Transformation
 
 ----------------
 
-* **Session-11: Tuesday, May 3, 2022**
-	* Review mapPartitions(), reducers (groupByKey()  and reduceByKey())
+### Session-11: Tuesday, May 3, 2022
+	
+* Review reducers: `groupByKey()` and `reduceByKey()`
+* Review `mapPartitions()` Transformation
  
 ----------------
 
-* **Session-12: Thursday, May 5, 2022**
-	* Review Midterm Exam 
+### Session-12: Thursday, May 5, 2022
+	
+* Review Midterm Exam, Answer questions 
 	
 ----------------
 
-* **Session-13: Tuesday, May 10, 2022**
-	* Midterm Exam: closed book/notes/friend/internet
+### Session-13: Tuesday, May 10, 2022
+	
+* Midterm Exam: closed book/notes/friend/internet/software
 
 ----------------
 
-* **Session-14: Thursday, May 12, 2022**
-	* Spark's DataFrames 
-	* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
-	* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
-
+### Session-14: Thursday, May 12, 2022
+	
+* Spark's DataFrames 
+* [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+* [Video: Structuring Spark: SQL, DataFrames, Datasets And Streaming - 28 mins](https://www.youtube.com/watch?v=1a4pgYzeFwE)
 
 ----------------
 
-* **Session-15: Tuesday, May 17, 2022**
-	* MapReduce Design Pattern: Graph Algorithms 
-	* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+### Session-15: Tuesday, May 17, 2022
+	
+* MapReduce Design Pattern: Graph Algorithms 
+* [Chapters 11 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
  
 ----------------
 
-* **Session-16: Thursday, May 19, 2022**
-	* Introduction to Serverless Analytics  
-	* SQL Access: Amazon Athena 
-	* SQL Access: Google BigQuery 
+### Session-16: Thursday, May 19, 2022
+	
+* Introduction to Serverless Analytics  
+* SQL Access: Amazon Athena 
+* SQL Access: Google BigQuery 
 
 ----------------
 
-* **Session-17: Tuesday, May 24, 2022**
-	* Introduction to Serverless Analytics 
-	* SQL Access: Apache Presto 
-	* SQL Access: Amazon Athena 
-	* SQL Access: Google BigQuery 
+### Session-17: Tuesday, May 24, 2022
+	
+* Introduction to Serverless Analytics 
+* SQL Access: Apache Presto 
+* SQL Access: Amazon Athena 
+* SQL Access: Google BigQuery 
 
 ----------------
 
-* **Session-18: Thursday, May 26, 2022**
-	* Relational Algebra and Big Data  
-	* SQL Access to Big Data  
+### Session-18: Thursday, May 26, 2022
+	
+* Relational Algebra and Big Data  
+* SQL Access to Big Data  
 
 ----------------
 
-* **Session-19: Tuesday, May 31, 2022**
-	* Stream Processing 
-	* [Spark Streaming](https://spark.apache.org/streaming/) 
-	* [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark)
+### Session-19: Tuesday, May 31, 2022
+	
+* Stream Processing 
+* [Spark Streaming](https://spark.apache.org/streaming/) 
+* [How to Perform Distributed Spark Streaming With PySpark](https://dzone.com/articles/distributed-spark-streaming-pyspark)
  
 ----------------
 
-* **Session-20: Thursday, June 2, 2022**
-	* Review for Final Exam 
+### Session-20: Thursday, June 2, 2022
+	
+* Review for Final Exam 
 
 ----------------
 
-* **Session-21: Final Exam**  
-	* Date: June 6-9, 2022 (TBDL)
-
+### Session-21: Final Exam 
+	
+* Date: TBDL, 2022
 
 ----------------
