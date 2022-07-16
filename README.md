@@ -31,11 +31,10 @@
 ## Instructor:
 
 * [Adjunct Professor: Mahmoud Parsian](https://www.linkedin.com/in/mahmoudparsian/)
-	* [Ph.D in Computer Science](https://lib.dr.iastate.edu/rtd/8952/)
+	* [Ph.D in Computer Science](https://www.linkedin.com/in/mahmoudparsian/)
 	* [Lead Big Data Architect @Illumina](http://www.illumina.com/)
 	* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian/)
-	* Email: mparsian@scu.edu
-
+	* [Email address](mailto:mparsian@scu.edu)
 ------------
 
 ## Class Web Site
