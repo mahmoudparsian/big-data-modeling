@@ -6,44 +6,71 @@
 
 <img src="images/big-data-words2.png"/>
 
-
 ----------------------------
 
-## Spring Quarter 2022
+## Fall Quarter 2022
 ## Course Information: 
 * Graduate School, Leavey School of Business
 * Department of Information Systems & Analytics
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: March 28, 2022
-	* End: June 9, 2022
+	* Start: September 9, 2022
+	* End: December 9, 2022
 * Class hours:  
-	* Tuesday 7:35 PM - 9:10 PM PST (online, via Zoom)
-	* Thursday 7:35 PM - 9:10 PM PST (online, via Zoom)
+	* Tuesday 5:45 PM - 7:20 PM PST (TBDL/online/via Zoom)
+	* Thursday 5:45 PM - 7:20 PM PST (TBDL/online/via Zoom)
 * Instructor: [Mahmoud Parsian](./instructor.md)
 * Class room: Lucas Hall 210
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
-* Office Hours: Monday 2:00 pm PST (or by appointment)
+* Office Hours: TBDL (or by appointment)
 * Office Hours ethics: if you are planning to attend an office hour, then you should send me an email
 
-----------------------------
+------------
+
+## Instructor:
+
+* [Adjunct Professor: Mahmoud Parsian](https://www.linkedin.com/in/mahmoudparsian/)
+* [Ph.D in Computer Science](https://lib.dr.iastate.edu/rtd/8952/)
+* [Lead Big Data Architect @Illumina](http://www.illumina.com/)
+* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian/)
+* Email: mparsian@scu.edu
+
+------------
+
+## Class Web Site
+* [Class Web Site GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
+
+-----------
 
 ## Required Books
 
-* `1.`[PySpark Algorithms Book by Mahmoud Parsian](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
-	* [Buy from amazon.com -- PySpark Algorithms Book -- PDF Version](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
-	* [Buy from amazon.com -- PySpark Algorithms Book -- Kindle Version](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/)
-	* [Source code @github.com -- PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+* `1.`[Data Algorithms with Spark by Mahmoud Parsian](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/)
+	* [Source code @github.com -- Data Algorithms with Spark by Mahmoud Parsian](https://github.com/mahmoudparsian/data-algorithms-with-spark)
 * `2.`[Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-* `3.`[Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
 
-----------------------------
+------------
 
 ## Required Introduction to MapReduce and Spark 
 
 * [1. A Very Brief Introduction to MapReduce by Diana MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 * [2. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+
+----------------------------
+
+## Additional Optional Books and References
+* [1. PySpark Algorithms by Mahmoud Parsian](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218)
+* [2. Source code @github.com -- PySpark Algorithms by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
+* [3. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
+* [4. Big Data Now -- book](http://www.oreilly.com/data/free/files/bigdatanow2013.pdf)
+* [5. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
+* [6. Designing Good Mapreduce Algorithms by Ullman](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
+* [7: Bigtable: A Distributed Storage System for Structured Data](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
+* [8. Relational Algebra and MapReduce](http://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high\_level.pdf)
+* [8. MapReduce examples](http://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf)
+* [9. MapReduce and relational algebra](http://www.cs.kent.edu/~jin/Cloud12Spring/DatabaseMapReduce.pptx)
+* [10. Spark Streaming Tutorial](https://www.edureka.co/blog/spark-streaming/)
+* [11. Billion Taxi Rides on Amazon Athena](https://tech.marksblogg.com/billion-nyc-taxi-rides-aws-athena.html)
 
 ----------------------------
 
@@ -54,31 +81,30 @@
 
 ----------------------------
 
-## [Syllabus, Spring Quarter 2022](./syllabus/2022-Spring/)
-
+## [Syllabus, Fall Quarter 2022](./syllabus/2022-Fall/)
 
 ----------------------------
 
+## [Grading and Class Conduct](./grading_and_class_conduct.md)
+
+----------------------------
 
 ## Midterm Exam: 
-#### &#x1F34F; Date: Tuesday, May 10, 2022 
-#### &#x1F34F; Time: 7:35 PM - 9:10 PM, PST
-#### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone
-
+#### &#x1F34F; Date: TBDL
+#### &#x1F34F; Time: TBDL
+#### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone/software
 
 ----------------------------
-
 
 ## Final Exam:
-#### &#x1F34E; Date: Tuesday, June 7, 2022
-#### &#x1F34E; Time: 5:45 PM - 7:45 PM, PST
-#### &#x1F34E; Final exam is closed book/notes/friends/internet/phone
-
+#### &#x1F34E; Date: TBDL
+#### &#x1F34E; TBDL
+#### &#x1F34E; Final exam is closed book/notes/friends/internet/phone/software
 
 ----------------------------
 
+## Course Description (High-Level)
 
-## Course Description
 The main focus of this class is to cover the following concepts:
 
 * Concepts of Big Data
