@@ -1,6 +1,5 @@
 # [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/admissions/ms-programs/ms-business-analytics/course-descriptions/)
 
-
 ## [Santa Clara University](http://scu.edu/)
 
 
@@ -10,8 +9,8 @@
 
 ## Fall Quarter 2022
 ## Course Information: 
-* Graduate School, Leavey School of Business
-* Department of Information Systems & Analytics
+* [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
+* [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
@@ -35,9 +34,10 @@
 	* [Lead Big Data Architect @Illumina](http://www.illumina.com/)
 	* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian/)
 	* [Email address](mailto:mparsian@scu.edu)
+
 ------------
 
-## Class Web Site
+## Big Data Modeling Class Web Site
 * [Class Web Site GitHub](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
 -----------
