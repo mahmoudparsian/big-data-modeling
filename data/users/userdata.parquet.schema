@@ -1,0 +1,14 @@
+df=       registration_dttm    id first_name last_name                     email  ...       country  birthdate     salary                   title comments
+0   2016-02-03 07:55:29     1     Amanda    Jordan          ajordan0@com.com  ...     Indonesia   3/8/1971   49756.53        Internal Auditor    1E+02
+1   2016-02-03 17:04:03     2     Albert   Freeman           afreeman1@is.gd  ...        Canada  1/16/1968  150280.17           Accountant IV
+2   2016-02-03 01:09:31     3     Evelyn    Morgan   emorgan2@altervista.org  ...        Russia   2/1/1960  144972.51     Structural Engineer
+3   2016-02-03 00:36:21     4     Denise     Riley          driley3@gmpg.org  ...         China   4/8/1997   90263.05  Senior Cost Accountant
+4   2016-02-03 05:05:31     5     Carlos     Burns  cburns4@miitbeian.gov.cn  ...  South Africa                   NaN
+..                  ...   ...        ...       ...                       ...  ...           ...        ...        ...                     ...      ...
+995 2016-02-03 10:30:59   996     Dennis    Harris      dharrisrn@eepurl.com  ...        Greece   7/8/1965  263399.54                  Editor
+996 2016-02-03 17:16:53   997     Gloria  Hamilton    ghamiltonro@rambler.ru  ...         China  4/22/1975   83183.54   VP Product Management
+997 2016-02-03 05:02:20   998      Nancy    Morris         nmorrisrp@ask.com  ...        Sweden   5/1/1979        NaN        Junior Executive
+998 2016-02-03 02:41:32   999      Annie   Daniels    adanielsrq@squidoo.com  ...         China  10/9/1991   18433.85                  Editor
+999 2016-02-03 09:52:18  1000      Julie     Meyer       jmeyerrr@flavors.me  ...         China             222561.13
+
+[1000 rows x 13 columns]
