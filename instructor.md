@@ -24,3 +24,25 @@ Dr. Parsian earned his M.S. and Ph.D in Computer Science
 from Iowa State University, Ames, Iowa.
 
  
+### PySpark Algorithms book
+
+<a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
+    <img 
+        alt="PySpark Algorithms Book" 
+        src="images/pyspark_algorithms.jpg"
+        width="550" 
+        height="600"
+    >
+</a>
+
+### Data Algorithms book
+
+<a href="http://shop.oreilly.com/product/0636920033950.do">
+    <img 
+        alt="Data Algorithms Book" 
+        src="images/large-image.jpg"
+        width="550" 
+        height="700"
+    >
+</a>
+
