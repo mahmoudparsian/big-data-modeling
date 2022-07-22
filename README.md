@@ -19,7 +19,7 @@
 * Class hours:  
 	* Tuesday 5:45 PM - 7:20 PM PST (TBDL/online/via Zoom)
 	* Thursday 5:45 PM - 7:20 PM PST (TBDL/online/via Zoom)
-* Instructor: [Mahmoud Parsian](./instructor.md)
+* Instructor: [Mahmoud Parsian](./images/instructor.md)
 * Class room: Lucas Hall 210
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
 * Office Hours: TBDL (or by appointment)
@@ -84,7 +84,7 @@
 
 ----------------------------
 
-## [Grading and Class Conduct](./grading_and_class_conduct.md)
+## [Grading and Class Conduct](./images/grading_and_class_conduct.md)
 
 ----------------------------
 
