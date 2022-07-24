@@ -33,13 +33,13 @@ from Iowa State University, Ames, Iowa.
 <a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">
     <img
         alt="Data Algorithms with Spark"
-        src="images/Data-Algorithms-with-Spark_mech2.png"
+        src="./Data-Algorithms-with-Spark_mech2.png"
 >
 
 <a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">
     <img
         alt="Data Algorithms with Spark"
-        src="images/Data_Algorithms_with_Spark_COVER_9781492082385.png"
+        src="./Data_Algorithms_with_Spark_COVER_9781492082385.png"
 >
  
 ### PySpark Algorithms book
@@ -47,7 +47,7 @@ from Iowa State University, Ames, Iowa.
 <a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
     <img 
         alt="PySpark Algorithms Book" 
-        src="images/pyspark_algorithms.jpg"
+        src="./pyspark_algorithms.jpg"
         width="550" 
         height="600"
     >
@@ -58,7 +58,7 @@ from Iowa State University, Ames, Iowa.
 <a href="http://shop.oreilly.com/product/0636920033950.do">
     <img 
         alt="Data Algorithms Book" 
-        src="images/large-image.jpg"
+        src="./large-image.jpg"
         width="550" 
         height="700"
     >
