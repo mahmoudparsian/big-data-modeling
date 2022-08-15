@@ -1,4 +1,5 @@
-## Mahmoud Parsian: instructor of Big Data Modeling
+# Mahmoud Parsian
+## Adjunct Professor
 
 Dr. Mahmoud Parsian is a software architect and author. 
 He leads Illumina's Big Data team focused on large-scale 
