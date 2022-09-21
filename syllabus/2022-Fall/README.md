@@ -134,12 +134,13 @@ TOPIC: Introduction to MapReduce
 	* [Chapter 5 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
 
 	* [MapReduce Algorithms](https://courses.cs.ut.ee/MTAT.08.027/2018_spring/uploads/Main/L5_MapReduceAlgorithms2018.pdf)
-	* Classic Join in MapReduce
+	* Classic Join in MapReduce (inner join)
+	* [Join Algorithms Using MapReduce](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.186.2140&rep=rep1&type=pdf)
 
 * OPTIONAL:
 	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  
 	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
-
+	* [Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
 ----------------
 
 ### Session-5: Tuesday, October 4, 2022
