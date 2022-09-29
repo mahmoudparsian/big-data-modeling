@@ -3,7 +3,7 @@
 	Author: Mahmoud Parsian
 	Last updated: 9/29/2022
 
-## Introduction
+## 1. Introduction
 
 MapReduce is a parallel programming model 
 and an associated implementation introduced 
@@ -13,7 +13,7 @@ specifies the computation by two functions,
 article is to present a problem and then 
 provide an associated solution in MapReduce.
 	
-## Problem 
+## 2. Problem 
 
 Given temperature data for United States,
 for the past 100 years, we want to find 
@@ -21,7 +21,7 @@ the average temperature per city, where a
 city is identified by "state" code (such 
 as "CA", "TX", "IA", ...) and "city" name.
 
-## Input Data Format
+## 3. Input Data Format
 
 We assume that input is given in a CSV format
 and each record has the following format:
@@ -43,7 +43,7 @@ Example records will be:
 	8/24/2011,15:10,TX,Dallas,94
 	...
 
-## Is this a Big Data
+## 4. Is this a Big Data
 
 It seems that it is a big data problem.
 If we have gathered data for 100 years
@@ -54,7 +54,7 @@ will be:
 	100 * 2500 * 365 * 24 * 60 = 131,400,000,000
 
 
-## Output Data Format	
+## 5. Output Data Format	
 
 The goal is to create a set of (key, value) pairs
 where key is combination of (state_code, city_name)
@@ -67,7 +67,7 @@ Output example records will be:
 	(TX-Dallas, 82.0)
 	...
 
-## Input to Mappers
+## 6. Input to Mappers
 
 We assume that input to mappers is provided as
 (key, value) pairs, where key is a record number 
@@ -80,7 +80,7 @@ A (key, value) example to our mappers will be:
 	(2, 9/28/2022,16:20,CA,Sunnyvale,76)
 	...
 	
-## Mapper
+## 7. Mapper
 
 Next, we write a `map()` function, which accepts
 a (key, value) pair and emits necessary outputs
@@ -119,7 +119,7 @@ Sample of mappers output be:
 	("CA-Sunnyvale", 76)
 	...
 	
-## Sort & Shuffle Phase
+## 8. Sort & Shuffle Phase
 
 Sort & Shuffle Phase is the genie of the MapReduce
 paradigm: it is done automagically on programmer's 
@@ -141,7 +141,7 @@ Sample output of Sort & Shuffle Phase will be:
 Output of Sort & Shuffle Phase will be given as 
 an input to reducers.
 
-## Reducer
+## 9. Reducer
 
 Next, we write a `reduce()` function, which accepts
 a (key, values) pair and emits average of values
@@ -177,7 +177,7 @@ Sample of reducers output be:
 	(TX-Dallas, 82.0)
 	...
 	
-## Food for Thought
+## 10. Food for Thought
 
 1. If we want to find average temperature per state
    (not by city name) then how will you write `map()` 
@@ -199,6 +199,15 @@ Sample of reducers output be:
 6. If we want to find (minimum, maximum, average) temperature per city,
    then how would you implement this functionality.
 
-## Comments
+## 11. Comments
 
-Comments and suggestions are welcome!		
+Comments and suggestions are welcome!	
+
+## 12. References
+
+1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer)](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+
+2. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+
+3. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+
