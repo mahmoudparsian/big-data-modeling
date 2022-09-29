@@ -191,7 +191,13 @@ Sample of reducers output be:
    implement this filter.
 
 4. If we want to output records, where average temperature
-   is less than 10.00,  then how would you implement this filter.
+   is more than 20.00,  then how would you implement this filter.
+
+5. If we want to find median temperature per city,
+   then how would you implement this functionality.
+   
+6. If we want to find (minimum, maximum, average) temperature per city,
+   then how would you implement this functionality.
 
 ## Comments
 
