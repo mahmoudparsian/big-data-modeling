@@ -1,5 +1,8 @@
 # Partitions and Executors in MapReduce
 
+	Author: Mahmoud Parsian
+	Last updated: 9/28/2022
+	
 ## Introduction to MapReduce and Beyond 
 
 MapReduce is a parallel programming model 
@@ -61,12 +64,12 @@ MapReduce and Spark systems.
 ## Input:
 
 Your input is partitioned into chunks called partitions.
-For example, if you have 80,000,000,000 records (data points)
-and you partition it into 40,000 chunks: then
+For example, if you have `80,000,000,000` records (data points)
+and you partition it into `40,000` chunks: then
 
-* The number of partitions: 40,000
-* Approximate number of elements per partition: 2,000,000
-* 40,000 x 2,000,000 = 80,000,000,000
+* The number of partitions: `40,000`
+* Approximate number of elements per partition: `2,000,000`
+* `40,000 x 2,000,000 = 80,000,000,000`
 * Let's label partitions as `P_1`, `P_2`, ..., `P_40000`
 
 
@@ -88,7 +91,7 @@ of executors depends on the size and power of a worker
 node: if you have realy a powerful (lots of RAM and 
 CPU) worker node, then it even be able to handle 10 
 to 16 executors. Therefore, the number of executors 
-in our cluster is 12 (3 x 4). We denote our assumed 
+in our cluster is `12 (3 x 4)`. We denote our assumed 
 cluster as `C = {M, W1, W2, W3}`.
 
 ## Distributing Partitions to Worker Nodes
@@ -98,7 +101,7 @@ will distribute and execute 40,000 partitions
 among 3 worker nodes (in our example, we have 
 4 executors per worker node -- each executor
 can execute a mapper, filter, or reducer). Let's 
-assume that these 40,000 partitions are queued 
+assume that these `40,000` partitions are queued 
 to be processed by the cluster manager.  Let's 
 label our executors as: 
 
@@ -123,12 +126,12 @@ faster we will execute the whole thing.
 
 Given our initial cluster as C, for example if it 
 takes T seconds to complete the execution of 40,000 
-partitions with 3 worker nodes {W1, W2, W3}, then 
-adding an additional 3 worker nodes {W4, W5, W6} will 
-reduce the execution time by about T/2. If we increase 
+partitions with 3 worker nodes `{W1, W2, W3}`, then 
+adding an additional 3 worker nodes `{W4, W5, W6}` will 
+reduce the execution time by about `T/2`. If we increase 
 the number of worker nodes to 9 (one master node and 
 9 worker nodes), then the elapsed time will be reduced 
-to about T/3.
+to about `T/3`.
 
  
 
