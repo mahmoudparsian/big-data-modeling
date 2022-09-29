@@ -205,9 +205,9 @@ Comments and suggestions are welcome!
 
 ## 12. References
 
-1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer)](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-2. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+2. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 
 3. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 
