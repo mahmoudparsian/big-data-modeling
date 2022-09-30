@@ -151,7 +151,7 @@ for a given key.
 	# key: "<state_code><-><city_name>"
 	# values: Iterable<Integer>
 	#
-	map(key, values) {
+	reduce(key, values) {
 	   # step-1: find the sum and count of temperature values
 	   count = 0
 	   sum = 0
