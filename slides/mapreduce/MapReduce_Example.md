@@ -12,7 +12,20 @@ specifies the computation by two functions,
 `map()` and `reduce()`. The purpose of this 
 article is to present a problem and then 
 provide an associated solution in MapReduce.
-	
+
+Note that in classic Mapreduce, both map()
+and reduce() functions can emit any (0, 1, 
+2, 3, ...) number of (key, value) pairs.
+What does it mean we we say that a mapper
+can emit 0 number of (key, value) pairs?
+When a mapper emits 0 number of (key, value)
+pairs, then this means that we are filtering 
+out the entire input to the mapper (for example, 
+if the input has a bad format or not desired for 
+further 
+)
+
+
 ## 2. Problem 
 
 Given temperature data for United States,
