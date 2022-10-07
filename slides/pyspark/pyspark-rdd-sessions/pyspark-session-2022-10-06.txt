@@ -1,0 +1,96 @@
+% cat /tmp/foxdata.txt
+a red fox jumped of high
+fox jumped over a high fence
+red of fox jumped
+
+
+% ls -l /tmp/myfox
+total 16
+-rw-r--r--  1 mparsian  wheel   0 Oct  6 19:07 _SUCCESS
+-rw-r--r--  1 mparsian  wheel  54 Oct  6 19:07 part-00000
+-rw-r--r--  1 mparsian  wheel  18 Oct  6 19:07 part-00001
+
+% cat part-00000
+a red fox jumped of high
+fox jumped over a high fence
+
+% cat part-00001
+red of fox jumped
+
+=========================================================
+% ./bin/pyspark
+Python 3.10.5 (v3.10.5:f377153967, Jun  6 2022, 12:36:10) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+22/10/06 18:55:40 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.3.0
+      /_/
+
+Using Python version 3.10.5 (v3.10.5:f377153967, Jun  6 2022 12:36:10)
+Spark context Web UI available at http://192.168.0.108:4040
+Spark context available as 'sc' (master = local[*], app id = local-1665107741322).
+SparkSession available as 'spark'.
+>>>
+>>> sc
+<SparkContext master=local[*] appName=PySparkShell>
+
+>>> spark
+<pyspark.sql.session.SparkSession object at 0x10cb2a710>
+>>>
+
+>>> input_path = "/tmp/foxdata.txt"
+>>>
+>>> input_path
+'/tmp/foxdata.txt'
+
+>>> # records: RDD[String]
+>>> records = sc.textFile(input_path)
+>>> records
+/tmp/foxdata.txt MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+>>>
+
+>>> records.collect()
+[
+ 'a red fox jumped of high', 
+ 'fox jumped over a high fence', 
+ 'red of fox jumped'
+]
+>>>
+>>> records.count()
+3
+
+>>>
+>>> output_path = "/tmp/myfox"
+>>> records.saveAsTextFile(output_path)
+>>>
+
+>>> rdd2 = records.map(lambda x: (x, len(x)))
+>>>
+>>> rdd2.collect()
+[
+ ('a red fox jumped of high', 24), 
+ ('fox jumped over a high fence', 28), 
+ ('red of fox jumped', 17)
+]
+
+>>> rdd3 = rdd2.map(lambda x: (x[0], x[1], x[1]*100))
+>>>
+>>> rdd3.collect()
+[
+ ('a red fox jumped of high', 24, 2400), 
+ ('fox jumped over a high fence', 28, 2800), 
+ ('red of fox jumped', 17, 1700)
+]
+>>>
+>>> filtered = rdd3.filter(lambda x: x[1] > 20)
+>>> filtered.collect()
+[
+ ('a red fox jumped of high', 24, 2400), 
+ ('fox jumped over a high fence', 28, 2800)
+]
+>>> filtered.count()
+2
+>>>
