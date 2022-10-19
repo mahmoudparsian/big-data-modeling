@@ -235,7 +235,7 @@ TOPIC: RDD Design Patterns
 * Problem solving & Q/A session 
 	
 ----------------
-### Session-12: Tuesday, October 27, 2022
+### Session-12: Thursday, October 27, 2022
 	
 * Midterm Exam: closed book/notes/friend/internet/software
 
