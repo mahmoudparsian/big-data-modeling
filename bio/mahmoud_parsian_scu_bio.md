@@ -11,20 +11,19 @@ developing scalable distributed algorithms for genomics
 data using Java, MapReduce, Spark, Snowflake, and open 
 source tools.
 <p>
+<br>
 Mahmoud Parsian earned his M.S. and Ph.D in Computer 
 Science from Iowa State University, Ames, Iowa.
+<br>
 <p>
 Dr. Parsian has published five books:
-<br>
-<a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">1. Parsian, Mahmoud (2022). Data algorithms with Spark. O’Reilly.</a>
-<br>
-<a href="https://www.amazon.com/PySpark-Algorithms-version-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/ref=sr_1_1">2. Parsian, Mahmoud (2019). PySpark algorithms. Amazon.</a>
-<br>                       
-<a href="https://www.oreilly.com/library/view/data-algorithms/9781491906170/">3. Parsian, Mahmoud (2015). Data algorithms. O’Reilly.</a>
-<br>                       
-<a href="https://link.springer.com/book/10.1007/978-1-4302-0134-2">4. Parsian, Mahmoud (2006). JDBC Metadata recipes. Apress.</a>
-<br>                       
-<a href="https://link.springer.com/book/10.1007/978-1-4302-0061-1">5. Parsian, Mahmoud (2005). JDBC recipes. Apress.</a>
+<ol>
+<li><a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">Parsian, Mahmoud (2022). Data algorithms with Spark. O’Reilly.</a></li>
+<li><a href="https://www.amazon.com/PySpark-Algorithms-version-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/ref=sr_1_1">Parsian, Mahmoud (2019). PySpark algorithms. Amazon.</a></li>
+<li><a href="https://www.oreilly.com/library/view/data-algorithms/9781491906170/">Parsian, Mahmoud (2015). Data algorithms. O’Reilly.</a></li>
+<li><a href="https://link.springer.com/book/10.1007/978-1-4302-0134-2">Parsian, Mahmoud (2006). JDBC Metadata recipes. Apress.</a></li>
+<li><a href="https://link.springer.com/book/10.1007/978-1-4302-0061-1">Parsian, Mahmoud (2005). JDBC recipes. Apress.</a></li>
+</ol>
 
 <p>
 Dr. Parsian's professional web sites are:
