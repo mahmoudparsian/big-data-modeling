@@ -2,7 +2,7 @@
 
 * [PySpark DataFrame Tutorial: Introduction to DataFrames](https://dzone.com/articles/pyspark-dataframe-tutorial-introduction-to-datafra)
 
-* [](https://towardsdatascience.com/the-most-complete-guide-to-pyspark-dataframes-2702c343b2e8)
+* [Complete Guide to PySpark DataFrames](https://towardsdatascience.com/the-most-complete-guide-to-pyspark-dataframes-2702c343b2e8)
 
 * [Introduction to DataFrames](https://docs.databricks.com/spark/latest/dataframes-datasets/introduction-to-dataframes-python.html)
 
