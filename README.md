@@ -57,10 +57,7 @@
 
 ----------------------------
 
-## Required Software: 
-
-* [Apache Spark Site](http://spark.apache.org/)
-* [Apache Spark Download](http://spark.apache.org/downloads.html) (Always install the latest version of Spark)
+## [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
 ----------------------------
 
