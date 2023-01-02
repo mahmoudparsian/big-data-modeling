@@ -33,7 +33,7 @@
 
 ## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/README.md)
 
-## [Required Books](./web_docs/required_books.md)
+## [Required Books & Papers](./web_docs/required_books.md)
 
 ## [Additional Optional Books and References](./web_docs/additional_books.md.md)
 
