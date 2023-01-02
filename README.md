@@ -27,12 +27,7 @@
 
 ------------
 
-## [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.linkedin.com/in/mahmoudparsian/)
-* [Ph.D in Computer Science](https://www.linkedin.com/in/mahmoudparsian/)
-* [Lead Big Data Architect @Illumina](http://www.illumina.com/)
-* [LinkedIn Profile](http://www.linkedin.com/in/mahmoudparsian/)
-* [Email address](mailto:mparsian@scu.edu)
-
+## [Instructor, Adjunct Professor: Mahmoud Parsian](./instructor.md)
 
 ## [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
