@@ -132,6 +132,82 @@ The analysis of data sets using data modelling techniques to create insights fro
 ## Data set 
 A collection of (structured and unstructured) data
 
+## Data Type
+In computer science and computer programming, a **data type**
+(or simply type) is a set of possible values and a set of 
+allowed operations on it. A data type tells the compiler or interpreter how the programmer intends to use the data. 
+
+For example, 
+	
+* [Java](https://www.oracle.com/java/technologies/downloads/) 
+  is a strongly typed (strong typing means that the type 
+  of a value doesn't change in unexpected ways) 
+  language, every variable must be defined by an explicit 
+  data type before usage. Java is considered strongly typed 
+  because it demands the declaration of every variable with 
+  a data type. Users cannot create a variable without the 
+  range of values it can hold.
+
+* [Python is strongly, dynamically typed:](https://stackoverflow.com/questions/11328920/is-python-strongly-typed)
+
+	* Strong typing means that the type of a value doesn't 
+	  change in unexpected ways. A string containing only 
+	  digits doesn't magically become a number, as may happen 
+	  in Perl. Every change of type requires an explicit 
+	  conversion.
+	* Dynamic typing means that runtime objects (values) have a 
+	  type, as opposed to static typing where variables have a 
+	  type.
+	  
+	  * Python example
+
+				# bob's data type is int
+				bob = 1
+			
+				# bob's data type changes to str
+				bob = "bob"
+
+		This works because the variable does not have a type; 
+	it can name any object. After `bob=1`, you'll find that 
+	`type(bob)` returns int, but after `bob="bob"`, it 
+	returns `str`. (Note that type is a regular function, 
+	so it evaluates its argument, then returns the type 
+	of the value.)
+ 
+# Primitive data type
+A data type that allows you to represent a single data 
+value in a single column position.
+
+* Java examples:
+
+		int a = 10;
+		boolean b = true;
+		double d = 2.4;
+		
+* Python examples:	
+
+		a = 10
+		b = True
+		d = 2.4
+
+## Composite data type
+In computer science, a composite data type or compound data 
+type is any data type which can be constructed in a program 
+using the programming language's primitive data types.
+
+* Java examples:
+
+		import java.util.Arrays;
+		import java.util.List;
+		...
+		int[] a = {10, 11, 12};
+		List<String> names = Arrays.asList("n1", "n2", "n3");
+		
+* Python examples:	
+
+		a = [10, 11, 12];
+		names = ("n1", "n2", "n3") # immutable
+		names = ["n1", "n2", "n3"] # mutable
 
 ## Hadoop 
 [Hadoop](https://hadoop.apache.org) is an open-source framework 
@@ -152,6 +228,16 @@ of that sorted data to the right machine, and writing
 debugging information on each job’s progress, among 
 other things.
 
+## Tez
+[Apache Tez](https://tez.apache.org) (which implements 
+MapReduce paradigm) is a framework to create high
+performance applications for batch and data processing. 
+YARN of Apache Hadoop coordinates with it to provide 
+the developer framework and API for writing applications 
+of batch workloads. The Tez is aimed at building an 
+application framework which allows for a complex 
+directed-acyclic-graph (DAG) of tasks for processing 
+data. It is currently built atop Apache Hadoop YARN.
 
 ## HBase 
 [HBase](https://hbase.apache.org) is n open source, non-relational, 
@@ -1039,6 +1125,27 @@ and a “value” as whatever data you want to associate with that
 key. Values can be strings, integers, floats, booleans, binary, 
 lists, arrays, dates, and more.
 
+## (key, value)
+The `(key, value)` notation is used in many places and in 
+MapReduce Paradigm. In MapReduce paradigm everything works 
+as a `(key, value)`. Note that the `key` and `value` can 
+be 
+
+* simple data type: such as String, Integer, Double, ...
+* combined data types: tuples, structures, arrays, lists, ...
+
+In MapReduce, `map()` and `reduce()` use `(key, value)` pairs:
+
+The Map output types should match the input types of the Reduce as shown below:
+
+	# mapper can emit 0, 1, 2, ... of (K2, V2)
+	map(K1, V1) -> { (K2, V2) }
+	
+	# reducer can emit 0, 1, 2, ... of (K3, V3)
+	# K2 is a unique key from mapper's outputs
+	# [V2, ...] are all values associated with key K2
+	reduce(K2, [V2, ...]) -> { (K3, V3) }
+
 ## Java
 [Java](https://www.oracle.com/java/technologies/downloads/) 
 is a programming language and computing platform first released 
@@ -1103,7 +1210,77 @@ Viewing relationships among the nodes in terms of the network
 or graph theory, meaning analysing connections between nodes 
 in a network and the strength of the ties.
 
+## Workflow
+A graphical representation of a set of events, tasks, and 
+decisions that define a business process (example: vacation
+approval process in a company; purchase approval process). 
+You use the developer tool to add objects to a workflow 
+and to connect the objects with sequence flows. The Data 
+Integration Service uses the instructions configured in 
+the workflow to run the objects.
 
+## Schema
+In computer programming, a schema (pronounced `SKEE-mah`) 
+is the organization or structure for a database, while in 
+artificial intelligence (AI) a schema is a formal expression 
+of an inference rule. For the former, the activity of data 
+modeling leads to a schema.
+
+* Example, Database schema:
+
+		CREATE TABLE product (
+ 			id INT AUTO_INCREMENT PRIMARY KEY,
+ 			product_name VARCHAR(50) NOT NULL,
+ 			price VARCHAR(7) NOT NULL,
+ 			quantity INT NOT NULL
+		)
+		
+		
+* Example, DataFrame schema in PySpark
+
+		from pyspark.sql.types import StructType, StructField
+		from pyspark.sql.types import StringType, IntegerType
+	
+		schema = StructType([ \
+	    	StructField("firs_tname", StringType(),True), \
+	    	StructField("last_name", StringType(),True), \
+	    	StructField("emp_id", StringType(), True), \
+	    	StructField("gender", StringType(), True), \
+	    	StructField("salary", IntegerType(), True) 
+	  	])
+  
+## Difference between Tuple and List in Python
+The primary difference between tuples and lists is that 
+tuples are **immutable** as opposed to lists which are 
+**mutable**. Therefore, it is possible to change a list 
+but not a tuple. The contents of a tuple cannot change 
+once they have been created in Python due to the 
+immutability of tuples.
+
+Examples in Python3:
+
+	# create a tuple
+	>>> t3 = (10, 20, 40)
+	>>> t3
+	(10, 20, 40)
+	
+	# create a list
+	>>> l3 = [10, 20, 40]
+	>>> l3
+	[10, 20, 40]
+	
+	# add an element to a list
+	>>> l3.append(500)
+	>>> l3
+	[10, 20, 40, 500]
+	
+	# add an element to a tuple
+	>>> t3.append(600)
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	AttributeError: 'tuple' object has no attribute 'append'
+
+ 
 ## Object Databases
 An object database store data in the form of objects, as used 
 by object-oriented programming. They are different from relational 
