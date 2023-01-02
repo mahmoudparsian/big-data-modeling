@@ -27,13 +27,13 @@
 
 ------------
 
-## [Instructor, Adjunct Professor: Mahmoud Parsian](./instructor.md)
+## [Instructor, Adjunct Professor: Mahmoud Parsian](./web_docs/instructor.md)
 
 ## [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
 ## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/README.md)
 
-## [Required Books](./required_books.md)
+## [Required Books](./web_docs/required_books.md)
 
 ## Required Introduction to MapReduce and Spark 
 
@@ -60,7 +60,7 @@
 ## Required Software: 
 
 * [Apache Spark Site](http://spark.apache.org/)
-* [Apache Spark Download](http://spark.apache.org/downloads.html), Use version 3.2.1
+* [Apache Spark Download](http://spark.apache.org/downloads.html) (Always install the latest version of Spark)
 
 ----------------------------
 
@@ -68,7 +68,7 @@
 
 ----------------------------
 
-## [Grading and Class Conduct](./images/grading_and_class_conduct.md)
+## [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
 ----------------------------
 
