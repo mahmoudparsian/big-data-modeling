@@ -3,13 +3,11 @@
 ## [Santa Clara University](http://scu.edu/)
 
 
-<img src="images/big-data-words2.png" unselectable="on"/>
+<img src="images/big-data-words2.png"/>
 
 [comment]: <> (This is a comment, it will not be included)
 
-![](./images/big-data-words2.png)
 
-<a>![badge-alt-text](images/big-data-words2.png)</a>
 ----------------------------
 
 ## Fall Quarter 2022
