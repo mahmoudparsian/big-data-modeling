@@ -16,32 +16,32 @@ and MapReduce fundamentals to solve big data problems.
 
 The main focus of this class is to cover the following concepts:
 
-* Concepts of Big Data
+* **Concepts of Big Data**
 	* Scale-up Architecture: Why or Why Not
 	* Scale-out Architecture 
 	* Scale-out Architectures (using Hadoop, Spark, PySpark)	
 	* Fault Tolerance 
 	* Data Replication
 
-* Distributed Computing
+* **Distributed Computing**
 	* Cluster Computing
 	* Distributed and Parallel Algorithms
 
-* Distributed File Systems
+* **Distributed File Systems**
 	* Hadoop Distributed File System
 	* Amazon S3
 	
 
-* MapReduce
+* **MapReduce**
 	* [MapReduce Paradigm](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 	* [MapReduce Algorithms](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-* Spark
+* **Spark**
 	* [Apache Spark](http://spark.apache.org/)
 	* Use Spark, Py-Spark, and Python to teach MapReduce and distributed computing
 	* SQL for NoSQL Data, How?
 
-* Amazon Athena
+* **Amazon Athena**
 	* Serverless Architectures
 	* [Amazon Athena](https://aws.amazon.com/athena/)
 	* [Amazon Athena, S3, Data Partitioning](https://aws.amazon.com/athena/)
