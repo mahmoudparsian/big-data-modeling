@@ -5,6 +5,8 @@
 
 <img src="images/big-data-words2.png" unselectable="on"/>
 
+
+![](./images/big-data-words2.png)
 ----------------------------
 
 ## Fall Quarter 2022
