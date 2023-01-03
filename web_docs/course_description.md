@@ -20,14 +20,17 @@ The main focus of this class is to cover the following concepts:
 	* Scale-up Architecture: Why or Why Not
 	* Scale-out Architecture 
 	* Scale-out Architectures (using Hadoop, Spark, PySpark)	
+	* Fault Tolerance 
+	* Data Replication
+
+* Distributed Computing
+	* Cluster Computing
+	* Distributed and Parallel Algorithms
 
 * Distributed File Systems
 	* Hadoop Distributed File System
 	* Amazon S3
 	
-* Distributed Computing
-	* Cluster Computing
-	* Distributed and Parallel Algorithms
 
 * MapReduce
 	* [MapReduce Paradigm](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
