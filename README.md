@@ -8,16 +8,15 @@
 ----------------------------
 
 ## High-Level Course Description:
-	   This course is about big data and its role in carrying out 
-	   modern business intelligence for actionable insight to address 
-	   new business needs. This course is a lab-led and open source 
-	   software rooted course.  Students will learn the fundamentals 
-	   of MapReduce, Spark framework, NoSQL databases, PySpark, and 
-	   Amazon Athena. The class will focus on the storage, processing, 
-	   and analysis aspects of big data. Students will use Spark cluster 
-	   and MapReduce fundamentals to solve big data problems."
+>   This course is about big data and its role in carrying out 
+>   modern business intelligence for actionable insight to address 
+>   new business needs. This course is a lab-led and open source 
+>   software rooted course.  Students will learn the fundamentals 
+>   of MapReduce, Spark framework, NoSQL databases, PySpark, and 
+>   Amazon Athena. The class will focus on the storage, processing, 
+>   and analysis aspects of big data. Students will use Spark cluster 
+>   and MapReduce fundamentals to solve big data problems.
 
-----------------------------
 
 
 ## Fall Quarter 2022
