@@ -1,4 +1,4 @@
-# Big Data Modeking & Analytics
+# Big Data Modeling & Analytics
 
 ## Course Description:
 
@@ -13,6 +13,7 @@ and MapReduce fundamentals to solve big data problems.
 
 
 ## Course Concepts
+
 The main focus of this class is to cover the following concepts:
 
 * Concepts of Big Data
