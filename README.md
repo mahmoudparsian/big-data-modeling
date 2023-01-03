@@ -17,6 +17,8 @@
 	   and analysis aspects of big data. Students will use Spark cluster 
 	   and MapReduce fundamentals to solve big data problems."
 
+----------------------------
+
 
 ## Fall Quarter 2022
 ## Course Information: 
@@ -59,8 +61,7 @@
 ## [Final Exam](./web_docs/final_exam.md)
 
 
-## Course Description (High-Level)
-
+## Course Details
 The main focus of this class is to cover the following concepts:
 
 * Concepts of Big Data
@@ -75,6 +76,8 @@ The main focus of this class is to cover the following concepts:
 * SQL for NoSQL Data, How?
 * [Amazon Athena](https://aws.amazon.com/athena/)
 * [Amazon Athena, S3, Data Partitioning](https://aws.amazon.com/athena/)
+
+
 ---------------------------
 
 ## Mahmoud Parsian's Latest Books: 
