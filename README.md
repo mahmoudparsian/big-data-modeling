@@ -7,18 +7,6 @@
 
 ----------------------------
 
-## High-Level Course Description:
->   This course is about big data and its role in carrying out 
->   modern business intelligence for actionable insight to address 
->   new business needs. This course is a lab-led and open source 
->   software rooted course.  Students will learn the fundamentals 
->   of MapReduce, Spark framework, NoSQL databases, PySpark, and 
->   Amazon Athena. The class will focus on the storage, processing, 
->   and analysis aspects of big data. Students will use Spark cluster 
->   and MapReduce fundamentals to solve big data problems.
-
-
-
 ## Fall Quarter 2022
 ## Course Information: 
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
@@ -41,6 +29,8 @@
 
 ## [Instructor, Adjunct Professor: Mahmoud Parsian](./web_docs/instructor.md)
 
+## [Course Description & Concepts](./web_docs/course_description.md)
+
 ## [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
 ## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/README.md)
@@ -59,22 +49,6 @@
 
 ## [Final Exam](./web_docs/final_exam.md)
 
-
-## Course Details
-The main focus of this class is to cover the following concepts:
-
-* Concepts of Big Data
-* Distributed File Systems
-* Distributed Computing
-* Distributed and Parallel Algorithms
-* [MapReduce Paradigm](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-* [MapReduce Algorithms](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-* Scale-out Architectures (using Hadoop, Spark, PySpark)
-* [Apache Spark](http://spark.apache.org/)
-* Use Spark, Py-Spark, and Python to teach MapReduce and distributed computing
-* SQL for NoSQL Data, How?
-* [Amazon Athena](https://aws.amazon.com/athena/)
-* [Amazon Athena, S3, Data Partitioning](https://aws.amazon.com/athena/)
 
 
 ---------------------------
