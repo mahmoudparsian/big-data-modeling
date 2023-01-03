@@ -3,7 +3,7 @@
 ## [Santa Clara University](http://scu.edu/)
 
 
-<img src="images/big-data-words2.png"/>
+<img src="images/big-data-words2.png" unselectable="on"/>
 
 ----------------------------
 
