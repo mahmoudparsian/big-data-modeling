@@ -7,6 +7,17 @@
 
 ----------------------------
 
+## High-Level Course Description:
+	   This course is about big data and its role in carrying out 
+	   modern business intelligence for actionable insight to address 
+	   new business needs. This course is a lab-led and open source 
+	   software rooted course.  Students will learn the fundamentals 
+	   of MapReduce, Spark framework, NoSQL databases, PySpark, and 
+	   Amazon Athena. The class will focus on the storage, processing, 
+	   and analysis aspects of big data. Students will use Spark cluster 
+	   and MapReduce fundamentals to solve big data problems."
+
+
 ## Fall Quarter 2022
 ## Course Information: 
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
@@ -39,28 +50,14 @@
 
 ## [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-
 ## [Syllabus, Fall Quarter 2022](./syllabus/2022-Fall/)
-
-----------------------------
 
 ## [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
-----------------------------
+## [Midterm Exam](./web_docs/midterm_exam.md)
 
-## Midterm Exam: 
-#### &#x1F34F; Date: Thursday, October 27, 2022
-#### &#x1F34F; Time: 5:45 PM - 7:20 PM PST
-#### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone/software
+## [Final Exam](./web_docs/final_exam.md)
 
-----------------------------
- 
-## Final Exam:
-#### &#x1F34E; Date: Thursday, December 8, 2022
-#### &#x1F34E; Time: 5:45 PM - 7:45 PM PST
-#### &#x1F34E; Final exam is closed book/notes/friends/internet/phone/software
-
-----------------------------
 
 ## Course Description (High-Level)
 
