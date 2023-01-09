@@ -324,6 +324,50 @@ Hadoop provides:
 * HDFS: Hadoop Distributed File System
 
 
+## What is the difference between Hadoop and RDBMS?
+
+* Hadoop is an implementation of MapReduce paradigm
+* RDBMS denoes a relational database system such as Oracle, MySQL, Maria
+
+ 
+Criteria      | Hadoop                                          | RDBMS
+------------- | ----------------------------------------------- |-----------
+Data Types    | Processes semi-structured and unstructured data | Processes structured data
+Schema	     | Schema on Read	                                | Schema on Write 
+Best Fit for Applications | Data discovery and Massive Storage/Processing of Unstructured data. | Best suited for OLTP and ACID transactions                                 
+Speed         |	Writes are Fast	| Reads are Fast
+Data Updates  | Write once, Read many times | Read/Write many times
+Data Access   | Batch | Interactive and Batch
+Data Size     | Tera bytes to Peta bytes | Giga bytes to Tera bytes
+
+
+
+## What makes Hadoop Fault tolerant?
+Hadoop is said to be highly fault tolerant. Hadoop achieves 
+this feat through the process of data replication. Data is 
+replicated across multiple nodes in a Hadoop cluster. The 
+data is associated with a replication factor, which indicates 
+the number of copies of the data that are present across the 
+various nodes in a Hadoop cluster. For example, if the replication 
+factor is 4, the data will be present in four different nodes 
+of the Hadoop cluster, where each node will contain one copy 
+each. In this manner, if there is a failure in any one of the 
+nodes, the data will not be lost, but can be recovered from 
+one of the other nodes which contains copies or replicas of 
+the data.
+
+If replication factor is `N`, then `N-1` nodes can safely
+fail without impacting a running job.
+  
+
+## Parquet Files
+A columnar file format that supports block level compression 
+and is optimized for query performance as it allows selection 
+of 10 or less columns from from 50+ columns records.
+
+Apache Spark can read/write from/to Parquet data format. 
+
+
 ## Tez
 [Apache Tez](https://tez.apache.org) (which implements 
 MapReduce paradigm) is a framework to create high
