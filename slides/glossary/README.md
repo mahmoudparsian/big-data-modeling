@@ -1165,8 +1165,8 @@ pairs: this means that the reducer is filtering out some keys based
 of the associated values (for example, if the median of the values 
 is less than 10, then filter out).
 
-## Hadoop vs. Spark
 
+## Hadoop vs. Spark
 Feature           | Haoop                      | Spark
 ----------------- | -------------------------- | ------------------
 Data Processing   | Provides batch processing  | Provides both batch processing and stream processing
@@ -1182,6 +1182,9 @@ Speed	 | SLOW: Hadoop’s MapReduce model reads and writes from a disk, thus it 
 Latency	| It is high latency computing framework.	 | It is a low latency computing and can process data interactively
 Machine Learing API | Not supported | Supported by ML Library
 Data Source Support | Limited | Extensive
+Storage | Has HDFS (Hadoop Distributed File System)| Does not have a storage system, but may use S3 and HDFS and many other data sources and storages
+MapReduce | Implements MapReduce | Implements superset of MapReduce and beyond
+Join Operation | Does not support Join directly | Has extensive API for Join
 
 
 ## Spark
