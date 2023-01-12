@@ -2,7 +2,7 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/13/2023
+	Last updated: 1/12/2023
 	
 ![](glossary.jpeg)
 
@@ -24,7 +24,9 @@ Big data environment involves many tools and technologies:
 
 The purpose of this glossary is to shed some 
 light on the fundamental definitions of big 
-data and MapReduce, and Spark.
+data and MapReduce, and Spark. This document 
+is a list of terms, words, and concepts found 
+in or relating to big data, MapReduce, and Spark.
 
 
 
@@ -45,6 +47,22 @@ language such as Python, Java, SQL, ...
 
 In big data world, an algorithm can be implemented using 
 a compute engine such as MapReduce and Spark.
+
+In The Art of Computer Programming, a famous computer scientist, 
+[Donald E. Knuth](https://www-cs-faculty.stanford.edu/~knuth/), 
+defines an algorithm as a set of steps, or rules, with five 
+basic properties: 
+
+> 1) Finiteness. An algorithm must always terminate after 
+a finite number of steps.
+
+> 2) Definiteness. Each step of an algorithm must be precisely defined
+
+> 3) Input. An algorithm has zero or more inputs
+
+> 4) Output. An algorithm has one or more outputs
+
+> 5) Effectiveness. An algorithm is also generally expected to be effective
 
 
 ## Distributed algorithm
