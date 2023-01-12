@@ -5,11 +5,9 @@
 	Last updated: 1/11/2023
 
 
-## [Glossary in MarkDown](./glossary_of_big_data_and_mapreduce.md)	
+## [Glossary in MarkDown Format](./glossary_of_big_data_and_mapreduce.md)	
 
-## [Glossary in HTML](https://htmlview.glitch.me/?github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/glossary_of_big_data_and_mapreduce.html)
-
-## [Glossary in PDF](./glossary_of_big_data_and_mapreduce.pdf)
+## [Glossary in PDF Format](./glossary_of_big_data_and_mapreduce.pdf)
 
 
 
