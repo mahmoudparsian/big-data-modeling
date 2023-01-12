@@ -4,7 +4,7 @@
 
 	Last updated: 1/12/2023
 	
-![](glossary.jpeg)
+![](./images/glossary.jpeg)
 
 ## Introduction
 Big data is a vast and complex field that is 
@@ -1262,7 +1262,7 @@ Spark addresses many problems of hadoop:
 
 * [Spark Architecture](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf)
 
-![](spark_architecture.png)
+![](./images/spark_architecture.png)
 
 * [Spark Cluster](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf): a collection of machines or nodes in 
 the public cloud or on-premise in a private data center on 
