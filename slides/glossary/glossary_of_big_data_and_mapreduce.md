@@ -1165,6 +1165,24 @@ pairs: this means that the reducer is filtering out some keys based
 of the associated values (for example, if the median of the values 
 is less than 10, then filter out).
 
+## Hadoop vs. Spark
+
+Feature           | Haoop                      | Spark
+----------------- | -------------------------- | ------------------
+Data Processing   | Provides batch processing  | Provides both batch processing and stream processing
+Memory usage      | Disk-bound 	               | Uses large amounts of RAM
+Security	          | Better security features  | Basic security is provided
+Fault Tolerance	 | Replication is used for fault tolerance |RDD and various data storage models are used for fault tolerance.
+Graph Processing	 | Must develop custom algorithms | Comes with a graph computation library called GraphX and external library as GraphFrames
+Ease of Use	      | Difficult to use | Easier to use
+Powerful API      | Low level API | High level API
+Real-time         | Batch only | Batch and Interactive and Stream
+Interactive data processing | Not supported | Supported by PySpark, ...	
+Speed	 | SLOW: Hadoop’s MapReduce model reads and writes from a disk, thus it slows down the processing speed.	| FAST: Spark reduces the number of read/write cycles to disk and store intermediate data in memory, hence faster-processing speed.
+Latency	| It is high latency computing framework.	 | It is a low latency computing and can process data interactively
+Machine Learing API | Not supported | Supported by ML Library
+Data Source Support | Limited | Extensive
+
 
 ## Spark
 [Apache Spark](https://spark.apache.org) is an engine for 
