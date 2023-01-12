@@ -2,7 +2,7 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/9/2023
+	Last updated: 1/13/2023
 	
 ![](glossary.jpeg)
 
