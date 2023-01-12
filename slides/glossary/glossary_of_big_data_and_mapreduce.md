@@ -1174,7 +1174,7 @@ data science, and machine learning on single-node machines
 or clusters. Spark implements superset of MapReduce paradigm 
 and uses memory/RAM as much as possible and can run up to 100 
 times faster than Hadoop. Spark is considered the successor of 
-Hadoopand has addressed many problems of Hadoop.
+Hadoop/Mapreduce and has addressed many problems of Hadoop.
 
 With using Spark, developers do not need to write code for 
 parallelism, distributing data, or other complex coding 
@@ -1240,9 +1240,194 @@ An RDD is more suitable to unstructured and
 semi-structured data (while a DataFrame is more 
 suitable to structured and semi-structured data.
 
+## What is Lineage In Spark?
+Spark RDDs are immutable (READ-ONLY) distributed collection 
+of elements of your data that can be stored in memory or 
+disk across a cluster of machines. The data is partitioned 
+across machines in your cluster that can be operated in 
+parallel with a low-level API that offers transformations 
+and actions. RDDs are fault tolerant as they track data 
+lineage information to rebuild lost data automatically on 
+failure.
+
+
+## What are Spark operations/functions?
+Two types of Spark RDD operations are: Transformations and Actions. 
+
+* Transformation: a transformation is a function that produces 
+  new/target RDDs from the source/existing RDDs
+  * `Transformation: source_rdd --> target_rdd`
+  * `map()`, `filter()`, `flatMap()`, `mapPartitions()`
+  * `groupByKey()`, `reduceByKey()`, `combineByKey()`
+  * ...
+  
+* Action: when we want to work with the actual dataset, at that 
+  point Action is performed. For RDD, anction is defined as the 
+  Spark operations that return raw values. In other words, any 
+  of the RDD functions that return other than the `RDD[T]` is 
+  considered an action in the spark programming.
+   * `Action: source_rdd --> NONE_rdd`
+	* `collect()`
+	* `count()`
+	* ...
+
+
+## The Spark Programming ModelSpark programming starts with a data set (which can be 
+represented as an RDD or a DataFame), usually residing 
+in some form of distributed, persistent storage like 
+Amazon S3 or Hadoop HDFS.  Writing a Spark program 
+typically consists of a few related steps:1. Define a set of transformations on the input data set.
+2. Invoke actions that output the transformed data sets 
+   to persistent storage or return results to the driver’s 
+   local memory.
+   3. Run local computations that operate on the results 
+   computed in a distributed fashion. These can help 
+   you decide what transformations and actions to undertake   next.
+   
+
+## What is Lazy Binding In Spark?
+Lazy binding/evaluation in Spark means that the execution 
+of **transformations** will not start until an **action** 
+is triggered. 
+
+In programming language theory, lazy evaluation, or call-by-need, 
+is an evaluation strategy which delays the evaluation of an 
+expression until its value is needed (non-strict evaluation) and 
+which also avoids repeated evaluations (sharing).
+
+## Difference between  `reduceByKey()` and `combineByKey()`
+
+* `reduceByKey()`
+
+`RDD.reduceByKey()` merges the values for each key using an 
+**associative** and **commutative** reduce function. 
+This will also perform the merging locally on each mapper 
+before sending results to a reducer, similarly to a “combiner” 
+in MapReduce.
+
+This can be expressed as:
+
+		reduceByKey: RDD[(K, V)] --> RDD[(K, V)]
+
+
+* `combineByKey()`
+
+`RDD.combineByKey()` is a generic function to combine the 
+elements for each key using a custom set of aggregation functions.
+`RDD.combineByKey()` turns an `RDD[(K, V)]` into a result of type 
+`RDD[(K, C)]`, for a “combined type” `C`.
+
+For `combineByKey()`, users provide three functions:
+
+* createCombiner, which turns a `V` into a `C` (e.g., creates a one-element list)
+
+		createCombiner: V --> C
+
+* mergeValue, to merge a `V` into a `C` (e.g., adds it to the end of a list)
+
+		mergeValue: C x V --> C
+
+
+* mergeCombiners, to combine two `C’s` into a single one (e.g., merges the lists)
+
+		mergeCombiners: C x C --> C
+
+This can be expressed as:
+
+		combineByKey: RDD[(K, V)] --> RDD[(K, C)]
+		
+		where V and C can be the same or different 
+
+
+## What is an example of `RDD.combineByKey()`?
+
+Combine all of values per key.
+
+~~~python
+
+# combineByKey: RDD[(String, Integer)] --> RDD[(String, [Integer])]
+
+rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
+
+# V --> C
+def to_list(a):
+    return [a]
+
+# C x V --> C
+def append(a, b):
+    a.append(b)
+    return a
+
+# C x C --> C
+def extend(a, b):
+    a.extend(b)
+    return a
+
+# rdd: RDD[(String, Integer)]
+# rdd2: RDD[(String, [Integer])]
+rdd2 = rdd.combineByKey(to_list, append, extend)
+rdd2.collect()
+
+[
+ ('z', [5]),
+ ('a', [1, 2, 3]), 
+ ('b', [7, 8])
+]
+
+# Note that values of keys does not need to be sorted
+~~~
+
+
+## What is an example of `RDD.reduceByKey()`?
+
+Find maximum of values per key.
+
+~~~python
+
+# reduceByKey: RDD[(String, Integer)] --> RDD[(String, Integer)]
+
+rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
+
+# rdd: RDD[(String, Integer)]
+# rdd2: RDD[(String, Integer)]
+rdd2 = rdd.reduceByKey(lambda x, y: max(x, y))
+rdd2.collect()
+
+[
+ ('z', 5),
+ ('a', 3), 
+ ('b', 8)
+]
+
+~~~
+
+
+## What is an example of `RDD.groupByKey()`?
+
+Combine/Group values per key.
+
+~~~python
+
+# reduceByKey: RDD[(String, Integer)] --> RDD[(String, [Integer])]
+
+rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
+
+# rdd: RDD[(String, Integer)]
+# rdd2: RDD[(String, [Integer])]
+rdd2 = rdd.groupByKey()
+rdd2.collect()
+
+[
+ ('z', [5]),
+ ('a', [1, 2, 3]), 
+ ('b', [7, 8])
+]
+
+~~~
+
+
 
 ## What is an Spark DataFrame
-
 Spark's DataFrame (full name as: `pyspark.sql.DataFrame`)
 is an immutable and distributed collection of data grouped
 into named columns. Once your DataFrame is created, then 
@@ -1262,6 +1447,7 @@ suitable to unstructured and semi-structured data).
 
 An Spark RDD can represent billions of elements.
 
+~~~python
 	>>> sc
 	<SparkContext master=local[*] appName=PySparkShell>
 	>>> sc.version
@@ -1278,11 +1464,13 @@ An Spark RDD can represent billions of elements.
 	>>> total = numbers.reduce(lambda x, y: x+y)
 	>>> total
 	499500
+~~~
 
 ## Spark DataFrame Example
 
 A Spark DataFrame can represent billions of rows of named columns.
 
+~~~python
 	>>> records = [("alex", 23), ("jane", 24), ("mia", 33)]
 	>>> spark
 	<pyspark.sql.session.SparkSession object at 0x12469e6e0>
@@ -1302,7 +1490,7 @@ A Spark DataFrame can represent billions of rows of named columns.
 	root
 	 |-- name: string (nullable = true)
 	 |-- age: long (nullable = true)
-
+~~~
 	
 	 
 ## Cluster
@@ -2051,3 +2239,11 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 13. [Apache Hadoop MapReduce Tutorial, 2022-07-29](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
 
 14. [Big Data Glossary by Pete Warden, 2011, O'Reilly](https://www.oreilly.com/library/view/big-data-glossary/9781449315085/)
+
+15. [What is Lineage In Spark?](https://stackoverflow.com/questions/45751113/what-is-lineage-in-spark)
+
+16. [RDD lineage in Spark: ToDebugString Method](https://data-flair.training/blogs/rdd-lineage/)
+
+17. [Lazy Evaluation in Apache Spark](https://data-flair.training/blogs/apache-spark-lazy-evaluation/)
+
+18. [Advanced Analytics with PySpark by Akash Tandon, Sandy Ryza, Uri Laserson, SeanOwen, and Josh Wills](https://www.amazon.com/Advanced-Analytics-PySpark-Patterns-Learning/dp/1098103653/ref=sr_1_1)
