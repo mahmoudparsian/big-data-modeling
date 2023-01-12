@@ -1258,6 +1258,28 @@ Spark addresses many problems of hadoop:
 * You do not need to write too many lines of a code 
   to solve a big data problem
 
+## Spark Concepts and Key Terms
+
+* [Spark Architecture](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf)
+
+![](spark_architecture.png)
+
+* [Spark Cluster](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf): a collection of machines or nodes in 
+the public cloud or on-premise in a private data center on 
+which Spark is installed. Among those machines are Spark 
+workers, a Spark Master (also a cluster manager in a Standalone 
+mode), and at least one Spark Driver.
+
+* [Spark Master](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):As the name suggests, a Spark Master JVM acts as a cluster manager ina Standalone deployment mode to which Spark workers registerthemselves as part of a quorum. Depending on the deployment mode,it acts as a resource manager and decides where and how manyExecutors to launch, and on what Spark workers in the cluster.
+
+* [Spark Worker](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):
+Upon receiving instructions from Spark Master, the Spark worker JVMlaunches Executors on the worker on behalf of the Spark Driver. Sparkapplications, decomposed into units of tasks, are executed on eachworker’s Executor. In short, the worker’s job is to only launch anExecutor on behalf of the master.
+
+* [Spark Executor](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):A Spark Executor is a JVM container with an allocated amount of coresand memory on which Spark runs its tasks. Each worker nodelaunches its own Spark Executor, with a configurable number of cores(or threads). Besides executing Spark tasks, an Executor also storesand caches all data partitions in its memory.
+
+* [Spark Driver](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):
+Once it gets information from the Spark Master of all the workers in thecluster and where they are, the driver program distributes Spark tasksto each worker’s Executor. The driver also receives computed resultsfrom each Executor’s tasks.
+
 ## What is an Spark RDD
 
 Spark's RDD (full name in PySpark as: `pyspark.RDD`)
@@ -1464,9 +1486,84 @@ rdd2.collect()
 
 ~~~
 
+## What is a DataFrame?
+A DataFrame is a data structure that organizes data into 
+a 2-dimensional table of rows and columns, much like a 
+spreadsheet or a relational table. DataFrames are one of 
+the most common data structures used in modern data analytics 
+because they are a flexible and intuitive way of storing and 
+working with data.
+
+### Python DataFrame Example
+DataFrame is a 2-dimensional mutable labeled data structure 
+with columns of potentially different types. You can think 
+of it like a spreadsheet or SQL table, or a dict of Series 
+objects. It is generally the most commonly used `Pandas` object.
+A `Pandas` DataFrame is a 2-dimensional data structure, like 
+a 2-dimensional array, or a table with rows and columns.
+The number of rows for `Pandas` DataFrame is mutable and 
+limited to the computer and memory where it resides.
+
+~~~python
+import pandas as pd
+
+data = {
+  "calories": [100, 200, 300],
+  "duration": [50, 60, 70]
+}
+
+#load data into a DataFrame object:
+df = pd.DataFrame(data)
+
+print(df) 
+
+# Result:
+
+	  calories  duration
+  0       100        50
+  1       200        60
+  2       300        70
+~~~
+  
+### Spark DataFrame Example
+A distributed collection of data grouped into named 
+columns.  Spark's DataFrame is immutable and can have 
+billions of rows.  A DataFrame is equivalent to a 
+relational table in Spark SQL, and can be created 
+using various functions in `SparkSession`:
+
+~~~python
+# PySpark code:
+
+input_path = "..."
+# spark: as a SparkSession object
+people = spark.read.parquet(input_path)
+~~~
+
+Once created, it can be manipulated using the various 
+domain-specific-language (DSL) functions or you may use 
+`SQL` to execute queries against DataFrame (registered
+as a table).
+
+A more concrete example:
+
+~~~python
+# PySpark code:
+
+# To create DataFrame using SparkSession
+input_path_people = "..."
+people = spark.read.parquet(input_path_people)
+input_path_dept = "..."
+department = spark.read.parquet(input_path_dept)
+
+result = people.filter(people.age > 30)\
+               .join(department, people.deptId == department.id)\
+               .groupBy(department.name, "gender")\
+               .agg({"salary": "avg", "age": "max"})
+~~~
 
 
-## What is an Spark DataFrame
+## What is an Spark DataFrame?
 Spark's DataFrame (full name as: `pyspark.sql.DataFrame`)
 is an immutable and distributed collection of data grouped
 into named columns. Once your DataFrame is created, then 
@@ -2285,4 +2382,9 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 17. [Lazy Evaluation in Apache Spark](https://data-flair.training/blogs/apache-spark-lazy-evaluation/)
 
-18. [Advanced Analytics with PySpark by Akash Tandon, Sandy Ryza, Uri Laserson, SeanOwen, and Josh Wills](https://www.amazon.com/Advanced-Analytics-PySpark-Patterns-Learning/dp/1098103653/ref=sr_1_1)
+18. [Advanced Analytics with PySpark by Akash Tandon, 
+   Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills](https://www.amazon.com/Advanced-Analytics-PySpark-Patterns-Learning/dp/1098103653/ref=sr_1_1)
+   
+19. [8 Steps for a Developer to Learn Apache Spark with Delta Lake by Databricks](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf)
+
+20. [Apache Spark Key Terms, Explained](https://www.kdnuggets.com/2016/06/spark-key-terms-explained.html)
