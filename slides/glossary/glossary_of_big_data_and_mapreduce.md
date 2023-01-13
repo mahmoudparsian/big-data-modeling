@@ -2453,6 +2453,20 @@ of tables with columns and rows. In a relational
 database, each row in the table has a unique ID 
 referred to as a key.
 
+What do you mean by relational database? a relational 
+database is a collection of information (stored as
+rows) that organizes data in predefined relationships 
+where data is stored in one or more tables (or 
+"relations") of columns and rows, making it easy to 
+see and understand how different data structures relate 
+to each other.
+
+
+There are 3 different types of relations in the database:
+
+* one-to-one
+* one-to-many
+* many-to-many
 
 ## How does Hadoop perform input splits?
 
