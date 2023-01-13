@@ -2,7 +2,7 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/12/2023
+	Last updated: 1/13/2023
 	
 ![](./images/glossary.jpeg)
 
@@ -1234,8 +1234,8 @@ Spark’s architecture consists of two main components:
   tasks assigned to them
 
 
-PySpark is an interface for Spark in Python. PySpark has two main data 
-abstractions:
+PySpark is an interface for Spark in Python. PySpark has 
+two main data abstractions:
 
 * RDD (Resilient Distributed Dataset)
 	* low-level
@@ -1279,6 +1279,52 @@ Upon receiving instructions from Spark Master, the Spark worker JVMlaunches Exe
 
 * [Spark Driver](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):
 Once it gets information from the Spark Master of all the workers in thecluster and where they are, the driver program distributes Spark tasksto each worker’s Executor. The driver also receives computed resultsfrom each Executor’s tasks.
+
+
+## Spark as a superset of MapReduce
+Spark is a true successor of MapReduce and maintains 
+MapReduce’s linear scalability and fault tolerance, 
+but extends it in 7 important ways:
+
+1. Spark does not rely on a low-level and rigid 
+`map-then-reduce` workflow. Spark's engine can execute 
+a more general Directed Acyclic Graph (DAG) of operators. 
+This means that in situations where MapReduce must
+write out intermediate results to the distributed file 
+system (such as HDFS and S3), Spark can pass them directly 
+to the next step in the pipeline. Rather than writing many 
+`map-then-reduce` jobs, in Spark, you can use transformations 
+in any order to have an optimized solution.
+
+2. Spark complements its computational capability with 
+a simple and rich set of transformations and actions that 
+enable users to express computation more naturally. Powerful
+and simple API (as a set of functions) are provided for various 
+tasks including numerical computation, datetime processing and 
+string manipulation.
+
+3. Spark extends its predecessors (such as Hadoop) with 
+in-memory processing. MapReduce uses disk I/O (which is slow),
+but Spark uses in-memory computing as much as possible and
+it can be up to 100 times faster than MapReduce implementations.
+This means that future steps that want to deal with the same data
+set need not recompute it or reload it from disk. Spark is well
+suited for highly iterative algorithms as well as adhoc queries.
+
+4. Spark offers interactive environment (for example using PySpark
+interactively) for testing and debugging data transformations.
+
+5. Spark offers extensive Machine Learning libraries (Hadoop/MapReduce
+does not have this capability)
+
+6. Spark offers extensive graph API by GraphX (built-in) and
+GraphFrames (as an external library).
+
+7. Spark Streaming is an extension of the core Spark API that 
+allows data engineers and data scientists to process real-time 
+data from various sources including (but not limited to) Kafka, 
+Flume, and Amazon Kinesis. This processed data can be pushed 
+out to file systems, databases, and live dashboards.
 
 ## What is an Spark RDD
 
@@ -1628,7 +1674,148 @@ A Spark DataFrame can represent billions of rows of named columns.
 	 |-- age: long (nullable = true)
 ~~~
 	
-	 
+	
+## Spark partitioning
+A [partition in spark](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
+is an atomic chunk of data (logical division of data) 
+stored on a node in the cluster. Partitions are basic 
+units of parallelism in Apache Spark. RDDs in 
+Apache Spark are collection of partitions. 
+
+For example, in PySpark you can get the current number/length/size 
+of partitions by running `RDD.getNumPartitions()`.	 
+## GraphFrames
+[GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html)
+is an external package for Apache Spark which provides DataFrame-based Graphs. 
+It provides high-level APIs in Scala, Java, and Python. It aims to provide 
+both the functionality of GraphX (included in Spark API) and extended 
+functionality taking advantage of Spark DataFrames. This extended 
+functionality includes motif finding, DataFrame-based serialization, 
+and highly expressive graph queries.
+
+> GraphFrames are to DataFrames as GraphX is to RDDs.
+
+To build a graph, you build 2 DataFrames (one for vertices 
+and another one for the edges) and then glue them together 
+to create a graph:
+
+~~~python
+# each node is identified by "id" and an optional attributes
+# vertices: DataFrame(id, ...)
+
+# each edge is identified by (src, dst) and an optional attributes
+# where src and dst are node ids
+# edges: DataFrame(src, dst, ...)
+
+# import required GraphFrame library
+from graphframes import GraphFrame
+
+# create a new directed graph
+graph = GraphFrame(vertices, edges)
+~~~
+
+## Example of a GraphFrame
+This example shows how to build a directed graph 
+using graphframes API.
+
+To invoke PySpark with GraphFrames:
+
+~~~sh
+% # define the home directory for Spark
+% export SPARK_HOME=/home/spark-3.2.0
+% # import graphframes library into PySpark and invoke interactive PySpark:
+% $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.8.2-spark3.2-s_2.12
+Python 3.8.9 (default, Mar 30 2022, 13:51:17)
+...
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.2.0
+      /_/
+
+Using Python version 3.8.9 (default, Mar 30 2022 13:51:17)
+Spark context Web UI available at http://10.0.0.234:4040
+Spark context available as 'sc' (master = local[*], app id = local-1650670391027).
+SparkSession available as 'spark'.
+>>>
+~~~
+
+Then PySpark is ready to use GraphFrames API:
+
+~~~python
+>>># create list of nodes
+>>> vert_list = [("a", "Alice", 34),
+...              ("b", "Bob", 36),
+...              ("c", "Charlie", 30)]
+>>>
+>>># define column names for a node
+>>> column_names_nodes = ["id", "name", "age"]
+>>>
+>>># create vertices_df as a Spark DataFrame
+>>> vertices_df = spark.createDataFrame(
+...      vert_list,
+...      column_names_nodes
+... )
+
+>>>
+>>># create list of edges
+>>> edge_list = [("a", "b", "friend"),
+...              ("b", "c", "follow"),
+...              ("c", "b", "follow")]
+>>>
+>>># define column names for an edge
+>>> column_names_edges = ["src", "dst", "relationship"]
+>>>
+>>># create edges_df as a Spark DataFrame
+>>> edges_df = spark.createDataFrame(
+...           edge_list,
+...           column_names_edges
+... )
+>>>
+>>># import required libriaries
+>>> from graphframes import GraphFrame
+>>>
+>>># build a graph using GraphFrame library
+>>> graph = GraphFrame(vertices_df, edges_df)
+>>>
+>>># examine built graph
+>>> graph
+GraphFrame(
+  v:[id: string, name: string ... 1 more field], 
+  e:[src: string, dst: string ... 1 more field]
+)
+>>>
+>>># access vertices of a graph
+>>> graph.vertices.show()
++---+-------+---+
+| id|   name|age|
++---+-------+---+
+|  a|  Alice| 34|
+|  b|    Bob| 36|
+|  c|Charlie| 30|
++---+-------+---+
+
+>>># access edges of a graph
+>>> graph.edges.show()
++---+---+------------+
+|src|dst|relationship|
++---+---+------------+
+|  a|  b|      friend|
+|  b|  c|      follow|
+|  c|  b|      follow|
++---+---+------------+
+~~~
+
+
+## GraphX
+[GraphX](https://spark.apache.org/docs/latest/graphx-programming-guide.html) 
+is Apache Spark's API (RDD-based) for graphs and 
+graph-parallel computation, with a built-in library of 
+common algorithms.  GraphX has API for Java and Scala, 
+but does not have an API for Python (therefore, PySpark 
+does not support GraphX, but PySpark supports GraphFrames).
+
 ## Cluster
 Cluster is a group of servers on a network that are configured 
 to work together. A server is either a master node or a worker 
@@ -2388,3 +2575,5 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 19. [8 Steps for a Developer to Learn Apache Spark with Delta Lake by Databricks](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf)
 
 20. [Apache Spark Key Terms, Explained](https://www.kdnuggets.com/2016/06/spark-key-terms-explained.html)
+
+21. [How Data Partitioning in Spark helps achieve more parallelism?](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
