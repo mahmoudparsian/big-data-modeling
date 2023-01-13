@@ -378,6 +378,21 @@ If replication factor is `N`, then `N-1` nodes can safely
 fail without impacting a running job.
   
 
+## Big Data Formats
+
+Data comes in many varied formats:
+
+* Avro
+	* Avro stores the data definition in JSON format making it easy to read and interpret
+* Parquet
+	* Parquet is an open source, binary, column-oriented data file format designed for efficient data storage and retrieval	
+* ORC
+	* The Optimized Row Columnar (ORC) file format provides a highly efficient way to store Hive data.
+* Text files (log data, CSV, ...)
+* XML
+* JSON
+* ...
+
 ## Parquet Files
 A columnar file format that supports block level compression 
 and is optimized for query performance as it allows selection 
