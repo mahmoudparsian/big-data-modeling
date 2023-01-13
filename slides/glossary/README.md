@@ -9,7 +9,7 @@
 
 ## [Glossary in PDF Format](./glossary_of_big_data_and_mapreduce.pdf)
 
-## [Glossary in HTML Raw Format](./glossary_of_big_data_and_mapreduce.html)
+## [Glossary in HTML Format](https://htmlview.glitch.me/?https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/glossary_of_big_data_and_mapreduce.html)
 
 
 
