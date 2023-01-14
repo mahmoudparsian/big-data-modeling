@@ -1822,6 +1822,30 @@ GraphFrame(
 +---+---+------------+
 ~~~
 
+## Advantages of using Spark
+
+* **Speed**: for large scale data analysis and processing,
+Spark is 100 times faster than Hadoop. This is achieved
+by:
+	* Modern architecture, better ECO system
+	* Provides parallelism with simple and powerful API
+	* Utilizing In-Memory (RAM) processing architecture
+* **Ease of Use**: Spark provides simple and powerful APIs for working
+with big data sets. Spark offers over 100 high-level operators
+and transformations that makes creating parallel programs a breeze
+* **Advanced Analytics**: Spark implements superset of MapReduce paradigm.
+Spark does much more than `map-then-reduce` of MapReduce paradigm.
+Sparks offers Machine Learning, Graph processing, streaming data, and SQL
+queries.
+* **Dynamic**: Spark allows simple creation of parallel applications.
+Spark offers over 100 high-level operators, transformations, and actions.
+* **Multilingual**: Python, Java, Scala, R, and SQL are supported by Spark
+* **Simple and Powerful**: Because of its low-latency in-memory data processing
+capacity, Spark can handle a wide range of analytics problems. Spark has an
+extensive libraries for Machine Learning and Graph analytics at a scale
+* **Open-Source**: Spark is an open-source and hosted by Apache Sofware Foundation.
+ 
+
 
 ## GraphX
 [GraphX](https://spark.apache.org/docs/latest/graphx-programming-guide.html) 
@@ -2171,15 +2195,18 @@ by object-oriented programming. They are different from relational
 or graph databases and most of them offer a query language that 
 allows object to be found with a declarative programming approach.
 
+
 ## Pattern Recognition
 Pattern Recognition identifies patterns in data via algorithms 
 to make predictions of new data coming from the same source.
+
 
 ## Predictive analysis
 Analysis within big data to help predict how someone will behave 
 in the (near) future. It uses a variety of different data sets 
 such as historical, transactional, or social profile data to 
 identify risks and opportunities.
+
 
 ## Privacy
 To seclude certain data / information about oneself that is 
@@ -2190,10 +2217,12 @@ that were created with public funding
 ## Query
 Asking for information to answer a certain question
 
+
 ## Regression analysis
 To define the dependency between variables. It assumes a 
 one-way causal effect from one variable to the response of 
 another variable.
+
 
 ## Real-time data
 Data that is created, processed, stored, analysed and 
@@ -2460,6 +2489,13 @@ production.
 
 
 ## Relational database
+
+The `relational` term here refers to the relations 
+(also commonly referred to as tables) in the database 
+- the tables and their relationships to each other. 
+The tables 'relate' to each other. It is these relations 
+(tables) and their relationships that make it `relational`.
+
 A relational database exists to house and identify 
 data items that have pre-defined relationships with 
 one another. Relational databases can be used to gain 
@@ -2483,6 +2519,30 @@ There are 3 different types of relations in the database:
 * one-to-many
 * many-to-many
 
+## RDBMS
+
+* RDBMS stands for Relational DataBase Management System.
+  The following are examples of RDBMS:
+	* Oracle database
+	* MySQL
+	* MariaDB
+	* PostgreSQL
+	* Microsoft SQL Server
+* It is a database, which stores data in a structured
+  format using rows and columns
+* RDBMS is a multi-tenant and can manage many databases,
+  where each database may have many tables
+* RDBMS is built in such a way to respond to SQL queries in 
+  seconds
+* With RDBMS, you can create databases, and within a 
+  database, you can create tables, which you may 
+  insert/update/delete/query records 
+* The relational structure makes it possible to run queries
+  against many tables
+* SQL (structured query langiage) is the standard 
+  programming language used to access database
+  
+ 
 ## How does Hadoop perform input splits?
 
 The Hadoop's `InputFormat<K, V>` is responsible to provide the 
