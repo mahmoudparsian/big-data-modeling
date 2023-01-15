@@ -551,6 +551,94 @@ Options for MapReduce implementation:
 
 * Spark (fast and simple) is a superset implementation of MapReduce.
 
+## Mapreduce Architecture
+
+![](./images/mapreduce-architecture.jpeg)
+
+### _Components of MapReduce Architecture_:
+
+* **Client**: The MapReduce client is the one who 
+brings the Job to the MapReduce for processing. There 
+can be multiple clients available that continuously 
+send jobs for processing to the Hadoop MapReduce Manager.
+
+* **Job**: The MapReduce Job is the actual work that 
+the client wanted to do which is comprised of so many 
+smaller tasks that the client wants to process or execute.
+
+* **Hadoop/MapReduce Master**: It divides the particular 
+job into subsequent job-parts.
+
+* **Job-Parts**:  The task or sub-jobs that are obtained 
+after dividing the main job. The result of all the job-parts 
+combined to produce the final output.
+
+* **Input Data**: The data set that is fed to the MapReduce 
+for processing.
+
+* **Output Data**: The final result is obtained after the processing.
+
+### _MapReduce Task_:
+
+The __MapReduce Task__ is mainly divided into 3 phases 
+i.e. Map phase, Sort & Shuffle pahse and Reduce phase.
+
+* **Map**: As the name suggests its main use is to map 
+the input data in (key, value) pairs. The input to the 
+map may be a (key, value) pair where the key can be the 
+id of some kind of address (mostly ignored by the mapper) 
+and value is the actual value (a single record of input) 
+that it keeps. The `map()` function will be executed in 
+its memory repository on each of these input (key, value) 
+pairs and generates the intermediate (key2, value2) pairs. 
+The `map()` is provided by a programmer.
+
+* **Sort & Shuffle**: The input to this pahse is the 
+output of all mappers as (key2, value2) pairs. The main 
+function of Sort & Shuffle phase is to group the keys 
+(key2 as output of mappers) by their associated values: 
+therefore, Sort & Shuffle will create a set of:
+
+		(key2, [v1, v2, v3, ...])
+
+which will be fed as input to the reducers.
+In MapReduce paradigm, **Sort & Shuffle** is 
+handled by the MapReduce implementation and 
+it is so called the genie of the MapReduce paradigm.
+A programmer does not write any code for the 
+**Sort & Shuffle** phase.
+
+For example, for a MapReduce job, if all mappers 
+have created the following (key, value) pairs (with 
+3 distinct keys as `{A, B, C}`:
+
+		(A, 2), (A, 3)
+		(B, 4), (B, 5), (B, 6), (B, 7)
+		(C, 8)
+		
+Then **Sort & Shuffle** phase will produce the following output
+(which will be sent as input to the reducers -- note the values
+are not sorted in any order at all):
+
+		(A, [2, 3])
+		(C, [8])
+		(B, [7, 4, 5, 6])
+
+* **Reduce**: The intermediate (key, value) pairs that work 
+as input for Reducer are shuffled and sort and send to the 
+`reduce()` function. Reducer aggregate or group the data based 
+on its (key, value) pair as per the reducer algorithm written 
+by the developer.
+
+For the example, listed above, 3 reducers will be 
+executed (in parallel):
+
+		reduce(A, [2, 3])
+		reduce(C, [8])
+		reduce(B, [7, 4, 5, 6])
+
+where each reducer can generate any number of new 
+`(key3, value3)` pairs.
 
 ## What is an Example of a Mapper in MapReduce
 Imagine that you have records, which describe values 
@@ -680,7 +768,50 @@ the same key on a partition-by-partition basis. In MapReduce,
 combiners are mini-reducer optimizations and they reduce 
 network traffic by combining many values into a single value.
 
+## Partition
+Data can be partitioned into smaller logical units. 
+These units are called partitions. In big data, partitions
+are used as a unit of parallelisim.
 
+For example, in a nutshell, Apache spark partitions your 
+data and then each partition is executed by an executor.
+
+For example, given a data size of 80,000,000,000 records,
+this data can be partitioned into 80,000 chunks, where 
+each chunk/partition will have about 1000,0000 records.
+Then in a transformation (such as mapper, filter, ...)
+these partitions can be processed in parallle. The maximum
+parallelism for this example is 80,000. If the cluster 
+does not have 80,000 points of parallelism, then some of the 
+partitions will be queued for parallelism.
+
+In MapReduce, input is partitioned and then passed to mappers
+(so that the mappers can be run in parallel).
+
+In Apache Spark, a programmer can control the partitioning 
+data (by using `coalesce()`, ...) and hence controlling 
+paralleism.
+
+Spark examples:
+
+* `RDD.coalesce(numPartitions: int, shuffle: bool = False)` 
+: return a new RDD that is reduced into `numPartitions` partitions.
+
+* `DataFrame.coalesce(numPartitions: int)`
+: returns a new DataFrame that has exactly `numPartitions` partitions.
+
+
+## Parallel computing
+[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing) 
+(also called concurrent computing) is a type of computation in which 
+many calculations or processes are carried out simultaneously (at the 
+same time).  Large problems can often be divided into smaller ones, 
+which can then be solved at the same time. There are several different 
+forms of parallel computing: bit-level, instruction-level, data, and 
+task parallelism. Parallelism has long been employed in high-performance computing, ... parallel computing has become the dominant paradigm in 
+computer architecture, mainly in the form of multi-core processors.
+
+MapReduce and Spark employs parallelism by data partitioning.
 
 ## How does MapReduce work?
 A MapReduce system (an implementation of MapReduce mpdel) is 
@@ -1273,6 +1404,26 @@ Spark addresses many problems of hadoop:
 * You do not need to write too many lines of a code 
   to solve a big data problem
 
+## DAG in Spark
+Spark DAG (directed acyclic graph) is the strict generalization 
+of the MapReduce model. The DAG operations can do better global 
+optimization than the other systems like MapReduce. The Apache 
+Spark DAG allows a user to dive into the stage and further 
+expand on detail on any stage.
+
+![](./images/spark-dag.png) 
+
+DAG in Spark is a set of vertices and edges, where vertices 
+represent the RDDs and the edges represent the Operation to 
+be applied on RDD. In Spark DAG, every edge directs from earlier 
+to later in the sequence. On the calling of Action, the created 
+DAG submits to DAG Scheduler which further splits the graph into 
+the stages of the task.
+
+By using [Spark Web UI](https://spark.apache.org/docs/latest/web-ui.html),
+you can view Spark jobs and their associated DAGs.
+
+
 ## Spark Concepts and Key Terms
 
 * [Spark Architecture](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf)
@@ -1689,7 +1840,127 @@ A Spark DataFrame can represent billions of rows of named columns.
 	 |-- age: long (nullable = true)
 ~~~
 	
-	
+
+## Join Operation in MapReduce
+The MapReduce paradigm does not have a direct join 
+API.  But the join can be implemented as a set of 
+custom mappers and reducers.
+
+
+## Join Operation in Spark
+Spark has an extensive support for join operation.
+
+### Join in RDD 
+
+Let A be an `RDD[(K, V)]` and B be an `RDD[(K, U)]`, 
+then `A.join(B)` will return a new RDD (call it as C) 
+as `RDD[(K, (V, U)]`.  Each pair of C elements will be 
+returned as a `(k, (v, u))` tuple, where `(k, v)` is 
+in A and `(k, u)` is in B. Spark performs a hash join 
+across the cluster.
+
+Example:
+
+~~~python
+# sc : SparkContext
+x = sc.parallelize([("a", 1), ("b", 4), ("c", 6), ("c", 7)])
+y = sc.parallelize([("a", 2), ("a", 3), ("c", 8), ("d", 9)])
+x.join(y).collect())
+[
+ ('a', (1, 2)), 
+ ('a', (1, 3)),
+ ('c', (6, 8)),
+ ('c', (7, 8))
+]
+~~~
+
+### Join in DataFrame
+
+~~~python
+# PySpark API:
+
+DataFrame.join(other: pyspark.sql.dataframe.DataFrame, 
+               on: Union[str, List[str], 
+               pyspark.sql.column.Column,    
+               List[pyspark.sql.column.Column], None] = None, 
+               how: Optional[str] = None)
+                → pyspark.sql.dataframe.DataFrame
+               
+Joins with another DataFrame, using the given join expression.
+~~~	
+
+Example: inner join
+
+~~~python
+# SparkSession available as 'spark'.
+>>> emp = [(1, "alex", "100", 33000), \
+...        (2, "rose", "200", 44000), \
+...        (3, "bob", "100", 61000), \
+...        (4, "james", "100", 42000), \
+...        (5, "betty", "400", 35000), \
+...        (6, "ali", "300", 66000) \
+...   ]
+>>> emp_columns = ["emp_id", "name", "dept_id", "salary"]
+>>> emp_df = spark.createDataFrame(data=emp, schema = emp_columns)
+>>>
+>>> emp_df.show()
++------+-----+-------+------+
+|emp_id| name|dept_id|salary|
++------+-----+-------+------+
+|     1| alex|    100| 33000|
+|     2| rose|    200| 44000|
+|     3|  bob|    100| 61000|
+|     4|james|    100| 42000|
+|     5|betty|    400| 35000|
+|     6|  ali|    300| 66000|
++------+-----+-------+------+
+
+>>> dept = [("Finance", 100), \
+...         ("Marketing", 200), \
+...         ("Sales", 300), \
+...         ("IT", 400) \
+...   ]
+>>> dept_columns = ["dept_name", "dept_id"]
+>>> dept_df = spark.createDataFrame(data=dept, schema = dept_columns)
+>>> dept_df.show()
++---------+-------+
+|dept_name|dept_id|
++---------+-------+
+|  Finance|    100|
+|Marketing|    200|
+|    Sales|    300|
+|       IT|    400|
++---------+-------+
+
+>>> joined = emp_df.join(dept_df, emp_df.dept_id ==  dept_df.dept_id, "inner")
+>>> joined.show()
++------+-----+-------+------+---------+-------+
+|emp_id| name|dept_id|salary|dept_name|dept_id|
++------+-----+-------+------+---------+-------+
+|     1| alex|    100| 33000|  Finance|    100|
+|     3|  bob|    100| 61000|  Finance|    100|
+|     4|james|    100| 42000|  Finance|    100|
+|     2| rose|    200| 44000|Marketing|    200|
+|     6|  ali|    300| 66000|    Sales|    300|
+|     5|betty|    400| 35000|       IT|    400|
++------+-----+-------+------+---------+-------+
+
+>>> joined = emp_df.join(dept_df, emp_df.dept_id ==  dept_df.dept_id, "inner")
+                   .drop(dept_df.dept_id)
+>>> joined.show()
++------+-----+-------+------+---------+
+|emp_id| name|dept_id|salary|dept_name|
++------+-----+-------+------+---------+
+|     1| alex|    100| 33000|  Finance|
+|     3|  bob|    100| 61000|  Finance|
+|     4|james|    100| 42000|  Finance|
+|     2| rose|    200| 44000|Marketing|
+|     6|  ali|    300| 66000|    Sales|
+|     5|betty|    400| 35000|       IT|
++------+-----+-------+------+---------+
+~~~
+
+
 ## Spark partitioning
 A [partition in spark](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
 is an atomic chunk of data (logical division of data) 
