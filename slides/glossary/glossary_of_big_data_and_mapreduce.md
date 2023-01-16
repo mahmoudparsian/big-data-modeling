@@ -1846,7 +1846,183 @@ The MapReduce paradigm does not have a direct join
 API.  But the join can be implemented as a set of 
 custom mappers and reducers.
 
+Below, an inner join is presented for MapReduce:
 
+Let `R` be a relation as `(K, a1, a2, ...)`,
+where `K` is a key and `a1, a2, ...` are additional 
+attributes of `R`, which we denote it as `(K, A)`,
+where `A` denotes attributes `(a1, a2, ...)`.
+
+Let `S` be a relation as `(K, b1, b2, ...)`,
+where `K` is a key and `b1, b2, ...` are additional 
+attributes of `S`, which we denote it as `(K, B)`,
+where `B` denotes attributes `(b1, b2, ...)`.
+
+We want to implement `R.join(S)`, which will return
+`(K, (a, b))`, where `(K, a)` is in `R` and `(K, b)` is 
+in `S`.
+
+**Step-1:** Map relation R: inject the name of relation
+into an output value as:
+
+	input (K, a)
+	output: (K, ("R", a))
+
+
+**Step-2:** Map relation S: inject the name of relation
+into an output value as:
+
+	input (K, b)
+	output: (K, ("S", b))
+
+
+**Step-3:** Merge outputs of Step-1 and Step-2 into 
+`/tmp/merged_input/`, which will be used as an input
+path for Step-4 (as an identity mapper):
+
+**Step-4:** is an identity mapper:
+
+	# key: as K
+	# value as: ("R", a) OR ("S", b)
+	map(key, value) {
+		emit(key, value)
+	}
+
+**Step-4.5**: Sort & Shuffle (provided by MapReduce 
+implementation): will create (key, value) pairs as:
+
+	(K, Iterable<(relation, attribute)>
+	
+where `K` is the common key of `R` and `S`, relation is 
+either "R" or "S", and attribe is either `a` in `A` or `b` in `B`.
+
+**Step-5:** Reducer
+
+	# key as K is the common key of R and S
+	# values : Iterable<(relation, attribute)>
+	reduce(key, values) {
+	   # create two lists: one for R and another one for S
+	   R_list = []
+	   S_list = []
+	   
+	   # iterate values and update R_list and S_list
+	   for pair in values {
+	      relation = pair[0]
+	      attribute = pair[1]
+	      if (relation == "R") {
+	         R_list.append(attribute)
+	      }
+	      else { 
+	         S_list.append(attribute)
+			}
+		} #end-for
+
+      if (len(R_list) == 0) or (len(S_list) == 0) {
+      	# no join, no common attributes
+      	return
+      }
+
+      # Both lists are non-empty:
+      # len(R_list) > 0) and len(S_list) > 0
+      for a in R {
+         for b in S {
+             emit (key, (a, b))
+         }
+      }
+	} # end-reduce
+
+
+The left-join and right-join can be implemented 
+by revising the reducer function.
+
+**Example: Demo Inner Join**
+	
+Relation R:
+
+		(x, 1)
+		(x, 2)
+		(y, 3)
+		(y, 4)
+		(z, 5)
+		
+Relation S:
+ 
+		(x, 22)
+		(x, 33)
+		(y, 44)
+		(p, 55)
+		(p, 66)
+		(p, 77)
+		
+		
+**Step-1:** output:
+
+		(x, ("R", 1))
+		(x, ("R", 2))
+		(y, ("R", 3))
+		(y, ("R", 4))
+		(z, ("R", 5))
+
+		
+**Step-2:** output:
+
+		(x, ("S", 22))
+		(x, ("S", 33))
+		(y, ("S", 44))
+		(p, ("S", 55))
+		(p, ("S", 66))
+		(p, ("S", 77))
+		
+		
+**Step-3:** combine outputs of Step-1 and Step-2:
+
+		(x, ("R", 1))
+		(x, ("R", 2))
+		(y, ("R", 3))
+		(y, ("R", 4))
+		(z, ("R", 5))
+		(x, ("S", 22))
+		(x, ("S", 33))
+		(y, ("S", 44))
+		(p, ("S", 55))
+		(p, ("S", 66))
+		(p, ("S", 77))
+		
+		
+**Step-4:** Identity Mapper output:
+
+		(x, ("R", 1))
+		(x, ("R", 2))
+		(y, ("R", 3))
+		(y, ("R", 4))
+		(z, ("R", 5))
+		(x, ("S", 22))
+		(x, ("S", 33))
+		(y, ("S", 44))
+		(p, ("S", 55))
+		(p, ("S", 66))
+		(p, ("S", 77))
+
+
+**Step-4.5:** Sort & Shuffle output:
+
+	(x, [("R", 1), ("R", 2), ("S", 22), ("S", 33)])
+	(y, [("R", 3), ("R", 4), ("S", 44)])
+	(z, [("R", 5)])
+	(p, [("S", 55), ("S", 66), ("S", 77)])
+	
+
+**Step-5:** Reducer output:
+
+	(x, (1, 22))
+	(x, (1, 33))
+	(x, (2, 22))
+	(x, (2, 33))	
+	(y, (3, 44))
+	(y, (4, 44))
+
+
+	
 ## Join Operation in Spark
 Spark has an extensive support for join operation.
 

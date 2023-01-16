@@ -2860,6 +2860,172 @@ suitable to unstructured and semi-structured data).</p>
 API.  But the join can be implemented as a set of 
 custom mappers and reducers.</p>
 
+<p>Below, an inner join is presented for MapReduce:</p>
+
+<p>Let <code>R</code> be a relation as <code>(K, a1, a2, ...)</code>,
+where <code>K</code> is a key and <code>a1, a2, ...</code> are additional 
+attributes of <code>R</code>, which we denote it as <code>(K, A)</code>,
+where <code>A</code> denotes attributes <code>(a1, a2, ...)</code>.</p>
+
+<p>Let <code>S</code> be a relation as <code>(K, b1, b2, ...)</code>,
+where <code>K</code> is a key and <code>b1, b2, ...</code> are additional 
+attributes of <code>S</code>, which we denote it as <code>(K, B)</code>,
+where <code>B</code> denotes attributes <code>(b1, b2, ...)</code>.</p>
+
+<p>We want to implement <code>R.join(S)</code>, which will return
+<code>(K, (a, b))</code>, where <code>(K, a)</code> is in <code>R</code> and <code>(K, b)</code> is 
+in <code>S</code>.</p>
+
+<p><strong>Step-1:</strong> Map relation R: inject the name of relation
+into an output value as:</p>
+
+<div><pre><code class="language-none">input (K, a)
+output: (K, (&quot;R&quot;, a))</code></pre></div>
+
+<p><strong>Step-2:</strong> Map relation S: inject the name of relation
+into an output value as:</p>
+
+<div><pre><code class="language-none">input (K, b)
+output: (K, (&quot;S&quot;, b))</code></pre></div>
+
+<p><strong>Step-3:</strong> Merge outputs of Step-1 and Step-2 into 
+<code>/tmp/merged_input/</code>, which will be used as an input
+path for Step-4 (as an identity mapper):</p>
+
+<p><strong>Step-4:</strong> is an identity mapper:</p>
+
+<div><pre><code class="language-none"># key: as K
+# value as: (&quot;R&quot;, a) OR (&quot;S&quot;, b)
+map(key, value) {
+    emit(key, value)
+}</code></pre></div>
+
+<p><strong>Step-4.5</strong>: Sort &amp; Shuffle (provided by MapReduce 
+implementation): will create (key, value) pairs as:</p>
+
+<div><pre><code class="language-none">(K, Iterable&lt;(relation, attribute)&gt;</code></pre></div>
+
+<p>where <code>K</code> is the common key of <code>R</code> and <code>S</code>, relation is 
+either &quot;R&quot; or &quot;S&quot;, and attribe is either <code>a</code> in <code>A</code> or <code>b</code> in <code>B</code>.</p>
+
+<p><strong>Step-5:</strong> Reducer</p>
+
+<div><pre><code class="language-none"># key as K is the common key of R and S
+# values : Iterable&lt;(relation, attribute)&gt;
+reduce(key, values) {
+   # create two lists: one for R and another one for S
+   R_list = []
+   S_list = []
+
+   # iterate values and update R_list and S_list
+   for pair in values {
+      relation = pair[0]
+      attribute = pair[1]
+      if (relation == &quot;R&quot;) {
+         R_list.append(attribute)
+      }
+      else { 
+         S_list.append(attribute)
+        }
+    } #end-for
+
+  if (len(R_list) == 0) or (len(S_list) == 0) {
+    # no join, no common attributes
+    return
+  }
+
+  # Both lists are non-empty:
+  # len(R_list) &gt; 0) and len(S_list) &gt; 0
+  for a in R {
+     for b in S {
+         emit (key, (a, b))
+     }
+  }
+} # end-reduce</code></pre></div>
+
+<p>The left-join and right-join can be implemented 
+by revising the reducer function.</p>
+
+<p><strong>Example: Demo Inner Join</strong></p>
+
+<p>Relation R:</p>
+
+<div><pre><code class="language-none">    (x, 1)
+    (x, 2)
+    (y, 3)
+    (y, 4)
+    (z, 5)</code></pre></div>
+
+<p>Relation S:</p>
+
+<div><pre><code class="language-none">    (x, 22)
+    (x, 33)
+    (y, 44)
+    (p, 55)
+    (p, 66)
+    (p, 77)</code></pre></div>
+
+<p><strong>Step-1:</strong> output:</p>
+
+<div><pre><code class="language-none">    (x, (&quot;R&quot;, 1))
+    (x, (&quot;R&quot;, 2))
+    (y, (&quot;R&quot;, 3))
+    (y, (&quot;R&quot;, 4))
+    (z, (&quot;R&quot;, 5))</code></pre></div>
+
+<p><strong>Step-2:</strong> output:</p>
+
+<div><pre><code class="language-none">    (x, (&quot;S&quot;, 22))
+    (x, (&quot;S&quot;, 33))
+    (y, (&quot;S&quot;, 44))
+    (p, (&quot;S&quot;, 55))
+    (p, (&quot;S&quot;, 66))
+    (p, (&quot;S&quot;, 77))</code></pre></div>
+
+<p><strong>Step-3:</strong> combine outputs of Step-1 and Step-2:</p>
+
+<div><pre><code class="language-none">    (x, (&quot;R&quot;, 1))
+    (x, (&quot;R&quot;, 2))
+    (y, (&quot;R&quot;, 3))
+    (y, (&quot;R&quot;, 4))
+    (z, (&quot;R&quot;, 5))
+    (x, (&quot;S&quot;, 22))
+    (x, (&quot;S&quot;, 33))
+    (y, (&quot;S&quot;, 44))
+    (p, (&quot;S&quot;, 55))
+    (p, (&quot;S&quot;, 66))
+    (p, (&quot;S&quot;, 77))</code></pre></div>
+
+<p><strong>Step-4:</strong> Identity Mapper output:</p>
+
+<div><pre><code class="language-none">    (x, (&quot;R&quot;, 1))
+    (x, (&quot;R&quot;, 2))
+    (y, (&quot;R&quot;, 3))
+    (y, (&quot;R&quot;, 4))
+    (z, (&quot;R&quot;, 5))
+    (x, (&quot;S&quot;, 22))
+    (x, (&quot;S&quot;, 33))
+    (y, (&quot;S&quot;, 44))
+    (p, (&quot;S&quot;, 55))
+    (p, (&quot;S&quot;, 66))
+    (p, (&quot;S&quot;, 77))</code></pre></div>
+
+<p><strong>Step-4.5:</strong> Sort &amp; Shuffle output:</p>
+
+<div><pre><code class="language-none">(x, [(&quot;R&quot;, 1), (&quot;R&quot;, 2), (&quot;S&quot;, 22), (&quot;S&quot;, 33)])
+(y, [(&quot;R&quot;, 3), (&quot;R&quot;, 4), (&quot;S&quot;, 44)])
+(z, [(&quot;R&quot;, 5)])
+(p, [(&quot;S&quot;, 55), (&quot;S&quot;, 66), (&quot;S&quot;, 77)])</code></pre></div>
+
+<p><strong>Step-5:</strong> Reducer output:</p>
+
+<div><pre><code class="language-none">(x, (1, 22))
+(x, (1, 33))
+(x, (2, 22))
+(x, (2, 33))    
+(y, (3, 44))
+(y, (4, 44))</code></pre></div>
+
 <h2 id="toc_78">Join Operation in Spark</h2>
 
 <p>Spark has an extensive support for join operation.</p>
