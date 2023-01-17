@@ -2693,19 +2693,35 @@ A measure of time delayed in a system
 GPS data describing a geographical location
 
 
-## Machine learning
-Part of artificial intelligence where machines learn from what 
-they are doing and become better over time. Apache Spark offers 
-a comprehensive Maching Learning library.
+## Machine Learning
+Part of artificial intelligence where machines learn from 
+what they are doing and become better over time. Apache 
+Spark offers a comprehensive Maching Learning library for
+big data. In a nutshell, Machine learning is an application 
+of AI that enables systems to learn and improve from 
+experience without being explicitly programmed.
+
+There are many ML packages for experimentation:
+
+* [scikit-learn - Machine Learning in Python](https://scikit-learn.org/stable/)
+* [Apache Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html)
 
 
 ## Metadata
 Data about data; gives information about what the data is about.
 
+For example, author, date created, date modified and file size 
+are examples of very basic document file metadata. 
 
-## Natural Language Processing
+Table definition for a relational table is an example of metadata.
+
+
+## Natural Language Processing (NLP)
 A field of computer science involved with interactions between 
-computers and human languages
+computers and human languages.
+
+Open source software for NLP: 
+[The Stanford Natural Language Processing](https://nlp.stanford.edu/software/)
 
 
 ## Network analysis
@@ -3047,6 +3063,12 @@ presented.  A typical example of an abstraction layer
 is an API (application programming interface) between 
 an application and an operating system. 
 
+For example, Spark offers two types of data abstractions
+(it means that your data can be represented in RDD and
+DataFrame):
+
+* RDD
+* DataFrame
 
 ## Cloud
 Cloud technology, or The Cloud as it is often referred 
@@ -3196,7 +3218,7 @@ output from all of the mappers:
 		(A, 1)       (A, 5)       (A, 9)
 		(A, 3)       (B, 6)       (C, 20)
 		(B, 4)       (C, 10)      (C, 30)
-		(B, 7)
+		(B, 7)       (D, 50)
 
 Then the output of Sort & Shuffle phase will be 
 (note that the values of keys are not sorted):
@@ -3204,6 +3226,7 @@ Then the output of Sort & Shuffle phase will be
 		(A, [1, 3, 9, 5])
 		(B, [4, 7, 6])
 		(C, [10, 20, 30])
+		(D, [50])
 		
 Output of Sort & Shuffle phase will be input to reducers.
 

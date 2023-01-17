@@ -467,6 +467,49 @@ pre[class*="language-"] {
 </style>
 
 <style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+
+<style type="text/css">
 /* Flowchart variables */
 /* Sequence Diagram variables */
 /* Gantt chart variables */
@@ -826,7 +869,7 @@ div.mermaidTooltip {
 
 <h1 id="toc_0">Glossary of Big Data Terms</h1>
 
-<div><pre><code class="language-none">Compiled by: Mahmoud Parsian
+<div><pre class="line-numbers"><code class="language-none">Compiled by: Mahmoud Parsian
 
 Last updated: 1/16/2023</code></pre></div>
 
@@ -936,7 +979,7 @@ elements might be partitioned in to <code>60,000</code>
 chunks (partitions), where each chunk/partition 
 will have a bout <code>8,000,000</code> elements.</p>
 
-<div><pre><code class="language-none">480,000,000,000 = 60,000 x 8,000,000</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">480,000,000,000 = 60,000 x 8,000,000</code></pre></div>
 
 <p>One of the main reasons of data partitioning is to
 process many small partitions in parallel (at the same 
@@ -1163,7 +1206,7 @@ range of values it can hold.</p>
 <ul>
 <li><p>Java example</p>
 
-<div><pre><code class="language-none">    // bob&#39;s data type is int
+<div><pre class="line-numbers"><code class="language-none">    // bob&#39;s data type is int
     int bob = 1;
 
     // bob can not change its type
@@ -1187,7 +1230,7 @@ type.</p>
 <ul>
 <li><p>Python example</p>
 
-<div><pre><code class="language-none"># bob&#39;s data type is int
+<div><pre class="line-numbers"><code class="language-none"># bob&#39;s data type is int
 bob = 1
 
 # bob&#39;s data type changes to str
@@ -1215,13 +1258,13 @@ more sophisticated data types. </p>
 <ul>
 <li><p>Java examples:</p>
 
-<div><pre><code class="language-none">int a = 10;
+<div><pre class="line-numbers"><code class="language-none">int a = 10;
 boolean b = true;
 double d = 2.4;
 String s = &quot;fox&quot;;</code></pre></div></li>
 <li><p>Python examples:  </p>
 
-<div><pre><code class="language-none">a = 10
+<div><pre class="line-numbers"><code class="language-none">a = 10
 b = True
 d = 2.4
 s = &quot;fox&quot;</code></pre></div></li>
@@ -1237,14 +1280,14 @@ data types.</p>
 <ul>
 <li><p>Java examples:</p>
 
-<div><pre><code class="language-none">import java.util.Arrays;
+<div><pre class="line-numbers"><code class="language-none">import java.util.Arrays;
 import java.util.List;
 ...
 int[] a = {10, 11, 12};
 List&lt;String&gt; names = Arrays.asList(&quot;n1&quot;, &quot;n2&quot;, &quot;n3&quot;);</code></pre></div></li>
 <li><p>Python examples:  </p>
 
-<div><pre><code class="language-none">a = [10, 11, 12];
+<div><pre class="line-numbers"><code class="language-none">a = [10, 11, 12];
 names = (&quot;n1&quot;, &quot;n2&quot;, &quot;n3&quot;) # immutable
 names = [&quot;n1&quot;, &quot;n2&quot;, &quot;n3&quot;] # mutable</code></pre></div></li>
 </ul>
@@ -1460,7 +1503,7 @@ same size. The blocks of a file are replicated for fault tolerance.</p>
 <p>Block size can be configured. For example, let block size to be 
 512MB. Now, let&#39;s place a file (sample.txt) of 1800MB in HDFS:</p>
 
-<div><pre><code class="language-none">1800MB = 512MB (Block-1) + 512MB (Block-2) + 512MB (Block-3) + 264MB (Block-4)
+<div><pre class="line-numbers"><code class="language-none">1800MB = 512MB (Block-1) + 512MB (Block-2) + 512MB (Block-3) + 264MB (Block-4)
 Lets denote 
            Block-1 by B1
            Block-2 by B2
@@ -1474,7 +1517,7 @@ worker nodes {W1, W2, W3, W4, W5} and master does not store
 any data), also assume that the replication factor is 2, 
 therefore, blocks will be placed as:</p>
 
-<div><pre><code class="language-none">    W1: B1, B4
+<div><pre class="line-numbers"><code class="language-none">    W1: B1, B4
     W2: B2, B3
     W3: B3, B1
     W4: B4 
@@ -1516,7 +1559,7 @@ amounts of data:</p>
 <ul>
 <li><p><code>map()</code> provided by programmer: process the records of the data set:</p>
 
-<div><pre><code class="language-none"># key: partition number of record number, which might be ignored
+<div><pre class="line-numbers"><code class="language-none"># key: partition number of record number, which might be ignored
 # or the “key” might refer to the offset address for each record 
 # value : an actual input record
 map(key, value) -&gt; {(K2, V2), ...}
@@ -1525,7 +1568,7 @@ NOTE: If a mapper does not emit any (K2, V2), then it
 means that the input record is filtered out.</code></pre></div></li>
 <li><p><code>reduce()</code> provided by programmer: merges the output from mappers:</p>
 
-<div><pre><code class="language-none"># key: unique key as K2
+<div><pre class="line-numbers"><code class="language-none"># key: unique key as K2
 # values : [v1, v2, ...], values associated by K2
 # the order of values {v1, v2, ...} are undefined.
 reduce(key, values) -&gt; {(K3, V3), ...}
@@ -1546,7 +1589,7 @@ by MapReduce implementation), which groups keys generated
 by all mappers. For example, if all mappers have created
 the following (key, value) pairs:</p>
 
-<div><pre><code class="language-none">(C, 4), (C, 5), 
+<div><pre class="line-numbers"><code class="language-none">(C, 4), (C, 5), 
 (A, 2), (A, 3), 
 (B, 1), (B, 2), (B, 3), (B, 1), 
 (D, 7)</code></pre></div>
@@ -1554,7 +1597,7 @@ the following (key, value) pairs:</p>
 <p>then Sort &amp; Shuffle phase creates the following (key, value) 
 pairs (not in any particular order) to be consumed by reducers:</p>
 
-<div><pre><code class="language-none">(A, [2, 3])
+<div><pre class="line-numbers"><code class="language-none">(A, [2, 3])
 (B, [1, 2, 3, 1])
 (C, [4, 5])
 (D, [7])</code></pre></div>
@@ -1611,7 +1654,7 @@ function of Sort &amp; Shuffle phase is to group the keys
 (key2 as output of mappers) by their associated values: 
 therefore, Sort &amp; Shuffle will create a set of:</p>
 
-<div><pre><code class="language-none">(key2, [v1, v2, v3, ...])</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">(key2, [v1, v2, v3, ...])</code></pre></div></li>
 </ul>
 
 <p>which will be fed as input to the reducers.
@@ -1625,7 +1668,7 @@ A programmer does not write any code for the
 have created the following (key, value) pairs (with 
 3 distinct keys as <code>{A, B, C}</code>:</p>
 
-<div><pre><code class="language-none">    (A, 2), (A, 3)
+<div><pre class="line-numbers"><code class="language-none">    (A, 2), (A, 3)
     (B, 4), (B, 5), (B, 6), (B, 7)
     (C, 8)</code></pre></div>
 
@@ -1633,7 +1676,7 @@ have created the following (key, value) pairs (with
 (which will be sent as input to the reducers -- note the values
 are not sorted in any order at all):</p>
 
-<div><pre><code class="language-none">    (A, [2, 3])
+<div><pre class="line-numbers"><code class="language-none">    (A, [2, 3])
     (C, [8])
     (B, [7, 4, 5, 6])</code></pre></div>
 
@@ -1648,7 +1691,7 @@ by the developer.</li>
 <p>For the example, listed above, 3 reducers will be 
 executed (in parallel):</p>
 
-<div><pre><code class="language-none">    reduce(A, [2, 3])
+<div><pre class="line-numbers"><code class="language-none">    reduce(A, [2, 3])
     reduce(C, [8])
     reduce(B, [7, 4, 5, 6])</code></pre></div>
 
@@ -1660,11 +1703,11 @@ executed (in parallel):</p>
 <p>Imagine that you have records, which describe values 
 for genes and each record is identified as:</p>
 
-<div><pre><code class="language-none">&lt;gene_id&gt;&lt;,&gt;&lt;value_1&gt;&lt;,&gt;&lt;value_2&gt;</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">&lt;gene_id&gt;&lt;,&gt;&lt;value_1&gt;&lt;,&gt;&lt;value_2&gt;</code></pre></div>
 
 <p>Sample records might be:</p>
 
-<div><pre><code class="language-none">INS,1.1,1.4
+<div><pre class="line-numbers"><code class="language-none">INS,1.1,1.4
 INSR,1.7,1.2</code></pre></div>
 
 <p>Suppose the goal is to find the median value for the smaller of 
@@ -1674,7 +1717,7 @@ pairs such that key is a <code>gene_id</code> and value is minimum of
 
 <p>The following pseudo-code will accomplish the mapper task:</p>
 
-<div><pre><code class="language-none"># key: record number or offset of a record number
+<div><pre class="line-numbers"><code class="language-none"># key: record number or offset of a record number
 # key will be ignored since we do not need it
 # value: an actual record with the format of:
 # &lt;gene_id&gt;&lt;,&gt;&lt;value_1&gt;&lt;,&gt;&lt;value_2&gt;
@@ -1691,7 +1734,7 @@ map(key, value) {
 
 <p>For example, if we had the following input:</p>
 
-<div><pre><code class="language-none">INS,1.3,1.5
+<div><pre class="line-numbers"><code class="language-none">INS,1.3,1.5
 INS,1.1,1.4
 INSR,1.7,1.2
 INS,1.6,1.0
@@ -1699,7 +1742,7 @@ INSR,0.7,1.2</code></pre></div>
 
 <p>Then output of mappers will be:</p>
 
-<div><pre><code class="language-none">(INS, 1.3)
+<div><pre class="line-numbers"><code class="language-none">(INS, 1.3)
 (INS, 1.1)
 (INSR, 1.2)
 (INS, 1.0)
@@ -1709,7 +1752,7 @@ INSR,0.7,1.2</code></pre></div>
 phase will produce the follwong (key, values) pairs to be 
 consumed ny the reducers.</p>
 
-<div><pre><code class="language-none">(INS, [1.3, 1.1, 1.0])
+<div><pre class="line-numbers"><code class="language-none">(INS, [1.3, 1.1, 1.0])
 (INSR, [1.2, 0.7])</code></pre></div>
 
 <h2 id="toc_40">What is an Example of a Reducer in MapReduce</h2>
@@ -1718,7 +1761,7 @@ consumed ny the reducers.</p>
 (key, value) where key is a gene_id and value is an
 associated gene value:</p>
 
-<div><pre><code class="language-none">(INS, 1.3)
+<div><pre class="line-numbers"><code class="language-none">(INS, 1.3)
 (INS, 1.1)
 (INSR, 1.2)
 (INS, 1.0)
@@ -1728,7 +1771,7 @@ associated gene value:</p>
 phase will produce the follwong (key, values) pairs to be 
 consumed by the reducers.</p>
 
-<div><pre><code class="language-none">(INS, [1.3, 1.1, 1.0])
+<div><pre class="line-numbers"><code class="language-none">(INS, [1.3, 1.1, 1.0])
 (INSR, [1.2, 0.7])</code></pre></div>
 
 <p>Now, assume that the goal of reducers is to find the median of
@@ -1736,7 +1779,7 @@ values per key (as a gene_id). For simplicity, we assume that
 there exists a <code>median()</code> function, which accepts a list of 
 values and computes the median of given values.</p>
 
-<div><pre><code class="language-none"># key: a unique gene_id
+<div><pre class="line-numbers"><code class="language-none"># key: a unique gene_id
 # values: Iteable&lt;Double&gt; (i.e., as a list of values)
 reduce(key, values) {
    median_value = median(values)
@@ -1747,7 +1790,7 @@ reduce(key, values) {
 <p>Therefore, with this reducer, reducers will create 
 the following (key, value) pairs:</p>
 
-<div><pre><code class="language-none">(INS, 1.1)
+<div><pre class="line-numbers"><code class="language-none">(INS, 1.1)
 (INSR, 0.95)</code></pre></div>
 
 <h2 id="toc_41">What is an Example of a Combiner in MapReduce</h2>
@@ -1755,7 +1798,7 @@ the following (key, value) pairs:</p>
 <p>Consider a classic word count program in MapReduce.
 Let&#39;s Consider 3 partitions with mappers output:</p>
 
-<div><pre><code class="language-none">Partition-1   Partition-2    Partition-3
+<div><pre class="line-numbers"><code class="language-none">Partition-1   Partition-2    Partition-3
 ===========   ===========    ===========
 (A, 1)        (A, 1)         (C, 1)
 (A, 1)        (B, 1)         (C, 1)
@@ -1766,14 +1809,14 @@ Let&#39;s Consider 3 partitions with mappers output:</p>
 <p><strong>Without a combiner</strong>, Sort &amp; Shuffle will output the following 
 (for all partitions):</p>
 
-<div><pre><code class="language-none">(A, [1, 1, 1])
+<div><pre class="line-numbers"><code class="language-none">(A, [1, 1, 1])
 (B, [1, 1, 1, 1, 1, 1])
 (C, [1, 1, 1, 1, 1])</code></pre></div>
 
 <p><strong>With a combiner</strong>, Sort &amp; Shuffle will output the following 
 (for all partitions):</p>
 
-<div><pre><code class="language-none">(A, [2, 1])
+<div><pre class="line-numbers"><code class="language-none">(A, [2, 1])
 (B, [3, 2, 1])
 (C, [1, 4])</code></pre></div>
 
@@ -1847,7 +1890,7 @@ and writes the output to temporary storage. The primary (master)
 node ensures that only a single copy of the redundant input 
 data is processed. </p>
 
-<div><pre><code class="language-none">map(key, value) -&gt; { (K2, V2), ...}</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">map(key, value) -&gt; { (K2, V2), ...}</code></pre></div></li>
 <li><p><strong>Shuffle, combine and partition</strong>: worker nodes redistribute 
 data based on the output keys (produced by the map function), 
 such that all data belonging to one key is located on the same 
@@ -1860,7 +1903,7 @@ the reducer and also assigns it to a particular reducer.
 Sort &amp; Shuffle output (note that mappers have created <code>N</code> 
 unique keys -- such as K2):</p>
 
-<div><pre><code class="language-none">(key_1, [V_11, V_12, ...])
+<div><pre class="line-numbers"><code class="language-none">(key_1, [V_11, V_12, ...])
 ...
 (key_N, [V_N1, V_N2, ...])</code></pre></div></li>
 <li><p><strong>Reduce</strong>: A reducer cannot start while a mapper is still in 
@@ -1881,7 +1924,7 @@ functions are provided as a <strong>pseudo-code</strong>.</p>
 <ul>
 <li><p>Mapper function</p>
 
-<div><pre><code class="language-none"># key: partition number, record number, offset in input file, ignored.
+<div><pre class="line-numbers"><code class="language-none"># key: partition number, record number, offset in input file, ignored.
 # value: an actual input record
 map(key, value) {
   words = value.split(&quot; &quot;)
@@ -1891,7 +1934,7 @@ map(key, value) {
 }</code></pre></div></li>
 <li><p>Reducer function (long version)</p>
 
-<div><pre><code class="language-none"># key: a unique word
+<div><pre class="line-numbers"><code class="language-none"># key: a unique word
 # values: Iterable&lt;Integer&gt;
 reduce(key, values) {
   total = 0
@@ -1902,7 +1945,7 @@ reduce(key, values) {
 }</code></pre></div></li>
 <li><p>Reducer function (short version)</p>
 
-<div><pre><code class="language-none"># key: a unique word
+<div><pre class="line-numbers"><code class="language-none"># key: a unique word
 # values: Iterable&lt;Integer&gt;
 reduce(key, values) {
   total = sum(values)
@@ -1910,7 +1953,7 @@ reduce(key, values) {
 }</code></pre></div></li>
 <li><p>Combiner function (short version)</p>
 
-<div><pre><code class="language-none"># key: a unique word
+<div><pre class="line-numbers"><code class="language-none"># key: a unique word
 # values: Iterable&lt;Integer&gt;
 combine(key, values) {
   total = sum(values)
@@ -1924,7 +1967,7 @@ combine(key, values) {
 the average algorithm finds average of gene values per 
 gene_id for canceric genes. Assume that the input is formatted as:</p>
 
-<div><pre><code class="language-none">    &lt;gene_id_as_string&gt;&lt;,&gt;&lt;gene_value_as_double&gt;&lt;,&gt;&lt;cancer-or-benign&gt;
+<div><pre class="line-numbers"><code class="language-none">    &lt;gene_id_as_string&gt;&lt;,&gt;&lt;gene_value_as_double&gt;&lt;,&gt;&lt;cancer-or-benign&gt;
 
     where &lt;cancer-or-benign&gt; has value as {&quot;cancer&quot;, &quot;benign&quot;}</code></pre></div>
 
@@ -1934,7 +1977,7 @@ functions are provided as a <strong>pseudo-code</strong>.</p>
 <ul>
 <li><p>Mapper function</p>
 
-<div><pre><code class="language-none"># key: partition number, record number, offset in input file, ignored.
+<div><pre class="line-numbers"><code class="language-none"># key: partition number, record number, offset in input file, ignored.
 # value: an actual input record as:
 # &lt;gene_id_as_string&gt;&lt;,&gt;&lt;gene_value_as_double&gt;&lt;,&gt;&lt;cancer-or-benign&gt;
 map(key, value) {
@@ -1948,7 +1991,7 @@ map(key, value) {
 }</code></pre></div></li>
 <li><p>Reducer function (long version)</p>
 
-<div><pre><code class="language-none"># key: a unique gene_id
+<div><pre class="line-numbers"><code class="language-none"># key: a unique gene_id
 # values: Iterable&lt;double&gt;
 reduce(key, values) {
   total = 0
@@ -1962,7 +2005,7 @@ reduce(key, values) {
 }</code></pre></div></li>
 <li><p>Reducer function (short version)</p>
 
-<div><pre><code class="language-none"># key: a unique gene_id
+<div><pre class="line-numbers"><code class="language-none"># key: a unique gene_id
 # values: Iterable&lt;double&gt;
 reduce(key, values) {
   total = sum(values)
@@ -1979,11 +2022,11 @@ output of mappers will make it commutative and associative.</p>
 
 <p>Commutative means that: </p>
 
-<div><pre><code class="language-none">    avg(a, b) = avg(b, a)</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    avg(a, b) = avg(b, a)</code></pre></div>
 
 <p>Associative means that: </p>
 
-<div><pre><code class="language-none">    avg(avg(a, b), c) = avg(a, avg(b, c))</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    avg(avg(a, b), c) = avg(a, avg(b, c))</code></pre></div>
 
 <p>For details on commutative and associative properties refer 
 to <a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">Data Aldorithms with Spark</a>.</p>
@@ -1991,7 +2034,7 @@ to <a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082
 <ul>
 <li><p>Revised Mapper function</p>
 
-<div><pre><code class="language-none"># key: partition number, record number, offset in input file, ignored.
+<div><pre class="line-numbers"><code class="language-none"># key: partition number, record number, offset in input file, ignored.
 # value: an actual input record as:
 # &lt;gene_id_as_string&gt;&lt;,&gt;&lt;gene_value_as_double&gt;&lt;,&gt;&lt;cancer-or-benign&gt;
 map(key, value) {
@@ -2006,7 +2049,7 @@ map(key, value) {
 }</code></pre></div></li>
 <li><p>Combiner function</p>
 
-<div><pre><code class="language-none"># key: a unique gene_id
+<div><pre class="line-numbers"><code class="language-none"># key: a unique gene_id
 # values: Iterable&lt;(double, Integer)&gt;
 combine(key, values) {
   total = 0
@@ -2022,7 +2065,7 @@ combine(key, values) {
 }</code></pre></div></li>
 <li><p>Reducer function</p>
 
-<div><pre><code class="language-none"># key: a unique gene_id
+<div><pre class="line-numbers"><code class="language-none"># key: a unique gene_id
 # values: Iterable&lt;(double, Integer)&gt;
 combine(key, values) {
   total = 0
@@ -2043,29 +2086,29 @@ combine(key, values) {
 
 <p>An associative operation:</p>
 
-<div><pre><code class="language-none">    f: X x X -&gt; X</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    f: X x X -&gt; X</code></pre></div>
 
 <p>is a binary operation such that for all <code>a, b, c</code> in <code>X</code>:</p>
 
-<div><pre><code class="language-none">    f(a, f(b, c)) = f(f(a, b), c)</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    f(a, f(b, c)) = f(f(a, b), c)</code></pre></div>
 
 <p>For example, + (addition) is an associative function because </p>
 
-<div><pre><code class="language-none">    (a + (b + c)) = ((a + b) + c)</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    (a + (b + c)) = ((a + b) + c)</code></pre></div>
 
 <p>For example, * (multiplication) is an associative function because </p>
 
-<div><pre><code class="language-none">    (a * (b * c)) = ((a * b) * c)</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    (a * (b * c)) = ((a * b) * c)</code></pre></div>
 
 <p>While, - (subtraction) is not an associative function because</p>
 
-<div><pre><code class="language-none">    (4 - (6 - 3) != ((4 - 6) - 3)
+<div><pre class="line-numbers"><code class="language-none">    (4 - (6 - 3) != ((4 - 6) - 3)
          (4 - 3) != (-2 - 3)
                1 != -5</code></pre></div>
 
 <p>While average operation is not an associative function.</p>
 
-<div><pre><code class="language-none">FACT: avg(1, 2, 3) = 2
+<div><pre class="line-numbers"><code class="language-none">FACT: avg(1, 2, 3) = 2
 
 avg(1, avg(2, 3)) != avg(avg(1, 2), 3)
     avg(1, 2.5) != avg(1.5, 3)
@@ -2079,11 +2122,11 @@ depend on the ordering of the inputs. For example, the binary
 operation <code>+</code> is commutative, because <code>2 + 5 = 5 + 2</code>.
 Function <code>f</code> is commutative if the following property holds:</p>
 
-<div><pre><code class="language-none">    f(a, b) = f(b, a)</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    f(a, b) = f(b, a)</code></pre></div>
 
 <p>While, - (subtraction) is not an commutative function because</p>
 
-<div><pre><code class="language-none">    2 - 4 != 4 - 2
+<div><pre class="line-numbers"><code class="language-none">    2 - 4 != 4 - 2
        -2 != 2</code></pre></div>
 
 <h2 id="toc_49">Monoid</h2>
@@ -2103,10 +2146,10 @@ A monoid M is a triplet <code>(X, f, i)</code>, where </p>
 <li>(Closure) For all a, b in X,  f(a, b) and f(b, a) is also in X.</li>
 <li><p>(Associativity) For all a, b, c in X:</p>
 
-<div><pre><code class="language-none">f(a, f(b, c)) = f(f(a, b), c)</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">f(a, f(b, c)) = f(f(a, b), c)</code></pre></div></li>
 <li><p>(Identity) There is an <code>i</code> in <code>X</code> such that, for all <code>a</code> in <code>X</code>:</p>
 
-<div><pre><code class="language-none">f(a, i) = f(i, a) = a</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">f(a, i) = f(i, a) = a</code></pre></div></li>
 </ol>
 
 <h3 id="toc_50">Monoid Examples</h3>
@@ -2152,7 +2195,7 @@ pattern.</p>
 environment, we can not write the following 
 transformation to find average of integer numbers per key:</p>
 
-<div><pre><code class="language-none">    # rdd: RDD[(String, Integer)] : RDD[(key, value)]
+<div><pre class="line-numbers"><code class="language-none">    # rdd: RDD[(String, Integer)] : RDD[(key, value)]
     # The Following Transformation is WRONG
     avg_per_key = rdd.reduceByKey(lambda x, y: (x+y) / 2)</code></pre></div>
 
@@ -2163,7 +2206,7 @@ function is not an associative function.</p>
 
 <p>How to fix this problem? Make it a Monoid:</p>
 
-<div><pre><code class="language-none">    # rdd: RDD[(String, Integer)] : RDD[(key, value)]
+<div><pre class="line-numbers"><code class="language-none">    # rdd: RDD[(String, Integer)] : RDD[(key, value)]
     # convert (key, value) into (key, (value, 1))
     # rdd2 elements will be monoidic structures for addition +
     rdd2 = rdd.mapValues(lambda v: (v, 1))
@@ -2184,20 +2227,20 @@ function is not an associative function.</p>
 we make addition of values such as (sum, count) to be a monoid.
 Consider the follwing two partitions:</p>
 
-<div><pre><code class="language-none">Partition-1        Partition-2
+<div><pre class="line-numbers"><code class="language-none">Partition-1        Partition-2
 (A, 1)             (A, 3)
 (A, 2)</code></pre></div>
 
 <p>By mapping <code>(key, value)</code> to <code>(key, (value, 1))</code>, 
 we will have (as <code>rdd2</code>):</p>
 
-<div><pre><code class="language-none">Partition-1        Partition-2
+<div><pre class="line-numbers"><code class="language-none">Partition-1        Partition-2
 (A, (1, 1))         (A, (3, 1))
 (A, (2, 1))</code></pre></div>
 
 <p>Then <code>sum_count_per_key</code> RDD will hold:</p>
 
-<div><pre><code class="language-none">Partition-1        Partition-2
+<div><pre class="line-numbers"><code class="language-none">Partition-1        Partition-2
 (A, (3, 2))         (A, (3, 1))</code></pre></div>
 
 <p>Finally, <code>avg_per_key</code> RDD will produce the final value per key:
@@ -2209,7 +2252,7 @@ we will have (as <code>rdd2</code>):</p>
 Hadoop, Spark, ...) correctness of algorithms are very
 very important. Let&#39;s say, we have only 2 partitions:</p>
 
-<div><pre><code class="language-none">Partition-1        Partition-2
+<div><pre class="line-numbers"><code class="language-none">Partition-1        Partition-2
 (A, 1)             (A, 3)
 (A, 2)</code></pre></div>
 
@@ -2218,7 +2261,7 @@ these partitions, the average of (1, 2, 3) will be exactly 2.0.
 But since we are ina distributed environment, then the average will
 be calculated per partition:</p>
 
-<div><pre><code class="language-none">Partition-1: avg(1, 2) = 1.5
+<div><pre class="line-numbers"><code class="language-none">Partition-1: avg(1, 2) = 1.5
 Partition-2: avg(3) = 3.0
 
 avg(Partition-1, Partition-2) = (1.5 + 3.0) / 2 = 2.25
@@ -2228,13 +2271,13 @@ avg(Partition-1, Partition-2) = (1.5 + 3.0) / 2 = 2.25
 <p>To fix this problem, we can change the output of mappers:
 new revised output is as: <code>(key, (sum, count))</code>:</p>
 
-<div><pre><code class="language-none">Partition-1        Partition-2
+<div><pre class="line-numbers"><code class="language-none">Partition-1        Partition-2
 (A, (1, 1))        (A, (3, 1))
 (A, (2, 1))</code></pre></div>
 
 <p>Now, let&#39;s calculate average:</p>
 
-<div><pre><code class="language-none">Partition-1: avg((1, 1), (2, 1)) = (1+2, 1+1) = (3, 2)
+<div><pre class="line-numbers"><code class="language-none">Partition-1: avg((1, 1), (2, 1)) = (1+2, 1+1) = (3, 2)
 Partition-2: avg((3, 1)) = (3, 1)
 avg(Partition-1, Partition-2) = avg((3,2), (3, 1)) 
                               = avg(3+3, 2+1)
@@ -2319,7 +2362,7 @@ and its associated values)).</p>
 Group by keys of mappers with their associated values.
 If output of all mappers/combiners are:</p>
 
-<div><pre><code class="language-none">    (K_1, v_1), (K_1, v_2), (K_1, v_3), ..., 
+<div><pre class="line-numbers"><code class="language-none">    (K_1, v_1), (K_1, v_2), (K_1, v_3), ..., 
     (K_2, t_1), (K_2, t_2), (K_2, t_3), ...,
     ...
     (K_n, a_1), (K_n, a_2), (K_n, a_3), ...</code></pre></div>
@@ -2327,7 +2370,7 @@ If output of all mappers/combiners are:</p>
 <p>Then output of Sort &amp; Shuffle will be (which will be fed
 as an inut to reducers as <code>(key, values)</code>:</p>
 
-<div><pre><code class="language-none">    (K_1, [v_1, v_2, v_3, ...])
+<div><pre class="line-numbers"><code class="language-none">    (K_1, [v_1, v_2, v_3, ...])
     (K_2, [t_1, t_2, t_3, ...])
     ...
     (K_n, [a_1, a_2, a_3, ...])</code></pre></div>
@@ -2737,7 +2780,7 @@ in MapReduce.</p>
 
 <p>This can be expressed as:</p>
 
-<div><pre><code class="language-none">    reduceByKey: RDD[(K, V)] --&gt; RDD[(K, V)]</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">    reduceByKey: RDD[(K, V)] --&gt; RDD[(K, V)]</code></pre></div>
 
 <ul>
 <li><code>combineByKey()</code></li>
@@ -2753,18 +2796,18 @@ elements for each key using a custom set of aggregation functions.
 <ul>
 <li><p>createCombiner, which turns a <code>V</code> into a <code>C</code> (e.g., creates a one-element list)</p>
 
-<div><pre><code class="language-none">createCombiner: V --&gt; C</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">createCombiner: V --&gt; C</code></pre></div></li>
 <li><p>mergeValue, to merge a <code>V</code> into a <code>C</code> (e.g., adds it to the end of a list)</p>
 
-<div><pre><code class="language-none">mergeValue: C x V --&gt; C</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">mergeValue: C x V --&gt; C</code></pre></div></li>
 <li><p>mergeCombiners, to combine two <code>C’s</code> into a single one (e.g., merges the lists)</p>
 
-<div><pre><code class="language-none">mergeCombiners: C x C --&gt; C</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">mergeCombiners: C x C --&gt; C</code></pre></div></li>
 </ul>
 
 <p>This can be expressed as:</p>
 
-<div><pre><code class="language-none">    combineByKey: RDD[(K, V)] --&gt; RDD[(K, C)]
+<div><pre class="line-numbers"><code class="language-none">    combineByKey: RDD[(K, V)] --&gt; RDD[(K, C)]
 
     where V and C can be the same or different </code></pre></div>
 
@@ -2772,7 +2815,7 @@ elements for each key using a custom set of aggregation functions.
 
 <p>Combine all of values per key.</p>
 
-<div><pre><code class="language-python">
+<div><pre class="line-numbers"><code class="language-python">
 # combineByKey: RDD[(String, Integer)] --&gt; RDD[(String, [Integer])]
 
 rdd = sc.parallelize([(&quot;a&quot;, 1), (&quot;b&quot;, 7), (&quot;a&quot;, 2), (&quot;a&quot;, 3), (&quot;b&quot;, 8), (&quot;z&quot;, 5)])
@@ -2808,7 +2851,7 @@ rdd2.collect()
 
 <p>Find maximum of values per key.</p>
 
-<div><pre><code class="language-python">
+<div><pre class="line-numbers"><code class="language-python">
 # reduceByKey: RDD[(String, Integer)] --&gt; RDD[(String, Integer)]
 
 rdd = sc.parallelize([(&quot;a&quot;, 1), (&quot;b&quot;, 7), (&quot;a&quot;, 2), (&quot;a&quot;, 3), (&quot;b&quot;, 8), (&quot;z&quot;, 5)])
@@ -2829,7 +2872,7 @@ rdd2.collect()
 
 <p>Combine/Group values per key.</p>
 
-<div><pre><code class="language-python">
+<div><pre class="line-numbers"><code class="language-python">
 # reduceByKey: RDD[(String, Integer)] --&gt; RDD[(String, [Integer])]
 
 rdd = sc.parallelize([(&quot;a&quot;, 1), (&quot;b&quot;, 7), (&quot;a&quot;, 2), (&quot;a&quot;, 3), (&quot;b&quot;, 8), (&quot;z&quot;, 5)])
@@ -2866,7 +2909,7 @@ a 2-dimensional array, or a table with rows and columns.
 The number of rows for <code>Pandas</code> DataFrame is mutable and 
 limited to the computer and memory where it resides.</p>
 
-<div><pre><code class="language-python">import pandas as pd
+<div><pre class="line-numbers"><code class="language-python">import pandas as pd
 
 data = {
   &quot;calories&quot;: [100, 200, 300],
@@ -2893,7 +2936,7 @@ billions of rows.  A DataFrame is equivalent to a
 relational table in Spark SQL, and can be created 
 using various functions in <code>SparkSession</code>:</p>
 
-<div><pre><code class="language-python"># PySpark code:
+<div><pre class="line-numbers"><code class="language-python"># PySpark code:
 
 input_path = &quot;...&quot;
 # spark: as a SparkSession object
@@ -2906,7 +2949,7 @@ as a table).</p>
 
 <p>A more concrete example:</p>
 
-<div><pre><code class="language-python"># PySpark code:
+<div><pre class="line-numbers"><code class="language-python"># PySpark code:
 
 # To create DataFrame using SparkSession
 input_path_people = &quot;...&quot;
@@ -2939,7 +2982,7 @@ suitable to unstructured and semi-structured data).</p>
 
 <p>An Spark RDD can represent billions of elements.</p>
 
-<div><pre><code class="language-python">    &gt;&gt;&gt; sc
+<div><pre class="line-numbers"><code class="language-python">    &gt;&gt;&gt; sc
     &lt;SparkContext master=local[*] appName=PySparkShell&gt;
     &gt;&gt;&gt; sc.version
     &#39;3.3.1&#39;
@@ -2960,7 +3003,7 @@ suitable to unstructured and semi-structured data).</p>
 
 <p>A Spark DataFrame can represent billions of rows of named columns.</p>
 
-<div><pre><code class="language-python">    &gt;&gt;&gt; records = [(&quot;alex&quot;, 23), (&quot;jane&quot;, 24), (&quot;mia&quot;, 33)]
+<div><pre class="line-numbers"><code class="language-python">    &gt;&gt;&gt; records = [(&quot;alex&quot;, 23), (&quot;jane&quot;, 24), (&quot;mia&quot;, 33)]
     &gt;&gt;&gt; spark
     &lt;pyspark.sql.session.SparkSession object at 0x12469e6e0&gt;
     &gt;&gt;&gt; spark.version
@@ -3005,13 +3048,13 @@ in <code>S</code>.</p>
 <p><strong>Step-1:</strong> Map relation R: inject the name of relation
 into an output value as:</p>
 
-<div><pre><code class="language-none">input (K, a)
+<div><pre class="line-numbers"><code class="language-none">input (K, a)
 output: (K, (&quot;R&quot;, a))</code></pre></div>
 
 <p><strong>Step-2:</strong> Map relation S: inject the name of relation
 into an output value as:</p>
 
-<div><pre><code class="language-none">input (K, b)
+<div><pre class="line-numbers"><code class="language-none">input (K, b)
 output: (K, (&quot;S&quot;, b))</code></pre></div>
 
 <p><strong>Step-3:</strong> Merge outputs of Step-1 and Step-2 into 
@@ -3020,7 +3063,7 @@ path for Step-4 (as an identity mapper):</p>
 
 <p><strong>Step-4:</strong> is an identity mapper:</p>
 
-<div><pre><code class="language-none"># key: as K
+<div><pre class="line-numbers"><code class="language-none"># key: as K
 # value as: (&quot;R&quot;, a) OR (&quot;S&quot;, b)
 map(key, value) {
     emit(key, value)
@@ -3029,14 +3072,14 @@ map(key, value) {
 <p><strong>Step-4.5</strong>: Sort &amp; Shuffle (provided by MapReduce 
 implementation): will create (key, value) pairs as:</p>
 
-<div><pre><code class="language-none">(K, Iterable&lt;(relation, attribute)&gt;</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">(K, Iterable&lt;(relation, attribute)&gt;</code></pre></div>
 
 <p>where <code>K</code> is the common key of <code>R</code> and <code>S</code>, relation is 
 either &quot;R&quot; or &quot;S&quot;, and attribe is either <code>a</code> in <code>A</code> or <code>b</code> in <code>B</code>.</p>
 
 <p><strong>Step-5:</strong> Reducer</p>
 
-<div><pre><code class="language-none"># key as K is the common key of R and S
+<div><pre class="line-numbers"><code class="language-none"># key as K is the common key of R and S
 # values : Iterable&lt;(relation, attribute)&gt;
 reduce(key, values) {
    # create two lists: one for R and another one for S
@@ -3076,7 +3119,7 @@ by revising the reducer function.</p>
 
 <p>Relation R:</p>
 
-<div><pre><code class="language-none">    (x, 1)
+<div><pre class="line-numbers"><code class="language-none">    (x, 1)
     (x, 2)
     (y, 3)
     (y, 4)
@@ -3084,7 +3127,7 @@ by revising the reducer function.</p>
 
 <p>Relation S:</p>
 
-<div><pre><code class="language-none">    (x, 22)
+<div><pre class="line-numbers"><code class="language-none">    (x, 22)
     (x, 33)
     (y, 44)
     (p, 55)
@@ -3093,7 +3136,7 @@ by revising the reducer function.</p>
 
 <p><strong>Step-1:</strong> output:</p>
 
-<div><pre><code class="language-none">    (x, (&quot;R&quot;, 1))
+<div><pre class="line-numbers"><code class="language-none">    (x, (&quot;R&quot;, 1))
     (x, (&quot;R&quot;, 2))
     (y, (&quot;R&quot;, 3))
     (y, (&quot;R&quot;, 4))
@@ -3101,7 +3144,7 @@ by revising the reducer function.</p>
 
 <p><strong>Step-2:</strong> output:</p>
 
-<div><pre><code class="language-none">    (x, (&quot;S&quot;, 22))
+<div><pre class="line-numbers"><code class="language-none">    (x, (&quot;S&quot;, 22))
     (x, (&quot;S&quot;, 33))
     (y, (&quot;S&quot;, 44))
     (p, (&quot;S&quot;, 55))
@@ -3110,7 +3153,7 @@ by revising the reducer function.</p>
 
 <p><strong>Step-3:</strong> combine outputs of Step-1 and Step-2:</p>
 
-<div><pre><code class="language-none">    (x, (&quot;R&quot;, 1))
+<div><pre class="line-numbers"><code class="language-none">    (x, (&quot;R&quot;, 1))
     (x, (&quot;R&quot;, 2))
     (y, (&quot;R&quot;, 3))
     (y, (&quot;R&quot;, 4))
@@ -3124,7 +3167,7 @@ by revising the reducer function.</p>
 
 <p><strong>Step-4:</strong> Identity Mapper output:</p>
 
-<div><pre><code class="language-none">    (x, (&quot;R&quot;, 1))
+<div><pre class="line-numbers"><code class="language-none">    (x, (&quot;R&quot;, 1))
     (x, (&quot;R&quot;, 2))
     (y, (&quot;R&quot;, 3))
     (y, (&quot;R&quot;, 4))
@@ -3138,14 +3181,14 @@ by revising the reducer function.</p>
 
 <p><strong>Step-4.5:</strong> Sort &amp; Shuffle output:</p>
 
-<div><pre><code class="language-none">(x, [(&quot;R&quot;, 1), (&quot;R&quot;, 2), (&quot;S&quot;, 22), (&quot;S&quot;, 33)])
+<div><pre class="line-numbers"><code class="language-none">(x, [(&quot;R&quot;, 1), (&quot;R&quot;, 2), (&quot;S&quot;, 22), (&quot;S&quot;, 33)])
 (y, [(&quot;R&quot;, 3), (&quot;R&quot;, 4), (&quot;S&quot;, 44)])
 (z, [(&quot;R&quot;, 5)])
 (p, [(&quot;S&quot;, 55), (&quot;S&quot;, 66), (&quot;S&quot;, 77)])</code></pre></div>
 
 <p><strong>Step-5:</strong> Reducer output:</p>
 
-<div><pre><code class="language-none">(x, (1, 22))
+<div><pre class="line-numbers"><code class="language-none">(x, (1, 22))
 (x, (1, 33))
 (x, (2, 22))
 (x, (2, 33))    
@@ -3167,7 +3210,7 @@ across the cluster.</p>
 
 <p>Example:</p>
 
-<div><pre><code class="language-python"># sc : SparkContext
+<div><pre class="line-numbers"><code class="language-python"># sc : SparkContext
 x = sc.parallelize([(&quot;a&quot;, 1), (&quot;b&quot;, 4), (&quot;c&quot;, 6), (&quot;c&quot;, 7)])
 y = sc.parallelize([(&quot;a&quot;, 2), (&quot;a&quot;, 3), (&quot;c&quot;, 8), (&quot;d&quot;, 9)])
 x.join(y).collect())
@@ -3180,7 +3223,7 @@ x.join(y).collect())
 
 <h3 id="toc_85">Join in DataFrame</h3>
 
-<div><pre><code class="language-python"># PySpark API:
+<div><pre class="line-numbers"><code class="language-python"># PySpark API:
 
 DataFrame.join(other: pyspark.sql.dataframe.DataFrame, 
                on: Union[str, List[str], 
@@ -3193,7 +3236,7 @@ Joins with another DataFrame, using the given join expression.</code></pre></div
 
 <p>Example: inner join</p>
 
-<div><pre><code class="language-python"># SparkSession available as &#39;spark&#39;.
+<div><pre class="line-numbers"><code class="language-python"># SparkSession available as &#39;spark&#39;.
 &gt;&gt;&gt; emp = [(1, &quot;alex&quot;, &quot;100&quot;, 33000), \
 ...        (2, &quot;rose&quot;, &quot;200&quot;, 44000), \
 ...        (3, &quot;bob&quot;, &quot;100&quot;, 61000), \
@@ -3289,7 +3332,7 @@ and highly expressive graph queries.</p>
 and another one for the edges) and then glue them together 
 to create a graph:</p>
 
-<div><pre><code class="language-python"># each node is identified by &quot;id&quot; and an optional attributes
+<div><pre class="line-numbers"><code class="language-python"># each node is identified by &quot;id&quot; and an optional attributes
 # vertices: DataFrame(id, ...)
 
 # each edge is identified by (src, dst) and an optional attributes
@@ -3309,7 +3352,7 @@ using graphframes API.</p>
 
 <p>To invoke PySpark with GraphFrames:</p>
 
-<div><pre><code class="language-bash">% # define the home directory for Spark
+<div><pre class="line-numbers"><code class="language-bash">% # define the home directory for Spark
 % export SPARK_HOME=/home/spark-3.2.0
 % # import graphframes library into PySpark and invoke interactive PySpark:
 % $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.8.2-spark3.2-s_2.12
@@ -3330,7 +3373,7 @@ SparkSession available as &#39;spark&#39;.
 
 <p>Then PySpark is ready to use GraphFrames API:</p>
 
-<div><pre><code class="language-python">&gt;&gt;&gt;# create list of nodes
+<div><pre class="line-numbers"><code class="language-python">&gt;&gt;&gt;# create list of nodes
 &gt;&gt;&gt; vert_list = [(&quot;a&quot;, &quot;Alice&quot;, 34),
 ...              (&quot;b&quot;, &quot;Bob&quot;, 36),
 ...              (&quot;c&quot;, &quot;Charlie&quot;, 30)]
@@ -3656,7 +3699,7 @@ everything works as a <code>(key, value)</code>. Note that the <code>key</code> 
 
 <p>The Map output types should match the input types of the Reduce as shown below:</p>
 
-<div><pre><code class="language-none"># mapper can emit 0, 1, 2, ... of (K2, V2)
+<div><pre class="line-numbers"><code class="language-none"># mapper can emit 0, 1, 2, ... of (K2, V2)
 map(K1, V1) -&gt; { (K2, V2) }
 
 # reducer can emit 0, 1, 2, ... of (K3, V3)
@@ -3710,20 +3753,38 @@ sensors</p>
 
 <p>GPS data describing a geographical location</p>
 
-<h2 id="toc_120">Machine learning</h2>
+<h2 id="toc_120">Machine Learning</h2>
 
-<p>Part of artificial intelligence where machines learn from what 
-they are doing and become better over time. Apache Spark offers 
-a comprehensive Maching Learning library.</p>
+<p>Part of artificial intelligence where machines learn from 
+what they are doing and become better over time. Apache 
+Spark offers a comprehensive Maching Learning library for
+big data. In a nutshell, Machine learning is an application 
+of AI that enables systems to learn and improve from 
+experience without being explicitly programmed.</p>
+
+<p>There are many ML packages for experimentation:</p>
+
+<ul>
+<li><a href="https://scikit-learn.org/stable/">scikit-learn - Machine Learning in Python</a></li>
+<li><a href="https://spark.apache.org/docs/latest/ml-guide.html">Apache Spark Machine Learning</a></li>
+</ul>
 
 <h2 id="toc_121">Metadata</h2>
 
 <p>Data about data; gives information about what the data is about.</p>
 
-<h2 id="toc_122">Natural Language Processing</h2>
+<p>For example, author, date created, date modified and file size 
+are examples of very basic document file metadata. </p>
+
+<p>Table definition for a relational table is an example of metadata.</p>
+
+<h2 id="toc_122">Natural Language Processing (NLP)</h2>
 
 <p>A field of computer science involved with interactions between 
-computers and human languages</p>
+computers and human languages.</p>
+
+<p>Open source software for NLP: 
+<a href="https://nlp.stanford.edu/software/">The Stanford Natural Language Processing</a></p>
 
 <h2 id="toc_123">Network analysis</h2>
 
@@ -3752,7 +3813,7 @@ modeling leads to a schema.</p>
 <ul>
 <li><p>Example, Database schema:</p>
 
-<div><pre><code class="language-none">CREATE TABLE product (
+<div><pre class="line-numbers"><code class="language-none">CREATE TABLE product (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(50) NOT NULL,
     price VARCHAR(7) NOT NULL,
@@ -3760,7 +3821,7 @@ modeling leads to a schema.</p>
 )</code></pre></div></li>
 <li><p>Example, DataFrame schema in PySpark</p>
 
-<div><pre><code class="language-none">from pyspark.sql.types import StructType, StructField
+<div><pre class="line-numbers"><code class="language-none">from pyspark.sql.types import StructType, StructField
 from pyspark.sql.types import StringType, IntegerType
 
 schema = StructType([ \
@@ -3783,7 +3844,7 @@ immutability of tuples.</p>
 
 <p>Examples in Python3:</p>
 
-<div><pre><code class="language-none"># create a tuple
+<div><pre class="line-numbers"><code class="language-none"># create a tuple
 &gt;&gt;&gt; t3 = (10, 20, 40)
 &gt;&gt;&gt; t3
 (10, 20, 40)
@@ -4074,6 +4135,15 @@ presented.  A typical example of an abstraction layer
 is an API (application programming interface) between 
 an application and an operating system. </p>
 
+<p>For example, Spark offers two types of data abstractions
+(it means that your data can be represented in RDD and
+DataFrame):</p>
+
+<ul>
+<li>RDD</li>
+<li>DataFrame</li>
+</ul>
+
 <h2 id="toc_164">Cloud</h2>
 
 <p>Cloud technology, or The Cloud as it is often referred 
@@ -4221,18 +4291,19 @@ then mappers create (key, value) pairs per split
 (i call them partitions), consider all of the 
 output from all of the mappers:</p>
 
-<div><pre><code class="language-none">    Partition-1  Partition-2  Partition-3
+<div><pre class="line-numbers"><code class="language-none">    Partition-1  Partition-2  Partition-3
     (A, 1)       (A, 5)       (A, 9)
     (A, 3)       (B, 6)       (C, 20)
     (B, 4)       (C, 10)      (C, 30)
-    (B, 7)</code></pre></div>
+    (B, 7)       (D, 50)</code></pre></div>
 
 <p>Then the output of Sort &amp; Shuffle phase will be 
 (note that the values of keys are not sorted):</p>
 
-<div><pre><code class="language-none">    (A, [1, 3, 9, 5])
+<div><pre class="line-numbers"><code class="language-none">    (A, [1, 3, 9, 5])
     (B, [4, 7, 6])
-    (C, [10, 20, 30])</code></pre></div>
+    (C, [10, 20, 30])
+    (D, [50])</code></pre></div>
 
 <p>Output of Sort &amp; Shuffle phase will be input to reducers.</p>
 
@@ -4289,6 +4360,10 @@ Prism.languages.python={"triple-quoted-string":{pattern:/"""[\s\S]+?"""|'''[\s\S
 
 <script type="text/javascript">
 !function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+<script type="text/javascript">
+!function(){"undefined"!=typeof self&&self.Prism&&self.document&&Prism.hooks.add("complete",function(e){if(e.code){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))&&!e.element.querySelector(".line-numbers-rows")){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var n,a=e.code.match(/\n(?!$)/g),l=a?a.length+1:1,m=new Array(l+1);m=m.join("<span></span>"),n=document.createElement("span"),n.className="line-numbers-rows",n.innerHTML=m,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(n)}}})}();
 </script>
 
 <script type="text/javascript">
