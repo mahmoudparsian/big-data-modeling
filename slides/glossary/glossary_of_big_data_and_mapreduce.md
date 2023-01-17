@@ -2430,6 +2430,44 @@ A cluster may be used for running many jobs (Spark and MapReduce
 jobs) at the same time.
 
 
+## Master node
+In Hadoop, Master nodes (set of one or more nodes) are 
+responsible for storing data in HDFS and overseeing key 
+operations, such as running parallel computations on the 
+data using MapReduce. The worker nodes comprise most of 
+the virtual machines in a Hadoop cluster, and perform the 
+job of storing the data and running computations.
+
+**Hadoop-Master-Worker**: the following images shows Hadoop's master node and worker nodes.
+
+
+![](./images/hadoop_master_worker.png)
+
+In Spark, the master node contains driver program, which 
+drives the application by creating Spark context object. 
+Spark context object works with cluster manager to manage 
+different jobs. Worker nodes job is to execute the tasks 
+and return the results to Master node.
+
+**Spark-Master-Worker**: the following images shows master 
+node and 2 worker nodes.
+
+![](./images/spark-master-worker.pbm)
+
+
+## Worker node
+In Hadoop, the worker nodes comprise most of the virtual 
+machines in a Hadoop cluster, and perform the job of storing 
+the data and running computations. Each worker node runs 
+the DataNode and TaskTracker services, which are used to 
+receive the instructions from the master nodes.
+
+In Spark, worker node is ny node that can run application 
+code in the cluster. Executor is a process launched for an 
+application on a worker node, that runs tasks and keeps data 
+in memory or disk storage across them. Each application has 
+its own executors.
+
 ## Cluster computing
 Cluster computing is a collection of tightly or loosely connected 
 computers that work together so that they act as a single entity. 
