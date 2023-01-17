@@ -2,9 +2,10 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/13/2023
+	Last updated: 1/16/2023
 	
 ![](./images/glossary.jpeg)
+
 
 ## Introduction
 Big data is a vast and complex field that is 
@@ -86,6 +87,26 @@ correct (since these are executed partition by partition)
 regardless of the number of partitions for your data.
 For example, you need to remember that average of an
 average is not an average.
+
+## Partitioner
+Partitioner  is a program, which distributes the data 
+across the cluster. The types of partitioners are 
+
+* Hash Partitioner
+* Murmur3 Partitioner
+* Random Partitioner
+* Order Preserving Partitioner
+
+For example, an Spark RDD of `480,000,000,000` 
+elements might be partitioned in to `60,000` 
+chunks (partitions), where each chunk/partition 
+will have a bout `8,000,000` elements.
+
+	480,000,000,000 = 60,000 x 8,000,000
+
+One of the main reasons of data partitioning is to
+process many small partitions in parallel (at the same 
+time) to reduce the overall data processing time.
 
 
 ## Aggregation
@@ -215,15 +236,54 @@ create insights from the data:
 * joining data
 
 
+## Design Patterns
+What is a design pattern? In software engineering, 
+a design pattern is a general repeatable solution 
+to a commonly occurring problem in software design. 
+In general, design patterns are categorized mainly 
+into three categories: 
 
-## Data set 
-A collection of (structured, semi-structured, and unstructured) data
+* Creational Design Pattern
+* Structural Design Pattern
+* Behavioral Design Pattern
+
+What are **data design patterns**? Data Design 
+Pattern is a general repeatable solution to a 
+commonly occurring data problem in big data area.
+
+The following are common **Data Design Patterns**:
+
+* Summarization patterns
+* Filtering patterns
+* In-Mapper patterns
+* Data Organization patterns
+* Join patterns
+* Meta patterns
+* Input/Output patterns
+
+The data design patterns can be implemented by 
+MapReduce and Spark and other big data solutions.
+
+
+## Data Set 
+A collection of (structured, semi-structured, and unstructured) data.
+
+Example of Data Sets:
+
+* DNA data samples for 10,000 patients can be a data set.
+* Daily log files for a search engine
+* Weekly credit card transactions
+* Monthly flight data for a country
+* Twitter daily data 
 
 
 ## Data Type
-In computer science and computer programming, a **data type**
-(or simply type) is a set of possible values and a set of 
-allowed operations on it. A data type tells the compiler or interpreter how the programmer intends to use the data. 
+In computer science and computer programming, 
+a **data type** (or simply type) is a set of 
+possible values and a set of allowed operations 
+on it. A data type tells the compiler or 
+interpreter how the programmer intends to use 
+the data. 
 
 For example, 
 	
@@ -276,11 +336,12 @@ For example,
  
  
 # Primitive data type
-A data type that allows you to represent a single data 
-value in a single column position. In a nutshell, a primitive 
-data type is either a data type that is built into a programming 
-language, or one that could be characterized as a basic structure 
-for building more sophisticated data types. 
+A data type that allows you to represent a single 
+data value in a single column position. In a nutshell, 
+a primitive data type is either a data type that is 
+built into a programming language, or one that could 
+be characterized as a basic structure for building 
+more sophisticated data types. 
 
 * Java examples:
 
@@ -298,9 +359,10 @@ for building more sophisticated data types.
 
 
 ## Composite data type
-In computer science, a composite data type or compound data 
-type is any data type which can be constructed in a program 
-using the programming language's primitive data types.
+In computer science, a composite data type or compound 
+data type is any data type which can be constructed in 
+a program using the programming language's primitive 
+data types.
 
 * Java examples:
 
@@ -318,23 +380,25 @@ using the programming language's primitive data types.
 
 
 ## Hadoop 
-[Hadoop](https://hadoop.apache.org) is an open-source framework 
-that is built to enable the process and storage of big data 
-across a distributed file system. Hadoop implements MapReduce 
-paradigm, it is slow and complex and uses disk for read/write 
-operations. Hadoop does not take advantage of in-memory computing. 
-Hadoop runs a computing cluster.
+[Hadoop](https://hadoop.apache.org) is an open-source 
+framework that is built to enable the process and 
+storage of big data across a distributed file system. 
+Hadoop implements MapReduce paradigm, it is slow and 
+complex and uses disk for read/write operations. Hadoop 
+does not take advantage of in-memory computing. Hadoop 
+runs a computing cluster.
 
-Hadoop takes care of running your MapReduce code across a 
-cluster of machines. Its responsibilities include chunking 
-up the input data, sending it to each machine, running your 
-code on each chunk, checking that the code ran, passing any 
-results either on to further processing stages or to the 
-final output location, performing the sort that occurs 
-between the map and reduce stages and sending each chunk 
-of that sorted data to the right machine, and writing 
-debugging information on each job’s progress, among 
-other things.
+Hadoop takes care of running your MapReduce code 
+across a cluster of machines. Its responsibilities 
+include chunking up the input data, sending it to 
+each machine, running your code on each chunk, 
+checking that the code ran, passing any results 
+either on to further processing stages or to the 
+final output location, performing the sort that 
+occurs between the map and reduce  stages  and 
+sending each chunk of that sorted data to the 
+right machine, and writing debugging information 
+on each job’s progress, among other things.
 
 Hadoop provides:
 
@@ -345,7 +409,8 @@ Hadoop provides:
 ## What is the difference between Hadoop and RDBMS?
 
 * Hadoop is an implementation of MapReduce paradigm
-* RDBMS denoes a relational database system such as Oracle, MySQL, Maria
+* RDBMS denoes a relational database system such as 
+  Oracle, MySQL, Maria
 
  
 Criteria      | Hadoop                                          | RDBMS
@@ -359,23 +424,36 @@ Data Access   | Batch | Interactive and Batch
 Data Size     | Tera bytes to Peta bytes | Giga bytes to Tera bytes
 
 
+## Replication Factor (RF)
+The total number of replicas across the cluster is 
+referred to as the  replication  factor  (RF). A 
+replication factor of 1 means that there is only 
+one copy of each row in the cluster. If the node 
+containing the row goes down, the row cannot be 
+retrieved. A replication factor of 2 means two 
+copies of each row, where each  copy  is  on a 
+different node. All replicas are equally important; 
+there is no primary or master replica.
+
 
 ## What makes Hadoop Fault tolerant?
-Hadoop is said to be highly fault tolerant. Hadoop achieves 
-this feat through the process of data replication. Data is 
-replicated across multiple nodes in a Hadoop cluster. The 
-data is associated with a replication factor, which indicates 
-the number of copies of the data that are present across the 
-various nodes in a Hadoop cluster. For example, if the replication 
-factor is 4, the data will be present in four different nodes 
-of the Hadoop cluster, where each node will contain one copy 
-each. In this manner, if there is a failure in any one of the 
-nodes, the data will not be lost, but can be recovered from 
-one of the other nodes which contains copies or replicas of 
-the data.
+Hadoop is said to be highly fault tolerant. Hadoop 
+achieves this feat through the process of data 
+replication. Data is replicated across multiple 
+nodes in a Hadoop cluster. The data is associated 
+with a replication factor (RF), which indicates 
+the number of copies of the data that are present 
+across the various nodes in a Hadoop cluster. For 
+example, if the replication factor is 4, the data 
+will be present in four different nodes of the Hadoop 
+cluster, where each node will contain one copy each. 
+In this manner, if there is a failure in any one of 
+the nodes, the data will not be lost, but can be 
+recovered from one of the other nodes which contains 
+copies or replicas of the data.
 
-If replication factor is `N`, then `N-1` nodes can safely
-fail without impacting a running job.
+If replication factor is `N`, then `N-1` nodes can 
+safely fail without impacting a running job.
   
 
 ## Big Data Formats
@@ -421,10 +499,20 @@ distributed database running in conjunction with Hadoop
 
 
 ## HDFS
-Hadoop Distributed File System; a distributed file system 
-designed to run on commodity hardware. You can place huge 
-amount of data in HDFS. You can create new files/directories. 
-You can delete files, but you can not edit/update files in place.
+HDFS (Hadoop Distributed File System) is a distributed file 
+system designed to run on commodity hardware. You can place 
+huge amount of data in HDFS. You can create new files or
+directories.  You can delete files, but you can not edit/update 
+files in place.
+
+**Features of HDFS:**
+
+* Data replication. This is used to ensure that the data is always available and prevents data loss
+* Fault tolerance and reliability
+* High availability
+* Scalability
+* High throughput
+* Data locality
 
 # Commodity server/hardware
 Commodity hardware (computer), sometimes known as 
@@ -1351,7 +1439,7 @@ MapReduce | Implements MapReduce | Implements superset of MapReduce and beyond
 Join Operation | Does not support Join directly | Has extensive API for Join
 
 
-## Spark
+## Apache Spark
 [Apache Spark](https://spark.apache.org) is an engine for 
 large-scale data analytics. Spark is a multi-language (Java, 
 Scala, Python, R, SQL) engine for executing data engineering, 
@@ -1403,6 +1491,31 @@ Spark addresses many problems of hadoop:
 * provides join operations for RDDs and DataFrames
 * You do not need to write too many lines of a code 
   to solve a big data problem
+
+
+## Apache Spark Components
+
+Apache Spark provides:
+
+* Core components: RDDs, DataFrames, SQL
+* Data Streaming
+* Machine Learning
+* Graph Processing (GraphX and GrahFrames)
+* Multi-language support (Python, Java, Scala, R, SQL)
+
+![](./images/spark_components.png)
+
+## Apache Spark in Large-Scale Sorting
+[Spark Officially Sets a New Record in Large-Scale Sorting](https://www.databricks.com/blog/2014/11/05/spark-officially-sets-a-new-record-in-large-scale-sorting.html).
+Databricks team sorted 100 TB of data on disk in 23 minutes. 
+In comparison, the previous world record set by Hadoop MapReduce 
+used 2100 machines and took 72 minutes. This means that Apache 
+Spark sorted the same data 3X faster using 10X fewer machines. 
+All the sorting took place on disk (HDFS), without using Spark’s 
+in-memory cache.
+
+![](./images/100TB_sorting.png)
+
 
 ## DAG in Spark
 Spark DAG (directed acyclic graph) is the strict generalization 
@@ -3113,3 +3226,5 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 20. [Apache Spark Key Terms, Explained](https://www.kdnuggets.com/2016/06/spark-key-terms-explained.html)
 
 21. [How Data Partitioning in Spark helps achieve more parallelism?](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
+
+22. [Apache Spark Officially Sets a New Record in Large-Scale Sorting](https://www.databricks.com/blog/2014/11/05/spark-officially-sets-a-new-record-in-large-scale-sorting.html)

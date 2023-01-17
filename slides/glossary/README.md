@@ -2,7 +2,7 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/13/2023
+	Last updated: 1/16/2023
 
 
 ## [Glossary in MarkDown Format](./glossary_of_big_data_and_mapreduce.md)	
