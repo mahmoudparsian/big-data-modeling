@@ -4,7 +4,7 @@
 
 	Last updated: 1/16/2023
 	
-![](./images/glossary.jpeg)
+![](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/images/glossary.jpeg)
 
 
 ## Introduction
@@ -641,7 +641,7 @@ Options for MapReduce implementation:
 
 ## Mapreduce Architecture
 
-![](./images/mapreduce-architecture.jpeg)
+![](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/images/mapreduce-architecture.jpeg)
 
 ### _Components of MapReduce Architecture_:
 
@@ -1503,7 +1503,7 @@ Apache Spark provides:
 * Graph Processing (GraphX and GrahFrames)
 * Multi-language support (Python, Java, Scala, R, SQL)
 
-![](./images/spark_components.png)
+![](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/images/spark_components.png)
 
 ## Apache Spark in Large-Scale Sorting
 [Spark Officially Sets a New Record in Large-Scale Sorting](https://www.databricks.com/blog/2014/11/05/spark-officially-sets-a-new-record-in-large-scale-sorting.html).
@@ -1514,7 +1514,7 @@ Spark sorted the same data 3X faster using 10X fewer machines.
 All the sorting took place on disk (HDFS), without using Spark’s 
 in-memory cache.
 
-![](./images/100TB_sorting.png)
+![](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/images/100TB_sorting.png)
 
 
 ## DAG in Spark
@@ -1524,7 +1524,7 @@ optimization than the other systems like MapReduce. The Apache
 Spark DAG allows a user to dive into the stage and further 
 expand on detail on any stage.
 
-![](./images/spark-dag.png) 
+![](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/images/spark-dag.png) 
 
 DAG in Spark is a set of vertices and edges, where vertices 
 represent the RDDs and the edges represent the Operation to 
@@ -1541,7 +1541,7 @@ you can view Spark jobs and their associated DAGs.
 
 * [Spark Architecture](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf)
 
-![](./images/spark_architecture.png)
+![](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/glossary/images/spark_architecture.png)
 
 * [Spark Cluster](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf): a collection of machines or nodes in 
 the public cloud or on-premise in a private data center on 
