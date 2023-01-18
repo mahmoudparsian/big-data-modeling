@@ -2327,7 +2327,7 @@ physical folders/directories will be created
 (for example, if we had data for 7 continents, 
 then 7 folders will be created):
 
-	<outpur_path>
+	<output_path>
 	      |
 	      +------- continent=Asia   --- <data-for-asia>
 	      |
