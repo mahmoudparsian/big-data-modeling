@@ -2,7 +2,7 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/16/2023
+	Last updated: 1/18/2023
 	
 ![](./images/glossary.jpeg)
 
@@ -78,15 +78,20 @@ spanning tree generation, mutual exclusion, finding association
 of genes in DNA, and resource allocation. Distributed algorithms
 run in parallel/concurrent environments. 
 
-Apache Spark can be used to implement and run distributed 
-algorithms.
-
 In implementing distributed algorithms, you have to make 
 sure that your aggregations and reductions are semantically
 correct (since these are executed partition by partition)
 regardless of the number of partitions for your data.
 For example, you need to remember that average of an
 average is not an average.
+
+**Example of systems running distributed algorithms**:
+
+* Apache Spark can be used to implement and run distributed 
+algorithms.
+
+* MapReduce/Hadoop can be used to implement and run distributed 
+algorithms.
 
 ## Partitioner
 Partitioner  is a program, which distributes the data 
@@ -137,6 +142,7 @@ for the purpose of reporting and/or analysis.
 * For example, given a DNA data, find genes, which are assocaited 
   with each other
 
+
 ## Anonymization 
 * Making data anonymous; removing all data points that could 
   lead to identify a person 
@@ -181,6 +187,7 @@ protocols, and tools for building application software
 ## Behavioural Analytics 
 * It is a kind of analytics that informs about the how, why and what instead of just the who and when. It looks at humanized patterns in the data
 
+
 ## Big Data 
 Big data is an umbrella term for any collection of data sets 
 so large or complex that it becomes difficult to process them 
@@ -207,11 +214,12 @@ Big data solutions may have many components (to mention some):
 ## Big Data Platforms/Solutions
 * Apache Hadoop, which implements a MapReduce paradigm. 
   Hadoop is slow and very complex (does not take advantage 
-  of RAM/memory)
+  of RAM/memory). Hadoop's analytics API is limited to 
+  `map-then-reduce` functions.
 * Apache Spark, which implements a superset of MapReduce 
   paradigm: it is fast, and has a very simple and powerful 
-  API and works about 100 times faster than Hadoop (Spark 
-  takes advantage of memory and embraces in-memory computing).
+  API and works about 100 times faster than Hadoop. Spark 
+  takes advantage of memory and embraces in-memory computing.
   Spark can be used for ETL and implementing many types of
   distributed algorithms.
 * Apache Tez
@@ -224,7 +232,6 @@ Big data solutions may have many components (to mention some):
 ## Biometrics 
 The use of data and technology to identify people by one or more 
 of their physical traits (for example, face recognition)
-
 
 
 ## Data modelling 
@@ -301,7 +308,7 @@ For example,
 				// bob's data type is int
 				int bob = 1;
 			
-				// bob can not change its type
+				// bob can not change its type: the following line is invalid
 				// String bob = "bob";
 				
 				// but, you can use anther variable name
@@ -1368,13 +1375,20 @@ A MapReduce job will have the following components:
 ## What the MapReduce's Job Flow
 
 **1-InputFormat:**
-Splits input into `(key_1, value_1)` pairs and passes them to mappers
+Splits input into `(key_1, value_1)` pairs and passes 
+them to mappers. When Hadoop submits a job, it splits 
+the input data logically (Input splits) and these are 
+processed by each Mapper. The number of Mappers is equal 
+to the number of input splits created. Hadoop's 
+`InputFormat.getSplits()` function is responsible for 
+generating the input splits which uses each split as 
+input for each mapper job.
 
 **2-Mapper:**
-`map(key_1, value_1)` emits a set of `(key_2, value_2)` pairs.
-If a mapper does not emit any `(key, value)` pairs, then it 
-means that `(key_1, value_1)` is filtered out (for example,
-tossing out the invalid/bad records).
+`map(key_1, value_1)` emits a set of `(key_2, value_2)` 
+pairs. If a mapper does not emit any `(key, value)` pairs, 
+then it means that `(key_1, value_1)` is filtered out (for 
+example, tossing out the invalid/bad records).
 
 **3-Combiner:** [optional]
 `combine(key_2, [value-2, ...])` emits `(key_2, value_22)`.
@@ -1440,6 +1454,8 @@ Join Operation | Does not support Join directly | Has extensive API for Join
 
 
 ## Apache Spark
+In a nutshell, we can say that Apache Spark is the most 
+active open big data tool reshaping the big data market.
 [Apache Spark](https://spark.apache.org) is an engine for 
 large-scale data analytics. Spark is a multi-language (Java, 
 Scala, Python, R, SQL) engine for executing data engineering, 
@@ -1448,6 +1464,7 @@ or clusters. Spark implements superset of MapReduce paradigm
 and uses memory/RAM as much as possible and can run up to 100 
 times faster than Hadoop. Spark is considered the successor of 
 Hadoop/Mapreduce and has addressed many problems of Hadoop.
+
 
 With using Spark, developers do not need to write code for 
 parallelism, distributing data, or other complex coding 
@@ -2250,15 +2267,78 @@ Example: inner join
 ~~~
 
 
-## Spark partitioning
+## Spark Partitioning
 A [partition in spark](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
 is an atomic chunk of data (logical division of data) 
 stored on a node in the cluster. Partitions are basic 
-units of parallelism in Apache Spark. RDDs in 
-Apache Spark are collection of partitions. 
+units of parallelism in Apache Spark. RDDs and DataFrames 
+in Apache Spark are collection of partitions. 
+
+Data (represented as an RDD or DataFrame) partitioning 
+in Spark helps achieve more parallelism. For example,
+if your RDD/DataFrame is partitioned into 100 chunks/partitions,
+then for `RDD.map()`, there is a chance of running 100
+mappers in parallel/concurrently (at the same time).
+Therefore, Spark RDDs and DataFrames are stored in partitions 
+and operated in parallel. 
+
 
 For example, in PySpark you can get the current number/length/size 
-of partitions by running `RDD.getNumPartitions()`.	 
+of partitions by running `RDD.getNumPartitions()`.	
+
+## Physical Data Partitioning
+Physical Data Partitioning is a technique used in 
+data warehouses and big data query engines. 
+
+Physical Data Partitioning is a way to organize a 
+very large data into several smaller data based on 
+one or multiple columns (partition key, for example, 
+continent, country, date, state e.t.c). 
+
+The main point of Physical Data Partitioning is
+to analyze slice of a data rather than the whole 
+data.  For example, if we have a temprature data 
+for 7 continents, and we are going to query data 
+based on the continent name, then to reduce the 
+query time, we can partition data by the continent 
+name: this enables us to query slice of a data 
+(such as: `continent_name = asia`) rather than the
+whole data.  When we phisically partition data, we 
+create separate folder (or directory) per partitioned 
+column.
+
+In Spark, for Physical Data Partitioning, you may 
+use `pyspark.sql.DataFrameWriter.partitionBy()`.
+
+PySpark Example:
+
+~~~python
+output_path = "...target-output-path..."
+df.write.partitionBy('continent')\
+  .parquet(output_path)
+~~~
+
+For example, given a DataFrame as:
+
+	DataFrame(continent, country, city, temprature)
+
+Then partitioning by `continent`, the following 
+physical folders/directories will be created
+(for example, if we had data for 7 continents, 
+then 7 folders will be created):
+
+	<outpur_path>
+	      |
+	      +------- continent=Asia   --- <data-for-asia>
+	      |
+	      +------- continent=Europe --- <data-for-europe>
+	      |
+	      + ...
+	       
+
+For details, refer to [Physical Data Partitioning tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/physical_partitioning).
+
+ 
 ## GraphFrames
 [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html)
 is an external package for Apache Spark which provides DataFrame-based Graphs. 
