@@ -1481,7 +1481,7 @@ The following are advantages of MapReduce:
 
 ## What is a MapReduce Job
 Job − A program is an execution of a Mapper and Reducer across a dataset.
-A MapReduce job will have the following components:
+Minimally, a MapReduce job will have the following components:
 
 * Input path: identifies input directories and files
 * Output path: identifies a directory where the outputs will be written
@@ -1493,10 +1493,12 @@ A MapReduce job will have the following components:
 
 ## Disadvantages of MapReduce
 
-* Rigid Map and Reduce programming paradigm
+* Rigid `Map-and-then-Reduce` programming paradigm
 	* low level API
-	* must use `map()`, `reduce()` many times to solve a problem
+	* must use `map()`, `reduce()` one or more times to solve a problem
 	* join operation is not supported
+	* complex: have to write lots of code
+	* one type of reduction is supported: GROUP BY KEY
 * Disk I/O (makes it slow)
 * Read/Write Intensive (does not utilize in-memory computing)
 * Java Focused
@@ -1731,27 +1733,30 @@ tasks including numerical computation, datetime processing and
 string manipulation.
 
 3. Spark extends its predecessors (such as Hadoop) with 
-in-memory processing. MapReduce uses disk I/O (which is slow),
-but Spark uses in-memory computing as much as possible and
-it can be up to 100 times faster than MapReduce implementations.
-This means that future steps that want to deal with the same data
-set need not recompute it or reload it from disk. Spark is well
-suited for highly iterative algorithms as well as adhoc queries.
+in-memory processing. MapReduce uses disk I/O (which is 
+slow), but Spark uses in-memory computing as much as 
+possible and it can be up to 100 times faster than 
+MapReduce implementations. This means that future steps 
+that want to deal with the same data set need not recompute 
+it or reload it from disk. Spark is well suited for highly 
+iterative algorithms as well as adhoc queries.
 
-4. Spark offers interactive environment (for example using PySpark
-interactively) for testing and debugging data transformations.
+4. Spark offers interactive environment (for example using 
+PySpark interactively) for testing and debugging data 
+transformations.
 
-5. Spark offers extensive Machine Learning libraries (Hadoop/MapReduce
-does not have this capability)
+5. Spark offers extensive Machine Learning libraries 
+   (Hadoop/MapReduce does not have this capability)
 
-6. Spark offers extensive graph API by GraphX (built-in) and
-GraphFrames (as an external library).
+6. Spark offers extensive graph API by GraphX (built-in) 
+   and GraphFrames (as an external library).
 
-7. Spark Streaming is an extension of the core Spark API that 
-allows data engineers and data scientists to process real-time 
-data from various sources including (but not limited to) Kafka, 
-Flume, and Amazon Kinesis. This processed data can be pushed 
-out to file systems, databases, and live dashboards.
+7. Spark Streaming is an extension of the core Spark API 
+   that allows data engineers and data scientists to process 
+   real-time data from various sources including (but not 
+   limited to) Kafka, Flume, and Amazon Kinesis. This 
+   processed data can be pushed out to file systems, 
+   databases, and live dashboards.
 
 ## What is an Spark RDD
 
@@ -1773,6 +1778,7 @@ Python collections, text files, CSV files, JSON, ...
 An RDD is more suitable to unstructured and 
 semi-structured data (while a DataFrame is more 
 suitable to structured and semi-structured data.
+
 
 ## What are Spark Mappers?
 Spark offers comprehensive mapper functions for RDDs and
@@ -1796,28 +1802,30 @@ Mappers for Spark Dataframes can be handled by two means:
 * Using SQL on a table (a DataFrame can be registred as a table or rows with named columns)
 
 
-## What are Spark Reducers?  
+## What are Spark Reducers? 
+ 
 Spark offers comprehensive reducer functions for RDDs and
 DataFrames.
 
-**Mappers for RDDs:**
+**Reducers for RDDs:**
 
 * `RDD.groupByKey()`
 * `RDD.reduceByKey()`
 * `RDD.combineByKey()`
 * `RDD.aggregateByKey()`
 
-**Mappers for DataFrames:**
+**Reducers for DataFrames:**
 
 Reductions for Spark Dataframes can be handled by two means:
 
 * Using `DataFrame.groupBy()`
-* Using SQL's **GROUP BY** on a table (a DataFrame can be registred as a table or rows with named columns)
+* Using SQL's **GROUP BY** on a table (a DataFrame can 
+  be registred as a table or rows with named columns)
 
 
 ## Difference between Spark's Action and Transformation
-A Spark transformation (such as `map()`, `filter()`, ...)
-applies to a source RDD and creates a target RDD.
+A Spark transformation (such as `map()`, `filter()`, `reduceByKey()`, 
+...) applies to a source RDD and creates a new target RDD.
 While, an action (such as `collect()`, `save()`, ...) 
 applies to a source RDD and creates a non-RDD element (such 
 as a number or another data structure).
@@ -2012,6 +2020,23 @@ rdd2.collect()
 ]
 
 ~~~
+
+
+## Difference of `RDD.groupByKey()` and `RDD.reduceByKey()`
+Both `reduceByKey()` and `groupByKey()` result in wide transformations 
+which means both triggers a shuffle operation. The key difference between 
+`reduceByKey()` and `groupByKey()` is that `reduceByKey()` does a map side 
+combine and `groupByKey()` does not do a map side combine.
+Overall, `reduceByKey()` is optimized with a map side combine. Note that
+the reducer function for the `reduceByKey()` must be associative and commutative.
+
+* `groupByKey: RDD[(K, V)] --> RDD[(K, [V])]`
+![](./images/groupByKey.png)
+
+
+* `reduceByKey: RDD[(K, V)] --> RDD[(K, V)]`
+![](./images/reduceByKey.png)
+
 
 ## What is a DataFrame?
 A DataFrame is a data structure that organizes data into 
@@ -3345,6 +3370,21 @@ program to record events that occur while operational.
 It is the capability of a system to perform the execution 
 of multiple tasks simultaneously (at the same time)
 
+In parallel processing, we take in multiple different 
+forms of information at the same time. This is especially 
+important in vision. For example, when you see a bus 
+coming towards you, you see its color, shape, depth, 
+and motion all at once.
+
+Parallel processing is a method in computing of running 
+two or more processors (CPUs) to handle separate parts 
+of an overall task. Breaking up different parts of a 
+task among multiple processors will help reduce the 
+amount of time to run a program.
+
+For example, Spark uses Resilient Distributed Datasets 
+(RDD) to perform parallel processing across a cluster 
+or computer processors.
 
 ## Server (or node)
 The server is a virtual or physical computer that receives 
@@ -3364,22 +3404,24 @@ presented.  A typical example of an abstraction layer
 is an API (application programming interface) between 
 an application and an operating system. 
 
-For example, Spark offers two types of data abstractions
-(it means that your data can be represented in RDD and
-DataFrame):
+For example, Spark offers three types of data 
+abstractions (it means that your data can be 
+represented in RDD, DataFrame, and Dataset):
 
-* RDD
-* DataFrame
+* **RDD** (supported by PySpark)
+* **DataFrame** (supported by PySpark)
+* Dataset (not supported by PySpark)
+
 
 ## Cloud
-Cloud technology, or The Cloud as it is often referred 
-to, is a network of servers that users access via the 
-internet and the applications and software that run 
-on those servers. Cloud computing has removed the 
-need for companies to manage physical data servers 
-or run software applications on their own devices - 
-meaning that users can now access files from almost 
-any location or device. 
+Cloud technology, or The Cloud as it is often 
+referred to, is a network of servers that users 
+access via the internet and the applications and 
+software that run on those servers. Cloud computing 
+has removed the need for companies to manage physical 
+data servers or run software applications on their 
+own devices - meaning that users can now access files 
+from almost any location or device. 
 
 The cloud is made possible through virtualisation - 
 a technology that mimics a physical server but in 
@@ -3393,21 +3435,49 @@ various sources into a central repository such as
 a data warehouse where it can be stored, accessed, 
 analysed, and used by an organisation.
 
- 
+Common examples of data ingestion include: 
+
+* Move data from DNA laboratory to a data warehouse 
+  then analyze with variant analyzer. 
+* Capture data from a Twitter feed for real-time 
+  sentiment analysis. 
+* Acquire data for training machine learning models 
+  and experimentation.
+
+
 ## Data warehouse
 A centralised repository of information that enterprises 
 can use to support business intelligence (BI) activities 
 such as analytics. Data warehouses typically integrate 
 historical data from various sources.
 
+For big data, these are the data warehouse 
+platforms on the market: 
+
+* Snowflake
+* Google BigQuery
+* Amazon Redshift
+* Amazon Athena
+* Azure Synapse Analytics
+* IBM Db2 Warehouse
+* Firebolt
+
 
 ## Open-source
-Open-source refers to the availability of certain types 
-of code to be used, redistributed and even modified for 
-free by other developers. This decentralised software 
-development model encourages collaboration and peer 
-production.
+Open-source refers to the availability of certain 
+types of code to be used, redistributed and even 
+modified  for  free  by other  developers. This 
+decentralised software development model encourages 
+collaboration and peer production.
 
+The most popular open-source software is from
+[Apache](https://apache.org).
+
+Prime examples of open-source products are:
+
+* Apache HTTP Server
+* Apache Hadoop
+* Apache Spark
 
 ## Relational database
 
@@ -3471,55 +3541,73 @@ There are 3 different types of relations in the database:
   programming language used to access database
   
  
-## How does Hadoop perform input splits?
+## How does Hadoop perform Input Splits?
 
-The Hadoop's `InputFormat<K, V>` is responsible to provide the 
-splits. The `InputFormat<K,V>` describes the input-specification 
-for a Map-Reduce job. The interface `InputFormat`'s full name 
-is  `org.apache.hadoop.mapred.InputFormat<K,V>`.
+The Hadoop's `InputFormat<K, V>` is responsible to 
+provide the input splits. The `InputFormat<K,V>` 
+describes the input-specification for a MapReduce 
+job. The interface `InputFormat`'s full name is  
+`org.apache.hadoop.mapred.InputFormat<K,V>`.
 
-According to Hadoop: the Map-Reduce framework relies on the 
-`InputFormat` of the job to:
+According to Hadoop: the MapReduce framework 
+relies on the `InputFormat` of the job to:
 
 1. Validate the input-specification of the job.
-2. Split-up the input file(s) into logical InputSplits, 
+
+2. Split-up the input file(s) into logical `InputSplit`(s), 
    each of which is then assigned to an individual Mapper.
+   
 3. Provide the `RecordReader` implementation to be used to 
-   glean input records from the logical InputSplit for 
+   glean input records from the logical `InputSplit` for 
    processing by the Mapper.
 
+The [`InputFormat`](https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/mapred/InputFormat.html) interface has 2 functions:
 
-In general, if you have `N` nodes, the HDFS will distribute 
-the input file(s) over all these `N` nodes. If you start a job, 
-there will be `N` mappers by default. The mapper on a machine 
-will process the part of the data that is stored on this node. 
+	// 1. Get the RecordReader for the given InputSplit.
+	RecordReader<K,V>	getRecordReader(InputSplit split, JobConf job, Reporter reporter)
 
-MapReduce/Hadoop data processing is driven by this concept of 
-input splits. The number of input splits that are calculated 
-for a specific application determines the number of mapper tasks.
+	// 2. Logically split the set of input files for the job.
+	InputSplit[]	getSplits(JobConf job, int numSplits)
 
-The number of maps is usually driven by the number of DFS 
-blocks in the input files.  Each of these mapper tasks is 
-assigned, where possible, to a worker node where the input
-split is stored. The Resource Manager does its best to ensure 
-that input splits are processed locally (for optimization
+
+In general, if you have `N` nodes, the HDFS 
+will distribute the input file(s) over all 
+these `N` nodes. If you start a job, there 
+will be `N` mappers by default. The mapper 
+on a machine will process the part of the 
+data that is stored on this node. 
+
+MapReduce/Hadoop data processing is driven 
+by this concept of input splits. The number 
+of input splits that are calculated for a 
+specific application determines the number 
+of mapper tasks.
+
+The number of maps is usually driven by 
+the number of DFS  blocks in  the input 
+files.  Each of these  mapper tasks  is 
+assigned,  where possible, to a  worker 
+node where the input split (`InputSplit`)
+is stored. The Resource Manager does its 
+best to ensure  that input  splits are 
+processed  locally (for  optimization
 purposes).
 
 
-## How does Sort & Shuffle work in MapReduce/Hadoop
+## Sort & Shuffle function in MapReduce/Hadoop
 
 Shuffle phase in Hadoop transfers the map output 
-(in the form of (key, value) pairs) from Mapper 
+(in the form of `(key, value)` pairs) from Mapper 
 to a Reducer in MapReduce. Sort phase in MapReduce 
 covers the merging and sorting of mappers outputs. 
-Data from the mapper are grouped by the key, split 
+Data from the mapper are grouped by the `key`, split 
 among reducers and sorted by the key. Every reducer 
-obtains all values associated with the same key.
+obtains all values associated with the same `key`.
 
 For example, if there were 3 input chunks/splits,
 (and each chunk go to a different server) then 
-mappers create (key, value) pairs per split
-(i call them partitions), consider all of the 
+mappers create `(key, value)` pairs per split
+(also called partitions), consider all of the 
 output from all of the mappers:
 
 
@@ -3540,12 +3628,24 @@ Then the output of Sort & Shuffle phase will be
 		
 Output of Sort & Shuffle phase will be input to reducers.
 
+Therefore, Sort & Shuffle creates its outputs in the 
+following form: 
+
+	(key, [v_1, v_2, ..., v_n])
+	
+where all mappers have created:
+
+	(key, v_1),
+	(key, v_2),
+	...
+	(key, v_n)
+	
 
 ## NoSQL Database
 NoSQL databases (aka "not only SQL") are non-tabular 
 databases and store data differently than relational 
 tables. NoSQL databases come in a variety of types.
-Rdis, HBase, CouchDB and ongoDB, ... are examples 
+Redis, HBase, CouchDB and MongoDB, ... are examples 
 of NoSQL databases.
 
 		
