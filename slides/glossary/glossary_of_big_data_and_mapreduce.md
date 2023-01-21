@@ -115,7 +115,9 @@ time) to reduce the overall data processing time.
 
 
 ## Aggregation
+
 * A process of searching, gathering and presenting data.
+
 * Data aggregation refers to the process of collecting data 
   and presenting it in a summarised format. The data can be 
   gathered from multiple sources to be combined for a summary.
@@ -133,6 +135,10 @@ for the purpose of reporting and/or analysis.
 * For example, find average age of customer by product
 * For example, find median rating for movies rated last year
 
+What is Data Aggregation? Data aggregators summarize 
+data from multiple data sources. They provide capabilities 
+for multiple aggregate measurements, such as sum, median, 
+average and counting.
 
 
 ## Analytics 
@@ -141,6 +147,11 @@ for the purpose of reporting and/or analysis.
 * For example, given a graph, find (identify) all of the triangles
 * For example, given a DNA data, find genes, which are assocaited 
   with each other
+
+What is Data Analytics? Data analytics helps 
+individuals and organizations make sense of 
+data. Data analysts typically analyze raw data 
+for insights, patterns, and trends.
 
 
 ## Anonymization 
@@ -151,11 +162,16 @@ for the purpose of reporting and/or analysis.
 * For example, replacing patient name with fake ID.
 
 
+
 ## API
-* An Application Programming Interface is a set of function definitions, 
-protocols, and tools for building application software
+* An Application Programming Interface (API) is a set of 
+function definitions, protocols, and tools for building 
+application software.
+
 * For example, MapReduce paradigm provides `map()` and `reduce()` functions
+
 * For example, Apache Spark provides 
+	* RDDs and DataFrames as Data Abstractions
 	* `map()`, `flatMap()`, `filter()` and `mapPartitions()` transformations
 	* reducers: `groupByKey()`, `reduceByKey()`, `combineByKey()`
 
@@ -185,7 +201,9 @@ protocols, and tools for building application software
  
 
 ## Behavioural Analytics 
-* It is a kind of analytics that informs about the how, why and what instead of just the who and when. It looks at humanized patterns in the data
+Behavioural Analytics is a kind of analytics that informs 
+about the how, why and what instead of just the who and 
+when. It looks at humanized patterns in the data.
 
 
 ## Big Data 
@@ -234,13 +252,43 @@ The use of data and technology to identify people by one or more
 of their physical traits (for example, face recognition)
 
 
-## Data modelling 
+## Data Modelling 
 The analysis of data sets using data modelling techniques to 
 create insights from the data: 
 
 * data summarization, 
 * data aggregation, 
 * joining data
+
+There are 5 different types of data models:
+
+* **Hierarchical Data Model**:  A hierarchical data model 
+  is a structure for organizing data into a tree-like hierarchy, 
+  otherwise known as a parent-child relationship. 
+
+* **Relational Data Model**: relational model represents the 
+  database as a collection of relations. A relation is nothing 
+  but a table of values (or rows and columns).
+
+* **Entity-relationship (ER) Data Model**: an entity relationship 
+  diagram (ERD), also known as an entity relationship model, is a 
+  graphical representation that depicts relationships among people, 
+  objects, places, concepts or events within an information 
+  technology (IT) system.
+
+* **Object-oriented Data Model**: the Object-Oriented Model in 
+  DBMS or OODM is the data model where data is stored in the 
+  form of objects. This model is used to represent real-world 
+  entities. The data and data relationship is stored together 
+  in a single entity known as an object in the Object Oriented 
+  Model.
+
+* **Dimensional Data Model**: Dimensional Modeling (DM) is a data 
+  structure technique optimized for data storage in a Data warehouse. 
+  The purpose of dimensional modeling is to optimize the database for 
+  faster retrieval of data. The concept of Dimensional Modelling was 
+  developed by Ralph Kimball and consists of “fact” and “dimension” 
+  tables.
 
 
 ## Design Patterns
@@ -253,6 +301,11 @@ into three categories:
 * Creational Design Pattern
 * Structural Design Pattern
 * Behavioral Design Pattern
+
+Gang of Four (Erich Gamma, Richard Helm, Ralph Johnson, 
+and John Vlissides) Design Patterns is the collection of 23 
+design patterns from the book [Design Patterns: Elements 
+of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_1).
 
 What are **data design patterns**? Data Design 
 Pattern is a general repeatable solution to a 
@@ -385,8 +438,12 @@ data types.
 		names = ("n1", "n2", "n3") # immutable
 		names = ["n1", "n2", "n3"] # mutable
 
+In Java and Python, custom composite data types can 
+be created by the concept of "class" and objects are
+created by instantiation of the class objects.
 
-## Hadoop 
+
+## Apache Hadoop 
 [Hadoop](https://hadoop.apache.org) is an open-source 
 framework that is built to enable the process and 
 storage of big data across a distributed file system. 
@@ -396,8 +453,9 @@ does not take advantage of in-memory computing. Hadoop
 runs a computing cluster.
 
 Hadoop takes care of running your MapReduce code 
-across a cluster of machines. Its responsibilities 
-include chunking up the input data, sending it to 
+(by `map() first, then reduce()` logic) across a 
+cluster of machines. Its responsibilities include 
+chunking up the input data, sending it to 
 each machine, running your code on each chunk, 
 checking that the code ran, passing any results 
 either on to further processing stages or to the 
@@ -409,7 +467,9 @@ on each job’s progress, among other things.
 
 Hadoop provides:
 
-* MapReduce: you can run MapReduce jobs
+* MapReduce: you can run MapReduce jobs by implementing
+  `map() first, then reduce()` functions.
+  
 * HDFS: Hadoop Distributed File System
 
 
@@ -429,6 +489,8 @@ Speed         |	Writes are Fast	| Reads are Fast
 Data Updates  | Write once, Read many times | Read/Write many times
 Data Access   | Batch | Interactive and Batch
 Data Size     | Tera bytes to Peta bytes | Giga bytes to Tera bytes
+Development   | Time consuming and complex  | Simple
+API           | Low level (by  `map()` and `reduce()`) functions | SQL and extensive
 
 
 ## Replication Factor (RF)
@@ -441,6 +503,11 @@ retrieved. A replication factor of 2 means two
 copies of each row, where each  copy  is  on a 
 different node. All replicas are equally important; 
 there is no primary or master replica.
+
+Given a cluster of `N+1` nodes (a master and `N` 
+worker nodes), if data replication factotr is `R`, 
+then  `(R - 1)` nodes can safely fail without impacting 
+any running job in the cluster.
 
 
 ## What makes Hadoop Fault tolerant?
@@ -469,22 +536,75 @@ Data comes in many varied formats:
 
 * Avro
 	* Avro stores the data definition in JSON format making it easy to read and interpret
+
 * Parquet
 	* Parquet is an open source, binary, column-oriented data file format designed for efficient data storage and retrieval	
 * ORC
 	* The Optimized Row Columnar (ORC) file format provides a highly efficient way to store Hive data.
+
 * Text files (log data, CSV, ...)
+
 * XML
+
 * JSON
+
 * ...
 
+
 ## Parquet Files
-A columnar file format that supports block level compression 
-and is optimized for query performance as it allows selection 
-of 10 or less columns from from 50+ columns records.
+[Apache Parquet](https://parquet.apache.org) is a columnar 
+file format that supports block level compression and is 
+optimized for query performance as it allows selection of 
+10 or less columns from from 50+ columns records.
 
 Apache Spark can read/write from/to Parquet data format. 
 
+Parquet is a columnar open source storage format that can 
+efficiently store nested data which is widely used in 
+Hadoop and Spark.
+
+**Characteristics of Parquet:**
+
+* Free and open source file format.
+* Language agnostic.
+* Column-based format - files are organized by column, 
+  rather than by row, which saves storage space and 
+  speeds up analytics queries.
+* Used for analytics (OLAP) use cases, typically in 
+  conjunction with traditional OLTP databases.
+* Highly efficient data compression and decompression.
+* Supports complex data types and advanced nested 
+  data structures.
+
+**Benefits of Parquet:**
+
+* Good for storing big data of any kind (structured 
+  data tables, images, videos, documents).
+* Saves on cloud storage space by using highly efficient 
+  column-wise compression, and flexible encoding schemes 
+  for columns with different data types.
+* Increased data throughput and performance using techniques 
+  like data skipping, whereby queries that fetch specific 
+  column values need not read the entire row of data.
+
+
+![](images/file_formats.png)
+
+
+
+## Columnar vs. Row Oriented Databases
+Columnar databases have become the popular choice 
+for storing analytical data workloads. In a nutshell,
+Column oriented databases, store all values from 
+each column together whereas row oriented databases 
+store all the values in a row together. 
+
+If you need to read MANY rows but only a FEW columns, 
+then Column-Oriented databases are the way to go. If 
+you need to read a FEW rows but MANY columns then row 
+oriented databases are better suited. 
+
+![](./images/row_vs_columnar_representation.png)
 
 ## Tez
 [Apache Tez](https://tez.apache.org) (which implements 
@@ -500,9 +620,20 @@ directed-acyclic-graph (DAG) of tasks for processing
 data. It is currently built atop Apache Hadoop YARN.
 
 
-## HBase 
-[HBase](https://hbase.apache.org) is n open source, non-relational, 
-distributed database running in conjunction with Hadoop
+## Apache HBase 
+
+[Apache HBase](https://hbase.apache.org) is n open source, 
+non-relational, distributed database running in conjunction 
+with Hadoop.  HBase can support billions of data points.
+
+**Features of HBase:**
+
+* HBase is linearly scalable.
+* It has automatic failure support.
+* It provides consistent read and writes.
+* It integrates with Hadoop, both as a source and a destination.
+* It has easy Java API for client.
+* It provides data replication across clusters.
 
 
 ## HDFS
@@ -3369,3 +3500,11 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 21. [How Data Partitioning in Spark helps achieve more parallelism?](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
 
 22. [Apache Spark Officially Sets a New Record in Large-Scale Sorting](https://www.databricks.com/blog/2014/11/05/spark-officially-sets-a-new-record-in-large-scale-sorting.html)
+
+23. [Understanding Parquet and its Optimization Opportunities](https://karthiksharma1227.medium.com/understanding-parquet-and-its-optimization-opportunities-c7265a360391)
+
+24. [Columnar Vs. Row Oriented Databases - The Basics](https://www.linkedin.com/pulse/columnar-vs-row-oriented-databases-basics-2-min-read-faraz-khan/)
+
+25. [What is Parquet by Databricks](https://www.databricks.com/glossary/what-is-parquet)
+
+26. [Spark File Format Showdown – CSV vs JSON vs Parquet by Garren Staubli](https://www.linkedin.com/pulse/spark-file-format-showdown-csv-vs-json-parquet-garren-staubli/)
