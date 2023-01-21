@@ -1774,6 +1774,60 @@ An RDD is more suitable to unstructured and
 semi-structured data (while a DataFrame is more 
 suitable to structured and semi-structured data.
 
+## What are Spark Mappers?
+Spark offers comprehensive mapper functions for RDDs and
+DataFrames.
+
+**Mappers for RDDs:**
+
+* `RDD.map()`
+	* 1-to-1 mapping 
+* `RDD.flatMap()`
+	* 1-to-many mapping 
+* `RDD.mapPartitions()`
+	* many-to-1 mapping
+
+
+**Mappers for DataFrames:**
+
+Mappers for Spark Dataframes can be handled by two means:
+
+* Using direct DataFrame's API
+* Using SQL on a table (a DataFrame can be registred as a table or rows with named columns)
+
+
+## What are Spark Reducers?  
+Spark offers comprehensive reducer functions for RDDs and
+DataFrames.
+
+**Mappers for RDDs:**
+
+* `RDD.groupByKey()`
+* `RDD.reduceByKey()`
+* `RDD.combineByKey()`
+* `RDD.aggregateByKey()`
+
+**Mappers for DataFrames:**
+
+Reductions for Spark Dataframes can be handled by two means:
+
+* Using `DataFrame.groupBy()`
+* Using SQL's **GROUP BY** on a table (a DataFrame can be registred as a table or rows with named columns)
+
+
+## Difference between Spark's Action and Transformation
+A Spark transformation (such as `map()`, `filter()`, ...)
+applies to a source RDD and creates a target RDD.
+While, an action (such as `collect()`, `save()`, ...) 
+applies to a source RDD and creates a non-RDD element (such 
+as a number or another data structure).
+
+In Spark, if a function returns a DataFrame, Dataset, or RDD, 
+it is a transformation. If it returns anything else or does not 
+return a value at all (or returns Unit in the case of Scala API), 
+it is an action.
+
+
 ## What is Lineage In Spark?
 Spark RDDs are immutable (READ-ONLY) distributed collection 
 of elements of your data that can be stored in memory or 
@@ -3070,6 +3124,30 @@ A programming language for retrieving data from a relational
 database. Also, SQL is used to retrieve data from big data by 
 translating query into mappers, filters, and reducers.  
 
+SQL is a standard language for accessing and manipulating 
+databases (relational and non-relational).
+
+**What is SQL?**
+
+* SQL stands for Structured Query Language
+* SQL lets you access and manipulate databases
+* SQL became a standard of the American National Standards 
+  Institute (ANSI) in 1986, and of the International 
+  Organization for Standardization (ISO) in 1987
+
+**What Can SQL do?**
+
+* SQL can execute queries against a database
+* SQL can retrieve data from a database
+* SQL can insert records in a database
+* SQL can update records in a database
+* SQL can delete records from a database
+* SQL can create new databases
+* SQL can create new tables in a database
+* SQL can create stored procedures in a database
+* SQL can create views in a database
+* SQL can set permissions on tables, procedures, and views
+
 
 ## Time series analysis
 Analysing well-defined data obtained through repeated measurements 
@@ -3082,17 +3160,29 @@ It means that the meaning of the data can change (rapidly).
 In (almost) the same tweets for example a word can have a 
 totally different meaning
 
+
+## What are the 4 Vs of Big Data?
+
+* Volume
+* Velocity
+* Variety
+* Veracity
+
+
 ## Variety
 Data today comes in many different formats: structured data, 
 semi-structured data, unstructured data and even complex 
 structured data
 
+
 ## Velocity
 The speed at which the data is created, stored, analysed and visualized
+
 
 ## Veracity
 Ensuring that the data is correct as well as the analyses 
 performed on the data are correct.
+
 
 ## Volume
 The amount of data, ranging from megabytes to gigabytes to petabytes to ...
@@ -3350,26 +3440,33 @@ There are 3 different types of relations in the database:
 * one-to-many
 * many-to-many
 
+
 ## RDBMS
 
 * RDBMS stands for Relational DataBase Management System.
-  The following are examples of RDBMS:
+  The following are examples of system, which implement RDBMS:
 	* Oracle database
 	* MySQL
 	* MariaDB
 	* PostgreSQL
 	* Microsoft SQL Server
+	
 * It is a database, which stores data in a structured
   format using rows and columns
+  
 * RDBMS is a multi-tenant and can manage many databases,
   where each database may have many tables
+  
 * RDBMS is built in such a way to respond to SQL queries in 
   seconds
+  
 * With RDBMS, you can create databases, and within a 
   database, you can create tables, which you may 
   insert/update/delete/query records 
+  
 * The relational structure makes it possible to run queries
   against many tables
+  
 * SQL (structured query langiage) is the standard 
   programming language used to access database
   
@@ -3420,7 +3517,8 @@ among reducers and sorted by the key. Every reducer
 obtains all values associated with the same key.
 
 For example, if there were 3 input chunks/splits,
-then mappers create (key, value) pairs per split
+(and each chunk go to a different server) then 
+mappers create (key, value) pairs per split
 (i call them partitions), consider all of the 
 output from all of the mappers:
 
@@ -3430,24 +3528,26 @@ output from all of the mappers:
 		(A, 3)       (B, 6)       (C, 20)
 		(B, 4)       (C, 10)      (C, 30)
 		(B, 7)       (D, 50)
-
+      (A, 100)
+      
 Then the output of Sort & Shuffle phase will be 
 (note that the values of keys are not sorted):
 
-		(A, [1, 3, 9, 5])
+		(A, [1, 3, 9, 5, 100])
 		(B, [4, 7, 6])
 		(C, [10, 20, 30])
 		(D, [50])
 		
 Output of Sort & Shuffle phase will be input to reducers.
 
-## NoSQL Database
 
+## NoSQL Database
 NoSQL databases (aka "not only SQL") are non-tabular 
 databases and store data differently than relational 
 tables. NoSQL databases come in a variety of types.
 Rdis, HBase, CouchDB and ongoDB, ... are examples 
 of NoSQL databases.
+
 		
 ## References
 
@@ -3508,3 +3608,8 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 25. [What is Parquet by Databricks](https://www.databricks.com/glossary/what-is-parquet)
 
 26. [Spark File Format Showdown – CSV vs JSON vs Parquet by Garren Staubli](https://www.linkedin.com/pulse/spark-file-format-showdown-csv-vs-json-parquet-garren-staubli/)
+
+27. [Introduction to SQL](https://www.w3schools.com/sql/sql_intro.asp)
+
+28. [What are the 4 Vs of Big Data? by Bernard Marr](https://bernardmarr.com/what-are-the-4-vs-of-big-data/)
+
