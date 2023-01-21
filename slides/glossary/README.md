@@ -1,4 +1,4 @@
-# Glossary of Big Data Terms, MapReduce, Spark
+# Glossary of Big Data, MapReduce, Spark
 
 	Compiled by: Mahmoud Parsian
 
