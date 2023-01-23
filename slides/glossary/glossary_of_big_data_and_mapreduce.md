@@ -2,7 +2,7 @@
 
 	Compiled by: Mahmoud Parsian
 
-	Last updated: 1/21/2023
+	Last updated: 1/22/2023
 	
 This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course) at [Santa Clara University](https://www.scu.edu).
@@ -171,12 +171,17 @@ for insights, patterns, and trends.
 function definitions, protocols, and tools for building 
 application software.
 
-* For example, MapReduce paradigm provides `map()` and `reduce()` functions
+* For example, MapReduce paradigm provides the following functions
+	* mapper: `map()`
+	* reducer: `reduce()`
+	* combiner: `combine()` [optional]
 
 * For example, Apache Spark provides 
 	* RDDs and DataFrames as Data Abstractions
-	* `map()`, `flatMap()`, `filter()` and `mapPartitions()` transformations
+	* mappers: `map()`, `flatMap()`,  `mapPartitions()` 
+	* filters: `filter()`
 	* reducers: `groupByKey()`, `reduceByKey()`, `combineByKey()`
+	* SQL access to DataFrames
 
 
 ## Application 
@@ -230,6 +235,29 @@ Big data solutions may have many components (to mention some):
 * Relational database systems 
 * ...
 
+
+## Big Data Modeling
+What is Big Data Modeling? Data modeling is the method of 
+constructing a specification for the storage of data in a 
+database. It is a theoretical representation of data objects 
+and relationships between them. The process of formulating 
+data in a structured format in an information system is known 
+as data modeling.
+
+In a practical sense, Big Data Modeling involves:
+
+* **Queries**: understand queries and algorithms, which 
+  needs to be implemented using big data
+* **Formalizing Queries**: understaning queries for big data 
+  (how big data will be accessed, what are the parameters to 
+  these queries): this is a very important step to understand 
+  queries before designing proper data model
+* **Data Model**: once queries are understood, then design a 
+  data model, which optimally satisfies queries
+* **ETL Processes**: design and implement ETL processes to 
+  build big data in a suitable format and environment
+* **Scalability**: scalability needs to be understood and 
+  addressed at every level
 
 
 ## Big Data Platforms/Solutions
