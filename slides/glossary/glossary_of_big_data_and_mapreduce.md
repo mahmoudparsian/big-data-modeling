@@ -16,7 +16,10 @@ Big data is a vast and complex field that is
 constantly evolving, and for that reason, it’s 
 important to understand the basic common terms 
 and the more technical vocabulary so that your 
-understanding can evolve with it. 
+understanding can evolve with it. The intention 
+is to put these definitions and concepts in one 
+single place for ease of exploring, searching 
+and learning.
 
 Big data environment involves many tools and technologies:
 
@@ -25,13 +28,15 @@ Big data environment involves many tools and technologies:
 * ETL processes to analyze prepare data for Query engine
 * Relational database systems
 * Query engines such as Amazon Athena, Google BigQuery, Snowflake
-* + much more...
+* much more...
 
 The purpose of this glossary is to shed some 
 light on the fundamental definitions of big 
 data and MapReduce, and Spark. This document 
 is a list of terms, words, and concepts found 
 in or relating to big data, MapReduce, and Spark.
+
+
 
 
 
