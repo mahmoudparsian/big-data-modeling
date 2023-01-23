@@ -60,6 +60,9 @@ language such as Python, Java, SQL, ...
 In big data world, an algorithm can be implemented using 
 a compute engine such as MapReduce and Spark.
 
+
+![](./images/algorithm.png)
+
 In The Art of Computer Programming, a famous computer scientist, 
 [Donald E. Knuth](https://www-cs-faculty.stanford.edu/~knuth/), 
 defines an algorithm as a set of steps, or rules, with five 
