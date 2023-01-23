@@ -151,16 +151,22 @@ average and counting.
 
 
 ## Analytics 
-* The discovery of insights in data, find interesting 
-  patterns in data
-* For example, given a graph, find (identify) all of the triangles
-* For example, given a DNA data, find genes, which are assocaited 
-  with each other
+* The discovery of insights in data, find 
+  interesting patterns in data
+* For example, given a graph, find (identify) 
+  all of the triangles
+* For example, given a DNA data, find genes, 
+  which are assocaited with each other
 
 What is Data Analytics? Data analytics helps 
 individuals and organizations make sense of 
 data. Data analysts typically analyze raw data 
 for insights, patterns, and trends.
+
+According to NIST: "analytics is the systematic processing 
+and manipulation of data to uncover patterns, relationships 
+between data, historical trends and attempts at predictions 
+of future behaviors and events."
 
 
 ## Data Lake
@@ -183,6 +189,50 @@ information from data. Data science typically involves
 the use of statistics, data visualization and mining, 
 computer programming, machine learning and database 
 engineering to solve complex problems.
+
+Data science is the methodology for the synthesis of 
+useful knowledge directly from data through a process 
+of discovery or of hypothesis formulation and hypothesis 
+testing.  Data science is tightly linked to the analysis 
+of Big Data, and refers to the management and execution 
+of the end-to-end data processes, including the behaviors 
+of the components of the data system. As such, data science 
+includes all of analytics as a step in the process. Data 
+science contains different approaches to leveraging data 
+to solve mission needs. While the term data science can be 
+understood as the activities in any analytics pipeline that 
+produces knowledge from data, the term is typically used in 
+the context of Big Data.
+
+## Data Science Process
+
+According to 
+[NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf), 
+Data Science is focused on the end-to-end 
+data processing life cycle of Big Data and related activities. 
+The data science life cycle encompasses the data analytics 
+life cycle (as described below) plus many more activities 
+including policy and regulation, governance, operations, data 
+security, master data management, meta-data management, and 
+retention/destruction. The data analytics life cycle is focused 
+on the processing of Big Data, from data capture to use of the 
+analysis.  The data analytics life cycle is the set of processes 
+that is guided by the organizational need to transform raw data 
+into actionable knowledge, which includes data collection,
+preparation, analytics, visualization, and access.
+
+The end-to-end data science life cycle consists of five 
+fundamental steps:
+
+1. **Capture**: gathering and storing data, typically in its original form (i.e., raw data);
+
+2. **Preparation**: processes that convert raw data into cleaned, organized information;
+
+3. **Analysis**: techniques that produce synthesized knowledge from organized information;
+
+4. **Visualization**: presentation of data or analytic results in a way that communicates to others;
+
+5. **Action**: processes that use the synthesized knowledge to generate value for the enterprise.
 
 
 ## Anonymization 
@@ -243,13 +293,19 @@ when. It looks at humanized patterns in the data.
 
 
 ## Big Data 
-Big data is an umbrella term for any collection of data sets 
-so large or complex that it becomes difficult to process them 
-using traditional data-processing applications.  In a nutshell, 
-big data refers to data that is so large, fast or complex that 
-it's difficult or impossible to process using traditional methods. 
-Also, big data deals with accessing and storing large amounts of 
-information for analytics. 
+Big Data consists of extensive datasets  primarily in 
+the characteristics of volume, velocity, variety, and/or 
+variability  that require a scalable architecture for 
+efficient storage, manipulation, and analysis.
+
+Big data is an umbrella term for any collection of data 
+sets so large or complex that it becomes difficult to 
+process them using traditional data-processing applications.  
+In a nutshell, big data refers to data that is so large, 
+fast or complex that it's difficult or impossible to process 
+using traditional methods.  Also, big data deals with 
+accessing and storing large amounts of information for 
+analytics. 
 
 So, what is Big Data? Big Data is a large data set with 
 increasing volume, variety and velocity. 
@@ -262,6 +318,11 @@ Big data solutions may have many components (to mention some):
 * ETL Support
 * Relational database systems 
 * ...
+
+
+## Big Data engineering 
+Big Data engineering is the discipline for engineering 
+scalable systems for data-intensive processing.
 
 
 ## Big Data Modeling
@@ -697,6 +758,19 @@ with Hadoop.  HBase can support billions of data points.
 * It provides data replication across clusters.
 
 
+## Google Bigtable
+According to Google: 
+[Google Bigtable](https://cloud.google.com/bigtable) 
+is an HBase-compatible, enterprise-grade NoSQL database 
+service with single-digit millisecond latency, limitless 
+scale, and 99.999% availability for large analytical 
+and operational workloads.
+
+Bigtable is a fully managed wide-column and key-value 
+NoSQL database service for large analytical and operational 
+workloads as part of the Google Cloud portfolio.
+
+
 ## HDFS
 HDFS (Hadoop Distributed File System) is a distributed file 
 system designed to run on commodity hardware. You can place 
@@ -706,7 +780,8 @@ files in place.
 
 **Features of HDFS:**
 
-* Data replication. This is used to ensure that the data is always available and prevents data loss
+* Data replication. This is used to ensure that the data 
+  is always available and prevents data loss
 * Fault tolerance and reliability
 * High availability
 * Scalability
@@ -824,13 +899,19 @@ and disaster recovery purposes.
 
 
 ## Fault Tolerance and Data Replication. 
-HDFS is designed to reliably store very large files across 
-machines in a large cluster. It stores each file as a sequence 
-of blocks; all blocks in a file except the last block are the 
-same size. The blocks of a file are replicated for fault tolerance.
+Fault-tolerance is the ability of a system to 
+continue to run when a component of the system 
+(such as a server node, disk, ...) fails. 
 
-Block size can be configured. For example, let block size to be 
-512MB. Now, let's place a file (sample.txt) of 1800MB in HDFS:
+HDFS is designed to reliably store very large files 
+across machines in a large cluster. It stores each 
+file as a sequence of blocks; all blocks in a file 
+except the last block are the same size. The blocks 
+of a file are replicated for fault tolerance.
+
+Block size can be configured. For example, let block 
+size to be 512MB. Now, let's place a file (sample.txt) 
+of 1800MB in HDFS:
 
 	1800MB = 512MB (Block-1) + 512MB (Block-2) + 512MB (Block-3) + 264MB (Block-4)
 	Lets denote 
@@ -1981,6 +2062,24 @@ Reductions for Spark Dataframes can be handled by two means:
 * Using SQL's **GROUP BY** on a table (a DataFrame can 
   be registred as a table or rows with named columns)
 
+## Data Structure
+In computer science, a data structure is a data organization, 
+management, and storage format that is usually chosen for 
+efficient access to data.
+
+There are numerous types of data structures, generally built 
+upon simpler primitive data types. Well known examples are:
+
+* Array
+* Linked List
+* Record
+* Tuples
+* Hash tables
+* Graphs 
+* Tables
+* Tree
+* Binary tree
+
 
 ## Difference between Spark's Action and Transformation
 A Spark transformation (such as `map()`, `filter()`, `reduceByKey()`, 
@@ -2958,6 +3057,9 @@ input, search and manipulate structured data. In structured data,
 each record has a precise record format. Structured data is 
 identifiable as it is organized in structure like rows and columns.
 
+Structured data is data that has a predefined data model or 
+is organized in a predefined way.
+
 
 ## Unstructured data
 n the modern world of big data, unstructured data is the most 
@@ -2971,6 +3073,9 @@ data models. It might be human generated, or machine
 generated in a textual or a non-textual format. 
 Unstructured data is regarded as data that is in general 
 text heavy, but may also contain dates, numbers and facts.
+
+Unstructured data is data that does not have a predefined 
+data model or is not organized in a predefined way. 
 
 
 ## Correlation analysis
@@ -3367,10 +3472,10 @@ totally different meaning
 
 ## What are the 4 Vs of Big Data?
 
-* Volume
-* Velocity
-* Variety
-* Veracity
+* Volume (i.e., the size of the dataset)
+* Velocity (i.e., rate of flow)
+* Variety (i.e., data from multiple repositories, domains, or types)
+* Veracity (i.e., refers to the accuracy of the data)
 
 
 ## Variety
@@ -3420,6 +3525,12 @@ Cloud Computing provides IT resources such as Infrastructure,
 software, platform, database, storage and so on as services. 
 Flexible scaling, rapid elasticity, resource pooling, on-demand 
 self-service are some of its services.
+
+
+## Distributed computing
+Distributed computing is a computing system in which components 
+located on networked computers communicate and coordinate their 
+actions by passing messages.
 
 
 ## Clustering analysis
@@ -3897,4 +4008,6 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 27. [Introduction to SQL](https://www.w3schools.com/sql/sql_intro.asp)
 
 28. [What are the 4 Vs of Big Data? by Bernard Marr](https://bernardmarr.com/what-are-the-4-vs-of-big-data/)
+
+29. [NIST Big Data Interoperability Framework: Volume 1, Definitions](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf)
 
