@@ -3,7 +3,7 @@
 * This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course) at [Santa Clara University](https://www.scu.edu).
 
-* Compiled and edited by: [Mahmoud Parsian](~/bio/mahmoud_parsian_scu_bio.md)
+* Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
 * Last updated: 1/22/2023
 	
