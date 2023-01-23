@@ -1,7 +1,7 @@
 # Glossary of Big Data, MapReduce, Spark
 
 * This glossary is written for my students taking 
-[Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course) at [Santa Clara University](https://www.scu.edu).
+[Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course/) at [Santa Clara University](https://www.scu.edu).
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
@@ -38,11 +38,13 @@ in or relating to big data, MapReduce, and Spark.
 
 
 
-
-
 ## Algorithm 
-* A mathematical formula that can perform certain analyses 
-  on data
+
+[Mohammed Ibn Musa-al-Khwarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) was a Persian mathematician 
+and creator of the term: **algorithm**.
+
+* An algorithm is a mathematical formula that can perform 
+  certain analyses on data
 * An algorithm is a procedure used for solving a problem or 
   performing a computation. 
 * An algorithm is a set of well-defined steps to solve a problem
@@ -76,16 +78,18 @@ a finite number of steps.
 
 
 ## Distributed algorithm
-A distributed algorithm is an algorithm designed to run on 
-computer hardware constructed from interconnected processors. 
-Distributed algorithms are used in different application areas 
-of distributed computing, such as DNA analysis, telecommunications, 
-scientific computing, distributed information processing, and 
-real-time process control. Standard problems solved by distributed 
-algorithms include leader election, consensus, distributed search, 
-spanning tree generation, mutual exclusion, finding association 
-of genes in DNA, and resource allocation. Distributed algorithms
-run in parallel/concurrent environments. 
+A distributed algorithm is an algorithm designed to run 
+on computer hardware constructed from interconnected 
+processors. Distributed algorithms are used in different 
+application areas  of  distributed  computing, such  as  
+DNA  analysis, telecommunications, scientific computing, 
+distributed information processing, and real-time process 
+control. Standard problems solved by distributed algorithms 
+include leader election, consensus, distributed search, 
+spanning tree generation, mutual exclusion, finding 
+association of genes in DNA, and resource allocation. 
+Distributed algorithms run in parallel/concurrent 
+environments. 
 
 In implementing distributed algorithms, you have to make 
 sure that your aggregations and reductions are semantically
@@ -163,10 +167,11 @@ individuals and organizations make sense of
 data. Data analysts typically analyze raw data 
 for insights, patterns, and trends.
 
-According to NIST: "analytics is the systematic processing 
-and manipulation of data to uncover patterns, relationships 
-between data, historical trends and attempts at predictions 
-of future behaviors and events."
+According to NIST: "analytics is the systematic 
+processing and manipulation of data to uncover 
+patterns, relationships between data, historical 
+trends and attempts at predictions of future 
+behaviors and events."
 
 
 ## Data Lake
@@ -183,29 +188,31 @@ lake to retrieve any relevant, supporting data.
 
 
 ## Data Science
-Data Science is the field of applying advanced analytics 
-techniques and scientific principles to extract valuable 
-information from data. Data science typically involves 
-the use of statistics, data visualization and mining, 
-computer programming, machine learning and database 
-engineering to solve complex problems.
+Data Science is the field of applying advanced 
+analytics techniques and scientific principles 
+to extract valuable information from data. Data 
+science typically involves the use of statistics, 
+data visualization and mining, computer programming, 
+machine learning and database engineering to solve 
+complex problems.
 
-Data science is the methodology for the synthesis of 
-useful knowledge directly from data through a process 
-of discovery or of hypothesis formulation and hypothesis 
-testing.  Data science is tightly linked to the analysis 
-of Big Data, and refers to the management and execution 
-of the end-to-end data processes, including the behaviors 
-of the components of the data system. As such, data science 
-includes all of analytics as a step in the process. Data 
-science contains different approaches to leveraging data 
-to solve mission needs. While the term data science can be 
-understood as the activities in any analytics pipeline that 
-produces knowledge from data, the term is typically used in 
-the context of Big Data.
+Data science is the methodology for the synthesis 
+of useful knowledge directly from data through a 
+process of discovery or of hypothesis formulation 
+and hypothesis testing.  Data science is tightly 
+linked to the analysis of Big Data, and refers to 
+the management and execution of the end-to-end data 
+processes, including the behaviors of the components 
+of the data system. As such, data science includes 
+all of analytics as a step in the process. Data 
+science contains different approaches to leveraging 
+data to solve mission needs. While the term data 
+science can be understood as the activities in any 
+analytics pipeline that produces knowledge from data, 
+the term is typically used in the context of Big Data.
+
 
 ## Data Science Process
-
 According to 
 [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf), 
 Data Science is focused on the end-to-end 
@@ -247,7 +254,9 @@ fundamental steps:
 ## API
 * An Application Programming Interface (API) is a set of 
 function definitions, protocols, and tools for building 
-application software.
+application software. What Are APIs Used For? APIs are 
+used to abstract the complexity of back-end logic in a 
+variety of software systems.
 
 * For example, MapReduce paradigm provides the following functions
 	* mapper: `map()`
@@ -261,6 +270,10 @@ application software.
 	* reducers: `groupByKey()`, `reduceByKey()`, `combineByKey()`
 	* SQL access to DataFrames
 
+* For example, Google Maps API: The Google Maps API gives 
+  users the privilege of nearly limitless geographic aptitude 
+  at their fingertips. Search nearby restaurants, niche shops, 
+  and whatever else is in relative distance to your location.
 
 ## Application 
 * A computer software that enables a computer to perform a certain task
