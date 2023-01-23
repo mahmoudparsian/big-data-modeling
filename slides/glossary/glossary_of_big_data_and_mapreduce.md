@@ -309,9 +309,9 @@ when. It looks at humanized patterns in the data.
 
 
 ## Big Data 
-Big Data consists of extensive datasets  primarily in 
+Big Data consists of extensive datasets -- primarily in 
 the characteristics of volume, velocity, variety, and/or 
-variability  that require a scalable architecture for 
+variability -- that require a scalable architecture for 
 efficient storage, manipulation, and analysis.
 
 Big data is an umbrella term for any collection of data 
