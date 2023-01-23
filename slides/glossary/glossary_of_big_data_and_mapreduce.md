@@ -3,7 +3,7 @@
 * This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course) at [Santa Clara University](https://www.scu.edu).
 
-* Compiled by: Mahmoud Parsian
+* Compiled and edited by: Mahmoud Parsian
 
 * Last updated: 1/22/2023
 	
@@ -161,6 +161,28 @@ What is Data Analytics? Data analytics helps
 individuals and organizations make sense of 
 data. Data analysts typically analyze raw data 
 for insights, patterns, and trends.
+
+
+## Data Lake
+A data lake is a centralized repository that allows you 
+to store all your structured and unstructured data at 
+any scale.
+
+A storage repository that holds a vast amount of raw 
+data in its native format until it's required. Every 
+data element within a data lake is assigned a unique 
+identifier and set of extended metadata tags. When a 
+business question arises, users can access the data 
+lake to retrieve any relevant, supporting data.
+
+
+## Data Science
+Data Science is the field of applying advanced analytics 
+techniques and scientific principles to extract valuable 
+information from data. Data science typically involves 
+the use of statistics, data visualization and mining, 
+computer programming, machine learning and database 
+engineering to solve complex problems.
 
 
 ## Anonymization 
@@ -760,6 +782,9 @@ data in Amazon S3 using the standard SQL.
 * BigQuery is a serverless and cost-effective enterprise 
 data warehouse. 
 
+* BigQuery supports the Google Standard SQL dialect, 
+  but a legacy SQL dialect is also available.
+
 * BigQuery has built-in machine learning and BI 
 that works across clouds, and scales with your data.
 
@@ -775,6 +800,13 @@ infrastructure or rebuild or create indexes. BigQuery's speed
 and scalability make it suitable for use in processing huge 
 datasets.
 
+* BigQuery storage: BigQuery stores data using a columnar 
+  storage format that is optimized for analytical queries. 
+  BigQuery presents data in tables, rows, and columns and 
+  provides full support for database transaction semantics 
+  (ACID). BigQuery storage is automatically replicated across 
+  multiple locations to provide high availability.
+  
 * With Google Cloud’s pay-as-you-go pricing structure, 
   you only pay for the services you use.
 
