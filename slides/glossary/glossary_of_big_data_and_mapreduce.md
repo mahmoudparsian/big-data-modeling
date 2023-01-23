@@ -254,6 +254,8 @@ In a practical sense, Big Data Modeling involves:
   queries before designing proper data model
 * **Data Model**: once queries are understood, then design a 
   data model, which optimally satisfies queries
+* **Data Analytics Engine**: engine which distributed algorithms 
+  and ETL will run; for example: Apache Spark
 * **ETL Processes**: design and implement ETL processes to 
   build big data in a suitable format and environment
 * **Scalability**: scalability needs to be understood and 
