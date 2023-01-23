@@ -5,7 +5,7 @@
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated: 1/22/2023
+* Last updated date: 1/23/2023
 	
 	
 ![](./images/glossary.jpeg)
