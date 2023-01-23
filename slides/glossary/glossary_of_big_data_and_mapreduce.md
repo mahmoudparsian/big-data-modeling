@@ -3156,6 +3156,26 @@ There are many ML packages for experimentation:
 * [Apache Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html)
 
 
+## Internet of Things
+Internet of things, IoT, in short, is a conception of 
+connecting devices, such as house lighting, heating or 
+even fridges to a common network. It allows storing big 
+amounts of data, which can later be used in real-time 
+analytics. This term is also connected with a smart home, 
+a concept of controlling house with phone etc.
+
+According to Wiki: 
+[The Internet of things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things) describes physical objects (or groups of 
+such objects) with sensors, processing ability, software and 
+other technologies that connect and exchange data with other 
+devices and systems over the Internet or other communications 
+networks.  Internet of things has been considered a misnomer 
+because devices do not need to be connected to the public 
+internet, they only need to be connected to a network and 
+be individually addressable.
+
+
+
 ## Metadata
 Data about data; gives information about what the data is about.
 
@@ -3609,6 +3629,12 @@ A centralised repository of information that enterprises
 can use to support business intelligence (BI) activities 
 such as analytics. Data warehouses typically integrate 
 historical data from various sources.
+
+It is a system that stores data in order to analyze and 
+process it in the future. The source of data can vary, 
+depending on its purpose. Data can be uploaded from the 
+company’s CRM (Customer relationship management) systems 
+as well as imported from external files or databases.
 
 For big data, these are the data warehouse 
 platforms on the market: 
