@@ -691,7 +691,95 @@ files in place.
 * High throughput
 * Data locality
 
-# Commodity server/hardware
+
+## Amazon S3
+Amazon Simple Storage Service (Amazon S3) is an object 
+storage service that offers industry-leading scalability, 
+data availability, security, and performance. Customers 
+of all sizes and industries can use Amazon S3 to store 
+and protect any amount of data for a range of use cases, 
+such as data lakes, websites, mobile applications, backup 
+and restore, archive, enterprise applications, IoT devices, 
+and big data analytics. Amazon S3 provides management 
+features so that you can optimize, organize, and configure 
+access to your data to meet your specific business, 
+organizational, and compliance requirements.
+
+
+Objects are the fundamental entities stored in Amazon S3. 
+Objects are stored as:
+
+* General format:
+
+		s3://<bucket-name>/folder_1/.../folde_n/file
+		
+* Example:
+
+		s3://my_bucket_name/data/2023-01-07/samples.txt
+
+
+## Amazon Athena
+The Amazon Athena is widely used and is defined as an 
+interactive query service that makes it easy to analyze 
+data in Amazon S3 using the standard SQL. 
+
+* Amazon Athena is serverless, so there is no infrastructure 
+  to manage, and users pay only for the queries that they run. 
+  
+* Amazon Athena is easy to use and simply point to users' data 
+  in Amazon S3, define the schema, and start querying using 
+  standard SQL. 
+
+* Most results are delivered within seconds. With Athena, there’s 
+  no need for complex ETL jobs to prepare user's data for the 
+  analysis and this makes it easy for anyone with SQL skills to 
+  quickly analyze large-scale datasets. 
+  
+* Amazon Athena is out-of-the-box integrated with the AWS 
+  Glue Data Catalog allowing users to create the unified 
+  metadata repository across various services, crawl data 
+  sources to discover schemas and populate their Catalog 
+  with new and modified table and partition definitions, 
+  and maintain the schema versioning. 
+  
+* Amazon Athena is the serverless data query tool which means 
+  it is scalable and cost-effective at the same time. Usually, 
+  customers are charged on a pay per query basis which further 
+  translates to the number of queries that are executed at a 
+  given time.
+   
+* The normal charge for scanning 1TB of data from S3 is 5 USD 
+  and although it looks quite a small amount at a first glance 
+  when users have multiple queries running on hundreds and 
+  thousands of GB of data, the price might get out of control 
+  at times.
+
+
+## Google BigQuery
+
+* BigQuery is a serverless and cost-effective enterprise 
+data warehouse. 
+
+* BigQuery has built-in machine learning and BI 
+that works across clouds, and scales with your data.
+
+* BigQuery is a fully managed enterprise data warehouse 
+that helps you manage and analyze your data with built-in 
+features like machine learning, geospatial analysis, and 
+business intelligence.
+
+* BigQuery's query engine can run SQL queries on terabytes 
+of data within seconds, and petabytes within minutes. BigQuery 
+gives you this performance without the need to maintain the 
+infrastructure or rebuild or create indexes. BigQuery's speed 
+and scalability make it suitable for use in processing huge 
+datasets.
+
+* With Google Cloud’s pay-as-you-go pricing structure, 
+  you only pay for the services you use.
+
+
+## Commodity server/hardware
 Commodity hardware (computer), sometimes known as 
 off-the-shelf server/hardware, is a computer device 
 or IT component that is relatively inexpensive, widely 
