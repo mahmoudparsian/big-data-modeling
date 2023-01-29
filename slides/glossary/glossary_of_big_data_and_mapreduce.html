@@ -873,7 +873,7 @@ div.mermaidTooltip {
 <li><p>This glossary is written for my students taking 
 <a href="https://github.com/mahmoudparsian/big-data-mapreduce-course/">Big Data Modeling &amp; Analytics</a> at <a href="https://www.scu.edu">Santa Clara University</a>.</p></li>
 <li><p>Compiled and edited by: <a href="../../bio/mahmoud_parsian_scu_bio.md">Mahmoud Parsian</a></p></li>
-<li><p>Last updated date: 1/23/2023</p></li>
+<li><p>Last updated date: 1/28/2023</p></li>
 </ul>
 
 <p><img src="./images/glossary.jpeg" alt=""></p>
@@ -3269,29 +3269,40 @@ in MapReduce.</p>
 
 <p>This can be expressed as:</p>
 
-<div><pre class="line-numbers"><code class="language-none">    reduceByKey: RDD[(K, V)] --&gt; RDD[(K, V)]</code></pre></div>
+<div><pre class="line-numbers"><code class="language-python">reduceByKey: RDD[(K, V)] --&gt; RDD[(K, V)]</code></pre></div>
 
 <ul>
 <li><code>combineByKey()</code></li>
 </ul>
+
+<div><pre class="line-numbers"><code class="language-python">combineByKey: RDD[(K, V)] --&gt; RDD[(K, C)]
+# where V and C can be different types</code></pre></div>
 
 <p><code>RDD.combineByKey()</code> is a generic function to combine the 
 elements for each key using a custom set of aggregation functions.
 <code>RDD.combineByKey()</code> turns an <code>RDD[(K, V)]</code> into a result of type 
 <code>RDD[(K, C)]</code>, for a “combined type” <code>C</code>.</p>
 
+<div><pre class="line-numbers"><code class="language-python"># rdd : RDD[(K, V)] 
+# rdd2: RDD[(K, C)]
+# where V and C can be different types
+rdd2 = rdd.combineByKey(create_combiner, merge_value, merge_combiners)</code></pre></div>
+
 <p>For <code>combineByKey()</code>, users provide three functions:</p>
 
 <ul>
-<li><p>createCombiner, which turns a <code>V</code> into a <code>C</code> (e.g., creates a one-element list)</p>
+<li><p><code>create_combiner</code>, which turns a <code>V</code> into a <code>C</code> 
+(e.g., creates a one-element list as type <code>C</code>)</p>
 
-<div><pre class="line-numbers"><code class="language-none">createCombiner: V --&gt; C</code></pre></div></li>
-<li><p>mergeValue, to merge a <code>V</code> into a <code>C</code> (e.g., adds it to the end of a list)</p>
+<div><pre class="line-numbers"><code class="language-none">create_combiner: V --&gt; C</code></pre></div></li>
+<li><p><code>merge_value</code>, to merge a <code>V</code> into a <code>C</code> 
+(e.g., adds it to the end of a list)</p>
 
-<div><pre class="line-numbers"><code class="language-none">mergeValue: C x V --&gt; C</code></pre></div></li>
-<li><p>mergeCombiners, to combine two <code>C’s</code> into a single one (e.g., merges the lists)</p>
+<div><pre class="line-numbers"><code class="language-none">merge_value: C x V --&gt; C</code></pre></div></li>
+<li><p><code>merge_combiners</code>, to combine two <code>C’s</code> into a 
+single one (e.g., merges the lists)</p>
 
-<div><pre class="line-numbers"><code class="language-none">mergeCombiners: C x C --&gt; C</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">merge_combiners: C x C --&gt; C</code></pre></div></li>
 </ul>
 
 <p>This can be expressed as:</p>
@@ -3435,10 +3446,13 @@ print(df)
 
 <h3 id="toc_93">Spark DataFrame Example</h3>
 
-<p>A distributed collection of data grouped into named 
-columns.  Spark&rsquo;s DataFrame is immutable and can have 
-billions of rows.  A DataFrame is equivalent to a 
-relational table in Spark SQL, and can be created 
+<p>Like an RDD, a DataFrame is an immutable distributed 
+collection of data. Unlike an RDD, data is organized 
+into named columns, like a table in a relational database.<br>
+In Spark, a DataFrame is a distributed collection of data 
+grouped into named columns.  Spark&rsquo;s DataFrame is immutable 
+and can have billions of rows.  A DataFrame is equivalent 
+to a relational table in Spark SQL, and can be created 
 using various functions in <code>SparkSession</code>:</p>
 
 <div><pre class="line-numbers"><code class="language-python"># PySpark code:
@@ -4792,6 +4806,8 @@ represented in RDD, DataFrame, and Dataset):</p>
 <li>Dataset (not supported by PySpark)</li>
 </ul>
 
+<p><img src="./images/rdd_dataframe_dataset.png" alt=""></p>
+
 <h2 id="toc_183">Cloud</h2>
 
 <p>Cloud technology, or The Cloud as it is often 
@@ -5034,7 +5050,225 @@ tables. NoSQL databases come in a variety of types.
 Redis, HBase, CouchDB and MongoDB, &hellip; are examples 
 of NoSQL databases.</p>
 
-<h2 id="toc_192">References</h2>
+<h2 id="toc_192">PySpark</h2>
+
+<p>What is PySpark? PySpark is the Python API for Apache 
+Spark, an open source, distributed computing framework and set of libraries for near-real-time, large-scale 
+data processing. If you’re already familiar with Python 
+and libraries such as Pandas, then PySpark is a good 
+language to learn to create more scalable analyses and 
+pipelines. According to 
+<a href="https://spark.apache.org/docs/latest/api/python/index.html">Spark documentation</a>: 
+&ldquo;PySpark is an interface for Apache Spark in Python. It 
+not only allows you to write Spark applications using 
+Python APIs, but also provides the PySpark shell for 
+interactively analyzing your data in a distributed 
+environment. PySpark supports most of Spark’s features 
+such as Spark SQL, DataFrame, Streaming, MLlib (Machine 
+Learning) and Spark Core.&rdquo;</p>
+
+<p><strong>PySpark Data Abstractions:</strong></p>
+
+<p>PySpark supports two types of data abstractions:</p>
+
+<ul>
+<li>RDDs</li>
+<li>DataFrames</li>
+</ul>
+
+<p><strong>PySpark Documentation:</strong></p>
+
+<ul>
+<li><a href="https://spark.apache.org/docs/latest/api/python/index.html">PySpark Documentation</a></li>
+</ul>
+
+<p><strong>PySpark Usage:</strong></p>
+
+<p>PySpark can be used in two modes (The <code>SPARK_HOME</code> is an
+environment variable which denotes the directory/folder 
+where Spark is installed):</p>
+
+<ul>
+<li><p>Interactive mode: by invoking:</p>
+
+<div><pre class="line-numbers"><code class="language-none">${SPARK_HOME}/bin/pyspark</code></pre></div></li>
+<li><p>Batch mode: by invoking</p>
+
+<div><pre class="line-numbers"><code class="language-none">${SPARK_HOME}/bin/spark-submit &lt;pyspark-program&gt; [optional-parameters]</code></pre></div></li>
+</ul>
+
+<p><strong>PySpark Graph Analysis:</strong></p>
+
+<p>You may use <a href="https://graphframes.github.io/graphframes/docs/_site/index.html">GraphFrames</a> 
+package to build and analyze graphs at scale.</p>
+
+<h2 id="toc_193">Boolean Predicate</h2>
+
+<p>A Boolean predicate returns the truth value of a Boolean 
+expression (boolean-expression: an expression that returns 
+the Boolean value: <code>True</code> or <code>False</code>).</p>
+
+<p>For example, in Spark, <code>RDD.filter(f: Callable[[T], bool])</code> 
+returns a new RDD containing only the elements that satisfy 
+a boolean predicate.</p>
+
+<p>For example, a Python function is a boolean predicate
+if it only returns <code>True</code> or <code>False</code>.</p>
+
+<h2 id="toc_194">Cartesian Product</h2>
+
+<p>In mathematics, specifically set theory, the Cartesian product 
+of two sets <code>A</code> and <code>B</code>, denoted <code>A × B</code>, is the set of all 
+ordered pairs <code>(a, b)</code> where <code>a</code> is in <code>A</code> and <code>b</code> is in <code>B</code></p>
+
+<div><pre class="line-numbers"><code class="language-none">A x B = {(a,b) /  a in A and  b in B }</code></pre></div>
+
+<p><strong>Cartesian Product in Python</strong>:</p>
+
+<div><pre class="line-numbers"><code class="language-python">&gt;&gt;&gt; A = [1, 2, 3]
+&gt;&gt;&gt; B = [4, 5]
+&gt;&gt;&gt; cartesian_product = [(a, b) for a in A for b in B]
+&gt;&gt;&gt; cartesian_product
+[(1, 4), (1, 5), (2, 4), (2, 5), (3, 4), (3, 5)]</code></pre></div>
+
+<p><strong>Cartesian Product in PySpark</strong>:</p>
+
+<div><pre class="line-numbers"><code class="language-python"># sc as SparkContext
+rdd = sc.parallelize([1, 2, 3])
+rdd2 = sc.parallelize([4, 5])
+rdd.cartesian(rdd2).collect())
+[(1, 4), (1, 5), (2, 4), (2, 5), (3, 4), (3, 5)]</code></pre></div>
+
+<h2 id="toc_195">Python Lambda</h2>
+
+<p>A lambda function is a small anonymous function.</p>
+
+<p>A lambda function can take any number of arguments, 
+but can only have one expression.</p>
+
+<p>You should use lambda functions when an anonymous 
+function is required for a short period of time.
+You should use the lambda function to create simple 
+expressions. For example, expressions that do not 
+include complex structures such as <code>if-else</code>, 
+<code>for-loops</code>,  and so on.</p>
+
+<p><strong>Syntax</strong>:</p>
+
+<div><pre class="line-numbers"><code class="language-none">lambda argument(s) : expression</code></pre></div>
+
+<p>where</p>
+
+<ul>
+<li><p><code>lambda</code> is a keyword in Python for defining the 
+anonymous function.</p></li>
+<li><p><code>expression</code> is the code you want to execute in 
+the lambda function.</p></li>
+</ul>
+
+<p><strong>Example</strong>:</p>
+
+<div><pre class="line-numbers"><code class="language-none">x = lambda a: a + 10
+print(x(5))
+15
+
+x = lambda a, b, c : a + b + c
+print(x(2, 3, 4))
+9
+
+def my_func(n):
+    return lambda a : a * n
+
+my_tripler = my_func(3)
+print(my_tripler(11))
+33
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+list(filter(lambda x: x % 2 == 0, my_list))
+[2, 4, 6, 8]</code></pre></div>
+
+<h2 id="toc_196">Data transformation</h2>
+
+<p>Data transformation is the process to convert data from 
+one form to the other. </p>
+
+<p>Note that data transformation in Python is sequential
+(and can handle small to meium size data) and single 
+threaded, while in PySpark, data is partitioned
+and processed in parallel and there is no limit on 
+the size of data.</p>
+
+<p><strong>Data transformation in Python:</strong></p>
+
+<div><pre class="line-numbers"><code class="language-python">&gt;&gt;&gt; A = [1, 2, 3]
+&gt;&gt;&gt; B = [x*x for x in A]
+&gt;&gt;&gt; B
+[1, 4, 9]</code></pre></div>
+
+<p><strong>Data transformation in Python using map():</strong></p>
+
+<div><pre class="line-numbers"><code class="language-python">&gt;&gt;&gt; map(lambda n: n * 2, [1, 2, 3, 4, 5])
+[2, 4, 6, 8, 10]</code></pre></div>
+
+<p><strong>Data transformation in Python using filter():</strong></p>
+
+<div><pre class="line-numbers"><code class="language-python">&gt;&gt;&gt; strs = [&#39;apple&#39;, &#39;and&#39;, &#39;a&#39;, &#39;donut&#39;]
+&gt;&gt;&gt;
+&gt;&gt;&gt; list(filter(lambda s: len(s) &gt; 3, strs))
+[&#39;apple&#39;, &#39;donut&#39;]</code></pre></div>
+
+<p><strong>Data transformation in PySpark using map():</strong></p>
+
+<div><pre class="line-numbers"><code class="language-python"># sc as SparkContext
+rdd = sc.parallelize([1, 2, 3, 4])
+rdd.map(lambda x: x * x).collect()
+[1, 4, 9, 16]</code></pre></div>
+
+<p><strong>Data transformation in PySpark using filter():</strong></p>
+
+<div><pre class="line-numbers"><code class="language-python"># sc as SparkContext
+rdd = sc.parallelize([1, 2, 3, 4])
+rdd.filter(lambda x: x &gt; 2).collect()
+[3, 4]</code></pre></div>
+
+<p><strong>Data transformation in PySpark using flatMap():</strong></p>
+
+<div><pre class="line-numbers"><code class="language-python"># sc as SparkContext
+&gt;&gt;&gt; rdd = sc.parallelize([ [1, 2, 3, 9], [], [4, 5, 6] ])
+&gt;&gt;&gt; rdd.count()
+3
+&gt;&gt;&gt; rdd.collect()
+[[1, 2, 3, 9], [], [4, 5, 6]]
+&gt;&gt;&gt; rdd2 = rdd.flatMap(lambda x: x)
+&gt;&gt;&gt; rdd2.count()
+7
+&gt;&gt;&gt; rdd2.collect()
+[1, 2, 3, 9, 4, 5, 6]</code></pre></div>
+
+<h2 id="toc_197">Data Curation</h2>
+
+<p>Curation is the process of validating and managing 
+discovered metadata of a data source so that the 
+metadata is fit for use and reporting. Data curation 
+is the  process of  creating, organizing and maintaining 
+data sets so they can be accessed and used by people 
+looking for information. It involves collecting, 
+structuring, indexing and cataloging data for 
+users in an organization, group or the general public.</p>
+
+<h2 id="toc_198">spark-packages.org</h2>
+
+<p>spark-packages.org is a community package index to 
+track the growing number of open source packages and 
+libraries that work with Apache Spark. Spark Packages 
+makes it easy for users to find, discuss, rate, and 
+install packages for any version of Spark and makes 
+it easy for developers to contribute packages.</p>
+
+<p>For example, GraphFrames package can be located 
+<a href="https://spark-packages.org/package/graphframes/graphframes">here</a>.</p>
+
+<h2 id="toc_199">References</h2>
 
 <ol>
 <li><p><a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">Data Algorithms with Spark by Mahmoud Parsian</a></p></li>
@@ -5072,6 +5306,7 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
 <li><p><a href="https://www.w3schools.com/sql/sql_intro.asp">Introduction to SQL</a></p></li>
 <li><p><a href="https://bernardmarr.com/what-are-the-4-vs-of-big-data/">What are the 4 Vs of Big Data? by Bernard Marr</a></p></li>
 <li><p><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf">NIST Big Data Interoperability Framework: Volume 1, Definitions</a></p></li>
+<li><p><a href="https://cs.stanford.edu/people/nick/py/">Python Guide by Nick Parlante</a></p></li>
 </ol>
 
 
