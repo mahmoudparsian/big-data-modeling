@@ -2037,17 +2037,29 @@ suitable to structured and semi-structured data.
 
 
 ## What are Spark Mappers?
-Spark offers comprehensive mapper functions for RDDs and
-DataFrames.
+Spark offers comprehensive mapper functions 
+for RDDs and DataFrames. Spark `map()` is a 
+transformation operation that is used to apply 
+the transformation on every element of RDD, 
+DataFrame, and Dataset and finally returns 
+a new RDD/Dataset respectively.
 
 **Mappers for RDDs:**
 
 * `RDD.map()`
 	* 1-to-1 mapping 
+	* maps an RDD (source) element to a single 
+	  RDD (target) element
+	 
 * `RDD.flatMap()`
 	* 1-to-many mapping 
+	* maps an RDD (source) element to multiple 
+	  RDD (target) elements
+	
 * `RDD.mapPartitions()`
 	* many-to-1 mapping
+	* maps a single partition (comprised of many elements) 
+	  into a single RDD (target) element
 
 
 **Mappers for DataFrames:**
@@ -2059,9 +2071,26 @@ Mappers for Spark Dataframes can be handled by two means:
 
 
 ## What are Spark Reducers? 
- 
-Spark offers comprehensive reducer functions for RDDs and
-DataFrames.
+The reducer function receives an intermediate key and 
+a set of associated values (not sorted in any order). 
+It processes these values and generates output as
+`(key, value)` pairs by grouping values for each key.
+Example of reduction will be:
+
+Let `key` denotes a key and `values` denotes a set of 
+values for a given `key`, then the following are example 
+of reducers:
+
+* Given a `(key, values)`, find average of values 
+  for a given key
+* Given a `(key, values)`, find median of values 
+  for a given key
+* Given a `(key, values)`, find `(minimum, maximum)` 
+  of values for a given key
+
+
+Spark offers comprehensive reducer functions for RDDs 
+and DataFrames.
 
 **Reducers for RDDs:**
 
@@ -3148,7 +3177,20 @@ delete duplicates, correct errors and provide consistency
 
 ## Data mining
 The process of finding certain patterns or information 
-from data sets
+from data sets. Data Mining is done for purposes like 
+Market Analysis, determining customer purchase pattern, 
+financial planning, fraud detection, etc.
+
+Data mining is a study of extracting useful information 
+from structured/unstructured data taken from various 
+sources. This is done usually for
+
+1. Mining for frequent patterns
+2. Mining for associations
+3. Mining for correlations
+4. Mining for clusters
+5. Mining for predictive analysis
+
 
 
 ## Data virtualization

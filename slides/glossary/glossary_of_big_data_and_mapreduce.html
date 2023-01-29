@@ -3096,26 +3096,36 @@ suitable to structured and semi-structured data.</p>
 
 <h2 id="toc_78">What are Spark Mappers?</h2>
 
-<p>Spark offers comprehensive mapper functions for RDDs and
-DataFrames.</p>
+<p>Spark offers comprehensive mapper functions 
+for RDDs and DataFrames. Spark <code>map()</code> is a 
+transformation operation that is used to apply 
+the transformation on every element of RDD, 
+DataFrame, and Dataset and finally returns 
+a new RDD/Dataset respectively.</p>
 
 <p><strong>Mappers for RDDs:</strong></p>
 
 <ul>
-<li><code>RDD.map()</code>
+<li><p><code>RDD.map()</code></p>
 
 <ul>
 <li>1-to-1 mapping </li>
+<li>maps an RDD (source) element to a single 
+RDD (target) element</li>
 </ul></li>
-<li><code>RDD.flatMap()</code>
+<li><p><code>RDD.flatMap()</code></p>
 
 <ul>
 <li>1-to-many mapping </li>
+<li>maps an RDD (source) element to multiple 
+RDD (target) elements</li>
 </ul></li>
-<li><code>RDD.mapPartitions()</code>
+<li><p><code>RDD.mapPartitions()</code></p>
 
 <ul>
 <li>many-to-1 mapping</li>
+<li>maps a single partition (comprised of many elements) 
+into a single RDD (target) element</li>
 </ul></li>
 </ul>
 
@@ -3130,8 +3140,27 @@ DataFrames.</p>
 
 <h2 id="toc_79">What are Spark Reducers?</h2>
 
-<p>Spark offers comprehensive reducer functions for RDDs and
-DataFrames.</p>
+<p>The reducer function receives an intermediate key and 
+a set of associated values (not sorted in any order). 
+It processes these values and generates output as
+<code>(key, value)</code> pairs by grouping values for each key.
+Example of reduction will be:</p>
+
+<p>Let <code>key</code> denotes a key and <code>values</code> denotes a set of 
+values for a given <code>key</code>, then the following are example 
+of reducers:</p>
+
+<ul>
+<li>Given a <code>(key, values)</code>, find average of values 
+for a given key</li>
+<li>Given a <code>(key, values)</code>, find median of values 
+for a given key</li>
+<li>Given a <code>(key, values)</code>, find <code>(minimum, maximum)</code> 
+of values for a given key</li>
+</ul>
+
+<p>Spark offers comprehensive reducer functions for RDDs 
+and DataFrames.</p>
 
 <p><strong>Reducers for RDDs:</strong></p>
 
@@ -4197,7 +4226,21 @@ delete duplicates, correct errors and provide consistency</p>
 <h2 id="toc_121">Data mining</h2>
 
 <p>The process of finding certain patterns or information 
-from data sets</p>
+from data sets. Data Mining is done for purposes like 
+Market Analysis, determining customer purchase pattern, 
+financial planning, fraud detection, etc.</p>
+
+<p>Data mining is a study of extracting useful information 
+from structured/unstructured data taken from various 
+sources. This is done usually for</p>
+
+<ol>
+<li>Mining for frequent patterns</li>
+<li>Mining for associations</li>
+<li>Mining for correlations</li>
+<li>Mining for clusters</li>
+<li>Mining for predictive analysis</li>
+</ol>
 
 <h2 id="toc_122">Data virtualization</h2>
 
