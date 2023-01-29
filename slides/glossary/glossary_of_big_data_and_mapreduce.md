@@ -2578,27 +2578,32 @@ either "R" or "S", and attribe is either `a` in `A` or `b` in `B`.
 	         R_list.append(attribute)
 	      }
 	      else { 
+	         # relation == "S"
 	         S_list.append(attribute)
-			}
+	      }
 		} #end-for
 
+      # drop keys, which are not common
       if (len(R_list) == 0) or (len(S_list) == 0) {
       	# no join, no common attributes
       	return
       }
 
+      # Process common keys
       # Both lists are non-empty:
-      # len(R_list) > 0) and len(S_list) > 0
-      for a in R {
-         for b in S {
+      # len(R_list) > 0) AND len(S_list) > 0
+      # perform a cartesian product of R and S
+      for a in R_list {
+         for b in S_list {
              emit (key, (a, b))
          }
       }
 	} # end-reduce
 
 
-The left-join and right-join can be implemented 
-by revising the reducer function.
+Note that the left-join and right-join operations
+can be implemented by revising the reducer function.
+
 
 **Example: Demo Inner Join**
 	
