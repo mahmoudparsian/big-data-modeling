@@ -2045,6 +2045,62 @@ Upon receiving instructions from Spark Master, the Spark worker JVMlaunches Exe
 * [Spark Driver](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):
 Once it gets information from the Spark Master of all the workers in thecluster and where they are, the driver program distributes Spark tasksto each worker’s Executor. The driver also receives computed resultsfrom each Executor’s tasks.
 
+* Task: A unit of work that will be sent to one executor.
+
+## Apache Spark Ecosystem
+
+![](./images/spark_eco_system.png)
+
+What are the main components of Spark ecosystem?
+
+Components of Apache Spark (EcoSystem):
+
+* **Spark Core**: Spark Core is the underlying general execution 
+  engine for the Spark platform that all other functionality is 
+  built on top of. It provides in-memory computing capabilities 
+  to deliver speed, a generalized execution model to support a 
+  wide variety of applications, and Java, Scala, and Python APIs 
+  for ease of development.
+  
+* **Spark SQL + DataFrames**: Many data scientists, analysts, 
+  and general business intelligence users rely on interactive 
+  SQL queries for exploring data. Spark SQL is a Spark module 
+  for structured data processing. It provides a programming 
+  abstraction called DataFrames and can also act as distributed 
+  SQL query engine. It enables unmodified Hadoop Hive queries 
+  to run up to 100x faster on existing deployments and data. 
+  It also provides powerful integration with the rest of the 
+  Spark ecosystem (e.g., integrating SQL query processing 
+  with machine learning).
+
+* **Spark Streaming**: Many applications need the ability 
+  to process and analyze not only batch data, but also 
+  streams of new data in real-time. Running on top of Spark, 
+  Spark Streaming enables powerful interactive and analytical 
+  applications across both streaming and historical data, 
+  while inheriting Spark’s ease of use and fault tolerance 
+  characteristics. It readily integrates with a wide variety 
+  of popular data sources, including HDFS, Flume, Kafka, 
+  and Twitter.
+
+* **MLlib (Machine learning library)**: Machine learning has 
+  quickly emerged as a critical piece in mining Big Data for 
+  actionable insights. Built on top of Spark, MLlib is a 
+  scalable machine learning library that delivers both 
+  high-quality algorithms (e.g., multiple iterations to 
+  increase accuracy) and blazing speed (up to 100x faster 
+  than MapReduce). The library is usable in Java, Scala, 
+  and Python as part of Spark applications, so that you 
+  can include it in complete workflows.
+
+* **GraphX**: GraphX is a graph computation engine built 
+  on top of Spark that enables users to interactively build, 
+  transform and reason about graph structured data at scale. 
+  It comes complete with a library of common algorithms. 
+  Note that GraphX is not available for PySpark, but you 
+  may use an external graph library called GraphFrames 
+  (which is a DataFrames based solution).
+
 
 ## Spark as a superset of MapReduce
 Spark is a true successor of MapReduce and maintains 
