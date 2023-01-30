@@ -5,7 +5,7 @@
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 1/28/2023
+* Last updated date: 1/29/2023
 	
 	
 ![](./images/glossary.jpeg)
@@ -21,13 +21,15 @@ is to put these definitions and concepts in one
 single place for ease of exploring, searching 
 and learning.
 
-Big data environment involves many tools and technologies:
+Big data environment involves many tools and 
+technologies:
 
 * Data preparation from multiple sources
 * Engine for large-scale data analytics (such as Spark)
 * ETL processes to analyze prepare data for Query engine
 * Relational database systems
-* Query engines such as Amazon Athena, Google BigQuery, Snowflake
+* Query engines such as Amazon Athena, 
+  Google BigQuery, Snowflake
 * much more...
 
 The purpose of this glossary is to shed some 
@@ -43,22 +45,24 @@ in or relating to big data, MapReduce, and Spark.
 [Mohammed Ibn Musa-al-Khwarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) was a Persian mathematician 
 and creator of the term: **algorithm**.
 
-* An algorithm is a mathematical formula that can perform 
-  certain analyses on data
-* An algorithm is a procedure used for solving a problem or 
-  performing a computation. 
-* An algorithm is a set of well-defined steps to solve a problem
-* For example, given a set of words, sort them in ascending order
-* For example, given a set of text documents, find frequecy of 
-  every unique word
-* For example, given a set of numbers, find (minimum, maximum)
-  of given numbers
+* An algorithm is a mathematical formula that 
+  can perform certain analyses on data
+* An algorithm is a procedure used for solving 
+  a problem or performing a computation. 
+* An algorithm is a set of well-defined steps 
+  to solve a problem
+* For example, given a set of words, sort them 
+  in ascending order
+* For example, given a set of text documents, 
+  find frequecy of every unique word
+* For example, given a set of numbers, 
+  find (minimum, maximum) of given numbers
   
-Typically an algorithm is implemented using a programming
-language such as Python, Java, SQL, ...
+Typically an algorithm is implemented using a 
+programming language such as Python, Java, SQL, ...
 
-In big data world, an algorithm can be implemented using 
-a compute engine such as MapReduce and Spark.
+In big data world, an algorithm can be implemented 
+using a compute engine such as MapReduce and Spark.
 
 
 ![](./images/algorithm.png)
@@ -68,46 +72,52 @@ In The Art of Computer Programming, a famous computer scientist,
 defines an algorithm as a set of steps, or rules, with five 
 basic properties: 
 
-> 1) Finiteness. An algorithm must always terminate after 
-a finite number of steps.
+> 1) **Finiteness**: an algorithm must always 
+     terminate after a finite number of steps.
 
-> 2) Definiteness. Each step of an algorithm must be precisely defined
+> 2) **Definiteness**: each step of an algorithm must be 
+     precisely defined
 
-> 3) Input. An algorithm has zero or more inputs
+> 3) **Input**: an algorithm has zero or more inputs
 
-> 4) Output. An algorithm has one or more outputs
+> 4) **Output**: an algorithm has one or more outputs
 
-> 5) Effectiveness. An algorithm is also generally expected to be effective
+> 5) **Effectiveness**: an algorithm is also generally 
+    expected to be effective
 
 
 ## Distributed algorithm
-A distributed algorithm is an algorithm designed to run 
-on computer hardware constructed from interconnected 
-processors. Distributed algorithms are used in different 
-application areas  of  distributed  computing, such  as  
-DNA  analysis, telecommunications, scientific computing, 
-distributed information processing, and real-time process 
-control. Standard problems solved by distributed algorithms 
-include leader election, consensus, distributed search, 
-spanning tree generation, mutual exclusion, finding 
-association of genes in DNA, and resource allocation. 
+A distributed algorithm is an algorithm designed 
+to run on computer hardware constructed from 
+interconnected processors. Distributed algorithms 
+are used in different application areas  of  
+distributed  computing, such as DNA  analysis, 
+telecommunications, scientific computing, 
+distributed information processing, and real-time 
+process control. Standard problems solved by 
+distributed algorithms include leader election, 
+consensus, distributed search, spanning tree 
+generation, mutual exclusion, finding association 
+of genes in DNA, and resource allocation. 
 Distributed algorithms run in parallel/concurrent 
 environments. 
 
-In implementing distributed algorithms, you have to make 
-sure that your aggregations and reductions are semantically
-correct (since these are executed partition by partition)
-regardless of the number of partitions for your data.
-For example, you need to remember that average of an
-average is not an average.
+In implementing distributed algorithms, you have 
+to make sure that your aggregations and reductions 
+are semantically correct (since these are executed 
+partition by partition) regardless of the number 
+of partitions for your data. For example, you need 
+to remember that average of an average is not 
+an average.
 
 **Example of systems running distributed algorithms**:
 
-* Apache Spark can be used to implement and run distributed 
-algorithms.
+* Apache Spark can be used to implement and run 
+  distributed algorithms.
 
-* MapReduce/Hadoop can be used to implement and run distributed 
-algorithms.
+* MapReduce/Hadoop can be used to implement and 
+  run distributed algorithms.
+
 
 ## Partitioner
 Partitioner  is a program, which distributes the data 
@@ -134,15 +144,17 @@ time) to reduce the overall data processing time.
 
 * A process of searching, gathering and presenting data.
 
-* Data aggregation refers to the process of collecting data 
-  and presenting it in a summarised format. The data can be 
-  gathered from multiple sources to be combined for a summary.
+* Data aggregation refers to the process of collecting 
+  data and presenting it in a summarised format. The 
+  data can be gathered from multiple sources to be combined 
+  for a summary.
 
 
 ## Data Aggregation
-Data aggregation refers to the collection of data from multiple 
-sources to bring all the data together into a common athenaeum 
-for the purpose of reporting and/or analysis.
+Data aggregation refers to the collection of data 
+from multiple sources to bring all the data together 
+into a common athenaeum for the purpose of reporting 
+and/or analysis.
 
 * Data aggregation is the process of compiling typically 
   some large amounts of information from a given database 
@@ -178,16 +190,17 @@ behaviors and events."
 
 
 ## Data Lake
-A data lake is a centralized repository that allows you 
-to store all your structured and unstructured data at 
-any scale.
+A data lake is a centralized repository that allows 
+you to store all your structured and unstructured 
+data at any scale.
 
-A storage repository that holds a vast amount of raw 
-data in its native format until it's required. Every 
-data element within a data lake is assigned a unique 
-identifier and set of extended metadata tags. When a 
-business question arises, users can access the data 
-lake to retrieve any relevant, supporting data.
+A storage repository that holds a vast amount of 
+raw data in its native format until it's required. 
+Every data element within a data lake is assigned 
+a unique identifier and set of extended metadata 
+tags. When a business question arises, users can 
+access the data lake to retrieve any relevant, 
+supporting data.
 
 
 ## Data Science
@@ -278,13 +291,18 @@ variety of software systems.
   at their fingertips. Search nearby restaurants, niche shops, 
   and whatever else is in relative distance to your location.
 
+
 ## Application 
-* A computer software that enables a computer to perform a certain task
-* For example, a payroll application, which issues monthly checks to employees
-* For example, a MapReduce application, which identifies duplicate records
-* For example, an Spark application, which finds close and related communities 
-  in a given graph
-* For example, an Spark application, which finds rare variants for DNA samples
+* An Application is a computer software that enables a 
+  computer to perform a certain task
+* For example, a payroll application, which issues monthly 
+  checks to employees
+* For example, a MapReduce application, which identifies 
+  and eliminates duplicate records
+* For example, an Spark application, which finds close and 
+  related communities in a given graph
+* For example, an Spark application, which finds rare variants 
+  for DNA samples
 
 
 ## Data sizes 
@@ -303,42 +321,59 @@ variety of software systems.
  
 
 ## Behavioural Analytics 
-Behavioural Analytics is a kind of analytics that informs 
-about the how, why and what instead of just the who and 
-when. It looks at humanized patterns in the data.
+Behavioural Analytics is a kind of analytics that 
+informs about the how, why and what instead of just 
+the who and when. It looks at humanized patterns in 
+the data.
 
 
 ## Big Data 
-Big Data consists of extensive datasets -- primarily in 
-the characteristics of volume, velocity, variety, and/or 
-variability -- that require a scalable architecture for 
-efficient storage, manipulation, and analysis.
+Big Data consists of extensive datasets -- 
+primarily in the characteristics of volume, 
+velocity, variety, and/or variability -- that 
+require a scalable architecture for efficient 
+storage, manipulation, and analysis.
 
-Big data is an umbrella term for any collection of data 
-sets so large or complex that it becomes difficult to 
-process them using traditional data-processing applications.  
-In a nutshell, big data refers to data that is so large, 
-fast or complex that it's difficult or impossible to process 
-using traditional methods.  Also, big data deals with 
-accessing and storing large amounts of information for 
-analytics. 
+Big data is an umbrella term for any collection 
+of data sets so large or complex that it becomes 
+difficult to process them using traditional 
+data-processing applications.  In a nutshell, big 
+data refers to data that is so large, fast or 
+complex that it's difficult or impossible to 
+process using traditional methods.  Also, big 
+data deals with accessing and storing large 
+amounts of information for analytics. 
 
-So, what is Big Data? Big Data is a large data set with 
-increasing volume, variety and velocity. 
+So, what is Big Data? Big Data is a large data 
+set with increasing volume, variety and velocity. 
 
-Big data solutions may have many components (to mention some):
+Big data solutions may have many components 
+(to mention some):
 
-* Distributed File System
+* Distributed File System (such as HDFS, Amazon S3)
 * Analytics Engine (such as Spark)
-* Query Engine (Such as Snowflake, Amazon Athena, ...)
+* Query Engine (Such as Snowflake, Amazon Athena, Google BigQuery, ...)
 * ETL Support
 * Relational database systems 
+* Search engine (sich as Apache Solr, Apache Lucene)
 * ...
 
 
-## Big Data engineering 
+## Big Data Engineering 
 Big Data engineering is the discipline for engineering 
 scalable systems for data-intensive processing.
+
+Data collected from different sources are in a raw format, 
+i.e., usually in a form that is not fit for Data Analysis. 
+The idea behind what is Big Data Engineering is not only 
+to collect Big Data but also to transform and store it in 
+a dedicated database that can support insights generation 
+or the creation of Machine Learning-based solutions.
+
+Data Engineers are the force behind Data Engineering that 
+is focused on gathering information from disparate sources, 
+transforming the data, devising schemas, storing data, and 
+managing its flow.
 
 
 ## Big Data Modeling
@@ -473,6 +508,7 @@ Example of Data Sets:
 * Weekly credit card transactions
 * Monthly flight data for a country
 * Twitter daily data 
+* Facebook daily messages
 
 
 ## Data Type
@@ -533,7 +569,7 @@ For example,
 	of the value.)
  
  
-# Primitive data type
+# Primitive Data Type
 A data type that allows you to represent a single 
 data value in a single column position. In a nutshell, 
 a primitive data type is either a data type that is 
@@ -556,7 +592,7 @@ more sophisticated data types.
 		s = "fox"
 
 
-## Composite data type
+## Composite Data Type
 In computer science, a composite data type or compound 
 data type is any data type which can be constructed in 
 a program using the programming language's primitive 
@@ -581,6 +617,27 @@ be created by the concept of "class" and objects are
 created by instantiation of the class objects.
 
 
+## Apache Lucene
+[Lucene](https://lucene.apache.org) is an open-source 
+search engine software library written in Java. It 
+provides robust search and indexing features.
+
+
+## Apache Solr
+[Solr](https://solr.apache.org) is the popular, 
+blazing-fast, open source enterprise search platform 
+built on Apache Lucene.  Solr is highly reliable, 
+scalable and fault tolerant, providing distributed 
+indexing, replication and load-balanced querying, 
+automated  failover and  recovery, centralized 
+configuration and more. Solr powers the search 
+and navigation features of many of the world's 
+largest internet sites.
+
+
+![](./images/solr-lucene-architecture.png)
+
+
 ## Apache Hadoop 
 [Hadoop](https://hadoop.apache.org) is an open-source 
 framework that is built to enable the process and 
@@ -602,6 +659,16 @@ occurs between the map and reduce  stages  and
 sending each chunk of that sorted data to the 
 right machine, and writing debugging information 
 on each job’s progress, among other things.
+
+Hadoop architecture:
+![](./images/hadoop-architecture.png)
+
+`NameNode` is the master node in the Apache Hadoop 
+HDFS Architecture that maintains and manages the 
+blocks present on the DataNodes (worker nodes). 
+NameNode is a very highly available server that 
+manages the File System Namespace and controls 
+access to files by clients.
 
 Hadoop provides:
 
@@ -788,11 +855,15 @@ workloads as part of the Google Cloud portfolio.
 
 
 ## HDFS
-HDFS (Hadoop Distributed File System) is a distributed file 
-system designed to run on commodity hardware. You can place 
-huge amount of data in HDFS. You can create new files or
-directories.  You can delete files, but you can not edit/update 
-files in place.
+[HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) (Hadoop Distributed File System) 
+is a distributed file system designed to run on 
+commodity hardware. You can place huge amount of 
+data in HDFS.  You  can  create  new  files or 
+directories.  You can delete files, but you can 
+not edit/update files in place.
+
+
+![](./images/hdfs-architecture.png)
 
 **Features of HDFS:**
 
@@ -803,6 +874,15 @@ files in place.
 * Scalability
 * High throughput
 * Data locality
+
+* HDFS General format:
+
+		hdfs://<host>:<port>/folder_1/.../folde_n/file
+		
+* HDFS Example:
+
+		hdfs://localhost:8020/data/2023-01-07/samples.txt
+
 
 
 ## Amazon S3
@@ -2581,23 +2661,23 @@ either "R" or "S", and attribe is either `a` in `A` or `b` in `B`.
 	         # relation == "S"
 	         S_list.append(attribute)
 	      }
-		} #end-for
+	   } #end-for
 
-      # drop keys, which are not common
-      if (len(R_list) == 0) or (len(S_list) == 0) {
-      	# no join, no common attributes
-      	return
-      }
+	   # drop keys, which are not common
+	   if (len(R_list) == 0) or (len(S_list) == 0) {
+	       # no join, no common attributes
+	       return
+	   }
 
-      # Process common keys
-      # Both lists are non-empty:
-      # len(R_list) > 0) AND len(S_list) > 0
-      # perform a cartesian product of R and S
-      for a in R_list {
-         for b in S_list {
-             emit (key, (a, b))
-         }
-      }
+	   # Process common keys
+	   # Both lists are non-empty:
+	   # len(R_list) > 0) AND len(S_list) > 0
+	   # perform a cartesian product of R and S
+	   for a in R_list {
+	       for b in S_list {
+	             emit (key, (a, b))
+	       }
+	   }
 	} # end-reduce
 
 
@@ -4336,3 +4416,5 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 29. [NIST Big Data Interoperability Framework: Volume 1, Definitions](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf)
 
 30. [Python Guide by Nick Parlante](https://cs.stanford.edu/people/nick/py/)
+
+31. [What is Big Data Engineering? : A Comprehensive Guide 101](https://hevodata.com/learn/big-data-engineering/#big_data_engineering)
