@@ -873,7 +873,7 @@ div.mermaidTooltip {
 <li><p>This glossary is written for my students taking 
 <a href="https://github.com/mahmoudparsian/big-data-mapreduce-course/">Big Data Modeling &amp; Analytics</a> at <a href="https://www.scu.edu">Santa Clara University</a>.</p></li>
 <li><p>Compiled and edited by: <a href="../../bio/mahmoud_parsian_scu_bio.md">Mahmoud Parsian</a></p></li>
-<li><p>Last updated date: 1/29/2023</p></li>
+<li><p>Last updated date: 1/31/2023</p></li>
 </ul>
 
 <p><img src="./images/glossary.jpeg" alt=""></p>
@@ -3356,8 +3356,10 @@ failure.</p>
 
 <p>Two types of Spark RDD operations are: Transformations and Actions. </p>
 
+<p><img src="./images/spark_transformations_actions_as_DAG.png" alt=""></p>
+
 <ul>
-<li><p>Transformation: a transformation is a function that produces 
+<li><p><strong>Transformation</strong>: a transformation is a function that produces 
 new/target RDDs from the source/existing RDDs</p>
 
 <ul>
@@ -3366,7 +3368,7 @@ new/target RDDs from the source/existing RDDs</p>
 <li><code>groupByKey()</code>, <code>reduceByKey()</code>, <code>combineByKey()</code></li>
 <li>&hellip;</li>
 </ul></li>
-<li><p>Action: when we want to work with the actual dataset, at that 
+<li><p><strong>Action</strong>: when we want to work with the actual dataset, at that 
 point Action is performed. For RDD, anction is defined as the 
 Spark operations that return raw values. In other words, any 
 of the RDD functions that return other than the <code>RDD[T]</code> is 
