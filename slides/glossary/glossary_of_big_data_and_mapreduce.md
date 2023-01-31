@@ -194,6 +194,8 @@ A data lake is a centralized repository that allows
 you to store all your structured and unstructured 
 data at any scale.
 
+![](./images/data_lake.png)
+
 A storage repository that holds a vast amount of 
 raw data in its native format until it's required. 
 Every data element within a data lake is assigned 
@@ -325,6 +327,47 @@ Behavioural Analytics is a kind of analytics that
 informs about the how, why and what instead of just 
 the who and when. It looks at humanized patterns in 
 the data.
+
+
+## ODBC
+Open Database Connectivity (ODBC) is a standard 
+application programming interface (API) for accessing 
+database management systems (DBMS). The designers of 
+ODBC aimed to make it independent of database systems 
+and operating systems. An application written using 
+ODBC can be ported to other platforms, both on the 
+client and server side, with few changes to the data 
+access code.
+
+
+![](./images/odbc_architecture.gif)
+
+Open Database Connectivity (ODBC) is a protocol that 
+you can use to connect a Microsoft Access database 
+to an external data source such as Microsoft SQL 
+Server. 
+
+
+
+## JDBC
+Java database connectivity (JDBC) is the specification of 
+a standard application programming interface (API) that 
+allows Java programs to access database management systems. 
+The JDBC API consists of a set of interfaces and classes 
+written in the Java programming language.
+
+Using these standard interfaces and classes, programmers 
+can write applications that connect to databases, send 
+queries written in structured query language (SQL), and 
+process the results.
+
+![](./images/JDBC-Architecture.png)
+
+Since JDBC is a standard specification, one Java 
+program that uses the JDBC API can connect to any 
+database management system (DBMS), as long as a 
+driver exists for that particular DBMS.
+
 
 
 ## Big Data 
