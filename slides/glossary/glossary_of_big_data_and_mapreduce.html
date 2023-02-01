@@ -900,7 +900,7 @@ Original Creator of Apache Spark <br>
 </tr>
 </table>
 
-<p><img src="./images/glossary.jpeg" height=380 width=580></p>
+<p><img src="./images/glossary.jpeg" height=380 width=620></p>
 
 <h2 id="toc_1">Introduction</h2>
 
@@ -983,6 +983,23 @@ basic properties: </p>
 <h2 id="toc_3">Examples of Algorithms</h2>
 
 <ul>
+<li><p>Simple Algorithms (partial list):</p>
+
+<ul>
+<li>Sum of list of numbers </li>
+<li>Average of list of numbers</li>
+<li>Median of list of numbers </li>
+<li>Minimum and Maximum of list of numbers</li>
+<li>Cartesian product of two sets</li>
+<li>Given a list of numbers, find (number-of-zeros, 
+number-of-negatives, number-of-positives)</li>
+</ul></li>
+<li><p>Famous Algorithms (partial list):</p>
+
+<ul>
+<li>Tree algorithms</li>
+<li>Suffix Tree Algorithms</li>
+<li>Red–Black tree    algorithms</li>
 <li>Dijkstra&rsquo;s Algorithm.</li>
 <li>Merge Sort. </li>
 <li>Quicksort.</li>
@@ -993,7 +1010,44 @@ basic properties: </p>
 <li>Minimum Spanning Tree Algorithms.</li>
 <li>Bloom Filter</li>
 <li>All-Pairs Shortest Paths – Floyd Warshall Algorithm</li>
+<li>Kmers for DNA sequences</li>
+<li>Huffman Coding Compression Algorithm</li>
+<li>Bioinformatics Algorithms</li>
+<li>The Knuth-Morris-Pratt algorithm </li>
+</ul></li>
+<li><p><strong>US Change Algorithm:</strong>
+Convert some amount of money to fewest number of coins</p>
+
+<ul>
+<li>one dollar ($): 100 cents</li>
+<li>one quarter = 25 cents</li>
+<li>one dime = 10 cents</li>
+<li><p>one nickle = 5 cents</p></li>
+<li><p>Input: An amount of money, <code>M</code>, in cents</p></li>
+<li><p>Output: The smallest number of quarters <code>q</code>, dimes <code>d</code>, 
+nickles <code>n</code>, and pennies <code>p</code> whose value add to <code>M</code> (i.e., 
+<code>25q +10d + 5n + p = M</code> and <code>q + d + n + p</code> is as small as possible.</p></li>
+</ul></li>
 </ul>
+
+<p>The following is a basic US Change Algorithm in Python:</p>
+
+<div><pre class="line-numbers"><code class="language-none">~~~python
+&gt;&gt;&gt;# M : number of cents
+&gt;&gt;&gt; def change(M):
+...   q, p = divmod(M, 25)
+...   d, p = divmod(p, 10)
+...   n, p = divmod(p, 5)
+...   return (q, d, n, p)
+&gt;&gt;&gt;#end-def
+&gt;&gt;&gt;
+&gt;&gt;&gt; change(30)
+(1, 0, 1, 0)
+&gt;&gt;&gt; change(130)
+(5, 0, 1, 0)
+&gt;&gt;&gt; change(55089)
+(2203, 1, 0, 4)
+~~~</code></pre></div>
 
 <h2 id="toc_4">Types of Algorithms</h2>
 
@@ -5575,7 +5629,21 @@ looking for information. It involves collecting,
 structuring, indexing and cataloging data for 
 users in an organization, group or the general public.</p>
 
-<h2 id="toc_206">spark-packages.org</h2>
+<h2 id="toc_206">What is Bioinformatics?</h2>
+
+<ul>
+<li><p>Bioinformatics is a mutually beneficial
+collaboration between Biology and Computer
+Science (CS).</p></li>
+<li><p>For CS, Biology provides a motivation for studing
+new challenging problems and developing new
+algorithms.</p></li>
+<li><p>For Biology, CS offers effective and cheap (as in
+silico experiments are typically cheaper than
+wet-lab ones) solutions to many tough problems</p></li>
+</ul>
+
+<h2 id="toc_207">spark-packages.org</h2>
 
 <p>spark-packages.org is a community package index to 
 track the growing number of open source packages and 
@@ -5587,7 +5655,7 @@ it easy for developers to contribute packages.</p>
 <p>For example, GraphFrames package can be located 
 <a href="https://spark-packages.org/package/graphframes/graphframes">here</a>.</p>
 
-<h2 id="toc_207">References</h2>
+<h2 id="toc_208">References</h2>
 
 <ol>
 <li><p><a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">Data Algorithms with Spark by Mahmoud Parsian</a></p></li>
@@ -5630,13 +5698,14 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
 <li><p><a href="https://www.geeksforgeeks.org/what-is-an-algorithm-definition-types-complexity-examples/">What is an Algorithm? Definition, Types, Complexity, Examples</a></p></li>
 <li><p><a href="https://www.makeuseof.com/algorithms-every-programmer-should-know/">7 Algorithms Every Programmer Should Know</a></p></li>
 <li><p><a href="https://www.calltutors.com/blog/types-of-algorithms/">Best 7 Types Of Algorithms You Should Know</a></p></li>
+<li><p><a href="https://www.linkedin.com/pulse/list-algorithms-computer-programming-pranam-bhat/">List of Algorithms in Computer Programming</a></p></li>
 </ol>
 
 <hr>
 
-<h2 id="toc_208">Mahmoud Parsian&rsquo;s Latest Books:</h2>
+<h2 id="toc_209">Mahmoud Parsian&rsquo;s List of Books:</h2>
 
-<h3 id="toc_209">Data Algorithms with Spark</h3>
+<h3 id="toc_210">Data Algorithms with Spark</h3>
 
 <p><a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md">
     <img 
@@ -5647,7 +5716,7 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
     >
 </a></p>
 
-<h3 id="toc_210">PySpark Algorithms</h3>
+<h3 id="toc_211">PySpark Algorithms</h3>
 
 <p><a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
     <img 
@@ -5658,7 +5727,7 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
     >
 </a></p>
 
-<h3 id="toc_211">Data Algorithms</h3>
+<h3 id="toc_212">Data Algorithms</h3>
 
 <p><a href="http://shop.oreilly.com/product/0636920033950.do">
     <img 

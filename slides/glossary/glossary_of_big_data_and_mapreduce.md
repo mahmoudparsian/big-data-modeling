@@ -110,16 +110,67 @@ basic properties:
     expected to be effective
     
 ## Examples of Algorithms
-* Dijkstra's Algorithm.
-* Merge Sort. 
-* Quicksort.
-* Depth First Search. 
-* Breadth-First Search.
-* Linear Search
-* Binary Search. 
-* Minimum Spanning Tree Algorithms.
-* Bloom Filter
-* All-Pairs Shortest Paths – Floyd Warshall Algorithm
+
+* Simple Algorithms (partial list):
+	* Sum of list of numbers 
+	* Average of list of numbers
+	* Median of list of numbers 
+	* Minimum and Maximum of list of numbers
+	* Cartesian product of two sets
+	* Given a list of numbers, find (number-of-zeros, 
+	  number-of-negatives, number-of-positives)
+
+* Famous Algorithms (partial list):
+	* Tree algorithms
+	* Suffix Tree Algorithms
+	* Red–Black tree	algorithms
+	* Dijkstra's Algorithm.
+	* Merge Sort. 
+	* Quicksort.
+	* Depth First Search. 
+	* Breadth-First Search.
+	* Linear Search
+	* Binary Search. 
+	* Minimum Spanning Tree Algorithms.
+	* Bloom Filter
+	* All-Pairs Shortest Paths – Floyd Warshall Algorithm
+	* Kmers for DNA sequences
+	* Huffman Coding Compression Algorithm
+	* Bioinformatics Algorithms
+	* The Knuth-Morris-Pratt algorithm 
+
+* **US Change Algorithm:**
+Convert some amount of money to fewest number of coins
+
+	* one dollar ($): 100 cents
+	* one quarter = 25 cents
+	* one dime = 10 cents
+	* one nickle = 5 cents
+
+	* Input: An amount of money, `M`, in cents
+
+	* Output: The smallest number of quarters `q`, dimes `d`, 
+nickles `n`, and pennies `p` whose value add to `M` (i.e., 
+`25q +10d + 5n + p = M` and `q + d + n + p` is as small as possible.
+
+The following is a basic US Change Algorithm in Python:
+
+	~~~python
+	>>># M : number of cents
+	>>> def change(M):
+	...   q, p = divmod(M, 25)
+	...   d, p = divmod(p, 10)
+	...   n, p = divmod(p, 5)
+	...   return (q, d, n, p)
+	>>>#end-def
+	>>>
+	>>> change(30)
+	(1, 0, 1, 0)
+	>>> change(130)
+	(5, 0, 1, 0)
+	>>> change(55089)
+	(2203, 1, 0, 4)
+	~~~
 
 
 ## Types of Algorithms
@@ -4541,6 +4592,20 @@ looking for information. It involves collecting,
 structuring, indexing and cataloging data for 
 users in an organization, group or the general public.
 
+## What is Bioinformatics?
+
+* Bioinformatics is a mutually beneficial
+collaboration between Biology and Computer
+Science (CS).
+
+* For CS, Biology provides a motivation for studing
+new challenging problems and developing new
+algorithms.
+
+* For Biology, CS offers effective and cheap (as in
+silico experiments are typically cheaper than
+wet-lab ones) solutions to many tough problems
+
 
 ## spark-packages.org
 spark-packages.org is a community package index to 
@@ -4630,13 +4695,11 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 34. [Best 7 Types Of Algorithms You Should Know](https://www.calltutors.com/blog/types-of-algorithms/)
 
+35. [List of Algorithms in Computer Programming](https://www.linkedin.com/pulse/list-algorithms-computer-programming-pranam-bhat/)
 
 ---------------------------
 
-## Mahmoud Parsian's Latest Books: 
-
-
-
+## Mahmoud Parsian's List of Books: 
 
 
 ### Data Algorithms with Spark 
