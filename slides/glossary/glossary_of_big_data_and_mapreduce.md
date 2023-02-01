@@ -84,8 +84,74 @@ basic properties:
 
 > 5) **Effectiveness**: an algorithm is also generally 
     expected to be effective
+    
+## Examples of Algorithms
+* Dijkstra's Algorithm.
+* Merge Sort. 
+* Quicksort.
+* Depth First Search. 
+* Breadth-First Search.
+* Linear Search
+* Binary Search. 
+* Minimum Spanning Tree Algorithms.
+* Bloom Filter
+* All-Pairs Shortest Paths – Floyd Warshall Algorithm
 
 
+## Types of Algorithms
+
+* Sorting algorithms: Bubble Sort, insertion sort, 
+  and many more. These algorithms are used to sort 
+  the data in a particular format.
+
+* Searching algorithms: Linear search, binary search, 
+  etc. These algorithms are used in finding a value or 
+  record that the user demands.
+
+* Graph Algorithms: It is used to find solutions to 
+  problems like finding the shortest path between 
+  cities, and real-life problems like traveling 
+  salesman problems.
+  
+* Dynamic Programming Algorithms
+
+
+# Algorithm Complexity
+An algorithm is analyzed using Time 
+Complexity and Space Complexity. Writing 
+an efficient algorithm help to consume 
+the minimum amount of time for processing 
+the logic. For algorithm A, it is judged 
+on the basis of two parameters for an input 
+of size n :
+
+* **Time Complexity**: Time taken by the 
+  algorithm to solve the problem. It is 
+  measured by calculating the iteration 
+  of loops, number of comparisons etc.
+  In computer science, the time complexity 
+  is the computational complexity that 
+  describes the amount of computer time 
+  it takes to run an algorithm.
+
+* **Space Complexity**: Space taken by 
+  the algorithm to solve the problem. 
+  It includes space used by necessary 
+  input variables and any extra space 
+  (excluding the space taken by inputs) 
+  that is used by the algorithm. For 
+  example, if we use a hash table (a 
+  kind of data structure), we need an 
+  array to store values so this is an 
+  extra space occupied, hence will count 
+  towards the space complexity of the 
+  algorithm. This extra space is known 
+  as Auxiliary Space.
+  
+  **Computational Complexity of Algorithms**:
+  ![](./images/algorithm_complexity.jpeg)
+  
+  
 ## Distributed algorithm
 A distributed algorithm is an algorithm designed 
 to run on computer hardware constructed from 
@@ -4533,3 +4599,9 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 30. [Python Guide by Nick Parlante](https://cs.stanford.edu/people/nick/py/)
 
 31. [What is Big Data Engineering? : A Comprehensive Guide 101](https://hevodata.com/learn/big-data-engineering/#big_data_engineering)
+
+32. [What is an Algorithm? Definition, Types, Complexity, Examples](https://www.geeksforgeeks.org/what-is-an-algorithm-definition-types-complexity-examples/)
+
+33. [7 Algorithms Every Programmer Should Know](https://www.makeuseof.com/algorithms-every-programmer-should-know/)
+
+34. [Best 7 Types Of Algorithms You Should Know](https://www.calltutors.com/blog/types-of-algorithms/)
