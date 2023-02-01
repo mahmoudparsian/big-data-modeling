@@ -6,7 +6,8 @@
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
 * Last updated date: 1/31/2023
-	
+
+
 	
 ![](./images/glossary.jpeg)
 
@@ -4605,3 +4606,67 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 33. [7 Algorithms Every Programmer Should Know](https://www.makeuseof.com/algorithms-every-programmer-should-know/)
 
 34. [Best 7 Types Of Algorithms You Should Know](https://www.calltutors.com/blog/types-of-algorithms/)
+
+
+---------------------------
+
+## Mahmoud Parsian's Latest Books: 
+
+
+<table>
+<tr>
+<td>
+<a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">
+<img src="https://learning.oreilly.com/library/cover/9781492082378/250w/">
+</a>
+</td>
+<td>
+"... This  book  will be a  great resource for <br>
+both readers looking  to  implement  existing <br>
+algorithms in a scalable fashion and readers <br>
+who are developing new, custom algorithms  <br>
+using Spark. ..." <br>
+<br>
+<a href="https://cs.stanford.edu/people/matei/">Dr. Matei Zaharia</a><br>
+Original Creator of Apache Spark <br>
+<br>
+<a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/docs/FOREWORD_by_Dr_Matei_Zaharia.md">FOREWORD by Dr. Matei Zaharia</a><br>
+</td>
+</tr>
+</table>
+
+
+
+### Data Algorithms with Spark 
+
+<a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md">
+    <img 
+        alt="Data Algorithms with Spark" 
+        src="./images/Data_Algorithms_with_Spark_COVER_9781492082385.png"
+        width="580" 
+        height="600"
+    >
+</a>
+
+### PySpark Algorithms 
+
+<a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
+    <img 
+        alt="PySpark Algorithms Book" 
+        src="./images/pyspark_algorithms.jpg"
+        width="580" 
+        height="600"
+    >
+</a>
+
+### Data Algorithms 
+
+<a href="http://shop.oreilly.com/product/0636920033950.do">
+    <img 
+        alt="Data Algorithms Book" 
+        src="./images/large-image.jpg"
+        width="580" 
+        height="700"
+    >
+</a>
+
