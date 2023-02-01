@@ -5,12 +5,34 @@
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 1/31/2023
+* Last updated date: 2/1/2023
+
+<table>
+<tr>
+
+<td>
+<a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">
+<img src="https://learning.oreilly.com/library/cover/9781492082378/250w/">
+</a>
+</td>
+
+<td>
+"... This  book  will be a  great resource for <br>
+both readers looking  to  implement  existing <br>
+algorithms in a scalable fashion and readers <br>
+who are developing new, custom algorithms  <br>
+using Spark. ..." <br>
+<br>
+<a href="https://cs.stanford.edu/people/matei/">Dr. Matei Zaharia</a><br>
+Original Creator of Apache Spark <br>
+<br>
+<a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/docs/FOREWORD_by_Dr_Matei_Zaharia.md">FOREWORD by Dr. Matei Zaharia</a><br>
+</td>
+</tr>
+</table>
 
 
-	
-![](./images/glossary.jpeg)
-
+<img src="./images/glossary.jpeg" height=380 width=580>
 
 ## Introduction
 Big data is a vast and complex field that is 
@@ -4613,27 +4635,6 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 ## Mahmoud Parsian's Latest Books: 
 
 
-<table>
-<tr>
-<td>
-<a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">
-<img src="https://learning.oreilly.com/library/cover/9781492082378/250w/">
-</a>
-</td>
-<td>
-"... This  book  will be a  great resource for <br>
-both readers looking  to  implement  existing <br>
-algorithms in a scalable fashion and readers <br>
-who are developing new, custom algorithms  <br>
-using Spark. ..." <br>
-<br>
-<a href="https://cs.stanford.edu/people/matei/">Dr. Matei Zaharia</a><br>
-Original Creator of Apache Spark <br>
-<br>
-<a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/docs/FOREWORD_by_Dr_Matei_Zaharia.md">FOREWORD by Dr. Matei Zaharia</a><br>
-</td>
-</tr>
-</table>
 
 
 
@@ -4644,7 +4645,7 @@ Original Creator of Apache Spark <br>
         alt="Data Algorithms with Spark" 
         src="./images/Data_Algorithms_with_Spark_COVER_9781492082385.png"
         width="580" 
-        height="600"
+        height=760"
     >
 </a>
 
@@ -4655,7 +4656,7 @@ Original Creator of Apache Spark <br>
         alt="PySpark Algorithms Book" 
         src="./images/pyspark_algorithms.jpg"
         width="580" 
-        height="600"
+        height="700"
     >
 </a>
 
