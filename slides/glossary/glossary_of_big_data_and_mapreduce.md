@@ -32,7 +32,8 @@ Original Creator of Apache Spark <br>
 </table>
 
 
-<img src="./images/glossary.jpeg" height=380 width=610>
+<img src="./images/glossary.jpeg" height=380 width=620>
+
 
 ## Introduction
 Big data is a vast and complex field that is 
