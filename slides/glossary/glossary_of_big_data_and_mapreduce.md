@@ -109,7 +109,7 @@ basic properties:
 > 5) **Effectiveness**: an algorithm is also generally 
     expected to be effective
     
-## Examples of Algorithms
+## List of Algorithms
 
 * Simple Algorithms (partial list):
 	* Sum of list of numbers 
@@ -139,54 +139,108 @@ basic properties:
 	* Bioinformatics Algorithms
 	* The Knuth-Morris-Pratt algorithm 
 
-* **US Change Algorithm:**
-Convert some amount of money to fewest number of coins
+## Example of a Simple Algorithm
 
-	* one dollar ($): 100 cents
-	* one quarter = 25 cents
-	* one dime = 10 cents
-	* one nickle = 5 cents
+**US Change Algorithm:**
+Convert some amount of money (in cents) to fewest number 
+of coins. Here we assume that the **penny**, **nickel**, 
+**dime**, and **quarter** are the circulating coins that 
+we use today.
 
-	* Input: An amount of money, `M`, in cents
+* one quarter = 25 cents/pennies
+* one dime = 10 cents
+* one nickle = 5 cents
 
-	* Output: The smallest number of quarters `q`, dimes `d`, 
-nickles `n`, and pennies `p` whose value add to `M` (i.e., 
-`25q +10d + 5n + p = M` and `q + d + n + p` is as small as possible.
+* Input: An amount of money, `M`, in cents/pennies
 
-The following is a basic US Change Algorithm in Python:
+* Output: The smallest number of quarters `q`, 
+	  dimes `d`, nickles `n`, and pennies `p` whose 
+	  value add to `M`: the following rules must be satisfied:
+	  
+	* `25q +10d + 5n + p = M` and
+	* `q + d + n + p` is as small as possible.
 
-	~~~python
-	>>># M : number of cents
-	>>> def change(M):
-	...   q, p = divmod(M, 25)
-	...   d, p = divmod(p, 10)
-	...   n, p = divmod(p, 5)
-	...   return (q, d, n, p)
-	>>>#end-def
-	>>>
-	>>> change(30)
-	(1, 0, 1, 0)
-	>>> change(130)
-	(5, 0, 1, 0)
-	>>> change(55089)
-	(2203, 1, 0, 4)
-	~~~
+
+The following is a basic US Change Algorithm 
+in Python. In this algorithm, we use the 
+`divmod(arg1, arg2)` built-in function which 
+returns a tuple containing the quotient and 
+the remainder when `arg1` (dividend) is divided 
+by `arg2` (divisor).
+
+
+~~~python
+# M : number of pennies/cents
+def change(M):
+  # step-0: make sure that M is an integer
+  if not(isinstance(M, int)):
+    print('M is not an integer')
+    return (0, 0, 0, 0)
+  #end-if
+  
+  # here: M is an integer type
+  # step-1: make sure M > 0
+  if (M < 1):
+    return (0, 0, 0, 0)
+  #end-if
+  
+  # step-2: find quarters as q
+  q, p = divmod(M, 25)
+  
+  # step-3: find dimes
+  d, p = divmod(p, 10)
+  
+  # step-4: find nickles and pennies/cents
+  n, p = divmod(p, 5)
+  
+  # step-5: return the result
+  return (q, d, n, p)
+#end-def
+~~~
+
+Basic testing of the `change()` function:
+
+~~~python
+>>> change(None)
+M is not an integer
+(0, 0, 0, 0)
+>>> change([1, 2, 3])
+M is not an integer
+(0, 0, 0, 0)
+>>> change('x')
+M is not an integer
+(0, 0, 0, 0)
+>>> change(2.4)
+M is not an integer
+(0, 0, 0, 0)
+>>> change(0)
+(0, 0, 0, 0)
+>>> change(141)
+(5, 1, 1, 1)
+>>> change(30)
+(1, 0, 1, 0)
+>>> change(130)
+(5, 0, 1, 0)
+>>> change(55089)
+(2203, 1, 0, 4)
+~~~
 
 
 ## Types of Algorithms
 
-* Sorting algorithms: Bubble Sort, insertion sort, 
-  and many more. These algorithms are used to sort 
-  the data in a particular format.
+* Sorting algorithms: Bubble Sort, insertion 
+  sort, and many more. These algorithms are 
+  used to sort the data in a particular format.
 
-* Searching algorithms: Linear search, binary search, 
-  etc. These algorithms are used in finding a value or 
-  record that the user demands.
+* Searching algorithms: Linear search, binary 
+  search, etc. These algorithms are used in 
+  finding a value or record that the user 
+  demands.
 
-* Graph Algorithms: It is used to find solutions to 
-  problems like finding the shortest path between 
-  cities, and real-life problems like traveling 
-  salesman problems.
+* Graph Algorithms: It is used to find solutions 
+  to problems like finding the shortest path 
+  between cities, and real-life problems like 
+  traveling salesman problems.
   
 * Dynamic Programming Algorithms
 
@@ -197,8 +251,8 @@ Complexity and Space Complexity. Writing
 an efficient algorithm help to consume 
 the minimum amount of time for processing 
 the logic. For algorithm A, it is judged 
-on the basis of two parameters for an input 
-of size n :
+on the basis of two parameters for an 
+input of size n :
 
 * **Time Complexity**: Time taken by the 
   algorithm to solve the problem. It is 
