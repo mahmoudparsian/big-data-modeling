@@ -1,9 +1,9 @@
 ## Required Books (MapReduce and Spark) 
 
-1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) : for the first 7 weeks of class
+1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) : for the first 3 weeks of class
 
 2. [Data Algorithms with Spark by Mahmoud Parsian](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/) 
-	* [Source code @github.com -- Data Algorithms with Spark by Mahmoud Parsian](https://github.com/mahmoudparsian/data-algorithms-with-spark)
+	* [Source code @github.com -- Data Algorithms with Spark by Mahmoud Parsian](https://github.com/mahmoudparsian/data-algorithms-with-spark) : for the last 7 weeks of class
 
 
 ------
