@@ -873,7 +873,7 @@ div.mermaidTooltip {
 <li><p>This glossary is written for my students taking 
 <a href="https://github.com/mahmoudparsian/big-data-mapreduce-course/">Big Data Modeling &amp; Analytics</a> at <a href="https://www.scu.edu">Santa Clara University</a>.</p></li>
 <li><p>Compiled and edited by: <a href="../../bio/mahmoud_parsian_scu_bio.md">Mahmoud Parsian</a></p></li>
-<li><p>Last updated date: 2/1/2023</p></li>
+<li><p>Last updated date: 2/3/2023</p></li>
 </ul>
 
 <table>
@@ -929,8 +929,9 @@ Google BigQuery, Snowflake</li>
 <p>The purpose of this glossary is to shed some 
 light on the fundamental definitions of big 
 data and MapReduce, and Spark. This document 
-is a list of terms, words, and concepts found 
-in or relating to big data, MapReduce, and Spark.</p>
+is a list of terms, words, concepts, and
+examples found in or relating to big data, 
+MapReduce, and Spark.</p>
 
 <h2 id="toc_2">Algorithm</h2>
 
@@ -993,6 +994,14 @@ basic properties: </p>
 <li>Cartesian product of two sets</li>
 <li>Given a list of numbers, find (number-of-zeros, 
 number-of-negatives, number-of-positives)</li>
+<li>Word Count: given a set of text documents, 
+find frequency of every unique word in 
+these documents</li>
+<li>Given a set of integer numbers, identify 
+prime and non-prime numbers</li>
+<li>Anagrams Count: given a set of text documents, 
+find frequency of every unique anagram in 
+these documents</li>
 </ul></li>
 <li><p>Famous Algorithms (partial list):</p>
 
@@ -1020,15 +1029,15 @@ number-of-negatives, number-of-positives)</li>
 <h2 id="toc_4">Example of a Simple Algorithm</h2>
 
 <p><strong>US Change Algorithm:</strong>
-Convert some amount of money (in cents) to fewest number 
-of coins. Here we assume that the <strong>penny</strong>, <strong>nickel</strong>, 
-<strong>dime</strong>, and <strong>quarter</strong> are the circulating coins that 
-we use today.</p>
+Convert some amount of money (in cents/pennies) to 
+fewest number of coins. Here we assume that the 
+<strong>penny</strong>, <strong>nickel</strong>, <strong>dime</strong>, and <strong>quarter</strong> 
+are the circulating coins that we use today.</p>
 
 <ul>
 <li>one quarter = 25 cents/pennies</li>
 <li>one dime = 10 cents</li>
-<li><p>one nickle = 5 cents</p></li>
+<li><p>one nickle = 5 cents/pennies</p></li>
 <li><p>Input: An amount of money, <code>M</code>, in cents/pennies</p></li>
 <li><p>Output: The smallest number of quarters <code>q</code>, 
   dimes <code>d</code>, nickles <code>n</code>, and pennies <code>p</code> whose 
@@ -1063,9 +1072,15 @@ def change(M):
   
   # step-2: find quarters as q
   q, p = divmod(M, 25)
+  if (p == 0):
+    return (q, 0, 0, 0)
+  #end-if
   
   # step-3: find dimes
   d, p = divmod(p, 10)
+  if (p == 0):
+    return (q, d, 0, 0)
+  #end-if
   
   # step-4: find nickles and pennies/cents
   n, p = divmod(p, 5)
@@ -1097,7 +1112,9 @@ M is not an integer
 &gt;&gt;&gt; change(130)
 (5, 0, 1, 0)
 &gt;&gt;&gt; change(55089)
-(2203, 1, 0, 4)</code></pre></div>
+(2203, 1, 0, 4)
+&gt;&gt;&gt; change(44)
+(1, 1, 1, 4)</code></pre></div>
 
 <h2 id="toc_5">Types of Algorithms</h2>
 
@@ -1122,9 +1139,9 @@ traveling salesman problems.</p></li>
 Complexity and Space Complexity. Writing 
 an efficient algorithm help to consume 
 the minimum amount of time for processing 
-the logic. For algorithm A, it is judged 
+the logic. For algorithm <code>A</code>, it is judged 
 on the basis of two parameters for an 
-input of size n :</p>
+input of size <code>n</code> :</p>
 
 <ul>
 <li><p><strong>Time Complexity</strong>: Time taken by the 
@@ -1181,10 +1198,10 @@ an average.</p>
 <p><strong>Example of systems running distributed algorithms</strong>:</p>
 
 <ul>
-<li><p>Apache Spark can be used to implement and run 
-distributed algorithms.</p></li>
-<li><p>MapReduce/Hadoop can be used to implement and 
-run distributed algorithms.</p></li>
+<li><p>Apache Spark can be used to implement 
+and run distributed algorithms.</p></li>
+<li><p>MapReduce/Hadoop can be used to implement 
+and run distributed algorithms.</p></li>
 </ul>
 
 <h2 id="toc_8">Partitioner</h2>
@@ -1370,6 +1387,16 @@ variety of software systems.</p></li>
 users the privilege of nearly limitless geographic aptitude 
 at their fingertips. Search nearby restaurants, niche shops, 
 and whatever else is in relative distance to your location.</p></li>
+<li><p>SQL API:</p>
+
+<ul>
+<li>CREATE TABLE</li>
+<li>DROP TABLE</li>
+<li>INSERT row(s)</li>
+<li>DELETE row(s)</li>
+<li>UPDATE row(s)</li>
+<li>&hellip;</li>
+</ul></li>
 </ul>
 
 <h2 id="toc_17">Application</h2>
@@ -1430,11 +1457,11 @@ Server. </p>
 
 <h2 id="toc_21">JDBC</h2>
 
-<p>Java database connectivity (JDBC) is the specification of 
-a standard application programming interface (API) that 
-allows Java programs to access database management systems. 
-The JDBC API consists of a set of interfaces and classes 
-written in the Java programming language.</p>
+<p>Java database connectivity (JDBC) is the specification 
+of a standard application programming interface (API) 
+that allows Java programs to access database management 
+systems. The JDBC API consists of a set of interfaces 
+and classes written in the Java programming language.</p>
 
 <p>Using these standard interfaces and classes, programmers 
 can write applications that connect to databases, send 
@@ -1484,29 +1511,35 @@ set with increasing volume, variety and velocity. </p>
 
 <h2 id="toc_23">Big Data Engineering</h2>
 
-<p>Big Data engineering is the discipline for engineering 
-scalable systems for data-intensive processing.</p>
+<p>Big Data engineering is the discipline for 
+engineering scalable systems for data-intensive 
+processing.</p>
 
-<p>Data collected from different sources are in a raw format, 
-i.e., usually in a form that is not fit for Data Analysis. 
-The idea behind what is Big Data Engineering is not only 
-to collect Big Data but also to transform and store it in 
-a dedicated database that can support insights generation 
-or the creation of Machine Learning-based solutions.</p>
+<p>Data collected from different sources are 
+in a raw format, i.e., usually in a form 
+that is not fit for Data Analysis. The idea 
+behind what is Big Data Engineering is not 
+only to collect Big Data but also to transform 
+and store it in a dedicated database that can 
+support insights generation or the creation 
+of Machine Learning based solutions.</p>
 
-<p>Data Engineers are the force behind Data Engineering that 
-is focused on gathering information from disparate sources, 
-transforming the data, devising schemas, storing data, and 
-managing its flow.</p>
+<p>Data Engineers are the force behind Data 
+Engineering that is focused on gathering 
+information   from   disparate   sources, 
+transforming the data, devising schemas, 
+storing data, and managing its flow.</p>
 
 <h2 id="toc_24">Big Data Modeling</h2>
 
-<p>What is Big Data Modeling? Data modeling is the method of 
-constructing a specification for the storage of data in a 
-database. It is a theoretical representation of data objects 
-and relationships between them. The process of formulating 
-data in a structured format in an information system is known 
-as data modeling.</p>
+<p>What is Big Data Modeling? Data modeling is 
+the method of constructing a specification 
+for the storage of data in a database. It is 
+a theoretical representation of data objects 
+and relationships between them. The process 
+of formulating data in a structured format 
+in an information system is known as data 
+modeling.</p>
 
 <p>In a practical sense, Big Data Modeling involves:</p>
 
@@ -1566,28 +1599,32 @@ create insights from the data: </p>
 <p>There are 5 different types of data models:</p>
 
 <ul>
-<li><p><strong>Hierarchical Data Model</strong>:  A hierarchical data model 
-is a structure for organizing data into a tree-like hierarchy, 
-otherwise known as a parent-child relationship. </p></li>
-<li><p><strong>Relational Data Model</strong>: relational model represents the 
-database as a collection of relations. A relation is nothing 
-but a table of values (or rows and columns).</p></li>
-<li><p><strong>Entity-relationship (ER) Data Model</strong>: an entity relationship 
-diagram (ERD), also known as an entity relationship model, is a 
-graphical representation that depicts relationships among people, 
-objects, places, concepts or events within an information 
-technology (IT) system.</p></li>
-<li><p><strong>Object-oriented Data Model</strong>: the Object-Oriented Model in 
-DBMS or OODM is the data model where data is stored in the 
-form of objects. This model is used to represent real-world 
-entities. The data and data relationship is stored together 
-in a single entity known as an object in the Object Oriented 
-Model.</p></li>
-<li><p><strong>Dimensional Data Model</strong>: Dimensional Modeling (DM) is a data 
-structure technique optimized for data storage in a Data warehouse. 
-The purpose of dimensional modeling is to optimize the database for 
-faster retrieval of data. The concept of Dimensional Modelling was 
-developed by Ralph Kimball and consists of “fact” and “dimension” 
+<li><p><strong>Hierarchical Data Model</strong>:  A hierarchical data 
+model is a structure for organizing data into a 
+tree-like hierarchy, otherwise known as a parent-child 
+relationship. </p></li>
+<li><p><strong>Relational Data Model</strong>: relational model represents 
+the database as a collection of relations. A relation 
+is nothing but a table of values (or rows and columns).</p></li>
+<li><p><strong>Entity-relationship (ER) Data Model</strong>: an entity 
+relationship diagram (ERD), also known as an entity 
+relationship model, is a graphical representation that 
+depicts relationships among people, objects, places, 
+concepts or events within an information technology 
+(IT) system.</p></li>
+<li><p><strong>Object-oriented Data Model</strong>: the Object-Oriented 
+Model in DBMS or OODM is the data model where data 
+is stored in the form of objects. This model is used 
+to represent real-world entities. The data and data 
+relationship is stored together in a single entity 
+known as an object in the Object Oriented Model.</p></li>
+<li><p><strong>Dimensional Data Model</strong>: Dimensional Modeling 
+(DM) is a data structure technique optimized for 
+data storage in a Data warehouse. The purpose of 
+dimensional modeling is to optimize the database 
+for faster retrieval of data. The concept of 
+Dimensional Modelling was developed by Ralph 
+Kimball and consists of “fact” and “dimension” 
 tables.</p></li>
 </ul>
 
@@ -1631,7 +1668,8 @@ MapReduce and Spark and other big data solutions.</p>
 
 <h2 id="toc_29">Data Set</h2>
 
-<p>A collection of (structured, semi-structured, and unstructured) data.</p>
+<p>A collection of (structured, semi-structured, 
+and unstructured) data.</p>
 
 <p>Example of Data Sets:</p>
 
@@ -1657,13 +1695,13 @@ the data. </p>
 
 <ul>
 <li><p><a href="https://www.oracle.com/java/technologies/downloads/">Java</a> 
-is a strongly typed (strong typing means that the type 
-of a value doesn&rsquo;t change in unexpected ways) 
-language, every variable must be defined by an explicit 
-data type before usage. Java is considered strongly typed 
-because it demands the declaration of every variable with 
-a data type. Users cannot create a variable without the 
-range of values it can hold.</p>
+is a strongly typed (strong typing means that the 
+type of a value doesn&rsquo;t change in unexpected ways) 
+language, every variable must be defined by an 
+explicit data type before usage. Java is considered 
+strongly typed because it demands the declaration of 
+every variable with a data type. Users cannot create 
+a variable without the range of values it can hold.</p>
 
 <ul>
 <li><p>Java example</p>
@@ -1680,14 +1718,14 @@ range of values it can hold.</p>
 <li><p><a href="https://stackoverflow.com/questions/11328920/is-python-strongly-typed">Python is strongly, dynamically typed:</a></p>
 
 <ul>
-<li>Strong typing means that the type of a value doesn&rsquo;t 
-change in unexpected ways. A string containing only 
-digits doesn&rsquo;t magically become a number, as may happen 
-in Perl. Every change of type requires an explicit 
-conversion.</li>
-<li><p>Dynamic typing means that runtime objects (values) have a 
-type, as opposed to static typing where variables have a 
-type.</p>
+<li><p>Strong typing means that the type of a value 
+doesn&rsquo;t change in unexpected ways. A string 
+containing only digits doesn&rsquo;t magically become 
+a number, as may happen in Perl. Every change 
+of type requires an explicit conversion.</p></li>
+<li><p>Dynamic typing means that runtime objects (values) 
+have a type, as opposed to static typing where 
+variables have a type.</p>
 
 <ul>
 <li><p>Python example</p>
@@ -1699,23 +1737,24 @@ bob = 1
 bob = &quot;bob&quot;</code></pre></div></li>
 </ul>
 
-<p>This works because the variable does not have a type; 
-it can name any object. After <code>bob=1</code>, you&rsquo;ll find that 
-<code>type(bob)</code> returns int, but after <code>bob=&quot;bob&quot;</code>, it 
-returns <code>str</code>. (Note that type is a regular function, 
-so it evaluates its argument, then returns the type 
-of the value.)</p></li>
+<p>This works because the variable does not have 
+a type; it can name any object. After <code>bob=1</code>, 
+you&rsquo;ll find that <code>type(bob)</code> returns int, but 
+after <code>bob=&quot;bob&quot;</code>, it returns <code>str</code>. (Note that 
+type is a regular function,     so it evaluates its 
+argument, then returns the type of the value.)</p></li>
 </ul></li>
 </ul>
 
 <h1 id="toc_31">Primitive Data Type</h1>
 
-<p>A data type that allows you to represent a single 
-data value in a single column position. In a nutshell, 
-a primitive data type is either a data type that is 
-built into a programming language, or one that could 
-be characterized as a basic structure for building 
-more sophisticated data types. </p>
+<p>A data type that allows you to represent a 
+single data value in a single column position. 
+In a nutshell, a primitive data type is either 
+a data type that is built into a programming 
+language, or one that could be characterized 
+as a basic structure for building more 
+sophisticated data types. </p>
 
 <ul>
 <li><p>Java examples:</p>
@@ -1723,13 +1762,15 @@ more sophisticated data types. </p>
 <div><pre class="line-numbers"><code class="language-none">int a = 10;
 boolean b = true;
 double d = 2.4;
-String s = &quot;fox&quot;;</code></pre></div></li>
+String s = &quot;fox&quot;;
+String t = null;</code></pre></div></li>
 <li><p>Python examples:  </p>
 
 <div><pre class="line-numbers"><code class="language-none">a = 10
 b = True
 d = 2.4
-s = &quot;fox&quot;</code></pre></div></li>
+s = &quot;fox&quot;
+t = None</code></pre></div></li>
 </ul>
 
 <h2 id="toc_32">Composite Data Type</h2>
@@ -1764,6 +1805,14 @@ created by instantiation of the class objects.</p>
 search engine software library written in Java. It 
 provides robust search and indexing features.</p>
 
+<p>Apache Lucene is a high-performance, full-featured 
+search engine library written entirely in Java. It 
+is a technology suitable for nearly any application 
+that requires structured search, full-text search, 
+faceting, nearest-neighbor search across high
+dimensionality vectors, spell correction or query 
+suggestions.</p>
+
 <h2 id="toc_34">Apache Solr</h2>
 
 <p><a href="https://solr.apache.org">Solr</a> is the popular, 
@@ -1780,26 +1829,29 @@ largest internet sites.</p>
 
 <h2 id="toc_35">Apache Hadoop</h2>
 
-<p><a href="https://hadoop.apache.org">Hadoop</a> is an open-source 
-framework that is built to enable the process and 
-storage of big data across a distributed file system. 
-Hadoop implements MapReduce paradigm, it is slow and 
-complex and uses disk for read/write operations. Hadoop 
-does not take advantage of in-memory computing. Hadoop 
-runs a computing cluster.</p>
+<p><a href="https://hadoop.apache.org">Hadoop</a> is an open
+source framework that is built to enable the 
+process and storage of big data across a 
+distributed file system. Hadoop implements 
+MapReduce paradigm, it is slow and complex and 
+uses disk for read/write operations. Hadoop 
+does not take advantage of in-memory computing. 
+Hadoop runs a computing cluster.</p>
 
-<p>Hadoop takes care of running your MapReduce code 
-(by <code>map() first, then reduce()</code> logic) across a 
-cluster of machines. Its responsibilities include 
-chunking up the input data, sending it to 
-each machine, running your code on each chunk, 
-checking that the code ran, passing any results 
-either on to further processing stages or to the 
-final output location, performing the sort that 
-occurs between the map and reduce  stages  and 
-sending each chunk of that sorted data to the 
-right machine, and writing debugging information 
-on each job’s progress, among other things.</p>
+<p>Hadoop takes care of running your MapReduce 
+code (by <code>map() first, then reduce()</code> logic) 
+across   a   cluster   of   machines.  Its 
+responsibilities include chunking up the 
+input data, sending it to each machine, 
+running your code on each chunk, checking 
+that the code ran, passing any results 
+either on to further processing stages 
+or to the final output location, performing 
+the sort that occurs between the <strong>map</strong> 
+and <strong>reduce</strong>  stages  and sending each 
+chunk of that sorted data to the right machine, 
+and writing debugging information on each 
+job’s progress, among other things.</p>
 
 <p>Hadoop architecture:
 <img src="./images/hadoop-architecture.png" alt=""></p>
@@ -1887,20 +1939,20 @@ Oracle, MySQL, Maria</li>
 
 <h2 id="toc_37">Replication Factor (RF)</h2>
 
-<p>The total number of replicas across the cluster is 
-referred to as the  replication  factor  (RF). A 
-replication factor of 1 means that there is only 
-one copy of each row in the cluster. If the node 
-containing the row goes down, the row cannot be 
-retrieved. A replication factor of 2 means two 
-copies of each row, where each  copy  is  on a 
-different node. All replicas are equally important; 
-there is no primary or master replica.</p>
+<p>The total number of replicas across the cluster 
+is referred to as the  replication  factor  (RF). 
+A replication factor of 1 means that there is 
+only one copy of each row in the cluster. If the 
+node containing the row goes down, the row cannot 
+be retrieved. A replication factor of 2 means 
+two copies of each row, where each  copy  is<br>
+on a different node. All replicas are equally 
+important; there is no primary or master replica.</p>
 
 <p>Given a cluster of <code>N+1</code> nodes (a master and <code>N</code> 
 worker nodes), if data replication factotr is <code>R</code>, 
-then  <code>(R - 1)</code> nodes can safely fail without impacting 
-any running job in the cluster.</p>
+then  <code>(R - 1)</code> nodes can safely fail without 
+impacting any running job in the cluster.</p>
 
 <h2 id="toc_38">What makes Hadoop Fault tolerant?</h2>
 
@@ -1945,21 +1997,24 @@ safely fail without impacting a running job.</p>
 <li><p>Text files (log data, CSV, &hellip;)</p></li>
 <li><p>XML</p></li>
 <li><p>JSON</p></li>
+<li><p>JDBC (read/write from/to relational tables)</p></li>
 <li><p>&hellip;</p></li>
 </ul>
 
 <h2 id="toc_40">Parquet Files</h2>
 
-<p><a href="https://parquet.apache.org">Apache Parquet</a> is a columnar 
-file format that supports block level compression and is 
-optimized for query performance as it allows selection of 
-10 or less columns from from 50+ columns records.</p>
+<p><a href="https://parquet.apache.org">Apache Parquet</a> is 
+a columnar file format that supports block level 
+compression and is optimized for query performance 
+as it allows selection of 10 or less columns from 
+from 50+ columns records.</p>
 
-<p>Apache Spark can read/write from/to Parquet data format. </p>
+<p>Apache Spark can read/write from/to Parquet data 
+format. </p>
 
-<p>Parquet is a columnar open source storage format that can 
-efficiently store nested data which is widely used in 
-Hadoop and Spark.</p>
+<p>Parquet is a columnar open source storage format 
+that can efficiently store nested data which is 
+widely used in Hadoop and Spark.</p>
 
 <p><strong>Characteristics of Parquet:</strong></p>
 
@@ -2008,23 +2063,26 @@ oriented databases are better suited. </p>
 
 <h2 id="toc_42">Tez</h2>
 
-<p><a href="https://tez.apache.org">Apache Tez</a> (which implements 
-MapReduce paradigm) is a framework to create high
-performance applications for batch and data processing. 
-YARN of Apache Hadoop coordinates with it to provide 
-the developer framework and API for writing applications 
-of batch workloads. </p>
+<p><a href="https://tez.apache.org">Apache Tez</a> (which 
+implements MapReduce paradigm) is a framework 
+to create high performance applications for 
+batch and data processing.  YARN of Apache 
+Hadoop coordinates with it to provide the 
+developer framework and API for writing 
+applications of batch workloads. </p>
 
-<p>The Tez is aimed at building an 
-application framework which allows for a complex 
-directed-acyclic-graph (DAG) of tasks for processing 
-data. It is currently built atop Apache Hadoop YARN.</p>
+<p>The Tez is aimed at building an application 
+framework which allows for a complex 
+directed-acyclic-graph (DAG) of tasks for 
+processing data. It is currently built atop 
+Apache Hadoop YARN.</p>
 
 <h2 id="toc_43">Apache HBase</h2>
 
-<p><a href="https://hbase.apache.org">Apache HBase</a> is n open source, 
-non-relational, distributed database running in conjunction 
-with Hadoop.  HBase can support billions of data points.</p>
+<p><a href="https://hbase.apache.org">Apache HBase</a> is an 
+open source, non-relational, distributed database 
+running in conjunction with Hadoop.  HBase can 
+support billions of data points.</p>
 
 <p><strong>Features of HBase:</strong></p>
 
@@ -2081,20 +2139,22 @@ is always available and prevents data loss</li>
 
 <h2 id="toc_46">Amazon S3</h2>
 
-<p>Amazon Simple Storage Service (Amazon S3) is an object 
-storage service that offers industry-leading scalability, 
-data availability, security, and performance. Customers 
-of all sizes and industries can use Amazon S3 to store 
-and protect any amount of data for a range of use cases, 
-such as data lakes, websites, mobile applications, backup 
-and restore, archive, enterprise applications, IoT devices, 
-and big data analytics. Amazon S3 provides management 
-features so that you can optimize, organize, and configure 
-access to your data to meet your specific business, 
+<p>Amazon Simple Storage Service (Amazon S3) is an 
+object storage service that offers industry-leading 
+scalability, data availability, security, and 
+performance. Customers of all sizes and industries 
+can use Amazon S3 to store and protect any amount 
+of data for a range of use cases, such as data 
+lakes, websites, mobile applications, backup 
+and restore, archive, enterprise applications, 
+IoT devices, and big data analytics. Amazon S3 
+provides management features so that you can 
+optimize, organize, and configure access to 
+your data to meet your specific business, 
 organizational, and compliance requirements.</p>
 
-<p>Objects are the fundamental entities stored in Amazon S3. 
-Objects are stored as:</p>
+<p>Objects are the fundamental entities stored in 
+Amazon S3. Objects are stored as:</p>
 
 <ul>
 <li><p>General format:</p>
@@ -2107,78 +2167,89 @@ Objects are stored as:</p>
 
 <h2 id="toc_47">Amazon Athena</h2>
 
-<p>The Amazon Athena is widely used and is defined as an 
-interactive query service that makes it easy to analyze 
-data in Amazon S3 using the standard SQL. </p>
+<p>The Amazon Athena is widely used and is defined 
+as an interactive query service that makes it 
+easy to analyze data in Amazon S3 using the 
+standard SQL. </p>
 
 <ul>
-<li><p>Amazon Athena is serverless, so there is no infrastructure 
-to manage, and users pay only for the queries that they run. </p></li>
-<li><p>Amazon Athena is easy to use and simply point to users&#39; data 
-in Amazon S3, define the schema, and start querying using 
-standard SQL. </p></li>
-<li><p>Most results are delivered within seconds. With Athena, there’s 
-no need for complex ETL jobs to prepare user&rsquo;s data for the 
-analysis and this makes it easy for anyone with SQL skills to 
+<li><p>Amazon Athena is serverless, so there is no 
+infrastructure to manage, and users pay only 
+for the queries that they run. </p></li>
+<li><p>Amazon Athena is easy to use and simply point 
+to users&#39; data in Amazon S3, define the schema, 
+and start querying using standard SQL. </p></li>
+<li><p>Most results are delivered within seconds. With 
+Athena, there’s no need for complex ETL jobs to 
+prepare user&rsquo;s data for the analysis and this 
+makes it easy for anyone with SQL skills to 
 quickly analyze large-scale datasets. </p></li>
-<li><p>Amazon Athena is out-of-the-box integrated with the AWS 
-Glue Data Catalog allowing users to create the unified 
-metadata repository across various services, crawl data 
-sources to discover schemas and populate their Catalog 
-with new and modified table and partition definitions, 
-and maintain the schema versioning. </p></li>
-<li><p>Amazon Athena is the serverless data query tool which means 
-it is scalable and cost-effective at the same time. Usually, 
-customers are charged on a pay per query basis which further 
-translates to the number of queries that are executed at a 
+<li><p>Amazon Athena is out-of-the-box integrated with 
+the AWS Glue Data Catalog allowing users to create 
+the unified metadata repository across various 
+services, crawl data sources to discover schemas 
+and populate their Catalog with new and modified 
+table and partition definitions, and maintain the 
+schema versioning. </p></li>
+<li><p>Amazon Athena is the serverless data query tool 
+which means it is scalable and cost-effective at 
+the same time. Usually, customers are charged on 
+a pay per query basis which further translates to 
+the number of queries that are executed at a 
 given time.</p></li>
-<li><p>The normal charge for scanning 1TB of data from S3 is 5 USD 
-and although it looks quite a small amount at a first glance 
-when users have multiple queries running on hundreds and 
-thousands of GB of data, the price might get out of control 
-at times.</p></li>
+<li><p>The normal charge for scanning 1TB of data from S3 
+is 5 USD and although it looks quite a small amount 
+at a first glance when users have multiple queries 
+running on hundreds and thousands of GB of data, 
+the price might get out of control at times.</p></li>
 </ul>
 
 <h2 id="toc_48">Google BigQuery</h2>
 
 <ul>
-<li><p>BigQuery is a serverless and cost-effective enterprise 
-data warehouse. </p></li>
+<li><p>BigQuery is a serverless and cost-effective 
+enterprise data warehouse. </p></li>
 <li><p>BigQuery supports the Google Standard SQL dialect, 
 but a legacy SQL dialect is also available.</p></li>
-<li><p>BigQuery has built-in machine learning and BI 
-that works across clouds, and scales with your data.</p></li>
-<li><p>BigQuery is a fully managed enterprise data warehouse 
-that helps you manage and analyze your data with built-in 
-features like machine learning, geospatial analysis, and 
-business intelligence.</p></li>
-<li><p>BigQuery&rsquo;s query engine can run SQL queries on terabytes 
-of data within seconds, and petabytes within minutes. BigQuery 
-gives you this performance without the need to maintain the 
-infrastructure or rebuild or create indexes. BigQuery&rsquo;s speed 
-and scalability make it suitable for use in processing huge 
-datasets.</p></li>
-<li><p>BigQuery storage: BigQuery stores data using a columnar 
-storage format that is optimized for analytical queries. 
-BigQuery presents data in tables, rows, and columns and 
-provides full support for database transaction semantics 
-(ACID). BigQuery storage is automatically replicated across 
-multiple locations to provide high availability.</p></li>
+<li><p>BigQuery has built-in machine learning and 
+BI that works across clouds, and scales with 
+your data.</p></li>
+<li><p>BigQuery is a fully managed enterprise data 
+warehouse that helps you manage and analyze 
+your data with built-in features like machine 
+learning, geospatial analysis, and business 
+intelligence.</p></li>
+<li><p>BigQuery&rsquo;s query engine can run SQL queries 
+on terabytes of data within seconds, and petabytes 
+within minutes. BigQuery gives you this performance 
+without the need to maintain the infrastructure or 
+rebuild or create indexes. BigQuery&rsquo;s speed and 
+scalability make it suitable for use in processing 
+huge datasets.</p></li>
+<li><p>BigQuery storage: BigQuery stores data using a 
+columnar storage format that is optimized for 
+analytical queries. BigQuery presents data in 
+tables, rows, and columns and provides full 
+support for database transaction semantics 
+(ACID). BigQuery storage is automatically 
+replicated across multiple locations to provide 
+high availability.</p></li>
 <li><p>With Google Cloud’s pay-as-you-go pricing structure, 
 you only pay for the services you use.</p></li>
 </ul>
 
 <h2 id="toc_49">Commodity server/hardware</h2>
 
-<p>Commodity hardware (computer), sometimes known as 
-off-the-shelf server/hardware, is a computer device 
-or IT component that is relatively inexpensive, widely 
-available and basically interchangeable with other 
-hardware of its type. Since commodity hardware is not 
-expensive, it is used in building/creating
-clusters for big data computing (scale-out architecture).
-Commodity hardware is often deployed for high availability 
-and disaster recovery purposes.</p>
+<p>Commodity hardware (computer), sometimes known 
+as off-the-shelf server/hardware, is a computer 
+device or IT component that is relatively inexpensive, 
+widely available and basically interchangeable with 
+other hardware of its type. Since commodity hardware 
+is not expensive, it is used in building/creating
+clusters  for  big  data  computing (scale-out 
+architecture).  Commodity hardware is often 
+deployed for high availability and disaster 
+recovery purposes.</p>
 
 <h2 id="toc_50">Fault Tolerance and Data Replication.</h2>
 
@@ -2186,15 +2257,16 @@ and disaster recovery purposes.</p>
 continue to run when a component of the system 
 (such as a server node, disk, &hellip;) fails. </p>
 
-<p>HDFS is designed to reliably store very large files 
-across machines in a large cluster. It stores each 
-file as a sequence of blocks; all blocks in a file 
-except the last block are the same size. The blocks 
-of a file are replicated for fault tolerance.</p>
+<p>HDFS is designed to reliably store very large 
+files across machines in a large cluster. It 
+stores each file as a sequence of blocks; all 
+blocks in a file except the last block are the 
+same size. The blocks of a file are replicated 
+for fault tolerance.</p>
 
-<p>Block size can be configured. For example, let block 
-size to be 512MB. Now, let&rsquo;s place a file (sample.txt) 
-of 1800MB in HDFS:</p>
+<p>Block size can be configured. For example, let 
+block size to be 512MB. Now, let&rsquo;s place a file 
+(sample.txt) of 1800MB in HDFS:</p>
 
 <div><pre class="line-numbers"><code class="language-none">1800MB = 512MB (Block-1) + 512MB (Block-2) + 512MB (Block-3) + 264MB (Block-4)
 Lets denote 
@@ -2221,9 +2293,9 @@ nodes can safely fail without a job fails.</p>
 
 <h2 id="toc_51">High-Performance-Computing (HPC)</h2>
 
-<p>Using supercomputers to solve highly complex and advanced 
-computing problems. This is a scale-up architecture and 
-not a scale-out architecture.</p>
+<p>Using supercomputers to solve highly complex and 
+advanced computing problems. This is a scale-up 
+architecture and not a scale-out architecture.</p>
 
 <p>Hadoop and Spark use scale-out architectures.</p>
 
@@ -2287,10 +2359,11 @@ mappers, combiners, and reducers in MapReduce paradigm.</p>
 
 <p><img src="./images/map-reduce-combine.png" alt=""></p>
 
-<p>The genie/magic/power of MapReduce is a Sort &amp; Shuffle 
-phase (provided by MapReduce implementation), which groups 
-keys generated by all mappers. For example, if all mappers 
-have created the following (key, value) pairs:</p>
+<p>The genie/magic/power of MapReduce is a Sort &amp; 
+Shuffle phase (provided by MapReduce implementation), 
+which groups keys generated by all mappers. For 
+example, if all mappers have created the following 
+<code>(key, value)</code> pairs:</p>
 
 <div><pre class="line-numbers"><code class="language-none">(C, 4), (C, 5), 
 (A, 2), (A, 3), 
@@ -2365,32 +2438,34 @@ therefore, Sort &amp; Shuffle will create a set of:</p>
 <p>which will be fed as input to the reducers.
 In MapReduce paradigm, <strong>Sort &amp; Shuffle</strong> is 
 handled by the MapReduce implementation and 
-it is so called the genie of the MapReduce paradigm.
-A programmer does not write any code for the 
-<strong>Sort &amp; Shuffle</strong> phase.</p>
+it is so called the genie of the MapReduce 
+paradigm.  A programmer does not write any 
+code for the  <strong>Sort &amp; Shuffle</strong> phase.</p>
 
-<p>For example, for a MapReduce job, if all mappers 
-have created the following (key, value) pairs (with 
-3 distinct keys as <code>{A, B, C}</code>:</p>
+<p>For example, for a MapReduce job, if all 
+mappers have created the following <code>(key, value)</code> 
+pairs (with  3 distinct keys as <code>{A, B, C}</code>:</p>
 
 <div><pre class="line-numbers"><code class="language-none">    (A, 2), (A, 3)
     (B, 4), (B, 5), (B, 6), (B, 7)
     (C, 8)</code></pre></div>
 
-<p>Then <strong>Sort &amp; Shuffle</strong> phase will produce the following output
-(which will be sent as input to the reducers &ndash; note the values
-are not sorted in any order at all):</p>
+<p>Then <strong>Sort &amp; Shuffle</strong> phase will produce the 
+following output (which will be sent as input 
+to the reducers &ndash; note the values are not 
+sorted in any order at all):</p>
 
 <div><pre class="line-numbers"><code class="language-none">    (A, [2, 3])
     (C, [8])
     (B, [7, 4, 5, 6])</code></pre></div>
 
 <ul>
-<li><strong>Reduce</strong>: The intermediate (key, value) pairs that work 
-as input for Reducer are shuffled and sort and send to the 
-<code>reduce()</code> function. Reducer aggregate or group the data based 
-on its (key, value) pair as per the reducer algorithm written 
-by the developer.</li>
+<li><strong>Reduce</strong>: The intermediate (key, value) pairs 
+that work as input for Reducer are shuffled and 
+sort and send to the  <code>reduce()</code> function. Reducer 
+aggregate or group the data based on its <code>(key, value)</code> 
+pair as per the reducer algorithm written by the 
+developer.</li>
 </ul>
 
 <p>For the example, listed above, 3 reducers will be 
@@ -2415,9 +2490,10 @@ for genes and each record is identified as:</p>
 <div><pre class="line-numbers"><code class="language-none">INS,1.1,1.4
 INSR,1.7,1.2</code></pre></div>
 
-<p>Suppose the goal is to find the median value for the smaller of 
-the two gene values. Therefore we need to produce (key, value) 
-pairs such that key is a <code>gene_id</code> and value is minimum of 
+<p>Suppose the goal is to find the median value for 
+the smaller of the two gene values. Therefore we 
+need to produce <code>(key, value)</code> pairs such that <code>key</code> 
+is a <code>gene_id</code> and value is minimum of 
 <code>&lt;value_1&gt;</code> and <code>&lt;value_2&gt;</code>.</p>
 
 <p>The following pseudo-code will accomplish the mapper task:</p>
@@ -2472,17 +2548,18 @@ associated gene value:</p>
 (INS, 1.0)
 (INSR, 0.7)</code></pre></div>
 
-<p>Note that, for the preceding mappers output, the Sort &amp; Shuffle
-phase will produce the follwong (key, values) pairs to be 
-consumed by the reducers.</p>
+<p>Note that, for the preceding mappers output, the 
+Sort &amp; Shuffle phase will produce the follwong 
+<code>(key, values)</code> pairs to be consumed by the reducers.</p>
 
 <div><pre class="line-numbers"><code class="language-none">(INS, [1.3, 1.1, 1.0])
 (INSR, [1.2, 0.7])</code></pre></div>
 
-<p>Now, assume that the goal of reducers is to find the median of
-values per key (as a gene_id). For simplicity, we assume that 
-there exists a <code>median()</code> function, which accepts a list of 
-values and computes the median of given values.</p>
+<p>Now, assume that the goal of reducers is to find 
+the median of values per key (as a gene_id). For 
+simplicity, we assume that there exists a <code>median()</code> 
+function, which accepts a list of values and computes 
+the median of given values.</p>
 
 <div><pre class="line-numbers"><code class="language-none"># key: a unique gene_id
 # values: Iteable&lt;Double&gt; (i.e., as a list of values)
@@ -2525,10 +2602,11 @@ Let&rsquo;s Consider 3 partitions with mappers output:</p>
 (B, [3, 2, 1])
 (C, [1, 4])</code></pre></div>
 
-<p>As you can see, with a combiner, values are combined for 
-the same key on a partition-by-partition basis. In MapReduce, 
-combiners are mini-reducer optimizations and they reduce 
-network traffic by combining many values into a single value.</p>
+<p>As you can see, with a combiner, values are combined 
+for the same key on a partition-by-partition basis. 
+In MapReduce, combiners are mini-reducer optimizations 
+and they reduce network traffic by combining many values 
+into a single value.</p>
 
 <h2 id="toc_60">Partition</h2>
 
@@ -2539,17 +2617,18 @@ are used as a unit of parallelisim.</p>
 <p>For example, in a nutshell, Apache spark partitions your 
 data and then each partition is executed by an executor.</p>
 
-<p>For example, given a data size of 80,000,000,000 records,
-this data can be partitioned into 80,000 chunks, where 
-each chunk/partition will have about 1000,0000 records.
-Then in a transformation (such as mapper, filter, &hellip;)
-these partitions can be processed in parallle. The maximum
-parallelism for this example is 80,000. If the cluster 
-does not have 80,000 points of parallelism, then some of the 
-partitions will be queued for parallelism.</p>
+<p>For example, given a data size of <code>80,000,000,000</code> 
+records, this data can be partitioned into <code>80,000</code> 
+chunks, where each chunk/partition will have about 
+<code>1000,000</code> records.  Then in a transformation (such 
+as mapper, filter, &hellip;) these partitions can be 
+processed in parallle. The maximum parallelism for 
+this example is <code>80,000</code>. If the cluster does not 
+have <code>80,000</code> points of parallelism, then some of 
+the partitions will be queued for parallelism.</p>
 
-<p>In MapReduce, input is partitioned and then passed to mappers
-(so that the mappers can be run in parallel).</p>
+<p>In MapReduce, input is partitioned and then passed 
+to mappers (so that the mappers can be run in parallel).</p>
 
 <p>In Apache Spark, a programmer can control the partitioning 
 data (by using <code>coalesce()</code>, &hellip;) and hence controlling 
@@ -2848,8 +2927,9 @@ A monoid M is a triplet <code>(X, f, i)</code>, where </p>
 <p>The monoid axioms (which govern the behavior of <code>f</code>) are as follows.</p>
 
 <ol>
-<li>(Closure) For all a, b in X,  f(a, b) and f(b, a) is also in X.</li>
-<li><p>(Associativity) For all a, b, c in X:</p>
+<li><p>(Closure) For all <code>a</code>, <code>b</code> in <code>X</code>,  <code>f(a, b)</code> 
+and <code>f(b, a)</code> is also in <code>X</code>.</p></li>
+<li><p>(Associativity) For all <code>a, b, c</code> in <code>X</code>:</p>
 
 <div><pre class="line-numbers"><code class="language-none">f(a, f(b, c)) = f(f(a, b), c)</code></pre></div></li>
 <li><p>(Identity) There is an <code>i</code> in <code>X</code> such that, for all <code>a</code> in <code>X</code>:</p>
@@ -2961,10 +3041,12 @@ very important. Let&rsquo;s say, we have only 2 partitions:</p>
 (A, 1)             (A, 3)
 (A, 2)</code></pre></div>
 
-<p>and we want to calculate the average per key. Looking at
-these partitions, the average of (1, 2, 3) will be exactly 2.0.
-But since we are ina distributed environment, then the average will
-be calculated per partition:</p>
+<p>and we want to calculate the average per key. Looking 
+at these partitions, the average of <code>(1, 2, 3)</code> will 
+be exactly <code>2.0</code>.  But since we are ina distributed 
+environment (operations/functions are done on data
+partitions), then the average will be calculated per 
+partition:</p>
 
 <div><pre class="line-numbers"><code class="language-none">Partition-1: avg(1, 2) = 1.5
 Partition-2: avg(3) = 3.0
@@ -3031,7 +3113,8 @@ Minimally, a MapReduce job will have the following components:</p>
 
 <ul>
 <li>low level API</li>
-<li>must use <code>map()</code>, <code>reduce()</code> one or more times to solve a problem</li>
+<li>must use <code>map()</code>, <code>reduce()</code> one or more times 
+to solve a problem</li>
 <li>join operation is not supported</li>
 <li>complex: have to write lots of code</li>
 <li>one type of reduction is supported: GROUP BY KEY</li>
@@ -3041,7 +3124,8 @@ Minimally, a MapReduce job will have the following components:</p>
 <li>Java Focused
 
 <ul>
-<li>have to write lots of lines of code to do some simple map and reduce functions</li>
+<li>have to write lots of lines of code to do some simple map 
+and then reduce functions</li>
 <li>API is a low level</li>
 </ul></li>
 </ul>
@@ -3094,16 +3178,17 @@ We will have <code>n</code> reducers, sicnce we have <code>n</code> unique keys.
 All these reducers can run in parallel (if we have enough
 resources).</p>
 
-<p><code>reduce(key, values)</code> will emit a set of <code>(key_3, value_3)</code> pairs and
-eventually thay are written to output. Note that reducer key 
-will be one of <code>{K_1, K_2, ..., K_n}</code>.</p>
+<p><code>reduce(key, values)</code> will emit a set of <code>(key_3, value_3)</code> 
+pairs and eventually thay are written to output. Note that 
+reducer key will be one of <code>{K_1, K_2, ..., K_n}</code>.</p>
 
 <p><strong>6-OutputForamt:</strong>
-Reponsible for writing <code>(key_3, value_3)</code> pairs to output medium.
-Note that some of the reducers might not emit any <code>(key_3, value_3)</code> 
-pairs: this means that the reducer is filtering out some keys based
-of the associated values (for example, if the median of the values 
-is less than 10, then filter out).</p>
+Reponsible for writing <code>(key_3, value_3)</code> pairs to output 
+medium.  Note that some of the reducers might not emit any 
+<code>(key_3, value_3)</code> pairs: this means that the reducer is 
+filtering out some keys based of the associated values (for 
+example, if the median of the values is less than 10, then 
+filter out).</p>
 
 <h2 id="toc_78">Hadoop vs. Spark</h2>
 
@@ -3236,7 +3321,7 @@ tasks assigned to them</li>
 two main data abstractions:</p>
 
 <ul>
-<li>RDD (Resilient Distributed Dataset)
+<li><p>RDD (Resilient Distributed Dataset)</p>
 
 <ul>
 <li>low-level</li>
@@ -3245,7 +3330,7 @@ two main data abstractions:</p>
 <li>can represent billions of data points</li>
 <li>for unstructured and semi-structured data</li>
 </ul></li>
-<li>DataFrame
+<li><p>DataFrame</p>
 
 <ul>
 <li>high-level</li>
@@ -3462,12 +3547,13 @@ Once your data is represented as an RDD, then you
 call apply transformations (such as filters, mappers, 
 and reducers) to your RDD and create new RDDs.</p>
 
-<p>An RDD can be created from many data sources such as
-Python collections, text files, CSV files, JSON, &hellip;</p>
+<p>An RDD can be created from many data sources 
+such as Python collections, text files, CSV 
+files, log files, JSON, &hellip;</p>
 
 <p>An RDD is more suitable to unstructured and 
 semi-structured data (while a DataFrame is more 
-suitable to structured and semi-structured data.</p>
+suitable to structured and semi-structured data).</p>
 
 <h2 id="toc_87">What are Spark Mappers?</h2>
 
@@ -3509,8 +3595,9 @@ into a single RDD (target) element</li>
 <p>Mappers for Spark Dataframes can be handled by two means:</p>
 
 <ul>
-<li>Using direct DataFrame&rsquo;s API</li>
-<li>Using SQL on a table (a DataFrame can be registred as a table or rows with named columns)</li>
+<li><p>Using direct DataFrame&rsquo;s API</p></li>
+<li><p>Using SQL on a table (a DataFrame can be registred 
+as a table or rows with named columns)</p></li>
 </ul>
 
 <h2 id="toc_88">What are Spark Reducers?</h2>
@@ -3567,7 +3654,10 @@ upon simpler primitive data types. Well known examples are:</p>
 
 <ul>
 <li>Array</li>
+<li>Set</li>
+<li>Stack</li>
 <li>Linked List</li>
+<li>Double Linked List</li>
 <li>Record</li>
 <li>Tuples</li>
 <li>Hash tables</li>
