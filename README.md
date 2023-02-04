@@ -38,9 +38,9 @@
 
 ## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/README.md)
 
-## [Required Books & Papers](./web_docs/required_books.md)
+## [Required Books and Papers](./web_docs/required_books.md)
 
-## [Additional Optional Books and References](./web_docs/additional_books.md.md)
+## [Optional Books and References](./web_docs/additional_books.md)
 
 ## [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
