@@ -5,7 +5,7 @@
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/3/2023
+* Last updated date: 2/5/2023
 
 <table>
 <tr>
@@ -401,6 +401,51 @@ trends and attempts at predictions of future
 behaviors and events."
 
 
+## Data Analytics
+Data analytics helps individuals and organizations make 
+sense of data. Data analysts typically analyze raw data 
+for insights and trends.
+
+Data analytics converts raw data into actionable insights. 
+It includes a range of tools, technologies, and processes 
+used to find trends and solve problems by using data. Data 
+analytics can shape business processes, improve decision
+making, and foster business growth.
+
+Data Analytics is the process of examining large data 
+sets to uncover hidden patterns, unknown correlations, 
+trends, customer preferences and other useful business 
+insights. The end result might be a report, an indication 
+of status or an action taken automatically based on the 
+information received. Businesses typically use the 
+following types of analytics:
+
+* **Behavioral Analytics:** Using data about people’s 
+  behavior to understand intent and predict future actions.
+
+* **Descriptive Analytics:** Condensing big numbers into 
+  smaller pieces of information. This is similar to summarizing 
+  the data story. Rather than listing every single number and 
+  detail, there is a general thrust and narrative.
+
+* **Diagnostic Analytics**: Reviewing past performance to 
+  determine what happened and why. Businesses use this type 
+  of analytics to complete root cause analysis.
+
+* **Predictive Analytics:** Using statistical functions on one 
+  or more data sets to predict trends or future events. In big 
+  data predictive analytics, data scientists may use advanced 
+  techniques like data mining, machine learning and advanced 
+  statistical processes to study recent and historical data to 
+  make predictions about the future. It can be used to forecast 
+  weather, predict what people are likely to buy, visit, do or 
+  how they may behave in the near future.
+  
+* **Prescriptive Analytics:** Prescriptive analytics builds on 
+  predictive analytics by including actions and make data-driven 
+  decisions by looking at the impacts of various actions.
+
+
 ## Data Lake
 A data lake is a centralized repository that allows 
 you to store all your structured and unstructured 
@@ -589,12 +634,23 @@ driver exists for that particular DBMS.
 
 
 
-## Big Data 
+## Big Data
+According to 
+[Gartner](https://www.gartner.com/en/information-technology/glossary/big-data):
+"Big Data is high-volume, high-velocity and/or 
+high-variety information assets that demand 
+cost-effective, innovative forms of information 
+processing that enable enhanced insight, 
+decision making, and process automation."
+
 Big Data consists of extensive datasets -- 
 primarily in the characteristics of volume, 
 velocity, variety, and/or variability -- that 
 require a scalable architecture for efficient 
 storage, manipulation, and analysis.
+
+
+![](./images/big-data-cloud-based-solution.png)
 
 Big data is an umbrella term for any collection 
 of data sets so large or complex that it becomes 
@@ -1180,6 +1236,28 @@ not edit/update files in place.
 
 		hdfs://localhost:8020/data/2023-01-07/samples.txt
 
+## Scalability
+Scalability is the ability of a system or process to maintain 
+acceptable performance levels as workload or scope increases.
+
+According to [Gartner](https://www.gartner.com/en/information-technology/glossary/scalability): 
+> Scalability is the measure of a system’s ability 
+  to increase or decrease in performance and cost in 
+  response to changes in application and system processing 
+  demands. Examples would include how well a hardware system 
+  performs when the number of users is increased, how well 
+  a database withstands growing numbers of queries, or how 
+  well an operating system performs on different classes 
+  of hardware.  Enterprises that are growing rapidly should 
+  pay special attention to scalability when evaluating 
+  hardware and software.
+
+For example, an application program would be scalable 
+if it could be moved from a smaller to a larger operating 
+system and take full advantage of the larger operating 
+system in terms of performance (user response time and 
+so forth) and the larger number of users that could be 
+handled.
 
 
 ## Amazon S3
@@ -2268,27 +2346,37 @@ Join Operation | Does not support Join directly | Has extensive API for Join
 
 
 ## Apache Spark
-In a nutshell, we can say that Apache Spark is the most 
-active open big data tool reshaping the big data market.
-[Apache Spark](https://spark.apache.org) is an engine for 
-large-scale data analytics. Spark is a multi-language (Java, 
-Scala, Python, R, SQL) engine for executing data engineering, 
-data science, and machine learning on single-node machines 
-or clusters. Spark implements superset of MapReduce paradigm 
-and uses memory/RAM as much as possible and can run up to 100 
-times faster than Hadoop. Spark is considered the successor of 
-Hadoop/Mapreduce and has addressed many problems of Hadoop.
+In a nutshell, we can say that Apache Spark is the 
+most active open big data tool reshaping the big 
+data market.[Apache Spark](https://spark.apache.org) 
+is an engine for large-scale data  analytics.  Spark 
+is a  multi-language (Python , Java, Scala, R, SQL) 
+engine for executing data engineering,  data science,  
+and  machine  learning  on single-node  machines  or  
+clusters.  Spark  implements superset of MapReduce 
+paradigm and uses memory/RAM as much as possible 
+and can run up to 100 times faster than Hadoop. 
+Spark is considered the successor of Hadoop/Mapreduce 
+and has addressed many problems of Hadoop.
 
 
-With using Spark, developers do not need to write code for 
-parallelism, distributing data, or other complex coding 
-tasks because those are already built into the spark engine. 
-This alone shortens analytical programming time.
+With using Spark, developers do not need to write 
+code for parallelism, distributing data, or other 
+complex coding tasks because those are already built 
+into the spark engine. This alone shortens analytical 
+programming time.
 
-Apache Spark is one of the best alternatives to Hadoop and
-currently is the defacto standard for big data analytics.
-Spark offers simple API and provides high-level mappers,
-filters,  and reducers. 
+Apache Spark is one of the best alternatives to 
+Hadoop and currently is the defacto standard for 
+big data analytics. Spark offers simple API and 
+provides high-level mappers, filters, and reducers. 
+
+Spark is a fast, in-memory open source data processing 
+engine to efficiently execute streaming, machine learning 
+or SQL workloads that require fast iterative access to 
+datasets. Spark is generally a lot faster than MapReduce.
+Spark is a superset of MapReduce and eliminates the need
+for MapReduce's "map-then-reduce" paradigm.
 
 
 Spark’s architecture consists of two main components: 
@@ -3702,12 +3790,22 @@ through the data
 
 
 ## ETL (Extract, Transform and Load) 
-ETL is a process in a database and data warehousing meaning 
-extracting the data from various sources, transforming it to 
-fit operational needs and loading it into the database or 
-some storage. For example, processing DNA data, creating 
-output records in specific Parquet format and loading it 
-to Amazon S3 is an ETL process.
+ETL (Extract, Transform and Load) is thhe process 
+of extracting raw data, transforming by cleaning
+and enriching the data to make it fit operational 
+needs and loading into the appropriate repository 
+for the system’s use.  Even though it originated 
+with data warehouses, ETL processes are used while 
+taking/absorbing data from external sources in big 
+data systems.
+
+ETL is a process in a database and data warehousing 
+meaning extracting the data from various sources, 
+transforming it to fit operational needs and loading 
+it into the database or some storage. For example, 
+processing DNA data, creating output records in specific 
+Parquet format and loading it to Amazon S3 is an ETL 
+process.
 
 * Extract: the process of reading data from a database or 
 data sources
@@ -4084,24 +4182,30 @@ into any format needed.
 Someone who is able to develop the distributed algorithms to 
 make sense out of big data
 
+
 ## Classification analysis
 A systematic process for obtaining important and relevant 
 information about data, also meta data called; data about data.
 
-## Cloud computing
-A distributed computing system over a network used for storing 
-data off-premises. This can include ETL, data storage, 
-application development, and data analytics. Examples: Amazon 
-Cloud and Google Cloud.
 
-Cloud computing is one of the must-known big 
-data terms. It is a new paradigm computing system which offers 
-visualization of computing resources to run over the standard 
-remote server for storing data and provides IaaS, PaaS, and SaaS. 
-Cloud Computing provides IT resources such as Infrastructure, 
-software, platform, database, storage and so on as services. 
-Flexible scaling, rapid elasticity, resource pooling, on-demand 
-self-service are some of its services.
+## Cloud computing
+Cloud Computing is a distributed computing system 
+hosted and running on remote servers and accessible 
+from anywhere on the internet.  A distributed computing 
+system over a network used for storing data off-premises. 
+This can  include  ETL,  data  storage,  application 
+development, and data analytics. Examples: Amazon Cloud 
+and Google Cloud.
+
+Cloud computing is one of the must-known big data 
+terms. It is a new paradigm computing system which 
+offers visualization of computing resources to run 
+over the standard remote server for storing data and 
+provides IaaS, PaaS, and SaaS. Cloud Computing provides 
+IT resources such as Infrastructure, software, platform, 
+database, storage and so on as services. Flexible scaling, 
+rapid elasticity, resource pooling, on-demand self-service 
+are some of its services.
 
 
 ## Distributed computing
@@ -4762,7 +4866,171 @@ algorithms.
 silico experiments are typically cheaper than
 wet-lab ones) solutions to many tough problems
 
+## Software Framework
 
+[From Wikipedia](https://en.wikipedia.org/wiki/Software_framework): 
+in computer programming, a software framework is an 
+abstraction in which software, providing generic 
+functionality, can be selectively changed by additional 
+user-written code, thus providing application-specific 
+software. It provides a standard way to build and deploy 
+applications and is a universal, reusable software 
+environment that provides particular functionality as 
+part of a larger software platform to facilitate the 
+development of software applications, products and 
+solutions.
+
+**Example of Software Frameworks:**
+
+* [Spring](https://spring.io) is an open-source application   
+  framework for developing Java enterprise applications. 
+  It offers an infrastructure that enables developing 
+  well-structured and easily-testable Java applications, 
+  web applications, applets, etc.
+  
+* [Spark](https://spark.apache.org): is a unified engine 
+  for large-scale data analytics. Spark is a multi-language 
+  (Java, Python, Scala, R, SQL) engine for executing data 
+  engineering, data science, and machine learning on 
+  single-node machines or clusters.
+
+* [Django](https://www.djangoproject.com) is an open
+  source and high-level Python web framework that 
+  encourages rapid development and clean, pragmatic 
+  design. Built by experienced developers, it takes 
+  care of much of the hassle of web development, so 
+  you can focus on writing your application without 
+  needing to reinvent the wheel. 
+ 
+* [JUnit](https://junit.org/junit5/) is a unit testing 
+  open-source framework for the Java programming 
+  language. Java Developers use this framework to write 
+  and execute automated tests. In Java, there are test 
+  cases that have to be re-executed every time a new 
+  code is added. This is done to make sure that nothing 
+  in the code is broken. 
+
+* [Hadoop](https://hadoop.apache.org) is an open-source 
+  framework by Apache that stores and distributes large 
+  data sets across several servers, operating parallel. 
+  One of the major benefits of Hadoop over traditional 
+  RDBMS is its cost-effective system for storing giant 
+  data sets.  The core of Apache Hadoop is Hadoop 
+  Distributed File System (the storage part) and MapReduce 
+  Programming Model (the processing part). Hadoop is 
+  written in Java, the widely used language by developers, 
+  which makes it easy for developers to handle tasks and 
+  process data efficiently. Hadoop’s MapReduce enables 
+  processing terabytes of data in minutes in a cluster
+  environment.
+
+* [FastAPI](https://fastapi.tiangolo.com) is a Web 
+  framework for developing RESTful APIs in Python. 
+  FastAPI is based on Pydantic and type hints to 
+  validate, serialize, and deserialize data, and 
+  automatically auto-generate OpenAPI documents.
+  
+* [Swagger](https://swagger.io): is an "API Development
+  for Everyone".  You can simplify API development for 
+  users, teams, and enterprises with the Swagger open 
+  source and professional toolset. 
+
+
+
+
+## Software Library
+
+A software library is a suite of data and programming 
+code that is used to develop software programs and 
+applications. It is designed to assist both the programmer 
+and the programming language compiler in building and 
+executing software. In computer science, a library is 
+a collection of non-volatile resources used by computer 
+programs, often for software development. These may 
+include configuration data, documentation, help data, 
+message templates, pre-written code and subroutines, 
+classes, values or type specifications. 
+
+**Example of Software Libraries:**
+
+* Java Date and Time API: It is a set of classes and 
+  interfaces that define properties and methods that 
+  developers can use to format dates, perform time zone 
+  conversions and provide global calendar support.
+
+* Pandas: it is a fast, powerful, flexible and easy 
+  to use open source data analysis and manipulation 
+  tool, built on top of the Python programming language.
+  
+* Node.js is an open-source, cross-platform JavaScript 
+  runtime environment.  
+  
+* scikit-learn is an Open-source Machine Learning in Python:
+	* Simple and efficient tools for predictive data analysis
+	* Built on NumPy, SciPy, and matplotlib
+
+* TensorFlow: a free and open-source software library 
+  for machine learning and artificial intelligence. 
+
+ 
+ 
+## Difference between a Library and Framework
+The framework provides the flow of a software application 
+and tells the developer what it needs and calls the code 
+provided by the developer as required. If a library is used, 
+the application calls the code from the library.
+
+Developers often use the terms "library" and "framework"
+interchangeably. But there is a difference. Both frameworks 
+and libraries are code written by someone else that is used 
+to help solve common problems.
+
+
+According to [FreeCodeCamp](https://www.freecodecamp.org):
+
+> A library is like going to IKEA (a store which 
+sells many things -  it's a global home furnishing). 
+You already have a home, but you need a bit of help 
+with furniture. You don’t feel like making your 
+own table from scratch. IKEA allows you to pick 
+and choose different things to go in your home. You 
+are in control. A framework, on the other hand, is 
+like building a model home.   You  have a  set  of 
+blueprints and a few limited choices when it comes 
+to  architecture  and  design.  Ultimately,  the 
+contractor and blueprint are in control. And they 
+will let you know when and where  you can provide 
+your input.
+
+> The Technical Difference: The technical difference 
+between a framework and library lies in a term called 
+inversion of control.  When you  use a  library,  you 
+are in charge of the flow of the application. You are 
+choosing when and where to call the library. When you 
+use a  framework,  the framework  is in charge of the 
+flow. It provides some places for you to plug in your 
+code, but it calls the code you plugged in as needed.
+  
+  
+## Software Engineering
+Software Engineering is a systematic approach to 
+the analysis, design, implementation and maintenance 
+of software. It often involves the use of CASE tools. 
+There are various models of the software life-cycle, 
+and many methodologies for the different phases. 
+A software engineer is a person (usually knows multiple
+programming languages) who applies the principles of 
+software engineering to design, develop, maintain, 
+test, and evaluate computer software.
+
+Is big data related to software engineering? Big Data 
+Systems (BDSs) are an emerging class of scalable 
+software technologies whereby massive amounts of 
+heterogeneous data are gathered from multiple sources, 
+managed, analyzed (in batch, stream or hybrid fashion), 
+and served to end-users and external applications.
+
+  
 ## spark-packages.org
 spark-packages.org is a community package index to 
 track the growing number of open source packages and 
@@ -4852,6 +5120,12 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 34. [Best 7 Types Of Algorithms You Should Know](https://www.calltutors.com/blog/types-of-algorithms/)
 
 35. [List of Algorithms in Computer Programming](https://www.linkedin.com/pulse/list-algorithms-computer-programming-pranam-bhat/)
+
+36. [Data Analytics Glossary by Lean Methods Group](https://leanmethods.com/resources/articles/data-analytics-glossary/)
+
+37. [Gartner Glossary](https://www.gartner.com/en/information-technology/glossary)
+
+38. [5 Biggest Big Data Challenges](https://bleuwire.com/5-biggest-big-data-challenges/)
 
 ---------------------------
 
