@@ -1,5 +1,6 @@
 # Glossary of Big Data, MapReduce, Spark
 
+## Prelude
 * This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course/) at [Santa Clara University](https://www.scu.edu).
 
@@ -49,8 +50,10 @@ Big data environment involves many tools and
 technologies:
 
 * Data preparation from multiple sources
-* Engine for large-scale data analytics (such as Spark)
-* ETL processes to analyze prepare data for Query engine
+* Engine for large-scale data analytics 
+  (such as Spark)
+* ETL processes to analyze prepare data 
+  for Query engine
 * Relational database systems
 * Query engines such as Amazon Athena, 
   Google BigQuery, Snowflake
@@ -82,9 +85,17 @@ and creator of the term: **algorithm**.
   find frequecy of every unique word
 * For example, given a set of numbers, 
   find (minimum, maximum) of given numbers
-  
-Typically an algorithm is implemented using a 
-programming language such as Python, Java, SQL, ...
+
+An algorithm is a step-by-step set of operations 
+which can be performed to solve a particular class 
+of problem. The steps may involve calculation, 
+processing, or reasoning. To be effective, an 
+algorithm must reach a solution in finite space 
+and time. As an example, Google uses algorithms 
+extensively to rank page results and autocomplete 
+user queries. Typically an algorithm is implemented 
+using a programming language such as Python, Java, 
+SQL, ...
 
 In big data world, an algorithm can be implemented 
 using a compute engine such as MapReduce and Spark.
@@ -109,6 +120,7 @@ basic properties:
 
 > 5) **Effectiveness**: an algorithm is also generally 
     expected to be effective
+   
     
 ## List of Algorithms
 
@@ -128,6 +140,8 @@ basic properties:
  	* Anagrams Count: given a set of text documents, 
 	  find frequency of every unique anagram in 
 	  these documents
+	* Given users, movies, and ratings (1 to 5), what 
+	  are the Top-10 movies rated higher than 2.
 
 * Famous Algorithms (partial list):
 	* Tree algorithms
@@ -146,7 +160,10 @@ basic properties:
 	* Kmers for DNA sequences
 	* Huffman Coding Compression Algorithm
 	* Bioinformatics Algorithms
-	* The Knuth-Morris-Pratt algorithm 
+	* The Knuth-Morris-Pratt algorithm
+	* Connected Components
+	* Finding Unique Triangles in a graph
+	*  
 
 ## Example of a Simple Algorithm
 
@@ -156,62 +173,90 @@ fewest number of coins. Here we assume that the
 **penny**, **nickel**, **dime**, and **quarter** 
 are the circulating coins that we use today.
 
-* one quarter = 25 cents/pennies
-* one dime = 10 cents
-* one nickle = 5 cents/pennies
 
-* Input: An amount of money, `M`, in cents/pennies
+**FACTs on US Coins:**
 
-* Output: The smallest number of quarters `q`, 
+* One quarter = 25 pennies
+* One dime = 10 pennies
+* One nickle = 5 pennies
+
+![](./images/us_coins_2.jpeg)
+
+* **Input**: An amount of money, `M`, in pennies (as in integer)
+
+* **Output**: The smallest number of quarters `q`, 
 	  dimes `d`, nickles `n`, and pennies `p` whose 
 	  value add to `M`: the following rules must be satisfied:
 	  
 	* `25q +10d + 5n + p = M` and
 	* `q + d + n + p` is as small as possible.
 
+* **Algorithm**: Greedy algorithm: a greedy algorithm 
+  is any algorithm that follows the problem-solving 
+  heuristic of making the locally optimal choice at 
+  each stage.  According to the National Institute 
+  of Standards and Technology (NIST), a greedy algorithm 
+  is one that always takes the best immediate, or local, 
+  solution while finding an answer. Greedy algorithms 
+  find the overall, or globally, optimal solution for 
+  some optimization problems, but may find less-than-optimal 
+  solutions for some instances of other problems.
+  
+  Greedy algorithm is designed to achieve optimum solution 
+  for a given problem (here US Change problem). In greedy 
+  algorithm approach, decisions are made from the given 
+  solution domain. As being greedy, the closest solution 
+  that seems to provide an optimum solution is chosen.
 
+* **Algorithm Implementation**:
 The following is a basic US Change Algorithm 
 in Python. In this algorithm, we use the 
-`divmod(arg1, arg2)` built-in function which 
-returns a tuple containing the quotient and 
-the remainder when `arg1` (dividend) is divided 
-by `arg2` (divisor).
+`divmod(arg_1, arg_2)` built-in function which 
+returns a tuple containing the **quotient** and 
+the **remainder** when `arg_1` (dividend) is divided 
+by `arg_2` (divisor).
 
 
 ~~~python
-# M : number of pennies/cents
+# M : number of pennies
+# returns (q, d, n, p) where
+#    q = number of quarters
+#    d = number of dimes
+#    n = number of nickle
+#    p = number of pennies
 def change(M):
-  # step-0: make sure that M is an integer
+  # step-1: make sure that M is an integer
   if not(isinstance(M, int)):
     print('M is not an integer')
     return (0, 0, 0, 0)
   #end-if
   
   # here: M is an integer type
-  # step-1: make sure M > 0
+  # step-2: make sure M > 0
   if (M < 1):
     return (0, 0, 0, 0)
   #end-if
   
-  # step-2: find quarters as q
+  # step-3: find quarters as q
   q, p = divmod(M, 25)
   if (p == 0):
     return (q, 0, 0, 0)
   #end-if
   
-  # step-3: find dimes
+  # step-4: find dimes
   d, p = divmod(p, 10)
   if (p == 0):
     return (q, d, 0, 0)
   #end-if
   
-  # step-4: find nickles and pennies/cents
+  # step-5: find nickles and pennies
   n, p = divmod(p, 5)
   
-  # step-5: return the result
+  # step-6: return the final result
   return (q, d, n, p)
 #end-def
 ~~~
+
 
 Basic testing of the `change()` function:
 
@@ -243,6 +288,7 @@ M is not an integer
 ~~~
 
 
+
 ## Types of Algorithms
 
 * Sorting algorithms: Bubble Sort, insertion 
@@ -260,6 +306,33 @@ M is not an integer
   traveling salesman problems.
   
 * Dynamic Programming Algorithms
+
+* Greedy Algorithms: minimization and maximization
+
+## Greedy Algorithm
+Greedy Algorithm is defined as a method 
+for solving optimization problems by taking 
+decisions that result in the most evident 
+and immediate benefit irrespective of the 
+final outcome. It works for cases where 
+minimization or maximization leads to the 
+required solution.
+
+**Characteristics of Greedy algorithm:**
+For a problem to be solved using the Greedy approach, 
+it must follow a few major characteristics:
+
+* There is an ordered list of resources 
+  (profit, cost, value, etc.) 
+* Maximum of all the resources(max profit, 
+  max value, etc.) are taken. 
+* For example, in the fractional knapsack 
+  problem, the maximum value/weight is taken 
+  first according to available capacity. 
+
+Storing Files on Tape is an example of 
+[Greedy Algorithm](https://jeffe.cs.illinois.edu/teaching/algorithms/book/04-greedy.pdf).
+
 
 
 # Algorithm Complexity
@@ -298,7 +371,7 @@ input of size `n` :
   ![](./images/algorithm_complexity.jpeg)
   
   
-## Distributed algorithm
+## Distributed Algorithm
 A distributed algorithm is an algorithm designed 
 to run on computer hardware constructed from 
 interconnected processors. Distributed algorithms 
@@ -347,9 +420,10 @@ will have a bout `8,000,000` elements.
 
 	480,000,000,000 = 60,000 x 8,000,000
 
-One of the main reasons of data partitioning is to
-process many small partitions in parallel (at the same 
-time) to reduce the overall data processing time.
+One of the main reasons of data partitioning 
+is to process many small partitions in parallel 
+(at the same time) to reduce the overall data 
+processing time.
 
 
 ## Aggregation
@@ -423,27 +497,30 @@ following types of analytics:
 * **Behavioral Analytics:** Using data about people’s 
   behavior to understand intent and predict future actions.
 
-* **Descriptive Analytics:** Condensing big numbers into 
-  smaller pieces of information. This is similar to summarizing 
-  the data story. Rather than listing every single number and 
-  detail, there is a general thrust and narrative.
+* **Descriptive Analytics:** Condensing big numbers 
+  into smaller pieces of information. This is similar 
+  to summarizing the data story. Rather than listing 
+  every single number and detail, there is a general 
+  thrust and narrative.
 
-* **Diagnostic Analytics**: Reviewing past performance to 
-  determine what happened and why. Businesses use this type 
-  of analytics to complete root cause analysis.
+* **Diagnostic Analytics**: Reviewing past performance 
+  to determine what happened and why. Businesses use this 
+  type of analytics to complete root cause analysis.
 
-* **Predictive Analytics:** Using statistical functions on one 
-  or more data sets to predict trends or future events. In big 
-  data predictive analytics, data scientists may use advanced 
-  techniques like data mining, machine learning and advanced 
-  statistical processes to study recent and historical data to 
-  make predictions about the future. It can be used to forecast 
-  weather, predict what people are likely to buy, visit, do or 
-  how they may behave in the near future.
+* **Predictive Analytics:** Using statistical functions 
+  on one or more data sets to predict trends or future 
+  events. In big data predictive analytics, data scientists 
+  may use advanced techniques like data mining, machine 
+  learning and advanced statistical processes to study 
+  recent and historical data to make predictions about 
+  the future. It can be used to forecast weather, predict
+  what people are likely to buy, visit, do or how they 
+  may behave in the near future.
   
-* **Prescriptive Analytics:** Prescriptive analytics builds on 
-  predictive analytics by including actions and make data-driven 
-  decisions by looking at the impacts of various actions.
+* **Prescriptive Analytics:** Prescriptive analytics 
+  builds on predictive analytics by including actions 
+  and make data-driven decisions by looking at the 
+  impacts of various actions.
 
 
 ## Data Lake
@@ -463,6 +540,13 @@ supporting data.
 
 
 ## Data Science
+[Data science](https://clevertap.com/blog/data-science/) 
+is really the fusion of three disciplines: computer 
+science, mathematics, and business.
+
+![](./images/data-science-1.jpeg)
+
+
 Data Science is the field of applying advanced 
 analytics techniques and scientific principles 
 to extract valuable information from data. Data 
@@ -483,8 +567,9 @@ all of analytics as a step in the process. Data
 science contains different approaches to leveraging 
 data to solve mission needs. While the term data 
 science can be understood as the activities in any 
-analytics pipeline that produces knowledge from data, 
-the term is typically used in the context of Big Data.
+analytics pipeline that produces knowledge from 
+data, the term is typically used in the context 
+of Big Data.
 
 
 ## Data Science Process
@@ -502,6 +587,9 @@ analysis.  The data analytics life cycle is the set of processes
 that is guided by the organizational need to transform raw data 
 into actionable knowledge, which includes data collection,
 preparation, analytics, visualization, and access.
+
+
+![](./images/steps_of_data_science.jpeg)
 
 The end-to-end data science life cycle consists of five 
 fundamental steps:
@@ -747,6 +835,7 @@ In a practical sense, Big Data Modeling involves:
 ## Biometrics 
 The use of data and technology to identify people by one or more 
 of their physical traits (for example, face recognition)
+
 
 
 ## Data Modelling 
@@ -3900,6 +3989,87 @@ easy to learn and highly portable, as its statements can be
 interpreted in several operating systems.
 
 
+## Tuples in Python
+Python Tuple is a collection of objects separated by commas.
+Tuples are used to store multiple items in a single variable. 
+Tuple is one of 4 built-in data types in Python used to store 
+collections of data, the other 3 are List, Set, and Dictionary, 
+all with different qualities and usage. A tuple is a collection 
+which is ordered and unchangeable. In a nutshell, a tuple is a 
+collection of things/objects, enclosed in `( )` and separated 
+by commas.
+
+**Tuple Examples:**
+
+~~~python
+# tuple as a (key, value):
+v = ('fox', 23)
+# v[0] : 'fox'
+# v[1] : 23
+# len(v) : 2
+
+# tuple of 4 values:
+t = (2, 1.5, 'alex', [1, 2, 3])
+# t[0] : 2
+# t[1] : 1.5
+# t[2] : 'alex'
+# t[3] : [1, 2, 3]
+# len(t) : 4
+~~~
+
+
+## Lists in Python 
+Lists are used to store multiple items in a single 
+variable. Lists are one of 4 built-in data types 
+in Python used to store collections of data. Python 
+Lists are just like dynamically sized arrays. In a 
+nutshell, a list is a collection of things/objects, 
+enclosed in `[ ]` and separated by commas. 
+
+
+**List Examples:**
+
+~~~python
+>>> things = ['alex', 'jane', 'mary', 8, 9]
+>>> things
+['alex', 'jane', 'mary', 8, 9]
+>>> len(things)
+5
+>>> # add an element to the end of  list
+>>> things.append('jeff')
+>>> things
+['alex', 'jane', 'mary', 8, 9, 'jeff']
+>>> len(things)
+6
+>>> things[0]
+'alex'
+>>> things[1]
+'jane'
+>>> things[2]
+'mary'
+>>> things[3]
+8
+>>> things[4]
+9
+>>> things[5]
+'jeff'
+>>> # add an element to the beginning of  list
+>>> things.insert(0, 100)
+>>> things
+[100, 'alex', 'jane', 'mary', 8, 9, 'jeff']
+~~~
+
+
+
+## Difference between Tuples and Lists in Python
+The primary difference between tuples and lists is that tuples 
+are immutable as opposed to lists which are mutable. Therefore, 
+it is possible to change a list but not a tuple. The contents 
+of a tuple cannot change once they have been created in Python 
+due to the immutability of tuples.
+
+
+
 ## JavaScript
 A scripting language designed in the mid-1990s for embedding 
 logic in web pages, but which later evolved into a more 
@@ -4294,6 +4464,7 @@ computer science, and/or data visualization who establish
 data models and algorithms for complex problems to solve them.
 
 
+
 ## Data Model and Data Modelling
 Data Model is a starting phase of a database designing 
 and usually consists of attributes, entity types, 
@@ -4303,6 +4474,25 @@ Data modeling is the process of creating a data model
 for an information system by using certain formal 
 techniques. Data modeling is used to define and analyze 
 the requirement of data for supporting business processes.
+
+
+
+## Data Model
+According to [Wikipedia](https://en.wikipedia.org/wiki/Data_model): 
+a data model is an abstract model that organizes elements of data 
+and standardizes how they relate to one another and to the 
+properties of real-world entities. For instance, a data model 
+may specify that the data element representing a car be composed 
+of a number of other elements which, in turn, represent the color 
+and size of the car and define its owner.
+
+
+![](./images/data_model_3.png)
+
+
+A data model explicitly determines the structure of 
+data. Data models are specified in a data modeling 
+notation, which is often graphical in form.
 
 
 ## Hive
@@ -4335,7 +4525,17 @@ software.
 Log file is a file automatically created by a computer 
 program to record events that occur while operational.
 
+**Examples**:
 
+* A search engine might create records of search query, 
+  response, response time, data and time
+* A financial company web server might create details
+  of every transaction (such as data and time, account number, 
+  transaction type, transaction amount, account number, ...)
+* Amazon.com might create records for every transcation:
+  date and time, transaction typem item sold, amount, 
+  state and city shipped, ...
+  
 
 ## Parallel Processing
 It is the capability of a system to perform the execution 
@@ -5126,6 +5326,9 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 37. [Gartner Glossary](https://www.gartner.com/en/information-technology/glossary)
 
 38. [5 Biggest Big Data Challenges](https://bleuwire.com/5-biggest-big-data-challenges/)
+
+39. [Google's Python Class](https://developers.google.com/edu/python)
+
 
 ---------------------------
 
