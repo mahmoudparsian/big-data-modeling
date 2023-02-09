@@ -4,9 +4,12 @@
 * This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course/) at [Santa Clara University](https://www.scu.edu).
 
+* This is not a regular glossary: it is a detailed glossary for my students
+to learn basics of key terms in big data, MapReduce, an PySpark.
+
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/5/2023
+* Last updated date: 2/8/2023
 
 <table>
 <tr>
@@ -124,7 +127,7 @@ basic properties:
     
 ## List of Algorithms
 
-* Simple Algorithms (partial list):
+* **Simple Algorithms (partial list):**
 	* Sum of list of numbers 
 	* Average of list of numbers
 	* Median of list of numbers 
@@ -143,7 +146,7 @@ basic properties:
 	* Given users, movies, and ratings (1 to 5), what 
 	  are the Top-10 movies rated higher than 2.
 
-* Famous Algorithms (partial list):
+* **Famous Algorithms (partial list):**
 	* Tree algorithms
 	* Suffix Tree Algorithms
 	* Red–Black tree	algorithms
@@ -163,7 +166,8 @@ basic properties:
 	* The Knuth-Morris-Pratt algorithm
 	* Connected Components
 	* Finding Unique Triangles in a graph
-	*  
+	
+	
 
 ## Example of a Simple Algorithm
 
@@ -176,6 +180,7 @@ are the circulating coins that we use today.
 
 **FACTs on US Coins:**
 
+* One dollar = 4 quarters = 100 pennies
 * One quarter = 25 pennies
 * One dime = 10 pennies
 * One nickle = 5 pennies
@@ -224,6 +229,10 @@ by `arg_2` (divisor).
 #    d = number of dimes
 #    n = number of nickle
 #    p = number of pennies
+# where
+#   25q +10d + 5n + p = M and
+#   q + d + n + p is as small as possible.
+#
 def change(M):
   # step-1: make sure that M is an integer
   if not(isinstance(M, int)):
@@ -309,6 +318,7 @@ M is not an integer
 
 * Greedy Algorithms: minimization and maximization
 
+
 ## Greedy Algorithm
 Greedy Algorithm is defined as a method 
 for solving optimization problems by taking 
@@ -319,8 +329,9 @@ minimization or maximization leads to the
 required solution.
 
 **Characteristics of Greedy algorithm:**
-For a problem to be solved using the Greedy approach, 
-it must follow a few major characteristics:
+For a problem to be solved using the Greedy 
+approach, it must follow a few major 
+characteristics:
 
 * There is an ordered list of resources 
   (profit, cost, value, etc.) 
@@ -454,6 +465,12 @@ data from multiple data sources. They provide capabilities
 for multiple aggregate measurements, such as sum, median, 
 average and counting.
 
+In a nutshell, we can say that data aggregation is the 
+process of bringing together data from multiple sources 
+and consolidating it in a storage solution for data
+analysis and reporting. 
+
+
 
 ## Analytics 
 * The discovery of insights in data, find 
@@ -521,6 +538,47 @@ following types of analytics:
   builds on predictive analytics by including actions 
   and make data-driven decisions by looking at the 
   impacts of various actions.
+
+
+## Data Analysis Process
+The data analysis process consists of 5 key stages. 
+
+<img src="./images/data_analysis_process.png" style="width: 50%; height: 50%"/>
+
+
+* **Identify**:  you first need to identify why do 
+  you need this data and what is the purpose of it 
+  in the enterprise
+
+* **Collect**: this is the stage where you start 
+  collecting the needed data. Here, you define which 
+  sources of information you will use and how you will 
+  use them. The collection of data can come in different 
+  forms such as internal or external sources; you need 
+  to identify where the data will reside
+ 
+* **Clean**: Once you have the necessary data it is 
+  time to clean it and leave it ready for analysis. 
+  Not all the data you collect will be useful, when 
+  collecting big amounts of information in different 
+  formats it is very likely that you will find yourself 
+  with duplicate or badly formatted data. 
+  
+* **Analyze**: With the help of various tools and 
+  techniques such as statistical analysis, regressions, 
+  neural networks, text analysis, DNA analysis, and 
+  more, you can start analyzing and manipulating your 
+  data to extract relevant conclusions. At this stage, 
+  you find trends, correlations, variations, and patterns 
+  that can help you answer the questions you first thought 
+  of in the identify stage. 
+  
+* **Interprete**: Last but not least you have one of 
+  the most important steps: it is time to interpret 
+  your results. This stage is where the researcher 
+  comes up with courses of action based on the findings. 
+
+
 
 
 ## Data Lake
@@ -660,19 +718,23 @@ variety of software systems.
 
 
 ## Data sizes 
-* Bit: `0` or `1`
-* Byte: 8 bits (`00000000 .. 11111111`) : can represent 256 combinations (0 to 255)
-* KB = Kilo Byte =  1,024 bytes = 2<sup>10</sup> bytes ~ 1000 bytes
-* MB = Mega Byte = 1,024 x 1,024 bytes = 1,048,576 bytes ~ 1000 KB
-* GB = Giga Byte = 1,024 x 1,024 x 1,024 bytes = 1,073,741,824 bytes ~ 1000 MB
-* TB = Tera Byte = 1,024 x 1,024 x 1,024 x 1024 bytes = 1,099,511,627,776 bytes ~ 1000 GB
-* PB = Peta Byte = 1,024 x 1,024 x 1,024 x 1024 x 1024 bytes = 1,125,899,906,842,624 bytes ~ 1000 TB
-* EB = Exa Byte =  1,152,921,504,606,846,976 (= 2<sup>60</sup>) bytes ~ 1000 PB
-* ZB = Zetta Byte = 1,208,925,819,614,629,174,706,176 bytes (= 2<sup>80</sup>) bytes
+
+|Short name |Full Name  | Description|
+|--- | --- | ---|
+| Bit |Bit|`0` or `1`|
+|B|Byte|8 bits: (`00000000 .. 11111111`) : <br/> can represent 256 combinations (0 to 255)|
+| KB | Kilo Byte | 1,024 bytes = 2<sup>10</sup> bytes ~ 1000 bytes |
+| MB | Mega Byte | 1,024 x 1,024 bytes = 1,048,576 bytes ~ 1000 KB |
+| GB | Giga Byte | 1,024 x 1,024 x 1,024 bytes = 1,073,741,824 bytes ~ 1000 MB |
+| TB |  Tera Byte| 1,024 x 1,024 x 1,024 x 1024 bytes = 1,099,511,627,776 bytes ~ 1000 GB|
+| PB | Peta Byte | 1,024 x 1,024 x 1,024 x 1024 x 1024 bytes = 1,125,899,906,842,624 bytes ~ 1000 TB |
+| EB | Exa Byte |  1,152,921,504,606,846,976 (= 2<sup>60</sup>) bytes ~ 1000 PB |
+| ZB | Zetta Byte | 1,208,925,819,614,629,174,706,176 bytes (= 2<sup>80</sup>) bytes |
 
 
 ~ denotes "about"
  
+
 
 ## Behavioural Analytics 
 Behavioural Analytics is a kind of analytics that 
@@ -766,18 +828,19 @@ Big data solutions may have many components
 
 
 ## Big Data Engineering 
-Big Data engineering is the discipline for 
-engineering scalable systems for data-intensive 
-processing.
+Big Data engineering is the discipline 
+for engineering scalable systems for 
+data-intensive processing.
 
-Data collected from different sources are 
-in a raw format, i.e., usually in a form 
-that is not fit for Data Analysis. The idea 
-behind what is Big Data Engineering is not 
-only to collect Big Data but also to transform 
-and store it in a dedicated database that can 
-support insights generation or the creation 
-of Machine Learning based solutions.
+Data collected from different sources 
+are in a raw format, i.e., usually in 
+a form that is not fit for Data Analysis. 
+The idea behind what is Big Data Engineering 
+is not only to collect Big Data but also 
+to transform and store it in a dedicated 
+database that can support insights 
+generation or the creation of Machine 
+Learning based solutions.
 
 Data Engineers are the force behind Data 
 Engineering that is focused on gathering 
@@ -937,6 +1000,34 @@ on it. A data type tells the compiler or
 interpreter how the programmer intends to use 
 the data. 
 
+
+In a nutshell, data types are the entities 
+that tell the compiler or interpreter that 
+which variable will hold what kind of values. 
+While providing the inputs, there can be a 
+different kind of data entered by a user 
+likewise a number or a character or a 
+sequence of an alphanumeric value. To handle 
+these different kinds of data, the language 
+has Data Types. These data types are of two 
+types:
+
+* **Primitive Data Type**: <br/>
+  These are the readymade/built-in data type 
+  that comes as a part of language compiler.
+* **Composite Data Type**: <br/>
+  These are the data types designed by the 
+  user as per requirements. These data types 
+  are always based on the primitive ones.
+  Python and Java provide built-in composite
+  data types (such as lists, sets, arrays, ...)
+
+<br/>
+
+![](./images/data_types.jpeg)
+
+<br/>
+
 For example, 
 	
 * [Java](https://www.oracle.com/java/technologies/downloads/) 
@@ -1015,10 +1106,10 @@ sophisticated data types.
 
 
 ## Composite Data Type
-In computer science, a composite data type or compound 
-data type is any data type which can be constructed in 
-a program using the programming language's primitive 
-data types.
+In computer science, a composite data type or 
+compound data type is any data type which can 
+be constructed in a program using the programming 
+language's primitive data types.
 
 * Java examples:
 
@@ -1039,10 +1130,116 @@ be created by the concept of "class" and objects are
 created by instantiation of the class objects.
 
 
+
+## Abstract Data Type
+In computer science, an 
+[abstract data type (ADT)](https://en.wikipedia.org/wiki/Abstract_data_type) 
+is a mathematical model for data types. An abstract 
+data type is defined by its behavior (semantics) 
+from the point of view of a user, of the data,
+specifically in terms of possible values, possible 
+operations on data of this type, and the behavior 
+of these operations. This mathematical model 
+contrasts with data structures, which are concrete 
+representations of data, and are the point of view 
+of an implementer, not a user.
+
+
+![](./images/abstract-data-type-1.jpeg)
+
+[Abstract Data type (ADT)](https://www.geeksforgeeks.org/abstract-data-types/)
+is a type (or class) for objects whose behavior is 
+defined by a set of values and a set of operations. 
+The definition of ADT only mentions what operations 
+are to be performed but not how these operations 
+will be implemented.
+
+### Example: **Stack as an Abstract Data Type**
+The stack data structure is a linear data structure 
+that accompanies a principle known as LIFO (Last-In-First-Out) 
+or FILO (First-In-Last-Out). In computer science, a stack is 
+an abstract data type that serves as a collection of elements, 
+with two main operations (adding or removing is only possible 
+at the top):
+
+* `push`, which adds an element to the collection, and
+* `pop`, which removes the most recently added element 
+  that was not yet removed.
+
+	
+		##### Stack as an Abstract Data Tyoe #####
+	
+		# create a new empty Stack
+		CREATE: -> Stack
+		
+		# add an Item to a given Stack
+		PUSH: Stack × Item -> Stack
+		
+		# Return the top element and remove from the Stack
+		POP: Stack -> Item
+		
+		# Gets the element at the top of the Stack without removing it
+		PEEK: Stack -> Item
+		
+		# remove the top element and return an updated Stack
+		REMOVE: Stack -> Stack
+		
+		# return True if the Stack is empty, otherwise return False
+		IS_EMPTY: Stack -> Boolean
+		
+		# return the size of a given Stack
+		SIZE: Stack -> Integer
+		
+
+![](./images/stack.drawio2.png)	
+
+
+	
+### Example: **Queue as an Abstract Data Type**
+For example, operations for a Queue (First-In-First-Out 
+-- FIFO)  as an abstract data type can be specified as the 
+following.  Note that a Queue can be implemented in 
+many ways (using lists, arrays, linked lists, ...).
+Queue is an abstract data structure, somewhat similar 
+to Stacks. Unlike stacks, a queue is open at both its 
+ends. One end is always used to insert data (enqueue) 
+and the other is used to remove data (dequeue). Queue 
+follows First-In-First-Out methodology, i.e., the data 
+item stored first will be accessed first.
+
+
+	##### Queue as an Abstract Data Type #####
+	
+	# create a new empty Queue
+	CREATE: -> Queue
+	
+	# add an Item to a given Queue
+	ADD: Queue × Item -> Queue
+	
+	# Return a front element and remove from the Queue
+	FRONT: Queue -> Item
+	
+	# Gets the element at the front of the Queue without removing it
+	PEEK: Queue -> Item
+	
+	# remove a front element and return an updated Queue
+	REMOVE: Queue -> Queue
+	
+	# return True if the Queue is empty, otherwise return False
+	IS_EMPTY: Queue -> Boolean
+	
+	# return the size of a given Queue
+	SIZE: Queue -> Integer
+
+![](./images/Queue-Data-Structures.png)		
+
+
 ## Apache Lucene
 [Lucene](https://lucene.apache.org) is an open-source 
 search engine software library written in Java. It 
 provides robust search and indexing features.
+
+![](./images/lucence-flow-1.png)
 
 Apache Lucene is a high-performance, full-featured 
 search engine library written entirely in Java. It 
@@ -1109,6 +1306,17 @@ Hadoop provides:
   `map() first, then reduce()` functions.
   
 * HDFS: Hadoop Distributed File System
+
+
+Note that for some big data problems, a single MapReduce
+job will not be enough to solve the problem, in this case,
+then you might need to run multiple Mapreduce jobs (as 
+illustrated below):
+
+**Big data solution with Hadoop (comprised of 2 MapReduce jobs):**
+
+![](./images/mapreduce-2-jobs.png)
+
 
 
 ## What is the difference between Hadoop and RDBMS?
@@ -3478,22 +3686,38 @@ Example: inner join
 
 ## Spark Partitioning
 A [partition in spark](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
-is an atomic chunk of data (logical division of data) 
-stored on a node in the cluster. Partitions are basic 
-units of parallelism in Apache Spark. RDDs and DataFrames 
-in Apache Spark are collection of partitions. 
+is an atomic chunk of data (logical division of 
+data) stored on a node in the cluster. Partitions 
+are basic units of parallelism in Apache Spark. 
+RDDs and DataFrames in Apache Spark are collection 
+of partitions. So, how partitioning of an RDD
+(or a DataFrame) is related to parallelism?  
+Spark is an engine for parallel processing of 
+data on a cluster. One important way to increase 
+parallelism of spark processing is to increase 
+the number of executors (executors are worker 
+nodes' processes in charge of running individual 
+tasks in a given Spark job) on the cluster. 
+However, knowing how the data should be distributed, 
+so that the cluster can process data efficiently is 
+extremely important. The secret to achieve this is 
+partitioning in Spark. 
 
 Data (represented as an RDD or DataFrame) partitioning 
 in Spark helps achieve more parallelism. For example,
-if your RDD/DataFrame is partitioned into 100 chunks/partitions,
-then for `RDD.map()`, there is a chance of running 100
-mappers in parallel/concurrently (at the same time).
-Therefore, Spark RDDs and DataFrames are stored in partitions 
-and operated in parallel. 
+if your RDD/DataFrame is partitioned into 100 chunks
+(or partitions), then for `RDD.map()`, there is a 
+chance of running 100 mappers in parallel/concurrently 
+(at the same time).  Therefore, Spark RDDs and 
+DataFrames are stored in partitions and operated in 
+parallel. 
 
 
-For example, in PySpark you can get the current number/length/size 
+For example, in PySpark you can get the current number 
 of partitions by running `RDD.getNumPartitions()`.	
+For Spark partitioning, refer to 
+[Spark Partitioning & Partition Understanding](https://sparkbyexamples.com/spark/spark-partitioning-understanding/).
+
 
 ## Physical Data Partitioning
 Physical Data Partitioning is a technique used in 
@@ -5328,6 +5552,12 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 38. [5 Biggest Big Data Challenges](https://bleuwire.com/5-biggest-big-data-challenges/)
 
 39. [Google's Python Class](https://developers.google.com/edu/python)
+
+40. [What is Abstract Data Type?](https://www.baeldung.com/cs/adt)
+
+41. [Spark Partitioning & Partition Understanding](https://sparkbyexamples.com/spark/spark-partitioning-understanding/)
+
+42. [Your Modern Business Guide To Data Analysis Methods And Techniques](https://www.datapine.com/blog/data-analysis-methods-and-techniques/)
 
 
 ---------------------------
