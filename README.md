@@ -14,7 +14,7 @@
 ## Course Information: 
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
-* Course MSIS 2627: Big Data Modeling & Analytics
+* Course MSIS 2527: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
 	* Start: April 3, 2023
@@ -30,9 +30,9 @@
 
 ------------
 
-## [Instructor, Adjunct Professor: Mahmoud Parsian](./web_docs/instructor.md)
+## 1. [Instructor, Adjunct Professor: Mahmoud Parsian](./web_docs/instructor.md)
 
-## [Course Description & Concepts](./web_docs/course_description.md)
+## 2. [Course Description & Concepts](./web_docs/course_description.md)
 
 ## [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
@@ -44,7 +44,7 @@
 
 ## [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## [Syllabus, Spring Quarter 2023](./syllabus/2023-Spring/)
+## [Syllabus, Spring Quarter 2023](./syllabus/2023-Spring/README.md)
 
 ## [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
