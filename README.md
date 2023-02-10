@@ -34,23 +34,23 @@
 
 ## 2. [Course Description & Concepts](./web_docs/course_description.md)
 
-## [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
+## 3. [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
-## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
+## 4. [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## [Required Books and Papers](./web_docs/required_books.md)
+## 5. [Required Books and Papers](./web_docs/required_books.md)
 
-## [Optional Books and References](./web_docs/additional_books.md)
+## 6. [Optional Books and References](./web_docs/additional_books.md)
 
-## [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
+## 7. [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## [Syllabus, Spring Quarter 2023](./syllabus/2023-Spring/README.md)
+## 8. [Syllabus, Spring Quarter 2023](./syllabus/2023-Spring/README.md)
 
-## [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
+## 9. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
-## [Midterm Exam](./web_docs/midterm_exam.md)
+## 10. [Midterm Exam](./web_docs/midterm_exam.md)
 
-## [Final Exam](./web_docs/final_exam.md)
+## 11. [Final Exam](./web_docs/final_exam.md)
 
 
 
