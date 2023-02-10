@@ -36,7 +36,7 @@
 
 ## [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
-## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/README.md)
+## [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
 ## [Required Books and Papers](./web_docs/required_books.md)
 
