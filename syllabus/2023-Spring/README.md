@@ -1,4 +1,4 @@
-Course Information <br/> for <br/> Spring Quarter 2023
+# Course Information <br/> for <br/> Spring Quarter 2023
 
 
 ## [Santa Clara University](http://scu.edu/)
