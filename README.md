@@ -60,6 +60,8 @@
 
 ## Mahmoud Parsian's Latest Books: 
 
+-------
+
 ### Data Algorithms with Spark 
 
 <a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md">
@@ -71,6 +73,8 @@
     >
 </a>
 
+------
+
 ### PySpark Algorithms 
 
 <a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
@@ -81,6 +85,8 @@
         height="600"
     >
 </a>
+
+-------
 
 ### Data Algorithms 
 
