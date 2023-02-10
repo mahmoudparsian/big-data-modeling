@@ -10,22 +10,22 @@
 
 ----------------------------
 
-## Fall Quarter 2022
+## Spring Quarter 2023
 ## Course Information: 
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
 * Course MSIS 2627: Big Data Modeling & Analytics
 * Big-Data-MapReduce Course @ Santa Clara University
 * Class meeting dates: 
-	* Start: September 9, 2022
-	* End: December 9, 2022
+	* Start: April 3, 2023
+	* End: June 10, 2023
+	* Final Exam week: June 12-15, 2023
 * Class hours:  
-	* Tuesday 5:45 PM - 7:20 PM PST (TBDL/online/via Zoom)
-	* Thursday 5:45 PM - 7:20 PM PST (TBDL/online/via Zoom)
-* Instructor: [Mahmoud Parsian](./images/instructor.md)
-* Class room: Lucas Hall 210
+	* Monday 5:45 PM - 7:20 PM PST (via Zoom)
+	* Wednesday 5:45 PM - 7:20 PM PST (via Zoom)
+* Class room: TBDL
 * Office: 216AA, 2nd Floor, Lucas Hall ([not used due to covid-19](https://www.cdc.gov/coronavirus/2019-nCoV/index.html))
-* Office Hours: TBDL (or by appointment)
+* Office Hours: TBDL (via Zoom and by appointment)
 * Office Hours ethics: if you are planning to attend an office hour, then you should send me an email
 
 ------------
@@ -44,7 +44,7 @@
 
 ## [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## [Syllabus, Fall Quarter 2022](./syllabus/2022-Fall/)
+## [Syllabus, Spring Quarter 2023](./syllabus/2023-Spring/)
 
 ## [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
