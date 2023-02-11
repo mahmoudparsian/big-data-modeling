@@ -246,13 +246,13 @@ def change(M):
     return (0, 0, 0, 0)
   #end-if
   
-  # step-3: find quarters as q
+  # step-3: first, find quarters as q, since q > d > n > p
   q, p = divmod(M, 25)
   if (p == 0):
     return (q, 0, 0, 0)
   #end-if
   
-  # step-4: find dimes
+  # step-4: find dimes, since d > n > p
   d, p = divmod(p, 10)
   if (p == 0):
     return (q, d, 0, 0)
@@ -344,9 +344,83 @@ characteristics:
 Storing Files on Tape is an example of 
 [Greedy Algorithm](https://jeffe.cs.illinois.edu/teaching/algorithms/book/04-greedy.pdf).
 
+## Recursive Algorithms
+In computer science, recursion is a method of solving 
+a computational problem where the solution depends on 
+solutions to smaller instances of the same problem. 
+Recursion solves such recursive problems by using 
+functions that call themselves from within their own code. 
+
+A [recursive algorithm](https://www.cs.odu.edu/~toida/nerzic/content/recursive_alg/rec_alg.html) is an algorithm which calls itself 
+with "smaller (or simpler)" input values, and which obtains the 
+result for the current input by applying simple operations to the 
+returned value for the smaller (or simpler) input. More generally 
+if a problem can be solved utilizing solutions to smaller versions 
+of the same problem, and the smaller versions reduce to easily 
+solvable cases, then one can use a recursive algorithm to solve 
+that problem. For example, the elements of a recursively defined 
+set, or the value of a recursively defined function can be obtained 
+by a recursive algorithm.
+
+The classic example of recursive programming involves computing 
+factorials. The factorial of a number is computed as that number 
+times all of the numbers below it up to and including 1. For 
+example, `factorial(5)` is the same as `5 * 4 * 3 * 2 * 1`, and 
+`factorial(3)` is `3 *2 * 1`.
+
+An interesting property of a factorial is that the factorial 
+of a number is equal to the starting number multiplied by the 
+factorial of the number immediately below it. For example, 
+`factorial(5)` is the same as `5 * factorial(4)`. You could 
+almost write the factorial function simply as this:
 
 
-# Algorithm Complexity
+	factorial(n) = n * factorial(n ‑ 1) for n > 0 (general definition)
+	factorial(n) = 1                    for n = 0 (base definition) 
+
+
+Factorial function can be expressed in a pseudo-code:
+
+	# assumption: n >= 0
+	int factorial(int n) {
+	   if (n == 0) {
+	      return 1;
+	   }
+	   else {
+	      return n * factorial(n ‑ 1);
+	   }
+	}
+
+***Example of Recursive Algorithms***:
+
+1. Factorial of a Number
+2. Greatest Common Divisor
+3. Fibonacci Numbers
+4. Recursive Binary Search
+5. Linked List
+6. Reversing a String
+7. QuickSort Algorithm
+8. Binary Tree Algorithms
+9. Towers of Hanoi
+10. Inorder/Preorder/Postorder Tree Traversals
+11. DFS of Graph
+12. File system traversal
+
+
+Recursive definitions are often used to model the structure 
+of expressions and statements in programming languages. Language 
+designers often express grammars in a syntax such as Backus–Naur 
+form; here is such a grammar, for a simple language of arithmetic 
+expressions with multiplication and addition:
+
+````
+     <expr> ::= <number>
+              | (<expr> * <expr>)
+              | (<expr> + <expr>)
+````
+
+
+## Algorithm Complexity
 An algorithm is analyzed using Time 
 Complexity and Space Complexity. Writing 
 an efficient algorithm help to consume 
@@ -5558,6 +5632,8 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 41. [Spark Partitioning & Partition Understanding](https://sparkbyexamples.com/spark/spark-partitioning-understanding/)
 
 42. [Your Modern Business Guide To Data Analysis Methods And Techniques](https://www.datapine.com/blog/data-analysis-methods-and-techniques/)
+
+43. [Mastering recursive programming](https://developer.ibm.com/articles/l-recurs/)
 
 
 ---------------------------
