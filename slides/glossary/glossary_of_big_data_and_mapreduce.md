@@ -9,7 +9,7 @@ to learn basics of key terms in big data, MapReduce, an PySpark.
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/8/2023
+* Last updated date: 2/11/2023
 
 <table>
 <tr>
@@ -411,7 +411,7 @@ Recursive definitions are often used to model the structure
 of expressions and statements in programming languages. Language 
 designers often express grammars in a syntax such as Backus–Naur 
 form; here is such a grammar, for a simple language of arithmetic 
-expressions with multiplication and addition:
+expressions (denoted as an `<expr>`) with multiplication and addition:
 
 ````
      <expr> ::= <number>
@@ -1411,6 +1411,62 @@ Data Access   | Batch | Interactive and Batch
 Data Size     | Tera bytes to Peta bytes | Giga bytes to Tera bytes
 Development   | Time consuming and complex  | Simple
 API           | Low level (by  `map()` and `reduce()`) functions | SQL and extensive
+
+
+## Replication
+In computer science and software engineering, replication 
+refers to the use of redundant resources to improve reliability, 
+fault-tolerance, or performance. One example of a replication is  
+data replication.  For example in Hadoop: HDFS (Hadoop Distributed
+File System) is designed to reliably store very large files across 
+machines in a large cluster. It stores each file as a sequence of 
+blocks; all blocks in a file except the last block are the same 
+size. The blocks of a file are replicated for fault tolerance: 
+it means that if a server holding specific data (say block X) 
+fails, then that specific data (block X) can be retrieved and 
+read from other replicated servers.
+
+
+![](./images/hdfs-datanodes-replication.gif)
+
+In HDFS, the block size and replication factor are configurable 
+per file. An application can specify the number of replicas of 
+a file. The replication factor can be specified at file creation 
+time and can be changed later. Files in HDFS are write-once and 
+have strictly one writer at any time.
+
+***Replication Example***:
+
+* file name: sample.txt
+* file size: 1400 MB
+* Data Blick Size: 512 MB
+* Replication Factor: 3
+* Cluster of 6 nodes (one master + 5 worker nodes):: 
+	* One Master node (no actual data is stored in the master node, the master node saves/stores metadata information)
+	* 5 worker/data nodes (actual data is stored in data nodes) 
+	  denoted as {W1, W2, W3, W4, W5}
+
+Since file size is 1400 MB, this means that this file is partitioned into 
+3 blocks:
+
+* 1400 = 512 + 512 + 376
+* Block-1 (B1): 512 MB
+* Block-2 (B2): 512 MB
+* Block-3 (B3): 512 MB (But only 376 MB is utilized)
+
+With replication factor of 3, worker nodes might
+hold these blocks as:
+
+* W1: B1, B3
+* W2: B2, B3
+* W3: B3, B2
+* W4: B1
+* W5: B1, B2
+
+
+Since replication factor is 3, therefore only 2 (3-1) data 
+nodes can safely fail.
+
 
 
 ## Replication Factor (RF)

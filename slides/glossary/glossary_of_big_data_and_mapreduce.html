@@ -877,7 +877,7 @@ div.mermaidTooltip {
 <li><p>This is not a regular glossary: it is a detailed glossary for my students
 to learn basics of key terms in big data, MapReduce, an PySpark.</p></li>
 <li><p>Compiled and edited by: <a href="../../bio/mahmoud_parsian_scu_bio.md">Mahmoud Parsian</a></p></li>
-<li><p>Last updated date: 2/8/2023</p></li>
+<li><p>Last updated date: 2/11/2023</p></li>
 </ul>
 
 <table>
@@ -1280,7 +1280,7 @@ int factorial(int n) {
 of expressions and statements in programming languages. Language 
 designers often express grammars in a syntax such as Backus–Naur 
 form; here is such a grammar, for a simple language of arithmetic 
-expressions with multiplication and addition:</p>
+expressions (denoted as an <code>&lt;expr&gt;</code>) with multiplication and addition:</p>
 
 <div><pre class="line-numbers"><code class="language-none">     &lt;expr&gt; ::= &lt;number&gt;
               | (&lt;expr&gt; * &lt;expr&gt;)
@@ -2385,7 +2385,69 @@ Oracle, MySQL, Maria</li>
 </tbody>
 </table>
 
-<h2 id="toc_45">Replication Factor (RF)</h2>
+<h2 id="toc_45">Replication</h2>
+
+<p>In computer science and software engineering, replication 
+refers to the use of redundant resources to improve reliability, 
+fault-tolerance, or performance. One example of a replication is<br>
+data replication.  For example in Hadoop: HDFS (Hadoop Distributed
+File System) is designed to reliably store very large files across 
+machines in a large cluster. It stores each file as a sequence of 
+blocks; all blocks in a file except the last block are the same 
+size. The blocks of a file are replicated for fault tolerance: 
+it means that if a server holding specific data (say block X) 
+fails, then that specific data (block X) can be retrieved and 
+read from other replicated servers.</p>
+
+<p><img src="./images/hdfs-datanodes-replication.gif" alt=""></p>
+
+<p>In HDFS, the block size and replication factor are configurable 
+per file. An application can specify the number of replicas of 
+a file. The replication factor can be specified at file creation 
+time and can be changed later. Files in HDFS are write-once and 
+have strictly one writer at any time.</p>
+
+<p><strong><em>Replication Example</em></strong>:</p>
+
+<ul>
+<li>file name: sample.txt</li>
+<li>file size: 1400 MB</li>
+<li>Data Blick Size: 512 MB</li>
+<li>Replication Factor: 3</li>
+<li>Cluster of 6 nodes (one master + 5 worker nodes):: 
+
+<ul>
+<li>One Master node (no actual data is stored in the master node, the master node saves/stores metadata information)</li>
+<li>5 worker/data nodes (actual data is stored in data nodes) 
+denoted as {W1, W2, W3, W4, W5}</li>
+</ul></li>
+</ul>
+
+<p>Since file size is 1400 MB, this means that this file is partitioned into 
+3 blocks:</p>
+
+<ul>
+<li>1400 = 512 + 512 + 376</li>
+<li>Block-1 (B1): 512 MB</li>
+<li>Block-2 (B2): 512 MB</li>
+<li>Block-3 (B3): 512 MB (But only 376 MB is utilized)</li>
+</ul>
+
+<p>With replication factor of 3, worker nodes might
+hold these blocks as:</p>
+
+<ul>
+<li>W1: B1, B3</li>
+<li>W2: B2, B3</li>
+<li>W3: B3, B2</li>
+<li>W4: B1</li>
+<li>W5: B1, B2</li>
+</ul>
+
+<p>Since replication factor is 3, therefore only 2 (3-1) data 
+nodes can safely fail.</p>
+
+<h2 id="toc_46">Replication Factor (RF)</h2>
 
 <p>The total number of replicas across the cluster 
 is referred to as the  replication  factor  (RF). 
@@ -2402,7 +2464,7 @@ worker nodes), if data replication factotr is <code>R</code>,
 then  <code>(R - 1)</code> nodes can safely fail without 
 impacting any running job in the cluster.</p>
 
-<h2 id="toc_46">What makes Hadoop Fault tolerant?</h2>
+<h2 id="toc_47">What makes Hadoop Fault tolerant?</h2>
 
 <p>Hadoop is said to be highly fault tolerant. Hadoop 
 achieves this feat through the process of data 
@@ -2422,7 +2484,7 @@ copies or replicas of the data.</p>
 <p>If replication factor is <code>N</code>, then <code>N-1</code> nodes can 
 safely fail without impacting a running job.</p>
 
-<h2 id="toc_47">Big Data Formats</h2>
+<h2 id="toc_48">Big Data Formats</h2>
 
 <p>Data comes in many varied formats:</p>
 
@@ -2449,7 +2511,7 @@ safely fail without impacting a running job.</p>
 <li><p>&hellip;</p></li>
 </ul>
 
-<h2 id="toc_48">Parquet Files</h2>
+<h2 id="toc_49">Parquet Files</h2>
 
 <p><a href="https://parquet.apache.org">Apache Parquet</a> is 
 a columnar file format that supports block level 
@@ -2494,7 +2556,7 @@ column values need not read the entire row of data.</li>
 
 <p><img src="images/file_formats.png" alt=""></p>
 
-<h2 id="toc_49">Columnar vs. Row Oriented Databases</h2>
+<h2 id="toc_50">Columnar vs. Row Oriented Databases</h2>
 
 <p>Columnar databases have become the popular choice 
 for storing analytical data workloads. In a nutshell,
@@ -2509,7 +2571,7 @@ oriented databases are better suited. </p>
 
 <p><img src="./images/row_vs_columnar_representation.png" alt=""></p>
 
-<h2 id="toc_50">Tez</h2>
+<h2 id="toc_51">Tez</h2>
 
 <p><a href="https://tez.apache.org">Apache Tez</a> (which 
 implements MapReduce paradigm) is a framework 
@@ -2525,7 +2587,7 @@ directed-acyclic-graph (DAG) of tasks for
 processing data. It is currently built atop 
 Apache Hadoop YARN.</p>
 
-<h2 id="toc_51">Apache HBase</h2>
+<h2 id="toc_52">Apache HBase</h2>
 
 <p><a href="https://hbase.apache.org">Apache HBase</a> is an 
 open source, non-relational, distributed database 
@@ -2543,7 +2605,7 @@ support billions of data points.</p>
 <li>It provides data replication across clusters.</li>
 </ul>
 
-<h2 id="toc_52">Google Bigtable</h2>
+<h2 id="toc_53">Google Bigtable</h2>
 
 <p>According to Google: 
 <a href="https://cloud.google.com/bigtable">Google Bigtable</a> 
@@ -2556,7 +2618,7 @@ and operational workloads.</p>
 NoSQL database service for large analytical and operational 
 workloads as part of the Google Cloud portfolio.</p>
 
-<h2 id="toc_53">HDFS</h2>
+<h2 id="toc_54">HDFS</h2>
 
 <p><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html">HDFS</a> (Hadoop Distributed File System) 
 is a distributed file system designed to run on 
@@ -2585,7 +2647,7 @@ is always available and prevents data loss</li>
 <div><pre class="line-numbers"><code class="language-none">hdfs://localhost:8020/data/2023-01-07/samples.txt</code></pre></div></li>
 </ul>
 
-<h2 id="toc_54">Scalability</h2>
+<h2 id="toc_55">Scalability</h2>
 
 <p>Scalability is the ability of a system or process to maintain 
 acceptable performance levels as workload or scope increases.</p>
@@ -2612,7 +2674,7 @@ system in terms of performance (user response time and
 so forth) and the larger number of users that could be 
 handled.</p>
 
-<h2 id="toc_55">Amazon S3</h2>
+<h2 id="toc_56">Amazon S3</h2>
 
 <p>Amazon Simple Storage Service (Amazon S3) is an 
 object storage service that offers industry-leading 
@@ -2640,7 +2702,7 @@ Amazon S3. Objects are stored as:</p>
 <div><pre class="line-numbers"><code class="language-none">s3://my_bucket_name/data/2023-01-07/samples.txt</code></pre></div></li>
 </ul>
 
-<h2 id="toc_56">Amazon Athena</h2>
+<h2 id="toc_57">Amazon Athena</h2>
 
 <p>The Amazon Athena is widely used and is defined 
 as an interactive query service that makes it 
@@ -2679,7 +2741,7 @@ running on hundreds and thousands of GB of data,
 the price might get out of control at times.</p></li>
 </ul>
 
-<h2 id="toc_57">Google BigQuery</h2>
+<h2 id="toc_58">Google BigQuery</h2>
 
 <ul>
 <li><p>BigQuery is a serverless and cost-effective 
@@ -2713,7 +2775,7 @@ high availability.</p></li>
 you only pay for the services you use.</p></li>
 </ul>
 
-<h2 id="toc_58">Commodity server/hardware</h2>
+<h2 id="toc_59">Commodity server/hardware</h2>
 
 <p>Commodity hardware (computer), sometimes known 
 as off-the-shelf server/hardware, is a computer 
@@ -2726,7 +2788,7 @@ architecture).  Commodity hardware is often
 deployed for high availability and disaster 
 recovery purposes.</p>
 
-<h2 id="toc_59">Fault Tolerance and Data Replication.</h2>
+<h2 id="toc_60">Fault Tolerance and Data Replication.</h2>
 
 <p>Fault-tolerance is the ability of a system to 
 continue to run when a component of the system 
@@ -2766,7 +2828,7 @@ therefore, blocks will be placed as:</p>
 <p>Fault Tolerance: if replication factor is <code>N</code>, then <code>(N-1)</code> 
 nodes can safely fail without a job fails.</p>
 
-<h2 id="toc_60">High-Performance-Computing (HPC)</h2>
+<h2 id="toc_61">High-Performance-Computing (HPC)</h2>
 
 <p>Using supercomputers to solve highly complex and 
 advanced computing problems. This is a scale-up 
@@ -2774,7 +2836,7 @@ architecture and not a scale-out architecture.</p>
 
 <p>Hadoop and Spark use scale-out architectures.</p>
 
-<h2 id="toc_61">History of MapReduce</h2>
+<h2 id="toc_62">History of MapReduce</h2>
 
 <p>MapReduce was developed by Google back in 2004 by 
 Jeffery Dean and Sanjay Ghemawat of Google (Dean &amp; 
@@ -2786,7 +2848,7 @@ time, Google’s proprietary MapReduce system ran on
 the Google File System (GFS). Apache Hadoop is an 
 open-source implementation of Google&rsquo;s MapReduce.</p>
 
-<h2 id="toc_62">MapReduce</h2>
+<h2 id="toc_63">MapReduce</h2>
 
 <p>Mapreduce is a software framework for processing 
 vast amounts of data. MapReduce is a parallel 
@@ -2861,11 +2923,11 @@ to be consumed by reducers:</p>
 <li><p>Spark (fast and simple) is a superset implementation of MapReduce.</p></li>
 </ul>
 
-<h2 id="toc_63">Mapreduce Architecture</h2>
+<h2 id="toc_64">Mapreduce Architecture</h2>
 
 <p><img src="./images/mapreduce-architecture.jpeg" alt=""></p>
 
-<h3 id="toc_64"><em>Components of MapReduce Architecture</em>:</h3>
+<h3 id="toc_65"><em>Components of MapReduce Architecture</em>:</h3>
 
 <ul>
 <li><p><strong>Client</strong>: The MapReduce client is the one who 
@@ -2886,7 +2948,7 @@ for processing.</p></li>
 the processing.</p></li>
 </ul>
 
-<h3 id="toc_65"><em>MapReduce Task</em>:</h3>
+<h3 id="toc_66"><em>MapReduce Task</em>:</h3>
 
 <p>The <strong>MapReduce Task</strong> is mainly divided into 3 phases 
 i.e. Map phase, Sort &amp; Shuffle pahse and Reduce phase.</p>
@@ -2953,7 +3015,7 @@ executed (in parallel):</p>
 <p>where each reducer can generate any number of new 
 <code>(key3, value3)</code> pairs.</p>
 
-<h2 id="toc_66">What is an Example of a Mapper in MapReduce</h2>
+<h2 id="toc_67">What is an Example of a Mapper in MapReduce</h2>
 
 <p>Imagine that you have records, which describe values 
 for genes and each record is identified as:</p>
@@ -3011,7 +3073,7 @@ consumed ny the reducers.</p>
 <div><pre class="line-numbers"><code class="language-none">(INS, [1.3, 1.1, 1.0])
 (INSR, [1.2, 0.7])</code></pre></div>
 
-<h2 id="toc_67">What is an Example of a Reducer in MapReduce</h2>
+<h2 id="toc_68">What is an Example of a Reducer in MapReduce</h2>
 
 <p>Imagine that mappers have produced the following output: 
 (key, value) where key is a gene_id and value is an
@@ -3050,7 +3112,7 @@ the following (key, value) pairs:</p>
 <div><pre class="line-numbers"><code class="language-none">(INS, 1.1)
 (INSR, 0.95)</code></pre></div>
 
-<h2 id="toc_68">What is an Example of a Combiner in MapReduce</h2>
+<h2 id="toc_69">What is an Example of a Combiner in MapReduce</h2>
 
 <p>Consider a classic word count program in MapReduce.
 Let&rsquo;s Consider 3 partitions with mappers output:</p>
@@ -3083,7 +3145,7 @@ In MapReduce, combiners are mini-reducer optimizations
 and they reduce network traffic by combining many values 
 into a single value.</p>
 
-<h2 id="toc_69">Partition</h2>
+<h2 id="toc_70">Partition</h2>
 
 <p>Data can be partitioned into smaller logical units. 
 These units are called partitions. In big data, partitions
@@ -3118,7 +3180,7 @@ paralleism.</p>
 : returns a new DataFrame that has exactly <code>numPartitions</code> partitions.</p></li>
 </ul>
 
-<h2 id="toc_70">Parallel computing</h2>
+<h2 id="toc_71">Parallel computing</h2>
 
 <p><a href="https://en.wikipedia.org/wiki/Parallel_computing">Parallel computing</a> 
 (also called concurrent computing) is a type of computation in which 
@@ -3131,7 +3193,7 @@ computer architecture, mainly in the form of multi-core processors.</p>
 
 <p>MapReduce and Spark employs parallelism by data partitioning.</p>
 
-<h2 id="toc_71">How does MapReduce work?</h2>
+<h2 id="toc_72">How does MapReduce work?</h2>
 
 <p>A MapReduce system (an implementation of MapReduce mpdel) is 
 usually composed of three steps (even though it&rsquo;s generalized 
@@ -3174,7 +3236,7 @@ Unlike the map function which is mandatory to filter and sort
 the initial data, the reduce function is optional.</p></li>
 </ul>
 
-<h2 id="toc_72">Word Count in MapReduce</h2>
+<h2 id="toc_73">Word Count in MapReduce</h2>
 
 <p>Given a set of text documents (as input), Word Count algorithm 
 finds frequencies of unique words in input. The <code>map()</code> and <code>reduce()</code> 
@@ -3220,7 +3282,7 @@ combine(key, values) {
 }</code></pre></div></li>
 </ul>
 
-<h2 id="toc_73">Finding Average in MapReduce</h2>
+<h2 id="toc_74">Finding Average in MapReduce</h2>
 
 <p>Given a set of gene<em>id(s) and gene</em>value(s) (as input), 
 the average algorithm finds average of gene values per 
@@ -3341,7 +3403,7 @@ combine(key, values) {
 }</code></pre></div></li>
 </ul>
 
-<h2 id="toc_74">What is an Associative Law</h2>
+<h2 id="toc_75">What is an Associative Law</h2>
 
 <p>An associative operation:</p>
 
@@ -3373,7 +3435,7 @@ avg(1, avg(2, 3)) != avg(avg(1, 2), 3)
     avg(1, 2.5) != avg(1.5, 3)
            1.75 != 2.25</code></pre></div>
 
-<h2 id="toc_75">What is a Commutative Law</h2>
+<h2 id="toc_76">What is a Commutative Law</h2>
 
 <p>A commutative function <code>f</code> is a function that takes multiple 
 inputs from a set X and produces an output that does not 
@@ -3388,7 +3450,7 @@ Function <code>f</code> is commutative if the following property holds:</p>
 <div><pre class="line-numbers"><code class="language-none">    2 - 4 != 4 - 2
        -2 != 2</code></pre></div>
 
-<h2 id="toc_76">Monoid</h2>
+<h2 id="toc_77">Monoid</h2>
 
 <p>Monoids are algebraic structures. 
 A monoid M is a triplet <code>(X, f, i)</code>, where </p>
@@ -3412,9 +3474,9 @@ and <code>f(b, a)</code> is also in <code>X</code>.</p></li>
 <div><pre class="line-numbers"><code class="language-none">f(a, i) = f(i, a) = a</code></pre></div></li>
 </ol>
 
-<h3 id="toc_77">Monoid Examples</h3>
+<h3 id="toc_78">Monoid Examples</h3>
 
-<h4 id="toc_78">Example-1</h4>
+<h4 id="toc_79">Example-1</h4>
 
 <p>Let X denotes non-negative integer numbers. </p>
 
@@ -3423,14 +3485,14 @@ and <code>f(b, a)</code> is also in <code>X</code>.</p></li>
 <li><p>Let <code>*</code> be an multiplication function, then <code>M(X, *, 1)</code> is a monoid.</p></li>
 </ul>
 
-<h4 id="toc_79">Example-2</h4>
+<h4 id="toc_80">Example-2</h4>
 
 <p>Let <code>S</code> denote a set of strings including an empty string (<code>&quot;&quot;</code>) 
 of length zero, and <code>||</code> denote a concatenation operator,</p>
 
 <p>Then <code>M(S, ||, &quot;&quot;)</code> is a monoid.</p>
 
-<h3 id="toc_80">Non Monoid Examples</h3>
+<h3 id="toc_81">Non Monoid Examples</h3>
 
 <p>Then <code>M(X, -, 0)</code> is not a monoid, since binary subtraction 
 function is not an associative function.</p>
@@ -3441,7 +3503,7 @@ function is not an associative function.</p>
 <p>Then <code>M(X, AVG, 0)</code> is not a monoid, since <code>AVG</code> 
 (an averge function) is not an associative function.</p>
 
-<h2 id="toc_81">Monoids as a Design Principle for Efficient MapReduce Algorithms</h2>
+<h2 id="toc_82">Monoids as a Design Principle for Efficient MapReduce Algorithms</h2>
 
 <p>According to <a href="https://arxiv.org/abs/1304.7544">Jimmy Lin</a>: &ldquo;it 
 is well known that since the sort/shuffle stage in MapReduce is 
@@ -3506,7 +3568,7 @@ we will have (as <code>rdd2</code>):</p>
 <p>Finally, <code>avg_per_key</code> RDD will produce the final value per key:
 <code>(A, 2)</code>.</p>
 
-<h2 id="toc_82">What Does it Mean that &quot;Average of Average is Not an Average&rdquo;</h2>
+<h2 id="toc_83">What Does it Mean that &quot;Average of Average is Not an Average&rdquo;</h2>
 
 <p>In distributed computing environments (such as MapReduce, 
 Hadoop, Spark, &hellip;) correctness of algorithms are very
@@ -3548,7 +3610,7 @@ avg(Partition-1, Partition-2) = avg((3,2), (3, 1))
                               = 2.0
                               ===&gt; CORRECT AVERAGE</code></pre></div>
 
-<h2 id="toc_83">Advantages of MapReduce</h2>
+<h2 id="toc_84">Advantages of MapReduce</h2>
 
 <p>Is there any benefit in using MapReduce paradigm?
 With MapReduce, developers do not need to write code for 
@@ -3568,7 +3630,7 @@ This alone shortens analytical programming time.</p>
 <li>Fault tolerance</li>
 </ul>
 
-<h2 id="toc_84">What is a MapReduce Job</h2>
+<h2 id="toc_85">What is a MapReduce Job</h2>
 
 <p>Job − A program is an execution of a Mapper and Reducer across a dataset.
 Minimally, a MapReduce job will have the following components:</p>
@@ -3581,7 +3643,7 @@ Minimally, a MapReduce job will have the following components:</p>
 <li>Combiner: a <code>combine()</code> function [optional]</li>
 </ul>
 
-<h2 id="toc_85">Disadvantages of MapReduce</h2>
+<h2 id="toc_86">Disadvantages of MapReduce</h2>
 
 <ul>
 <li>Rigid <code>Map-and-then-Reduce</code> programming paradigm
@@ -3605,7 +3667,7 @@ and then reduce functions</li>
 </ul></li>
 </ul>
 
-<h2 id="toc_86">What the MapReduce&rsquo;s Job Flow</h2>
+<h2 id="toc_87">What the MapReduce&rsquo;s Job Flow</h2>
 
 <p><strong>1-InputFormat:</strong>
 Splits input into <code>(key_1, value_1)</code> pairs and passes 
@@ -3665,7 +3727,7 @@ filtering out some keys based of the associated values (for
 example, if the median of the values is less than 10, then 
 filter out).</p>
 
-<h2 id="toc_87">Hadoop vs. Spark</h2>
+<h2 id="toc_88">Hadoop vs. Spark</h2>
 
 <table>
 <thead>
@@ -3760,7 +3822,7 @@ filter out).</p>
 </tbody>
 </table>
 
-<h2 id="toc_88">Apache Spark</h2>
+<h2 id="toc_89">Apache Spark</h2>
 
 <p>In a nutshell, we can say that Apache Spark is the 
 most active open big data tool reshaping the big 
@@ -3836,7 +3898,7 @@ two main data abstractions:</p>
 to solve a big data problem</li>
 </ul>
 
-<h2 id="toc_89">Apache Spark Components</h2>
+<h2 id="toc_90">Apache Spark Components</h2>
 
 <p>Apache Spark provides:</p>
 
@@ -3850,7 +3912,7 @@ to solve a big data problem</li>
 
 <p><img src="./images/spark_components.png" alt=""></p>
 
-<h2 id="toc_90">Apache Spark in Large-Scale Sorting</h2>
+<h2 id="toc_91">Apache Spark in Large-Scale Sorting</h2>
 
 <p><a href="https://www.databricks.com/blog/2014/11/05/spark-officially-sets-a-new-record-in-large-scale-sorting.html">Spark Officially Sets a New Record in Large-Scale Sorting</a>.
 Databricks team sorted 100 TB of data on disk in 23 minutes. 
@@ -3862,7 +3924,7 @@ in-memory cache.</p>
 
 <p><img src="./images/100TB_sorting.png" alt=""></p>
 
-<h2 id="toc_91">DAG in Spark</h2>
+<h2 id="toc_92">DAG in Spark</h2>
 
 <p>Spark DAG (directed acyclic graph) is the strict generalization 
 of the MapReduce model. The DAG operations can do better global 
@@ -3882,7 +3944,7 @@ the stages of the task.</p>
 <p>By using <a href="https://spark.apache.org/docs/latest/web-ui.html">Spark Web UI</a>,
 you can view Spark jobs and their associated DAGs.</p>
 
-<h2 id="toc_92">Spark Concepts and Key Terms</h2>
+<h2 id="toc_93">Spark Concepts and Key Terms</h2>
 
 <ul>
 <li><a href="https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf">Spark Architecture</a></li>
@@ -3922,7 +3984,7 @@ from each Executor’s tasks.</p></li>
 <li><p>Task: A unit of work that will be sent to one executor.</p></li>
 </ul>
 
-<h2 id="toc_93">Apache Spark Ecosystem</h2>
+<h2 id="toc_94">Apache Spark Ecosystem</h2>
 
 <p><img src="./images/spark_eco_system.png" alt=""></p>
 
@@ -3974,7 +4036,7 @@ may use an external graph library called GraphFrames
 (which is a DataFrames based solution).</p></li>
 </ul>
 
-<h2 id="toc_94">Spark as a superset of MapReduce</h2>
+<h2 id="toc_95">Spark as a superset of MapReduce</h2>
 
 <p>Spark is a true successor of MapReduce and maintains 
 MapReduce’s linear scalability and fault tolerance, 
@@ -4019,7 +4081,7 @@ processed data can be pushed out to file systems,
 databases, and live dashboards.</p></li>
 </ol>
 
-<h2 id="toc_95">What is an Spark RDD</h2>
+<h2 id="toc_96">What is an Spark RDD</h2>
 
 <p>Spark&rsquo;s RDD (full name in PySpark as: <code>pyspark.RDD</code>)
 is a Resilient Distributed Dataset (<code>RDD</code>),
@@ -4040,7 +4102,7 @@ files, log files, JSON, &hellip;</p>
 semi-structured data (while a DataFrame is more 
 suitable to structured and semi-structured data).</p>
 
-<h2 id="toc_96">What are Spark Mappers?</h2>
+<h2 id="toc_97">What are Spark Mappers?</h2>
 
 <p>Spark offers comprehensive mapper functions 
 for RDDs and DataFrames. Spark <code>map()</code> is a 
@@ -4085,7 +4147,7 @@ into a single RDD (target) element</li>
 as a table or rows with named columns)</p></li>
 </ul>
 
-<h2 id="toc_97">What are Spark Reducers?</h2>
+<h2 id="toc_98">What are Spark Reducers?</h2>
 
 <p>The reducer function receives an intermediate key and 
 a set of associated values (not sorted in any order). 
@@ -4128,7 +4190,7 @@ and DataFrames.</p>
 be registred as a table or rows with named columns)</li>
 </ul>
 
-<h2 id="toc_98">Data Structure</h2>
+<h2 id="toc_99">Data Structure</h2>
 
 <p>In computer science, a data structure is a data organization, 
 management, and storage format that is usually chosen for 
@@ -4152,7 +4214,7 @@ upon simpler primitive data types. Well known examples are:</p>
 <li>Binary tree</li>
 </ul>
 
-<h2 id="toc_99">Difference between Spark&rsquo;s Action and Transformation</h2>
+<h2 id="toc_100">Difference between Spark&rsquo;s Action and Transformation</h2>
 
 <p>A Spark transformation (such as <code>map()</code>, <code>filter()</code>, <code>reduceByKey()</code>, 
 &hellip;) applies to a source RDD and creates a new target RDD.
@@ -4165,7 +4227,7 @@ it is a transformation. If it returns anything else or does not
 return a value at all (or returns Unit in the case of Scala API), 
 it is an action.</p>
 
-<h2 id="toc_100">What is Lineage In Spark?</h2>
+<h2 id="toc_101">What is Lineage In Spark?</h2>
 
 <p>Spark RDDs are immutable (READ-ONLY) distributed collection 
 of elements of your data that can be stored in memory or 
@@ -4176,7 +4238,7 @@ and actions. RDDs are fault tolerant as they track data
 lineage information to rebuild lost data automatically on 
 failure.</p>
 
-<h2 id="toc_101">What are Spark operations/functions?</h2>
+<h2 id="toc_102">What are Spark operations/functions?</h2>
 
 <p>Two types of Spark RDD operations are: Transformations and Actions. </p>
 
@@ -4206,7 +4268,7 @@ considered an action in the spark programming.</p>
 </ul></li>
 </ul>
 
-<h2 id="toc_102">The Spark Programming Model</h2>
+<h2 id="toc_103">The Spark Programming Model</h2>
 
 <p>Spark programming starts with a data set (which can be 
 represented as an RDD or a DataFame), usually residing 
@@ -4225,7 +4287,7 @@ you decide what transformations and actions to undertake
 next.</p></li>
 </ol>
 
-<h2 id="toc_103">What is Lazy Binding In Spark?</h2>
+<h2 id="toc_104">What is Lazy Binding In Spark?</h2>
 
 <p>Lazy binding/evaluation in Spark means that the execution 
 of <strong>transformations</strong> will not start until an <strong>action</strong> 
@@ -4236,7 +4298,7 @@ is an evaluation strategy which delays the evaluation of an
 expression until its value is needed (non-strict evaluation) and 
 which also avoids repeated evaluations (sharing).</p>
 
-<h2 id="toc_104">Difference between  <code>reduceByKey()</code> and <code>combineByKey()</code></h2>
+<h2 id="toc_105">Difference between  <code>reduceByKey()</code> and <code>combineByKey()</code></h2>
 
 <ul>
 <li><code>reduceByKey()</code></li>
@@ -4292,7 +4354,7 @@ single one (e.g., merges the lists)</p>
 
     where V and C can be the same or different </code></pre></div>
 
-<h2 id="toc_105">What is an example of <code>RDD.combineByKey()</code>?</h2>
+<h2 id="toc_106">What is an example of <code>RDD.combineByKey()</code>?</h2>
 
 <p>Combine all of values per key.</p>
 
@@ -4328,7 +4390,7 @@ rdd2.collect()
 
 # Note that values of keys does not need to be sorted</code></pre></div>
 
-<h2 id="toc_106">What is an example of <code>RDD.reduceByKey()</code>?</h2>
+<h2 id="toc_107">What is an example of <code>RDD.reduceByKey()</code>?</h2>
 
 <p>Find maximum of values per key.</p>
 
@@ -4349,7 +4411,7 @@ rdd2.collect()
 ]
 </code></pre></div>
 
-<h2 id="toc_107">What is an example of <code>RDD.groupByKey()</code>?</h2>
+<h2 id="toc_108">What is an example of <code>RDD.groupByKey()</code>?</h2>
 
 <p>Combine/Group values per key.</p>
 
@@ -4370,7 +4432,7 @@ rdd2.collect()
 ]
 </code></pre></div>
 
-<h2 id="toc_108">Difference of <code>RDD.groupByKey()</code> and <code>RDD.reduceByKey()</code></h2>
+<h2 id="toc_109">Difference of <code>RDD.groupByKey()</code> and <code>RDD.reduceByKey()</code></h2>
 
 <p>Both <code>reduceByKey()</code> and <code>groupByKey()</code> result in wide transformations 
 which means both triggers a shuffle operation. The key difference between 
@@ -4386,7 +4448,7 @@ the reducer function for the <code>reduceByKey()</code> must be associative and 
 <img src="./images/reduceByKey.png" alt=""></p></li>
 </ul>
 
-<h2 id="toc_109">What is a DataFrame?</h2>
+<h2 id="toc_110">What is a DataFrame?</h2>
 
 <p>A DataFrame is a data structure that organizes data into 
 a 2-dimensional table of rows and columns, much like a 
@@ -4395,7 +4457,7 @@ the most common data structures used in modern data analytics
 because they are a flexible and intuitive way of storing and 
 working with data.</p>
 
-<h3 id="toc_110">Python DataFrame Example</h3>
+<h3 id="toc_111">Python DataFrame Example</h3>
 
 <p>DataFrame is a 2-dimensional mutable labeled data structure 
 with columns of potentially different types. You can think 
@@ -4425,7 +4487,7 @@ print(df)
   1       200        60
   2       300        70</code></pre></div>
 
-<h3 id="toc_111">Spark DataFrame Example</h3>
+<h3 id="toc_112">Spark DataFrame Example</h3>
 
 <p>Like an RDD, a DataFrame is an immutable distributed 
 collection of data. Unlike an RDD, data is organized 
@@ -4462,7 +4524,7 @@ result = people.filter(people.age &gt; 30)\
                .groupBy(department.name, &quot;gender&quot;)\
                .agg({&quot;salary&quot;: &quot;avg&quot;, &quot;age&quot;: &quot;max&quot;})</code></pre></div>
 
-<h2 id="toc_112">What is an Spark DataFrame?</h2>
+<h2 id="toc_113">What is an Spark DataFrame?</h2>
 
 <p>Spark&rsquo;s DataFrame (full name as: <code>pyspark.sql.DataFrame</code>)
 is an immutable and distributed collection of data grouped
@@ -4478,7 +4540,7 @@ relational databases, Parquet files, JSON, CSV files,
 semi-structured data (while an RDD is more 
 suitable to unstructured and semi-structured data).</p>
 
-<h2 id="toc_113">Spark RDD Example</h2>
+<h2 id="toc_114">Spark RDD Example</h2>
 
 <p>An Spark RDD can represent billions of elements.</p>
 
@@ -4499,7 +4561,7 @@ suitable to unstructured and semi-structured data).</p>
     &gt;&gt;&gt; total
     499500</code></pre></div>
 
-<h2 id="toc_114">Spark DataFrame Example</h2>
+<h2 id="toc_115">Spark DataFrame Example</h2>
 
 <p>A Spark DataFrame can represent billions of rows of named columns.</p>
 
@@ -4523,7 +4585,7 @@ suitable to unstructured and semi-structured data).</p>
      |-- name: string (nullable = true)
      |-- age: long (nullable = true)</code></pre></div>
 
-<h2 id="toc_115">Join Operation in MapReduce</h2>
+<h2 id="toc_116">Join Operation in MapReduce</h2>
 
 <p>The MapReduce paradigm does not have a direct join 
 API.  But the join can be implemented as a set of 
@@ -4699,11 +4761,11 @@ can be implemented by revising the reducer function.</p>
 (y, (3, 44))
 (y, (4, 44))</code></pre></div>
 
-<h2 id="toc_116">Join Operation in Spark</h2>
+<h2 id="toc_117">Join Operation in Spark</h2>
 
 <p>Spark has an extensive support for join operation.</p>
 
-<h3 id="toc_117">Join in RDD</h3>
+<h3 id="toc_118">Join in RDD</h3>
 
 <p>Let A be an <code>RDD[(K, V)]</code> and B be an <code>RDD[(K, U)]</code>, 
 then <code>A.join(B)</code> will return a new RDD (call it as C) 
@@ -4725,7 +4787,7 @@ x.join(y).collect())
  (&#39;c&#39;, (7, 8))
 ]</code></pre></div>
 
-<h3 id="toc_118">Join in DataFrame</h3>
+<h3 id="toc_119">Join in DataFrame</h3>
 
 <div><pre class="line-numbers"><code class="language-python"># PySpark API:
 
@@ -4807,7 +4869,7 @@ Joins with another DataFrame, using the given join expression.</code></pre></div
 |     5|betty|    400| 35000|       IT|
 +------+-----+-------+------+---------+</code></pre></div>
 
-<h2 id="toc_119">Spark Partitioning</h2>
+<h2 id="toc_120">Spark Partitioning</h2>
 
 <p>A <a href="https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297">partition in spark</a>
 is an atomic chunk of data (logical division of 
@@ -4841,7 +4903,7 @@ of partitions by running <code>RDD.getNumPartitions()</code>.<br>
 For Spark partitioning, refer to 
 <a href="https://sparkbyexamples.com/spark/spark-partitioning-understanding/">Spark Partitioning &amp; Partition Understanding</a>.</p>
 
-<h2 id="toc_120">Physical Data Partitioning</h2>
+<h2 id="toc_121">Physical Data Partitioning</h2>
 
 <p>Physical Data Partitioning is a technique used in 
 data warehouses and big data query engines. </p>
@@ -4891,7 +4953,7 @@ then 7 folders will be created):</p>
 
 <p>For details, refer to <a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/physical_partitioning">Physical Data Partitioning tutorial</a>.</p>
 
-<h2 id="toc_121">GraphFrames</h2>
+<h2 id="toc_122">GraphFrames</h2>
 
 <p><a href="https://graphframes.github.io/graphframes/docs/_site/index.html">GraphFrames</a>
 is an external package for Apache Spark which provides DataFrame-based Graphs. 
@@ -4922,7 +4984,7 @@ from graphframes import GraphFrame
 # create a new directed graph
 graph = GraphFrame(vertices, edges)</code></pre></div>
 
-<h2 id="toc_122">Example of a GraphFrame</h2>
+<h2 id="toc_123">Example of a GraphFrame</h2>
 
 <p>This example shows how to build a directed graph 
 using graphframes API.</p>
@@ -5012,7 +5074,7 @@ GraphFrame(
 |  c|  b|      follow|
 +---+---+------------+</code></pre></div>
 
-<h2 id="toc_123">Advantages of using Spark</h2>
+<h2 id="toc_124">Advantages of using Spark</h2>
 
 <ul>
 <li><strong>Speed</strong>: for large scale data analysis and processing,
@@ -5040,7 +5102,7 @@ extensive libraries for Machine Learning and Graph analytics at a scale</li>
 <li><strong>Open-Source</strong>: Spark is an open-source and hosted by Apache Sofware Foundation.</li>
 </ul>
 
-<h2 id="toc_124">GraphX</h2>
+<h2 id="toc_125">GraphX</h2>
 
 <p><a href="https://spark.apache.org/docs/latest/graphx-programming-guide.html">GraphX</a> 
 is Apache Spark&rsquo;s API (RDD-based) for graphs and 
@@ -5049,7 +5111,7 @@ common algorithms.  GraphX has API for Java and Scala,
 but does not have an API for Python (therefore, PySpark 
 does not support GraphX, but PySpark supports GraphFrames).</p>
 
-<h2 id="toc_125">Cluster</h2>
+<h2 id="toc_126">Cluster</h2>
 
 <p>Cluster is a group of servers on a network that are configured 
 to work together. A server is either a master node or a worker 
@@ -5064,7 +5126,7 @@ and 100 worker nodes.</p>
 <p>A cluster may be used for running many jobs (Spark and MapReduce 
 jobs) at the same time.</p>
 
-<h2 id="toc_126">Master node</h2>
+<h2 id="toc_127">Master node</h2>
 
 <p>In Hadoop, Master nodes (set of one or more nodes) are 
 responsible for storing data in HDFS and overseeing key 
@@ -5088,7 +5150,7 @@ node and 2 worker nodes.</p>
 
 <p><img src="./images/spark-master-worker.pbm" alt=""></p>
 
-<h2 id="toc_127">Worker node</h2>
+<h2 id="toc_128">Worker node</h2>
 
 <p>In Hadoop, the worker nodes comprise most of the virtual 
 machines in a Hadoop cluster, and perform the job of storing 
@@ -5102,7 +5164,7 @@ application on a worker node, that runs tasks and keeps data
 in memory or disk storage across them. Each application has 
 its own executors.</p>
 
-<h2 id="toc_128">Cluster computing</h2>
+<h2 id="toc_129">Cluster computing</h2>
 
 <p>Cluster computing is a collection of tightly or loosely connected 
 computers that work together so that they act as a single entity. 
@@ -5118,7 +5180,7 @@ mappers and reducers).
 A small cluster might have one master node and 5 worker nodes. 
 Large clusters might have hundreds or thousands of worker nodes.</p>
 
-<h2 id="toc_129">Concurrency</h2>
+<h2 id="toc_130">Concurrency</h2>
 
 <p>Performing and executing multiple tasks and processes at the 
 same time. Let&rsquo;s define 5 tasks {T1, T2, T3, T4, T5} where 
@@ -5128,12 +5190,12 @@ execute all of them in parallel, then the whole thing will
 take about 10 seconds. Cluster computing enables concurrency 
 and parallelism.</p>
 
-<h2 id="toc_130">Histogram</h2>
+<h2 id="toc_131">Histogram</h2>
 
 <p>A graphical representation of the distribution of a set of 
 numeric data, usually a vertical bar graph</p>
 
-<h2 id="toc_131">Structured data</h2>
+<h2 id="toc_132">Structured data</h2>
 
 <p>Structured data — typically categorized as quantitative data — 
 is highly organized and easily decipherable by machine learning 
@@ -5147,7 +5209,7 @@ identifiable as it is organized in structure like rows and columns.</p>
 <p>Structured data is data that has a predefined data model or 
 is organized in a predefined way.</p>
 
-<h2 id="toc_132">Unstructured data</h2>
+<h2 id="toc_133">Unstructured data</h2>
 
 <p>n the modern world of big data, unstructured data is the most 
 abundant. It’s so prolific because unstructured data could be 
@@ -5164,37 +5226,37 @@ text heavy, but may also contain dates, numbers and facts.</p>
 <p>Unstructured data is data that does not have a predefined 
 data model or is not organized in a predefined way. </p>
 
-<h2 id="toc_133">Correlation analysis</h2>
+<h2 id="toc_134">Correlation analysis</h2>
 
 <p>The analysis of data to determine a relationship between 
 variables and whether that relationship is negative 
 <code>(- 1.00)</code> or positive <code>(+1.00)</code>.</p>
 
-<h2 id="toc_134">Data aggregation tools</h2>
+<h2 id="toc_135">Data aggregation tools</h2>
 
 <p>The process of transforming scattered data from numerous 
 sources into a single new one.</p>
 
-<h2 id="toc_135">Data analyst</h2>
+<h2 id="toc_136">Data analyst</h2>
 
 <p>Someone analysing, modelling, cleaning or processing data</p>
 
-<h2 id="toc_136">Database</h2>
+<h2 id="toc_137">Database</h2>
 
 <p>A digital collection of data stored via a certain technique.
 In computing, a database is an organized collection of data 
 (rows or objects) stored and accessed electronically.</p>
 
-<h2 id="toc_137">Database Management System</h2>
+<h2 id="toc_138">Database Management System</h2>
 
 <p>Collecting, storing and providing access of data.</p>
 
-<h2 id="toc_138">Data cleansing</h2>
+<h2 id="toc_139">Data cleansing</h2>
 
 <p>The process of reviewing and revising data in order to 
 delete duplicates, correct errors and provide consistency</p>
 
-<h2 id="toc_139">Data mining</h2>
+<h2 id="toc_140">Data mining</h2>
 
 <p>The process of finding certain patterns or information 
 from data sets. Data Mining is done for purposes like 
@@ -5213,18 +5275,18 @@ sources. This is done usually for</p>
 <li>Mining for predictive analysis</li>
 </ol>
 
-<h2 id="toc_140">Data virtualization</h2>
+<h2 id="toc_141">Data virtualization</h2>
 
 <p>A data integration process in order to gain more insights. 
 Usually it involves databases, applications, file systems, 
 websites, big data techniques, etc.)</p>
 
-<h2 id="toc_141">De-identification</h2>
+<h2 id="toc_142">De-identification</h2>
 
 <p>Same as anonymization; ensuring a person cannot be identified 
 through the data</p>
 
-<h2 id="toc_142">ETL (Extract, Transform and Load)</h2>
+<h2 id="toc_143">ETL (Extract, Transform and Load)</h2>
 
 <p>ETL (Extract, Transform and Load) is thhe process 
 of extracting raw data, transforming by cleaning
@@ -5252,7 +5314,7 @@ the desired form so that it can be put into another database.</p></li>
 to data source</p></li>
 </ul>
 
-<h2 id="toc_143">Failover</h2>
+<h2 id="toc_144">Failover</h2>
 
 <p>Switching automatically to a different server or node should 
 one fail Fault-tolerant design – a system designed to continue 
@@ -5260,7 +5322,7 @@ working even if certain parts fail  Feature - a piece of
 measurable information about something, for example features 
 you might store about a set of people, are age, gender and income.</p>
 
-<h2 id="toc_144">Graph Databases</h2>
+<h2 id="toc_145">Graph Databases</h2>
 
 <p>Graph databases are purpose-built to store and navigate 
 relationships. Relationships are first-class citizens 
@@ -5273,12 +5335,12 @@ edge can describe parent-child relationships, actions,
 ownership, and the like. There is no limit to the number 
 and kind of relationships a node can have.</p>
 
-<h2 id="toc_145">Grid computing</h2>
+<h2 id="toc_146">Grid computing</h2>
 
 <p>Connecting different computer systems from various location, 
 often via the cloud, to reach a common goal</p>
 
-<h2 id="toc_146">Key-Value Databases</h2>
+<h2 id="toc_147">Key-Value Databases</h2>
 
 <p>Key-Value Databases store data with a primary key, a uniquely 
 identifiable record, which makes easy and fast to look up. The 
@@ -5290,7 +5352,7 @@ and a “value” as whatever data you want to associate with that
 key. Values can be strings, integers, floats, booleans, binary, 
 lists, arrays, dates, and more.</p>
 
-<h2 id="toc_147">(key, value)</h2>
+<h2 id="toc_148">(key, value)</h2>
 
 <p>The <code>(key, value)</code> notation is used in many places (such 
 as Spark) and in MapReduce Paradigm. In MapReduce paradigm
@@ -5318,7 +5380,7 @@ reduce(K2, [V2, ...]) -&gt; { (K3, V3) }</code></pre></div>
 form before we can apply reduction transformations such as
 <code>groupByKey()</code>, <code>reduceByKey()</code>, and <code>combineByKey()</code>.</p>
 
-<h2 id="toc_148">Java</h2>
+<h2 id="toc_149">Java</h2>
 
 <p><a href="https://www.oracle.com/java/technologies/downloads/">Java</a> 
 is a programming language and computing platform first released 
@@ -5328,7 +5390,7 @@ the reliable platform upon which many services and applications
 are built. New, innovative products and digital services designed 
 for the future continue to rely on Java, as well.</p>
 
-<h2 id="toc_149">Python</h2>
+<h2 id="toc_150">Python</h2>
 
 <p><a href="https://www.python.org">Python</a> is a programming language that 
 lets you work quickly and integrate systems more effectively.
@@ -5338,7 +5400,7 @@ to its readability and clarity of syntax. Python is relatively
 easy to learn and highly portable, as its statements can be 
 interpreted in several operating systems.</p>
 
-<h2 id="toc_150">Tuples in Python</h2>
+<h2 id="toc_151">Tuples in Python</h2>
 
 <p>Python Tuple is a collection of objects separated by commas.
 Tuples are used to store multiple items in a single variable. 
@@ -5365,7 +5427,7 @@ t = (2, 1.5, &#39;alex&#39;, [1, 2, 3])
 # t[3] : [1, 2, 3]
 # len(t) : 4</code></pre></div>
 
-<h2 id="toc_151">Lists in Python</h2>
+<h2 id="toc_152">Lists in Python</h2>
 
 <p>Lists are used to store multiple items in a single 
 variable. Lists are one of 4 built-in data types 
@@ -5404,7 +5466,7 @@ enclosed in <code>[ ]</code> and separated by commas. </p>
 &gt;&gt;&gt; things
 [100, &#39;alex&#39;, &#39;jane&#39;, &#39;mary&#39;, 8, 9, &#39;jeff&#39;]</code></pre></div>
 
-<h2 id="toc_152">Difference between Tuples and Lists in Python</h2>
+<h2 id="toc_153">Difference between Tuples and Lists in Python</h2>
 
 <p>The primary difference between tuples and lists is that tuples 
 are immutable as opposed to lists which are mutable. Therefore, 
@@ -5412,13 +5474,13 @@ it is possible to change a list but not a tuple. The contents
 of a tuple cannot change once they have been created in Python 
 due to the immutability of tuples.</p>
 
-<h2 id="toc_153">JavaScript</h2>
+<h2 id="toc_154">JavaScript</h2>
 
 <p>A scripting language designed in the mid-1990s for embedding 
 logic in web pages, but which later evolved into a more 
 general-purpose development language.</p>
 
-<h2 id="toc_154">In-memory</h2>
+<h2 id="toc_155">In-memory</h2>
 
 <p>A database management system stores data on the main memory 
 instead of the disk, resulting is very fast processing, storing 
@@ -5426,15 +5488,15 @@ and loading of the data Internet of Things – ordinary devices
 that are connected to the internet at any time anywhere via 
 sensors</p>
 
-<h2 id="toc_155">Latency</h2>
+<h2 id="toc_156">Latency</h2>
 
 <p>A measure of time delayed in a system</p>
 
-<h2 id="toc_156">Location data</h2>
+<h2 id="toc_157">Location data</h2>
 
 <p>GPS data describing a geographical location</p>
 
-<h2 id="toc_157">Machine Learning</h2>
+<h2 id="toc_158">Machine Learning</h2>
 
 <p>Part of artificial intelligence where machines learn from 
 what they are doing and become better over time. Apache 
@@ -5450,7 +5512,7 @@ experience without being explicitly programmed.</p>
 <li><a href="https://spark.apache.org/docs/latest/ml-guide.html">Apache Spark Machine Learning</a></li>
 </ul>
 
-<h2 id="toc_158">Internet of Things</h2>
+<h2 id="toc_159">Internet of Things</h2>
 
 <p>Internet of things, IoT, in short, is a conception of 
 connecting devices, such as house lighting, heating or 
@@ -5469,7 +5531,7 @@ because devices do not need to be connected to the public
 internet, they only need to be connected to a network and 
 be individually addressable.</p>
 
-<h2 id="toc_159">Metadata</h2>
+<h2 id="toc_160">Metadata</h2>
 
 <p>Data about data; gives information about what the data is about.</p>
 
@@ -5478,7 +5540,7 @@ are examples of very basic document file metadata. </p>
 
 <p>Table definition for a relational table is an example of metadata.</p>
 
-<h2 id="toc_160">Natural Language Processing (NLP)</h2>
+<h2 id="toc_161">Natural Language Processing (NLP)</h2>
 
 <p>A field of computer science involved with interactions between 
 computers and human languages.</p>
@@ -5486,13 +5548,13 @@ computers and human languages.</p>
 <p>Open source software for NLP: 
 <a href="https://nlp.stanford.edu/software/">The Stanford Natural Language Processing</a></p>
 
-<h2 id="toc_161">Network analysis</h2>
+<h2 id="toc_162">Network analysis</h2>
 
 <p>Viewing relationships among the nodes in terms of the network 
 or graph theory, meaning analysing connections between nodes 
 in a network and the strength of the ties.</p>
 
-<h2 id="toc_162">Workflow</h2>
+<h2 id="toc_163">Workflow</h2>
 
 <p>A graphical representation of a set of events, tasks, and 
 decisions that define a business process (example: vacation
@@ -5502,7 +5564,7 @@ and to connect the objects with sequence flows. The Data
 Integration Service uses the instructions configured in 
 the workflow to run the objects.</p>
 
-<h2 id="toc_163">Schema</h2>
+<h2 id="toc_164">Schema</h2>
 
 <p>In computer programming, a schema (pronounced <code>SKEE-mah</code>) 
 is the organization or structure for a database, while in 
@@ -5533,7 +5595,7 @@ schema = StructType([ \
 ])</code></pre></div></li>
 </ul>
 
-<h2 id="toc_164">Difference between Tuple and List in Python</h2>
+<h2 id="toc_165">Difference between Tuple and List in Python</h2>
 
 <p>The primary difference between tuples and lists is that 
 tuples are <strong>immutable</strong> as opposed to lists which are 
@@ -5565,47 +5627,47 @@ Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 AttributeError: &#39;tuple&#39; object has no attribute &#39;append&#39;</code></pre></div>
 
-<h2 id="toc_165">Object Databases</h2>
+<h2 id="toc_166">Object Databases</h2>
 
 <p>An object database store data in the form of objects, as used 
 by object-oriented programming. They are different from relational 
 or graph databases and most of them offer a query language that 
 allows object to be found with a declarative programming approach.</p>
 
-<h2 id="toc_166">Pattern Recognition</h2>
+<h2 id="toc_167">Pattern Recognition</h2>
 
 <p>Pattern Recognition identifies patterns in data via algorithms 
 to make predictions of new data coming from the same source.</p>
 
-<h2 id="toc_167">Predictive analysis</h2>
+<h2 id="toc_168">Predictive analysis</h2>
 
 <p>Analysis within big data to help predict how someone will behave 
 in the (near) future. It uses a variety of different data sets 
 such as historical, transactional, or social profile data to 
 identify risks and opportunities.</p>
 
-<h2 id="toc_168">Privacy</h2>
+<h2 id="toc_169">Privacy</h2>
 
 <p>To seclude certain data / information about oneself that is 
 deemed personal Public data – public information or data sets 
 that were created with public funding</p>
 
-<h2 id="toc_169">Query</h2>
+<h2 id="toc_170">Query</h2>
 
 <p>Asking for information to answer a certain question</p>
 
-<h2 id="toc_170">Regression analysis</h2>
+<h2 id="toc_171">Regression analysis</h2>
 
 <p>To define the dependency between variables. It assumes a 
 one-way causal effect from one variable to the response of 
 another variable.</p>
 
-<h2 id="toc_171">Real-time data</h2>
+<h2 id="toc_172">Real-time data</h2>
 
 <p>Data that is created, processed, stored, analysed and 
 visualized within milliseconds</p>
 
-<h2 id="toc_172">Scripting</h2>
+<h2 id="toc_173">Scripting</h2>
 
 <p>The use of a computer language where your program, or script, 
 can be run directly with no need to first compile it to binary 
@@ -5613,11 +5675,11 @@ code. Semi-structured data - a form a structured data that does
 not have a formal structure like structured data. It does however 
 have tags or other markers to enforce hierarchy of records.</p>
 
-<h2 id="toc_173">Sentiment Analysis</h2>
+<h2 id="toc_174">Sentiment Analysis</h2>
 
 <p>Using algorithms to find out how people feel about certain topics or events</p>
 
-<h2 id="toc_174">SQL</h2>
+<h2 id="toc_175">SQL</h2>
 
 <p>A programming language for retrieving data from a relational 
 database. Also, SQL is used to retrieve data from big data by 
@@ -5651,19 +5713,19 @@ Organization for Standardization (ISO) in 1987</li>
 <li>SQL can set permissions on tables, procedures, and views</li>
 </ul>
 
-<h2 id="toc_175">Time series analysis</h2>
+<h2 id="toc_176">Time series analysis</h2>
 
 <p>Analysing well-defined data obtained through repeated measurements 
 of time. The data has to be well defined and measured at successive 
 points in time spaced at identical time intervals.</p>
 
-<h2 id="toc_176">Variability</h2>
+<h2 id="toc_177">Variability</h2>
 
 <p>It means that the meaning of the data can change (rapidly). 
 In (almost) the same tweets for example a word can have a 
 totally different meaning</p>
 
-<h2 id="toc_177">What are the 4 Vs of Big Data?</h2>
+<h2 id="toc_178">What are the 4 Vs of Big Data?</h2>
 
 <ul>
 <li>Volume (i.e., the size of the dataset)</li>
@@ -5672,42 +5734,42 @@ totally different meaning</p>
 <li>Veracity (i.e., refers to the accuracy of the data)</li>
 </ul>
 
-<h2 id="toc_178">Variety</h2>
+<h2 id="toc_179">Variety</h2>
 
 <p>Data today comes in many different formats: structured data, 
 semi-structured data, unstructured data and even complex 
 structured data</p>
 
-<h2 id="toc_179">Velocity</h2>
+<h2 id="toc_180">Velocity</h2>
 
 <p>The speed at which the data is created, stored, analysed and visualized</p>
 
-<h2 id="toc_180">Veracity</h2>
+<h2 id="toc_181">Veracity</h2>
 
 <p>Ensuring that the data is correct as well as the analyses 
 performed on the data are correct.</p>
 
-<h2 id="toc_181">Volume</h2>
+<h2 id="toc_182">Volume</h2>
 
 <p>The amount of data, ranging from megabytes to gigabytes to petabytes to &hellip;</p>
 
-<h2 id="toc_182">XML Databases</h2>
+<h2 id="toc_183">XML Databases</h2>
 
 <p>XML Databases allow data to be stored in XML format. The data 
 stored in an XML database can be queried, exported and serialized 
 into any format needed.</p>
 
-<h2 id="toc_183">Big Data Scientist</h2>
+<h2 id="toc_184">Big Data Scientist</h2>
 
 <p>Someone who is able to develop the distributed algorithms to 
 make sense out of big data</p>
 
-<h2 id="toc_184">Classification analysis</h2>
+<h2 id="toc_185">Classification analysis</h2>
 
 <p>A systematic process for obtaining important and relevant 
 information about data, also meta data called; data about data.</p>
 
-<h2 id="toc_185">Cloud computing</h2>
+<h2 id="toc_186">Cloud computing</h2>
 
 <p>Cloud Computing is a distributed computing system 
 hosted and running on remote servers and accessible 
@@ -5727,25 +5789,25 @@ database, storage and so on as services. Flexible scaling,
 rapid elasticity, resource pooling, on-demand self-service 
 are some of its services.</p>
 
-<h2 id="toc_186">Distributed computing</h2>
+<h2 id="toc_187">Distributed computing</h2>
 
 <p>Distributed computing is a computing system in which components 
 located on networked computers communicate and coordinate their 
 actions by passing messages.</p>
 
-<h2 id="toc_187">Clustering analysis</h2>
+<h2 id="toc_188">Clustering analysis</h2>
 
 <p>Cluster analysis or clustering is the task of grouping a set of 
 objects in such a way that objects in the same group (called a 
 cluster) are more similar (in some sense) to each other than to 
 those in other groups (clusters). </p>
 
-<h2 id="toc_188">Database-as-a-Service</h2>
+<h2 id="toc_189">Database-as-a-Service</h2>
 
 <p>A database hosted in the cloud on a pay per use basis, 
 for example Amazon Web Services</p>
 
-<h2 id="toc_189">Database Management System (DBMS)</h2>
+<h2 id="toc_190">Database Management System (DBMS)</h2>
 
 <p>Database Management System is software that collects data and 
 provides access to it in an organized layout. It creates and 
@@ -5753,7 +5815,7 @@ manages the database. DBMS provides programmers and users a
 well-organized process to create, update, retrieve, and manage 
 data.</p>
 
-<h2 id="toc_190">Distributed File System</h2>
+<h2 id="toc_191">Distributed File System</h2>
 
 <p>Systems that offer simplified, highly available access 
 to storing, analysing and processing data; examples are:</p>
@@ -5763,12 +5825,12 @@ to storing, analysing and processing data; examples are:</p>
 <li>Amazon S3 (a distributed object storage system)</li>
 </ul>
 
-<h2 id="toc_191">Document Store Databases</h2>
+<h2 id="toc_192">Document Store Databases</h2>
 
 <p>A document-oriented database that is especially designed to store, 
 manage and retrieve documents, also known as semi structured data.</p>
 
-<h2 id="toc_192">NoSQL</h2>
+<h2 id="toc_193">NoSQL</h2>
 
 <p>NoSQL sometimes referred to as ‘Not only SQL&#39; as it 
 is a database that doesn&rsquo;t adhere to traditional 
@@ -5783,7 +5845,7 @@ in tables and data schemais carefully designed before
 the database is built. NoSQL databases are especially 
 useful for working with large sets of distributed data.</p>
 
-<h2 id="toc_193">Scala</h2>
+<h2 id="toc_194">Scala</h2>
 
 <p>A software programming language that blends object-oriented 
 methods with functional programming capabilities. This allows 
@@ -5793,12 +5855,12 @@ benefit is that Scala features, which operate well in smaller
 programs, also scale up effectively when introduced into more 
 complex environments.</p>
 
-<h2 id="toc_194">Columnar Database</h2>
+<h2 id="toc_195">Columnar Database</h2>
 
 <p>A database that stores data column by column instead of 
 the row is known as the column-oriented database.  </p>
 
-<h2 id="toc_195">Data Analyst</h2>
+<h2 id="toc_196">Data Analyst</h2>
 
 <p>The data analyst is responsible for collecting, processing, 
 and performing statistical analysis of data. A data analyst 
@@ -5808,7 +5870,7 @@ one of the big data terms that define a big data career.
 Data analyst works with end business users to define the 
 types of the analytical report required in business.</p>
 
-<h2 id="toc_196">Data Scientist</h2>
+<h2 id="toc_197">Data Scientist</h2>
 
 <p>Data Scientist is also a big data term that defines a big 
 data career. A data scientist is a practitioner of data 
@@ -5816,7 +5878,7 @@ science. He is proficient in mathematics, statistics,
 computer science, and/or data visualization who establish 
 data models and algorithms for complex problems to solve them.</p>
 
-<h2 id="toc_197">Data Model and Data Modelling</h2>
+<h2 id="toc_198">Data Model and Data Modelling</h2>
 
 <p>Data Model is a starting phase of a database designing 
 and usually consists of attributes, entity types, 
@@ -5827,7 +5889,7 @@ for an information system by using certain formal
 techniques. Data modeling is used to define and analyze 
 the requirement of data for supporting business processes.</p>
 
-<h2 id="toc_198">Data Model</h2>
+<h2 id="toc_199">Data Model</h2>
 
 <p>According to <a href="https://en.wikipedia.org/wiki/Data_model">Wikipedia</a>: 
 a data model is an abstract model that organizes elements of data 
@@ -5843,7 +5905,7 @@ and size of the car and define its owner.</p>
 data. Data models are specified in a data modeling 
 notation, which is often graphical in form.</p>
 
-<h2 id="toc_199">Hive</h2>
+<h2 id="toc_200">Hive</h2>
 
 <p>Hive is an open source Hadoop-based data warehouse software 
 project for providing data summarization, analysis, and query. 
@@ -5851,7 +5913,7 @@ Users can write queries in the SQL-like language known as
 HiveQL. Hadoop is a framework which handles large datasets 
 in the distributed computing environment.</p>
 
-<h2 id="toc_200">Load Balancing</h2>
+<h2 id="toc_201">Load Balancing</h2>
 
 <p>Load balancing is a tool which distributes the amount 
 of workload between two or more computers over a computer 
@@ -5864,7 +5926,7 @@ software or hardware or with the combination of both.</p>
 multiple computers or servers in order to achieve optimal 
 results and utilization of the system</p>
 
-<h2 id="toc_201">Log File</h2>
+<h2 id="toc_202">Log File</h2>
 
 <p>A log file is the special type of file that allows users 
 keeping the record of events occurred or the operating 
@@ -5887,7 +5949,7 @@ date and time, transaction typem item sold, amount,
 state and city shipped, &hellip;</li>
 </ul>
 
-<h2 id="toc_202">Parallel Processing</h2>
+<h2 id="toc_203">Parallel Processing</h2>
 
 <p>It is the capability of a system to perform the execution 
 of multiple tasks simultaneously (at the same time)</p>
@@ -5908,14 +5970,14 @@ amount of time to run a program.</p>
 (RDD) to perform parallel processing across a cluster 
 or computer processors.</p>
 
-<h2 id="toc_203">Server (or node)</h2>
+<h2 id="toc_204">Server (or node)</h2>
 
 <p>The server is a virtual or physical computer that receives 
 requests related to the software application and thus sends 
 these requests over a network. It is the common big data 
 term used almost in all the big data technologies.</p>
 
-<h2 id="toc_204">Abstraction layer</h2>
+<h2 id="toc_205">Abstraction layer</h2>
 
 <p>A translation layer that transforms high-level requests 
 into low-level functions and actions. Data abstraction 
@@ -5939,7 +6001,7 @@ represented in RDD, DataFrame, and Dataset):</p>
 
 <p><img src="./images/rdd_dataframe_dataset.png" alt=""></p>
 
-<h2 id="toc_205">Cloud</h2>
+<h2 id="toc_206">Cloud</h2>
 
 <p>Cloud technology, or The Cloud as it is often 
 referred to, is a network of servers that users 
@@ -5954,7 +6016,7 @@ from almost any location or device. </p>
 a technology that mimics a physical server but in 
 virtual, digital form, A.K.A virtual machine. </p>
 
-<h2 id="toc_206">Data ingestion</h2>
+<h2 id="toc_207">Data ingestion</h2>
 
 <p>Data ingestion is the process of moving data from 
 various sources into a central repository such as 
@@ -5972,7 +6034,7 @@ sentiment analysis. </li>
 and experimentation.</li>
 </ul>
 
-<h2 id="toc_207">Data warehouse</h2>
+<h2 id="toc_208">Data warehouse</h2>
 
 <p>A centralised repository of information that enterprises 
 can use to support business intelligence (BI) activities 
@@ -5998,7 +6060,7 @@ platforms on the market: </p>
 <li>Firebolt</li>
 </ul>
 
-<h2 id="toc_208">Open-source</h2>
+<h2 id="toc_209">Open-source</h2>
 
 <p>Open-source refers to the availability of certain 
 types of code to be used, redistributed and even 
@@ -6017,7 +6079,7 @@ collaboration and peer production.</p>
 <li>Apache Spark</li>
 </ul>
 
-<h2 id="toc_209">Relational database</h2>
+<h2 id="toc_210">Relational database</h2>
 
 <p>The <code>relational</code> term here refers to the relations 
 (also commonly referred to as tables) in the database 
@@ -6049,7 +6111,7 @@ to each other.</p>
 <li>many-to-many</li>
 </ul>
 
-<h2 id="toc_210">RDBMS</h2>
+<h2 id="toc_211">RDBMS</h2>
 
 <ul>
 <li><p>RDBMS stands for Relational DataBase Management System.
@@ -6077,7 +6139,7 @@ against many tables</p></li>
 programming language used to access database</p></li>
 </ul>
 
-<h2 id="toc_211">How does Hadoop perform Input Splits?</h2>
+<h2 id="toc_212">How does Hadoop perform Input Splits?</h2>
 
 <p>The Hadoop&rsquo;s <code>InputFormat&lt;K, V&gt;</code> is responsible to 
 provide the input splits. The <code>InputFormat&lt;K,V&gt;</code> 
@@ -6128,7 +6190,7 @@ best to ensure  that input  splits are
 processed  locally (for  optimization
 purposes).</p>
 
-<h2 id="toc_212">Sort &amp; Shuffle function in MapReduce/Hadoop</h2>
+<h2 id="toc_213">Sort &amp; Shuffle function in MapReduce/Hadoop</h2>
 
 <p>Shuffle phase in Hadoop transfers the map output 
 (in the form of <code>(key, value)</code> pairs) from Mapper 
@@ -6173,7 +6235,7 @@ following form: </p>
 ...
 (key, v_n)</code></pre></div>
 
-<h2 id="toc_213">NoSQL Database</h2>
+<h2 id="toc_214">NoSQL Database</h2>
 
 <p>NoSQL databases (aka &ldquo;not only SQL&rdquo;) are non-tabular 
 databases and store data differently than relational 
@@ -6181,7 +6243,7 @@ tables. NoSQL databases come in a variety of types.
 Redis, HBase, CouchDB and MongoDB, &hellip; are examples 
 of NoSQL databases.</p>
 
-<h2 id="toc_214">PySpark</h2>
+<h2 id="toc_215">PySpark</h2>
 
 <p>What is PySpark? PySpark is the Python API for Apache 
 Spark, an open source, distributed computing framework and set of libraries for near-real-time, large-scale 
@@ -6233,7 +6295,7 @@ where Spark is installed):</p>
 <p>You may use <a href="https://graphframes.github.io/graphframes/docs/_site/index.html">GraphFrames</a> 
 package to build and analyze graphs at scale.</p>
 
-<h2 id="toc_215">Boolean Predicate</h2>
+<h2 id="toc_216">Boolean Predicate</h2>
 
 <p>A Boolean predicate returns the truth value of a Boolean 
 expression (boolean-expression: an expression that returns 
@@ -6246,7 +6308,7 @@ a boolean predicate.</p>
 <p>For example, a Python function is a boolean predicate
 if it only returns <code>True</code> or <code>False</code>.</p>
 
-<h2 id="toc_216">Cartesian Product</h2>
+<h2 id="toc_217">Cartesian Product</h2>
 
 <p>In mathematics, specifically set theory, the Cartesian product 
 of two sets <code>A</code> and <code>B</code>, denoted <code>A × B</code>, is the set of all 
@@ -6270,7 +6332,7 @@ rdd2 = sc.parallelize([4, 5])
 rdd.cartesian(rdd2).collect())
 [(1, 4), (1, 5), (2, 4), (2, 5), (3, 4), (3, 5)]</code></pre></div>
 
-<h2 id="toc_217">Python Lambda</h2>
+<h2 id="toc_218">Python Lambda</h2>
 
 <p>A lambda function is a small anonymous function.</p>
 
@@ -6318,7 +6380,7 @@ my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 list(filter(lambda x: x % 2 == 0, my_list))
 [2, 4, 6, 8]</code></pre></div>
 
-<h2 id="toc_218">Data transformation</h2>
+<h2 id="toc_219">Data transformation</h2>
 
 <p>Data transformation is the process to convert data from 
 one form to the other. </p>
@@ -6376,7 +6438,7 @@ rdd.filter(lambda x: x &gt; 2).collect()
 &gt;&gt;&gt; rdd2.collect()
 [1, 2, 3, 9, 4, 5, 6]</code></pre></div>
 
-<h2 id="toc_219">Data Curation</h2>
+<h2 id="toc_220">Data Curation</h2>
 
 <p>Curation is the process of validating and managing 
 discovered metadata of a data source so that the 
@@ -6387,7 +6449,7 @@ looking for information. It involves collecting,
 structuring, indexing and cataloging data for 
 users in an organization, group or the general public.</p>
 
-<h2 id="toc_220">What is Bioinformatics?</h2>
+<h2 id="toc_221">What is Bioinformatics?</h2>
 
 <ul>
 <li><p>Bioinformatics is a mutually beneficial
@@ -6401,7 +6463,7 @@ silico experiments are typically cheaper than
 wet-lab ones) solutions to many tough problems</p></li>
 </ul>
 
-<h2 id="toc_221">Software Framework</h2>
+<h2 id="toc_222">Software Framework</h2>
 
 <p><a href="https://en.wikipedia.org/wiki/Software_framework">From Wikipedia</a>: 
 in computer programming, a software framework is an 
@@ -6466,7 +6528,7 @@ users, teams, and enterprises with the Swagger open
 source and professional toolset. </p></li>
 </ul>
 
-<h2 id="toc_222">Software Library</h2>
+<h2 id="toc_223">Software Library</h2>
 
 <p>A software library is a suite of data and programming 
 code that is used to develop software programs and 
@@ -6501,7 +6563,7 @@ runtime environment.  </p></li>
 for machine learning and artificial intelligence. </p></li>
 </ul>
 
-<h2 id="toc_223">Difference between a Library and Framework</h2>
+<h2 id="toc_224">Difference between a Library and Framework</h2>
 
 <p>The framework provides the flow of a software application 
 and tells the developer what it needs and calls the code 
@@ -6540,7 +6602,7 @@ flow. It provides some places for you to plug in your
 code, but it calls the code you plugged in as needed.</p>
 </blockquote>
 
-<h2 id="toc_224">Software Engineering</h2>
+<h2 id="toc_225">Software Engineering</h2>
 
 <p>Software Engineering is a systematic approach to 
 the analysis, design, implementation and maintenance 
@@ -6559,7 +6621,7 @@ heterogeneous data are gathered from multiple sources,
 managed, analyzed (in batch, stream or hybrid fashion), 
 and served to end-users and external applications.</p>
 
-<h2 id="toc_225">spark-packages.org</h2>
+<h2 id="toc_226">spark-packages.org</h2>
 
 <p>spark-packages.org is a community package index to 
 track the growing number of open source packages and 
@@ -6571,7 +6633,7 @@ it easy for developers to contribute packages.</p>
 <p>For example, GraphFrames package can be located 
 <a href="https://spark-packages.org/package/graphframes/graphframes">here</a>.</p>
 
-<h2 id="toc_226">References</h2>
+<h2 id="toc_227">References</h2>
 
 <ol>
 <li><p><a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">Data Algorithms with Spark by Mahmoud Parsian</a></p></li>
@@ -6627,9 +6689,9 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
 
 <hr>
 
-<h2 id="toc_227">Mahmoud Parsian&rsquo;s List of Books:</h2>
+<h2 id="toc_228">Mahmoud Parsian&rsquo;s List of Books:</h2>
 
-<h3 id="toc_228">Data Algorithms with Spark</h3>
+<h3 id="toc_229">Data Algorithms with Spark</h3>
 
 <p><a href="https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md">
     <img 
@@ -6640,7 +6702,7 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
     >
 </a></p>
 
-<h3 id="toc_229">PySpark Algorithms</h3>
+<h3 id="toc_230">PySpark Algorithms</h3>
 
 <p><a href="https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218/">
     <img 
@@ -6651,7 +6713,7 @@ Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills</a></p></li>
     >
 </a></p>
 
-<h3 id="toc_230">Data Algorithms</h3>
+<h3 id="toc_231">Data Algorithms</h3>
 
 <p><a href="http://shop.oreilly.com/product/0636920033950.do">
     <img 
