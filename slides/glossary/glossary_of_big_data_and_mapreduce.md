@@ -1414,16 +1414,20 @@ API           | Low level (by  `map()` and `reduce()`) functions | SQL and exten
 
 
 ## Replication
-In computer science and software engineering, replication 
-refers to the use of redundant resources to improve reliability, 
-fault-tolerance, or performance. One example of a replication is  
-data replication.  For example in Hadoop: HDFS (Hadoop Distributed
-File System) is designed to reliably store very large files across 
-machines in a large cluster. It stores each file as a sequence of 
-blocks; all blocks in a file except the last block are the same 
-size. The blocks of a file are replicated for fault tolerance: 
-it means that if a server holding specific data (say block X) 
-fails, then that specific data (block X) can be retrieved and 
+In computer science and software engineering, 
+replication refers to the use of redundant 
+resources to improve reliability, fault-tolerance, 
+or performance. One example of a replication 
+is data replication.  For example in Hadoop: HDFS 
+(Hadoop Distributed File System) is designed to 
+reliably store very large files across 
+machines in a large cluster. It stores each 
+file as a sequence of blocks; all blocks in a 
+file except the last block are the same 
+size. The blocks of a file are replicated for 
+fault tolerance: it means that if a server holding 
+specific data (say block X) fails, then that specific 
+data (block X) can be retrieved and 
 read from other replicated servers.
 
 
