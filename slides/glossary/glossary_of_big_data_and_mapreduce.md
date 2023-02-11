@@ -1475,14 +1475,15 @@ nodes can safely fail.
 
 ## Replication Factor (RF)
 The total number of replicas across the cluster 
-is referred to as the  replication  factor  (RF). 
-A replication factor of 1 means that there is 
-only one copy of each row in the cluster. If the 
-node containing the row goes down, the row cannot 
-be retrieved. A replication factor of 2 means 
-two copies of each row, where each  copy  is  
-on a different node. All replicas are equally 
-important; there is no primary or master replica.
+is referred to as the replication factor (RF). 
+A replication factor of 1 means 
+that there is only one copy of each row in the 
+cluster. If the node containing the row goes 
+down, the row cannot be retrieved. A replication 
+factor of 2 means two copies of each row, where 
+each copy is on a different node. All replicas 
+are equally important; there is no primary or 
+master replica.
 
 Given a cluster of `N+1` nodes (a master and `N` 
 worker nodes), if data replication factotr is `R`, 
