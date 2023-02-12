@@ -4368,21 +4368,51 @@ everything works as a `(key, value)`. Note that the `key` and
 * simple data type: such as String, Integer, Double, ...
 * combined data types: tuples, structures, arrays, lists, ...
 
-In MapReduce, `map()` and `reduce()` use `(key, value)` pairs:
+In MapReduce, `map()`, `reduce()`, and `combine()` 
+functions use `(key, value)` pairs:
 
-The Map output types should match the input types of the Reduce as shown below:
+The Map output types should match the input types of the Reduce 
+as shown below:
 
-	# mapper can emit 0, 1, 2, ... of (K2, V2)
+
+	# K1: as a key to map() function
+	# V1: as a value to map() function
+	# mapper can emit 0, 1, 2, ... of (K2, V2) pairs
 	map(K1, V1) -> { (K2, V2) }
 	
-	# reducer can emit 0, 1, 2, ... of (K3, V3)
-	# K2 is a unique key from mapper's outputs
-	# [V2, ...] are all values associated with key K2
+	# reducer can emit 0, 1, 2, ... of (K3, V3) pairs
+	# K2 is a unique key from mapper's keys outputs
+	# [V2, ...] are all values associated with the key K2
 	reduce(K2, [V2, ...]) -> { (K3, V3) }
+
 
 In Spark, using RDDs, a source RDD must be in `(key, value)` 
 form before we can apply reduction transformations such as
-`groupByKey()`, `reduceByKey()`, and `combineByKey()`.
+`groupByKey()`, `reduceByKey()`, `aggregateByKey()` and 
+`combineByKey()`.
+
+***Examples of `(key, value)` pairs***:
+
+`key`             | `value`
+----------------- | -------------
+String            | String
+String            | Integer
+String            | Double
+String            | (Integer, Integer)
+String            | (Integer, integer, Integer)
+(String, Integer) | Integer
+(String, Integer) | (Integer, Integer, Double)
+Integer           | String
+Integer           | Integer
+Integer           | Double
+Integer           | (Integer, Integer, Integer, Integer)
+Integer           | (Integer, integer, Integer, Double)
+(Integer, Integer)| Integer
+(Integer, Integer)| (String, Integer, Integer, Double)
+
+
+Note that programmers create `(key, value)` pairs based
+on big data problem requirements.
 
 
 ## Java
@@ -4861,6 +4891,16 @@ complex environments.
 A database that stores data column by column instead of 
 the row is known as the column-oriented database.  
 
+The following are partial list of columnar databases:
+
+* Amazon Redshift
+* Snowflake
+* Hbase
+* Vertica
+* MariaDB
+* Apache Kudu
+* Google Cloud BigTable
+
 
 ## Data Analyst
 The data analyst is responsible for collecting, processing, 
@@ -5021,7 +5061,7 @@ virtual, digital form, A.K.A virtual machine.
 
 
 
-## Data ingestion
+## Data Ingestion
 Data ingestion is the process of moving data from 
 various sources into a central repository such as 
 a data warehouse where it can be stored, accessed, 
@@ -5037,7 +5077,7 @@ Common examples of data ingestion include:
   and experimentation.
 
 
-## Data warehouse
+## Data Warehouse
 A centralised repository of information that enterprises 
 can use to support business intelligence (BI) activities 
 such as analytics. Data warehouses typically integrate 
@@ -5077,7 +5117,7 @@ Prime examples of open-source products are:
 * Apache Hadoop
 * Apache Spark
 
-## Relational database
+## Relational Database
 
 The `relational` term here refers to the relations 
 (also commonly referred to as tables) in the database 
@@ -5219,25 +5259,29 @@ output from all of the mappers:
 Then the output of Sort & Shuffle phase will be 
 (note that the values of keys are not sorted):
 
+
 		(A, [1, 3, 9, 5, 100])
 		(B, [4, 7, 6])
 		(C, [10, 20, 30])
 		(D, [50])
+
 		
 Output of Sort & Shuffle phase will be input to reducers.
 
 Therefore, Sort & Shuffle creates its outputs in the 
 following form: 
 
-	(key, [v_1, v_2, ..., v_n])
+	(key_1, [a_1, a_2, a_3, ...]),
+	(key_2, [b_1, b_2, b_3, ...]),
+	...
 	
 where all mappers have created:
 
-	(key, v_1),
-	(key, v_2),
-	...
-	(key, v_n)
-	
+	(key_1, a_1),    (key_2, b_1),
+	(key_1, a_2),    (key_2, b_2),
+	(key_1, a_3),    (key_2, b_3),
+	...              ...
+		
 
 ## NoSQL Database
 NoSQL databases (aka "not only SQL") are non-tabular 
@@ -5245,6 +5289,7 @@ databases and store data differently than relational
 tables. NoSQL databases come in a variety of types.
 Redis, HBase, CouchDB and MongoDB, ... are examples 
 of NoSQL databases.
+
 
 ## PySpark
 What is PySpark? PySpark is the Python API for Apache 
@@ -5293,6 +5338,7 @@ where Spark is installed):
 
 You may use [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) 
 package to build and analyze graphs at scale.
+
 
 
 ## Boolean Predicate

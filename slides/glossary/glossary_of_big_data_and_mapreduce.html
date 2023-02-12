@@ -5422,21 +5422,99 @@ everything works as a <code>(key, value)</code>. Note that the <code>key</code> 
 <li>combined data types: tuples, structures, arrays, lists, &hellip;</li>
 </ul>
 
-<p>In MapReduce, <code>map()</code> and <code>reduce()</code> use <code>(key, value)</code> pairs:</p>
+<p>In MapReduce, <code>map()</code>, <code>reduce()</code>, and <code>combine()</code> 
+functions use <code>(key, value)</code> pairs:</p>
 
-<p>The Map output types should match the input types of the Reduce as shown below:</p>
+<p>The Map output types should match the input types of the Reduce 
+as shown below:</p>
 
-<div><pre class="line-numbers"><code class="language-none"># mapper can emit 0, 1, 2, ... of (K2, V2)
+<div><pre class="line-numbers"><code class="language-none"># K1: as a key to map() function
+# V1: as a value to map() function
+# mapper can emit 0, 1, 2, ... of (K2, V2) pairs
 map(K1, V1) -&gt; { (K2, V2) }
 
-# reducer can emit 0, 1, 2, ... of (K3, V3)
-# K2 is a unique key from mapper&#39;s outputs
-# [V2, ...] are all values associated with key K2
+# reducer can emit 0, 1, 2, ... of (K3, V3) pairs
+# K2 is a unique key from mapper&#39;s keys outputs
+# [V2, ...] are all values associated with the key K2
 reduce(K2, [V2, ...]) -&gt; { (K3, V3) }</code></pre></div>
 
 <p>In Spark, using RDDs, a source RDD must be in <code>(key, value)</code> 
 form before we can apply reduction transformations such as
-<code>groupByKey()</code>, <code>reduceByKey()</code>, and <code>combineByKey()</code>.</p>
+<code>groupByKey()</code>, <code>reduceByKey()</code>, <code>aggregateByKey()</code> and 
+<code>combineByKey()</code>.</p>
+
+<p><strong><em>Examples of <code>(key, value)</code> pairs</em></strong>:</p>
+
+<table>
+<thead>
+<tr>
+<th><code>key</code></th>
+<th><code>value</code></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>String</td>
+<td>(Integer, Integer)</td>
+</tr>
+<tr>
+<td>String</td>
+<td>(Integer, integer, Integer)</td>
+</tr>
+<tr>
+<td>(String, Integer)</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>(String, Integer)</td>
+<td>(Integer, Integer, Double)</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>(Integer, Integer, Integer, Integer)</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>(Integer, integer, Integer, Double)</td>
+</tr>
+<tr>
+<td>(Integer, Integer)</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>(Integer, Integer)</td>
+<td>(String, Integer, Integer, Double)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that programmers create <code>(key, value)</code> pairs based
+on big data problem requirements.</p>
 
 <h2 id="toc_152">Java</h2>
 
@@ -5918,6 +5996,18 @@ complex environments.</p>
 <p>A database that stores data column by column instead of 
 the row is known as the column-oriented database.  </p>
 
+<p>The following are partial list of columnar databases:</p>
+
+<ul>
+<li>Amazon Redshift</li>
+<li>Snowflake</li>
+<li>Hbase</li>
+<li>Vertica</li>
+<li>MariaDB</li>
+<li>Apache Kudu</li>
+<li>Google Cloud BigTable</li>
+</ul>
+
 <h2 id="toc_199">Data Analyst</h2>
 
 <p>The data analyst is responsible for collecting, processing, 
@@ -6074,7 +6164,7 @@ from almost any location or device. </p>
 a technology that mimics a physical server but in 
 virtual, digital form, A.K.A virtual machine. </p>
 
-<h2 id="toc_210">Data ingestion</h2>
+<h2 id="toc_210">Data Ingestion</h2>
 
 <p>Data ingestion is the process of moving data from 
 various sources into a central repository such as 
@@ -6092,7 +6182,7 @@ sentiment analysis. </li>
 and experimentation.</li>
 </ul>
 
-<h2 id="toc_211">Data warehouse</h2>
+<h2 id="toc_211">Data Warehouse</h2>
 
 <p>A centralised repository of information that enterprises 
 can use to support business intelligence (BI) activities 
@@ -6137,7 +6227,7 @@ collaboration and peer production.</p>
 <li>Apache Spark</li>
 </ul>
 
-<h2 id="toc_213">Relational database</h2>
+<h2 id="toc_213">Relational Database</h2>
 
 <p>The <code>relational</code> term here refers to the relations 
 (also commonly referred to as tables) in the database 
@@ -6284,14 +6374,16 @@ output from all of the mappers:</p>
 <p>Therefore, Sort &amp; Shuffle creates its outputs in the 
 following form: </p>
 
-<div><pre class="line-numbers"><code class="language-none">(key, [v_1, v_2, ..., v_n])</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">(key_1, [a_1, a_2, a_3, ...]),
+(key_2, [b_1, b_2, b_3, ...]),
+...</code></pre></div>
 
 <p>where all mappers have created:</p>
 
-<div><pre class="line-numbers"><code class="language-none">(key, v_1),
-(key, v_2),
-...
-(key, v_n)</code></pre></div>
+<div><pre class="line-numbers"><code class="language-none">(key_1, a_1),    (key_2, b_1),
+(key_1, a_2),    (key_2, b_2),
+(key_1, a_3),    (key_2, b_3),
+...              ...</code></pre></div>
 
 <h2 id="toc_217">NoSQL Database</h2>
 
