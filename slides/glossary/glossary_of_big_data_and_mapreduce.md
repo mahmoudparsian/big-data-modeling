@@ -4517,9 +4517,25 @@ due to the immutability of tuples.
 
 
 ## JavaScript
-A scripting language designed in the mid-1990s for embedding 
-logic in web pages, but which later evolved into a more 
-general-purpose development language.
+A scripting language designed in the mid-1990s for 
+embedding logic in web pages, but which later evolved 
+into a more general-purpose development language.
+
+What is JavaScript used for? JavaScript is a scripting 
+language that enables you to create dynamically updating 
+content, control multimedia, animate images, and pretty
+much everything else.
+
+A JavaScript engine is a software component that executes 
+JavaScript code. Notable Java Script engines:
+
+* V8 from Google is the most used JavaScript engine.
+* SpiderMonkey is developed by Mozilla for use in Firefox. 
+* JavaScriptCore is Apple's engine for its Safari browser.
+* Chakra is the engine of the Internet Explorer browser.
+* Node.js is a JavaScript runtime built on Chrome's V8 
+ JavaScript engine.
+
 
 
 ## In-memory
@@ -4549,6 +4565,7 @@ experience without being explicitly programmed.
 There are many ML packages for experimentation:
 
 * [scikit-learn - Machine Learning in Python](https://scikit-learn.org/stable/)
+
 * [Apache Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html)
 
 
@@ -4714,6 +4731,7 @@ can be run directly with no need to first compile it to binary
 code. Semi-structured data - a form a structured data that does 
 not have a formal structure like structured data. It does however 
 have tags or other markers to enforce hierarchy of records.
+
 
 ## Sentiment Analysis
 Using algorithms to find out how people feel about certain topics or events
