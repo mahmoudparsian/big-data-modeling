@@ -489,6 +489,36 @@ an average.
   and run distributed algorithms.
 
 
+## Access Control List (ACL)
+In a nutshell, in computer security, an 
+access-control-list (ACL) is a list of 
+permissions associated with a system 
+resource (object).
+
+In a file system, ACL is a list of permissions 
+associated with an object in a computer file 
+system. An ACL specifies which users or processes 
+are allowed to access an object, and what 
+operations can be performed.
+
+
+## Apache Software Foundation (ASF)
+[ASF](https://apache.org) is a non-profit corporation 
+that supports various open-source software products, 
+including Apache Hadoop, Apache Spark, and Apache Maven. 
+Apache projects are developed by teams of collaborators 
+and protected by an ASF license that provides legal 
+protection to volunteers who work on Apache products 
+and protect the Apache brand name.
+
+Apache projects are characterized by a collaborative, 
+consensus-based development process and an open and 
+pragmatic software license. Each project is managed 
+by a self-selected team of technical experts who are 
+active contributors to the project.
+
+
+
 ## Partitioner
 Partitioner  is a program, which distributes the data 
 across the cluster. The types of partitioners are 
@@ -1442,30 +1472,34 @@ have strictly one writer at any time.
 ***Replication Example***:
 
 * file name: sample.txt
-* file size: 1400 MB
-* Data Blick Size: 512 MB
+* file size: 1900 MB
+* Data Block Size: 512 MB
 * Replication Factor: 3
-* Cluster of 6 nodes (one master + 5 worker nodes):: 
+* Cluster of 6 nodes (one master + 6 worker nodes):: 
 	* One Master node (no actual data is stored in the master node, the master node saves/stores metadata information)
-	* 5 worker/data nodes (actual data is stored in data nodes) 
-	  denoted as {W1, W2, W3, W4, W5}
+	* 5 worker/data nodes (actual data is stored in worker/data nodes) 
+	  denoted as { W1, W2, W3, W4, W5 }
 
-Since file size is 1400 MB, this means that this file is partitioned into 
-3 blocks:
+Since file size is 1900 MB, this means that this file is partitioned 
+into 4 blocks (`1900 <= (4 * 512)`):
 
-* 1400 = 512 + 512 + 376
+* 1900 = 512 + 512 + 512 + 364
 * Block-1 (B1): 512 MB
 * Block-2 (B2): 512 MB
-* Block-3 (B3): 512 MB (But only 376 MB is utilized)
+* Block-3 (B3): 512 MB
+* Block-4 (B4): 512 MB (But only 364 MB is utilized)
 
 With replication factor of 3, worker nodes might
-hold these blocks as:
+hold these blocks as (note that there will not be 
+any duplicate blocks per data nodes):
 
-* W1: B1, B3
-* W2: B2, B3
-* W3: B3, B2
-* W4: B1
-* W5: B1, B2
+
+* W1: { B1, B3 }
+* W2: { B2, B4 }
+* W3: { B3, B4, B2 }
+* W4: { B4, B3, B1 }
+* W5: { B1, B2 }
+
 
 
 Since replication factor is 3, therefore only 2 (3-1) data 
@@ -1945,6 +1979,29 @@ Options for MapReduce implementation:
 * Hadoop (slow and complex) is an implementation of MapReduce.
 
 * Spark (fast and simple) is a superset implementation of MapReduce.
+
+
+
+## MapReduce Terminology
+
+* Job - A "full MapReduce program" - an execution 
+  of a Mapper (as `map()`) and Reducer (as `reduce()`) 
+  across an input data set; for example, running 
+  "Word Count" across 60 input files is one job. A 
+  MapReduce job must identify the following:
+
+	* Input Path
+	* Output Path
+	* Mapper function definition
+	* Reducer function definition
+
+* Task – An execution of a Mapper or a Reducer on  
+  a slice of data a.k.a. Task-In-Progress (TIP)
+ 
+* Task Attempt – A particular instance of an
+attempt to execute a task on a machine
+
+
 
 ## Mapreduce Architecture
 
@@ -5004,7 +5061,7 @@ platforms on the market:
 * Firebolt
 
 
-## Open-source
+## Open-Source
 Open-source refers to the availability of certain 
 types of code to be used, redistributed and even 
 modified  for  free  by other  developers. This 
