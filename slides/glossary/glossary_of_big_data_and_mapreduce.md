@@ -946,6 +946,15 @@ database that can support insights
 generation or the creation of Machine 
 Learning based solutions.
 
+[What is the Data Engineering 
+Lifecycle?](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/ch02.html)  The data engineering 
+lifecycle comprises stages that turn raw data 
+ingredients into a useful end product, ready 
+for consumption by analysts, data scientists, 
+ML engineers, and others. 
+
+![](./images/data_engineering_life_cycle.png)
+
 Data Engineers are the force behind Data 
 Engineering that is focused on gathering 
 information   from   disparate   sources, 
@@ -2310,9 +2319,9 @@ the reducer and also assigns it to a particular reducer.
 Sort & Shuffle output (note that mappers have created `N` 
 unique keys -- such as K2):
 
-		(key_1, [V_11, V_12, ...])
+		(key_1, [V_1_1, V_1_2, ...])
 		...
-		(key_N, [V_N1, V_N2, ...])
+		(key_N, [V_N_1, V_N_2, ...])
 
 * **Reduce**: A reducer cannot start while a mapper is still in 
 progress. Worker nodes process each group of (key, value) pairs 
@@ -2324,8 +2333,9 @@ the initial data, the reduce function is optional.
 
 ## Word Count in MapReduce
 Given a set of text documents (as input), Word Count algorithm 
-finds frequencies of unique words in input. The `map()` and `reduce()` 
-functions are provided as a **pseudo-code**.
+finds frequencies of unique words in input. The `map()` and 
+`reduce()`  functions are provided as a **pseudo-code**.
+Of course, you can customize your mapper 
 
 * Mapper function
 
@@ -2337,6 +2347,25 @@ functions are provided as a **pseudo-code**.
 		     emit(w, 1)
 		  }
 		}
+
+		
+Of course, you can customize your mapper to exclude 
+words (called filtering) with less than 3 characters:
+
+* Mapper function with Filter
+
+		# key: partition number, record number, offset in input file, ignored.
+		# value: an actual input record
+		map(key, value) {
+		  words = value.split(" ")
+		  for w in words {
+		     # apply a filter
+		     if (len(w) > 2) {
+		        emit(w, 1)
+		     }
+		  }
+		}
+
 
 * Reducer function (long version)
 
@@ -2358,6 +2387,23 @@ functions are provided as a **pseudo-code**.
 		  total = sum(values)
 		  emit(key, total)
 		}
+		
+Of course, you can customize your reducer to exclude 
+words (called filtering) where its final frequency is 
+less than 10.
+
+* Reducer function (short version), with Filter
+
+		# key: a unique word
+		# values: Iterable<Integer>
+		reduce(key, values) {
+		  total = sum(values)
+		  # apply a filter
+		  if (total >= 10) {
+		      emit(key, total)
+		  }
+		}
+
 
 * Combiner function (short version)
 
@@ -2495,6 +2541,7 @@ to [Data Aldorithms with Spark](https://www.oreilly.com/library/view/data-algori
 
 		
 ## What is an Associative Law
+
 An associative operation:
 
 		f: X x X -> X
@@ -2528,18 +2575,30 @@ While average operation is not an associative function.
        	       
 
 ## What is a Commutative Law
-A commutative function `f` is a function that takes multiple 
-inputs from a set X and produces an output that does not 
-depend on the ordering of the inputs. For example, the binary 
-operation `+` is commutative, because `2 + 5 = 5 + 2`.
+A commutative function `f` is a function that takes 
+multiple inputs from a set X and produces an output 
+that does not depend on the ordering of the inputs. 
+
+For example, the binary operation `+` (addition) is 
+commutative, because `2 + 5 = 5 + 2 = 7`.
+
+For example, the binary operation `*` (multiplication )
+is commutative, because `2 * 5 = 5 * 2 = 10`.
+
 Function `f` is commutative if the following property holds:
 
 		f(a, b) = f(b, a)
 		
-While, - (subtraction) is not an commutative function because
+While, `-` (subtraction) is not an commutative function because
 		
 		2 - 4 != 4 - 2
 		   -2 != 2
+
+While, `/` (division) is not an commutative function because
+		
+		2 / 4 != 4 / 2
+		  0.5 != 2
+		
 		
 
 ## Monoid
@@ -2597,34 +2656,43 @@ Then `M(X, AVG, 0)` is not a monoid, since `AVG`
 
  
 ## Monoids as a Design Principle for Efficient MapReduce Algorithms
-According to [Jimmy Lin](https://arxiv.org/abs/1304.7544): "it 
-is well known that since the sort/shuffle stage in MapReduce is 
-costly, local aggregation is one important principle to designing 
-efficient algorithms. This short paper represents an attempt to 
-more clearly articulate this design principle in terms of monoids, 
-which generalizes the use of combiners and the in-mapper combining 
-pattern.
+According to [Jimmy Lin](https://arxiv.org/abs/1304.7544): 
+"it is well known that since the sort/shuffle stage in 
+MapReduce is costly, local aggregation is one important 
+principle to designing efficient algorithms. This short 
+paper represents an attempt to more clearly articulate 
+this design principle in terms of monoids, which 
+generalizes the use of combiners and the in-mapper 
+combining pattern.
 
-For example, in Spark (using PySpark), in a distributed computing
-environment, we can not write the following 
+For example, in Spark (using PySpark), in a distributed 
+computing environment, we can not write the following 
 transformation to find average of integer numbers per key:
 
-		# rdd: RDD[(String, Integer)] : RDD[(key, value)]
-		# The Following Transformation is WRONG
-		avg_per_key = rdd.reduceByKey(lambda x, y: (x+y) / 2)
 
-This will not work, because averge of average is not an average.
-In Spark, `RDD.reduceByKey()` merges the values for each key using 
-an **associative** and **commutative** reduce function. Average
-function is not an associative function.
+		# each rdd element is of the form (String, Integer)
+		# rdd: RDD[(String, Integer)] : RDD[(key, value)]
+		# WARNING: The Following Transformation is WRONG
+		# since reduceByKey() uses combiners in partitions
+		# and average of an average is not an average.
+		avg_per_key = rdd.reduceByKey(lambda x, y: (x+y) / 2)
+		
+
+This will not work, because averge of average is not an 
+average.  In Spark, `RDD.reduceByKey()` merges the values 
+for each key using an **associative** and **commutative** 
+reduce function. Average function is not an associative 
+function.
 
 How to fix this problem? Make it a Monoid:
 
+
 		# rdd: RDD[(String, Integer)] : RDD[(key, value)]
 		# convert (key, value) into (key, (value, 1))
-		# rdd2 elements will be monoidic structures for addition +
+		# rdd2 elements will be monoidic structures for addition (+)
 		rdd2 = rdd.mapValues(lambda v: (v, 1))
-		# rdd2: RDD[(String, (Integer, Integer))] : RDD[(key, (sum, count))]
+		# rdd2: RDD[(String, (Integer, Integer))] 
+		# rdd2: RDD[(key, (sum, count))]
 		
 		# find (sum, count) per key: a Monoid 
 		sum_count_per_key = rdd2.reduceByKey(
@@ -2636,6 +2704,7 @@ How to fix this problem? Make it a Monoid:
 		avg_per_key = sum_count_per_key.mapValues(
 		   lambda v: float(v[0]) / v[1]
 		)
+
 
 Note that by mapping `(key, value)` to `(key, (value, 1))`
 we make addition of values such as (sum, count) to be a monoid.
@@ -2657,8 +2726,8 @@ Then `sum_count_per_key` RDD will hold:
 	Partition-1        Partition-2
 	(A, (3, 2))         (A, (3, 1))
 
-Finally, `avg_per_key` RDD will produce the final value per key:
-`(A, 2)`.
+Finally, `avg_per_key` RDD will produce the final value 
+per key: `(A, 2)`.
 
 
 ## What Does it Mean that "Average of Average is Not an Average"
@@ -2739,18 +2808,20 @@ Minimally, a MapReduce job will have the following components:
 ## Disadvantages of MapReduce
 
 * Rigid `Map-and-then-Reduce` programming paradigm
-	* low level API
-	* must use `map()`, `reduce()` one or more times 
+	* Low level API
+	* Must use `map()`, `reduce()` one or more times 
 	  to solve a problem
-	* join operation is not supported
-	* complex: have to write lots of code
-	* one type of reduction is supported: GROUP BY KEY
+	* Join operation is not supported
+	* Complex: have to write lots of code
+	* One type of reduction is supported: GROUP BY KEY
 * Disk I/O (makes it slow)
 * Read/Write Intensive (does not utilize in-memory computing)
 * Java Focused
-	* have to write lots of lines of code to do some simple map 
+	* Have to write lots of lines of code to do some simple map 
 	  and then reduce functions
 	* API is a low level
+* Interactive mode (for testing/debugging) is not supported
+
 
 ## What the MapReduce's Job Flow
 
@@ -2880,26 +2951,29 @@ PySpark is an interface for Spark in Python. PySpark has
 two main data abstractions:
 
 * RDD (Resilient Distributed Dataset)
-	* low-level
-	* immutable	 
-	* partitioned
-	* can represent billions of data points
-	* for unstructured and semi-structured data
+	* Low-level
+	* Immutable	 (to avoid synchronization)
+	* Partitioned for parallelism
+	* Can represent billions of data points, called elements
+	* For unstructured and semi-structured data
+
 	
 * DataFrame
-	* high-level
-	* immutable 
-	* partitioned
-	* can represent billions of rows with named columns
-	* for structured and semi-structured data
+	* High-level
+	* Immutable (to avoid synchronization)
+	* Partitioned for parallelism
+	* Can represent billions of rows with named columns
+	* For structured and semi-structured data
 
 Spark addresses many problems of hadoop:
 
-* provides in-memory computing
-* provides simple, powerful, and high-level transformations
-* provides join operations for RDDs and DataFrames
+* It is a superset of Hadoop/MapReduce
+* Provides in-memory computing
+* Provides simple, powerful, and high-level transformations
+* Provides join operations for RDDs and DataFrames
 * You do not need to write too many lines of a code 
   to solve a big data problem
+* For structured data, transformations can be expressed in SQL 
 
 
 ## Apache Spark Components
@@ -2952,23 +3026,30 @@ you can view Spark jobs and their associated DAGs.
 
 ![](./images/spark_architecture.png)
 
-* [Spark Cluster](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf): a collection of machines or nodes in 
-the public cloud or on-premise in a private data center on 
-which Spark is installed. Among those machines are Spark 
-workers, a Spark Master (also a cluster manager in a Standalone 
-mode), and at least one Spark Driver.
+* [Spark Cluster](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf): a collection of machines or nodes 
+in the public cloud or on-premise in a private data 
+center on which Spark is installed. Among those 
+machines are Spark workers, a Spark Master (also a 
+cluster manager in a Standalone mode), and at least 
+one Spark Driver.
+
 
 * [Spark Master](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):As the name suggests, a Spark Master JVM acts as a cluster manager ina Standalone deployment mode to which Spark workers registerthemselves as part of a quorum. Depending on the deployment mode,it acts as a resource manager and decides where and how manyExecutors to launch, and on what Spark workers in the cluster.
+
 
 * [Spark Worker](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):
 Upon receiving instructions from Spark Master, the Spark worker JVMlaunches Executors on the worker on behalf of the Spark Driver. Sparkapplications, decomposed into units of tasks, are executed on eachworker’s Executor. In short, the worker’s job is to only launch anExecutor on behalf of the master.
 
+
 * [Spark Executor](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):A Spark Executor is a JVM container with an allocated amount of coresand memory on which Spark runs its tasks. Each worker nodelaunches its own Spark Executor, with a configurable number of cores(or threads). Besides executing Spark tasks, an Executor also storesand caches all data partitions in its memory.
+
 
 * [Spark Driver](https://www.databricks.com/wp-content/uploads/2021/06/Ebook_8-Steps-V2.pdf):
 Once it gets information from the Spark Master of all the workers in thecluster and where they are, the driver program distributes Spark tasksto each worker’s Executor. The driver also receives computed resultsfrom each Executor’s tasks.
 
+
 * Task: A unit of work that will be sent to one executor.
+
 
 ## Apache Spark Ecosystem
 
@@ -3031,34 +3112,37 @@ MapReduce’s linear scalability and fault tolerance,
 but extends it in 7 important ways:
 
 1. Spark does not rely on a low-level and rigid 
-`map-then-reduce` workflow. Spark's engine can execute 
-a more general Directed Acyclic Graph (DAG) of operators. 
-This means that in situations where MapReduce must
-write out intermediate results to the distributed file 
-system (such as HDFS and S3), Spark can pass them directly 
-to the next step in the pipeline. Rather than writing many 
-`map-then-reduce` jobs, in Spark, you can use transformations 
-in any order to have an optimized solution.
+`map-then-reduce` workflow. Spark's engine can 
+execute a more general Directed Acyclic Graph 
+(DAG) of operators. This means that in situations 
+where MapReduce must write out intermediate results 
+to the distributed file system (such as HDFS and S3), 
+Spark can pass them directly to the next step in the 
+pipeline. Rather than writing many `map-then-reduce` 
+jobs, in Spark, you can use transformations in any 
+order to have an optimized solution.
 
-2. Spark complements its computational capability with 
-a simple and rich set of transformations and actions that 
-enable users to express computation more naturally. Powerful
-and simple API (as a set of functions) are provided for various 
-tasks including numerical computation, datetime processing and 
+2. Spark complements its computational capability 
+with a simple and rich set of transformations and 
+actions that enable users to express computation 
+more naturally. Powerful and simple API (as a set 
+of functions) are provided for various tasks including 
+numerical computation, datetime processing and 
 string manipulation.
 
-3. Spark extends its predecessors (such as Hadoop) with 
-in-memory processing. MapReduce uses disk I/O (which is 
-slow), but Spark uses in-memory computing as much as 
-possible and it can be up to 100 times faster than 
-MapReduce implementations. This means that future steps 
-that want to deal with the same data set need not recompute 
-it or reload it from disk. Spark is well suited for highly 
-iterative algorithms as well as adhoc queries.
+3. Spark extends its predecessors (such as Hadoop) 
+with in-memory processing. MapReduce uses disk I/O 
+(which is slow), but Spark uses in-memory computing 
+as much as possible and it can be up to 100 times 
+faster than MapReduce implementations. This means 
+that future steps that want to deal with the same 
+data set need not recompute it or reload it from 
+disk. Spark is well suited for highly iterative 
+algorithms as well as adhoc queries.
 
-4. Spark offers interactive environment (for example using 
-PySpark interactively) for testing and debugging data 
-transformations.
+4. Spark offers interactive environment (for example 
+using PySpark interactively) for testing and debugging 
+data transformations.
 
 5. Spark offers extensive Machine Learning libraries 
    (Hadoop/MapReduce does not have this capability)
@@ -3066,12 +3150,13 @@ transformations.
 6. Spark offers extensive graph API by GraphX (built-in) 
    and GraphFrames (as an external library).
 
-7. Spark Streaming is an extension of the core Spark API 
-   that allows data engineers and data scientists to process 
-   real-time data from various sources including (but not 
-   limited to) Kafka, Flume, and Amazon Kinesis. This 
-   processed data can be pushed out to file systems, 
+7. Spark Streaming is an extension of the core Spark 
+   API that allows data engineers and data scientists 
+   to process real-time data from various sources including 
+   (but not limited to) Kafka, Flume, and Amazon Kinesis. 
+   This processed data can be pushed out to file systems, 
    databases, and live dashboards.
+
 
 ## What is an Spark RDD
 
@@ -3229,22 +3314,25 @@ Two types of Spark RDD operations are: Transformations and Actions.
   * `groupByKey()`, `reduceByKey()`, `combineByKey()`
   * ...
   
-* **Action**: when we want to work with the actual dataset, at that 
-  point Action is performed. For RDD, anction is defined as the 
-  Spark operations that return raw values. In other words, any 
-  of the RDD functions that return other than the `RDD[T]` is 
-  considered an action in the spark programming.
+* **Action**: when we want to work with the actual dataset, 
+  at that point Action is performed. For RDD, anction is 
+  defined as the Spark operations that return raw values. 
+  In other words, any of the RDD functions that return
+  other than the `RDD[T]` is considered an action in the 
+  spark programming.
    * `Action: source_rdd --> NONE_rdd`
 	* `collect()`
 	* `count()`
 	* ...
 
 
-## The Spark Programming ModelSpark programming starts with a data set (which can be 
-represented as an RDD or a DataFame), usually residing 
-in some form of distributed, persistent storage like 
-Amazon S3 or Hadoop HDFS.  Writing a Spark program 
-typically consists of a few related steps:1. Define a set of transformations on the input data set.
+## The Spark Programming ModelSpark programming starts with a data set 
+(which can be represented as an RDD or a 
+DataFame), usually residing in some form 
+of distributed, persistent storage like 
+Amazon S3 or Hadoop HDFS.  Writing a Spark 
+program typically consists of a few related 
+steps:1. Define a set of transformations on the input data set.
 2. Invoke actions that output the transformed data sets 
    to persistent storage or return results to the driver’s 
    local memory.
@@ -3258,15 +3346,17 @@ Lazy binding/evaluation in Spark means that the execution
 of **transformations** will not start until an **action** 
 is triggered. 
 
-In programming language theory, lazy evaluation, or call-by-need, 
-is an evaluation strategy which delays the evaluation of an 
-expression until its value is needed (non-strict evaluation) and 
-which also avoids repeated evaluations (sharing).
+In programming language theory, lazy evaluation, or 
+call-by-need, is an evaluation strategy which delays 
+the evaluation of an expression until its value is 
+needed (non-strict evaluation) and which also avoids 
+repeated evaluations (sharing).
+
 
 ## Difference between  `reduceByKey()` and `combineByKey()`
 
 
-* `reduceByKey()`
+####  `reduceByKey()`
 
 `RDD.reduceByKey()` merges the values for each key using an 
 **associative** and **commutative** reduce function. 
@@ -3281,12 +3371,13 @@ reduceByKey: RDD[(K, V)] --> RDD[(K, V)]
 ~~~
 
 
-* `combineByKey()`
+#### `combineByKey()`
 
 ~~~python
 combineByKey: RDD[(K, V)] --> RDD[(K, C)]
 # where V and C can be different types
 ~~~
+
 
 `RDD.combineByKey()` is a generic function to combine the 
 elements for each key using a custom set of aggregation functions.
@@ -3333,6 +3424,8 @@ Combine all of values per key.
 
 # combineByKey: RDD[(String, Integer)] --> RDD[(String, [Integer])]
 
+# sc : SparkContext
+# rdd : RDD[(String, Integer)]
 rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
 
 # V --> C
@@ -3372,6 +3465,7 @@ Find maximum of values per key.
 
 # reduceByKey: RDD[(String, Integer)] --> RDD[(String, Integer)]
 
+# sc : SparkContext
 rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
 
 # rdd: RDD[(String, Integer)]
@@ -3396,6 +3490,7 @@ Combine/Group values per key.
 
 # reduceByKey: RDD[(String, Integer)] --> RDD[(String, [Integer])]
 
+# sc : SparkContext
 rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
 
 # rdd: RDD[(String, Integer)]
@@ -3429,22 +3524,23 @@ the reducer function for the `reduceByKey()` must be associative and commutative
 
 
 ## What is a DataFrame?
-A DataFrame is a data structure that organizes data into 
-a 2-dimensional table of rows and columns, much like a 
-spreadsheet or a relational table. DataFrames are one of 
-the most common data structures used in modern data analytics 
-because they are a flexible and intuitive way of storing and 
-working with data.
+A DataFrame is a data structure that organizes data 
+into a 2-dimensional table of rows and columns, much 
+like a spreadsheet or a relational table. DataFrames 
+are one of the most common data structures used in 
+modern data analytics because they are a flexible and 
+intuitive way of storing and working with data.
 
 ### Python DataFrame Example
-DataFrame is a 2-dimensional mutable labeled data structure 
-with columns of potentially different types. You can think 
-of it like a spreadsheet or SQL table, or a dict of Series 
-objects. It is generally the most commonly used `Pandas` object.
-A `Pandas` DataFrame is a 2-dimensional data structure, like 
-a 2-dimensional array, or a table with rows and columns.
-The number of rows for `Pandas` DataFrame is mutable and 
-limited to the computer and memory where it resides.
+DataFrame is a 2-dimensional mutable labeled data 
+structure with columns of potentially different types. 
+You can think of it like a spreadsheet or SQL table, 
+or a dict of Series objects. It is generally the most 
+commonly used `Pandas` object.  A `Pandas` DataFrame is 
+a 2-dimensional data structure, like a 2-dimensional 
+array, or a table with rows and columns.  The number of 
+rows for `Pandas` DataFrame is mutable and limited to 
+the computer and memory where it resides.
 
 ~~~python
 import pandas as pd
@@ -3627,8 +3723,9 @@ implementation): will create (key, value) pairs as:
 
 	(K, Iterable<(relation, attribute)>
 	
-where `K` is the common key of `R` and `S`, relation is 
-either "R" or "S", and attribe is either `a` in `A` or `b` in `B`.
+where `K` is the common key of `R` and `S`, relation 
+is either "R" or "S", and attribe is either `a` in `A` 
+or `b` in `B`.
 
 **Step-5:** Reducer
 
@@ -3639,7 +3736,7 @@ either "R" or "S", and attribe is either `a` in `A` or `b` in `B`.
 	   R_list = []
 	   S_list = []
 	   
-	   # iterate values and update R_list and S_list
+	   # iterate values and build/update R_list and S_list
 	   for pair in values {
 	      relation = pair[0]
 	      attribute = pair[1]
@@ -3912,25 +4009,25 @@ For Spark partitioning, refer to
 
 
 ## Physical Data Partitioning
-Physical Data Partitioning is a technique used in 
-data warehouses and big data query engines. 
+Physical Data Partitioning is a technique used 
+in data warehouses and big data query engines. 
 
-Physical Data Partitioning is a way to organize a 
-very large data into several smaller data based on 
-one or multiple columns (partition key, for example, 
-continent, country, date, state e.t.c). 
+Physical Data Partitioning is a way to organize 
+a very large data into several smaller data based 
+on one or multiple columns (partition key, for 
+example, continent, country, date, state e.t.c). 
 
 The main point of Physical Data Partitioning is
 to analyze slice of a data rather than the whole 
 data.  For example, if we have a temprature data 
 for 7 continents, and we are going to query data 
 based on the continent name, then to reduce the 
-query time, we can partition data by the continent 
-name: this enables us to query slice of a data 
-(such as: `continent_name = asia`) rather than the
-whole data.  When we phisically partition data, we 
-create separate folder (or directory) per partitioned 
-column.
+query  time, we can  partition  data  by  the 
+continent name: this enables us to query slice 
+of a data (such as: `continent_name = asia`) 
+rather than the whole data.  When we phisically 
+partition data, we create separate folder (or 
+directory) per partitioned column.
 
 In Spark, for Physical Data Partitioning, you may 
 use `pyspark.sql.DataFrameWriter.partitionBy()`.
@@ -3966,18 +4063,20 @@ For details, refer to [Physical Data Partitioning tutorial](https://github.com/m
  
 ## GraphFrames
 [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html)
-is an external package for Apache Spark which provides DataFrame-based Graphs. 
-It provides high-level APIs in Scala, Java, and Python. It aims to provide 
-both the functionality of GraphX (included in Spark API) and extended 
-functionality taking advantage of Spark DataFrames. This extended 
-functionality includes motif finding, DataFrame-based serialization, 
-and highly expressive graph queries.
+is an external package for Apache Spark which provides 
+DataFrame-based Graphs. It provides high-level APIs in 
+Scala, Java, and Python. It aims to provide both the 
+functionality of GraphX (included in Spark API) and 
+extended  functionality  taking  advantage  of Spark 
+DataFrames. This extended functionality includes motif 
+finding, DataFrame-based serialization, and highly 
+expressive graph queries.
 
 > GraphFrames are to DataFrames as GraphX is to RDDs.
 
-To build a graph, you build 2 DataFrames (one for vertices 
-and another one for the edges) and then glue them together 
-to create a graph:
+To build a graph, you build 2 DataFrames (one for 
+vertices and another one for the edges) and then glue 
+them together to create a graph:
 
 ~~~python
 # each node is identified by "id" and an optional attributes
@@ -4089,26 +4188,42 @@ GraphFrame(
 
 ## Advantages of using Spark
 
-* **Speed**: for large scale data analysis and processing,
-Spark is 100 times faster than Hadoop. This is achieved
-by:
+* **Superset of MapReduce**
+
+* **Speed**: for large scale data analysis and 
+  processing, Spark is 100 times faster than Hadoop. 
+  This is achieved by:
 	* Modern architecture, better ECO system
 	* Provides parallelism with simple and powerful API
 	* Utilizing In-Memory (RAM) processing architecture
-* **Ease of Use**: Spark provides simple and powerful APIs for working
-with big data sets. Spark offers over 100 high-level operators
-and transformations that makes creating parallel programs a breeze
-* **Advanced Analytics**: Spark implements superset of MapReduce paradigm.
-Spark does much more than `map-then-reduce` of MapReduce paradigm.
-Sparks offers Machine Learning, Graph processing, streaming data, and SQL
-queries.
-* **Dynamic**: Spark allows simple creation of parallel applications.
-Spark offers over 100 high-level operators, transformations, and actions.
-* **Multilingual**: Python, Java, Scala, R, and SQL are supported by Spark
-* **Simple and Powerful**: Because of its low-latency in-memory data processing
-capacity, Spark can handle a wide range of analytics problems. Spark has an
-extensive libraries for Machine Learning and Graph analytics at a scale
-* **Open-Source**: Spark is an open-source and hosted by Apache Sofware Foundation.
+	
+* **Ease of Use**: Spark provides simple and powerful 
+  APIs for working with big data sets. Spark offers over 
+  100 high-level operators and transformations that makes 
+  creating parallel programs a breeze
+
+* **Advanced Analytics**: Spark implements superset of 
+  MapReduce paradigm.  Spark  does  much  more  than 
+  `map-then-reduce` of MapReduce paradigm.  
+
+* Sparks offers **Machine Learning**, **Graph processing**, 
+  **streaming data**, and **SQL queries**.
+  
+* **Dynamic**: Spark allows simple creation of parallel 
+  applications.  Spark offers over 100 high-level operators, 
+  transformations, and actions.
+
+* **Multilingual**: Python, Java, Scala, R, and SQL are 
+  supported by Spark
+
+* **Simple and Powerful**: Because of its low-latency 
+  in-memory data processing capacity, Spark can handle a 
+  wide range of analytics problems. Spark has an extensive 
+  libraries for Machine Learning and Graph analytics at 
+  a scale
+
+* **Open-Source**: Spark is an open-source and hosted 
+  by Apache Sofware Foundation.
  
 
 
@@ -4118,7 +4233,11 @@ is Apache Spark's API (RDD-based) for graphs and
 graph-parallel computation, with a built-in library of 
 common algorithms.  GraphX has API for Java and Scala, 
 but does not have an API for Python (therefore, PySpark 
-does not support GraphX, but PySpark supports GraphFrames).
+does not support GraphX).
+
+To use graphs in PySpark, you may use GraphFrames 
+(DataFrame-based).
+
 
 ## Cluster
 Cluster is a group of servers on a network that are configured 
@@ -4130,6 +4249,10 @@ A cluster may have one (or two) master nodes and many worker
 nodes. For example, a cluster of 15 nodes: one master and 14 
 worker nodes. Another example: a cluster of 101 nodes: one master
 and 100 worker nodes.
+
+
+![](./images/cluster_architecture_2.png)
+
 
 A cluster may be used for running many jobs (Spark and MapReduce 
 jobs) at the same time.
@@ -4449,12 +4572,14 @@ by commas.
 
 ~~~python
 # tuple as a (key, value):
+# tuple is immutable
 v = ('fox', 23)
 # v[0] : 'fox'
 # v[1] : 23
 # len(v) : 2
 
 # tuple of 4 values:
+# tuple is immutable
 t = (2, 1.5, 'alex', [1, 2, 3])
 # t[0] : 2
 # t[1] : 1.5
@@ -4462,6 +4587,12 @@ t = (2, 1.5, 'alex', [1, 2, 3])
 # t[3] : [1, 2, 3]
 # len(t) : 4
 ~~~
+
+In PySpark, if your RDD elements are in the form 
+of `(key, value)` tuple, then you may apply reduction 
+transformations such as `groupByKey()`, `reduceByKey()`
+and `combineByKey()`.
+
 
 
 ## Lists in Python 
@@ -4698,26 +4829,48 @@ to make predictions of new data coming from the same source.
 
 
 ## Predictive analysis
-Analysis within big data to help predict how someone will behave 
-in the (near) future. It uses a variety of different data sets 
-such as historical, transactional, or social profile data to 
-identify risks and opportunities.
+Analysis within big data to help predict how someone 
+will behave in the (near) future. It uses a variety of 
+different data sets such as historical, transactional, 
+or social profile data to identify risks and opportunities.
 
 
 ## Privacy
-To seclude certain data / information about oneself that is 
-deemed personal Public data – public information or data sets 
-that were created with public funding
+To seclude certain data / information about oneself 
+that is deemed personal Public data – public information 
+or data sets that were created with public funding
 
 
 ## Query
-Asking for information to answer a certain question
+Asking for information to answer a certain question.
+What Is a Query? A database query is a request for 
+data from a database. The request should come in a 
+database table or a combination of tables using a 
+code known as the query language. This way, the 
+system can understand and process the query accordingly.
+
+SQL is the most common language to query data from 
+relational databases. Also, some big data platforms
+(such as Amazon Athena, Snowflake, Google BigQuery)
+support SQL for big data queries.
 
 
 ## Regression analysis
-To define the dependency between variables. It assumes a 
-one-way causal effect from one variable to the response of 
-another variable.
+To define the dependency between variables. 
+It assumes a one-way causal effect from one 
+variable to the response of another variable.
+
+Regression analysis is a powerful statistical 
+method that allows you to examine the relationship 
+between two or more variables of interest. While 
+there are many types of regression analysis, at 
+their core they all examine the influence of one 
+or more independent variables on a dependent 
+variable.
+
+***Illustration of linear regression on a data set***:
+![](./images/linear_regression.svg.png)
+
 
 
 ## Real-time data
@@ -4726,24 +4879,46 @@ visualized within milliseconds
 
 
 ## Scripting
-The use of a computer language where your program, or script, 
-can be run directly with no need to first compile it to binary 
-code. Semi-structured data - a form a structured data that does 
-not have a formal structure like structured data. It does however 
-have tags or other markers to enforce hierarchy of records.
+The use of a computer language where your program, 
+or script, can be run directly with no need to first 
+compile it to binary code. Semi-structured data - a 
+form a structured data that does not have a formal 
+structure like structured data. It does however 
+have tags or other markers to enforce hierarchy 
+of records.
+
+***Scripting Languages*** (partial list):
+
+* JavaScript
+* PHP
+* Python
+* Ruby
+* Groovy
+* Perl
+* Lua
+* Bash
+* Shell
+
 
 
 ## Sentiment Analysis
-Using algorithms to find out how people feel about certain topics or events
+Using algorithms to find out how people feel about certain 
+topics or events.
 
 
 ## SQL
-A programming language for retrieving data from a relational 
-database. Also, SQL is used to retrieve data from big data by 
-translating query into mappers, filters, and reducers.  
+A programming language for retrieving data 
+from a relational database. Also, SQL is 
+used to retrieve data  from  big  data by 
+translating query into mappers, filters, 
+and reducers.  
 
-SQL is a standard language for accessing and manipulating 
-databases (relational and non-relational).
+SQL is a standard language for accessing 
+and manipulating databases (relational and 
+non-relational). Also, SQL is used to query 
+big data (examples are: Spark, Snowflake, 
+Amazon Athena, Google BigQuery).
+
 
 **What is SQL?**
 
@@ -4813,46 +4988,52 @@ into any format needed.
 
 
 ## Big Data Scientist 
-Someone who is able to develop the distributed algorithms to 
-make sense out of big data
+Someone who is able to develop the distributed 
+algorithms to make sense out of big data.
 
 
 ## Classification analysis
-A systematic process for obtaining important and relevant 
-information about data, also meta data called; data about data.
+A systematic process for obtaining important 
+and relevant information about data, also meta 
+data called; data about data.
 
 
 ## Cloud computing
-Cloud Computing is a distributed computing system 
-hosted and running on remote servers and accessible 
-from anywhere on the internet.  A distributed computing 
-system over a network used for storing data off-premises. 
-This can  include  ETL,  data  storage,  application 
-development, and data analytics. Examples: Amazon Cloud 
-and Google Cloud.
+Cloud Computing is a distributed computing 
+system hosted and running on remote servers 
+and accessible from anywhere on the internet.  
+A distributed computing system over a network 
+used for storing data off-premises. This can  
+include  ETL,  data  storage,  application 
+development, and data analytics. Examples: 
+Amazon Cloud and Google Cloud.
 
-Cloud computing is one of the must-known big data 
-terms. It is a new paradigm computing system which 
-offers visualization of computing resources to run 
-over the standard remote server for storing data and 
-provides IaaS, PaaS, and SaaS. Cloud Computing provides 
-IT resources such as Infrastructure, software, platform, 
-database, storage and so on as services. Flexible scaling, 
-rapid elasticity, resource pooling, on-demand self-service 
-are some of its services.
+Cloud computing is one of the must-known big 
+data terms. It is a new paradigm computing 
+system which offers visualization of computing 
+resources to run over the standard remote server 
+for storing data and provides IaaS, PaaS, and 
+SaaS. Cloud Computing provides IT resources 
+such as Infrastructure, software, platform, 
+database, storage and so on as services. 
+Flexible scaling, rapid elasticity, resource 
+pooling, on-demand self-service are some of 
+its services.
 
 
 ## Distributed computing
-Distributed computing is a computing system in which components 
-located on networked computers communicate and coordinate their 
+Distributed computing is a computing system 
+in which components located on networked 
+computers communicate and coordinate their 
 actions by passing messages.
 
 
 ## Clustering analysis
-Cluster analysis or clustering is the task of grouping a set of 
-objects in such a way that objects in the same group (called a 
-cluster) are more similar (in some sense) to each other than to 
-those in other groups (clusters). 
+Cluster analysis or clustering is the task of 
+grouping a set of objects in such a way that 
+objects in the same group (called a cluster) 
+are more similar (in some sense) to each other 
+than to those in other groups (clusters). 
 
 
 
@@ -4861,22 +5042,25 @@ A database hosted in the cloud on a pay per use basis,
 for example Amazon Web Services
 
 ## Database Management System (DBMS)
-Database Management System is software that collects data and 
-provides access to it in an organized layout. It creates and 
-manages the database. DBMS provides programmers and users a 
-well-organized process to create, update, retrieve, and manage 
-data.
+Database Management System is software that 
+collects data and provides access to it in an 
+organized layout. It creates and manages the 
+database. DBMS provides programmers and users 
+a well-organized process to create, update, 
+retrieve, and manage data.
 
 ## Distributed File System 
-Systems that offer simplified, highly available access 
-to storing, analysing and processing data; examples are:
+Systems that offer simplified, highly available 
+access to storing, analysing and processing data; 
+examples are:
 
 * Hadoop Distributed File System (HDFS)
 * Amazon S3 (a distributed object storage system)
 
 ## Document Store Databases
-A document-oriented database that is especially designed to store, 
-manage and retrieve documents, also known as semi structured data.
+A document-oriented database that is especially 
+designed to store, manage and retrieve documents, 
+also known as semi structured data.
 
 
 ## NoSQL 
@@ -4896,12 +5080,14 @@ useful for working with large sets of distributed data.
 
 
 ## Scala
-A software programming language that blends object-oriented 
-methods with functional programming capabilities. This allows 
-it to support a more concise programming style which reduces 
-the amount of code that developers need to write. Another 
-benefit is that Scala features, which operate well in smaller 
-programs, also scale up effectively when introduced into more 
+A software programming language that blends 
+object-oriented  methods  with  functional 
+programming capabilities. This allows it to 
+support a more concise programming style which 
+reduces the amount of code that developers need 
+to write. Another benefit is that Scala features, 
+which operate well in smaller programs, also 
+scale up effectively when introduced into more 
 complex environments.
 
 
@@ -4921,44 +5107,52 @@ The following are partial list of columnar databases:
 
 
 ## Data Analyst
-The data analyst is responsible for collecting, processing, 
-and performing statistical analysis of data. A data analyst 
-discovers the ways how this data can be used to help the 
-organization in making better business decisions. It is 
-one of the big data terms that define a big data career. 
-Data analyst works with end business users to define the 
-types of the analytical report required in business.
+The data analyst is responsible for collecting, 
+processing, and performing statistical analysis 
+of data. A data analyst discovers the ways how 
+this data can be used to help the organization 
+in making better business decisions. It is one 
+of the big data terms that define a big data 
+career.  Data analyst works with end business 
+users to define the types of the analytical 
+report required in business.
 
 
 ## Data Scientist
-Data Scientist is also a big data term that defines a big 
-data career. A data scientist is a practitioner of data 
-science. He is proficient in mathematics, statistics, 
-computer science, and/or data visualization who establish 
-data models and algorithms for complex problems to solve them.
+Data Scientist is also a big data term that 
+defines a big data career. A data scientist 
+is a practitioner of data science. He is 
+proficient in mathematics, statistics, 
+computer science, and/or data visualization 
+who establish data models and algorithms for 
+complex problems to solve them.
 
 
 
 ## Data Model and Data Modelling
-Data Model is a starting phase of a database designing 
-and usually consists of attributes, entity types, 
-integrity rules, relationships and definitions of objects.
+Data Model is a starting phase of a database 
+designing and usually consists of attributes, 
+entity types, integrity rules, relationships 
+and definitions of objects.
 
-Data modeling is the process of creating a data model 
-for an information system by using certain formal 
-techniques. Data modeling is used to define and analyze 
-the requirement of data for supporting business processes.
+Data modeling is the process of creating a 
+data model for an information system by using 
+certain formal techniques. Data modeling is 
+used to define and analyze the requirement of 
+data for supporting business processes.
 
 
 
 ## Data Model
-According to [Wikipedia](https://en.wikipedia.org/wiki/Data_model): 
-a data model is an abstract model that organizes elements of data 
-and standardizes how they relate to one another and to the 
-properties of real-world entities. For instance, a data model 
-may specify that the data element representing a car be composed 
-of a number of other elements which, in turn, represent the color 
-and size of the car and define its owner.
+According to 
+[Wikipedia](https://en.wikipedia.org/wiki/Data_model): 
+a data model is an abstract model that organizes elements 
+of data and standardizes how they relate to one another 
+and to the properties of real-world entities. For instance, 
+a data model may specify that the data element representing 
+a car be composed of a number of other elements which, 
+in turn, represent the color and size of the car and 
+define its owner.
 
 
 ![](./images/data_model_3.png)
@@ -4970,34 +5164,38 @@ notation, which is often graphical in form.
 
 
 ## Hive
-Hive is an open source Hadoop-based data warehouse software 
-project for providing data summarization, analysis, and query. 
-Users can write queries in the SQL-like language known as 
-HiveQL. Hadoop is a framework which handles large datasets 
-in the distributed computing environment.
+Hive is an open source Hadoop-based data warehouse 
+software project for providing data summarization, 
+analysis, and query. Users can write queries in the 
+SQL-like language known as HiveQL. Hadoop is a 
+framework which handles large datasets in the 
+distributed computing environment.
 
 
 ## Load Balancing
-Load balancing is a tool which distributes the amount 
-of workload between two or more computers over a computer 
-network so that work gets completed in small time as all 
-users desire to be served faster. It is the main reason 
-for computer server clustering and it can be applied with 
-software or hardware or with the combination of both.
+Load balancing is a tool which distributes the 
+amount of workload between two or more computers 
+over a computer network so that work gets completed 
+in small time as all users desire to be served 
+faster. It is the main reason for computer server 
+clustering and it can be applied with software or 
+hardware or with the combination of both.
 
-Load balancing refers to distributing workload across 
-multiple computers or servers in order to achieve optimal 
-results and utilization of the system
+Load balancing refers to distributing workload 
+across multiple computers or servers in order 
+to achieve optimal results and utilization of 
+the system
 
 
 ## Log File
-A log file is the special type of file that allows users 
-keeping the record of events occurred or the operating 
-system or conversation between the users or any running 
-software.
+A log file is the special type of file that allows 
+users keeping the record of events occurred or the 
+operating system or conversation between the users 
+or any running software.
 
-Log file is a file automatically created by a computer 
-program to record events that occur while operational.
+Log file is a file automatically created by a 
+computer program to record events that occur 
+while operational.
 
 **Examples**:
 
@@ -5107,6 +5305,9 @@ depending on its purpose. Data can be uploaded from the
 company’s CRM (Customer relationship management) systems 
 as well as imported from external files or databases.
 
+
+![](./images/data_warehouse_1.png)
+
 For big data, these are the data warehouse 
 platforms on the market: 
 
@@ -5150,6 +5351,10 @@ insights into data in relation to other data via sets
 of tables with columns and rows. In a relational 
 database, each row in the table has a unique ID 
 referred to as a key.
+
+
+![](./images/what-is-a-relational-database.jpeg)
+
 
 What do you mean by relational database? a relational 
 database is a collection of information (stored as
@@ -5372,10 +5577,12 @@ For example, a Python function is a boolean predicate
 if it only returns `True` or `False`.
 
 
+
 ## Cartesian Product
-In mathematics, specifically set theory, the Cartesian product 
-of two sets `A` and `B`, denoted `A × B`, is the set of all 
-ordered pairs `(a, b)` where `a` is in `A` and `b` is in `B`
+In mathematics, specifically set theory, the Cartesian 
+product of two sets `A` and `B`, denoted `A × B`, is 
+the set of all ordered pairs `(a, b)` where `a` is in 
+`A` and `b` is in `B`:
 
 
 	A x B = {(a,b) /  a in A and  b in B }
@@ -5394,12 +5601,13 @@ ordered pairs `(a, b)` where `a` is in `A` and `b` is in `B`
 **Cartesian Product in PySpark**:
 
 ~~~python
-# sc as SparkContext
+# sc : SparkContext
 rdd = sc.parallelize([1, 2, 3])
 rdd2 = sc.parallelize([4, 5])
 rdd.cartesian(rdd2).collect())
 [(1, 4), (1, 5), (2, 4), (2, 5), (3, 4), (3, 5)]
 ~~~
+
 
 ## Python Lambda
 A lambda function is a small anonymous function.
@@ -5489,7 +5697,7 @@ the size of data.
 **Data transformation in PySpark using map():**
 
 ~~~python
-# sc as SparkContext
+# sc : SparkContext
 rdd = sc.parallelize([1, 2, 3, 4])
 rdd.map(lambda x: x * x).collect()
 [1, 4, 9, 16]
@@ -5499,7 +5707,7 @@ rdd.map(lambda x: x * x).collect()
 **Data transformation in PySpark using filter():**
 
 ~~~python
-# sc as SparkContext
+# sc : SparkContext
 rdd = sc.parallelize([1, 2, 3, 4])
 rdd.filter(lambda x: x > 2).collect()
 [3, 4]
@@ -5509,18 +5717,20 @@ rdd.filter(lambda x: x > 2).collect()
 **Data transformation in PySpark using flatMap():**
 
 ~~~python
-# sc as SparkContext
->>> rdd = sc.parallelize([ [1, 2, 3, 9], [], [4, 5, 6] ])
+# sc : SparkContext
+>>> rdd = sc.parallelize([ [], [1, 2, 3, 9], [], [4, 5, 6] ])
 >>> rdd.count()
-3
+4
 >>> rdd.collect()
-[[1, 2, 3, 9], [], [4, 5, 6]]
+[ [], [1, 2, 3, 9], [], [4, 5, 6] ]
+>>> # note that flatMap() will drop empty lists
 >>> rdd2 = rdd.flatMap(lambda x: x)
 >>> rdd2.count()
 7
 >>> rdd2.collect()
 [1, 2, 3, 9, 4, 5, 6]
 ~~~
+
 
 ## Data Curation
 Curation is the process of validating and managing 
@@ -5532,19 +5742,22 @@ looking for information. It involves collecting,
 structuring, indexing and cataloging data for 
 users in an organization, group or the general public.
 
+
 ## What is Bioinformatics?
 
 * Bioinformatics is a mutually beneficial
-collaboration between Biology and Computer
-Science (CS).
+  collaboration between Biology and Computer
+  Science (CS).
 
-* For CS, Biology provides a motivation for studing
-new challenging problems and developing new
-algorithms.
+* For CS, Biology provides a motivation for 
+  studing new challenging problems and developing 
+  new algorithms.
 
-* For Biology, CS offers effective and cheap (as in
-silico experiments are typically cheaper than
-wet-lab ones) solutions to many tough problems
+* For Biology, CS offers effective and cheap 
+  (as in silico experiments are typically cheaper 
+  than wet-lab ones) solutions to many tough 
+  problems
+
 
 ## Software Framework
 
@@ -5620,16 +5833,19 @@ solutions.
 
 ## Software Library
 
-A software library is a suite of data and programming 
-code that is used to develop software programs and 
-applications. It is designed to assist both the programmer 
-and the programming language compiler in building and 
-executing software. In computer science, a library is 
-a collection of non-volatile resources used by computer 
-programs, often for software development. These may 
-include configuration data, documentation, help data, 
-message templates, pre-written code and subroutines, 
-classes, values or type specifications. 
+A software library is a suite of data and 
+programming code that is used to develop 
+software programs and applications. It is 
+designed to assist both the programmer and 
+the programming language compiler in building 
+and executing software. In computer science, 
+a library is a collection of non-volatile 
+resources used by computer programs, often 
+for software development. These may include 
+configuration data, documentation, help data, 
+message templates, pre-written code and 
+subroutines, classes, values or type 
+specifications. 
 
 **Example of Software Libraries:**
 
@@ -5702,6 +5918,10 @@ A software engineer is a person (usually knows multiple
 programming languages) who applies the principles of 
 software engineering to design, develop, maintain, 
 test, and evaluate computer software.
+
+
+![](./images/software_engineering_3.png)
+
 
 Is big data related to software engineering? Big Data 
 Systems (BDSs) are an emerging class of scalable 
@@ -5816,6 +6036,8 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 42. [Your Modern Business Guide To Data Analysis Methods And Techniques](https://www.datapine.com/blog/data-analysis-methods-and-techniques/)
 
 43. [Mastering recursive programming](https://developer.ibm.com/articles/l-recurs/)
+
+44. [What Is Data Warehouse & Business Intelligence – How Does It Deliver Value?](https://brainstation-23.com/what-is-data-warehouse-business-intelligence-how-does-it-deliver-value/)
 
 
 ---------------------------
