@@ -1,13 +1,18 @@
 # Glossary of Big Data, MapReduce, Spark
 
 ## Prelude
+
 * This glossary is written for my students taking 
-[Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course/) at [Santa Clara University](https://www.scu.edu).
+  [Big Data Modeling & Analytics]
+  (https://github.com/mahmoudparsian/big-data-mapreduce-course/) 
+  at [Santa Clara University](https://www.scu.edu).
 
-* This is not a regular glossary: it is a detailed glossary for my students
-to learn basics of key terms in big data, MapReduce, an PySpark.
+* This is not a regular glossary: it is a detailed glossary 
+  for my students to learn basics of key terms in big data, 
+  MapReduce, and PySpark (Python API for Apache Spark).
 
-* Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
+* Compiled and edited by: 
+  [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
 * Last updated date: 2/14/2023
 
