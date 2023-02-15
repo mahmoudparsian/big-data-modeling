@@ -1,5 +1,7 @@
 # Glossary of Big Data, MapReduce, Spark
 
+
+
 ## Prelude
 
 * This glossary is written for my students taking 
@@ -4809,12 +4811,32 @@ be individually addressable.
 
 
 ## Metadata
-Data about data; gives information about what the data is about.
+Data about data; gives information about what the data is 
+about. Metadata is information that describes and explains 
+data. It provides context with details such as the source, 
+type, date, owner, and relationships to other data sets, 
+thus helping you understand the relevance of a particular 
+data set and guiding you on how to use it.
 
-For example, author, date created, date modified and file size 
-are examples of very basic document file metadata. 
 
-Table definition for a relational table is an example of metadata.
+![](./images/metadata-example.png)
+
+
+For example, author, date created, date modified and file 
+size are examples of very basic document file metadata. 
+
+Table definition for a relational table is an example 
+of metadata.
+
+HTML files and websites frequently use metadata to provide 
+information about the content of a webpage to search engines. 
+HTML files contain meta tags that include information about 
+the page — its author, a description, some keywords, or even 
+special instructions that tell a web browser how to display 
+the page contents. Search engines can use these tags when 
+organizing and displaying search results.
+
+
 
 
 ## Natural Language Processing (NLP)
@@ -4962,8 +4984,19 @@ variable.
 
 
 ## Real-time data
-Data that is created, processed, stored, analysed and 
-visualized within milliseconds
+Real-time data is data that is available as soon 
+as it's created and acquired. Real-time data is 
+data that is created, processed, stored, analysed 
+and visualized within milliseconds.
+
+What is an example of real-time data processing?
+Good examples of real-time data processing systems 
+are bank ATMs, traffic control systems and modern 
+computer systems such as the PC and mobile devices. 
+In contrast, a batch data processing system collects 
+data and then processes all the data in bulk in a 
+later time, which also means output is received at 
+a later time.
 
 
 ## Scripting
@@ -4994,6 +5027,17 @@ Using algorithms to find out how people feel about certain
 topics or events.
 
 
+
+Sentiment analysis (or opinion mining) is a natural language 
+processing (NLP) technique used to determine whether data is 
+positive, negative or neutral. Sentiment analysis is often 
+performed on textual data to help businesses monitor brand 
+and product sentiment in customer feedback, and understand 
+customer needs.
+
+![](./images/fine-grained-sentiment-analysis.png)
+
+
 ## SQL
 A programming language for retrieving data 
 from a relational database. Also, SQL is 
@@ -5006,6 +5050,9 @@ and manipulating databases (relational and
 non-relational). Also, SQL is used to query 
 big data (examples are: Spark, Snowflake, 
 Amazon Athena, Google BigQuery).
+
+
+![](./images/SQL-command-types.jpeg)
 
 
 **What is SQL?**
@@ -6337,6 +6384,7 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 47. [Go: Concurrency vs Parallelism](https://medium.com/codex/go-concurrency-vs-parallelism-c3fc9cec55c8)
 
+48. [Sentiment Analysis: Comprehensive Beginners Guide](https://getthematic.com/sentiment-analysis/)
 
 ---------------------------
 
