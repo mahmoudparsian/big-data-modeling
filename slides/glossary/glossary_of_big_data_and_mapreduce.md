@@ -3,8 +3,7 @@
 ## Prelude
 
 * This glossary is written for my students taking 
-  [Big Data Modeling & Analytics]
-  (https://github.com/mahmoudparsian/big-data-mapreduce-course/) 
+  [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course/) 
   at [Santa Clara University](https://www.scu.edu).
 
 * This is not a regular glossary: it is a detailed glossary 
