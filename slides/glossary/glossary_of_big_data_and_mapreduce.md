@@ -36,7 +36,8 @@ Original Creator of Apache Spark <br>
 </table>
 
 
-<img src="./images/glossary.jpeg" height=380 width=620>
+<img src="https://raw.githubusercontent.com/mahmoudparsian/big-data-mapreduce-course/master/slides/glossary/images/glossary.jpeg" height=380 width=620>
+
 
 
 ## Introduction
@@ -5426,7 +5427,8 @@ represented in RDD, DataFrame, and Dataset):
 	* supported in Java and Scala 
 
 
-![](./images/rdd_dataframe_dataset.png)
+
+![](https://raw.githubusercontent.com/mahmoudparsian/big-data-mapreduce-course/master/slides/glossary/images/rdd_dataframe_dataset.png)
 
 
 
