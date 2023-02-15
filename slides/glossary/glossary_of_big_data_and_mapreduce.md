@@ -9,7 +9,7 @@ to learn basics of key terms in big data, MapReduce, an PySpark.
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/11/2023
+* Last updated date: 2/14/2023
 
 <table>
 <tr>
@@ -328,6 +328,10 @@ final outcome. It works for cases where
 minimization or maximization leads to the 
 required solution.
 
+
+![](./images/greedy_example_3.png)
+
+
 **Characteristics of Greedy algorithm:**
 For a problem to be solved using the Greedy 
 approach, it must follow a few major 
@@ -340,9 +344,14 @@ characteristics:
 * For example, in the fractional knapsack 
   problem, the maximum value/weight is taken 
   first according to available capacity. 
+  
+
+![](./images/greedy_and_optimal.jpeg)
+
 
 Storing Files on Tape is an example of 
 [Greedy Algorithm](https://jeffe.cs.illinois.edu/teaching/algorithms/book/04-greedy.pdf).
+
 
 ## Recursive Algorithms
 In computer science, recursion is a method of solving 
@@ -407,11 +416,13 @@ Factorial function can be expressed in a pseudo-code:
 12. File system traversal
 
 
-Recursive definitions are often used to model the structure 
-of expressions and statements in programming languages. Language 
-designers often express grammars in a syntax such as Backus–Naur 
-form; here is such a grammar, for a simple language of arithmetic 
-expressions (denoted as an `<expr>`) with multiplication and addition:
+Recursive definitions are often used to model the 
+structure of expressions and statements in programming 
+languages. Language designers often express grammars 
+in a syntax such as Backus–Naur form; here is such a 
+grammar,  for  a  simple  language  of  arithmetic 
+expressions  (denoted  as  an `<expr>`)  with 
+multiplication and addition:
 
 ````
      <expr> ::= <number>
@@ -495,27 +506,33 @@ access-control-list (ACL) is a list of
 permissions associated with a system 
 resource (object).
 
-In a file system, ACL is a list of permissions 
-associated with an object in a computer file 
-system. An ACL specifies which users or processes 
-are allowed to access an object, and what 
-operations can be performed.
+In a file system, ACL is a list of 
+permissions associated with an object 
+in a computer file system. An ACL 
+specifies which users or processes 
+are allowed to access an object, and 
+what operations can be performed.
 
 
 ## Apache Software Foundation (ASF)
-[ASF](https://apache.org) is a non-profit corporation 
-that supports various open-source software products, 
-including Apache Hadoop, Apache Spark, and Apache Maven. 
-Apache projects are developed by teams of collaborators 
-and protected by an ASF license that provides legal 
-protection to volunteers who work on Apache products 
-and protect the Apache brand name.
+[ASF](https://apache.org) is a non-profit 
+corporation that supports various open-source 
+software products, including Apache Hadoop, 
+Apache Spark, and Apache Maven. Apache projects 
+are developed by teams of collaborators and 
+protected by an ASF license that provides legal 
+protection to volunteers who work on Apache 
+products and protect the Apache brand name.
 
-Apache projects are characterized by a collaborative, 
-consensus-based development process and an open and 
-pragmatic software license. Each project is managed 
-by a self-selected team of technical experts who are 
-active contributors to the project.
+
+![](./images/asf-1999-logo.jpeg)
+
+Apache projects are characterized by a 
+collaborative, consensus-based development 
+process and an open and pragmatic software 
+license. Each project is managed by a 
+self-selected team of technical experts who 
+are active contributors to the project.
 
 
 
@@ -547,8 +564,8 @@ processing time.
 
 * Data aggregation refers to the process of collecting 
   data and presenting it in a summarised format. The 
-  data can be gathered from multiple sources to be combined 
-  for a summary.
+  data can be gathered from multiple sources to be 
+  combined for a summary.
 
 
 ## Data Aggregation
@@ -597,26 +614,29 @@ behaviors and events."
 
 
 ## Data Analytics
-Data analytics helps individuals and organizations make 
-sense of data. Data analysts typically analyze raw data 
-for insights and trends.
+Data analytics helps individuals and organizations 
+make sense of data. Data analysts typically analyze 
+raw data for insights and trends.
 
-Data analytics converts raw data into actionable insights. 
-It includes a range of tools, technologies, and processes 
-used to find trends and solve problems by using data. Data 
-analytics can shape business processes, improve decision
-making, and foster business growth.
+Data analytics converts raw data into actionable 
+insights. It includes a range of tools, technologies, 
+and processes used to find trends and solve problems 
+by using data. Data analytics can shape business 
+processes, improve decision making, and foster 
+business growth.
 
-Data Analytics is the process of examining large data 
-sets to uncover hidden patterns, unknown correlations, 
-trends, customer preferences and other useful business 
-insights. The end result might be a report, an indication 
-of status or an action taken automatically based on the 
-information received. Businesses typically use the 
-following types of analytics:
+Data Analytics is the process of examining large 
+data sets to uncover hidden patterns, unknown 
+correlations, trends, customer preferences and 
+other useful business insights. The end result 
+might be a report, an indication of status or 
+an action taken automatically based on the 
+information received. Businesses typically use 
+the following types of analytics:
 
 * **Behavioral Analytics:** Using data about people’s 
-  behavior to understand intent and predict future actions.
+  behavior to understand intent and predict future 
+  actions.
 
 * **Descriptive Analytics:** Condensing big numbers 
   into smaller pieces of information. This is similar 
@@ -738,33 +758,43 @@ of Big Data.
 According to 
 [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf), 
 Data Science is focused on the end-to-end 
-data processing life cycle of Big Data and related activities. 
-The data science life cycle encompasses the data analytics 
-life cycle (as described below) plus many more activities 
-including policy and regulation, governance, operations, data 
-security, master data management, meta-data management, and 
-retention/destruction. The data analytics life cycle is focused 
-on the processing of Big Data, from data capture to use of the 
-analysis.  The data analytics life cycle is the set of processes 
-that is guided by the organizational need to transform raw data 
-into actionable knowledge, which includes data collection,
-preparation, analytics, visualization, and access.
+data processing life cycle of Big Data and 
+related activities. The data science life 
+cycle encompasses the data analytics life 
+cycle (as described below) plus many more 
+activities including policy and regulation, 
+governance, operations, data security, master 
+data management, meta-data management, and 
+retention/destruction. The data analytics 
+life cycle is focused on the processing of 
+Big Data, from data capture to use of the 
+analysis.  The data analytics life cycle is 
+the set of processes that is guided by the 
+organizational need to transform raw data 
+into actionable knowledge, which includes 
+data collection, preparation, analytics, 
+visualization, and access.
 
 
 ![](./images/steps_of_data_science.jpeg)
 
-The end-to-end data science life cycle consists of five 
-fundamental steps:
+The end-to-end data science life cycle consists 
+of five fundamental steps:
 
-1. **Capture**: gathering and storing data, typically in its original form (i.e., raw data);
+1. **Capture**: gathering and storing data, 
+   typically in its original form (i.e., raw data);
 
-2. **Preparation**: processes that convert raw data into cleaned, organized information;
+2. **Preparation**: processes that convert raw data 
+   into cleaned, organized information;
 
-3. **Analysis**: techniques that produce synthesized knowledge from organized information;
+3. **Analysis**: techniques that produce synthesized 
+   knowledge from organized information;
 
-4. **Visualization**: presentation of data or analytic results in a way that communicates to others;
+4. **Visualization**: presentation of data or analytic 
+   results in a way that communicates to others;
 
-5. **Action**: processes that use the synthesized knowledge to generate value for the enterprise.
+5. **Action**: processes that use the synthesized 
+   knowledge to generate value for the enterprise.
 
 
 ## Anonymization 
@@ -807,6 +837,7 @@ variety of software systems.
 	* DELETE row(s)
 	* UPDATE row(s)
 	* ...
+
 
 ## Application 
 * An Application is a computer software that enables a 
@@ -1009,18 +1040,34 @@ In a practical sense, Big Data Modeling involves:
 
 
 ## Biometrics 
-The use of data and technology to identify people by one or more 
-of their physical traits (for example, face recognition)
+According to dictionary: the automated recognition of 
+individuals by means of unique physical characteristics, 
+typically for the purposes of security. Biometrics refers 
+to the use of data and technology to identify people by 
+one or more of their physical traits (for example, 
+face recognition).
 
+While there are many types of biometrics for authentication, 
+the five most common types of biometric identifiers are: 
+fingerprints, facial, voice, iris, and palm or finger vein 
+patterns.
 
 
 ## Data Modelling 
-The analysis of data sets using data modelling techniques to 
-create insights from the data: 
+Data modeling is the process of creating a data model 
+for  the  data  to be stored in a database. This data 
+model is a conceptual representation of Data objects, 
+the associations between different data objects, and 
+the rules. The analysis of data sets using data 
+modelling techniques to create insights from the data: 
 
 * data summarization, 
 * data aggregation, 
 * joining data
+
+
+![](./images/what_is_data_model.png)
+
 
 There are 5 different types of data models:
 
@@ -5050,12 +5097,95 @@ a well-organized process to create, update,
 retrieve, and manage data.
 
 ## Distributed File System 
-Systems that offer simplified, highly available 
-access to storing, analysing and processing data; 
-examples are:
+Distributed File System is a system that offer 
+simplified, highly available access to storing, 
+analysing and processing data.
+
+A Distributed File System (DFS) as the name suggests, 
+is a file system that is distributed on multiple file 
+servers or multiple locations. It allows programs to 
+access or store isolated files as they do with the local 
+ones, allowing programmers to access files from any 
+network or computer. 
+
+What is DFS? The main purpose of the Distributed File 
+System (DFS) is to allows users of physically distributed 
+systems to share their data and resources by using a 
+Common File System. A collection of workstations and 
+mainframes connected by a Local Area Network (LAN) is 
+a configuration on Distributed File System. A DFS is 
+executed as a part of the operating system. In DFS, a 
+namespace is created and this process is transparent 
+for the clients. 
+
+DFS has two components: 
+
+* **Location Transparency**: Location Transparency achieves 
+  through the namespace component.
+* **Redundancy**: Redundancy is done through a file replication 
+  component.
+
+In the case of failure and heavy load, these components 
+together improve data availability by allowing the sharing 
+of data in different locations to be logically grouped 
+under one folder, which is known as the "DFS root". 
+
+Examples of DFS are:
 
 * Hadoop Distributed File System (HDFS)
 * Amazon S3 (a distributed object storage system)
+
+
+
+![](./images/distributed-file-system-2.jpeg)
+
+[Features of DFS](https://www.geeksforgeeks.org/what-is-dfsdistributed-file-system/):
+
+> **Transparency**: 
+Structure transparency –
+There is no need for the client to know about the number or locations of file servers and the storage devices. Multiple file servers should be provided for performance, adaptability, and dependability.
+
+> **Access transparency** –
+Both local and remote files should be accessible in the same manner. The file system should be automatically located on the accessed file and send it to the client’s side.
+
+> **Naming transparency** –
+There should not be any hint in the name of the file to the location of the file. Once a name is given to the file, it should not be changed during transferring from one node to another.
+
+> **Replication transparency** –
+If a file is copied on multiple nodes, both the copies of the file and their locations should be hidden from one node to another.
+
+> **User mobility** –
+It will automatically bring the user’s home directory to the node where the user logs in.
+
+> **Performance** : 
+Performance is based on the average amount of time needed to convince the client requests. This time covers the CPU time + time taken to access secondary storage + network access time. It is advisable that the performance of the Distributed File System be similar to that of a centralized file system.
+
+> **Simplicity and ease of use** : 
+The user interface of a file system should be simple and the number of commands in the file should be small.
+
+> **High availability** : 
+A Distributed File System should be able to continue in case of any partial failures like a link failure, a node failure, or a storage drive crash. 
+A high authentic and adaptable distributed file system should have different and independent file servers for controlling different and independent storage devices.
+
+> **Scalability** : 
+Since growing the network by adding new machines or joining two networks together is routine, the distributed system will inevitably grow over time. As a result, a good distributed file system should be built to scale quickly as the number of nodes and users in the system grows. Service should not be substantially disrupted as the number of nodes and users grows.
+
+> **High reliability** :
+The likelihood of data loss should be minimized as much as feasible in a suitable distributed file system. That is, because of the system’s unreliability, users should not feel forced to make backup copies of their files. Rather, a file system should create backup copies of key files that can be used if the originals are lost. Many file systems employ stable storage as a high-reliability strategy.
+
+> **Data integrity** :
+Multiple users frequently share a file system. The integrity of data saved in a shared file must be guaranteed by the file system. That is, concurrent access requests from many users who are competing for access to the same file must be correctly synchronized using a concurrency control method. Atomic transactions are a high-level concurrency management mechanism for data integrity that is frequently offered to users by a file system.
+
+> **Security** : 
+A distributed file system should be secure so that its users may trust that their data will be kept private. To safeguard the information contained in the file system from unwanted & unauthorized access, security mechanisms must be implemented.
+
+> **Heterogeneity** :
+Heterogeneity in distributed systems is unavoidable as a result of huge scale. Users of heterogeneous distributed systems have the option of using multiple computer platforms for different purposes.
+
+
+For more information refer to [What is DFS (Distributed File System)?
+](https://www.geeksforgeeks.org/what-is-dfsdistributed-file-system/).
+
 
 ## Document Store Databases
 A document-oriented database that is especially 
@@ -5064,18 +5194,21 @@ also known as semi structured data.
 
 
 ## NoSQL 
-NoSQL sometimes referred to as ‘Not only SQL' as it 
-is a database that doesn't adhere to traditional 
-relational database structures. It is more consistent 
-and can achieve higher availability and horizontal 
-scaling. NoSQL is an approach to database design that 
-can accommodate a wide variety of data models, including 
-key-value, document, columnar and graph formats. NoSQL, 
-which stands for "not only SQL," is an alternative to 
-traditional relational databases in which data is placed 
-in tables and data schemais carefully designed before 
-the database is built. NoSQL databases are especially 
-useful for working with large sets of distributed data.
+NoSQL sometimes referred to as ‘Not only SQL' 
+as it is a database that doesn't adhere to 
+traditional relational database structures. 
+It is more consistent and can achieve higher 
+availability and horizontal scaling. NoSQL 
+is an approach to database design that can 
+accommodate a wide variety of data models, 
+including key-value, document, columnar and 
+graph formats. NoSQL, which stands for "not 
+only SQL," is an alternative to traditional 
+relational databases in which data is placed 
+in tables and data schemais carefully designed 
+before the database is built. NoSQL databases 
+are especially useful for working with large 
+sets of distributed data.
 
 
 
@@ -5090,13 +5223,27 @@ which operate well in smaller programs, also
 scale up effectively when introduced into more 
 complex environments.
 
+Apache Spark is written in Scala. Hence, many 
+if not most data engineers adopting Spark are 
+also adopting Scala, while Python and R remain 
+popular with data scientists. Fortunately, you 
+don't need to master Scala to use Spark 
+effectively.
+
 
 ## Columnar Database 
-A database that stores data column by column instead of 
-the row is known as the column-oriented database.  
+A database that stores data column by column instead 
+of the row is known as the column-oriented database.  
+Columnar Databases organize and store data by columns 
+rather than rows. They optimize data for aggregate 
+functions (such as `sum()` and `avg()`) and operations 
+on columns of data, by storing data values contiguously, 
+with the same data type and semantic meaning.
+
 
 The following are partial list of columnar databases:
 
+* Apache Cassandra
 * Amazon Redshift
 * Snowflake
 * Hbase
@@ -5164,6 +5311,10 @@ notation, which is often graphical in form.
 
 
 ## Hive
+The Apache Hive data warehouse software facilitates 
+reading, writing, and managing large datasets residing 
+in distributed storage and queried using SQL syntax.
+
 Hive is an open source Hadoop-based data warehouse 
 software project for providing data summarization, 
 analysis, and query. Users can write queries in the 
@@ -5225,9 +5376,17 @@ of an overall task. Breaking up different parts of a
 task among multiple processors will help reduce the 
 amount of time to run a program.
 
+
+![](./images/parallel-process-vs-serial-process.png)
+
+
 For example, Spark uses Resilient Distributed Datasets 
 (RDD) to perform parallel processing across a cluster 
 or computer processors.
+
+
+![](./images/high-level_concept-of-parallelism.png)
+
 
 ## Server (or node)
 The server is a virtual or physical computer that receives 
@@ -5237,15 +5396,25 @@ term used almost in all the big data technologies.
 
 
 ## Abstraction layer
-A translation layer that transforms high-level requests 
-into low-level functions and actions. Data abstraction 
-sees the essential details needed to perform a function 
-removed, leaving behind the complex, unnecessary data 
-in the system. The complex, unneeded data is hidden 
-from the client, and a simplified representation is 
-presented.  A typical example of an abstraction layer 
-is an API (application programming interface) between 
-an application and an operating system. 
+A translation layer that transforms high-level 
+requests into low-level functions and actions. 
+Data abstraction sees the essential details 
+needed to perform a function removed, leaving 
+behind the complex, unnecessary data in the 
+system. The complex, unneeded data is hidden 
+from the client, and a simplified representation 
+is  presented.   A  typical  example  of  an 
+abstraction layer is an API (application 
+programming interface) between an application 
+and an operating system. 
+
+
+![](./images/data-abstraction-01.png)
+
+
+For example, relational databases offer table 
+of rows and columns as an abstraction for your 
+structured data.
 
 For example, Spark offers three types of data 
 abstractions (it means that your data can be 
@@ -5254,6 +5423,7 @@ represented in RDD, DataFrame, and Dataset):
 * **RDD** (supported by PySpark)
 * **DataFrame** (supported by PySpark)
 * Dataset (not supported by PySpark)
+	* supported in Java and Scala 
 
 
 ![](./images/rdd_dataframe_dataset.png)
@@ -5275,6 +5445,9 @@ The cloud is made possible through virtualisation -
 a technology that mimics a physical server but in 
 virtual, digital form, A.K.A virtual machine. 
 
+If you've heard of cloud computing at all, then
+you've heard of Amazon Web Services (AWS), 
+Microsoft Azure, and Google Cloud. 
 
 
 ## Data Ingestion
@@ -5328,13 +5501,15 @@ decentralised software development model encourages
 collaboration and peer production.
 
 The most popular open-source software is from
-[Apache](https://apache.org).
+[Apache Software Foundation](https://apache.org).
 
 Prime examples of open-source products are:
 
-* Apache HTTP Server
-* Apache Hadoop
-* Apache Spark
+* [Apache HTTP Server](https://httpd.apache.org)
+* [Apache Hadoop](https://hadoop.apache.org)
+* [Apache Spark](https://spark.apache.org)
+* [Presto](https://prestodb.io)
+
 
 ## Relational Database
 
@@ -5496,14 +5671,15 @@ following form:
 
 	(key_1, [a_1, a_2, a_3, ...]),
 	(key_2, [b_1, b_2, b_3, ...]),
+	(key_3, [c_1, c_2, c_3, ...]),
 	...
 	
-where all mappers have created:
+where all mappers (for all input) have created:
 
-	(key_1, a_1),    (key_2, b_1),
-	(key_1, a_2),    (key_2, b_2),
-	(key_1, a_3),    (key_2, b_3),
-	...              ...
+	(key_1, a_1),    (key_2, b_1),    (key_3, c_1),
+	(key_1, a_2),    (key_2, b_2),    (key_3, c_2),
+	(key_1, a_3),    (key_2, b_3),    (key_3, c_3),
+	...              ...              ...
 		
 
 ## NoSQL Database
@@ -5521,7 +5697,8 @@ data processing. If you’re already familiar with Python
 and libraries such as Pandas, then PySpark is a good 
 language to learn to create more scalable analyses and 
 pipelines. According to 
-[Spark documentation](https://spark.apache.org/docs/latest/api/python/index.html): 
+[Spark documentation]
+(https://spark.apache.org/docs/latest/api/python/index.html): 
 "PySpark is an interface for Apache Spark in Python. It 
 not only allows you to write Spark applications using 
 Python APIs, but also provides the PySpark shell for 
@@ -5536,6 +5713,14 @@ PySpark supports two types of data abstractions:
 
 * RDDs
 * DataFrames
+
+Note that PySpark does not support `Dataset` data abstraction
+(the `Dataset` data abstraction is only supported in Java 
+and Scala). A `Dataset` is a strongly typed collection of 
+domain-specific objects that can be transformed in parallel 
+using functional or relational operations. Each `Dataset` 
+also has an untyped view called a `DataFrame`, which is 
+a `Dataset` of `Row`.
 
 
 **PySpark Documentation:**
@@ -5559,7 +5744,7 @@ where Spark is installed):
 
 **PySpark Graph Analysis:**
 
-You may use [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) 
+You may use [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) (a DataFrame-based dolution)
 package to build and analyze graphs at scale.
 
 
@@ -5576,6 +5761,31 @@ a boolean predicate.
 For example, a Python function is a boolean predicate
 if it only returns `True` or `False`.
 
+
+Example of a boolean predicate in Python:
+
+~~~python
+# Python function to check if the input parameter is even.
+# A number is even if division by 2 gives a remainder of 0.
+# If the remainder is 1, it is an odd number.
+def is_even(num):
+  if (num % 2) == 0:
+    return True
+  else:
+   return False
+#end-def
+~~~
+
+Boolean predicates can be used in PySpark's `RDD.filter()`:
+
+~~~python
+# sc : SparkContext
+rdd = sc.parallelize([1, 2, 3, 4, 5, 6, 7])
+# keep the even numbers 
+rdd2 = rdd.filter(is_even)
+rdd2.collect()
+[2, 4, 6]
+~~~
 
 
 ## Cartesian Product
@@ -5659,8 +5869,8 @@ the lambda function.
 	
 	
 ## Data transformation
-Data transformation is the process to convert data from 
-one form to the other. 
+Data transformation is the process to convert data 
+from one form to the other. 
 
 Note that data transformation in Python is sequential
 (and can handle small to meium size data) and single 
@@ -5729,6 +5939,48 @@ rdd.filter(lambda x: x > 2).collect()
 7
 >>> rdd2.collect()
 [1, 2, 3, 9, 4, 5, 6]
+~~~
+
+
+**Data transformation in PySpark using reduceByKey():**
+
+~~~python
+# sc : SparkContext
+>>> pairs = [ ('A', 2), ('A', 3), ('B', 5), ('B', 6), ('B', 7), ('C', 9)]
+>>> rdd = sc.parallelize()
+>>> rdd.count()
+6
+>>> rdd.collect()
+>>> rdd2 = rdd.reduceByKey(lambda x, y: x+y)
+>>> rdd2.count()
+3
+>>> rdd2.collect()
+[
+ ('A', 5),
+ ('B', 18),
+ ('C', 9
+]
+~~~
+
+
+**Data transformation in PySpark using groupByKey():**
+
+~~~python
+# sc : SparkContext
+>>> pairs = [ ('A', 2), ('A', 3), ('B', 5), ('B', 6), ('B', 7), ('C', 9)]
+>>> rdd = sc.parallelize()
+>>> rdd.count()
+6
+>>> rdd.collect()
+>>> rdd2 = rdd.groupByKey()
+>>> rdd2.count()
+3
+>>> rdd2.mapValues(lambda values: list(values)).collect()
+[
+ ('A', [2, 3]),
+ ('B', [5, 6, 7]),
+ ('C', [9]
+]
 ~~~
 
 
@@ -5939,8 +6191,8 @@ makes it easy for users to find, discuss, rate, and
 install packages for any version of Spark and makes 
 it easy for developers to contribute packages.
 
-For example, GraphFrames package can be located 
-[here](https://spark-packages.org/package/graphframes/graphframes).
+For example, GraphFrames package is located [here]
+(https://spark-packages.org/package/graphframes/graphframes).
 	
 		
 ## References
@@ -6038,6 +6290,12 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 43. [Mastering recursive programming](https://developer.ibm.com/articles/l-recurs/)
 
 44. [What Is Data Warehouse & Business Intelligence – How Does It Deliver Value?](https://brainstation-23.com/what-is-data-warehouse-business-intelligence-how-does-it-deliver-value/)
+
+45. [Greedy Algorithms](https://brilliant.org/wiki/greedy-algorithm/)
+
+46. [Software Design Patterns – A COMPLETE GUIDE](https://starship-knowledge.com/software-design-patterns)
+
+47. [Go: Concurrency vs Parallelism](https://medium.com/codex/go-concurrency-vs-parallelism-c3fc9cec55c8)
 
 
 ---------------------------
