@@ -361,11 +361,13 @@ solutions to smaller instances of the same problem.
 Recursion solves such recursive problems by using 
 functions that call themselves from within their own code. 
 
-A [recursive algorithm](https://www.cs.odu.edu/~toida/nerzic/content/recursive_alg/rec_alg.html) is an algorithm which calls itself 
-with "smaller (or simpler)" input values, and which obtains the 
-result for the current input by applying simple operations to the 
-returned value for the smaller (or simpler) input. More generally 
-if a problem can be solved utilizing solutions to smaller versions 
+A [recursive algorithm]
+(https://www.cs.odu.edu/~toida/nerzic/content/recursive_alg/rec_alg.html) 
+is an algorithm which calls itself with "smaller (or simpler)" 
+input values, and which obtains the result for the current 
+input by applying simple operations to the returned value 
+for the smaller (or simpler) input. More generally if a 
+problem can be solved utilizing solutions to smaller versions 
 of the same problem, and the smaller versions reduce to easily 
 solvable cases, then one can use a recursive algorithm to solve 
 that problem. For example, the elements of a recursively defined 
@@ -376,7 +378,7 @@ The classic example of recursive programming involves computing
 factorials. The factorial of a number is computed as that number 
 times all of the numbers below it up to and including 1. For 
 example, `factorial(5)` is the same as `5 * 4 * 3 * 2 * 1`, and 
-`factorial(3)` is `3 *2 * 1`.
+`factorial(3)` is `3 * 2 * 1`.
 
 An interesting property of a factorial is that the factorial 
 of a number is equal to the starting number multiplied by the 
@@ -500,6 +502,11 @@ an average.
 * MapReduce/Hadoop can be used to implement 
   and run distributed algorithms.
 
+* Amazon Athena
+
+* Snowflake
+
+
 
 ## Access Control List (ACL)
 In a nutshell, in computer security, an 
@@ -557,6 +564,21 @@ One of the main reasons of data partitioning
 is to process many small partitions in parallel 
 (at the same time) to reduce the overall data 
 processing time.
+
+In Apache Spark, your data can be represented 
+as an RDD, and Spark partitions (to enable 
+parallelism of data transformations) your 
+immutable RDD into chunks called partitions. 
+The Partitions are the parts of RDD that allow 
+Spark to execute in parallel on a cluster of 
+nodes. It is distributed across the node of the 
+cluster and logical division of data. In Spark, 
+all input, intermediate, and output data is 
+presented as partitions in which one task process 
+one partitions at a time. RDD is a group of partitions.
+
+
+![](./images/rdd-operation-partitioning.png)
 
 
 ## Aggregation
@@ -2260,8 +2282,22 @@ the following (key, value) pairs:
 
 
 ## What is an Example of a Combiner in MapReduce
-Consider a classic word count program in MapReduce.
-Let's Consider 3 partitions with mappers output:
+In MapReduce, a Combiner, also known as a semi-reducer, 
+is an optional class that operates by accepting the 
+inputs from the Map class and thereafter passing the 
+output key-value pairs to the Reducer class. The main 
+function of a Combiner is to summarize the map output 
+records with the same key. Combiner always works in 
+between Mapper and Reducer.
+
+
+![](./images/combiner-2-nodes.png)
+
+Consider a classic word count program in 
+MapReduce.   Let's Consider 3 partitions 
+with mappers output (assume that each 
+partition goes to a separate node):
+
 
 	Partition-1   Partition-2    Partition-3
 	===========   ===========    ===========
