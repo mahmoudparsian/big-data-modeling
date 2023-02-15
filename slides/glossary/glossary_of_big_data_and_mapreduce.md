@@ -2186,7 +2186,7 @@ where each reducer can generate any number of new
 Imagine that you have records, which describe values 
 for genes and each record is identified as:
 
-	<gene_id><,><value_1><,><value_2>
+	<gene_id><,><gene_value_1><,><gene_value_2>
 
 Sample records might be:
 
@@ -2199,7 +2199,7 @@ Suppose the goal is to find the median value for
 the smaller of the two gene values. Therefore we 
 need to produce `(key, value)` pairs such that `key` 
 is a `gene_id` and value is minimum of 
-`<value_1>` and `<value_2>`.
+`<gene_value_1>` and `<gene_value_2>`.
 
 The following pseudo-code will accomplish the mapper task:
 
@@ -2211,9 +2211,9 @@ The following pseudo-code will accomplish the mapper task:
 	   # tokenize input record
 	   tokens = value.split(",")
 	   gene_id = tokens[0]
-	   value_1 = double(tokens[1])
-	   value_2 = double(tokens[2])
-	   minimum = min(value_1, value_2)
+	   gene_value_1 = double(tokens[1])
+	   gene_value_2 = double(tokens[2])
+	   minimum = min(gene_value_1, gene_value_2)
 	   # now emit output of the mapper:
 	   emit(gene_id, minimum)
 	}
@@ -3271,6 +3271,53 @@ semi-structured data (while a DataFrame is more
 suitable to structured and semi-structured data).
 
 
+***Spark RDD has the following properties:***
+
+* Can be denoted (informal notation) by `RDD[T]`: 
+  means each element is of data type `T`
+  
+* Low-level API
+
+* Immutable	 (RDDs are read-only to avoid synchronization)
+
+* Partitioned for parallelism
+
+* Can represent billions of data points, called elements
+
+* Ideal for for unstructured and semi-structured data 
+  (but you can represent any type of data in RDD)
+
+* Action/Transformations: all computations in RDDs are 
+  actions or transformations (can apply transformations
+  such as mappers, filters, reducers, and can apply 
+  actions such as counting, saving, listing).
+  
+  RDDs offer two operation types:
+
+	1. Transformations are operations on RDDs that result in RDD creation.
+
+	2. Actions are operations that do not result in RDD creation and provide some other value.
+
+* In-memory computation. Data calculation resides in 
+  memory for faster access and fewer I/O operations
+  
+* Fault tolerance. The tracking of data creation helps 
+  recover or recreate lost data after a node failure
+  
+* Lazy evaluation
+
+* Cacheable: It holds data in persistent storage 
+  (memory/disk) so that they can be retrieved more 
+  quickly on the next request for them.
+  
+* Persistence: Option of choosing which storage will  
+  be used either in-memory or on-disk.
+  
+
+[Spark RDD Operations:](https://phoenixnap.com/kb/resilient-distributed-datasets)
+![](./images/rdd-actions-and-transformations-1.jpeg)
+
+
 ## What are Spark Mappers?
 Spark offers comprehensive mapper functions 
 for RDDs and DataFrames. Spark `map()` is a 
@@ -3697,18 +3744,47 @@ result = people.filter(people.age > 30)\
 
 ## What is an Spark DataFrame?
 Spark's DataFrame (full name as: `pyspark.sql.DataFrame`)
-is an immutable and distributed collection of data grouped
-into named columns. Once your DataFrame is created, then 
-your DataFrame can be manipulated and transformed into 
-another DataFrame by DataFrame's native API and SQL.
+is an immutable and distributed collection of data 
+grouped into named columns. Once your DataFrame is 
+created, then your DataFrame can be manipulated and 
+transformed into another DataFrame by DataFrame's 
+native API and SQL.
 
 A DataFrame can be created from Python collections, 
 relational databases, Parquet files, JSON, CSV files, 
-...). 
-
-DataFrame is more suitable to structured and 
+...). DataFrame is more suitable to structured and 
 semi-structured data (while an RDD is more 
 suitable to unstructured and semi-structured data).
+
+
+[There are many ways through which we can create an Spark DataFrame:](https://techvidvan.com/tutorials/apache-spark-sql-dataframe/)
+![](./images/ways_to_create_dataframe_in_spark.png)
+
+
+***Features of Spark DataFrames:***
+
+* Immutable (to avoid synchronization)
+
+* Partitioned (to support parallelism)
+
+* Data Formats: Support for various data formats, such as 
+  Hive, CSV, XML, JSON, RDDs, Cassandra, Parquet, etc.
+
+* Support for integration with various Big Data tools.
+
+* The ability to process mega/giga bytes of data on 
+  smaller machines and petabytes on clusters.
+
+* Catalyst optimizer for efficient data processing across 
+  multiple languages.
+
+* Structured data handling through a schematic view of data.
+
+* Custom memory management to reduce overload and improve 
+ performance compared to RDDs.
+
+* APIs for Java, R, Python, and Spark.
+
 
 
 ## Spark RDD Example
@@ -4470,7 +4546,31 @@ In computing, a database is an organized collection of data
 
 
 ## Database Management System
-Collecting, storing and providing access of data.
+Database Management System is a system 
+for collecting, storing and providing 
+access of data.
+
+A database management system (or DBMS) 
+is essentially nothing more than a 
+computerized data-keeping system. Users 
+of the system are given facilities to 
+perform several kinds of operations on 
+such a system for either manipulation
+of the data in the database or the 
+management of the database structure 
+itself.
+
+
+![](./images/dbms-in-picture.png)
+
+
+What are the different types of DBMS?
+
+* Relational database.
+* Object oriented database.
+* Hierarchical database.
+* Network database.
+
 
 
 ## Data cleansing
@@ -5035,7 +5135,7 @@ performed on textual data to help businesses monitor brand
 and product sentiment in customer feedback, and understand 
 customer needs.
 
-![](./images/fine-grained-sentiment-analysis.png)
+<img src="./images/fine-grained-sentiment-analysis.png" style="width: 70%; height: 70%"/>
 
 
 ## SQL
@@ -6385,6 +6485,10 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 47. [Go: Concurrency vs Parallelism](https://medium.com/codex/go-concurrency-vs-parallelism-c3fc9cec55c8)
 
 48. [Sentiment Analysis: Comprehensive Beginners Guide](https://getthematic.com/sentiment-analysis/)
+
+49. [What are the different types of DBMS?](https://www.tutorialspoint.com/what-are-the-different-types-of-dbms)
+
+50. [Database Management Software: Features, Types, Benefits, and Uses](https://www.astera.com/type/blog/database-management-software/)
 
 ---------------------------
 
