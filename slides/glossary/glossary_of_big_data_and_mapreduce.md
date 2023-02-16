@@ -2379,6 +2379,43 @@ computer architecture, mainly in the form of multi-core processors.
 
 MapReduce and Spark employs parallelism by data partitioning.
 
+
+## Difference between Concurrency and Parallelism?
+[What is the difference between concurrency and parallelism?](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)
+
+
+![](./images/sequential-concurrency-parallelism.png)
+
+***Concurrency*** is when two or more tasks can start, run, 
+and complete in overlapping time periods. It doesn't 
+necessarily mean they'll ever both be running at the 
+same instant. For example, multitasking on a single-core 
+machine.
+
+***Parallelism*** is when tasks literally run at the same time, 
+e.g., on a multicore processor.
+
+![](./images/concurrency_vs_parallelism.jpg)
+
+Quoting Sun's Multithreaded Programming Guide:
+
+**Concurrency**: A condition that exists when at least 
+two threads are making progress. A more generalized 
+form of parallelism that can include time-slicing as 
+a form of virtual parallelism.
+
+**Parallelism**: A condition that arises when at least 
+two threads are executing simultaneously.
+
+![](./images/sequential-concurrency-parallelism-2.png)
+
+
+![](./images/concurrent_and_parallel_2.png)
+
+### Concurrent Parallelism
+![](./images/concurrent_parallelism_3.png)
+
+
 ## How does MapReduce work?
 A MapReduce system (an implementation of MapReduce mpdel) is 
 usually composed of three steps (even though it's generalized 
@@ -6489,6 +6526,11 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 49. [What are the different types of DBMS?](https://www.tutorialspoint.com/what-are-the-different-types-of-dbms)
 
 50. [Database Management Software: Features, Types, Benefits, and Uses](https://www.astera.com/type/blog/database-management-software/)
+
+51. [Concurrency and parallelism in Java](https://medium.com/@peterlee2068/concurrency-and-parallelism-in-java-f625bc9b0ca4)
+
+52. [Scale Up Your Code With Java Concurrency](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/5684028-identify-the-advantages-of-concurrency-and-parallelism)
+
 
 ---------------------------
 
