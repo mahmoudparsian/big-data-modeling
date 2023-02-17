@@ -15,7 +15,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/14/2023
+* Last updated date: 2/17/2023
 
 <table>
 <tr>
@@ -63,7 +63,7 @@ technologies:
 * Engine for large-scale data analytics 
   (such as Spark)
 * ETL processes to analyze prepare data 
-  for Query engine
+  for Query engine 
 * Relational database systems
 * Query engines such as Amazon Athena, 
   Google BigQuery, Snowflake
@@ -71,7 +71,7 @@ technologies:
 
 The purpose of this glossary is to shed some 
 light on the fundamental definitions of big 
-data and MapReduce, and Spark. This document 
+data, MapReduce, and Spark. This document 
 is a list of terms, words, concepts, and
 examples found in or relating to big data, 
 MapReduce, and Spark.
@@ -134,45 +134,52 @@ basic properties:
     
 ## List of Algorithms
 
-* **Simple Algorithms (partial list):**
-	* Sum of list of numbers 
-	* Average of list of numbers
-	* Median of list of numbers 
-	* Minimum and Maximum of list of numbers
-	* Cartesian product of two sets
-	* Given a list of numbers, find (number-of-zeros, 
+#### Simple Algorithms (partial list):
+
+* Sum of list of numbers 
+* Average of list of numbers
+* Median of list of numbers 
+* Finding the standard deviation for a set of numbers
+* Mode of list of numbers: the most frequent number-that 
+ is, the number that occurs the highest number of times. 
+* Minimum and Maximum of list of numbers
+* Cartesian product of two sets
+* Given a list of numbers, find (number-of-zeros, 
 	  number-of-negatives, number-of-positives)
-	* Word Count: given a set of text documents, 
+* Word Count: given a set of text documents, 
 	  find frequency of every unique word in 
 	  these documents
-	* Given a set of integer numbers, identify 
+* Given a set of integer numbers, identify 
 	  prime and non-prime numbers
- 	* Anagrams Count: given a set of text documents, 
+* Anagrams Count: given a set of text documents, 
 	  find frequency of every unique anagram in 
 	  these documents
-	* Given users, movies, and ratings (1 to 5), what 
+* Given users, movies, and ratings (1 to 5), what 
 	  are the Top-10 movies rated higher than 2.
+* DNA base count for FASTA and FASTQ files
 
-* **Famous Algorithms (partial list):**
-	* Tree algorithms
-	* Suffix Tree Algorithms
-	* Red–Black tree	algorithms
-	* Dijkstra's Algorithm.
-	* Merge Sort. 
-	* Quicksort.
-	* Depth First Search. 
-	* Breadth-First Search.
-	* Linear Search
-	* Binary Search. 
-	* Minimum Spanning Tree Algorithms.
-	* Bloom Filter
-	* All-Pairs Shortest Paths – Floyd Warshall Algorithm
-	* Kmers for DNA sequences
-	* Huffman Coding Compression Algorithm
-	* Bioinformatics Algorithms
-	* The Knuth-Morris-Pratt algorithm
-	* Connected Components
-	* Finding Unique Triangles in a graph
+
+#### Famous Algorithms (partial list):
+* T-Test algorithm
+* Tree traversal algorithms
+* Suffix Tree Algorithms
+* Red–Black tree	algorithms
+* Dijkstra's Algorithm
+* Merge Sort
+* Quicksort
+* Depth First Search
+* Breadth-First Search
+* Linear Search
+* Binary Search
+* Minimum Spanning Tree Algorithms
+* Bloom Filter
+* All-Pairs Shortest Paths – Floyd Warshall Algorithm
+* Kmers for DNA sequences
+* Huffman Coding Compression Algorithm
+* Bioinformatics Algorithms
+* The Knuth-Morris-Pratt algorithm
+* Connected Components
+* Finding Unique Triangles in a graph
 	
 	
 
@@ -226,7 +233,10 @@ in Python. In this algorithm, we use the
 `divmod(arg_1, arg_2)` built-in function which 
 returns a tuple containing the **quotient** and 
 the **remainder** when `arg_1` (dividend) is divided 
-by `arg_2` (divisor).
+by `arg_2` (divisor). We are using Greedy algorithm,
+which finds the optimal solution: first find the 
+number of quarters (x 25), then dimes (x 10), finally
+the number of nickles (x 5) and pennies (x 1). 
 
 
 ~~~python
@@ -510,6 +520,8 @@ an average.
 
 * Amazon Athena
 
+* Google BigQuery
+
 * Snowflake
 
 
@@ -623,12 +635,16 @@ analysis and reporting.
 
 
 ## Analytics 
+
 * The discovery of insights in data, find 
   interesting patterns in data
 * For example, given a graph, find (identify) 
   all of the triangles
 * For example, given a DNA data, find genes, 
   which are assocaited with each other
+* For example, given a DNA data, find 
+  rare variants
+
 
 What is Data Analytics? Data analytics helps 
 individuals and organizations make sense of 
@@ -732,12 +748,15 @@ The data analysis process consists of 5 key stages.
   comes up with courses of action based on the findings. 
 
 
+[7 Fundamental Steps to Complete a Data Analytics Project:](https://blog.dataiku.com/2019/07/04/fundamental-steps-data-project-success)
+
+![](./images/7_Fundamental_Steps_to_Complete_a_Data_Analytics.png)
 
 
 ## Data Lake
-A data lake is a centralized repository that allows 
-you to store all your structured and unstructured 
-data at any scale.
+A data lake is a centralized repository that 
+allows you to store all your structured and 
+unstructured data at any scale.
 
 ![](./images/data_lake.png)
 
@@ -762,9 +781,9 @@ Data Science is the field of applying advanced
 analytics techniques and scientific principles 
 to extract valuable information from data. Data 
 science typically involves the use of statistics, 
-data visualization and mining, computer programming, 
-machine learning and database engineering to solve 
-complex problems.
+data   visualization   and   mining,   computer 
+programming, machine learning and database 
+engineering to solve complex problems.
 
 Data science is the methodology for the synthesis 
 of useful knowledge directly from data through a 
@@ -827,10 +846,13 @@ of five fundamental steps:
 
 
 ## Anonymization 
+
 * Making data anonymous; removing all data points that could 
   lead to identify a person 
+  
 * For example, replacing social security numbers with fake 
   18 digit numbers
+  
 * For example, replacing patient name with fake ID.
 
 
@@ -1034,18 +1056,23 @@ modeling.
 
 In a practical sense, Big Data Modeling involves:
 
-* **Queries**: understand queries and algorithms, which 
-  needs to be implemented using big data
+* **Queries**: understand queries and algorithms, 
+  which needs to be implemented using big data
+  
 * **Formalizing Queries**: understaning queries for big data 
   (how big data will be accessed, what are the parameters to 
   these queries): this is a very important step to understand 
   queries before designing proper data model
+  
 * **Data Model**: once queries are understood, then design a 
   data model, which optimally satisfies queries
+  
 * **Data Analytics Engine**: engine which distributed algorithms 
   and ETL will run; for example: Apache Spark
+  
 * **ETL Processes**: design and implement ETL processes to 
   build big data in a suitable format and environment
+  
 * **Scalability**: scalability needs to be understood and 
   addressed at every level
 
@@ -1163,6 +1190,7 @@ The following are common **Data Design Patterns**:
 * Meta patterns
 * Input/Output patterns
 
+
 The data design patterns can be implemented by 
 MapReduce and Spark and other big data solutions.
 
@@ -1204,6 +1232,7 @@ types:
 * **Primitive Data Type**: <br/>
   These are the readymade/built-in data type 
   that comes as a part of language compiler.
+  
 * **Composite Data Type**: <br/>
   These are the data types designed by the 
   user as per requirements. These data types 
@@ -1386,8 +1415,8 @@ at the top):
 	
 ### Example: **Queue as an Abstract Data Type**
 For example, operations for a Queue (First-In-First-Out 
--- FIFO)  as an abstract data type can be specified as the 
-following.  Note that a Queue can be implemented in 
+-- FIFO)  as an abstract data type can be specified as 
+the following.  Note that a Queue can be implemented in 
 many ways (using lists, arrays, linked lists, ...).
 Queue is an abstract data structure, somewhat similar 
 to Stacks. Unlike stacks, a queue is open at both its 
@@ -1482,17 +1511,21 @@ job’s progress, among other things.
 Hadoop architecture:
 ![](./images/hadoop-architecture.png)
 
-`NameNode` is the master node in the Apache Hadoop 
-HDFS Architecture that maintains and manages the 
-blocks present on the DataNodes (worker nodes). 
-NameNode is a very highly available server that 
-manages the File System Namespace and controls 
-access to files by clients.
+`NameNode` is the master node in the Apache 
+Hadoop HDFS Architecture that maintains and 
+manages the blocks present on the DataNodes 
+(worker nodes). NameNode is a very highly 
+available server that manages the File System 
+Namespace and controls access to files by 
+clients.
 
 Hadoop provides:
 
-* MapReduce: you can run MapReduce jobs by implementing
+* MapReduce: you can run MapReduce 
+  jobs by implementing a series of 
   `map() first, then reduce()` functions.
+  With MapReduce, you can analyze data 
+  at a scale.
   
 * HDFS: Hadoop Distributed File System
 
@@ -1650,7 +1683,13 @@ Data comes in many varied formats:
 
 * JDBC (read/write from/to relational tables)
 
-* ...
+* DNA Data Foramts:
+	* FASTQ
+	* FASTA
+	* VCF
+	* ...
+
+* +more... 
 
 
 
@@ -1758,7 +1797,7 @@ NoSQL database service for large analytical and operational
 workloads as part of the Google Cloud portfolio.
 
 
-## HDFS
+## Hadoop Distributed File System - HDFS
 [HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) (Hadoop Distributed File System) 
 is a distributed file system designed to run on 
 commodity hardware. You can place huge amount of 
@@ -1787,6 +1826,7 @@ not edit/update files in place.
 
 		hdfs://localhost:8020/data/2023-01-07/samples.txt
 
+
 ## Scalability
 Scalability is the ability of a system or process to maintain 
 acceptable performance levels as workload or scope increases.
@@ -1812,18 +1852,19 @@ handled.
 
 
 ## Amazon S3
-Amazon Simple Storage Service (Amazon S3) is an 
-object storage service that offers industry-leading 
-scalability, data availability, security, and 
-performance. Customers of all sizes and industries 
-can use Amazon S3 to store and protect any amount 
-of data for a range of use cases, such as data 
-lakes, websites, mobile applications, backup 
-and restore, archive, enterprise applications, 
-IoT devices, and big data analytics. Amazon S3 
-provides management features so that you can 
-optimize, organize, and configure access to 
-your data to meet your specific business, 
+Amazon Simple Storage Service (Amazon S3) 
+is an object storage service that offers 
+industry-leading scalability, data availability, 
+security, and performance. Customers of all 
+sizes and industries can use Amazon S3 to 
+store and protect any amount of data for 
+a range of use cases, such as data lakes, 
+websites, mobile applications, backup and 
+restore, archive, enterprise applications, 
+IoT devices, and big data analytics. Amazon 
+S3 provides management features so that you 
+can optimize, organize, and configure access 
+to your data to meet your specific business, 
 organizational, and compliance requirements.
 
 
@@ -1921,16 +1962,17 @@ standard SQL.
 
 
 ## Commodity server/hardware
-Commodity hardware (computer), sometimes known 
-as off-the-shelf server/hardware, is a computer 
-device or IT component that is relatively inexpensive, 
-widely available and basically interchangeable with 
-other hardware of its type. Since commodity hardware 
-is not expensive, it is used in building/creating
-clusters  for  big  data  computing (scale-out 
-architecture).  Commodity hardware is often 
-deployed for high availability and disaster 
-recovery purposes.
+Commodity hardware (computer), sometimes 
+known as off-the-shelf server/hardware, 
+is a computer device or IT component that 
+is relatively inexpensive, widely available 
+and basically interchangeable with other 
+hardware of its type. Since commodity 
+hardware is not expensive, it is used in 
+building/creating clusters  for  big  data  
+computing (scale-out architecture).  Commodity 
+hardware is often deployed for high availability 
+and disaster recovery purposes.
 
 
 ## Fault Tolerance and Data Replication. 
@@ -1946,8 +1988,8 @@ same size. The blocks of a file are replicated
 for fault tolerance.
 
 Block size can be configured. For example, let 
-block size to be 512MB. Now, let's place a file 
-(sample.txt) of 1800MB in HDFS:
+block size to be 512 MB. Now, let's place a file 
+(sample.txt) of 1800 MB in HDFS:
 
 	1800MB = 512MB (Block-1) + 512MB (Block-2) + 512MB (Block-3) + 264MB (Block-4)
 	Lets denote 
@@ -1956,11 +1998,13 @@ block size to be 512MB. Now, let's place a file
 	           Block-3 by B3
 	           Block-4 by B4
 
-Note that the last block has only 264MB of useful data.
+Note that the last block, Block-4, has only 
+264 MB of useful data.
 
-Let's say, we have a cluster of 6 nodes (one master and 5 
-worker nodes {W1, W2, W3, W4, W5} and master does not store 
-any data), also assume that the replication factor is 2, 
+Let's say, we have a cluster of 6 nodes (one 
+master and 5 worker nodes {W1, W2, W3, W4, W5} 
+and master does not store any actual data), 
+also assume that the replication factor is 2, 
 therefore, blocks will be placed as:
 
 		W1: B1, B4
@@ -1969,24 +2013,37 @@ therefore, blocks will be placed as:
 		W4: B4 
 		W5: B2
 
-Fault Tolerance: if replication factor is `N`, then `(N-1)` 
-nodes can safely fail without a job fails.
+Fault Tolerance: if replication factor is `N`, 
+then `(N-1)` nodes can safely fail without a 
+job fails.
 
 
 ## High-Performance-Computing (HPC)
-Using supercomputers to solve highly complex and 
-advanced computing problems. This is a scale-up 
-architecture and not a scale-out architecture.
+Using supercomputers to solve highly complex 
+and advanced computing problems. This is a 
+scale-up architecture and not a scale-out 
+architecture.  High-performance computing 
+(HPC) uses supercomputers and computer 
+clusters to solve advanced computation 
+problems. HPC has a high cost due to the 
+high cost of supercomputers.
 
-Hadoop and Spark use scale-out architectures.
+**Scaling up** is adding further resources, 
+like hard drives and memory, to increase the 
+computing capacity of physical servers. Whereas 
+**scaling out** is adding more servers to your 
+architecture to spread the workload across 
+more server/machines.
+
+Hadoop and Spark use **scale-out** architectures.
 
 
 ## History of MapReduce
 MapReduce was developed by Google back in 2004 by 
 Jeffery Dean and Sanjay Ghemawat of Google (Dean & 
-Ghemawat, 2004). In their paper,  “MAPREDUCE: 
-SIMPLIFIED DATA PROCESSING ON LARGE CLUSTERS,” and 
-was inspired by the `map()` and `reduce()` functions 
+Ghemawat, 2004). In their paper, [MAPREDUCE: SIMPLIFIED DATA PROCESSING ON LARGE 
+CLUSTERS](https://www.alexdelis.eu/M125/Papers/p107-dean.pdf) 
+and was inspired by the `map()` and `reduce()` functions 
 commonly used in functional programming. At that 
 time, Google’s proprietary MapReduce system ran on 
 the Google File System (GFS). Apache Hadoop is an 
@@ -1994,6 +2051,16 @@ open-source implementation of Google's MapReduce.
 
 
 ## MapReduce 
+Motivation: Large Scale Data Processing
+
+Many tasks: Process lots of data to produce other data
+
+Want to use hundreds or thousands of servers
+
+... but this needs to be easy
+
+
+
 Mapreduce is a software framework for processing 
 vast amounts of data. MapReduce is a parallel 
 programming model for processing data on a distributed 
@@ -2002,10 +2069,37 @@ associated implementation for processing and generating
 big data sets with a parallel, distributed algorithm 
 on a cluster.
 
+MapReduce provides:
+
+* Automatic parallelization and distribution
+* Fault-tolerance
+* I/O scheduling
+* Status and monitoring
+
 ![](./images/mapreduce_framework_01.jpeg)
 
-In a nutshell, MapReduce provides 3  functions to 
-analyze huge amounts of data:
+### MapReduce's Programming model
+
+* Input & Output: each a set of (key, value) pairs
+
+* Programmer specifies two functions:
+
+* ***map()*** function:
+
+		map (in_key, in_value) -> list(out_key, intermediate_value)
+		# Processes input (in_key, in_value) pair
+		# Produces set of intermediate pairs
+		
+* ***reduce()*** function:
+
+		reduce (out_key, list(intermediate_value)) -> list(out_value)
+		# Combines all intermediate values for a particular key
+		# Produces a set of merged output values 
+		# Inspired by similar primitives in LISP and other languages
+
+
+In a nutshell, MapReduce provides 3 functions (provided
+by a programmer) to analyze huge amounts of data:
 
 * `map()` provided by programmer: process the records of the data set:
 
@@ -2069,7 +2163,7 @@ Options for MapReduce implementation:
 
 ## MapReduce Terminology
 
-* Job - A "full MapReduce program" - an execution 
+* **Job** - A "full MapReduce program" - an execution 
   of a Mapper (as `map()`) and Reducer (as `reduce()`) 
   across an input data set; for example, running 
   "Word Count" across 60 input files is one job. A 
@@ -2080,10 +2174,10 @@ Options for MapReduce implementation:
 	* Mapper function definition
 	* Reducer function definition
 
-* Task – An execution of a Mapper or a Reducer on  
+* **Task** – An execution of a Mapper or a Reducer on 
   a slice of data a.k.a. Task-In-Progress (TIP)
- 
-* Task Attempt – A particular instance of an
+  
+* **Task Attempt** – A particular instance of an
 attempt to execute a task on a machine
 
 
@@ -2235,9 +2329,10 @@ Then output of mappers will be:
 	(INS, 1.0)
 	(INSR, 0.7)
 	
-Note that, for the preceding mappers output, the Sort & Shuffle
-phase will produce the follwong (key, values) pairs to be 
-consumed ny the reducers.
+Note that, for the preceding mappers output, 
+the Sort & Shuffle phase will produce the 
+follwong `(key, values)` pairs to be consumed 
+by the reducers.
 
 
 	(INS, [1.3, 1.1, 1.0])
@@ -2334,12 +2429,14 @@ and they reduce network traffic by combining many values
 into a single value.
 
 ## Partition
-Data can be partitioned into smaller logical units. 
-These units are called partitions. In big data, partitions
-are used as a unit of parallelisim.
+Data can be partitioned into smaller logical 
+units. These units are called partitions. In 
+big data, partitions are used as a unit of 
+parallelisim.
 
-For example, in a nutshell, Apache spark partitions your 
-data and then each partition is executed by an executor.
+For example, in a nutshell, Apache spark 
+partitions your data and then each partition 
+is executed by an executor.
 
 For example, given a data size of `80,000,000,000` 
 records, this data can be partitioned into `80,000` 
@@ -2351,12 +2448,13 @@ this example is `80,000`. If the cluster does not
 have `80,000` points of parallelism, then some of 
 the partitions will be queued for parallelism.
 
-In MapReduce, input is partitioned and then passed 
-to mappers (so that the mappers can be run in parallel).
+In MapReduce, input is partitioned and then 
+passed to mappers (so that the mappers can 
+be run in parallel).
 
-In Apache Spark, a programmer can control the partitioning 
-data (by using `coalesce()`, ...) and hence controlling 
-paralleism.
+In Apache Spark, a programmer can control the 
+partitioning data (by using `coalesce()`, ...) 
+and hence controlling paralleism.
 
 Spark examples:
 
@@ -2378,6 +2476,8 @@ task parallelism. Parallelism has long been employed in high-performance computi
 computer architecture, mainly in the form of multi-core processors.
 
 MapReduce and Spark employs parallelism by data partitioning.
+Based on available resources, partitions are executed independently
+and in parallel.
 
 
 ## Difference between Concurrency and Parallelism?
@@ -2447,6 +2547,7 @@ Sort & Shuffle output (note that mappers have created `N`
 unique keys -- such as K2):
 
 		(key_1, [V_1_1, V_1_2, ...])
+		(key_2, [V_2_1, V_2_2, ...])
 		...
 		(key_N, [V_N_1, V_N_2, ...])
 
@@ -2466,7 +2567,8 @@ Of course, you can customize your mapper
 
 * Mapper function
 
-		# key: partition number, record number, offset in input file, ignored.
+		# key: partition number, record number, offset in input file, 
+		# the key is ignored in this example.
 		# value: an actual input record
 		map(key, value) {
 		  words = value.split(" ")
@@ -2481,7 +2583,8 @@ words (called filtering) with less than 3 characters:
 
 * Mapper function with Filter
 
-		# key: partition number, record number, offset in input file, ignored.
+		# key: partition number, record number, offset in input file,
+		# the key is ignored in this example.
 		# value: an actual input record
 		map(key, value) {
 		  words = value.split(" ")
@@ -2517,7 +2620,7 @@ words (called filtering) with less than 3 characters:
 		
 Of course, you can customize your reducer to exclude 
 words (called filtering) where its final frequency is 
-less than 10.
+less than `10`.
 
 * Reducer function (short version), with Filter
 
@@ -6531,6 +6634,8 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 52. [Scale Up Your Code With Java Concurrency](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/5684028-identify-the-advantages-of-concurrency-and-parallelism)
 
+
+53. [7 Fundamental Steps to Complete a Data Analytics Project](https://blog.dataiku.com/2019/07/04/fundamental-steps-data-project-success)
 
 ---------------------------
 
