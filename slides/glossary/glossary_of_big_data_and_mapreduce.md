@@ -15,7 +15,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/17/2023
+* Last updated date: 2/18/2023
 
 <table>
 <tr>
@@ -3724,15 +3724,96 @@ steps:1. Define a set of transformations on the input data set.
    
 
 ## What is Lazy Binding In Spark?
-Lazy binding/evaluation in Spark means that the execution 
-of **transformations** will not start until an **action** 
-is triggered. 
+Lazy binding/evaluation in Spark means that the 
+execution of **transformations** will not start 
+until an **action**  is triggered. 
 
-In programming language theory, lazy evaluation, or 
-call-by-need, is an evaluation strategy which delays 
-the evaluation of an expression until its value is 
-needed (non-strict evaluation) and which also avoids 
-repeated evaluations (sharing).
+In programming language theory, lazy evaluation, 
+or call-by-need, is an evaluation strategy which 
+delays the evaluation of an expression until its 
+value is needed (non-strict evaluation) and which 
+also avoids repeated evaluations (sharing).
+
+Spark consists of TRANSFORMATIONS and ACTIONS. 
+Lazy Evaluation in Sparks means Spark will not 
+start the execution of the process until an ACTION 
+is called. Until we are doing only transformations 
+on the dataframe/RDD, Spark is the least concerned. 
+Once Spark sees an ACTION being called, it starts 
+looking at all the transformations and creates a 
+DAG. DAG is simply sequence of operations that need 
+to be performed in a process to get the resultant 
+output.
+
+For example, consider the following 4 Spark 
+transformations, followed by an ACTION:
+
+~~~python
+# sc : SparkContext
+	
+# transformation t1
+rdd = sc.parallelize(range(0, 100000000), 40)
+	
+# transformations t2
+rdd2 = rdd.map(lambda x : x+20)
+	
+# transformations t3
+rdd3 = rdd.map(lambda x : x-5)
+	
+# transformations t4
+rdd4 = rdd3.filter(lambda x: (x % 5) == 0)
+	
+# ACTION
+num_of_elements = rdd4.count()
+~~~
+
+
+When ACTION is triggered, Spark will optimize
+all of the transformations `{ t1, t2, t3, t4 }` 
+before finding the `num_of_elmenets`. This is 
+called Lazy binding.
+
+For details see [Explain Spark Lazy Evaluation in Detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8).
+
+
+#### Spark Transformations, Actions, and DAG
+
+~~~python
+def create_key_value(x):
+  y = int(x)
+  return (y, y * y)
+#end-def
+
+def partition_handler(partition):
+  result = []
+  # e as (k,(v1,v2))
+  for e in partition:
+    result.append((e[0], e[1][0]+e[1][1]))
+  #end-for
+  return result
+#end-def
+
+# sc : SparkContext
+rdd  = sc.textFile("/data/input7")
+         .map(create_key_value)
+rdd2 = sc.parallelize(range(0, 100000))
+         .map(lambda x : (x, x * x +1))
+joined = rdd.join(rdd2)
+mapped = joined.mapPartitions(partition_handler)
+final_rdd = mapped.filter(lambda x:  (x[1] % 10) == 0)
+final_rdd.saveAsTextFile("/data/output7")
+~~~
+
+#### DAG visualization:
+
+![](./images/spark_dag_example_02.png)
+
+Stage 0 and Stage 1 executes in parallel to each 
+other as they are not inter-dependent.
+
+Stage 2 (join operation) depends on stage 0 and stage 1 
+so it will be executed after executing both the stages.
+
 
 
 ## Difference between  `reduceByKey()` and `combineByKey()`
@@ -6757,8 +6838,9 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 52. [Scale Up Your Code With Java Concurrency](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/5684028-identify-the-advantages-of-concurrency-and-parallelism)
 
-
 53. [7 Fundamental Steps to Complete a Data Analytics Project](https://blog.dataiku.com/2019/07/04/fundamental-steps-data-project-success)
+
+54. [Explain Spark Lazy evaluation in detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8)
 
 ---------------------------
 
