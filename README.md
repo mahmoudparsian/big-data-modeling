@@ -52,17 +52,15 @@
 
 ## 9.  [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
-## 10. [Office Hours](./web_docs/office_hours.md)
+## 10. [Python Tutorials](./web_docs/python_tutorials.md)
 
-## 11. [Midterm Exam](./web_docs/midterm_exam.md)
+## 11. [Office Hours](./web_docs/office_hours.md)
 
-## 12. [Final Exam](./web_docs/final_exam.md)
+## 12. [Midterm Exam](./web_docs/midterm_exam.md)
 
+## 13. [Final Exam](./web_docs/final_exam.md)
 
-
----------------------------
-
-## Mahmoud Parsian's Latest Books: 
+## 14. Mahmoud Parsian's Latest Books: 
 
 -------
 
