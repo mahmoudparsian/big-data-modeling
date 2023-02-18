@@ -595,6 +595,22 @@ all input, intermediate, and output data is
 presented as partitions in which one task process 
 one partitions at a time. RDD is a group of partitions.
 
+In the following figure, the Spark RDD has 
+`8` elements as `{1, 3, 5, 7, 9, 11, 13, 15}` 
+and has `4` partitions as:
+
+* `RDD = { Partition-1, Partition-2, Partition-3, Partition-4 }`
+* `Partition-1`: `{ 1, 3 }`
+* `Partition-2`: `{ 5, 7 }`
+* `Partition-3`: `{ 9, 11 }`
+* `Partition-4`: `{ 13, 15 }`
+
+The main purpose of partitions is to 
+enable independent and parallel execution 
+of transformations (such as mappers, 
+filters, and reducers). Partitions can 
+be executed on different servers/nodes.
+
 
 ![](./images/rdd-operation-partitioning.png)
 
@@ -1768,10 +1784,15 @@ Apache Hadoop YARN.
 
 ## Apache HBase 
 
-[Apache HBase](https://hbase.apache.org) is an 
-open source, non-relational, distributed database 
-running in conjunction with Hadoop.  HBase can 
-support billions of data points.
+* [Apache HBase](https://hbase.apache.org) is 
+  an open source, non-relational, distributed 
+  database running in conjunction with Hadoop.  
+
+* HBase is a column-oriented non-relational 
+  database management system that runs on top 
+  of Hadoop Distributed File System (HDFS).
+
+* HBase can support billions of data points.
 
 **Features of HBase:**
 
@@ -1787,14 +1808,15 @@ support billions of data points.
 ## Google Bigtable
 According to Google: 
 [Google Bigtable](https://cloud.google.com/bigtable) 
-is an HBase-compatible, enterprise-grade NoSQL database 
-service with single-digit millisecond latency, limitless 
-scale, and 99.999% availability for large analytical 
-and operational workloads.
+is an HBase-compatible, enterprise-grade NoSQL 
+database service with single-digit millisecond 
+latency, limitless scale, and 99.999% availability 
+for large analytical and operational workloads.
 
-Bigtable is a fully managed wide-column and key-value 
-NoSQL database service for large analytical and operational 
-workloads as part of the Google Cloud portfolio.
+Bigtable is a fully managed wide-column and 
+key-value NoSQL database service for large 
+analytical and operational workloads as part 
+of the Google Cloud portfolio.
 
 
 ## Hadoop Distributed File System - HDFS
@@ -1881,14 +1903,23 @@ Amazon S3. Objects are stored as:
 
 
 ## Amazon Athena
+What is Amazon Athena? Amazon Athena is a service 
+that enables data analysts to perform interactive 
+queries using SQL, JDBC, and native API.
 The Amazon Athena is widely used and is defined 
 as an interactive query service that makes it 
 easy to analyze data in Amazon S3 using the 
 standard SQL. 
 
+![](./images/Athena-Federation-1.png)
+
 * Amazon Athena is serverless, so there is no 
   infrastructure to manage, and users pay only 
   for the queries that they run. 
+	* No cluster set up is required
+	* No cluster management is required
+	* No database server setup is required
+  
   
 * Amazon Athena is easy to use and simply point 
   to users' data in Amazon S3, define the schema, 
@@ -1923,6 +1954,10 @@ standard SQL.
 
 
 ## Google BigQuery
+
+
+![](./images/Google-BigQuery-01.png)
+
 
 * BigQuery is a serverless and cost-effective 
   enterprise data warehouse. 
@@ -2041,23 +2076,31 @@ Hadoop and Spark use **scale-out** architectures.
 ## History of MapReduce
 MapReduce was developed by Google back in 2004 by 
 Jeffery Dean and Sanjay Ghemawat of Google (Dean & 
-Ghemawat, 2004). In their paper, [MAPREDUCE: SIMPLIFIED DATA PROCESSING ON LARGE 
-CLUSTERS](https://www.alexdelis.eu/M125/Papers/p107-dean.pdf) 
-and was inspired by the `map()` and `reduce()` functions 
-commonly used in functional programming. At that 
-time, Google’s proprietary MapReduce system ran on 
-the Google File System (GFS). Apache Hadoop is an 
-open-source implementation of Google's MapReduce.
+Ghemawat, 2004). In their paper, [MAPREDUCE: 
+SIMPLIFIED DATA PROCESSING ON LARGE CLUSTERS]
+(https://www.alexdelis.eu/M125/Papers/p107-dean.pdf) 
+and was inspired by the `map()` and `reduce()` 
+functions commonly used in functional programming. 
+At that time, Google’s proprietary MapReduce system 
+ran on the Google File System (GFS). Apache Hadoop 
+is an open-source implementation of Google's MapReduce.
 
 
 ## MapReduce 
-Motivation: Large Scale Data Processing
 
-Many tasks: Process lots of data to produce other data
+* Motivation: Large Scale Data Processing
 
-Want to use hundreds or thousands of servers
+* Scale-out Architecture: use many commodity 
+  servers in cluster computing environment
 
-... but this needs to be easy
+* Many tasks: Process lots of data in parallel 
+  (using cluster computing) to produce other 
+  needed data
+
+* Want to use hundreds or thousands of servers 
+  to minimize analytics time
+
+* ... but this needs to be easy
 
 
 
@@ -2080,7 +2123,7 @@ MapReduce provides:
 
 ### MapReduce's Programming model
 
-* Input & Output: each a set of (key, value) pairs
+* Input & Output: each a set of `(key, value)` pairs
 
 * Programmer specifies two functions:
 
@@ -2136,22 +2179,25 @@ mappers, combiners, and reducers in MapReduce paradigm.
 The genie/magic/power of MapReduce is a Sort & 
 Shuffle phase (provided by MapReduce implementation), 
 which groups keys generated by all mappers. For 
-example, if all mappers have created the following 
-`(key, value)` pairs:
+example, if all mappers (from all servers) have 
+created the following  `(key, value)` pairs:
 
 	(C, 4), (C, 5), 
 	(A, 2), (A, 3), 
-	(B, 1), (B, 2), (B, 3), (B, 1), 
-	(D, 7)
+	(B, 1), (B, 2), (B, 3), (B, 1), (B, 0), (B, 5)
+	(D, 7), (D, 8), (D, 8)
+	(E, 9)
 	
 then Sort & Shuffle phase creates the following 
 `(key, value)` pairs (not in any particular order) 
-to be consumed by reducers:
+to be consumed by reducers: Note that the keys 
+`{ A, B, C, D, E }` are unique:
 
 	(A, [2, 3])
-	(B, [1, 2, 3, 1])
+	(B, [1, 2, 3, 1, 0, 5])
 	(C, [4, 5])
-	(D, [7])
+	(D, [7, 8, 8])
+	(E, [9])
 
 Options for MapReduce implementation:
 
@@ -2169,8 +2215,8 @@ Options for MapReduce implementation:
   "Word Count" across 60 input files is one job. A 
   MapReduce job must identify the following:
 
-	* Input Path
-	* Output Path
+	* Input Path (identifies input files)
+	* Output Path (identifies output directory)
 	* Mapper function definition
 	* Reducer function definition
 
@@ -2212,24 +2258,29 @@ for processing.
 
 ### _MapReduce Task_:
 
-The __MapReduce Task__ is mainly divided into 3 phases 
-i.e. Map phase, Sort & Shuffle pahse and Reduce phase.
+The __MapReduce Task__ is mainly divided into 3 
+phases i.e. 1) Map phase, 2) Sort & Shuffle phase,
+and 3) Reduce phase.
 
-* **Map**: As the name suggests its main use is to map 
-the input data in (key, value) pairs. The input to the 
-map may be a (key, value) pair where the key can be the 
-id of some kind of address (mostly ignored by the mapper) 
-and value is the actual value (a single record of input) 
-that it keeps. The `map()` function will be executed in 
-its memory repository on each of these input (key, value) 
-pairs and generates the intermediate (key2, value2) pairs. 
-The `map()` is provided by a programmer.
+* **Map**: As the name suggests its main use is 
+  to map the input data in (key, value) pairs. 
+  The input to the map may be a (key, value) pair 
+  where the key can be the id of some kind of 
+  address (mostly ignored by the mapper) and 
+  value is the actual value (a single record of 
+  input) that it keeps. The `map()` function 
+  will be executed in its memory repository on 
+  each of these input (key, value) pairs and 
+  generates the intermediate `(key2, value2)` 
+  pairs.  The `map()` is provided by a 
+  programmer.
 
-* **Sort & Shuffle**: The input to this pahse is the 
-output of all mappers as (key2, value2) pairs. The main 
-function of Sort & Shuffle phase is to group the keys 
-(key2 as output of mappers) by their associated values: 
-therefore, Sort & Shuffle will create a set of:
+* **Sort & Shuffle**: The input to this pahse 
+  is the output of all mappers as `(key2, value2)` 
+  pairs. The main function of Sort & Shuffle 
+  phase is to group the keys (`key2` as output 
+  of mappers) by their associated values: 
+  therefore, Sort & Shuffle will create a set of:
 
 		(key2, [v1, v2, v3, ...])
 
@@ -2248,21 +2299,21 @@ pairs (with  3 distinct keys as `{A, B, C}`:
 		(B, 4), (B, 5), (B, 6), (B, 7)
 		(C, 8)
 		
-Then **Sort & Shuffle** phase will produce the 
-following output (which will be sent as input 
-to the reducers -- note the values are not 
-sorted in any order at all):
+Then **Sort & Shuffle** phase will produce 
+the following output (which will be sent 
+as input to the reducers -- note the values 
+are not sorted in any order at all):
 
 		(A, [2, 3])
 		(C, [8])
 		(B, [7, 4, 5, 6])
 
-* **Reduce**: The intermediate (key, value) pairs 
-that work as input for Reducer are shuffled and 
-sort and send to the  `reduce()` function. Reducer 
-aggregate or group the data based on its `(key, value)` 
-pair as per the reducer algorithm written by the 
-developer.
+* **Reduce**: The intermediate (key, value) 
+  pairs that work as input for Reducer are 
+  shuffled and sort and send to the  `reduce()` 
+  function. Reducer aggregate or group the data 
+  based on its `(key, value)` pair as per the 
+  reducer algorithm written by the developer.
 
 For the example, listed above, 3 reducers will be 
 executed (in parallel):
@@ -2289,10 +2340,10 @@ Sample records might be:
 	INSR,1.7,1.2
 
 	
-Suppose the goal is to find the median value for 
-the smaller of the two gene values. Therefore we 
-need to produce `(key, value)` pairs such that `key` 
-is a `gene_id` and value is minimum of 
+Suppose the goal is to find the median value 
+for the smaller of the two gene values. Therefore 
+we need to produce `(key, value)` pairs such that 
+`key` is a `gene_id` and value is minimum of 
 `<gene_value_1>` and `<gene_value_2>`.
 
 The following pseudo-code will accomplish the mapper task:
@@ -2313,6 +2364,7 @@ The following pseudo-code will accomplish the mapper task:
 	}
 	
 For example, if we had the following input:
+
 
 	INS,1.3,1.5
 	INS,1.1,1.4
@@ -2351,9 +2403,10 @@ associated gene value:
 	(INS, 1.0)
 	(INSR, 0.7)
 	
-Note that, for the preceding mappers output, the 
-Sort & Shuffle phase will produce the follwong 
-`(key, values)` pairs to be consumed by the reducers.
+Note that, for the preceding mappers output, 
+the Sort & Shuffle phase will produce the 
+follwong  `(key, values)` pairs to be consumed 
+by the reducers.
 
 
 	(INS, [1.3, 1.1, 1.0])
@@ -2408,25 +2461,28 @@ partition goes to a separate node):
 	(B, 1)        (C, 1)         (C, 1)
 	(B, 1)                       (B, 1)
 	
-**Without a combiner**, Sort & Shuffle will output the following 
-(for all partitions):
+**Without a combiner**, Sort & Shuffle will output 
+the following (for all partitions):
 
 	(A, [1, 1, 1])
 	(B, [1, 1, 1, 1, 1, 1])
 	(C, [1, 1, 1, 1, 1])
 
-**With a combiner**, Sort & Shuffle will output the following 
-(for all partitions):
+**With a combiner**, Sort & Shuffle will output 
+the following (for all partitions):
 
 	(A, [2, 1])
 	(B, [3, 2, 1])
 	(C, [1, 4])
 
-As you can see, with a combiner, values are combined 
-for the same key on a partition-by-partition basis. 
-In MapReduce, combiners are mini-reducer optimizations 
-and they reduce network traffic by combining many values 
-into a single value.
+As you can see, with a combiner, 
+values are combined for the same 
+key on a partition-by-partition 
+basis. In MapReduce, combiners 
+are mini-reducer optimizations 
+and they reduce network traffic 
+by combining many values into a 
+single value.
 
 ## Partition
 Data can be partitioned into smaller logical 
@@ -2465,20 +2521,66 @@ Spark examples:
 : returns a new DataFrame that has exactly `numPartitions` partitions.
 
 
-## Parallel computing
+## Parallel Computing
 [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing) 
-(also called concurrent computing) is a type of computation in which 
-many calculations or processes are carried out simultaneously (at the 
-same time).  Large problems can often be divided into smaller ones, 
-which can then be solved at the same time. There are several different 
-forms of parallel computing: bit-level, instruction-level, data, and 
-task parallelism. Parallelism has long been employed in high-performance computing, ... parallel computing has become the dominant paradigm in 
-computer architecture, mainly in the form of multi-core processors.
+(also called concurrent computing) is a type of computation 
+in which many calculations or processes are carried out 
+simultaneously (at the same time).  Large problems can 
+often be divided into smaller ones, which can then be 
+solved at the same time. There are several different 
+forms of parallel computing: bit-level, instruction-level, 
+data, and task parallelism. Parallelism has long been 
+employed in high-performance computing, ... parallel 
+computing has become the dominant paradigm in computer 
+architecture, mainly in the form of multi-core processors.
 
-MapReduce and Spark employs parallelism by data partitioning.
-Based on available resources, partitions are executed independently
-and in parallel.
+[Parallel Programming Primer](https://researchcomputing.princeton.edu/support/knowledge-base/parallel-code):
+> A common misconception is that simply running your 
+  code on a cluster will result in your code running 
+  faster. Clusters do not run code faster by magic; 
+  for improved performance the code must be modified 
+  to run in parallel, and that modification must be 
+  explicitly done by the programmer. In other words, 
+  the burden of modifying code to take advantage of 
+  multiple cores or nodes is on the programmer.
 
+MapReduce and Spark employs parallelism by data 
+partitioning.  Based on available resources, 
+partitions are executed independently and in 
+parallel.
+
+#### [Serial Computing](https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial):
+
+Traditionally, software has been written for serial computation:
+
+* A problem is broken into a discrete series of instructions
+* Instructions are executed sequentially one after another
+* Executed on a single processor
+* Only one instruction may execute at any moment in time
+
+***Serial computing generic example:***
+![](./images/serial_problem.gif)
+
+***Serial computing example of processing payroll:***
+![](./images/serial_problem2.gif)
+
+
+#### [Parallel Computing](https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial):
+
+In the simplest sense, parallel computing is the 
+simultaneous use of multiple compute resources to 
+solve a computational problem:
+
+* A problem is broken into discrete parts that can be solved concurrently
+* Each part is further broken down to a series of instructions
+* Instructions from each part execute simultaneously on different processors
+* An overall control/coordination mechanism is employed
+
+***Parallel computing generic example***:
+![](./images/parallel_problem.gif)
+
+***Parallel computing example of processing payroll***:
+![](./images/parallel_problem2.gif)
 
 ## Difference between Concurrency and Parallelism?
 [What is the difference between concurrency and parallelism?](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)
@@ -2563,9 +2665,9 @@ the initial data, the reduce function is optional.
 Given a set of text documents (as input), Word Count algorithm 
 finds frequencies of unique words in input. The `map()` and 
 `reduce()`  functions are provided as a **pseudo-code**.
-Of course, you can customize your mapper 
 
-* Mapper function
+
+* ***Mapper function***:
 
 		# key: partition number, record number, offset in input file, 
 		# the key is ignored in this example.
@@ -2581,7 +2683,7 @@ Of course, you can customize your mapper
 Of course, you can customize your mapper to exclude 
 words (called filtering) with less than 3 characters:
 
-* Mapper function with Filter
+* ***Mapper function with Filter***:
 
 		# key: partition number, record number, offset in input file,
 		# the key is ignored in this example.
@@ -2597,7 +2699,7 @@ words (called filtering) with less than 3 characters:
 		}
 
 
-* Reducer function (long version)
+* ***Reducer function (long version)***:
 
 		# key: a unique word
 		# values: Iterable<Integer>
@@ -2609,7 +2711,7 @@ words (called filtering) with less than 3 characters:
 		  emit(key, total)
 		}
 		
-* Reducer function (short version)
+* ***Reducer function (short version)***:
 
 		# key: a unique word
 		# values: Iterable<Integer>
@@ -2618,11 +2720,12 @@ words (called filtering) with less than 3 characters:
 		  emit(key, total)
 		}
 		
+		
 Of course, you can customize your reducer to exclude 
 words (called filtering) where its final frequency is 
 less than `10`.
 
-* Reducer function (short version), with Filter
+* ***Reducer function (short version), with Filter***:
 
 		# key: a unique word
 		# values: Iterable<Integer>
@@ -2635,7 +2738,7 @@ less than `10`.
 		}
 
 
-* Combiner function (short version)
+* ***Combiner function (short version)***:
 
 		# key: a unique word
 		# values: Iterable<Integer>
@@ -2659,7 +2762,7 @@ gene_id for canceric genes. Assume that the input is formatted as:
 The `map()` and `reduce()` 
 functions are provided as a **pseudo-code**.
 
-* Mapper function
+* ***Mapper function***:
 
 		# key: partition number, record number, offset in input file, ignored.
 		# value: an actual input record as:
@@ -2674,7 +2777,7 @@ functions are provided as a **pseudo-code**.
 		  }
 		}
 
-* Reducer function (long version)
+* ***Reducer function (long version)***:
 
 		# key: a unique gene_id
 		# values: Iterable<double>
@@ -2689,7 +2792,7 @@ functions are provided as a **pseudo-code**.
 		  emit(key, avg)
 		}
 		
-* Reducer function (short version)
+* ***Reducer function (short version)***:
 
 		# key: a unique gene_id
 		# values: Iterable<double>
@@ -2700,10 +2803,12 @@ functions are provided as a **pseudo-code**.
 		  emit(key, avg)
 		}
 
-To have a combiner function, we have to change the output
-of mappers (since avg of avg is not an avg). This means that
-avg function is a commutative, but not assocaitive. Changing
-output of mappers will make it commutative and associative.
+To have a combiner function, we have to change the 
+output of mappers (since average of average is not 
+an average). This means that average  (`avg`) function 
+is a commutative, but not assocaitive. Changing
+output of mappers will make it commutative and 
+associative.
 
 Commutative means that: 
 		
@@ -2712,12 +2817,12 @@ Commutative means that:
 
 Associative means that: 
 		
-		avg(avg(a, b), c) = avg(a, avg(b, c))
+		avg( avg(a, b), c) = avg( a, avg(b, c))
 
 For details on commutative and associative properties refer 
 to [Data Aldorithms with Spark](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/).
 
-* Revised Mapper function
+* ***Revised Mapper function***:
 
 		# key: partition number, record number, offset in input file, ignored.
 		# value: an actual input record as:
@@ -2733,7 +2838,7 @@ to [Data Aldorithms with Spark](https://www.oreilly.com/library/view/data-algori
 		  }
 		}
 
-* Combiner function
+* ***Combiner function***:
 
 		# key: a unique gene_id
 		# values: Iterable<(double, Integer)>
@@ -2751,7 +2856,7 @@ to [Data Aldorithms with Spark](https://www.oreilly.com/library/view/data-algori
 		}
 		
 
-* Reducer function
+* ***Reducer function***:
 
 		# key: a unique gene_id
 		# values: Iterable<(double, Integer)>
@@ -5023,84 +5128,102 @@ big data. In a nutshell, Machine learning is an application
 of AI that enables systems to learn and improve from 
 experience without being explicitly programmed.
 
-There are many ML packages for experimentation:
+There are many ML packages for experimentation (partial list):
 
 * [scikit-learn - Machine Learning in Python](https://scikit-learn.org/stable/)
 
 * [Apache Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html)
 
+* [PyTorch - An open source machine learning framework in Python](https://pytorch.org)
+
 
 ## Internet of Things
-Internet of things, IoT, in short, is a conception of 
-connecting devices, such as house lighting, heating or 
-even fridges to a common network. It allows storing big 
-amounts of data, which can later be used in real-time 
-analytics. This term is also connected with a smart home, 
-a concept of controlling house with phone etc.
+Internet of things, IoT, in short, is a conception 
+of  connecting  devices,  such  as  house lighting, 
+heating or even  fridges to  a common  network. It 
+allows storing big amounts of data, which can later 
+be used in real-time analytics. This term is also 
+connected with a smart home, a concept of controlling 
+house with phone etc.
 
 According to Wiki: 
-[The Internet of things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things) describes physical objects (or groups of 
-such objects) with sensors, processing ability, software and 
-other technologies that connect and exchange data with other 
-devices and systems over the Internet or other communications 
-networks.  Internet of things has been considered a misnomer 
-because devices do not need to be connected to the public 
-internet, they only need to be connected to a network and 
-be individually addressable.
+[The Internet of things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things) describes physical objects (or groups of such objects) 
+with sensors, processing ability, software and other 
+technologies that connect and exchange data with other 
+devices  and  systems  over  the  Internet  or  other 
+communications networks.  Internet of things has been 
+considered a misnomer because devices do not need to 
+be connected to the public internet, they only need 
+to be connected to a network and be individually 
+addressable.
 
 
 
 ## Metadata
-Data about data; gives information about what the data is 
-about. Metadata is information that describes and explains 
-data. It provides context with details such as the source, 
-type, date, owner, and relationships to other data sets, 
-thus helping you understand the relevance of a particular 
-data set and guiding you on how to use it.
+Data about data; gives information about what 
+the data is about. Metadata is information 
+that describes and explains data. It provides 
+context with details such as the source, type, 
+date, owner, and relationships to other data 
+sets, thus helping you understand the relevance 
+of a particular data set and guiding you on how 
+to use it.
 
 
 ![](./images/metadata-example.png)
 
 
-For example, author, date created, date modified and file 
-size are examples of very basic document file metadata. 
+For example, author, date created, date modified 
+and file size are examples of very basic document 
+file metadata. 
 
 Table definition for a relational table is an example 
 of metadata.
 
-HTML files and websites frequently use metadata to provide 
-information about the content of a webpage to search engines. 
-HTML files contain meta tags that include information about 
-the page — its author, a description, some keywords, or even 
-special instructions that tell a web browser how to display 
-the page contents. Search engines can use these tags when 
-organizing and displaying search results.
+HTML files and websites frequently use metadata to 
+provide information about the content of a webpage 
+to search engines. HTML files contain meta tags that 
+include information about the page — its author, a 
+description, some keywords, or even special instructions 
+that tell a web browser how to display the page contents. 
+Search engines can use these tags when organizing and 
+displaying search results.
 
 
 
 
 ## Natural Language Processing (NLP)
-A field of computer science involved with interactions between 
-computers and human languages.
+A field of computer science involved with interactions 
+between computers and human languages.
 
 Open source software for NLP: 
 [The Stanford Natural Language Processing](https://nlp.stanford.edu/software/)
 
 
 ## Network analysis
-Viewing relationships among the nodes in terms of the network 
-or graph theory, meaning analysing connections between nodes 
-in a network and the strength of the ties.
+Viewing relationships among the nodes in terms of 
+the network or graph theory, meaning analysing 
+connections between nodes in a network and the 
+strength of the ties.
 
 
 ## Workflow
-A graphical representation of a set of events, tasks, and 
-decisions that define a business process (example: vacation
-approval process in a company; purchase approval process). 
-You use the developer tool to add objects to a workflow 
-and to connect the objects with sequence flows. The Data 
-Integration Service uses the instructions configured in 
-the workflow to run the objects.
+What is a workflow? A workflow is a standardized 
+series of tasks you complete to achieve a specific 
+goal.
+
+
+![](./images/hr-workflow.png)
+
+
+A graphical representation of a set of events, 
+tasks, and decisions that define a business process 
+(example: vacation approval process in a company; 
+purchase approval process).  You use the developer 
+tool to add objects to a workflow and to connect 
+the objects with sequence flows. The Data Integration 
+Service uses the instructions configured in the 
+workflow to run the objects.
 
 
 ## Schema
