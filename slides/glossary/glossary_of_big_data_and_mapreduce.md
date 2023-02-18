@@ -1,6 +1,4 @@
-# Glossary of Big Data, MapReduce, Spark
-
-
+<center><h1>Glossary <br> of <br> Big Data, MapReduce, Spark</h1></center>
 
 ## Prelude
 
@@ -4209,9 +4207,13 @@ path for Step-4 (as an identity mapper):
 	map(key, value) {
 		emit(key, value)
 	}
+	
+The Step-4 outputs will be in the form `(K, ("R", a))`
+and `(K, ("S", b))`.
+
 
 **Step-4.5**: Sort & Shuffle (provided by MapReduce 
-implementation): will create (key, value) pairs as:
+implementation): will create `(key, value)` pairs as:
 
 	(K, Iterable<(relation, attribute)>
 	
@@ -4219,7 +4221,7 @@ where `K` is the common key of `R` and `S`, relation
 is either "R" or "S", and attribe is either `a` in `A` 
 or `b` in `B`.
 
-**Step-5:** Reducer
+**Step-5:** Reducer: will perform the inner join:
 
 	# key as K is the common key of R and S
 	# values : Iterable<(relation, attribute)>
@@ -4467,31 +4469,35 @@ Example: inner join
 
 ## Spark Partitioning
 A [partition in spark](https://www.projectpro.io/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297)
-is an atomic chunk of data (logical division of 
-data) stored on a node in the cluster. Partitions 
-are basic units of parallelism in Apache Spark. 
-RDDs and DataFrames in Apache Spark are collection 
-of partitions. So, how partitioning of an RDD
-(or a DataFrame) is related to parallelism?  
-Spark is an engine for parallel processing of 
-data on a cluster. One important way to increase 
-parallelism of spark processing is to increase 
-the number of executors (executors are worker 
-nodes' processes in charge of running individual 
-tasks in a given Spark job) on the cluster. 
-However, knowing how the data should be distributed, 
-so that the cluster can process data efficiently is 
-extremely important. The secret to achieve this is 
-partitioning in Spark. 
+is an atomic chunk of data (logical division 
+of data) stored on a node in the cluster. 
+Partitions are basic units of parallelism 
+in Apache Spark. RDDs and DataFrames in 
+Apache Spark are collection of partitions. 
+So,  how  partitioning  of  an  RDD (or a 
+DataFrame) is related to parallelism? Spark 
+is an engine for parallel processing of 
+data on a cluster. One important way to 
+increase parallelism of spark processing 
+is to increase the number of executors 
+(executors are worker nodes' processes in 
+charge of running individual tasks in a 
+given Spark job) on the cluster. However, 
+knowing how the data should be distributed, 
+so  that  the  cluster  can  process data 
+efficiently is extremely important. The 
+secret to achieve this is partitioning 
+in Spark. 
 
-Data (represented as an RDD or DataFrame) partitioning 
-in Spark helps achieve more parallelism. For example,
-if your RDD/DataFrame is partitioned into 100 chunks
-(or partitions), then for `RDD.map()`, there is a 
-chance of running 100 mappers in parallel/concurrently 
-(at the same time).  Therefore, Spark RDDs and 
-DataFrames are stored in partitions and operated in 
-parallel. 
+Data (represented as an RDD or DataFrame) 
+partitioning in Spark helps achieve more 
+parallelism. For example, if your RDD (or
+DataFrame)  is partitioned into `100` chunks 
+(or partitions), then for `RDD.map()`, there 
+is a chance of running 100 mappers in parallel
+(at the same time).  Therefore, Spark RDDs 
+and DataFrames are stored in partitions and 
+operated in parallel. 
 
 
 For example, in PySpark you can get the current number 
@@ -4552,6 +4558,25 @@ then 7 folders will be created):
 
 For details, refer to [Physical Data Partitioning tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/physical_partitioning).
 
+For example, in using Amazon Athena, you may 
+use Physical Data Partitioning for your data, 
+which will enable you to analyze the slice of 
+a data rather than the whole data. For example, 
+in your SQL query, you use the partitioned 
+folder name  in a "WHERE" clause:
+
+~~~sql
+	SELECT <column-names> 
+	   FROM <table-name>
+	      WHERE continent=Asia  
+~~~
+
+When you use partitioned column name in the 
+"WHERE" clause, your SQL query will not scan 
+the whole table, but rather will scan a single 
+forlder for query/analysis: this is a huge 
+optimization technique in decreasing query
+execution time.
  
 ## GraphFrames
 [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html)
@@ -5048,6 +5073,7 @@ Integer           | (Integer, Integer, Integer, Integer)
 Integer           | (Integer, integer, Integer, Double)
 (Integer, Integer)| Integer
 (Integer, Integer)| (String, Integer, Integer, Double)
+(String, Integer, Integer, Integer) | Doble
 
 
 Note that programmers create `(key, value)` pairs based
@@ -5055,34 +5081,48 @@ on big data problem requirements.
 
 
 ## Java
+The Java programming language is a general-purpose, 
+concurrent, strongly typed, class-based object-oriented 
+language. 
+
 [Java](https://www.oracle.com/java/technologies/downloads/) 
-is a programming language and computing platform first released 
-by Sun Microsystems in 1995. It has evolved from humble beginnings 
-to power a large share of today’s digital world, by providing 
-the reliable platform upon which many services and applications 
-are built. New, innovative products and digital services designed 
-for the future continue to rely on Java, as well.
+is a programming language and computing platform first 
+released by Sun Microsystems in 1995. It has evolved 
+from humble beginnings to power a large share of today’s 
+digital world, by providing the reliable platform upon 
+which many services and applications are built. New, 
+innovative products and digital services designed for 
+the future continue to rely on Java, as well.
 
 
 ## Python
-[Python](https://www.python.org) is a programming language that 
-lets you work quickly and integrate systems more effectively.
-Python is an interpreted, object-oriented (not fully) programming 
-language that's gained popularity for big data professionals due 
-to its readability and clarity of syntax. Python is relatively 
-easy to learn and highly portable, as its statements can be 
-interpreted in several operating systems.
+Python programming language was created by Guido 
+van Rossum, and first released on February 20, 1991. 
+Python is a high-level, general-purpose programming 
+language. Its design philosophy emphasizes code 
+readability with the use of significant indentation.
+
+[Python](https://www.python.org) is a programming 
+language that lets you work quickly and integrate 
+systems more effectively. Python is an interpreted, 
+object-oriented (not fully) programming language 
+that's gained popularity for big data professionals 
+due to its readability and clarity of syntax. Python 
+is relatively easy to learn and highly portable, as 
+its statements can be interpreted in several operating 
+systems.
 
 
 ## Tuples in Python
-Python Tuple is a collection of objects separated by commas.
-Tuples are used to store multiple items in a single variable. 
-Tuple is one of 4 built-in data types in Python used to store 
-collections of data, the other 3 are List, Set, and Dictionary, 
-all with different qualities and usage. A tuple is a collection 
-which is ordered and unchangeable. In a nutshell, a tuple is a 
-collection of things/objects, enclosed in `( )` and separated 
-by commas.
+Python Tuple is a collection of objects separated 
+by commas.  Tuples are used to store multiple items 
+in a single variable. Tuple is one of 4 built-in data 
+types in Python used to store collections of data, 
+the other 3 are List, Set, and Dictionary, all with 
+different qualities and usage. A tuple is a collection 
+which is ordered and unchangeable. In a nutshell, a 
+tuple is a collection of things/objects, enclosed in 
+`( )` and separated by commas (`,`).
 
 **Tuple Examples:**
 
@@ -5104,20 +5144,23 @@ t = (2, 1.5, 'alex', [1, 2, 3])
 # len(t) : 4
 ~~~
 
-In PySpark, if your RDD elements are in the form 
-of `(key, value)` tuple, then you may apply reduction 
-transformations such as `groupByKey()`, `reduceByKey()`
+In PySpark, if your RDD elements are in 
+the form of `(key, value)` tuple, then 
+you may apply reduction transformations 
+such as `groupByKey()`, `reduceByKey()` 
 and `combineByKey()`.
 
 
 
 ## Lists in Python 
-Lists are used to store multiple items in a single 
-variable. Lists are one of 4 built-in data types 
-in Python used to store collections of data. Python 
-Lists are just like dynamically sized arrays. In a 
-nutshell, a list is a collection of things/objects, 
-enclosed in `[ ]` and separated by commas. 
+Lists are used to store multiple items 
+in a single variable. Lists are one of 
+4 built-in data types in Python used to 
+store collections of data. Python Lists 
+are just like dynamically sized arrays. 
+In a nutshell, a list is a collection of 
+things/objects, enclosed in `[ ]` and 
+separated by commas (`,`). 
 
 
 **List Examples:**
@@ -5155,11 +5198,11 @@ enclosed in `[ ]` and separated by commas.
 
 
 ## Difference between Tuples and Lists in Python
-The primary difference between tuples and lists is that tuples 
-are immutable as opposed to lists which are mutable. Therefore, 
-it is possible to change a list but not a tuple. The contents 
-of a tuple cannot change once they have been created in Python 
-due to the immutability of tuples.
+The primary difference between tuples and lists is that 
+tuples are immutable as opposed to lists which are mutable. 
+Therefore, it is possible to change a list but not a tuple. 
+The contents of a tuple cannot change once they have been 
+created in Python due to the immutability of tuples.
 
 
 
@@ -5186,26 +5229,31 @@ JavaScript code. Notable Java Script engines:
 
 
 ## In-memory
-A database management system stores data on the main memory 
-instead of the disk, resulting is very fast processing, storing 
-and loading of the data Internet of Things – ordinary devices 
-that are connected to the internet at any time anywhere via 
-sensors
+A database management system stores data on the main 
+memory instead of the disk, resulting is very fast 
+processing, storing and loading of the data Internet 
+of Things – ordinary devices that are connected to 
+the internet at any time anywhere via sensors
 
 
 ## Latency
-A measure of time delayed in a system
+Latency is a measure of time delayed in a system.
+For example, network latency is the delay in network 
+communication. It shows the time that data takes to 
+transfer across the network. 
 
 
 ## Location data
-GPS data describing a geographical location
+Location data refers to GPS (Global Positioning System)  
+data describing a geographical location.
 
 
 ## Machine Learning
-Part of artificial intelligence where machines learn from 
-what they are doing and become better over time. Apache 
-Spark offers a comprehensive Maching Learning library for
-big data. In a nutshell, Machine learning is an application 
+Machine Learning is part of artificial intelligence 
+where machines learn from what they are doing and 
+become better over time. Apache Spark offers a 
+comprehensive Maching Learning library for big data. 
+In a nutshell, Machine learning is an application 
 of AI that enables systems to learn and improve from 
 experience without being explicitly programmed.
 
@@ -5274,8 +5322,8 @@ displaying search results.
 
 
 ## Natural Language Processing (NLP)
-A field of computer science involved with interactions 
-between computers and human languages.
+NLP is a field of computer science involved with 
+interactions between computers and human languages.
 
 Open source software for NLP: 
 [The Stanford Natural Language Processing](https://nlp.stanford.edu/software/)
@@ -5371,22 +5419,33 @@ Examples in Python3:
 
  
 ## Object Databases
-An object database store data in the form of objects, as used 
-by object-oriented programming. They are different from relational 
-or graph databases and most of them offer a query language that 
-allows object to be found with a declarative programming approach.
+An object database store data in the form of 
+objects, as used by object-oriented programming. 
+They are different from relational or graph 
+databases and most of them offer a query language 
+that allows object to be found with a declarative 
+programming approach.
 
+Examples of object-oriented databases 
+are [ObjectStore](www.ignitetech.com) and 
+[Versant Object Database](www.versant.com). 
+Relational databases have also added 
+object-oriented features; for example, 
+UniSQL was one of the first products to 
+support both structures.
 
 ## Pattern Recognition
-Pattern Recognition identifies patterns in data via algorithms 
-to make predictions of new data coming from the same source.
+Pattern Recognition identifies patterns in 
+data via algorithms to make predictions of 
+new data coming from the same source.
 
 
 ## Predictive analysis
-Analysis within big data to help predict how someone 
-will behave in the (near) future. It uses a variety of 
-different data sets such as historical, transactional, 
-or social profile data to identify risks and opportunities.
+Analysis within big data to help predict 
+how someone will behave in the (near) future. 
+It uses a variety of different data sets such 
+as historical, transactional, or social profile 
+data to identify risks and opportunities.
 
 
 ## Privacy
@@ -5467,17 +5526,15 @@ of records.
 
 
 ## Sentiment Analysis
-Using algorithms to find out how people feel about certain 
-topics or events.
+Using algorithms to find out how people feel about 
+certain topics or events.
 
-
-
-Sentiment analysis (or opinion mining) is a natural language 
-processing (NLP) technique used to determine whether data is 
-positive, negative or neutral. Sentiment analysis is often 
-performed on textual data to help businesses monitor brand 
-and product sentiment in customer feedback, and understand 
-customer needs.
+Sentiment analysis (or opinion mining) is a natural 
+language processing (NLP) technique used to determine 
+whether data is positive, negative or neutral. Sentiment 
+analysis is often performed on textual data to help 
+businesses monitor brand and product sentiment in 
+customer feedback, and understand customer needs.
 
 <img src="./images/fine-grained-sentiment-analysis.png" style="width: 70%; height: 70%"/>
 
@@ -5522,15 +5579,16 @@ Amazon Athena, Google BigQuery).
 
 
 ## Time series analysis
-Analysing well-defined data obtained through repeated measurements 
-of time. The data has to be well defined and measured at successive 
-points in time spaced at identical time intervals.
+Analysing well-defined data obtained through repeated 
+measurements of time. The data has to be well defined 
+and measured at successive points in time spaced at 
+identical time intervals.
 
 
 ## Variability
-It means that the meaning of the data can change (rapidly). 
-In (almost) the same tweets for example a word can have a 
-totally different meaning
+It means that the meaning of the data can change 
+(rapidly). In (almost) the same tweets for example 
+a word can have a totally different meaning.
 
 
 ## What are the 4 Vs of Big Data?
@@ -5542,13 +5600,17 @@ totally different meaning
 
 
 ## Variety
-Data today comes in many different formats: structured data, 
-semi-structured data, unstructured data and even complex 
-structured data
+Data today comes in many different formats: 
+
+* structured data
+* semi-structured data 
+* unstructured data
+* complex structured data
 
 
 ## Velocity
-The speed at which the data is created, stored, analysed and visualized
+The speed at which the data is created, stored, 
+analysed and visualized.
 
 
 ## Veracity
@@ -5557,13 +5619,14 @@ performed on the data are correct.
 
 
 ## Volume
-The amount of data, ranging from megabytes to gigabytes to petabytes to ...
+The amount of data, ranging from megabytes 
+to gigabytes to terabytes to petabytes to exabytes.
  
 
 ## XML Databases
-XML Databases allow data to be stored in XML format. The data 
-stored in an XML database can be queried, exported and serialized 
-into any format needed.
+XML Databases allow data to be stored in XML format. 
+The data stored in an XML database can be queried, 
+exported and serialized into any format needed.
 
 
 ## Big Data Scientist 
@@ -5599,12 +5662,72 @@ Flexible scaling, rapid elasticity, resource
 pooling, on-demand self-service are some of 
 its services.
 
+[What Is Cloud Computing?](https://www.spiceworks.com/tech/cloud/articles/what-is-cloud-computing/)
+> Cloud computing refers to the use of hosted 
+  services, such as data storage, servers, 
+  databases, networking, and software over 
+  the internet. The data is stored on physical 
+  servers, which are maintained by a cloud 
+  service provider. Computer system resources, 
+  especially data storage and computing power, 
+  are available on-demand, without direct 
+  management by the user in cloud computing.
+
+![](./images/what-is-cloud-computing.png)
 
 ## Distributed computing
 Distributed computing is a computing system 
 in which components located on networked 
 computers communicate and coordinate their 
 actions by passing messages.
+
+#### [What Is Distributed Computing?](https://aws.amazon.com/what-is/distributed-computing/)
+
+> Distributed computing is the method of making multiple computers work together to solve a common problem. It makes a computer network appear as a powerful single computer that provides large-scale resources to deal with complex challenges.
+
+> For example, distributed computing can encrypt large volumes of data; solve physics and chemical equations with many variables; and render high-quality, three-dimensional video animation. Distributed systems, distributed programming, and distributed algorithms are some other terms that all refer to distributed computing. 
+
+![](./images/distributed-computing-system-01.png)
+
+#### [What are the advantages of distributed computing?](https://aws.amazon.com/what-is/distributed-computing/)
+
+> Distributed systems bring many advantages over single system computing. 
+The following are some of them.
+
+> ***Scalability***: 
+Distributed systems can grow with your workload and 
+requirements. You can add new nodes, that is, more 
+computing devices, to the distributed computing 
+network when they are needed.
+
+> ***Availability***: 
+Your distributed computing system will not crash if one 
+of the computers goes down. The design shows fault 
+tolerance because it can continue to operate even if 
+individual computers fail.
+
+> ***Consistency***: 
+Computers in a distributed system share information and 
+duplicate data between them, but the system automatically 
+manages data consistency across all the different computers. 
+Thus, you get the benefit of fault tolerance without 
+compromising data consistency.
+
+> ***Transparency***: 
+Distributed computing systems provide logical separation 
+between the user and the physical devices. You can interact 
+with the system as if it is a single computer without worrying 
+about the setup and configuration of individual machines. 
+You can have different hardware, middleware, software, and 
+operating systems that work together to make your system 
+function smoothly.
+
+> ***Efficiency***: 
+Distributed systems offer faster performance with optimum 
+resource use of the underlying hardware. As a result, you 
+can manage any workload without worrying about system 
+failure due to volume spikes or underuse of expensive 
+hardware.
 
 
 ## Clustering analysis
@@ -5618,7 +5741,8 @@ than to those in other groups (clusters).
 
 ## Database-as-a-Service 
 A database hosted in the cloud on a pay per use basis, 
-for example Amazon Web Services
+for example Amazon Web Services and Amazon Athena.
+
 
 ## Database Management System (DBMS)
 Database Management System is software that 
@@ -5628,32 +5752,37 @@ database. DBMS provides programmers and users
 a well-organized process to create, update, 
 retrieve, and manage data.
 
+
 ## Distributed File System 
 Distributed File System is a system that offer 
 simplified, highly available access to storing, 
 analysing and processing data.
 
-A Distributed File System (DFS) as the name suggests, 
-is a file system that is distributed on multiple file 
-servers or multiple locations. It allows programs to 
-access or store isolated files as they do with the local 
-ones, allowing programmers to access files from any 
-network or computer. 
+A Distributed File System (DFS) as the name 
+suggests, is a file system that is distributed 
+on multiple file servers or multiple locations. 
+It allows programs to access or store isolated 
+files as they do with the local ones, allowing 
+programmers to access files from any network 
+or computer. 
 
-What is DFS? The main purpose of the Distributed File 
-System (DFS) is to allows users of physically distributed 
-systems to share their data and resources by using a 
-Common File System. A collection of workstations and 
-mainframes connected by a Local Area Network (LAN) is 
-a configuration on Distributed File System. A DFS is 
-executed as a part of the operating system. In DFS, a 
-namespace is created and this process is transparent 
-for the clients. 
+What is DFS? The main purpose of the Distributed 
+File System (DFS) is to allows users of physically 
+distributed  systems  to  share  their  data and 
+resources  by  using  a Common File System. A 
+collection of workstations and mainframes connected 
+by a Local Area Network (LAN) is a configuration on
+Distributed File System. A DFS is executed as a part 
+of the operating system. In DFS, a namespace is 
+created and this process is transparent for the 
+clients. 
+
 
 DFS has two components: 
 
 * **Location Transparency**: Location Transparency achieves 
   through the namespace component.
+  
 * **Redundancy**: Redundancy is done through a file replication 
   component.
 
@@ -5665,6 +5794,7 @@ under one folder, which is known as the "DFS root".
 Examples of DFS are:
 
 * Hadoop Distributed File System (HDFS)
+
 * Amazon S3 (a distributed object storage system)
 
 
@@ -5675,44 +5805,87 @@ Examples of DFS are:
 
 > **Transparency**: 
 Structure transparency –
-There is no need for the client to know about the number or locations of file servers and the storage devices. Multiple file servers should be provided for performance, adaptability, and dependability.
+There is no need for the client to know about the number or 
+locations of file servers and the storage devices. Multiple 
+file servers should be provided for performance, adaptability, 
+and dependability.
 
 > **Access transparency** –
-Both local and remote files should be accessible in the same manner. The file system should be automatically located on the accessed file and send it to the client’s side.
+Both local and remote files should be accessible in the same 
+manner. The file system should be automatically located on 
+the accessed file and send it to the client’s side.
 
 > **Naming transparency** –
-There should not be any hint in the name of the file to the location of the file. Once a name is given to the file, it should not be changed during transferring from one node to another.
+There should not be any hint in the name of the file to the 
+location of the file. Once a name is given to the file, it 
+should not be changed during transferring from one node to 
+another.
 
 > **Replication transparency** –
-If a file is copied on multiple nodes, both the copies of the file and their locations should be hidden from one node to another.
+If a file is copied on multiple nodes, both the copies of 
+the file and their locations should be hidden from one node 
+to another.
 
 > **User mobility** –
-It will automatically bring the user’s home directory to the node where the user logs in.
+It will automatically bring the user’s home directory to the 
+node where the user logs in.
 
 > **Performance** : 
-Performance is based on the average amount of time needed to convince the client requests. This time covers the CPU time + time taken to access secondary storage + network access time. It is advisable that the performance of the Distributed File System be similar to that of a centralized file system.
+Performance is based on the average amount of time needed to 
+convince the client requests. This time covers the CPU time + 
+time taken to access secondary storage + network access time. 
+It is advisable that the performance of the Distributed File 
+System be similar to that of a centralized file system.
 
 > **Simplicity and ease of use** : 
-The user interface of a file system should be simple and the number of commands in the file should be small.
+The user interface of a file system should be simple and 
+the number of commands in the file should be small.
 
 > **High availability** : 
-A Distributed File System should be able to continue in case of any partial failures like a link failure, a node failure, or a storage drive crash. 
-A high authentic and adaptable distributed file system should have different and independent file servers for controlling different and independent storage devices.
+A Distributed File System should be able to continue in case 
+of any partial failures like a link failure, a node failure, 
+or a storage drive crash. A high authentic and adaptable 
+distributed file system should have different and independent 
+file servers for controlling different and independent storage 
+devices.
 
 > **Scalability** : 
-Since growing the network by adding new machines or joining two networks together is routine, the distributed system will inevitably grow over time. As a result, a good distributed file system should be built to scale quickly as the number of nodes and users in the system grows. Service should not be substantially disrupted as the number of nodes and users grows.
+Since growing the network by adding new machines or joining 
+two networks together is routine, the distributed system will 
+inevitably grow over time. As a result, a good distributed file 
+system should be built to scale quickly as the number of nodes 
+and users in the system grows. Service should not be substantially 
+disrupted as the number of nodes and users grows.
 
 > **High reliability** :
-The likelihood of data loss should be minimized as much as feasible in a suitable distributed file system. That is, because of the system’s unreliability, users should not feel forced to make backup copies of their files. Rather, a file system should create backup copies of key files that can be used if the originals are lost. Many file systems employ stable storage as a high-reliability strategy.
+The likelihood of data loss should be minimized as much as 
+feasible in a suitable distributed file system. That is, 
+because of the system’s unreliability, users should not 
+feel forced to make backup copies of their files. Rather, 
+a file system should create backup copies of key files that 
+can be used if the originals are lost. Many file systems 
+employ stable storage as a high-reliability strategy.
 
 > **Data integrity** :
-Multiple users frequently share a file system. The integrity of data saved in a shared file must be guaranteed by the file system. That is, concurrent access requests from many users who are competing for access to the same file must be correctly synchronized using a concurrency control method. Atomic transactions are a high-level concurrency management mechanism for data integrity that is frequently offered to users by a file system.
+Multiple users frequently share a file system. The integrity 
+of data saved in a shared file must be guaranteed by the file 
+system. That is, concurrent access requests from many users 
+who are competing for access to the same file must be correctly 
+synchronized using a concurrency control method. Atomic transactions 
+are a high-level concurrency management mechanism for data integrity 
+that is frequently offered to users by a file system.
 
 > **Security** : 
-A distributed file system should be secure so that its users may trust that their data will be kept private. To safeguard the information contained in the file system from unwanted & unauthorized access, security mechanisms must be implemented.
+A distributed file system should be secure so that its users 
+may trust that their data will be kept private. To safeguard 
+the information contained in the file system from unwanted & 
+unauthorized access, security mechanisms must be implemented.
 
 > **Heterogeneity** :
-Heterogeneity in distributed systems is unavoidable as a result of huge scale. Users of heterogeneous distributed systems have the option of using multiple computer platforms for different purposes.
+Heterogeneity in distributed systems is unavoidable as a result 
+of huge scale. Users of heterogeneous distributed systems have 
+the option of using multiple computer platforms for different 
+purposes.
 
 
 For more information refer to [What is DFS (Distributed File System)?
@@ -6841,6 +7014,8 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 53. [7 Fundamental Steps to Complete a Data Analytics Project](https://blog.dataiku.com/2019/07/04/fundamental-steps-data-project-success)
 
 54. [Explain Spark Lazy evaluation in detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8)
+
+55. [What Is Cloud Computing? Definition, Benefits, Types, and Trends](https://www.spiceworks.com/tech/cloud/articles/what-is-cloud-computing/)
 
 ---------------------------
 
