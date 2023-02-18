@@ -1,4 +1,4 @@
-<center><h1>Glossary <br> of <br> Big Data, MapReduce, Spark</h1></center>
+# Glossary of Big Data, MapReduce, Spark
 
 ## Prelude
 
