@@ -2,11 +2,15 @@
 
 ## [Santa Clara University](http://scu.edu/)
 
+--------------------------
 
 <img src="images/big-data-words2.png"/>
 
 [comment]: <> (This is a comment, it will not be included)
-
+[comment]: <> (Big Data, Big Data Modeling & Analytics)
+[comment]: <> (MapReduce, map, mapper, reduce, reducer)
+[comment]: <> (Spark, PySpark, RDD, DataFrame)
+[comment]: <> (Spark, PySpark, Transformations, Actions, Partitions)
 
 ----------------------------
 
