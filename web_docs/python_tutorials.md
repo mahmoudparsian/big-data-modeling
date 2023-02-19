@@ -11,3 +11,7 @@
 ## 5. [Hands on Python Tutorial](../slides/python/hands-on-python-tutorial.pdf)
 
 ## 6. [Introduction to Python](../slides/python/intro_to_python.pdf)
+
+## 7. [Python Tutorial by Guido van Rossum](https://bugs.python.org/file47781/Tutorial_EDIT.pdf)
+
+## 8. [Introduction to Python, Harvard University](http://tdc-www.harvard.edu/Python.pdf)
