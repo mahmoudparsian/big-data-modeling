@@ -4,10 +4,10 @@
 
 2. [Google's Python Class](https://developers.google.com/edu/python)
 
-3. [Full Python Tutorial](../slides/python/full-python-tutorial.pdf)
+3. [Full Python Tutorial](~/slides/python/full-python-tutorial.pdf)
 
-4. [Python for Data Science Tutorial](../slides/python/python_for_data_science_tutorial.pdf)
+4. [Python for Data Science Tutorial](~/slides/python/python_for_data_science_tutorial.pdf)
 
-5. [Hands on Python Tutorial](../slides/python/hands-on-python-tutorial.pdf)
+5. [Hands on Python Tutorial](~/slides/python/hands-on-python-tutorial.pdf)
 
-6. [Introduction to Python](../slides/python/intro_to_python.pdf)
+6. [Introduction to Python](~/slides/python/intro_to_python.pdf)
