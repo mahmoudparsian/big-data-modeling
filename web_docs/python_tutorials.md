@@ -15,3 +15,7 @@
 ## 7. [Python Tutorial by Guido van Rossum](https://bugs.python.org/file47781/Tutorial_EDIT.pdf)
 
 ## 8. [Introduction to Python, Harvard University](http://tdc-www.harvard.edu/Python.pdf)
+
+## 9. [Python Tutorial from W3 Schools](https://www.w3schools.com/python/default.asp)
+
+## 10. [Learn Python Programming](https://pythonbasics.org)

@@ -54,15 +54,15 @@
 
 ## 10. [Python Tutorials](./web_docs/python_tutorials.md)
 
-## 12. [How-to's and Tutorials by using PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/wiki-spark/README.md)
+## 11. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
 
-## 13. [Office Hours](./web_docs/office_hours.md)
+## 12. [Office Hours](./web_docs/office_hours.md)
 
-## 14. [Midterm Exam](./web_docs/midterm_exam.md)
+## 13. [Midterm Exam](./web_docs/midterm_exam.md)
 
-## 15. [Final Exam](./web_docs/final_exam.md)
+## 14. [Final Exam](./web_docs/final_exam.md)
 
-## 16. Mahmoud Parsian's Latest Books: 
+## 15. Mahmoud Parsian's Latest Books: 
 
 -------
 
@@ -102,4 +102,3 @@
         height="700"
     >
 </a>
-
