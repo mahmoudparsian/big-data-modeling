@@ -10,10 +10,12 @@
 
 
 ------
+## MapReduce Flow
 
 ![](./mapreduce-flow-01.jpeg)
 
 -------
+## MapReduce Example
 
 ![](./word_count_mapreduce.jpeg)
 
