@@ -22,6 +22,11 @@
 At the completion of this course, students will be able to understand:
 
 * What is MapReduce? Examples of MapReduce
+	* data partitioning and partitions
+	* mapper function: `map()`
+	* reducer function: `reduce()`
+	* combiner function: `combine()`
+	* Sort & Shuffle
 * Elements of Big Data: Persistence, Queries, Analytics
 * Distributed File System and Fault Tolerance
 * Introduction to classic MapReduce Algorithms
@@ -29,6 +34,10 @@ At the completion of this course, students will be able to understand:
 * MapReduce algorithms and some design patterns
 * NoSQL Databases
 * Fundamentals of Spark and PySpark
+	* Spark Architecture
+	* Data Abstractions in Spark and PySpark
+	* RDDs and DataFrames
+	* Transformations and Actions
 * Running simple programs in PySpark
 * Scale-out vs. Scale-up
 * SQL for NoSQL data & Relational Algebra
@@ -38,10 +47,10 @@ At the completion of this course, students will be able to understand:
 ## Required books (all resources are online):
 
 * [1. Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-	* for the first 3 week of class
+	* for the first 3 weeks of class
 
 * [2. Data Algorithms with Spark by Mahmoud Parsian](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/)
-	* for the last 7 week of class
+	* for the last 7 weeks of class
 
 
 ## Extra books (all resources are online):
