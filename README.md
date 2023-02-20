@@ -54,15 +54,17 @@
 
 ## 10. [Python Tutorials](./web_docs/python_tutorials.md)
 
-## 11. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
+## 11. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
 
-## 12. [Office Hours](./web_docs/office_hours.md)
+## 12. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
 
-## 13. [Midterm Exam](./web_docs/midterm_exam.md)
+## 13. [Office Hours](./web_docs/office_hours.md)
 
-## 14. [Final Exam](./web_docs/final_exam.md)
+## 14. [Midterm Exam](./web_docs/midterm_exam.md)
 
-## 15. Mahmoud Parsian's Latest Books: 
+## 15. [Final Exam](./web_docs/final_exam.md)
+
+## 16. Mahmoud Parsian's Latest Books: 
 
 -------
 
