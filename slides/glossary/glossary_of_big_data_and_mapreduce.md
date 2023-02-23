@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/18/2023
+* Last updated date: 2/23/2023
 
 <table>
 <tr>
@@ -3719,7 +3719,104 @@ steps:1. Define a set of transformations on the input data set.
    3. Run local computations that operate on the results 
    computed in a distributed fashion. These can help 
    you decide what transformations and actions to undertake   next.
-   
+
+
+## What is `SparkContext` in PySpark
+`SparkContext` (full name is [`pyspark.SparkContext`](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.SparkContext.html?highlight=sparkcontext#pyspark.SparkContext)) is a class 
+object in PySpark API. According to PySpark documentation:
+> `SparkContext` is the main entry point for Spark functionality. 
+A `SparkContext` represents the connection to a Spark cluster, 
+and can be used to create RDD and broadcast variables on that 
+cluster. When you create a new `SparkContext`, at least the 
+master and app name should be set, either through the named 
+parameters here or through `conf`.
+
+When you invoke PySpark interactive shell, two variables are
+automatically created:
+
+* `sc`: as a `SparkContext` instance
+* `spark` as a `SparkSession` instance
+
+You may create an instance of `SparkContext` by the following methods:
+
+~~~python
+from pyspark import SparkContext
+...
+sc = SparkContext();
+# OR
+# sc = SparkContext("local", "myapp");
+~~~
+
+Once you have created an instance of `SparkContext`,
+then you may use it to create new RDDs:
+
+~~~python
+from pyspark import SparkContext
+...
+sc = SparkContext();
+input_path = "/tmp/data/"
+rdd = sc.textFile(input_path)
+
+numbers = [1, 2, 3, 4, 5]
+rdd2 = sc.parallelize(numbers)
+~~~
+
+
+## What is `SparkSession` in PySpark
+
+`SparkSession` (full name is [`pyspark.sql.SparkSession`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html?highlight=sparksession)) is a class 
+object in PySpark API. According to PySpark documentation:
+`SparkSession` is the entry point to programming Spark with the 
+`Dataset` and `DataFrame` API. A `SparkSession` can be used create 
+`DataFrame`, register `DataFrame` as tables, execute SQL over 
+tables, cache tables, and read parquet files. To create a 
+`SparkSession`, use the following builder pattern:
+
+~~~python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder \
+    .master("local") \
+    .appName("my app namee") \
+    .config("spark.some.config.option", "some-value") \
+    .getOrCreate()
+~~~
+
+In the simplest form you can create a `SparkSession` object as:
+
+~~~python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+~~~
+
+Once `SparkSession` instance is created, then you
+can use its methods and attributes.  `SparkSession`
+has an attribute for a `SparkContext`, which can be 
+accesses as:
+
+~~~python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+# access a SparkContext as an attribute
+sc = spark.sparkContext
+~~~
+
+You may use `SparkSession` to create DataFrames:
+
+~~~python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+tuples = [('alex', 20, 40), ('jane', 30, 50)]
+df = spark.createDataFrame(tuples, ["name", "num1", "num2"])
+df.show()
++----+----+----+
+|name|num1|num2|
++----+----+----+
+|alex|  20|  40|
+|jane|  30|  50|
++----+----+----+
+~~~
+
+
 
 ## What is Lazy Binding In Spark?
 Lazy binding/evaluation in Spark means that the 
