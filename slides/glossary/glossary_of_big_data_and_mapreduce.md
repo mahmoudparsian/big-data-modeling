@@ -3731,6 +3731,8 @@ cluster. When you create a new `SparkContext`, at least the
 master and app name should be set, either through the named 
 parameters here or through `conf`.
 
+![](./images/sparkcontext-01.jpeg)
+
 When you invoke PySpark interactive shell, two variables are
 automatically created:
 
