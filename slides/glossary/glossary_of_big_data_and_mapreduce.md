@@ -647,6 +647,61 @@ and consolidating it in a storage solution for data
 analysis and reporting. 
 
 
+## What is Data Visualization?
+Data visualization is the representation of data through 
+use of common graphics, such as charts, plots, infographics, 
+and even animations. These visual displays of information 
+communicate complex data relationships and data-driven 
+insights in a way that is easy to understand.
+
+#### Spark Job Visualization:
+![](./images/spark-job-stages-01.png)
+
+[Data visualization](https://www.ibm.com/topics/data-visualization) 
+can be utilized for a variety of purposes, and it’s important to 
+note that is not only reserved for use by data teams. Management 
+also leverages it to convey organizational structure and hierarchy 
+while data analysts and data scientists use it to discover and 
+explain patterns and trends. 
+
+#### Jupyter Notebook Visualization:
+![](images/notebook-visual-01.png)
+
+## Jupyter Notebook
+The [Jupyter Notebook](http://jupyter.org) is the web 
+application for creating and sharing computational 
+documents. It offers a simple, streamlined, document
+centric experience.
+
+Jupyter Notebook is a popular application that enables 
+you to edit, run and share Python code into a web view. 
+It allows you to modify and re-execute parts of your 
+code in a very flexible way. That’s why Jupyter is a 
+great tool to test and prototype programs.
+
+#### PySpark in Jupyter
+There are two ways to get PySpark available in a 
+Jupyter Notebook:
+
+* Configure PySpark driver to use Jupyter Notebook: running pyspark will automatically open a Jupyter Notebook
+* Load a regular Jupyter Notebook and load PySpark using findSpark package
+
+The following shell script enables you to run PySpark in Jupyter
+(you need to update your script accordingly):
+
+~~~sh
+export PATH=/home/mparsian/Library/Python/3.10/bin:$PATH
+export SPARK_HOME=/home/mparsian/spark-3.3.1
+export PATH=$SPARK_HOME/bin:$PATH
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+$SPARK_HOME/bin/pyspark
+~~~
+
+#### PySpark in Jupyter Screenshot
+![](./images/Jupyter_Screenshot.png)
+
+
 
 ## Analytics 
 
@@ -7122,6 +7177,11 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 54. [Explain Spark Lazy evaluation in detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8)
 
 55. [What Is Cloud Computing? Definition, Benefits, Types, and Trends](https://www.spiceworks.com/tech/cloud/articles/what-is-cloud-computing/)
+
+56. [What is Data Visualization?](https://venngage.com/blog/data-visualization/)
+
+57. [Get Started with PySpark and Jupyter Notebook in 3 Minutes](https://medium.com/sicara/get-started-pyspark-jupyter-guide-tutorial-ae2fe84f594f)
+
 
 ---------------------------
 
