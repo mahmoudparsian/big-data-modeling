@@ -3764,6 +3764,7 @@ rdd2 = sc.parallelize(numbers)
 ~~~
 
 
+
 ## What is `SparkSession` in PySpark
 
 `SparkSession` (full name is [`pyspark.sql.SparkSession`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html?highlight=sparksession)) is a class 
@@ -3782,6 +3783,9 @@ spark = SparkSession.builder \
     .config("spark.some.config.option", "some-value") \
     .getOrCreate()
 ~~~
+
+
+![](./images/sparksession-02.png)
 
 In the simplest form you can create a `SparkSession` object as:
 
@@ -4587,6 +4591,9 @@ so  that  the  cluster  can  process data
 efficiently is extremely important. The 
 secret to achieve this is partitioning 
 in Spark. 
+
+
+![](./images/data-partitions-01.png)
 
 Data (represented as an RDD or DataFrame) 
 partitioning in Spark helps achieve more 
