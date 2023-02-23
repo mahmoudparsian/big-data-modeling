@@ -7182,6 +7182,8 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 57. [Get Started with PySpark and Jupyter Notebook in 3 Minutes](https://medium.com/sicara/get-started-pyspark-jupyter-guide-tutorial-ae2fe84f594f)
 
+58. [How To Use Jupyter Notebooks with Apache Spark](https://www.bmc.com/blogs/jupyter-notebooks-apache-spark/)
+
 
 ---------------------------
 
