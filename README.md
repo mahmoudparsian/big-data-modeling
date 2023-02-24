@@ -1,4 +1,4 @@
-# [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/admissions/ms-programs/ms-business-analytics/course-descriptions/)
+# [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
 
 ## [Santa Clara University](http://scu.edu/)
 
@@ -11,6 +11,9 @@
 [comment]: <> (MapReduce, map, mapper, reduce, reducer)
 [comment]: <> (Spark, PySpark, RDD, DataFrame)
 [comment]: <> (Spark, PySpark, Transformations, Actions, Partitions)
+[comment]: <> (SCU web site  URL: https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
+[comment]: <> (SCU web site  online URL: https://onlinedegrees.scu.edu/academics/masters-business-analytics/curriculum)
+
 
 ----------------------------
 
