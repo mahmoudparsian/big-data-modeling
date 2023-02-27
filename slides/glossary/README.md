@@ -1,6 +1,8 @@
 # [Glossary of Big Data, MapReduce, Spark](./glossary_of_big_data_and_mapreduce.md)
 
+
 * Compiled and edited by: Mahmoud Parsian
+
 
 * Last updated: 2/26/2023
 
