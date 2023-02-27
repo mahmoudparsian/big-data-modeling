@@ -3,9 +3,7 @@
 
 * Compiled and edited by: Mahmoud Parsian
 
-
 * Last updated: 2/26/2023
-
 
 
 * [This glossary](./glossary_of_big_data_and_mapreduce.md) is written for my students taking 
@@ -15,7 +13,6 @@ at [Santa Clara University](https://www.scu.edu).
 * This is not a regular glossary: it is a detailed glossary 
   for my students to learn basics of key terms in big data, 
   MapReduce, and PySpark (Python API for Apache Spark).
-
 
 
 ------
