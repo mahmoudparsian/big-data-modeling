@@ -1,9 +1,8 @@
 # Glossary of Big Data, MapReduce, Spark
 
-
 * Compiled and edited by: Mahmoud Parsian
 
-* Last updated: 2/27/2023
+* Last updated: 2/26/2023
 
 * This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course) 
@@ -15,7 +14,6 @@ at [Santa Clara University](https://www.scu.edu).
 
 
 ## [Glossary of Big Data, MapReduce, Spark](./glossary_of_big_data_and_mapreduce.md)	
-
 
 
 
