@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/23/2023
+* Last updated date: 2/26/2023
 
 <table>
 <tr>
@@ -633,8 +633,17 @@ and/or analysis.
   some large amounts of information from a given database 
   and organizing it into a more consumable and comprehensive 
   medium. 
-* For example, find average age of customer by product
-* For example, find median rating for movies rated last year
+  
+* For example, read customer data from a data source,
+  read products data from another data source, then
+  write algorithms to find average age of customer by product
+  
+* For example, read users data from a data source, read movies
+  from another data source, read ratings from a data source, and
+  fianlly find median rating for movies rated last year
+  
+![](./images/data-aggregation-02.png)
+
 
 What is Data Aggregation? Data aggregators summarize 
 data from multiple data sources. They provide capabilities 
@@ -690,11 +699,17 @@ The following shell script enables you to run PySpark in Jupyter
 (you need to update your script accordingly):
 
 ~~~sh
+# define your Python PATH
 export PATH=/home/mparsian/Library/Python/3.10/bin:$PATH
+# define your Spark installation directory
 export SPARK_HOME=/home/mparsian/spark-3.3.1
+# update your PATH for Spark
 export PATH=$SPARK_HOME/bin:$PATH
+# define Python for PySpark Driver
 export PYSPARK_DRIVER_PYTHON=jupyter
+# You want to run it as a notebook
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+# invoke PySpark in Jupyter
 $SPARK_HOME/bin/pyspark
 ~~~
 
@@ -739,6 +754,8 @@ by using data. Data analytics can shape business
 processes, improve decision making, and foster 
 business growth.
 
+![](./images/data-analytics-03.jpeg)
+
 Data Analytics is the process of examining large 
 data sets to uncover hidden patterns, unknown 
 correlations, trends, customer preferences and 
@@ -776,6 +793,9 @@ the following types of analytics:
   builds on predictive analytics by including actions 
   and make data-driven decisions by looking at the 
   impacts of various actions.
+
+
+![](./images/mobility-analytics-cycle.gif)
 
 
 ## Data Analysis Process
@@ -3788,13 +3808,15 @@ parameters here or through `conf`.
 
 ![](./images/sparkcontext-01.jpeg)
 
-When you invoke PySpark interactive shell, two variables are
-automatically created:
+When you invoke PySpark interactive shell 
+(by calling `$SPARK_HOME/bin/pyspark`), 
+two variables are automatically created:
 
 * `sc`: as a `SparkContext` instance
 * `spark` as a `SparkSession` instance
 
-You may create an instance of `SparkContext` by the following methods:
+You may create an instance of `SparkContext` by the 
+following methods:
 
 ~~~python
 from pyspark import SparkContext
@@ -3818,16 +3840,20 @@ numbers = [1, 2, 3, 4, 5]
 rdd2 = sc.parallelize(numbers)
 ~~~
 
+Another way to access `SparkContext` is by
+using `SparkSession.sparkContext` (note that
+`SparkContext` is an attribute of `SparkSession`).
 
 
 ## What is `SparkSession` in PySpark
 
-`SparkSession` (full name is [`pyspark.sql.SparkSession`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html?highlight=sparksession)) is a class 
-object in PySpark API. According to PySpark documentation:
-`SparkSession` is the entry point to programming Spark with the 
-`Dataset` and `DataFrame` API. A `SparkSession` can be used create 
-`DataFrame`, register `DataFrame` as tables, execute SQL over 
-tables, cache tables, and read parquet files. To create a 
+`SparkSession` (full name is [`pyspark.sql.SparkSession`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html?highlight=sparksession)) 
+is a class object in PySpark API. According to PySpark 
+documentation: `SparkSession` is the entry point to 
+programming Spark with the `Dataset` and `DataFrame` 
+API. A `SparkSession` can be used create `DataFrame`, 
+register `DataFrame` as tables,  execute SQL over tables, 
+cache tables, and read parquet files. To create a 
 `SparkSession`, use the following builder pattern:
 
 ~~~python
@@ -3852,7 +3878,7 @@ spark = SparkSession.builder.getOrCreate()
 Once `SparkSession` instance is created, then you
 can use its methods and attributes.  `SparkSession`
 has an attribute for a `SparkContext`, which can be 
-accesses as:
+accessed as:
 
 ~~~python
 from pyspark.sql import SparkSession
@@ -3897,9 +3923,9 @@ is called. Until we are doing only transformations
 on the dataframe/RDD, Spark is the least concerned. 
 Once Spark sees an ACTION being called, it starts 
 looking at all the transformations and creates a 
-DAG. DAG is simply sequence of operations that need 
-to be performed in a process to get the resultant 
-output.
+DAG. DAG is simply sequence of operations that 
+need to be performed in a process to get the 
+resultant output.
 
 For example, consider the following 4 Spark 
 transformations, followed by an ACTION:
@@ -3924,10 +3950,11 @@ num_of_elements = rdd4.count()
 ~~~
 
 
-When ACTION is triggered, Spark will optimize
-all of the transformations `{ t1, t2, t3, t4 }` 
-before finding the `num_of_elmenets`. This is 
-called Lazy binding.
+When ACTION is triggered, Spark will evaluate 
+and optimize all of the preceding transformations 
+`{ t1, t2, t3, t4 }` before finding the 
+`num_of_elmenets`. This is called Lazy binding.
+
 
 For details see [Explain Spark Lazy Evaluation in Detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8).
 
@@ -3964,11 +3991,12 @@ final_rdd.saveAsTextFile("/data/output7")
 
 ![](./images/spark_dag_example_02.png)
 
-Stage 0 and Stage 1 executes in parallel to each 
-other as they are not inter-dependent.
+`Stage 0` and `Stage 1` executes in parallel 
+to each other as they are not inter-dependent.
 
-Stage 2 (join operation) depends on stage 0 and stage 1 
-so it will be executed after executing both the stages.
+`Stage 2` (join operation) depends on `Stage 0` 
+and `Stage 1` so it will be executed after 
+executing both the stages.
 
 
 
@@ -4324,7 +4352,15 @@ The MapReduce paradigm does not have a direct join
 API.  But the join can be implemented as a set of 
 custom mappers and reducers.
 
-Below, an inner join is presented for MapReduce:
+![](./images/sql-joins-01.png)
+
+Below, an inner join (or just join) is presented 
+for MapReduce:
+
+![](./images/SQL-INNER-JOIN-01.png)
+
+
+**Step-0:** Identify relations `R` and `S`: 
 
 Let `R` be a relation as `(K, a1, a2, ...)`,
 where `K` is a key and `a1, a2, ...` are additional 
@@ -4512,6 +4548,7 @@ Relation S:
 
 	
 ## Join Operation in Spark
+
 Spark has an extensive support for join operation.
 
 ### Join in RDD 
@@ -7184,6 +7221,9 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 58. [How To Use Jupyter Notebooks with Apache Spark](https://www.bmc.com/blogs/jupyter-notebooks-apache-spark/)
 
+59. [Data Analytics](https://www.wallstreetmojo.com/data-analytics/)
+
+60. [An overview of SQL Join types with examplesby Rajendra Gupta](https://blog.quest.com/an-overview-of-sql-join-types-with-examples/)
 
 ---------------------------
 
