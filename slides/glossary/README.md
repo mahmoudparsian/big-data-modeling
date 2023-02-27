@@ -2,7 +2,7 @@
 
 * Compiled and edited by: Mahmoud Parsian
 
-* Last updated: 2/26/2023
+* Last updated: 2/27/2023
 
 * This glossary is written for my students taking 
 [Big Data Modeling & Analytics](https://github.com/mahmoudparsian/big-data-mapreduce-course) 
