@@ -1,4 +1,4 @@
-# Glossary of Big Data, MapReduce, Spark
+# [Glossary of Big Data, MapReduce, Spark](./glossary_of_big_data_and_mapreduce.md)
 
 * Compiled and edited by: Mahmoud Parsian
 
@@ -12,10 +12,15 @@ at [Santa Clara University](https://www.scu.edu).
   for my students to learn basics of key terms in big data, 
   MapReduce, and PySpark (Python API for Apache Spark).
 
+------
 
-## [Glossary of Big Data, MapReduce, Spark](./glossary_of_big_data_and_mapreduce.md)	
+<a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">
+    <img
+        alt="Data Algorithms with Spark"
+        src="images/data_algorithms_with_spark_knowledge_is_power.jpeg"
+>	
 
-
+-----
 
 
 
