@@ -16,6 +16,7 @@
 [comment]: <> (SCU web site  online URL: https://onlinedegrees.scu.edu/academics/masters-business-analytics/curriculum)
 
 
+
 ----------------------------
 
 ## Spring Quarter 2023
