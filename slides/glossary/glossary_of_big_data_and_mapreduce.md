@@ -129,7 +129,10 @@ basic properties:
 > 5) **Effectiveness**: an algorithm is also generally 
     expected to be effective
    
-    
+
+![](./images/example-of-sorting-algorithm.png) 
+
+   
 ## List of Algorithms
 
 #### Simple Algorithms (partial list):
@@ -155,9 +158,12 @@ basic properties:
 * Given users, movies, and ratings (1 to 5), what 
 	  are the Top-10 movies rated higher than 2.
 * DNA base count for FASTA and FASTQ files
+* Given a list of numbers, sort them in ascending order
+* Given a list of strings, sort them in descending order
 
 
 #### Famous Algorithms (partial list):
+* Sorting algorithms (BubbleSort, QuickSort, ...)
 * T-Test algorithm
 * Tree traversal algorithms
 * Suffix Tree Algorithms
@@ -1726,30 +1732,38 @@ each copy is on a different node. All replicas
 are equally important; there is no primary or 
 master replica.
 
-Given a cluster of `N+1` nodes (a master and `N` 
-worker nodes), if data replication factotr is `R`, 
-then  `(R - 1)` nodes can safely fail without 
-impacting any running job in the cluster.
+Given a cluster of `N+1` nodes (a master and 
+`N`  worker nodes), if data replication factor 
+is `R`, and `N > R`, then  `(R - 1)` nodes can 
+safely fail without impacting any running job 
+in the cluster.
 
 
 ## What makes Hadoop Fault tolerant?
-Hadoop is said to be highly fault tolerant. Hadoop 
-achieves this feat through the process of data 
-replication. Data is replicated across multiple 
-nodes in a Hadoop cluster. The data is associated 
-with a replication factor (RF), which indicates 
-the number of copies of the data that are present 
-across the various nodes in a Hadoop cluster. For 
-example, if the replication factor is 4, the data 
-will be present in four different nodes of the Hadoop 
-cluster, where each node will contain one copy each. 
-In this manner, if there is a failure in any one of 
-the nodes, the data will not be lost, but can be 
-recovered from one of the other nodes which contains 
+Fault tolerance is the property that enables 
+a system to continue working in the event of 
+failure (one or more ) of some component(s).
+Hadoop is said to be highly fault tolerant. 
+Hadoop achieves this feat through the process 
+of cluster technology and data replication. 
+Data is replicated across multiple nodes in 
+a Hadoop cluster. The data is associated with 
+a replication factor (RF), which indicates 
+the number of copies of the data that are 
+present across the various nodes in a Hadoop 
+cluster. For example, if the replication factor 
+is 4, the data will be present in four different 
+nodes of the Hadoop cluster, where each node 
+will contain one copy each.   In this manner, 
+if there is a failure in any one of the nodes, 
+the data will not be lost, but can be recovered 
+from one of the other nodes which contains 
 copies or replicas of the data.
 
-If replication factor is `N`, then `N-1` nodes can 
-safely fail without impacting a running job.
+In a cluster of `M` nodes, if replication factor 
+is `N` (where `M > N`) then `N-1` nodes can 
+safely fail without impacting a running job
+in the cluster.
   
 
 ## Big Data Formats
@@ -2025,6 +2039,50 @@ standard SQL.
   running on hundreds and thousands of GB of data, 
   the price might get out of control at times.
 
+***Partitioning data in Athena***: 
+***analyze slice of data rather than the whole data***:
+</br>
+By physical partitioning your data (using 
+directory structure partitioning), you can 
+restrict the amount of data scanned by each 
+query, thus improving performance and reducing 
+cost. You can partition your data by any key. 
+A common practice is to partition the data based 
+on time, often leading to a multi-level partitioning 
+scheme. For example, a customer who has data coming 
+in every hour might decide to partition by year, 
+month, date, and hour. Another customer, who has 
+data coming from many different sources but that 
+is loaded only once per day, might partition by 
+a data source identifier and date.
+
+For genomic data, you might partition your data by
+a chromosome (1, 2, ..., 22, X, Y, MT). Partitioning
+your genomic data by chromosome will look like:
+
+````
+<data-root-dir> --+
+                  |/chromosome=1/<data-for-chromosome-1>
+                  |/chromosome=2/<data-for-chromosome-2>
+                  ...
+                  |/chromosome=22/<data-for-chromosome-22>
+                  |/chromosome=X/<data-for-chromosome-X>
+                  |/chromosome=Y/<data-for-chromosome-Y>
+                  |/chromosome=MT/<data-for-chromosome-MT>
+````
+
+Therefore, when you query for chromosome 
+2, then you just query slice of data 
+(`<data-root-dir>/chromosome=2/`)
+rather than the whole data:
+
+~~~sql
+SELECT ...
+  FROM <table-pointing-to-your-data-root-dir>
+    WHERE chromosome=2
+
+~~~
+
 
 ## Google BigQuery
 
@@ -2077,10 +2135,14 @@ is relatively inexpensive, widely available
 and basically interchangeable with other 
 hardware of its type. Since commodity 
 hardware is not expensive, it is used in 
-building/creating clusters  for  big  data  
-computing (scale-out architecture).  Commodity 
-hardware is often deployed for high availability 
-and disaster recovery purposes.
+building/creating clusters  for  big  
+data  computing (scale-out architecture).  
+Commodity hardware is often deployed for 
+high availability and disaster recovery 
+purposes.
+
+Hadoop and Spark clusters use a set of
+commodity server/hardware.
 
 
 ## Fault Tolerance and Data Replication. 
