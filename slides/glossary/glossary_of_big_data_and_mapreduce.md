@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/26/2023
+* Last updated date: 2/27/2023
 
 <table>
 <tr>
@@ -2219,6 +2219,18 @@ functions commonly used in functional programming.
 At that time, Google’s proprietary MapReduce system 
 ran on the Google File System (GFS). Apache Hadoop 
 is an open-source implementation of Google's MapReduce.
+
+
+## Classic MapReduce Books and Papers
+
+1. [Data-Intensive Text Processing with MapReduce
+by Jimmy Lin and Chris Dyer, January 27, 2013](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+
+2. [MapReduce: Simplified Data Processing on Large Clusters
+by Jeffrey Dean and Sanjay Ghemawat](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
+
+3. [Google’s MapReduce Programming Model — Revisited by
+Ralf Lammel](https://userpages.uni-koblenz.de/~laemmel/MapReduce/paper.pdf)
 
 
 ## MapReduce 
