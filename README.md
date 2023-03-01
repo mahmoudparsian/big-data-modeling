@@ -15,6 +15,7 @@
 [comment]: <> (SCU web site  URL: https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
 [comment]: <> (SCU web site  online URL: https://onlinedegrees.scu.edu/academics/masters-business-analytics/curriculum)
 
+
 ----------------------------
 
 ## Spring Quarter 2023
