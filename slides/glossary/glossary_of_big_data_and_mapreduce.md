@@ -45,6 +45,7 @@ Original Creator of Apache Spark <br>
 
 
 ## Introduction
+Big data is a broad and rapidly evolving topic.
 Big data is a vast and complex field that is 
 constantly evolving, and for that reason, it’s 
 important to understand the basic common terms 
@@ -185,7 +186,7 @@ basic properties:
 * Connected Components
 * Finding Unique Triangles in a graph
 	
-	
+![](./images/min-spanning-tree.jpeg)
 
 ## Example of a Simple Algorithm
 
@@ -1140,6 +1141,28 @@ Engineering that is focused on gathering
 information   from   disparate   sources, 
 transforming the data, devising schemas, 
 storing data, and managing its flow.
+
+
+## What Does a Big Data Life Cycle Look Like?
+So how is data actually processed when dealing with 
+a big data system? While approaches to implementation 
+differ, there are some commonalities in the strategies 
+and software that we can talk about generally. While 
+the steps presented below might not be true in all 
+cases, they are widely used.
+
+![](./images/big-data-life-cycle.jpg)
+
+The general categories of activities (typically using
+a cluster computing services) involved with big data 
+processing are:
+
+* Understanding data requirements
+* Ingesting data into the system
+* Persisting the data in storage
+* Computing and Analyzing data
+* Visualizing the results
+
 
 
 ## Big Data Modeling
@@ -2246,6 +2269,8 @@ by Jeffrey Dean and Sanjay Ghemawat](https://static.googleusercontent.com/media/
 4. [Google’s MapReduce Programming Model — Revisited by
 Ralf Lammel](https://userpages.uni-koblenz.de/~laemmel/MapReduce/paper.pdf)
 
+5. [Hadoop: The Definitive Guide: Storage and Analysis at Internet Scale 4th Edition by Tom White](https://www.amazon.com/Hadoop-Definitive-Storage-Analysis-Internet/dp/1491901632/ref=asc_df_1491901632/)
+
 
 
 ## Apache Spark Books 
@@ -2258,6 +2283,8 @@ by Bill Chambers and Matei Zaharia, 2018](https://www.amazon.com/Spark-Definitiv
 3. [Learning Spark, 2nd Edition by Jules S. Damji, Brooke Wenig, Tathagata Das, Denny Lee, 2020](https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/)
 
 4. [High Performance Spark: Best Practices for Scaling and Optimizing Apache Spark 1st Edition by Holden Karau, Rachel Warren, 2017](https://www.amazon.com/High-Performance-Spark-Practices-Optimizing/dp/1491943203/ref=sr_1_1)
+
+5. [PySpark Cookbook: Over 60 recipes for implementing big data processing and analytics using Apache Spark and Python by Denny Lee and Tomasz Drabas](https://www.amazon.com/PySpark-Cookbook-implementing-processing-analytics/dp/1788835360/ref=sr_1_17)
 
 
 
@@ -2968,6 +2995,113 @@ less than `10`.
 		  total = sum(values)
 		  emit(key, total)
 		}
+
+
+## Word Count in PySpark
+Given a set of text documents (as input), Word Count 
+algorithm finds frequencies of unique words in input. 
+Therefore, our program will read a set of text files
+(as input) and will produce the following output:
+
+
+        word-1  frequency-1
+        word-2  frequency-2
+        ...
+        word-N  frequency-N
+
+where `word-1`, `word-2`, ..., `word-N` are all unique 
+words in the input.
+
+Your input path (as `sys.argv[1]`) can be a single 
+text file or it can be a directory (which may have 
+any number of text files in it).
+
+Note that to tokenize records into words, I simply used
+`string.split()` function (the `split()` method returns 
+a list of all the words in the `string`), but you may 
+use regular expressions to do some fancy tokenization 
+of words.
+
+WORD FILTERING: For example, if you want to ignore words 
+of less than 3 characterssuch as `a`, `an`, `at`, and `of` 
+then you may set `word_length_threshold` to 2.
+
+
+#### Word Count Solution in PySpark (long version)
+
+~~~python
+# import required libraries
+import sys
+from pyspark.sql import SparkSession
+
+# DEFINE your input path
+# 1st parameter passed from command line is sys.argv[1]
+input_path = sys.argv[1]
+
+# 2nd parameter: word length threshold is sys.argv[2]
+# keep words if their length is greater than word_length_threshold
+word_length_threshold = int(sys.argv[2])
+
+# CREATE an instance of a SparkSession object
+spark = SparkSession.builder.getOrCreate()
+
+# records : RDD[String] => String denotes one single record of input
+records = spark.sparkContext.textFile(input_path)
+
+# words : RDD[String] => String denotes a single word
+words = records.flatMap(lambda x: x.split())
+
+# filtered : RDD[String] and len(String) > word_length_threshold
+filtered = words.filter(lambda word: len(word) > word_length_threshold)
+
+# pairs : RDD[(String, Integer)] => String denotes a word, Integer is 1
+pairs = filtered.map(lambda x: (x, 1))
+
+# counts : RDD[(String, Integer)] => (unique-word, frequency)
+# counts = [(word1, count1), (word2, count2), ...]
+counts = pairs.reduceByKey(lambda a, b : a + b)
+
+print("=== output for small data sets ===")
+output = counts.collect()
+for (word, count) in output:
+  print("%s: %i" % (word, count))
+
+#  DONE!
+spark.stop()
+~~~
+
+#### Word Count Solution in PySpark (shorthand version)
+
+~~~python
+# import required libraries
+import sys
+from pyspark.sql import SparkSession
+
+# DEFINE your input path
+# 1st parameter passed from command line is sys.argv[1]
+input_path = sys.argv[1]
+
+# 2nd parameter: word length threshold is sys.argv[2]
+# keep words if their length is greater than word_length_threshold
+word_length_threshold = int(sys.argv[2])
+
+# CREATE an instance of a SparkSession object
+spark = SparkSession.builder.getOrCreate()
+
+counts = spark.sparkContext.textFile(input_path)\
+  .flatMap(lambda x: x.split())\
+  .filter(lambda word: len(word) > word_length_threshold)\
+  .map(lambda x: (x, 1))\
+  .reduceByKey(lambda a, b : a + b)\
+
+print("=== output for small data sets ===")
+output = counts.collect()
+for (word, count) in output:
+  print("%s: %i" % (word, count))
+
+#  DONE!
+spark.stop()
+~~~
 
 
 ## Finding Average in MapReduce
@@ -3892,6 +4026,18 @@ In Spark, if a function returns a DataFrame, Dataset, or RDD,
 it is a transformation. If it returns anything else or does not 
 return a value at all (or returns Unit in the case of Scala API), 
 it is an action.
+
+Spark transformations and actions are summarized below:
+
+	transformation: RDD --> RDD
+	
+	transformation: DataFrame --> DataFrame
+	
+	Action: RDD --> NON-RDD
+	
+	Action: DataFrame --> NON_DataFrame
+	
+	
 
 
 ## What is Lineage In Spark?
@@ -5360,27 +5506,28 @@ often via the cloud, to reach a common goal
 
 
 ## Key-Value Databases
-Key-Value Databases store data with a primary key, a uniquely 
-identifiable record, which makes easy and fast to look up. The 
-data stored in a Key-Value is normally some kind of primitive 
-of the programming language.  As a dictionary, for example, 
-Redis allows you to set and retrieve pairs of keys and values. 
-Think of a “key” as a unique identifier (string, integer, etc.) 
-and a “value” as whatever data you want to associate with that 
-key. Values can be strings, integers, floats, booleans, binary, 
-lists, arrays, dates, and more.
+Key-Value Databases store data with a primary key, 
+a uniquely identifiable record, which makes easy 
+and fast to look up. The data stored in a Key-Value 
+is normally some kind of primitive of the programming 
+language.  As a dictionary, for example,  Redis allows 
+you to  set  and  retrieve  pairs  of keys and values. 
+Think of a “key” as a unique identifier (string, integer, 
+etc.) and a  “value”  as  whatever  data  you  want to 
+associate with that key. Values can be strings, integers, 
+floats, booleans, binary, lists, arrays, dates, and more.
 
 ## (key, value)
-The `(key, value)` notation is used in many places (such 
-as Spark) and in MapReduce Paradigm. In MapReduce paradigm
-everything works as a `(key, value)`. Note that the `key` and 
-`value` can be 
+The `(key, value)` notation is used in many places 
+(such as Spark) and in MapReduce Paradigm. In MapReduce 
+paradigm everything works as a `(key, value)`. Note that 
+the `key` and `value` can be 
 
 * simple data type: such as String, Integer, Double, ...
 * combined data types: tuples, structures, arrays, lists, ...
 
 In MapReduce, `map()`, `reduce()`, and `combine()` 
-functions use `(key, value)` pairs:
+functions use `(key, value)` pairs as an input and output:
 
 The Map output types should match the input types of the Reduce 
 as shown below:
@@ -7373,6 +7520,9 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 59. [Data Analytics](https://www.wallstreetmojo.com/data-analytics/)
 
 60. [An overview of SQL Join types with examplesby Rajendra Gupta](https://blog.quest.com/an-overview-of-sql-join-types-with-examples/)
+
+61. [Minimum Spanning Tree](https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/)
+
 
 ---------------------------
 
