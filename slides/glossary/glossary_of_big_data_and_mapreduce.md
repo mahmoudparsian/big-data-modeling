@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/27/2023
+* Last updated date: 2/28/2023
 
 <table>
 <tr>
@@ -267,21 +267,24 @@ def change(M):
     return (0, 0, 0, 0)
   #end-if
   
-  # step-3: first, find quarters as q, since q > d > n > p
+  # step-3: first, find quarters as q
   q, p = divmod(M, 25)
   if (p == 0):
     return (q, 0, 0, 0)
   #end-if
   
-  # step-4: find dimes, since d > n > p
+  # here  0 =< p < 25 
+  # step-4: find dimes
   d, p = divmod(p, 10)
   if (p == 0):
     return (q, d, 0, 0)
   #end-if
   
+  # here 0 =< p < 9
   # step-5: find nickles and pennies
   n, p = divmod(p, 5)
   
+  # here 0 =< p < 5
   # step-6: return the final result
   return (q, d, n, p)
 #end-def
@@ -2217,8 +2220,17 @@ SIMPLIFIED DATA PROCESSING ON LARGE CLUSTERS]
 and was inspired by the `map()` and `reduce()` 
 functions commonly used in functional programming. 
 At that time, Google’s proprietary MapReduce system 
-ran on the Google File System (GFS). Apache Hadoop 
-is an open-source implementation of Google's MapReduce.
+ran on the Google File System (GFS). 
+
+MapReduce implementations:
+
+* Apache Hadoop is an open-source implementation 
+  of Google's MapReduce.
+
+* Apache Spark is an open-source ***superset*** 
+  implementation of Google's MapReduce (Spark 
+  eliminates many problems of Hadoop and sets a 
+  new standard for data analytics).
 
 
 ## Classic MapReduce Books and Papers
@@ -2226,11 +2238,27 @@ is an open-source implementation of Google's MapReduce.
 1. [Data-Intensive Text Processing with MapReduce
 by Jimmy Lin and Chris Dyer, January 27, 2013](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-2. [MapReduce: Simplified Data Processing on Large Clusters
+2. [Data Algorithms, by Mahmoud Parsian, O'Reilly 2015](https://www.oreilly.com/library/view/data-algorithms/9781491906170/)
+
+3. [MapReduce: Simplified Data Processing on Large Clusters
 by Jeffrey Dean and Sanjay Ghemawat](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 
-3. [Google’s MapReduce Programming Model — Revisited by
+4. [Google’s MapReduce Programming Model — Revisited by
 Ralf Lammel](https://userpages.uni-koblenz.de/~laemmel/MapReduce/paper.pdf)
+
+
+
+## Apache Spark Books 
+
+1. [Data Algorithms with Spark, by Mahmoud Parsian, O'Reilly 2022](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/)
+
+2. [Spark: The Definitive Guide: Big Data Processing Made Simple 1st Edition
+by Bill Chambers and Matei Zaharia, 2018](https://www.amazon.com/Spark-Definitive-Guide-Processing-Simple/dp/1491912219/ref=sr_1_1)
+
+3. [Learning Spark, 2nd Edition by Jules S. Damji, Brooke Wenig, Tathagata Das, Denny Lee, 2020](https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/)
+
+4. [High Performance Spark: Best Practices for Scaling and Optimizing Apache Spark 1st Edition by Holden Karau, Rachel Warren, 2017](https://www.amazon.com/High-Performance-Spark-Practices-Optimizing/dp/1491943203/ref=sr_1_1)
+
 
 
 ## MapReduce 
@@ -2631,6 +2659,7 @@ and they reduce network traffic
 by combining many values into a 
 single value.
 
+
 ## Partition
 Data can be partitioned into smaller logical 
 units. These units are called partitions. In 
@@ -2666,6 +2695,52 @@ Spark examples:
 
 * `DataFrame.coalesce(numPartitions: int)`
 : returns a new DataFrame that has exactly `numPartitions` partitions.
+
+***What is repartitioning?*** </br>
+In Spark, there are times that you may 
+read a  `<filename>.JSON.GZ` file into 
+a Spark DataFrame, and then the whole 
+DataFrame has one (1) partition, which 
+is not very  efficient  at  all (this 
+means that worker nodes will not be 
+utilized/used). In a  Spark  cluster 
+environment, you  should avoid the 
+number of partitions as 1 (one): this 
+means that your cluster will not be 
+utilized very much at all.
+
+You may use a `DataFrame.repartition()` 
+(or `RDD.repartition()`) function to set 
+your desired number of partitions: in 
+the following example, we set the number
+of partitions to 12.
+
+
+~~~python
+# sample data pointer:
+# data link: https://bulk.openweathermap.org/sample/hourly_16.json.gz
+# data size (bytes): 258,207,575
+>>> spark.version
+'3.1.2'
+
+>>> input_path = '/tmp/hourly_16.json.gz'
+>>> # read JSON.GZ file and create a DataFrame
+>>> df = spark.read.format('json').load(input_path)
+>>> df.count()
+209,579
+
+>>> # get the number of partitions
+>>> df.rdd.getNumPartitions()
+1
+
+>>> # reset the number of partitions to 12
+>>> df2 = df.repartition(12)
+>>>
+>>> df2.rdd.getNumPartitions()
+12
+>>>
+~~~
+
 
 
 ## Parallel Computing

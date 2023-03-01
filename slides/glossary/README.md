@@ -3,7 +3,7 @@
 
 * Compiled and edited by: Mahmoud Parsian
 
-* Last updated: 2/27/2023
+* Last updated: 2/28/2023
 
 
 * [This glossary](./glossary_of_big_data_and_mapreduce.md) is written for my students taking 
