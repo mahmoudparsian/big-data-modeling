@@ -13,7 +13,8 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 2/28/2023
+* * Last updated date: 3/5/2023 (March 5, 2023)
+
 
 <table>
 <tr>
@@ -7522,6 +7523,12 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 60. [An overview of SQL Join types with examplesby Rajendra Gupta](https://blog.quest.com/an-overview-of-sql-join-types-with-examples/)
 
 61. [Minimum Spanning Tree](https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/)
+
+62. [Basics of Greedy Algorithms](https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/tutorial/)
+
+63. [Introduction to Dynamic Programming](https://www.hackerearth.com/practice/algorithms/dynamic-programming/introduction-to-dynamic-programming-1/tutorial/)
+
+64. [Building the Data Lakehouse by Bill Inmon, Mary Levins, and Ranjeet Srivastava](https://www.databricks.com/resources/ebook/building-the-data-lakehouse)
 
 
 ---------------------------
