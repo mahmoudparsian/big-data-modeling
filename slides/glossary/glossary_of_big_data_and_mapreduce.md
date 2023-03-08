@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* * Last updated date: 3/8/2023 (March 8, 2023)
+* Last updated date: 3/8/2023 (March 8, 2023)
 
 
 <table>
