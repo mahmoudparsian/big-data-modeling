@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* * Last updated date: 3/5/2023 (March 5, 2023)
+* * Last updated date: 3/8/2023 (March 8, 2023)
 
 
 <table>
@@ -7393,7 +7393,30 @@ it easy for developers to contribute packages.
 For example, GraphFrames package is located [here]
 (https://spark-packages.org/package/graphframes/graphframes).
 	
-		
+## What is A DATA LAKEHOUSE?
+
+#### According to [Snowflake](https://www.snowflake.com/guides/what-data-lakehouse):
+> A data lakehouse starts with a data lake architecture, and attempts to add data warehouse capabilities to it, generally with modifications to the query engine and the addition of a predefined file format. Added features include version history, ACID transactions, and data governance, features that are typical in a data warehouse, but are generally lacking in a data lake. However, this data lake-first approach has challenges, as customers hoping for the best of both worlds often struggle with complexity, hidden costs, variable performance, limited concurrency support, and conflicts between governance controls in the data platform versus separate controls in the storage layer.	
+
+#### According to [Databricks](https://www.databricks.com/glossary/data-lakehouse):
+>What is a Data Lakehouse?
+A data lakehouse is a new, open data management architecture that combines the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, enabling business intelligence (BI) and machine learning (ML) on all data.
+
+>Data Lakehouse: Simplicity, Flexibility, and Low Cost
+Data lakehouses are enabled by a new, open system design: implementing similar data structures and data management features to those in a data warehouse, directly on the kind of low-cost storage used for data lakes. Merging them together into a single system means that data teams can move faster as they are able to use data without needing to access multiple systems. Data lakehouses also ensure that teams have the most complete and up-to-date data available for data science, machine learning, and business analytics projects.
+
+>Key Technology Enabling the Data Lakehouse
+
+> There are a few key technology advancements that have enabled the data lakehouse:
+
+> * metadata layers for data lakes
+> * new query engine designs providing high-performance SQL execution on data lakes
+> * optimized access for data science and machine learning tools.
+
+>  ![](./images/data-lakehouse-new.png)
+
+
+
 ## References
 
 1. [Data Algorithms with Spark by Mahmoud Parsian](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/)
@@ -7530,6 +7553,14 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 64. [Building the Data Lakehouse by Bill Inmon, Mary Levins, and Ranjeet Srivastava](https://www.databricks.com/resources/ebook/building-the-data-lakehouse)
 
+65. [Data Lake vs Data Warehouse](https://www.talend.com/resources/data-lake-vs-data-warehouse/)
+
+66. [What Is A Data Lakehouse? A Super-Simple Explanation For Anyone -
+Bernard Marr as Contributor](https://www.forbes.com/sites/bernardmarr/2022/01/18/what-is-a-data-lakehouse-a-super-simple-explanation-for-anyone/)
+
+67. [What is a Data Lakehouse? A Simple Explanation for Anyone by Bernard Marr - video about 6 minutes](https://www.youtube.com/watch?v=cnCIoNDaGvg&t=369s)
+
+68. [The Key Feature Behind Lakehouse Data Architecture by mehdio](https://towardsdatascience.com/the-key-feature-behind-lakehouse-data-architecture-c70f93c6866f)
 
 ---------------------------
 
