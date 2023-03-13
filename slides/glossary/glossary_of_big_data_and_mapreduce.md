@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 3/8/2023 (March 8, 2023)
+* Last updated date: 3/13/2023 (March 13, 2023)
 
 
 <table>
@@ -987,6 +987,10 @@ variety of software systems.
 	* INSERT row(s)
 	* DELETE row(s)
 	* UPDATE row(s)
+	* SELECT 
+	* SELECT ... GROUP BY
+	* SELECT ... ORDER BY
+	* JOIN
 	* ...
 
 
@@ -4041,15 +4045,63 @@ Spark transformations and actions are summarized below:
 	
 
 
-## What is Lineage In Spark?
-Spark RDDs are immutable (READ-ONLY) distributed collection 
-of elements of your data that can be stored in memory or 
-disk across a cluster of machines. The data is partitioned 
-across machines in your cluster that can be operated in 
-parallel with a low-level API that offers transformations 
-and actions. RDDs are fault tolerant as they track data 
-lineage information to rebuild lost data automatically on 
-failure.
+## What is a Lineage In Spark?
+According to online dictionaries: the word 
+"lineage" is used to describe everyone who 
+descends from a particular  ancestor. In 
+biology: "lineage" is a sequence of species 
+each of which is considered to have evolved 
+from its predecessor.
+
+Apache Spark is an open-source distributed 
+computing system that is used for big data 
+processing and analytics. Spark RDDs are 
+immutable (READ-ONLY) distributed collection 
+of elements of your data that can be stored 
+in memory or disk across a cluster of machines. 
+The data is partitioned across machines in your 
+cluster that can be operated in parallel with a 
+low-level API that offers transformations and 
+actions. RDDs are fault tolerant as they track 
+data lineage information to rebuild lost data 
+automatically on failure.
+
+Spark lineage refers to the process of tracking 
+the lineage, or history, of data transformations 
+in Apache Spark.  Spark lineage allows developers 
+and data scientists to track how data is transformed 
+and processed as it moves through the different 
+stages of a Spark application (as a sequence of 
+transformations and actions).
+
+When data is loaded into a Spark application, it 
+is transformed by applying various operations such 
+as mapping, filtering, sorting, and aggregating. 
+Spark lineage allows users to trace these operations 
+back to their original data sources, so they can 
+understand how the data was transformed and where 
+it came from. This information is crucial for 
+debugging and optimizing Spark applications, as 
+well as for ensuring data quality and compliance 
+with regulatory requirements.
+
+Spark lineage is implemented using a directed 
+acyclic graph (DAG) data structure, which 
+represents the sequence of data transformations 
+in a Spark application. The DAG can be visualized 
+as a flowchart or a tree diagram that shows the 
+dependencies between different stages of the 
+application. Spark lineage also provides tools 
+for monitoring and profiling Spark jobs, so users 
+can identify performance bottlenecks and other 
+issues that may affect the accuracy and reliability 
+of their data analysis.
+
+
+Lineage graph of joining inputs from two data 
+sources:Input 1 with Input 2. 
+
+![](./images/Lineage-Graph-of-joining-inputs-from-Input1-with-Input2.png)
 
 
 ## What are Spark operations/functions?
