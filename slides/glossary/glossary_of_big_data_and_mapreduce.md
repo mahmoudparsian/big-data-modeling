@@ -4097,6 +4097,9 @@ can identify performance bottlenecks and other
 issues that may affect the accuracy and reliability 
 of their data analysis.
 
+***Spark lineage:***
+![](./images/spark-lineage-image.png)
+
 
 Lineage graph of joining inputs from two data 
 sources:Input 1 with Input 2. 
