@@ -4304,6 +4304,11 @@ and optimize all of the preceding transformations
 `num_of_elmenets`. This is called Lazy binding.
 
 
+
+![](./images/Spark-RDD-Lazy-evaluation-03.png)
+
+
+
 For details see [Explain Spark Lazy Evaluation in Detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8).
 
 
