@@ -4113,20 +4113,27 @@ Two types of Spark RDD operations are: Transformations and Actions.
 
 ![](./images/spark_transformations_actions_as_DAG.png)
 
-* **Transformation**: a transformation is a function that produces 
-  new/target RDDs from the source/existing RDDs
-  * `Transformation: source_rdd --> target_rdd`
-  * `map()`, `filter()`, `flatMap()`, `mapPartitions()`
-  * `groupByKey()`, `reduceByKey()`, `combineByKey()`
+* **Transformation**: a transformation is a function that 
+  produces new/target RDDs from the source/existing RDDs
+  
+  `Transformation: source_rdd --> target_rdd`
+  
+* **Example of Transformation**:
+  * mappers: `map()`, `flatMap()`, `mapPartitions()`
+  * filters: `filter()`, `distinct()`
+  * reducers: `groupByKey()`, `reduceByKey()`, `combineByKey()`
   * ...
   
-* **Action**: when we want to work with the actual dataset, 
-  at that point Action is performed. For RDD, anction is 
-  defined as the Spark operations that return raw values. 
-  In other words, any of the RDD functions that return
-  other than the `RDD[T]` is considered an action in the 
-  spark programming.
-   * `Action: source_rdd --> NONE_rdd`
+* **Action**: when we want to work with the 
+  actual dataset, at that point Action is performed. 
+  For RDD, anction is defined as the Spark operations 
+  that return raw values. In other words, any of the 
+  RDD functions that return other than the `RDD[T]` 
+  is considered an action in the spark programming.
+   
+   `Action: source_rdd --> NONE_rdd`
+   
+* **Example of Actions**: 
 	* `collect()`
 	* `count()`
 	* ...
