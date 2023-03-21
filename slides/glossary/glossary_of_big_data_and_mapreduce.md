@@ -80,8 +80,11 @@ MapReduce, and Spark.
 
 ## Algorithm 
 
-[Mohammed Ibn Musa-al-Khwarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) was a Persian mathematician 
-and creator of the term: **algorithm**.
+Why are algorithms called algorithms? It's thanks 
+to Persian mathematician Muhammad al-Khwarizmi who 
+was born way back in around AD780.  [Mohammed 
+Ibn Musa-al-Khwarizmi](https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi) was a Persian mathematician 
+and creator of the term: ***algorithm***.
 
 * An algorithm is a mathematical formula that 
   can perform certain analyses on data
@@ -120,16 +123,39 @@ basic properties:
 
 > 1) **Finiteness**: an algorithm must always 
      terminate after a finite number of steps.
+     An algorithm must start and stop. The rules 
+     an algorithm applies must also conclude in a 
+     reasonable amount of time. What "reasonable" 
+     is depends on the nature of the algorithm, 
+     but in no case can an algorithm take an 
+     infinite amount of time to complete its task. 
+     Knuth calls this property the finiteness of 
+     an algorithm.
 
 > 2) **Definiteness**: each step of an algorithm must be 
-     precisely defined
+     precisely defined. The actions that an algorithm 
+     performs cannot be open to multiple interpretations; 
+     each step must be precise and unambiguous. Knuth 
+     terms this quality definiteness. An algorithm cannot 
+     iterate a "bunch" of times. The number of times must 
+     be precisely expressed, for example `2`, `1000000`, 
+     or a randomly chosen number.
 
-> 3) **Input**: an algorithm has zero or more inputs
+> 3) **Input**: an algorithm has zero or more inputs.
+     An algorithm starts its computation from an initial 
+     state. This state may be expressed as input values 
+     given to the algorithm before it starts.
 
-> 4) **Output**: an algorithm has one or more outputs
+> 4) **Output**: an algorithm has one or more outputs.
+     An algorithm must produces a result with a specific 
+     relation to the inputs.
 
 > 5) **Effectiveness**: an algorithm is also generally 
-    expected to be effective
+    expected to be effective.  The steps an algorithm 
+    takes must be sufficiently simple that they could 
+    be expressed "on paper"; these steps must make 
+    sense for the quantities used. Knuth terms this 
+    property effectiveness.
    
 
 ![](./images/example-of-sorting-algorithm.png) 
@@ -6366,7 +6392,14 @@ than to those in other groups (clusters).
 
 ## Database-as-a-Service 
 A database hosted in the cloud on a pay per use basis, 
-for example Amazon Web Services and Amazon Athena.
+
+Examples are:
+
+* Amazon Web Services (MySQL, other databases)
+* Amazon Athena
+* Snowflake 
+* Google BigQuery
+* ...
 
 
 ## Database Management System (DBMS)
@@ -7728,6 +7761,11 @@ Bernard Marr as Contributor](https://www.forbes.com/sites/bernardmarr/2022/01/18
 67. [What is a Data Lakehouse? A Simple Explanation for Anyone by Bernard Marr - video about 6 minutes](https://www.youtube.com/watch?v=cnCIoNDaGvg&t=369s)
 
 68. [The Key Feature Behind Lakehouse Data Architecture by mehdio](https://towardsdatascience.com/the-key-feature-behind-lakehouse-data-architecture-c70f93c6866f)
+
+69. [Notes: Algorithms](http://ada-developers-academy.github.io/jumpstart-textbook/jumpstart-lessons/problem-solving/algorithms/)
+
+70. [Definition of algorithm](https://www.scriptol.com/programming/algorithm-definition.php)
+
 
 ---------------------------
 
