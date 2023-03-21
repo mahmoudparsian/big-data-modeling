@@ -132,14 +132,15 @@ basic properties:
      Knuth calls this property the finiteness of 
      an algorithm.
 
-> 2) **Definiteness**: each step of an algorithm must be 
-     precisely defined. The actions that an algorithm 
-     performs cannot be open to multiple interpretations; 
-     each step must be precise and unambiguous. Knuth 
-     terms this quality definiteness. An algorithm cannot 
-     iterate a "bunch" of times. The number of times must 
-     be precisely expressed, for example `2`, `1000000`, 
-     or a randomly chosen number.
+> 2) **Definiteness**: each step of an algorithm 
+     must be precisely defined. The actions that 
+     an algorithm performs cannot be open to multiple 
+     interpretations; each step must be precise and 
+     unambiguous. Knuth terms this quality definiteness. 
+     An algorithm cannot iterate a "bunch" of times. 
+     The number of times must be precisely expressed, 
+     for example `2`, `1000000`, or a randomly chosen 
+     number.
 
 > 3) **Input**: an algorithm has zero or more inputs.
      An algorithm starts its computation from an initial 
@@ -240,7 +241,8 @@ are the circulating coins that we use today.
 	  value add to `M`: the following rules must be satisfied:
 	  
 	* `25q +10d + 5n + p = M` and
-	* `q + d + n + p` is as small as possible.
+	* `(q + d + n + p)` is as small as possible.
+		* `min(q + d + n + p)`
 
 * **Algorithm**: Greedy algorithm: a greedy algorithm 
   is any algorithm that follows the problem-solving 
@@ -266,21 +268,26 @@ in Python. In this algorithm, we use the
 returns a tuple containing the **quotient** and 
 the **remainder** when `arg_1` (dividend) is divided 
 by `arg_2` (divisor). We are using Greedy algorithm,
-which finds the optimal solution: first find the 
-number of quarters (x 25), then dimes (x 10), finally
-the number of nickles (x 5) and pennies (x 1). 
+which finds the optimal solution: 
+	* first, find the number of quarters `(x 25)`, 
+	* second, find the number of dimes `(x 10)`, 
+	* third, find the number of nickles `(x 5)`, and 
+	* finally the number of pennies `(x 1)`. 
 
+
+**US Change Algorithm in Python:**
 
 ~~~python
 # M : number of pennies
-# returns (q, d, n, p) where
-#    q = number of quarters
-#    d = number of dimes
-#    n = number of nickle
-#    p = number of pennies
-# where
-#   25q +10d + 5n + p = M and
-#   q + d + n + p is as small as possible.
+# returns (q, d, n, p) 
+#    where
+#         q = number of quarters
+#         d = number of dimes
+#         n = number of nickle
+#         p = number of pennies
+#    where
+#         25q +10d + 5n + p = M and
+#         (q + d + n + p) is as small as possible.
 #
 def change(M):
   # step-1: make sure that M is an integer
@@ -291,21 +298,18 @@ def change(M):
   
   # here: M is an integer type
   # step-2: make sure M > 0
-  if (M < 1):
-    return (0, 0, 0, 0)
+  if (M < 1): return (0, 0, 0, 0)
   #end-if
   
   # step-3: first, find quarters as q
   q, p = divmod(M, 25)
-  if (p == 0):
-    return (q, 0, 0, 0)
+  if (p == 0): return (q, 0, 0, 0)
   #end-if
   
   # here  0 =< p < 25 
   # step-4: find dimes
   d, p = divmod(p, 10)
-  if (p == 0):
-    return (q, d, 0, 0)
+  if (p == 0): return (q, d, 0, 0)
   #end-if
   
   # here 0 =< p < 9
