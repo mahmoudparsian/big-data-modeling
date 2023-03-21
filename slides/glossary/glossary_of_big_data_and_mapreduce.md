@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 3/13/2023 (March 13, 2023)
+* Last updated date: 3/21/2023 (March 21, 2023)
 
 
 <table>
@@ -5336,6 +5336,55 @@ A cluster may be used for running many jobs (Spark and MapReduce
 jobs) at the same time.
 
 
+## Cluster Manager
+Cluster Manager — An external service like 
+Yarn or Spark Standalone Cluster. Cluster 
+Managers provide monitoring, scheduling, 
+and security. The prime work of the cluster 
+manager is to divide resources across 
+applications. It works as an external service 
+for acquiring resources on the cluster. The 
+cluster manager dispatches work for the 
+cluster. Spark supports pluggable cluster 
+management.
+
+Spark applications run as independent sets 
+of processes on a cluster, coordinated by 
+the `SparkContext`  object in  your  main 
+program (called the driver program).
+
+Specifically, to run on a cluster, the 
+`SparkContext` can connect to several 
+types of cluster managers (either Spark’s  
+own  standalone  cluster  manager,  YARN  
+or Kubernetes), which allocate resources 
+across applications. Once connected, Spark
+acquires executors on nodes in the cluster, 
+which are processes that run computations 
+and store data for your application. Next, 
+it sends your application code (defined by 
+JAR or Python files passed to `SparkContext`) 
+to the executors. Finally, `SparkContext` 
+sends tasks to the executors to run.
+
+
+![](./images/spark-cluster-manager-01.png)
+
+
+The Spark system currently supports several types 
+of cluster managers:
+
+* Standalone – a simple cluster manager included with 
+  Spark that makes it easy to set up a cluster.
+
+* Hadoop YARN – the resource manager in Hadoop 
+
+* Kubernetes – an open-source system for automating 
+  deployment, scaling, and management of containerized 
+  applications.
+
+
+
 ## Master node
 In Hadoop, Master nodes (set of one or more nodes) are 
 responsible for storing data in HDFS and overseeing key 
@@ -5373,6 +5422,12 @@ code in the cluster. Executor is a process launched for an
 application on a worker node, that runs tasks and keeps data 
 in memory or disk storage across them. Each application has 
 its own executors.
+
+Worker Node: is a node where executors run spark applications.
+Executors run on worker nodes spawned during the life of a 
+Spark application. They execute work on the data within the 
+node and report back to the Master Node.
+
 
 ## Cluster computing
 Cluster computing is a collection of tightly or loosely connected 
@@ -5586,26 +5641,33 @@ associate with that key. Values can be strings, integers,
 floats, booleans, binary, lists, arrays, dates, and more.
 
 ## (key, value)
-The `(key, value)` notation is used in many places 
-(such as Spark) and in MapReduce Paradigm. In MapReduce 
-paradigm everything works as a `(key, value)`. Note that 
-the `key` and `value` can be 
+The `(key, value)` notation is used in many 
+places (such as Spark) and in MapReduce Paradigm. 
+In MapReduce paradigm everything works as a 
+`(key, value)`. Note that the `key` and `value` 
+can be a simple or combined data type:
 
 * simple data type: such as String, Integer, Double, ...
 * combined data types: tuples, structures, arrays, lists, ...
 
 In MapReduce, `map()`, `reduce()`, and `combine()` 
-functions use `(key, value)` pairs as an input and output:
+functions use `(key, value)` pairs as an input and 
+output:
 
-The Map output types should match the input types of the Reduce 
-as shown below:
-
-
+The Map output types should match the input types 
+of the Reduce as shown below:
+	
+	#------------------
+	# Mapper function:
+	#------------------
 	# K1: as a key to map() function
 	# V1: as a value to map() function
 	# mapper can emit 0, 1, 2, ... of (K2, V2) pairs
 	map(K1, V1) -> { (K2, V2) }
 	
+	#------------------
+	# Reducer function:
+	#------------------
 	# reducer can emit 0, 1, 2, ... of (K3, V3) pairs
 	# K2 is a unique key from mapper's keys outputs
 	# [V2, ...] are all values associated with the key K2
@@ -5613,9 +5675,10 @@ as shown below:
 
 
 In Spark, using RDDs, a source RDD must be in `(key, value)` 
-form before we can apply reduction transformations such as
-`groupByKey()`, `reduceByKey()`, `aggregateByKey()` and 
-`combineByKey()`.
+form (tuple of 2 elements) before we can apply reduction 
+transformations such as `groupByKey()`, `reduceByKey()`, 
+`aggregateByKey()` and  `combineByKey()`.
+
 
 ***Examples of `(key, value)` pairs***:
 
@@ -5635,7 +5698,7 @@ Integer           | (Integer, Integer, Integer, Integer)
 Integer           | (Integer, integer, Integer, Double)
 (Integer, Integer)| Integer
 (Integer, Integer)| (String, Integer, Integer, Double)
-(String, Integer, Integer, Integer) | Doble
+(String, Integer, Integer, Integer) | Double
 
 
 Note that programmers create `(key, value)` pairs based
@@ -7138,6 +7201,17 @@ the lambda function.
 Data transformation is the process to convert data 
 from one form to the other. 
 
+According to [Building the Data Lakehouse by Bill Inmon](https://www.databricks.com/resources/ebook/building-the-data-lakehouse):
+
+> Data transformation is the process of mapping andconverting data from one format to another. Datatransformation is needed when you expect data fromheterogeneous sources due to different data formats fromacross sources. This transformed format is nothing but theuniform format decided for the data lakehouse. Datatransformation is a component of almost all dataintegration and management activities, including datawarehousing and data lakehouse creation.
+
+> Transformation is needed whenever and wherever there areformat differences, and the data between source anddestination needs a strategic mapping with appropriatetransformation rules.
+
+> Three things are important to decide whether the dataneeds any transformation before storing it in the target fileformat. 
+
+> * First is the source data format understanding,> * Second is the desired data format expected into thedestination, and 
+> * Third is the transformation logic to beapplied to bring the difference to an acceptable format intothe final destination file and storage data format.
+
 Note that data transformation in Python is sequential
 (and can handle small to meium size data) and single 
 threaded, while in PySpark, data is partitioned
@@ -7447,6 +7521,32 @@ software technologies whereby massive amounts of
 heterogeneous data are gathered from multiple sources, 
 managed, analyzed (in batch, stream or hybrid fashion), 
 and served to end-users and external applications.
+
+
+## Spark Streaming
+Spark Streaming enables scalable, fault-tolerant, 
+high-throughput  stream  processing  of live data 
+streams. Data can be ingested from many services 
+like Kafka, Kinesis, Flume, or TCP sockets.
+
+![](./images/spark-streaming-arch.png)
+
+Spark Streaming is an extension of the core Spark 
+API that allows data engineers and data scientists 
+to process real-time  data  from various  sources 
+including (but not limited to) Kafka, Flume, and 
+Amazon Kinesis. This processed data can be pushed 
+out to file systems, databases, and live dashboards.
+
+
+## Spark Programming Languages
+Spark Programming Languages — Programming languages 
+you can use to write Spark programs. They include 
+
+* Python (PySpark: Python API for Spark)
+* Java
+* Scala
+* R
 
   
 ## spark-packages.org
