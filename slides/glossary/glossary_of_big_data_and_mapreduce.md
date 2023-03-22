@@ -7654,7 +7654,7 @@ on structured data (expressed as a DataFrame):
 	# output: 
 	#        DataFrame
 	#
-	spark.sql: (SQL-QUERY) -> DataFrame
+	spark.sql: SQL-QUERY -> DataFrame
 
 
 ***These 3 steps are demonstrated by an example:***
