@@ -7659,6 +7659,8 @@ on structured data (expressed as a DataFrame):
 
 ***These 3 steps are demonstrated by an example:***
 
+* Step-1: create a DataFrame
+
 ~~~python
 >>> spark.version
 '3.3.2'
@@ -7679,10 +7681,20 @@ DataFrame[name: string, age: bigint, salary: bigint]
 |jane| 40| 54000|
 | jen| 50| 64000|
 +----+---+------+
+~~~
 
+
+* Step-2: register your created DataFrame as a table 
+
+~~~python
 >>> # Step-2: Register the DataFrame as a SQL temporary view
 >>> df.createOrReplaceTempView("employees")
+~~~
 
+
+* Step-3: apply your SQL transformation to the registered table
+
+~~~python
 >>> # Step-3: apply your SQL transformation 
 >>> df2 = spark.sql("select * from employees where salary > 50000")
 >>> df2.show()
