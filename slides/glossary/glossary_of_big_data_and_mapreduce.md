@@ -7621,6 +7621,81 @@ Amazon Kinesis. This processed data can be pushed
 out to file systems, databases, and live dashboards.
 
 
+## Spark SQL
+According to [Spark Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html): Spark SQL is a Spark module for 
+structured data processing. Unlike the basic Spark RDD API, 
+the interfaces provided by Spark SQL provide Spark with more 
+information about the structure of both the data and the 
+computation being performed. Internally, Spark SQL uses this 
+extra information to perform extra optimizations. There are 
+several ways to interact with Spark SQL including SQL and the 
+Dataset API. When computing a result, the same execution engine 
+is used, independent of which API/language you are using to 
+express the computation. This unification means that developers 
+can easily switch back and forth between different APIs based 
+on which provides the most natural way to express a given 
+transformation.
+
+In PySpark, SQL can be used to perform transformations
+on structured data (expressed as a DataFrame): 
+
+* Step-1: create a DataFrame
+* Step-2: register your created DataFrame as a table 
+* Step-3: apply your SQL transformation to the registered table
+
+
+***SQL Transformation::***
+
+	# spark : SParkSession object
+	#
+	# inputs:
+	#        TABLE-NAME
+	#        SQL-QUERY (using TABLE-NAME)
+	# output: 
+	#        DataFrame
+	#
+	spark.sql: (SQL-QUERY) -> DataFrame
+
+
+***These 3 steps are demonstrated by an example:***
+
+~~~python
+>>> spark.version
+'3.3.2'
+>>> spark
+<pyspark.sql.session.SparkSession object at 0x1102c7cd0>
+
+>>> triplets = [("alex", 20, 34000), ("bob", 30, 44000), ("jane", 40, 54000), ("jen", 50, 64000)]
+>>> # Step-1: create your desired DataFrame
+>>> df = spark.createDataFrame(triplets, ["name", "age", "salary"])
+>>> df
+DataFrame[name: string, age: bigint, salary: bigint]
+>>> df.show()
++----+---+------+
+|name|age|salary|
++----+---+------+
+|alex| 20| 34000|
+| bob| 30| 44000|
+|jane| 40| 54000|
+| jen| 50| 64000|
++----+---+------+
+
+>>> # Step-2: Register the DataFrame as a SQL temporary view
+>>> df.createOrReplaceTempView("employees")
+
+>>> # Step-3: apply your SQL transformation 
+>>> df2 = spark.sql("select * from employees where salary > 50000")
+>>> df2.show()
++----+---+------+
+|name|age|salary|
++----+---+------+
+|jane| 40| 54000|
+| jen| 50| 64000|
++----+---+------+
+
+~~~
+
+
 ## Spark Programming Languages
 Spark Programming Languages — Programming languages 
 you can use to write Spark programs. They include 
@@ -7629,6 +7704,7 @@ you can use to write Spark programs. They include
 * Java
 * Scala
 * R
+* SQL
 
   
 ## spark-packages.org
