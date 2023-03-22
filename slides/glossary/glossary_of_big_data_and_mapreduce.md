@@ -299,18 +299,15 @@ def change(M):
   # here: M is an integer type
   # step-2: make sure M > 0
   if (M < 1): return (0, 0, 0, 0)
-  #end-if
   
   # step-3: first, find quarters as q
   q, p = divmod(M, 25)
   if (p == 0): return (q, 0, 0, 0)
-  #end-if
   
   # here  0 =< p < 25 
   # step-4: find dimes
   d, p = divmod(p, 10)
   if (p == 0): return (q, d, 0, 0)
-  #end-if
   
   # here 0 =< p < 9
   # step-5: find nickles and pennies
@@ -2726,18 +2723,19 @@ single value.
 Data can be partitioned into smaller logical 
 units. These units are called partitions. In 
 big data, partitions are used as a unit of 
-parallelisim.
+parallelism.
 
 For example, in a nutshell, Apache spark 
 partitions your data and then each partition 
-is executed by an executor.
+is executed by an executor (partitions are
+units of parallelism).
 
 For example, given a data size of `80,000,000,000` 
 records, this data can be partitioned into `80,000` 
 chunks, where each chunk/partition will have about 
 `1000,000` records.  Then in a transformation (such 
 as mapper, filter, ...) these partitions can be 
-processed in parallle. The maximum parallelism for 
+processed in paralll. The maximum parallelism for 
 this example is `80,000`. If the cluster does not 
 have `80,000` points of parallelism, then some of 
 the partitions will be queued for parallelism.
@@ -2748,7 +2746,7 @@ be run in parallel).
 
 In Apache Spark, a programmer can control the 
 partitioning data (by using `coalesce()`, ...) 
-and hence controlling paralleism.
+and hence controlling parallelism.
 
 Spark examples:
 
@@ -3777,6 +3775,33 @@ Once it gets information from the Spark Master of all the workers in thecluster
 * Task: A unit of work that will be sent to one executor.
 
 
+## Spark Driver Program
+Driver Program is a program that runs on a Master Node. 
+It creates the `SparkContext` (main entry point for Spark 
+functionality -- a `SparkContext` represents the connection 
+to a Spark cluster, and can be used to create RDD and 
+broadcast variables on that cluster). Driver Program declare 
+(or define) transformations and actions on the RDD. It is 
+the process where the `main()` function runs. It converts 
+processes into Tasks that are then run on the Executors
+(inside worker nodes).
+
+![](./images/Spark-Driver-Program.png)
+
+The Spark driver program is the one that creates `SparkContext` 
+object in the application. As soon as we submit the spark job, 
+the driver program runs the `main()` method of your application 
+and creates DAG's representing the data flow internally. Based 
+on the DAG workflow, the driver requests the cluster manager 
+to allocate the resources (workers) required for processing. 
+Once the resources are allocated, the driver then using 
+`SparkContext` sends the serialized result (code+data) to 
+the workers to execute as Tasks and their result is captured.
+
+![](./images/spark-components-driver-program.png)
+
+
+
 ## Apache Spark Ecosystem
 
 ![](./images/spark_eco_system.png)
@@ -3882,6 +3907,26 @@ data transformations.
    (but not limited to) Kafka, Flume, and Amazon Kinesis. 
    This processed data can be pushed out to file systems, 
    databases, and live dashboards.
+
+## Why is Spark powerful?
+Spark's distinctive power comes from its in-memory 
+processing. It uses a distributed pool of memory-heavy 
+nodes and compact data encoding along with an optimizing 
+query planner to minimize execution time and memory demand.
+
+Because Spark performs calculations in memory, it can 
+process data as much as `100` times faster than frameworks 
+that process on disk (such as Hadoop). It is the preferred 
+tool for processing the large volumes of data required for 
+analytics and training models for machine learning and AI.
+
+In addition, it runs a stack of native libraries that 
+provide both expert machine learning and SQL-like data 
+structures, allowing you to gain exceptional performance 
+with large data sets. And with more than 80 high-level 
+operators, Spark makes creating parallel apps easy.
+
+![](./images/features-of-spark-01.webp)
 
 
 ## What is an Spark RDD
@@ -7769,6 +7814,12 @@ Bernard Marr as Contributor](https://www.forbes.com/sites/bernardmarr/2022/01/18
 69. [Notes: Algorithms](http://ada-developers-academy.github.io/jumpstart-textbook/jumpstart-lessons/problem-solving/algorithms/)
 
 70. [Definition of algorithm](https://www.scriptol.com/programming/algorithm-definition.php)
+
+71. [What is Apache Spark?](https://www.hpe.com/us/en/what-is/spark.html)
+
+72. [Features of Apache Spark – Learn the benefits of using Spark](https://data-flair.training/blogs/apache-spark-features/)
+
+
 
 
 ---------------------------
