@@ -694,6 +694,22 @@ and consolidating it in a storage solution for data
 analysis and reporting. 
 
 
+## Data Governance 
+
+What does data governance mean? Data governance means 
+setting internal standards—data policies—that apply to 
+how data is gathered, stored, processed, and disposed of. 
+It governs who can access what kinds of data and what 
+kinds of data are under governance.
+
+According to Bill Inmon (father of Data Warehousing):
+"Data governance is about providing oversight to ensurethe data brings value and supports the business strategy,which is the high-level business plan to achieve thebusiness goals. Data governance is important to protect theneeds of all stakeholders."
+
+![](./images/data_governance.png)
+
+Accoring to [Snowflake](https://www.snowflake.com/wp-content/uploads/2022/10/2022_5_Components_Data_Governance.pdf): the following are 
+the 5 critical components of successful Data Governance:1. Data Architecture2. Data Quality3. Data Management4. Data Security5. Data Compliance
+
 ## What is Data Visualization?
 Data visualization is the representation of data through 
 use of common graphics, such as charts, plots, infographics, 
@@ -7966,6 +7982,9 @@ Bernard Marr as Contributor](https://www.forbes.com/sites/bernardmarr/2022/01/18
 72. [Features of Apache Spark – Learn the benefits of using Spark](https://data-flair.training/blogs/apache-spark-features/)
 
 73. [GITHUB for Data Algorithms with Spark by Mahmoud Parsian](https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md)
+
+74. [5 Components of Data Governance by Snowflake](https://www.snowflake.com/wp-content/uploads/2022/10/2022_5_Components_Data_Governance.pdf)
+
 
 
 ---------------------------
