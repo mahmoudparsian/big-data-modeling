@@ -13,7 +13,7 @@
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 3/21/2023 (March 21, 2023)
+* Last updated date: 3/28/2023 (March 28, 2023)
 
 
 <table>
@@ -4212,6 +4212,46 @@ Two types of Spark RDD operations are: Transformations and Actions.
 	* `collect()`
 	* `count()`
 	* ...
+
+
+## Spark Transformation
+
+![](./images/metamorphosis-transformations.png)
+
+Spark Transformation is a function that produces 
+new RDD/DataFrame from the existing RDDs/DataFrames. 
+It takes RDD/DataFrame as input and produces one or 
+more new RDD/DataFrame as output. Each time it creates 
+new RDD/DataFrame when we apply any transformation. 
+Note that Spark's RDD/DataFrame is immutable in nature
+to avoid synchronization and maximize parallelism.
+
+Types of Transformations in Spark: They are broadly 
+categorized into two types:
+
+1. ***Narrow Transformation:*** All the data required to 
+   compute records in one partition reside in one 
+   partition of the parent RDD. It occurs in the 
+   case of the following methods:
+
+		map(), 
+		flatMap(), 
+		filter(), 
+		sample(), 
+		union(),
+		etc.
+
+2. ***Wide Transformation:*** All the data required to 
+   compute records in one partition reside in more than 
+   one partition in the parent RDDs. It occurs in the case 
+   of the following methods:
+
+		distinct(), 
+		groupByKey(), 
+		reduceByKey(), 
+		join(), 
+		repartition(),
+		etc.
 
 
 ## The Spark Programming ModelSpark programming starts with a data set 
