@@ -7143,7 +7143,8 @@ of NoSQL databases.
 
 ## PySpark
 What is PySpark? PySpark is the Python API for Apache 
-Spark, an open source, distributed computing framework and set of libraries for near-real-time, large-scale 
+Spark, an open source, distributed computing framework 
+and set of libraries for near-real-time, large-scale 
 data processing. If you’re already familiar with Python 
 and libraries such as Pandas, then PySpark is a good 
 language to learn to create more scalable analyses and 
@@ -7162,16 +7163,33 @@ Learning) and Spark Core."
 
 PySpark supports two types of data abstractions:
 
-* RDDs
-* DataFrames
+* `RDD`
+	* as a set of elements of type `T`
+	* can represent billions of elements
+	
+* `DataFrame`
+	* as a table of rows with named columns
+	* can represent billions of rows
 
-Note that PySpark does not support `Dataset` data abstraction
-(the `Dataset` data abstraction is only supported in Java 
-and Scala). A `Dataset` is a strongly typed collection of 
-domain-specific objects that can be transformed in parallel 
-using functional or relational operations. Each `Dataset` 
-also has an untyped view called a `DataFrame`, which is 
-a `Dataset` of `Row`.
+
+What does data abstraction mean? It means that by 
+using Spark API, you can read your data (as Text 
+files, Parquet, CSV files, ...) and represent it 
+as an RDD or a DataFrame.   Once you create an 
+RDD/DataFrame,  then you may apply  a  set  of  
+transformations on  RDD/DataFrame to  generate 
+your desired final RDD/DataFrame, and eventuallly 
+you may save it or persist it in an external data 
+source.
+
+Note that PySpark does not support `Dataset` data 
+abstraction (the `Dataset` data abstraction is only 
+supported in  Java  and  Scala). A `Dataset` is a 
+strongly  typed  collection  of  domain-specific 
+objects that can  be  transformed  in  parallel  
+using  functional or relational operations. Each 
+`Dataset` also has an  untyped view called a 
+`DataFrame`, which is  a  `Dataset` of `Row`.
 
 
 **PySpark Documentation:**
@@ -7947,7 +7965,7 @@ Bernard Marr as Contributor](https://www.forbes.com/sites/bernardmarr/2022/01/18
 
 72. [Features of Apache Spark – Learn the benefits of using Spark](https://data-flair.training/blogs/apache-spark-features/)
 
-
+73. [GITHUB for Data Algorithms with Spark by Mahmoud Parsian](https://github.com/mahmoudparsian/data-algorithms-with-spark/blob/master/README.md)
 
 
 ---------------------------
