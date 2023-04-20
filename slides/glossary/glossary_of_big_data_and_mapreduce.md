@@ -662,60 +662,72 @@ be executed on different servers/nodes.
 
 
 ## Data Aggregation
-Data aggregation refers to the collection of data 
-from multiple sources to bring all the data together 
-into a common athenaeum for the purpose of reporting 
-and/or analysis.
+Data aggregation refers to the collection of 
+data from multiple sources to bring all the 
+data together into a common athenaeum for the 
+purpose of reporting and/or analysis.
 
-* Data aggregation is the process of compiling typically 
-  some large amounts of information from a given database 
-  and organizing it into a more consumable and comprehensive 
-  medium. 
+* Data aggregation is the process of compiling 
+  typically some large amounts of information 
+  from a given database and organizing it into 
+  a more consumable and comprehensive medium. 
   
-* For example, read customer data from a data source,
-  read products data from another data source, then
-  write algorithms to find average age of customer by product
+* For example, read customer data from a data 
+  source, read products data from another data 
+  source, then write algorithms to find average 
+  age of customer by product
   
-* For example, read users data from a data source, read movies
-  from another data source, read ratings from a data source, and
-  fianlly find median rating for movies rated last year
+* For example, read users data from a data 
+  source, read movies from another data source, 
+  read ratings from a data source, and fianlly 
+  find median rating for movies rated last year
   
 ![](./images/data-aggregation-02.png)
 
 
-What is Data Aggregation? Data aggregators summarize 
-data from multiple data sources. They provide capabilities 
-for multiple aggregate measurements, such as sum, median, 
+What is Data Aggregation? Data aggregators 
+summarize data from multiple data sources. 
+They provide capabilities for multiple 
+aggregate measurements, such as sum, median, 
 average and counting.
 
-In a nutshell, we can say that data aggregation is the 
-process of bringing together data from multiple sources 
-and consolidating it in a storage solution for data
-analysis and reporting. 
+In a nutshell, we can say that data aggregation 
+is the process of bringing together data from 
+multiple sources and consolidating it in a 
+storage solution for data analysis and reporting. 
 
 
 ## Data Governance 
 
-What does data governance mean? Data governance means 
-setting internal standards—data policies—that apply to 
-how data is gathered, stored, processed, and disposed of. 
-It governs who can access what kinds of data and what 
-kinds of data are under governance.
+What does data governance mean? Data governance 
+means setting internal standards—data policies—that 
+apply to how data is gathered, stored, processed, 
+and disposed of. It governs who can access what 
+kinds of data and what kinds of data are under 
+governance.
 
 According to Bill Inmon (father of Data Warehousing):
-"Data governance is about providing oversight to ensurethe data brings value and supports the business strategy,which is the high-level business plan to achieve thebusiness goals. Data governance is important to protect theneeds of all stakeholders."
+"Data governance is about providing oversight to 
+ensure the data brings value and supports the business 
+strategy, which is the high-level business plan to 
+achieve the business goals. Data governance is important 
+to protect the needs of all stakeholders." Data privacy 
+and security should be considered in every phase of the 
+data lifecycle.
 
 ![](./images/data_governance.png)
+
 
 Accoring to [Snowflake](https://www.snowflake.com/wp-content/uploads/2022/10/2022_5_Components_Data_Governance.pdf): the following are 
 the 5 critical components of successful Data Governance:1. Data Architecture2. Data Quality3. Data Management4. Data Security5. Data Compliance
 
 ## What is Data Visualization?
-Data visualization is the representation of data through 
-use of common graphics, such as charts, plots, infographics, 
-and even animations. These visual displays of information 
-communicate complex data relationships and data-driven 
-insights in a way that is easy to understand.
+Data visualization is the representation of data 
+through use of common graphics, such as charts, 
+plots, infographics, and even animations. These 
+visual displays of information communicate complex 
+data relationships and data-driven insights in a 
+way that is easy to understand.
 
 #### Spark Job Visualization:
 ![](./images/spark-job-stages-01.png)
@@ -731,8 +743,8 @@ explain patterns and trends.
 ![](images/notebook-visual-01.png)
 
 ## Jupyter Notebook
-The [Jupyter Notebook](http://jupyter.org) is the web 
-application for creating and sharing computational 
+The [Jupyter Notebook](http://jupyter.org) is the 
+web application for creating and sharing computational 
 documents. It offers a simple, streamlined, document
 centric experience.
 
@@ -746,11 +758,17 @@ great tool to test and prototype programs.
 There are two ways to get PySpark available in a 
 Jupyter Notebook:
 
-* Configure PySpark driver to use Jupyter Notebook: running pyspark will automatically open a Jupyter Notebook
-* Load a regular Jupyter Notebook and load PySpark using findSpark package
+* Configure PySpark driver to use Jupyter Notebook: 
+  running pyspark will automatically open a Jupyter 
+  Notebook
+  
+* Load a regular Jupyter Notebook and load PySpark 
+  using findSpark package
+
 
 The following shell script enables you to run PySpark in Jupyter
 (you need to update your script accordingly):
+
 
 ~~~sh
 # define your Python PATH
@@ -766,6 +784,7 @@ export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 # invoke PySpark in Jupyter
 $SPARK_HOME/bin/pyspark
 ~~~
+
 
 #### PySpark in Jupyter Screenshot
 ![](./images/Jupyter_Screenshot.png)
