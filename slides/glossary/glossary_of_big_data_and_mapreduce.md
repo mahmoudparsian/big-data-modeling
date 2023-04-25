@@ -1,8 +1,8 @@
 # Glossary of Big Data, MapReduce, Spark
 
-[Text to Introduction](#Introduction)
+[Text to Introduction](##Introduction)
 
-[Text Algorithm](#Algorithm2)
+[Text Algorithm](##Algorithm)
 
 ## Prelude
 
@@ -48,8 +48,7 @@ Original Creator of Apache Spark <br>
 <img src="./images/glossary.jpeg" height=380 width=620>
 
 
-# Introduction
-## Introductionw
+## Introduction
 Big data is a broad and rapidly evolving topic.
 Big data is a vast and complex field that is 
 constantly evolving, and for that reason, it’s 
@@ -80,7 +79,6 @@ is a list of terms, words, concepts, and
 examples found in or relating to big data, 
 MapReduce, and Spark.
 
-# Algorithm2
 
 ## Algorithm 
 
