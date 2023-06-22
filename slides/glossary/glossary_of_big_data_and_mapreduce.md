@@ -1,9 +1,6 @@
 # Glossary of Big Data, MapReduce, Spark
 
-***Table of Contents***<br>
-[Prelude](#Prelude)<br>
-[Introduction](#Introduction)<br>
-[Algorithm](#Algorithm)
+<!-- Table of Contents -->
 
 -------
 
