@@ -1,6 +1,14 @@
 # Glossary of Big Data, MapReduce, Spark
 
-<!-- Table of Contents -->
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+Table of Contents
+
+1. [Prelude](#Prelude)
+2. [Introduction](#Introduction)
+3. [Algorithm](#Algorithm) 
+
 
 -------
 
@@ -47,6 +55,9 @@ Original Creator of Apache Spark <br>
 
 <img src="./images/glossary.jpeg" height=380 width=620>
 
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
 
 ## Introduction
 Big data is a broad and rapidly evolving topic.
@@ -78,6 +89,9 @@ data, MapReduce, and Spark. This document
 is a list of terms, words, concepts, and
 examples found in or relating to big data, 
 MapReduce, and Spark.
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
 
 
 ## Algorithm 
@@ -162,6 +176,9 @@ basic properties:
    
 
 ![](./images/example-of-sorting-algorithm.png) 
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
 
    
 ## List of Algorithms
