@@ -1,14 +1,15 @@
 # Glossary of Big Data, MapReduce, Spark
 
 
-0. [TOC](#TOC)
-1. [Example1](#example1)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-example)
-5. [Fifth Example](#fifth-example)
-6. [Sixth](#sixth)
+1. [TOC](#TOC)
+2. [Example1](#example1)
+3. [Example2](#example2)
+4. [Third Example](#third-example)
+5. [Fourth Example](#fourth-example)
+6. [Fifth Example](#fifth-example)
+7. [Sixth](#sixth)
 
+## TOC
 
 ## Example1
 How Is Multidimensional Data Model Used In Data Warehouse? 
@@ -27,7 +28,7 @@ to provide a way to organize data for quick and easy retrieval.
 The data is stored in a series of dimensions, each of which 
 represents a different aspect of the data.
 
-[TOC](#TOC)
+[back to TOC](#TOC)
 
 ## Example2
 How Is Multidimensional Data Model Used In Data Warehouse? 
@@ -46,7 +47,7 @@ to provide a way to organize data for quick and easy retrieval.
 The data is stored in a series of dimensions, each of which 
 represents a different aspect of the data.
 
-[TOC](#TOC)
+[back to TOC](#TOC)
 
 
 ## Third Example
@@ -76,7 +77,7 @@ to provide a way to organize data for quick and easy retrieval.
 The data is stored in a series of dimensions, each of which 
 represents a different aspect of the data.
 
-[TOC](#TOC)
+[back to TOC](#TOC)
 
 
 ## Fourth Example
@@ -116,7 +117,7 @@ to provide a way to organize data for quick and easy retrieval.
 The data is stored in a series of dimensions, each of which 
 represents a different aspect of the data.
 
-[TOC](#TOC)
+[back to TOC](#TOC)
 
 ## Fifth Example
 How Is Multidimensional Data Model Used In Data Warehouse? 
@@ -155,7 +156,7 @@ to provide a way to organize data for quick and easy retrieval.
 The data is stored in a series of dimensions, each of which 
 represents a different aspect of the data.
 
-[TOC](#TOC)
+[back to TOC](#TOC)
 
 ## Sixth
 The data is stored in a series of dimensions, each of which 
@@ -181,4 +182,4 @@ to provide a way to organize data for quick and easy retrieval.
 The data is stored in a series of dimensions, each of which 
 represents a different aspect of the data.
 
-[TOC](#TOC)
+[back to TOC](#TOC)
