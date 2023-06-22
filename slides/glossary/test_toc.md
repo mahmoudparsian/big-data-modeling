@@ -1,6 +1,8 @@
-# [Glossary of Big Data, MapReduce, Spark](#GL)
+# Glossary of Big Data, MapReduce, Spark
 
 
+
+* [TOC](#GL)
 1. [Example1](#example1)
 2. [Example2](#example2)
 3. [Third Example](#third-example)
