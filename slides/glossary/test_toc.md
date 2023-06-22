@@ -6,13 +6,101 @@
 
 
 ## Example1
-e1
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
 
 ## Example2
-e2
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+
 
 ## Third Example
-333
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+
 
 ## Fourth Example
-gggg
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
+How Is Multidimensional Data Model Used In Data Warehouse? 
+A multidimensional data model is used in data warehouses 
+to provide a way to organize data for quick and easy retrieval. 
+The data is stored in a series of dimensions, each of which 
+represents a different aspect of the data.
