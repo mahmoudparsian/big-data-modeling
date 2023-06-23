@@ -42,22 +42,22 @@ Table of Contents
 1. [Big Data Modeling](#Big-Data-Modeling)
 1. [Big Data Platforms and Solutions](#Big-Data-Platforms-and-Solutions)
 1. [Biometrics](#Biometrics)
-1. [Data Modelling](#)
-1. [Design Patterns](#)
-1. [Data Set](#)
-1. [Data Type](#)
-1. [Composite Data Type](#)
-1. [Abstract Data Type](#)
-1. [Apache Lucene](#)
-1. [Apache Solr](#)
-1. [Apache Hadoop](#)
-1. [What is the difference between Hadoop and RDBMS?](#)
-1. [Replication](#)
-1. [Replication Factor (RF)](#)
-1. [What makes Hadoop Fault tolerant?](#)
-1. [Big Data Formats](#)
-1. [Parquet Files](#)
-1. [Columnar vs. Row Oriented Databases](#)
+1. [Data Modelling](#Data-Modelling)
+1. [Design Patterns](#Design-Patterns)
+1. [Data Set](#Data-Set)
+1. [Data Type](#Data-Type)
+1. [Composite Data Type](#Composite-Data-Type)
+1. [Abstract Data Type](#Abstract-Data-Type)
+1. [Apache Lucene](#Apache-Lucene)
+1. [Apache Solr](#Apache-Solr)
+1. [Apache Hadoop](#Apache-Hadoop)
+1. [What is the difference between Hadoop and RDBMS?](#What-is-the-difference-between-Hadoop-and-RDBMS)
+1. [Replication](#Replication)
+1. [Replication Factor](#Replication-Factor)
+1. [What makes Hadoop Fault tolerant?](#What-makes-Hadoop-Fault-tolerant)
+1. [Big Data Formats](#Big-Data-Formats)
+1. [Parquet Files](#Parquet-Files)
+1. [Columnar vs. Row Oriented Databases](#Columnar-vs-Row-Oriented-Databases)
 1. [Tez](#)
 1. [Apache HBase](#)
 1. [Google Bigtable](#)
@@ -238,7 +238,8 @@ Table of Contents
 1. [Spark Programming Languages](#)
 1. [spark-packages.org](#)
 1. [What is A DATA LAKEHOUSE?](#)
-1. [References](#)
+1. [Snowflake](#Snowflake)
+1. [References](#References)
 1. [Mahmoud Parsian's List of Books:](#)
 -------
 
@@ -675,11 +676,11 @@ that problem. For example, the elements of a recursively defined
 set, or the value of a recursively defined function can be obtained 
 by a recursive algorithm.
 
-The classic example of recursive programming involves computing 
-factorials. The factorial of a number is computed as that number 
-times all of the numbers below it up to and including 1. For 
-example, `factorial(5)` is the same as `5 * 4 * 3 * 2 * 1`, and 
-`factorial(3)` is `3 * 2 * 1`.
+The classic example of recursive programming involves 
+computing factorials. The factorial of a number is computed 
+as that number times all of the numbers below it up to and 
+including 1. For example, `factorial(5)` is the same as 
+`5 * 4 * 3 * 2 * 1`, and `factorial(3)` is `3 * 2 * 1`.
 
 An interesting property of a factorial is that the factorial 
 of a number is equal to the starting number multiplied by the 
@@ -688,8 +689,8 @@ factorial of the number immediately below it. For example,
 almost write the factorial function simply as this:
 
 
-	factorial(n) = n * factorial(n ‑ 1) for n > 0 (general definition)
 	factorial(n) = 1                    for n = 0 (base definition) 
+	factorial(n) = n * factorial(n ‑ 1) for n > 0 (general definition)
 
 
 Factorial function can be expressed in a pseudo-code:
@@ -703,6 +704,22 @@ Factorial function can be expressed in a pseudo-code:
 	      return n * factorial(n ‑ 1);
 	   }
 	}
+
+
+
+Factorial function (recursive) in Python:
+
+~~~python
+# assumption: n >= 0
+def recursive_factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * recursive_factorial(n-1)
+    #end-if
+#end-def
+~~~
+
 
 ***Example of Recursive Algorithms***:
 
@@ -962,13 +979,20 @@ strategy, which is the high-level business plan to
 achieve the business goals. Data governance is important 
 to protect the needs of all stakeholders." Data privacy 
 and security should be considered in every phase of the 
-data lifecycle.
+data lifecycle.
 
 ![](./images/data_governance.png)
 
 
-Accoring to [Snowflake](https://www.snowflake.com/wp-content/uploads/2022/10/2022_5_Components_Data_Governance.pdf): the following are 
-the 5 critical components of successful Data Governance:1. Data Architecture2. Data Quality3. Data Management4. Data Security5. Data Compliance
+Accoring to [Snowflake](https://www.snowflake.com/wp-content/uploads/2022/10/2022_5_Components_Data_Governance.pdf): 
+the following are the 5 critical components of successful Data Governance:
+
+1. Data Architecture
+2. Data Quality
+3. Data Management
+4. Data Security
+5. Data Compliance
+
 
 ## What is Data Visualization?
 Data visualization is the representation of data 
@@ -1444,11 +1468,11 @@ generation or the creation of Machine
 Learning based solutions.
 
 [What is the Data Engineering 
-Lifecycle?](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/ch02.html)  The data engineering 
-lifecycle comprises stages that turn raw data 
-ingredients into a useful end product, ready 
-for consumption by analysts, data scientists, 
-ML engineers, and others. 
+Lifecycle?](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/ch02.html)  
+The data engineering lifecycle comprises stages 
+that turn raw data ingredients into a useful end 
+product, ready for consumption by analysts, data 
+scientists, ML engineers, and others. 
 
 ![](./images/data_engineering_life_cycle.png)
 
@@ -1535,26 +1559,28 @@ In a practical sense, Big Data Modeling involves:
 
 
 ## Biometrics 
-According to dictionary: the automated recognition of 
-individuals by means of unique physical characteristics, 
-typically for the purposes of security. Biometrics refers 
-to the use of data and technology to identify people by 
-one or more of their physical traits (for example, 
-face recognition).
+According to dictionary: the automated 
+recognition of individuals by means of 
+unique physical characteristics, typically 
+for the purposes of security. Biometrics 
+refers to the use of data and technology to 
+identify people by one or more of their 
+physical traits (for example, face recognition).
 
-While there are many types of biometrics for authentication, 
-the five most common types of biometric identifiers are: 
-fingerprints, facial, voice, iris, and palm or finger vein 
-patterns.
+While there are many types of biometrics for 
+authentication, the five most common types of 
+biometric identifiers are: fingerprints, facial, 
+voice, iris, and palm or finger vein patterns.
 
 
 ## Data Modelling 
-Data modeling is the process of creating a data model 
-for  the  data  to be stored in a database. This data 
-model is a conceptual representation of Data objects, 
-the associations between different data objects, and 
-the rules. The analysis of data sets using data 
-modelling techniques to create insights from the data: 
+Data modeling is the process of creating a 
+data model for the data to be stored in a 
+database. This data model is a conceptual 
+representation of Data objects, the associations 
+between different data objects, and the rules. 
+The analysis of data sets using data modelling 
+techniques to create insights from the data: 
 
 * data summarization, 
 * data aggregation, 
@@ -2020,11 +2046,12 @@ read from other replicated servers.
 
 ![](./images/hdfs-datanodes-replication.gif)
 
-In HDFS, the block size and replication factor are configurable 
-per file. An application can specify the number of replicas of 
-a file. The replication factor can be specified at file creation 
-time and can be changed later. Files in HDFS are write-once and 
-have strictly one writer at any time.
+In HDFS, the block size and replication factor are 
+configurable per file. An application can specify 
+the number of replicas of a file. The replication 
+factor can be specified at file creation time and 
+can be changed later. Files in HDFS are write-once 
+and have strictly one writer at any time.
 
 ***Replication Example***:
 
@@ -2033,7 +2060,8 @@ have strictly one writer at any time.
 * Data Block Size: 512 MB
 * Replication Factor: 3
 * Cluster of 6 nodes (one master + 6 worker nodes):: 
-	* One Master node (no actual data is stored in the master node, the master node saves/stores metadata information)
+	* One Master node (no actual data is stored in the master node, 
+      the master node saves/stores metadata information)
 	* 5 worker/data nodes (actual data is stored in worker/data nodes) 
 	  denoted as { W1, W2, W3, W4, W5 }
 
@@ -2064,17 +2092,17 @@ nodes can safely fail.
 
 
 
-## Replication Factor (RF)
-The total number of replicas across the cluster 
-is referred to as the replication factor (RF). 
-A replication factor of 1 means 
-that there is only one copy of each row in the 
-cluster. If the node containing the row goes 
-down, the row cannot be retrieved. A replication 
-factor of 2 means two copies of each row, where 
-each copy is on a different node. All replicas 
-are equally important; there is no primary or 
-master replica.
+## Replication Factor
+The total number of replicas across the 
+cluster is referred to as the replication 
+factor (RF). A replication factor of 1 
+means that there is only one copy of each 
+row in the cluster. If the node containing 
+the row goes down, the row cannot be retrieved. 
+A replication factor of 2 means two copies 
+of each row, where each copy is on a different 
+node. All replicas are equally important; there 
+is no primary or master replica.
 
 Given a cluster of `N+1` nodes (a master and 
 `N`  worker nodes), if data replication factor 
@@ -2115,12 +2143,16 @@ in the cluster.
 Data comes in many varied formats:
 
 * Avro
-	* Avro stores the data definition in JSON format making it easy to read and interpret
+	* Avro stores the data definition in JSON format 
+      making it easy to read and interpret
 
 * Parquet
-	* Parquet is an open source, binary, column-oriented data file format designed for efficient data storage and retrieval	
+	* Parquet is an open source, binary, column-oriented data
+      file format designed for efficient data storage and retrieval
+
 * ORC
-	* The Optimized Row Columnar (ORC) file format provides a highly efficient way to store Hive data.
+	* The Optimized Row Columnar (ORC) file format provides 
+      a highly efficient way to store Hive data.
 
 * Text files (log data, CSV, ...)
 
@@ -2533,14 +2565,14 @@ job fails.
 
 
 ## High-Performance-Computing (HPC)
-Using supercomputers to solve highly complex 
-and advanced computing problems. This is a 
-scale-up architecture and not a scale-out 
-architecture.  High-performance computing 
-(HPC) uses supercomputers and computer 
-clusters to solve advanced computation 
-problems. HPC has a high cost due to the 
-high cost of supercomputers.
+Using supercomputers to solve highly 
+complex and advanced computing problems. 
+This is a scale-up architecture and not 
+a scale-out architecture.  High-performance 
+computing (HPC) uses supercomputers and 
+computer clusters to solve advanced 
+computation problems. HPC has a high cost 
+due to the high cost of supercomputers.
 
 **Scaling up** is adding further resources, 
 like hard drives and memory, to increase the 
@@ -2624,7 +2656,7 @@ by Bill Chambers and Matei Zaharia, 2018](https://www.amazon.com/Spark-Definitiv
 
 
 
-Mapreduce is a software framework for processing 
+MapReduce is a software framework for processing 
 vast amounts of data. MapReduce is a parallel 
 programming model for processing data on a distributed 
 system.  MapReduce is a programming model and an 
@@ -8096,6 +8128,78 @@ Data lakehouses are enabled by a new, open system design: implementing similar d
 
 >  ![](./images/data-lakehouse-new.png)
 
+## Snowflake
+
+With [Snowflake](https://docs.snowflake.com/en/user-guide/intro-key-concepts) 
+as a service, 
+
+1. Create your data in your desired format (Parquet)
+
+2. Create a table (similar to a relational table) 
+   pointing to your data (you may partition your data 
+   by your desired columns used in the WHERE clause
+   of your SQL queries)
+
+3. Use SQL to access your data
+
+
+>### Key Concepts & Architecture
+>Snowflake’s Data Cloud is powered by an advanced 
+data platform provided as a self-managed service. 
+Snowflake enables data storage, processing, and 
+analytic solutions that are faster, easier to use, 
+and far more flexible than traditional offerings.
+
+> The Snowflake data platform is not built on any 
+existing database technology or “big data” software 
+platforms such as Hadoop. Instead, Snowflake combines 
+a completely new SQL query engine with an innovative 
+architecture natively designed for the cloud. To the 
+user, Snowflake provides all of the functionality of 
+an enterprise analytic database, along with many 
+additional special features and unique capabilities.
+
+>###Data Platform as a Self-managed Service
+>Snowflake is a true self-managed service, meaning:
+
+>There is no hardware (virtual or physical) to 
+select, install, configure, or manage.
+
+>There is virtually no software to install, configure, or manage.
+
+>Ongoing maintenance, management, upgrades, and tuning 
+are handled by Snowflake.
+
+>Snowflake runs completely on cloud infrastructure. All 
+components of Snowflake’s service (other than optional 
+command line clients, drivers, and connectors), run in 
+public cloud infrastructures.
+
+> Snowflake uses virtual compute instances for its compute 
+needs and a storage service for persistent storage of data. 
+Snowflake cannot be run on private cloud infrastructures 
+(on-premises or hosted).
+
+>Snowflake is not a packaged software offering that can be 
+installed by a user. Snowflake manages all aspects of software 
+installation and updates.
+
+>###Snowflake Architecture
+>Snowflake’s architecture is a hybrid of traditional shared-disk 
+and shared-nothing database architectures. Similar to shared-disk 
+architectures, Snowflake uses a central data repository for persisted 
+data that is accessible from all compute nodes in the platform. But 
+similar to shared-nothing architectures, Snowflake processes queries 
+using MPP (massively parallel processing) compute clusters where each 
+node in the cluster stores a portion of the entire data set locally. 
+This approach offers the data management simplicity of a shared-disk 
+architecture, but with the performance and scale-out benefits of a 
+shared-nothing architecture.
+
+
+Snowflake Architecture:
+
+![](./images/snowflake-architecture-overview.png)
 
 
 ## References
