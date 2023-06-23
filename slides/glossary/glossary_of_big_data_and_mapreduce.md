@@ -15,33 +15,33 @@ Table of Contents
 1. [Recursive Algorithms](#Recursive-Algorithms)
 1. [Algorithm Complexity](#Algorithm-Complexity)
 1. [Distributed Algorithm](#Distributed-Algorithm)
-1. [Access Control List (ACL)](#Access_Control_List_ACL)
-1. [Apache Software Foundation (ASF)](#Apache_Software_Foundation_ASF)
-1. [Partitioner](#)
-1. [Aggregation](#)
-1. [Data Aggregation](#)
-1. [Data Governance](#)
-1. [What is Data Visualization?](#)
-1. [Jupyter Notebook](#)
-1. [Analytics](#)
-1. [Data Analytics](#)
-1. [Data Analysis Process](#)
-1. [Data Lake](#)
-1. [Data Science](#)
-1. [Data Science Process](#)
-1. [Anonymization](#)
-1. [API](#)
-1. [Application](#)
-1. [Data sizes](#)
-1. [Behavioural Analytics](#)
-1. [ODBC](#)
-1. [JDBC](#)
-1. [Big Data](#)
-1. [Big Data Engineering](#)
-1. [What Does a Big Data Life Cycle Look Like?](#)
-1. [Big Data Modeling](#)
-1. [Big Data Platforms/Solutions](#)
-1. [Biometrics](#)
+1. [Access Control List (ACL)](#Access-Control-List-ACL)
+1. [Apache Software Foundation (ASF)](#Apache-Software-Foundation-ASF)
+1. [Partitioner](#Partitioner)
+1. [Aggregation](#Aggregation)
+1. [Data Aggregation](#Data-Aggregation)
+1. [Data Governance](#Data-Governance)
+1. [What is Data Visualization?](#What-is-Data-Visualization)
+1. [Jupyter Notebook](#Jupyter-Notebook)
+1. [Analytics](#Analytics)
+1. [Data Analytics](#Data-Analytics)
+1. [Data Analysis Process](#Data-Analysis-Process)
+1. [Data Lake](#Data-Lake)
+1. [Data Science](#Data-Science)
+1. [Data Science Process](#Data-Science-Process)
+1. [Anonymization](#Anonymization)
+1. [API](#API)
+1. [Application](#Application)
+1. [Data Sizes](#Data-Sizes)
+1. [Behavioural Analytics](#Behavioural-Analytics)
+1. [ODBC](#ODBC)
+1. [JDBC](#JDBC)
+1. [Big Data](#Big-Data)
+1. [Big Data Engineering](#Big-Data-Engineering)
+1. [Big Data Life Cycle](#Big-Data-Life-Cycle)
+1. [Big Data Modeling](#Big-Data-Modeling)
+1. [Big Data Platforms/Solutions](#Big-Data-Platforms-Solutions)
+1. [Biometrics](#Biometrics)
 1. [Data Modelling](#)
 1. [Design Patterns](#)
 1. [Data Set](#)
@@ -1318,7 +1318,7 @@ variety of software systems.
   for DNA samples
 
 
-## Data sizes 
+## Data Sizes 
 
 |Short name |Full Name  | Description|
 |--- | --- | ---|
@@ -1459,19 +1459,21 @@ transforming the data, devising schemas,
 storing data, and managing its flow.
 
 
-## What Does a Big Data Life Cycle Look Like?
-So how is data actually processed when dealing with 
-a big data system? While approaches to implementation 
-differ, there are some commonalities in the strategies 
-and software that we can talk about generally. While 
-the steps presented below might not be true in all 
-cases, they are widely used.
+## Big Data Life Cycle
+So how is data actually processed when 
+dealing with a big data system? While 
+approaches to implementation differ, 
+there are some commonalities in the 
+strategies and software that we can talk 
+about generally. While the steps presented 
+below might not be true in all cases, they 
+are widely used.
 
 ![](./images/big-data-life-cycle.jpg)
 
-The general categories of activities (typically using
-a cluster computing services) involved with big data 
-processing are:
+The general categories of activities (typically 
+using a cluster computing services) involved 
+with big data processing are:
 
 * Understanding data requirements
 * Ingesting data into the system
