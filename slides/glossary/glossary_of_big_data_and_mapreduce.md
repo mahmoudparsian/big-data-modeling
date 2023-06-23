@@ -8128,17 +8128,23 @@ Data lakehouses are enabled by a new, open system design: implementing similar d
 
 >  ![](./images/data-lakehouse-new.png)
 
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
 ## Snowflake
 
-With [Snowflake](https://docs.snowflake.com/en/user-guide/intro-key-concepts) 
-as a service, 
+In a nutshell, with 
+[Snowflake](https://docs.snowflake.com/en/user-guide/intro-key-concepts) 
+as a manageable data and query service, 
 
-1. Create your data in your desired format (Parquet)
+1. Create your data in your desired format (Parquet, CSV, ...)
 
 2. Create a table (similar to a relational table) 
-   pointing to your data (you may partition your data 
-   by your desired columns used in the WHERE clause
-   of your SQL queries)
+   pointing to your data (you may partition your 
+   data by your desired columns used in the `WHERE` 
+   clause of your SQL queries)
 
 3. Use SQL to access your data
 
@@ -8200,6 +8206,10 @@ shared-nothing architecture.
 Snowflake Architecture:
 
 ![](./images/snowflake-architecture-overview.png)
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
 
 
 ## References
@@ -8359,7 +8369,8 @@ Bernard Marr as Contributor](https://www.forbes.com/sites/bernardmarr/2022/01/18
 
 74. [5 Components of Data Governance by Snowflake](https://www.snowflake.com/wp-content/uploads/2022/10/2022_5_Components_Data_Governance.pdf)
 
-
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
 
 ---------------------------
 
