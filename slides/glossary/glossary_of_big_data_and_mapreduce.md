@@ -110,17 +110,17 @@ Table of Contents
 1. [Data Structure](#Data-Structure)
 1. [Difference between Spark's Action and Transformation](#Difference-between-Spark-Action-and-Transformation)
 1. [What is a Lineage in Spark?](#What-is-a-Lineage-in-Spark)
-1. [What are Spark operations/functions?](#What-are-Spark-operations-functions)
+1. [What are Spark operations or functions?](#What-are-Spark-operations-or-functions)
 1. [Spark Transformation](#Spark-Transformation)
 1. [Spark Programming Model](#Spark-Programming-Model)
 1. [What is SparkContext in PySpark](#What-is-SparkContext-in-PySpark)
 1. [What is SparkSession in PySpark](#What-is-SparkSession-in-PySpark)
 1. [What is Lazy Binding in Spark?](#What-is-Lazy-Binding-in-Spark)
-1. [Difference between  `reduceByKey()` and `combineByKey()`](#Difference-between-reduceByKey-and-combineByKey)
-1. [What is an example of `RDD.combineByKey()`?](#What-is-an-example-of-RDD-combineByKey)
-1. [What is an example of `RDD.reduceByKey()`?](#What-is-an-example-of-RDD-reduceByKey)
-1. [What is an example of `RDD.groupByKey()`?](#What-is-an-example-of-RDD-groupByKey)
-1. [Difference of `RDD.groupByKey()` and `RDD.reduceByKey()`](#Difference-of-RDD-groupByKey-and-RDD-reduceByKey)
+1. [Difference between reduceByKey() and combineByKey()](#Difference-between-reduceByKey-and-combineByKey)
+1. [What is an example of RDD.combineByKey()?](#What-is-an-example-of-RDD-combineByKey)
+1. [What is an example of RDD.reduceByKey()?](#What-is-an-example-of-RDD-reduceByKey)
+1. [What is an example of RDD.groupByKey()?](#What-is-an-example-of-RDD-groupByKey)
+1. [Difference of RDD.groupByKey() and RDD.reduceByKey()](#Difference-of-RDD-groupByKey-and-RDD-reduceByKey)
 1. [What is a DataFrame?](#What-is-a-DataFrame)
 1. [What is an Spark DataFrame?](#What-is-an-Spark-DataFrame)
 1. [Spark RDD Example](#Spark-RDD-Example)
@@ -4504,7 +4504,7 @@ sources:Input 1 with Input 2.
 ![](./images/Lineage-Graph-of-joining-inputs-from-Input1-with-Input2.png)
 
 
-## What are Spark operations/functions?
+## What are Spark operations or functions?
 Two types of Spark RDD operations are: Transformations and Actions. 
 
 
@@ -4801,7 +4801,7 @@ executing both the stages.
 
 
 
-## Difference between  `reduceByKey()` and `combineByKey()`
+## Difference between reduceByKey() and combineByKey()
 
 
 ####  `reduceByKey()`
@@ -4864,7 +4864,7 @@ This can be expressed as:
 		where V and C can be the same or different 
 
 
-## What is an example of `RDD.combineByKey()`?
+## What is an example of RDD.combineByKey()?
 
 Combine all of values per key.
 
@@ -4905,7 +4905,7 @@ rdd2.collect()
 ~~~
 
 
-## What is an example of `RDD.reduceByKey()`?
+## What is an example of RDD.reduceByKey()?
 
 Find maximum of values per key.
 
@@ -4930,7 +4930,7 @@ rdd2.collect()
 ~~~
 
 
-## What is an example of `RDD.groupByKey()`?
+## What is an example of RDD.groupByKey()?
 
 Combine/Group values per key.
 
@@ -4955,7 +4955,7 @@ rdd2.collect()
 ~~~
 
 
-## Difference of `RDD.groupByKey()` and `RDD.reduceByKey()`
+## Difference of RDD.groupByKey() and RDD.reduceByKey()
 Both `reduceByKey()` and `groupByKey()` result in wide transformations 
 which means both triggers a shuffle operation. The key difference between 
 `reduceByKey()` and `groupByKey()` is that `reduceByKey()` does a map side 
