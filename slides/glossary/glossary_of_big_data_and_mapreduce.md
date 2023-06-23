@@ -58,108 +58,109 @@ Table of Contents
 1. [Big Data Formats](#Big-Data-Formats)
 1. [Parquet Files](#Parquet-Files)
 1. [Columnar vs. Row Oriented Databases](#Columnar-vs-Row-Oriented-Databases)
-1. [Tez](#)
-1. [Apache HBase](#)
-1. [Google Bigtable](#)
-1. [Hadoop Distributed File System - HDFS](#)
-1. [Scalability](#)
-1. [Amazon S3](#)
-1. [Amazon Athena](#)
-1. [Google BigQuery](#)
-1. [Commodity server/hardware](#)
-1. [Fault Tolerance and Data Replication.](#)
-1. [High-Performance-Computing (HPC)](#)
-1. [History of MapReduce](#)
-1. [Classic MapReduce Books and Papers](#)
-1. [Apache Spark Books](#)
-1. [MapReduce](#)
-1. [MapReduce Terminology](#)
-1. [Mapreduce Architecture](#)
-1. [What is an Example of a Mapper in MapReduce](#)
-1. [What is an Example of a Reducer in MapReduce](#)
-1. [What is an Example of a Combiner in MapReduce](#)
-1. [Partition](#)
-1. [Parallel Computing](#)
-1. [Difference between Concurrency and Parallelism?](#)
-1. [How does MapReduce work?](#)
-1. [Word Count in MapReduce](#)
-1. [Word Count in PySpark](#)
-1. [Finding Average in MapReduce](#)
-1. [What is an Associative Law](#)
-1. [What is a Commutative Law](#)
-1. [Monoid](#)
-1. [Monoids as a Design Principle for Efficient MapReduce Algorithms](#)
-1. [What Does it Mean that "Average of Average is Not an Average"](#)
-1. [Advantages of MapReduce](#)
-1. [What is a MapReduce Job](#)
-1. [Disadvantages of MapReduce](#)
-1. [What the MapReduce's Job Flow](#)
-1. [Hadoop vs. Spark](#)
-1. [Apache Spark](#)
-1. [Apache Spark Components](#)
-1. [Apache Spark in Large-Scale Sorting](#)
-1. [DAG in Spark](#)
-1. [Spark Concepts and Key Terms](#)
-1. [Spark Driver Program](#)
-1. [Apache Spark Ecosystem](#)
-1. [Spark as a superset of MapReduce](#)
-1. [Why is Spark powerful?](#)
-1. [What is an Spark RDD](#)
-1. [What are Spark Mappers?](#)
-1. [What are Spark Reducers?](#)
-1. [Data Structure](#)
-1. [Difference between Spark's Action and Transformation](#)
-1. [What is a Lineage In Spark?](#)
-1. [What are Spark operations/functions?](#)
-1. [Spark Transformation](#)Spark programming starts with a data set](#)
-1. [What is `SparkContext` in PySpark](#)
-1. [What is `SparkSession` in PySpark](#)
-1. [What is Lazy Binding In Spark?](#)
-1. [Difference between  `reduceByKey()` and `combineByKey()`](#)
-1. [What is an example of `RDD.combineByKey()`?](#)
-1. [What is an example of `RDD.reduceByKey()`?](#)
-1. [What is an example of `RDD.groupByKey()`?](#)
-1. [Difference of `RDD.groupByKey()` and `RDD.reduceByKey()`](#)
-1. [What is a DataFrame?](#)
-1. [What is an Spark DataFrame?](#)
-1. [Spark RDD Example](#)
-1. [Spark DataFrame Example](#)
-1. [Join Operation in MapReduce](#)
-1. [Join Operation in Spark](#)
-1. [Spark Partitioning](#)
-1. [Physical Data Partitioning](#)
-1. [GraphFrames](#)
-1. [Example of a GraphFrame](#)
-1. [Advantages of using Spark](#)
-1. [GraphX](#)
-1. [Cluster](#)
-1. [Cluster Manager](#)
-1. [Master node](#)
-1. [Worker node](#)
-1. [Cluster computing](#)
-1. [Concurrency](#)
-1. [Histogram](#)
-1. [Structured data](#)
-1. [Unstructured data](#)
-1. [Correlation analysis](#)
-1. [Data aggregation tools](#)
-1. [Data analyst](#)
-1. [Database](#)
-1. [Database Management System](#)
-1. [Data cleansing](#)
-1. [Data mining](#)
-1. [Data virtualization](#)
-1. [De-identification](#)
-1. [ETL (Extract, Transform and Load)](#)
-1. [Failover](#)
-1. [Graph Databases](#)
-1. [Grid computing](#)
-1. [Key-Value Databases](#)
-1. [(key, value)](#)
-1. [Java](#)
-1. [Python](#)
-1. [Tuples in Python](#)
-1. [Lists in Python](#)
+1. [Tez](#Tez)
+1. [Apache HBase](#Apache-HBase)
+1. [Google Bigtable](#Google-Bigtable)
+1. [Hadoop Distributed File System - HDFS](#Hadoop-Distributed-File-System)
+1. [Scalability](#Scalability)
+1. [Amazon S3](#Amazon-S3)
+1. [Amazon Athena](#Amazon-Athena)
+1. [Google BigQuery](#Google-BigQuery)
+1. [Commodity Server](#Commodity-Server)
+1. [Fault Tolerance and Data Replication](#Fault-Tolerance-and-Data-Replication)
+1. [High-Performance-Computing (HPC)](#High-Performance-Computing-HPC)
+1. [History of MapReduce](#History-of-MapReduce)
+1. [Classic MapReduce Books and Papers](#Classic-MapReduce-Books-and-Papers)
+1. [Apache Spark Books](#Apache-Spark-Books)
+1. [MapReduce](#MapReduce)
+1. [MapReduce Terminology](#MapReduce-Terminology)
+1. [MapReduce Architecture](#MapReduce-Architecture)
+1. [What is an Example of a Mapper in MapReduce](#What-is-an-Example-of-a-Mapper-in-MapReduce)
+1. [What is an Example of a Reducer in MapReduce](#What-is-an-Example-of-a-Reducer-in-MapReduce)
+1. [What is an Example of a Combiner in MapReduce](#What-is-an-Example-of-a-Combiner-in-MapReduce)
+1. [Partition](#Partition)
+1. [Parallel Computing](#Parallel-Computing)
+1. [Difference between Concurrency and Parallelism?](#Difference-between-Concurrency-and-Parallelism)
+1. [How does MapReduce work?](#How-does-MapReduce-work)
+1. [Word Count in MapReduce](#Word-Count-in-MapReduce)
+1. [Word Count in PySpark](#Word-Count-in-PySpark)
+1. [Finding Average in MapReduce](#Finding-Average-in-MapReduce)
+1. [What is an Associative Law](#What-is-an-Associative-Law)
+1. [What is a Commutative Law](#What-is-a-Commutative-Law)
+1. [Monoid](#Monoid)
+1. [Monoids as a Design Principle for Efficient MapReduce Algorithms](#Monoids-as-a-Design-Principle-for-Efficient-MapReduce-Algorithms)
+1. [What Does it Mean that "Average of Average is Not an Average"](#What-Does-it-Mean-that-Average-of-Average-is-Not-an-Average)
+1. [Advantages of MapReduce](#Advantages-of-MapReduce)
+1. [What is a MapReduce Job](#What-is-a-MapReduce-Job)
+1. [Disadvantages of MapReduce](#Disadvantages-of-MapReduce)
+1. [Job Flow in MapReduce](#Job-Flow-in-MapReduce)
+1. [Hadoop vs. Spark](#Hadoop-vs.-Spark)
+1. [Apache Spark](#Apache-Spark)
+1. [Apache Spark Components](#Apache-Spark-Components)
+1. [Apache Spark in Large-Scale Sorting](#Apache-Spark-in-Large-Scale-Sorting)
+1. [DAG in Spark](#DAG-in-Spark)
+1. [Spark Concepts and Key Terms](#Spark-Concepts-and-Key-Terms)
+1. [Spark Driver Program](#Spark-Driver-Program)
+1. [Apache Spark Ecosystem](#Apache-Spark-Ecosystem)
+1. [Spark as a superset of MapReduce](#Spark-as-a-superset-of-MapReduce)
+1. [Why is Spark powerful?](#Why-is-Spark-powerful)
+1. [What is an Spark RDD](#What-is-an-Spark-RDD)
+1. [What are Spark Mappers?](#What-are-Spark-Mappers)
+1. [What are Spark Reducers?](#What-are-Spark-Reducers)
+1. [Data Structure](#Data-Structure)
+1. [Difference between Spark's Action and Transformation](#Difference-between-Spark-Action-and-Transformation)
+1. [What is a Lineage in Spark?](#What-is-a-Lineage-in-Spark)
+1. [What are Spark operations/functions?](#What-are-Spark-operations-functions)
+1. [Spark Transformation](#Spark-Transformation)
+1. [Spark Programming Model](#Spark-Programming-Model)
+1. [What is SparkContext in PySpark](#What-is-SparkContext-in-PySpark)
+1. [What is SparkSession in PySpark](#What-is-SparkSession-in-PySpark)
+1. [What is Lazy Binding in Spark?](#What-is-Lazy-Binding-in-Spark)
+1. [Difference between  `reduceByKey()` and `combineByKey()`](#Difference-between-reduceByKey-and-combineByKey)
+1. [What is an example of `RDD.combineByKey()`?](#What-is-an-example-of-RDD-combineByKey)
+1. [What is an example of `RDD.reduceByKey()`?](#What-is-an-example-of-RDD-reduceByKey)
+1. [What is an example of `RDD.groupByKey()`?](#What-is-an-example-of-RDD-groupByKey)
+1. [Difference of `RDD.groupByKey()` and `RDD.reduceByKey()`](#Difference-of-RDD-groupByKey-and-RDD-reduceByKey)
+1. [What is a DataFrame?](#What-is-a-DataFrame)
+1. [What is an Spark DataFrame?](#What-is-an-Spark-DataFrame)
+1. [Spark RDD Example](#Spark-RDD-Example)
+1. [Spark DataFrame Example](#Spark-DataFrame-Example)
+1. [Join Operation in MapReduce](#Join-Operation-in-MapReduce)
+1. [Join Operation in Spark](#Join-Operation-in-Spark)
+1. [Spark Partitioning](#Spark-Partitioning)
+1. [Physical Data Partitioning](#Physical-Data-Partitioning)
+1. [GraphFrames](#GraphFrames)
+1. [Example of a GraphFrame](#Example-of-a-GraphFrame)
+1. [Advantages of using Spark](#Advantages-of-using-Spark)
+1. [GraphX](#GraphX)
+1. [Cluster](#Cluster)
+1. [Cluster Manager](#Cluster-Manager)
+1. [Master node](#Master-node)
+1. [Worker node](#Worker-node)
+1. [Cluster computing](#Cluster-computing)
+1. [Concurrency](#Concurrency)
+1. [Histogram](#Histogram)
+1. [Structured data](#Structured-data)
+1. [Unstructured data](#Unstructured-data)
+1. [Correlation analysis](#Correlation-analysis)
+1. [Data aggregation tools](#Data-aggregation-tools)
+1. [Data analyst](#Data-analyst)
+1. [Database](#Database)
+1. [Database Management System](#Database-Management-System)
+1. [Data cleansing](#Data-cleansing)
+1. [Data mining](#Data-mining)
+1. [Data virtualization](#Data-virtualization)
+1. [De-identification](#De-identification)
+1. [ETL - Extract, Transform and Load](#ETL)
+1. [Failover](#Failover)
+1. [Graph Databases](#Graph-Databases)
+1. [Grid computing](#Grid-computing)
+1. [Key-Value Databases](#Key-Value-Databases)
+1. [(key, value)](#key-value)
+1. [Java](#Java)
+1. [Python](#Python)
+1. [Tuples in Python](#Tuples-in-Python)
+1. [Lists in Python](#Lists-in-Python)
 1. [Difference between Tuples and Lists in Python](#)
 1. [JavaScript](#)
 1. [In-memory](#)
@@ -2503,13 +2504,16 @@ SELECT ...
   you only pay for the services you use.
 
 
-## Commodity server/hardware
-Commodity hardware (computer), sometimes 
-known as off-the-shelf server/hardware, 
+## Commodity Server
+A server refers to a computer with CPUs 
+(example 64 cores), some RAMs (example, 
+128GB RAM), and some disk space (example, 
+4TB). Commodity server/hardware/computer, 
+sometimes known as off-the-shelf server/hardware, 
 is a computer device or IT component that 
-is relatively inexpensive, widely available 
-and basically interchangeable with other 
-hardware of its type. Since commodity 
+is relatively inexpensive ($5K to $20K), 
+widely available and basically interchangeable 
+with other hardware of its type. Since commodity 
 hardware is not expensive, it is used in 
 building/creating clusters  for  big  
 data  computing (scale-out architecture).  
@@ -2521,7 +2525,7 @@ Hadoop and Spark clusters use a set of
 commodity server/hardware.
 
 
-## Fault Tolerance and Data Replication. 
+## Fault Tolerance and Data Replication
 Fault-tolerance is the ability of a system to 
 continue to run when a component of the system 
 (such as a server node, disk, ...) fails. 
@@ -2780,7 +2784,7 @@ attempt to execute a task on a machine
 
 
 
-## Mapreduce Architecture
+## MapReduce Architecture
 
 ![](./images/mapreduce-architecture.jpeg)
 
@@ -3865,7 +3869,7 @@ Minimally, a MapReduce job will have the following components:
 * Interactive mode (for testing/debugging) is not supported
 
 
-## What the MapReduce's Job Flow
+## Job Flow in MapReduce
 
 **1-InputFormat:**
 Splits input into `(key_1, value_1)` pairs and passes 
@@ -4438,7 +4442,7 @@ Spark transformations and actions are summarized below:
 	
 
 
-## What is a Lineage In Spark?
+## What is a Lineage in Spark?
 According to online dictionaries: the word 
 "lineage" is used to describe everyone who 
 descends from a particular  ancestor. In 
@@ -4572,7 +4576,8 @@ categorized into two types:
 		etc.
 
 
-## The Spark Programming ModelSpark programming starts with a data set 
+## Spark Programming Model
+Spark programming starts with a data set 
 (which can be represented as an RDD or a 
 DataFame), usually residing in some form 
 of distributed, persistent storage like 
@@ -4587,7 +4592,7 @@ steps:1. Define a set of transformations on the input data set.
    you decide what transformations and actions to undertake   next.
 
 
-## What is `SparkContext` in PySpark
+## What is SparkContext in PySpark
 `SparkContext` (full name is [`pyspark.SparkContext`](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.SparkContext.html?highlight=sparkcontext#pyspark.SparkContext)) is a class 
 object in PySpark API. According to PySpark documentation:
 > `SparkContext` is the main entry point for Spark functionality. 
@@ -4636,7 +4641,7 @@ using `SparkSession.sparkContext` (note that
 `SparkContext` is an attribute of `SparkSession`).
 
 
-## What is `SparkSession` in PySpark
+## What is SparkSession in PySpark
 
 `SparkSession` (full name is [`pyspark.sql.SparkSession`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html?highlight=sparksession)) 
 is a class object in PySpark API. According to PySpark 
@@ -4696,7 +4701,7 @@ df.show()
 
 
 
-## What is Lazy Binding In Spark?
+## What is Lazy Binding in Spark?
 Lazy binding/evaluation in Spark means that the 
 execution of **transformations** will not start 
 until an **action**  is triggered. 
@@ -6007,7 +6012,7 @@ Same as anonymization; ensuring a person cannot be identified
 through the data
 
 
-## ETL (Extract, Transform and Load) 
+## ETL - Extract, Transform and Load 
 ETL (Extract, Transform and Load) is thhe process 
 of extracting raw data, transforming by cleaning
 and enriching the data to make it fit operational 
