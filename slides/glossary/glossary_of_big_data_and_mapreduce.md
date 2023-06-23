@@ -40,7 +40,7 @@ Table of Contents
 1. [Big Data Engineering](#Big-Data-Engineering)
 1. [Big Data Life Cycle](#Big-Data-Life-Cycle)
 1. [Big Data Modeling](#Big-Data-Modeling)
-1. [Big Data Platforms/Solutions](#Big-Data-Platforms-Solutions)
+1. [Big Data Platforms and Solutions](#Big-Data-Platforms-and-Solutions)
 1. [Biometrics](#Biometrics)
 1. [Data Modelling](#)
 1. [Design Patterns](#)
@@ -1516,7 +1516,7 @@ In a practical sense, Big Data Modeling involves:
   addressed at every level
 
 
-## Big Data Platforms/Solutions
+## Big Data Platforms and Solutions
 * Apache Hadoop, which implements a MapReduce paradigm. 
   Hadoop is slow and very complex (does not take advantage 
   of RAM/memory). Hadoop's analytics API is limited to 
