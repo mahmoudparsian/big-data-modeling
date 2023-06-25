@@ -294,8 +294,6 @@ Original Creator of Apache Spark <br>
 <a name="top"></a>
 
 
-<a class="top-link hide" href="#top">↑</a>
-<a name="top"></a>
 
 ## Introduction
 Big data is a broad and rapidly evolving topic.
