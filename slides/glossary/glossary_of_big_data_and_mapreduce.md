@@ -9117,9 +9117,6 @@ Data lakehouses are enabled by a new, open system design: implementing similar d
 
 
 
-<a class="top-link hide" href="#top">↑</a>
-<a name="top"></a>
-
 ## Snowflake
 
 In a nutshell, with 
@@ -9198,9 +9195,6 @@ Snowflake Architecture:
 <a class="top-link hide" href="#top">↑</a>
 <a name="top"></a>
 
-
-<a class="top-link hide" href="#top">↑</a>
-<a name="top"></a>
 
 
 ## References
