@@ -1,5 +1,6 @@
 # Glossary of Big Data, MapReduce, Spark
 
+* Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 * Last updated date: 6/26/2023 (June 26, 2023)
 
 
@@ -260,8 +261,6 @@ Table of Contents
   for my students to learn basics of key terms in big data, 
   MapReduce, and PySpark (Python API for Apache Spark).
 
-* Compiled and edited by: 
-  [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
 
 
