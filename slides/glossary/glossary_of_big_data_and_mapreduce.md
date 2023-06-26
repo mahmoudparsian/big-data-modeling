@@ -1,5 +1,8 @@
 # Glossary of Big Data, MapReduce, Spark
 
+* Last updated date: 6/26/2023 (June 26, 2023)
+
+
 <a class="top-link hide" href="#top">↑</a>
 <a name="top"></a>
 
@@ -260,7 +263,6 @@ Table of Contents
 * Compiled and edited by: 
   [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
 
-* Last updated date: 6/26/2023 (June 26, 2023)
 
 
 <table>
