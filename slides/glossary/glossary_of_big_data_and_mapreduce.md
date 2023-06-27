@@ -2179,6 +2179,9 @@ Hadoop provides:
   
 * HDFS: Hadoop Distributed File System
 
+* Fault Tolerance (by replicating data in 
+  two or more worker nodes)
+
 
 Note that for some big data problems, a single 
 MapReduce job will not be enough to solve the 
@@ -2698,12 +2701,11 @@ Therefore, when you query for chromosome
 (`<data-root-dir>/chromosome=2/`)
 rather than the whole data:
 
-~~~sql
-SELECT ...
-  FROM <table-pointing-to-your-data-root-dir>
-    WHERE chromosome=2
 
-~~~
+		SELECT ...
+		  FROM <table-pointing-to-your-data-root-dir>
+		    WHERE chromosome=2
+
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -2733,18 +2735,19 @@ SELECT ...
   intelligence.
 
 * BigQuery's query engine can run SQL queries 
-  on terabytes of data within seconds, and petabytes 
-  within minutes. BigQuery gives you this performance 
-  without the need to maintain the infrastructure or 
-  rebuild or create indexes. BigQuery's speed and 
-  scalability make it suitable for use in processing 
-  huge datasets.
+  on terabytes of data within seconds, and 
+  petabytes within minutes. BigQuery gives 
+  you this performance without the need to 
+  maintain the infrastructure or rebuild or 
+  create indexes. BigQuery's speed and 
+  scalability make it suitable for use in 
+  processing huge datasets.
 
-* BigQuery storage: BigQuery stores data using a 
-  columnar storage format that is optimized for 
-  analytical queries. BigQuery presents data in 
-  tables, rows, and columns and provides full 
-  support for database transaction semantics 
+* BigQuery storage: BigQuery stores data using 
+  a columnar storage format that is optimized 
+  for analytical queries. BigQuery presents 
+  data in tables, rows, and columns and provides 
+  full support for database transaction semantics 
   (ACID). BigQuery storage is automatically 
   replicated across multiple locations to provide 
   high availability.
@@ -2924,12 +2927,12 @@ MapReduce implementations:
 * Scale-out Architecture: use many commodity 
   servers in cluster computing environment
 
-* Many tasks: Process lots of data in parallel 
-  (using cluster computing) to produce other 
-  needed data
+* Parallelism: Many tasks at the same time: 
+  Process lots of data in parallel (using 
+  cluster computing) to produce other needed data
 
-* Want to use hundreds or thousands of servers 
-  to minimize analytics time
+* Cluster computing: want to use tens, hundreds or 
+  thousands of servers to minimize analytics time
 
 * ... but this needs to be easy
 
@@ -3019,10 +3022,11 @@ created the following  `(key, value)` pairs:
 	(D, 7), (D, 8), (D, 8)
 	(E, 9)
 	
-then Sort & Shuffle phase creates the following 
-`(key, value)` pairs (not in any particular order) 
-to be consumed by reducers: Note that the keys 
-`{ A, B, C, D, E }` are unique:
+then Sort & Shuffle phase (works as `GROUP BY` 
+function in SQL) creates the following `(key, value)` 
+pairs (not in any particular order) to be consumed 
+by reducers: Note that the keys `{ A, B, C, D, E }` 
+are unique:
 
 	(A, [2, 3])
 	(B, [1, 2, 3, 1, 0, 5])
@@ -3035,6 +3039,8 @@ Options (partial list) for MapReduce implementation:
 * Hadoop (slow and complex) is an implementation of MapReduce.
 
 * Spark (fast and simple) is a superset implementation of MapReduce.
+
+* ...
 
 
 
@@ -3455,7 +3461,8 @@ architecture, mainly in the form of multi-core processors.
 MapReduce and Spark employs parallelism by data 
 partitioning.  Based on available resources, 
 partitions are executed independently and in 
-parallel.
+parallel by many executors and worker nodes.
+
 
 #### [Serial Computing](https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial):
 
@@ -3479,10 +3486,17 @@ In the simplest sense, parallel computing is the
 simultaneous use of multiple compute resources to 
 solve a computational problem:
 
-* A problem is broken into discrete parts that can be solved concurrently
-* Each part is further broken down to a series of instructions
-* Instructions from each part execute simultaneously on different processors
-* An overall control/coordination mechanism is employed
+* A problem is broken into discrete parts that 
+  can be solved concurrently
+  
+* Each part is further broken down to a series 
+  of instructions
+  
+* Instructions from each part execute 
+  simultaneously on different processors
+  
+* An overall control/coordination mechanism 
+  is employed
 
 ***Parallel computing generic example***:
 ![](./images/parallel_problem.gif)
@@ -3496,14 +3510,14 @@ solve a computational problem:
 
 ![](./images/sequential-concurrency-parallelism.png)
 
-***Concurrency*** is when two or more tasks can start, run, 
-and complete in overlapping time periods. It doesn't 
-necessarily mean they'll ever both be running at the 
-same instant. For example, multitasking on a single-core 
-machine.
+***Concurrency*** is when two or more tasks can 
+start, run, and complete in overlapping time periods. 
+It doesn't necessarily mean they'll ever both be running 
+at the same instant. For example, multitasking on a 
+single-core machine.
 
-***Parallelism*** is when tasks literally run at the same time, 
-e.g., on a multicore processor.
+***Parallelism*** is when tasks literally run at the 
+same time, e.g., on a multicore processor.
 
 ![](./images/concurrency_vs_parallelism.jpg)
 
@@ -3531,49 +3545,57 @@ two threads are executing simultaneously.
 
 
 ## How does MapReduce work?
-A MapReduce system (an implementation of MapReduce 
-model) is usually composed of three steps (even 
-though it's generalized as the combination of Map 
-and Reduce operations/functions). 
+A MapReduce system (an implementation of 
+MapReduce model) is usually composed of 
+three steps (even though it's generalized 
+as the combination of Map and Reduce 
+operations/functions). 
 
 The MapReduce operations are:
 
-* **Map**: The input data is first split (partitioned) into 
-smaller blocks. For example, the Hadoop framework then decides 
-how many mappers to use, based on the size of the data to be 
-processed and the memory block available on each mapper server. 
-Each block is then assigned to a mapper for processing. Each 
-‘worker’ node applies the map function to the local data, 
-and writes the output to temporary storage. The primary (master)
-node ensures that only a single copy of the redundant input 
-data is processed. 
+* **Map**: The input data is first split (partitioned) 
+into smaller blocks. For example, the Hadoop framework 
+then decides how many mappers to use, based on the size 
+of the  data  to  be processed and the memory block 
+available on each mapper server.  Each block is then 
+assigned to a mapper for processing. Each ‘worker’ node 
+applies the map function to the local data, and writes 
+the output to temporary storage. The primary (master) 
+node ensures that only a single copy of the redundant 
+input data is processed. 
 
 		map(key, value) -> { (K2, V2), ...}
 
-* **Shuffle, combine and partition**: worker nodes redistribute 
-data based on the output keys (produced by the map function), 
-such that all data belonging to one key is located on the same 
-worker node.  As an optional process the combiner (a reducer) 
-can run individually on each mapper server to reduce the data 
-on each mapper even further making reducing the data footprint 
-and shuffling and sorting easier. Partition (not optional) is 
-the process that decides how the data has to be presented to 
-the reducer and also assigns it to a particular reducer. 
-Sort & Shuffle output (note that mappers have created `N` 
-unique keys -- such as K2):
+* **Shuffle, combine and partition**: worker nodes 
+redistribute data based on the output keys (produced 
+by the map function), such that all data belonging to 
+one key is located on the same worker node.  As an 
+optional process the combiner (a reducer) can run 
+individually on each mapper server to reduce the data 
+on each mapper even further making reducing the data 
+footprint and shuffling and sorting easier. Partition 
+(not optional) is the process that decides how the 
+data has to be presented to the reducer and also 
+assigns it to a particular reducer.  Sort & Shuffle 
+output (note that mappers have created `N` unique keys 
+-- such as K2):
+
 
 		(key_1, [V_1_1, V_1_2, ...])
 		(key_2, [V_2_1, V_2_2, ...])
 		...
 		(key_N, [V_N_1, V_N_2, ...])
 
-* **Reduce**: A reducer cannot start while a mapper is still in 
-progress. Worker nodes process each group of (key, value) pairs 
-output data, in parallel to produce (key,value) pairs as output. 
-All the map output values that have the same key are assigned to 
-a single reducer, which then aggregates the values for that key. 
-Unlike the map function which is mandatory to filter and sort 
-the initial data, the reduce function is optional.
+
+* **Reduce**: A reducer cannot start while a mapper 
+is still in progress. Worker nodes process each group 
+of `(key, value)` pairs output data, in parallel to 
+produce `(key,value)` pairs as output.  All the map 
+output values that have the same key are assigned to 
+a single reducer, which then aggregates the values for 
+that key.  Unlike the map function which is mandatory 
+to filter and sort the initial data, the reduce function 
+is optional.
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -3581,9 +3603,10 @@ the initial data, the reduce function is optional.
 
 
 ## Word Count in MapReduce
-Given a set of text documents (as input), Word Count algorithm 
-finds frequencies of unique words in input. The `map()` and 
-`reduce()`  functions are provided as a **pseudo-code**.
+Given a set of text documents (as input), Word Count 
+algorithm finds frequencies of unique words in input. 
+The `map()` and  `reduce()`  functions are provided as 
+a **pseudo-code**.
 
 
 * ***Mapper function***:
@@ -3597,7 +3620,7 @@ finds frequencies of unique words in input. The `map()` and
 		     emit(w, 1)
 		  }
 		}
-
+		
 		
 Of course, you can customize your mapper to exclude 
 words (called filtering) with less than 3 characters:
@@ -3789,7 +3812,10 @@ gene_id for canceric genes. Assume that the input is formatted as:
 
 		<gene_id_as_string><,><gene_value_as_double><,><cancer-or-benign>
 		
-		where <cancer-or-benign> has value as {"cancer", "benign"}
+		where 
+		      <gene_id_as_string>    : gene_id as a String
+		      <gene_value_as_double> : gene_value as a Double_
+		      <cancer-or-benign>     : has value as {"cancer", "benign"}
 
 
 
@@ -3837,12 +3863,12 @@ functions are provided as a **pseudo-code**.
 		  emit(key, avg)
 		}
 
-To have a combiner function, we have to change the 
-output of mappers (since average of average is not 
-an average). This means that average  (`avg`) function 
-is a commutative, but not assocaitive. Changing
-output of mappers will make it commutative and 
-associative.
+To have a combiner function, we have to change 
+the output of mappers (since average of average 
+is not an average). This means that average  
+(`avg`) function is a commutative, but not 
+assocaitive. Changing output of mappers will make 
+it commutative and associative.
 
 Commutative law means that: 
 		
@@ -3852,6 +3878,7 @@ Commutative law means that:
 Associative law means that: 
 		
 		avg( avg(a, b), c) = avg( a, avg(b, c))
+
 
 For details on commutative and associative properties refer 
 to [Data Aldorithms with Spark](https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/).
@@ -3923,22 +3950,24 @@ is a binary operation such that for all `a, b, c` in `X`:
 
 		f(a, f(b, c)) = f(f(a, b), c)
 
-For example, + (addition) is an associative function because 
+For example, `+` (addition) is an associative function because 
 
 		(a + (b + c)) = ((a + b) + c)
 		
 
-For example, * (multiplication) is an associative function because 
+For example, `*` (multiplication) is an associative function because 
 
 		(a * (b * c)) = ((a * b) * c)
 		
-While, - (subtraction) is not an associative function because
+
+While, `-` (subtraction) is **not** an associative function because
 
 		(4 - (6 - 3) != ((4 - 6) - 3)
 		     (4 - 3) != (-2 - 3)
 		           1 != -5
 		
-While average operation is not an associative function.
+
+While average operation is **not** an associative function.
 
 	FACT: avg(1, 2, 3) = 2
 	
@@ -3959,8 +3988,16 @@ that does not depend on the ordering of the inputs.
 For example, the binary operation `+` (addition) is 
 commutative, because `2 + 5 = 5 + 2 = 7`.
 
-For example, the binary operation `*` (multiplication )
+For example, the binary operation `*` (multiplication)
 is commutative, because `2 * 5 = 5 * 2 = 10`.
+
+For example, the average operation `AVG` (average)
+is commutative, because 
+
+		AVG(4, 8) = AVG(8, 4)
+		[(4 + 8) / 2] = [(8 + 4) / 2]
+		6 = 6
+
 
 Function `f` is commutative if the following property holds:
 
@@ -4212,17 +4249,16 @@ MapReduce job will have the following components:
 
 * Rigid `Map-and-then-Reduce` programming paradigm
 	* Low level API
-	* Must use `map()`, `reduce()` one or more times 
-	  to solve a problem
+	* Must use `map()`, `reduce()` one or more times to solve a problem
 	* Join operation is not supported
 	* Complex: have to write lots of code
 	* One type of reduction is supported: GROUP BY KEY
 * Disk I/O (makes it slow)
 * Read/Write Intensive (does not utilize in-memory computing)
 * Java Focused
-	* Have to write lots of lines of code to do some simple map 
-	  and then reduce functions
-	* API is a low level
+	* Have to write lots of lines of code to do some simple 
+	`map()` and then `reduce()` functions
+	* API is a low level: no support of DataFrames as tables
 * Interactive mode (for testing/debugging) is not supported
 
 
@@ -4321,19 +4357,23 @@ Join Operation | Does not support Join directly | Has extensive API for Join
 
 
 ## Apache Spark
-In a nutshell, we can say that Apache Spark is the 
-most active open big data tool reshaping the big 
-data market.[Apache Spark](https://spark.apache.org) 
-is an engine for large-scale data  analytics.  Spark 
-is a  multi-language (Python , Java, Scala, R, SQL) 
-engine for executing data engineering,  data science,  
-and  machine  learning  on single-node  machines  or  
-clusters.  Spark  implements superset of MapReduce 
-paradigm and uses memory/RAM as much as possible 
-and can run up to 100 times faster than Hadoop. 
-Spark is considered the successor of Hadoop/Mapreduce 
-and has addressed many problems of Hadoop.
+In a nutshell, we can say that Apache Spark 
+is the most active open-source big data tool 
+reshaping the big data market.
 
+[Apache Spark](https://spark.apache.org) 
+is an engine for large-scale data  analytics.  
+Spark is a  multi-language (Python , Java, 
+Scala, R, SQL) engine for executing data 
+engineering,  data science,  and  machine  
+learning  on single-node  machines or clusters.  
+Spark  implements superset of MapReduce paradigm 
+and uses memory/RAM as much as possible and can 
+run up to 100 times faster than Hadoop. Spark 
+is considered the successor of Hadoop/Mapreduce 
+and has addressed many problems of Hadoop (by
+using RAM, higher level data abstractions, join 
+operations, data streaming, graph algorithms, ...).
 
 With using Spark, developers do not need to write 
 code for parallelism, distributing data, or other 
@@ -4362,18 +4402,18 @@ Spark’s architecture consists of two main components:
   tasks assigned to them
 
 
-PySpark is an interface for Spark in Python. PySpark has 
-two main data abstractions:
+PySpark is an interface for Spark in Python. PySpark 
+has two main data abstractions:
 
-* RDD (Resilient Distributed Dataset)
+* **RDD** (Resilient Distributed Dataset)
 	* Low-level
-	* Immutable	 (to avoid synchronization)
+	* Immutable (to avoid synchronization)
 	* Partitioned for parallelism
 	* Can represent billions of data points, called elements
 	* For unstructured and semi-structured data
 
 	
-* DataFrame
+* **DataFrame**
 	* High-level
 	* Immutable (to avoid synchronization)
 	* Partitioned for parallelism
@@ -4429,20 +4469,23 @@ in-memory cache.
 
 
 ## DAG in Spark
-Spark DAG (directed acyclic graph) is the strict generalization 
-of the MapReduce model. The DAG operations can do better global 
-optimization than the other systems like MapReduce. The Apache 
-Spark DAG allows a user to dive into the stage and further 
+Spark DAG (directed acyclic graph) is the strict 
+generalization of the MapReduce model. The DAG 
+operations can do better global optimization than 
+the other systems like MapReduce. The Apache Spark 
+DAG allows a user to dive into the stage and further 
 expand on detail on any stage.
 
 ![](./images/spark-dag.png) 
 
-DAG in Spark is a set of vertices and edges, where vertices 
-represent the RDDs and the edges represent the Operation to 
-be applied on RDD. In Spark DAG, every edge directs from earlier 
-to later in the sequence. On the calling of Action, the created 
-DAG submits to DAG Scheduler which further splits the graph into 
-the stages of the task.
+DAG in Spark is a set of vertices and edges, 
+where vertices represent the RDDs/DataFrames 
+and the edges represent the Operation to be 
+applied on RDD/DataFrame. In Spark DAG, every 
+edge directs from earlier to later in the 
+sequence. On the calling of Action, the created 
+DAG submits to DAG Scheduler which further splits 
+the graph into the stages of the task.
 
 By using [Spark Web UI](https://spark.apache.org/docs/latest/web-ui.html),
 you can view Spark jobs and their associated DAGs.
@@ -4488,27 +4531,31 @@ Once it gets information from the Spark Master of all the workers in thecluster
 
 
 ## Spark Driver Program
-Driver Program is a program that runs on a Master Node. 
-It creates the `SparkContext` (main entry point for Spark 
-functionality -- a `SparkContext` represents the connection 
-to a Spark cluster, and can be used to create RDD and 
-broadcast variables on that cluster). Driver Program declare 
-(or define) transformations and actions on the RDD. It is 
-the process where the `main()` function runs. It converts 
-processes into Tasks that are then run on the Executors
-(inside worker nodes).
+Driver Program is a program that runs on a 
+Master Node. It creates the `SparkContext` 
+(main entry point for Spark functionality -- 
+a `SparkContext` represents the connection 
+to a Spark cluster, and can be used to create 
+RDD and broadcast variables on that cluster). 
+Driver Program declare (or define) transformations 
+and actions on the RDD. It is the process 
+where the `main()` function runs. It converts 
+processes into Tasks that are then run on the 
+Executors (inside worker nodes).
 
 ![](./images/Spark-Driver-Program.png)
 
-The Spark driver program is the one that creates `SparkContext` 
-object in the application. As soon as we submit the spark job, 
-the driver program runs the `main()` method of your application 
-and creates DAG's representing the data flow internally. Based 
-on the DAG workflow, the driver requests the cluster manager 
-to allocate the resources (workers) required for processing. 
-Once the resources are allocated, the driver then using 
-`SparkContext` sends the serialized result (code+data) to 
-the workers to execute as Tasks and their result is captured.
+The Spark driver program is the one that creates 
+`SparkContext` object in the application. As soon 
+as we submit the spark job, the driver program runs 
+the `main()` method of your application and creates 
+DAG's representing the data flow internally. Based 
+on the DAG workflow, the driver requests the cluster 
+manager to allocate the resources (workers) required 
+for processing.  Once the resources are allocated, 
+the driver then using `SparkContext` sends the 
+serialized result (code+data) to the workers to 
+execute as Tasks and their result is captured.
 
 ![](./images/spark-components-driver-program.png)
 
@@ -4526,50 +4573,55 @@ What are the main components of Spark ecosystem?
 
 Components of Apache Spark (EcoSystem):
 
-* **Spark Core**: Spark Core is the underlying general execution 
-  engine for the Spark platform that all other functionality is 
-  built on top of. It provides in-memory computing capabilities 
-  to deliver speed, a generalized execution model to support a 
-  wide variety of applications, and Java, Scala, and Python APIs 
-  for ease of development.
+* **Spark Core**: Spark Core is the underlying 
+  general execution engine for the Spark platform 
+  that all other functionality is built on top of. 
+  It provides in-memory computing capabilities to 
+  deliver speed, a generalized execution model to 
+  support a wide variety of applications, and Java, 
+  Scala, and Python APIs for ease of development.
   
-* **Spark SQL + DataFrames**: Many data scientists, analysts, 
-  and general business intelligence users rely on interactive 
-  SQL queries for exploring data. Spark SQL is a Spark module 
-  for structured data processing. It provides a programming 
-  abstraction called DataFrames and can also act as distributed 
-  SQL query engine. It enables unmodified Hadoop Hive queries 
-  to run up to 100x faster on existing deployments and data. 
-  It also provides powerful integration with the rest of the 
-  Spark ecosystem (e.g., integrating SQL query processing 
-  with machine learning).
+* **Spark SQL + DataFrames**: Many data scientists, 
+  analysts, and general business intelligence users 
+  rely on interactive SQL queries for exploring data. 
+  Spark SQL is a Spark module for structured data 
+  processing. It provides a programming abstraction 
+  called DataFrames and can also act as distributed 
+  SQL query engine. It enables unmodified Hadoop 
+  Hive queries to run up to 100x faster on existing 
+  deployments and data.  It also provides powerful 
+  integration with the rest of the Spark ecosystem 
+  (e.g., integrating SQL query processing with machine 
+  learning).
 
-* **Spark Streaming**: Many applications need the ability 
-  to process and analyze not only batch data, but also 
-  streams of new data in real-time. Running on top of Spark, 
-  Spark Streaming enables powerful interactive and analytical 
-  applications across both streaming and historical data, 
-  while inheriting Spark’s ease of use and fault tolerance 
-  characteristics. It readily integrates with a wide variety 
-  of popular data sources, including HDFS, Flume, Kafka, 
-  and Twitter.
+* **Spark Streaming**: Many applications need the 
+  ability to process and analyze not only batch data, 
+  but also streams of new data in real-time. Running 
+  on top of Spark; Spark Streaming enables powerful 
+  interactive and analytical applications across both 
+  streaming and historical data, while inheriting Spark’s 
+  ease of use and fault tolerance characteristics. It 
+  readily integrates with a wide variety of popular data 
+  sources, including HDFS, Flume, Kafka, and Twitter.
 
-* **MLlib (Machine learning library)**: Machine learning has 
-  quickly emerged as a critical piece in mining Big Data for 
-  actionable insights. Built on top of Spark, MLlib is a 
-  scalable machine learning library that delivers both 
-  high-quality algorithms (e.g., multiple iterations to 
-  increase accuracy) and blazing speed (up to 100x faster 
-  than MapReduce). The library is usable in Java, Scala, 
-  and Python as part of Spark applications, so that you 
-  can include it in complete workflows.
+* **MLlib (Machine learning library)**: Machine learning 
+  has quickly emerged as a critical piece in mining Big 
+  Data for actionable insights. Built on top of Spark, 
+  MLlib is a  scalable  machine learning library that 
+  delivers both high-quality algorithms (e.g., multiple 
+  iterations to increase accuracy) and blazing speed 
+  (up to 100x faster than MapReduce). The library is 
+  usable in Java, Scala, and Python as part of Spark 
+  applications, so that you can include it in complete 
+  workflows.
 
-* **GraphX**: GraphX is a graph computation engine built 
-  on top of Spark that enables users to interactively build, 
-  transform and reason about graph structured data at scale. 
-  It comes complete with a library of common algorithms. 
-  Note that GraphX is not available for PySpark, but you 
-  may use an external graph library called GraphFrames 
+* **GraphX**: GraphX is a graph computation engine 
+  built  on  top  of  Spark that enables users to 
+  interactively build, transform and reason about 
+  graph structured data at scale.  It comes complete 
+  with a library of common algorithms.  Note that 
+  GraphX is not available for PySpark, but you may 
+  use an external graph library called GraphFrames 
   (which is a DataFrames based solution).
 
 
@@ -4578,9 +4630,10 @@ Components of Apache Spark (EcoSystem):
 
 
 ## Spark as a superset of MapReduce
-Spark is a true successor of MapReduce and maintains 
-MapReduce’s linear scalability and fault tolerance, 
-but extends it in 7 important ways:
+Spark is a true successor of MapReduce 
+and maintains MapReduce’s linear scalability 
+and fault tolerance, but extends it in 7 
+important ways:
 
 1. Spark does not rely on a low-level and rigid 
 `map-then-reduce` workflow. Spark's engine can 
@@ -4703,9 +4756,12 @@ suitable to structured and semi-structured data).
   
   RDDs offer two operation types:
 
-	1. Transformations are operations on RDDs that result in RDD creation.
+	1. Transformations are operations on RDDs 
+	   that result in RDD creation.
 
-	2. Actions are operations that do not result in RDD creation and provide some other value.
+	2. Actions are operations that do not result 
+	   in RDD creation and provide some other value.
+
 
 * In-memory computation. Data calculation resides in 
   memory for faster access and fewer I/O operations
@@ -4814,12 +4870,13 @@ Reductions for Spark Dataframes can be handled by two means:
 
 
 ## Data Structure
-In computer science, a data structure is a data organization, 
-management, and storage format that is usually chosen for 
-efficient access to data.
+In computer science, a data structure is a data 
+organization, management, and storage format that 
+is usually chosen for efficient access to data.
 
-There are numerous types of data structures, generally built 
-upon simpler primitive data types. Well known examples are:
+There are numerous types of data structures, generally 
+built upon simpler primitive data types. Well known 
+examples are:
 
 * Array
 * Set
@@ -4840,16 +4897,17 @@ upon simpler primitive data types. Well known examples are:
 
 
 ## Difference between Spark's Action and Transformation
-A Spark transformation (such as `map()`, `filter()`, `reduceByKey()`, 
-...) applies to a source RDD and creates a new target RDD.
-While, an action (such as `collect()`, `save()`, ...) 
-applies to a source RDD and creates a non-RDD element (such 
-as a number or another data structure).
+A Spark transformation (such as `map()`, `filter()`, 
+`reduceByKey()`, ...) applies to a source RDD and 
+creates a new target RDD.  While, an action (such as 
+`collect()`, `save()`, ...) applies to a source RDD 
+and creates a non-RDD element (such as a number or 
+another data structure).
 
-In Spark, if a function returns a DataFrame, Dataset, or RDD, 
-it is a transformation. If it returns anything else or does not 
-return a value at all (or returns Unit in the case of Scala API), 
-it is an action.
+In Spark, if a function returns a DataFrame, Dataset, 
+or RDD, it is a transformation. If it returns anything 
+else or does not return a value at all (or returns Unit 
+in the case of Scala API), it is an action.
 
 Spark transformations and actions are summarized below:
 
@@ -5136,10 +5194,19 @@ sc = spark.sparkContext
 You may use `SparkSession` to create DataFrames:
 
 ~~~python
+# import SparkSession
 from pyspark.sql import SparkSession
+
+# create an instance of a SparkSession
 spark = SparkSession.builder.getOrCreate()
+
+# create a Python collection of triplets
 tuples = [('alex', 20, 40), ('jane', 30, 50)]
+
+# create a Spark DataFrame
 df = spark.createDataFrame(tuples, ["name", "num1", "num2"])
+
+# display DataFrame
 df.show()
 +----+----+----+
 |name|num1|num2|
@@ -5211,7 +5278,8 @@ and optimize all of the preceding transformations
 
 
 
-For details see [Explain Spark Lazy Evaluation in Detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8).
+For details see 
+[Explain Spark Lazy Evaluation in Detail](https://www.projectpro.io/recipes/explain-spark-lazy-evaluation-detail#mcetoc_1g4q4209k8).
 
 
 #### Spark Transformations, Actions, and DAG
@@ -5336,7 +5404,8 @@ Combine all of values per key.
 
 # sc : SparkContext
 # rdd : RDD[(String, Integer)]
-rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
+some_tuples = [("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)]
+rdd = sc.parallelize(some_tuples)
 
 # V --> C
 def to_list(a):
@@ -5372,6 +5441,10 @@ rdd2.collect()
 
 
 ## What is an example of reduceByKey()
+Given `RDD[(key, value)]`, then `RDD.reduceByKey()` 
+merges the values for each key using an **associative**
+and **commutative** reduce function.
+
 
 Find maximum of values per key.
 
@@ -5401,12 +5474,14 @@ rdd2.collect()
 
 
 ## What is an example of groupByKey()
+Given `RDD[(key, value)]`, then `RDD.groupByKey()` groups 
+the values for each key in the RDD into a single sequence. 
 
 Combine/Group values per key.
 
 ~~~python
 
-# reduceByKey: RDD[(String, Integer)] --> RDD[(String, [Integer])]
+# groupByKey: RDD[(String, Integer)] --> RDD[(String, [Integer])]
 
 # sc : SparkContext
 rdd = sc.parallelize([("a", 1), ("b", 7), ("a", 2), ("a", 3), ("b", 8), ("z", 5)])
@@ -5430,12 +5505,16 @@ rdd2.collect()
 
 
 ## Difference of groupByKey() and reduceByKey()
-Both `reduceByKey()` and `groupByKey()` result in wide transformations 
-which means both triggers a shuffle operation. The key difference between 
-`reduceByKey()` and `groupByKey()` is that `reduceByKey()` does a map side 
-combine and `groupByKey()` does not do a map side combine.
-Overall, `reduceByKey()` is optimized with a map side combine. Note that
-the reducer function for the `reduceByKey()` must be associative and commutative.
+Both `reduceByKey()` and `groupByKey()` result in 
+wide transformations which means both triggers a 
+shuffle operation.  The key difference between 
+`reduceByKey()` and `groupByKey()` is that the 
+`reduceByKey()` does a map side combine and 
+`groupByKey()` does not do a map side combine.  
+Overall, `reduceByKey()` is optimized with a map 
+side combine. Note that the reducer function 
+for the `reduceByKey()` must be **associative** 
+and **commutative**.
 
 * `groupByKey: RDD[(K, V)] --> RDD[(K, [V])]`
 ![](./images/groupByKey.png)
@@ -5488,6 +5567,7 @@ print(df)
   1       200        60
   2       300        70
 ~~~
+  
   
 ### Spark DataFrame Example
 Like an RDD, a DataFrame is an immutable distributed 
@@ -6281,15 +6361,16 @@ To use graphs in PySpark, you may use GraphFrames
 
 
 ## Cluster
-Cluster is a group of servers on a network that are configured 
-to work together. A server is either a master node or a worker 
-node. A cluster may have a master node and many worker nodes.
-In a nutshell, a master node acts as a cluster manager.
+Cluster is a group of servers on a network that 
+are configured to work together. A server is either 
+a master node or a worker node. A cluster may have 
+a master node and many worker nodes. In a nutshell, 
+a master node acts as a cluster manager.
 
-A cluster may have one (or two) master nodes and many worker
-nodes. For example, a cluster of 15 nodes: one master and 14 
-worker nodes. Another example: a cluster of 101 nodes: one master
-and 100 worker nodes.
+A cluster may have one (or two) master nodes and many 
+worker nodes. For example, a cluster of 15 nodes: one 
+master and 14 worker nodes. Another example: a cluster 
+of 101 nodes: one master and 100 worker nodes.
 
 
 ![](./images/cluster_architecture_2.png)
@@ -6364,7 +6445,8 @@ data using MapReduce. The worker nodes comprise most of
 the virtual machines in a Hadoop cluster, and perform the 
 job of storing the data and running computations.
 
-**Hadoop-Master-Worker**: the following images shows Hadoop's master node and worker nodes.
+**Hadoop-Master-Worker**: the following images shows 
+Hadoop's master node and worker nodes.
 
 
 ![](./images/hadoop_master_worker.png)
@@ -6386,22 +6468,27 @@ node and 2 worker nodes.
 
 
 ## Worker node
-In Hadoop, the worker nodes comprise most of the virtual 
-machines in a Hadoop cluster, and perform the job of storing 
-the data and running computations. Each worker node runs 
-the DataNode and TaskTracker services, which are used to 
+In Hadoop, the worker nodes comprise most of 
+the virtual machines in a Hadoop cluster, and 
+perform the job of storing the data and running 
+computations. Each worker node runs the DataNode 
+and TaskTracker services, which are used to 
 receive the instructions from the master nodes.
 
-In Spark, worker node is ny node that can run application 
-code in the cluster. Executor is a process launched for an 
-application on a worker node, that runs tasks and keeps data 
-in memory or disk storage across them. Each application has 
+In Spark, worker node is ny node that can run 
+application code in the cluster. Executor is 
+a process launched for an application on a worker 
+node, that runs tasks and keeps data in memory or 
+disk storage across them. Each application has 
 its own executors.
 
-Worker Node: is a node where executors run spark applications.
-Executors run on worker nodes spawned during the life of a 
-Spark application. They execute work on the data within the 
-node and report back to the Master Node.
+Worker Node: is a node where executors run spark 
+applications.  Executors run on worker nodes spawned 
+during the life of a Spark application. They execute 
+work on the data within the node and report back to 
+the Master Node.
+
+![](./images/master-node-worker-node-example.png)
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -6425,9 +6512,9 @@ in tasks such as mappers and reducers) and 100 worker
 nodes (which actively participate in carrying tasks 
 such as mappers and reducers).
 
-A small cluster might have one master node and 5 worker 
-nodes. Large clusters might have hundreds or thousands 
-of worker nodes.
+A small cluster might have one master node and 5 
+worker nodes. Large clusters might have tens, hundreds 
+or thousands of worker nodes.
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -6435,13 +6522,14 @@ of worker nodes.
 
 
 ## Concurrency
-Performing and executing multiple tasks and processes at the 
-same time. Let's define 5 tasks {T1, T2, T3, T4, T5} where 
-each will take 10 seconds.  If we execute these 5 tasks in 
-sequence, then it will take about 50 seconds, while if we 
-execute all of them in parallel, then the whole thing will 
-take about 10 seconds. Cluster computing enables concurrency 
-and parallelism.
+Performing and executing multiple tasks and processes 
+at the same time. Let's define `5` tasks `{T1, T2, T3, T4, T5}` 
+where each task will take `10` seconds.  If we execute these `5` 
+tasks in sequence (one-after-another), then it will take about 
+`50 (= 5 x 10)` seconds, while if we execute all of them in 
+parallel (all of these `5` tasks at the same time), then the 
+whole thing will take about `10` seconds. Cluster computing 
+enables concurrency and parallelism.
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -6480,21 +6568,26 @@ or is organized in a predefined way.
 
 
 ## Unstructured data
-n the modern world of big data, unstructured data is the 
-most abundant. It’s so prolific because unstructured data 
-could be anything: media, imaging, audio, sensor data, log 
-data, text data, and much more. Unstructured simply means 
-that it is datasets (typical large collections of files) 
-that aren’t stored in a structured database format. 
+In the modern world of big data, unstructured 
+data is the most abundant. It’s so prolific 
+because unstructured data could be anything: 
+media, imaging, audio, sensor data, log data, 
+text data, and much more. Unstructured simply 
+means that  it  is  datasets  (typical large 
+collections of files) that aren’t stored in a 
+structured database format. 
 
-Unstructured data has an internal structure, but it’s not 
-predefined through data models. It might be human generated, 
-or machine generated in a textual or a non-textual format. 
-Unstructured data is regarded as data that is in general 
-text heavy, but may also contain dates, numbers and facts.
+Unstructured data has an internal structure, 
+but it’s not predefined through data models. 
+It  might  be  human  generated,  or machine 
+generated in a textual or a non-textual format.  
+Unstructured data is regarded as data that is 
+in general text heavy, but may also contain 
+dates, numbers and facts.
 
-Unstructured data is data that does not have a predefined 
-data model or is not organized in a predefined way. 
+Unstructured data is data that does not have 
+a predefined data model or is not organized 
+in a predefined way. 
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -6502,9 +6595,9 @@ data model or is not organized in a predefined way.
 
 
 ## Correlation analysis
-The analysis of data to determine a relationship between 
-variables and whether that relationship is negative 
-`(- 1.00)` or positive `(+1.00)`.
+The analysis of data to determine a relationship 
+between variables and whether that relationship 
+is negative  `(- 1.00)` or positive `(+1.00)`.
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -6512,8 +6605,8 @@ variables and whether that relationship is negative
 
 
 ## Data aggregation tools
-The process of transforming scattered data from numerous 
-sources into a single new one.
+The process of transforming scattered data from 
+numerous sources into a single new one.
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -6521,7 +6614,7 @@ sources into a single new one.
 
 
 ## Data analyst
-Someone analysing, modelling, cleaning or processing data
+Someone analysing, modelling, cleaning or processing data.
 
 
 
@@ -6590,9 +6683,9 @@ determining customer purchase pattern,
 financial planning, fraud detection, etc.
 
 Data mining is a study of extracting useful 
-information from structured/unstructured data 
-taken from various sources. This is done usually 
-for
+information from structured/unstructured 
+data taken from various sources. This is 
+done usually for
 
 1. Mining for frequent patterns
 2. Mining for associations
@@ -6644,14 +6737,15 @@ processing DNA data, creating output records in specific
 Parquet format and loading it to Amazon S3 is an ETL 
 process.
 
-* Extract: the process of reading data from a database or 
-data sources
+* Extract: the process of reading data from a database 
+or data sources
 
-* Transform: the process of conversion of extracted data in 
-the desired form so that it can be put into another database.
+* Transform: the process of conversion of extracted 
+data in the desired form so that it can be put into 
+another database.
 
-* Load: the process of writing data into the target database 
-to data source
+* Load: the process of writing data into the target 
+database to data source
 
 ![](./images/etl_process.png)
 
@@ -6662,11 +6756,12 @@ to data source
 
 ## Failover
 Switching automatically to a different server 
-or node should one fail Fault-tolerant design – a 
-system designed to continue working even if certain 
-parts fail  Feature - a piece of measurable information 
-about something, for example features you might store 
-about a set of people, are age, gender and income.
+or node should one fail Fault-tolerant design 
+– a system designed to continue working even 
+if certain parts fail  Feature - a piece of 
+measurable information about something, for 
+example features you might store about a set 
+of people, are age, gender and income.
 
 
 
@@ -6675,16 +6770,19 @@ about a set of people, are age, gender and income.
 
 
 ## Graph Databases 
-Graph databases are purpose-built to store and navigate 
-relationships. Relationships are first-class citizens 
-in graph databases, and most of the value of graph 
-databases is derived from these relationships. Graph 
-databases use nodes to store data entities, and edges 
-to store relationships between entities. An edge always 
-has a start node, end node, type, and direction, and an 
-edge can describe parent-child relationships, actions, 
-ownership, and the like. There is no limit to the number 
-and kind of relationships a node can have.
+Graph databases are purpose-built to store 
+and navigate relationships. Relationships 
+are first-class citizens in graph databases, 
+and most of the value of graph databases is 
+derived from these relationships. Graph 
+databases use nodes to store data entities, 
+and edges to store relationships between 
+entities. An edge always has a start node, 
+end node, type, and direction, and an edge 
+can describe parent-child relationships, 
+actions, ownership, and the like. There is 
+no limit to the number and kind of relationships 
+a node can have.
 
 
 
@@ -6698,26 +6796,33 @@ reach a common goal.
 
 
 ## Key-Value Databases
-Key-Value Databases store data with a primary key, 
-a uniquely identifiable record, which makes easy 
-and fast to look up. The data stored in a Key-Value 
-is normally some kind of primitive of the programming 
-language.  As a dictionary, for example,  Redis allows 
-you to  set  and  retrieve  pairs  of keys and values. 
-Think of a “key” as a unique identifier (string, integer, 
-etc.) and a  “value”  as  whatever  data  you  want to 
-associate with that key. Values can be strings, integers, 
-floats, booleans, binary, lists, arrays, dates, and more.
+Key-Value Databases store data with a 
+primary key, a uniquely identifiable 
+record, which makes easy and fast to 
+look up. The data stored in a Key-Value 
+is normally some kind of primitive of 
+the programming language.  As a dictionary, 
+for example,  [Redis](https://redis.io) 
+allows you to  set  and  retrieve  pairs  
+of keys and values. Think of a “key” as a 
+unique identifier (string, integer, etc.) 
+and a  “value”  as  whatever  data  you  
+want to associate with that key. Values 
+can be strings, integers, floats, booleans, 
+binary, lists, arrays, dates, and more.
 
 ## (key, value)
-The `(key, value)` notation is used in many 
-places (such as Spark) and in MapReduce Paradigm. 
-In MapReduce paradigm everything works as a 
-`(key, value)`. Note that the `key` and `value` 
-can be a simple or combined data type:
+The `(key, value)` notation is used in 
+any places (such as Spark) and in MapReduce 
+paradigm.  In MapReduce paradigm everything 
+works as a  `(key, value)`. Note that the 
+`key` and `value` can be a simple or combined 
+data type:
 
 * simple data type: such as String, Integer, Double, ...
+
 * combined data types: tuples, structures, arrays, lists, ...
+
 
 In MapReduce, `map()`, `reduce()`, and `combine()` 
 functions use `(key, value)` pairs as an input and 
@@ -7195,12 +7300,12 @@ Examples in Python3:
 <a name="top"></a>
 
 ## Object Databases
-An object database store data in the form of 
-objects, as used by object-oriented programming. 
-They are different from relational or graph 
-databases and most of them offer a query language 
-that allows object to be found with a declarative 
-programming approach.
+An object database store data in the 
+form of objects, as used by object-oriented 
+programming. They are different from relational 
+or graph databases and most of them offer a 
+query language that allows object to be found 
+with a declarative programming approach.
 
 Examples of object-oriented databases 
 are [ObjectStore](www.ignitetech.com) and 
@@ -7248,17 +7353,18 @@ created with public funding.
 <a name="top"></a>
 
 ## Query
-Asking for information to answer a certain question.
-What Is a Query? A database query is a request for 
-data from a database. The request should come in a 
-database table or a combination of tables using a 
-code known as the query language. This way, the 
-system can understand and process the query accordingly.
+Asking for information to answer a certain 
+question.  What Is a Query? A database query 
+is a request for data from a database. The 
+request should come in a database table or a 
+combination of tables using a code known as 
+the query language. This way, the system can 
+understand and process the query accordingly.
 
-SQL is the most common language to query data from 
-relational databases. Also, some big data platforms
-(such as Amazon Athena, Snowflake, Google BigQuery)
-support SQL for big data queries.
+SQL is the most common language to query data 
+from relational databases. Also, some big data 
+platforms (such as Amazon Athena, Snowflake, 
+Google BigQuery) support SQL for big data queries.
 
 
 
@@ -7335,15 +7441,17 @@ of records.
 <a name="top"></a>
 
 ## Sentiment Analysis
-Using algorithms to find out how people feel about 
-certain topics or events.
+Using algorithms to find out how people feel 
+about certain topics or events.
 
-Sentiment analysis (or opinion mining) is a natural 
-language processing (NLP) technique used to determine 
-whether data is positive, negative or neutral. Sentiment 
-analysis is often performed on textual data to help 
-businesses monitor brand and product sentiment in 
-customer feedback, and understand customer needs.
+Sentiment analysis (or opinion mining) is a 
+natural language processing (NLP) technique 
+used to determine whether data is positive, 
+negative or neutral. Sentiment analysis is 
+often performed on textual data to help 
+businesses monitor brand and product sentiment 
+in customer feedback, and understand customer 
+needs.
 
 <img src="./images/fine-grained-sentiment-analysis.png" style="width: 70%; height: 70%"/>
 
@@ -7396,10 +7504,10 @@ Amazon Athena, Google BigQuery).
 <a name="top"></a>
 
 ## Time series analysis
-Analysing well-defined data obtained through repeated 
-measurements of time. The data has to be well defined 
-and measured at successive points in time spaced at 
-identical time intervals.
+Analysing well-defined data obtained through 
+repeated measurements of time. The data has 
+to be well defined and measured at successive 
+points in time spaced at identical time intervals.
 
 
 
@@ -7451,8 +7559,8 @@ analysed and visualized.
 <a name="top"></a>
 
 ## Veracity
-Ensuring that the data is correct as well as the analyses 
-performed on the data are correct.
+Ensuring that the data is correct as well as the 
+analyses performed on the data are correct.
 
 
 
@@ -7556,38 +7664,44 @@ actions by passing messages.
 The following are some of them.
 
 > ***Scalability***: 
-Distributed systems can grow with your workload and 
-requirements. You can add new nodes, that is, more 
-computing devices, to the distributed computing 
-network when they are needed.
+Distributed systems can grow with your 
+workload and requirements. You can add 
+new nodes, that is, more computing devices, 
+to the distributed computing network when 
+they are needed.
 
 > ***Availability***: 
-Your distributed computing system will not crash if one 
-of the computers goes down. The design shows fault 
-tolerance because it can continue to operate even if 
-individual computers fail.
+Your distributed computing system will not 
+crash if one of the computers goes down. 
+The design shows fault tolerance because 
+it can continue to operate even if individual 
+computers fail.
 
 > ***Consistency***: 
-Computers in a distributed system share information and 
-duplicate data between them, but the system automatically 
-manages data consistency across all the different computers. 
-Thus, you get the benefit of fault tolerance without 
-compromising data consistency.
+Computers in a distributed system share 
+information and duplicate data between them, 
+but the system automatically manages data 
+consistency across all the different computers. 
+Thus, you get the benefit of fault tolerance 
+without compromising data consistency.
 
 > ***Transparency***: 
-Distributed computing systems provide logical separation 
-between the user and the physical devices. You can interact 
-with the system as if it is a single computer without worrying 
-about the setup and configuration of individual machines. 
-You can have different hardware, middleware, software, and 
-operating systems that work together to make your system 
-function smoothly.
+Distributed computing systems provide logical 
+separation between the user and the physical 
+devices. You can interact with the system as 
+if it is a single computer without worrying 
+about the setup and configuration of individual 
+machines. You can have different hardware, 
+middleware, software, and operating systems 
+that work together to make your system function 
+smoothly.
 
 > ***Efficiency***: 
-Distributed systems offer faster performance with optimum 
-resource use of the underlying hardware. As a result, you 
-can manage any workload without worrying about system 
-failure due to volume spikes or underuse of expensive 
+Distributed systems offer faster performance 
+with optimum resource use of the underlying 
+hardware. As a result, you can manage any 
+workload without worrying about system failure 
+due to volume spikes or underuse of expensive 
 hardware.
 
 
@@ -7664,16 +7778,17 @@ clients.
 
 DFS has two components: 
 
-* **Location Transparency**: Location Transparency achieves 
-  through the namespace component.
+* **Location Transparency**: Location Transparency 
+  achieves through the namespace component.
   
-* **Redundancy**: Redundancy is done through a file replication 
-  component.
+* **Redundancy**: Redundancy is done through a 
+  file replication component.
 
-In the case of failure and heavy load, these components 
-together improve data availability by allowing the sharing 
-of data in different locations to be logically grouped 
-under one folder, which is known as the "DFS root". 
+In the case of failure and heavy load, these 
+components together improve data availability 
+by allowing the sharing of data in different 
+locations to be logically grouped under one folder, 
+which is known as the "DFS root". 
 
 Examples of DFS are:
 
@@ -7689,87 +7804,105 @@ Examples of DFS are:
 
 > **Transparency**: 
 Structure transparency –
-There is no need for the client to know about the number or 
-locations of file servers and the storage devices. Multiple 
-file servers should be provided for performance, adaptability, 
-and dependability.
+There is no need for the client to know 
+about the number or locations of file 
+servers and the storage devices. Multiple 
+file servers should be provided for 
+performance, adaptability, and dependability.
 
 > **Access transparency** –
-Both local and remote files should be accessible in the same 
-manner. The file system should be automatically located on 
-the accessed file and send it to the client’s side.
+Both local and remote files should be 
+accessible in the same manner. The file 
+system should be automatically located 
+on the accessed file and send it to the 
+client’s side.
 
 > **Naming transparency** –
-There should not be any hint in the name of the file to the 
-location of the file. Once a name is given to the file, it 
-should not be changed during transferring from one node to 
-another.
+There should not be any hint in the name 
+of the file to the location of the file. 
+Once a name is given to the file, it should 
+not be changed during transferring from one 
+node to another.
 
 > **Replication transparency** –
-If a file is copied on multiple nodes, both the copies of 
-the file and their locations should be hidden from one node 
-to another.
+If a file is copied on multiple nodes, both 
+the copies of the file and their locations 
+should be hidden from one node to another.
 
 > **User mobility** –
-It will automatically bring the user’s home directory to the 
-node where the user logs in.
+It will automatically bring the user’s home 
+directory to the node where the user logs in.
 
 > **Performance** : 
-Performance is based on the average amount of time needed to 
-convince the client requests. This time covers the CPU time + 
-time taken to access secondary storage + network access time. 
-It is advisable that the performance of the Distributed File 
-System be similar to that of a centralized file system.
+Performance is based on the average amount of 
+time needed to convince the client requests. 
+This time covers the CPU time + time taken to 
+access secondary storage + network access time. 
+It is advisable that the performance of the 
+Distributed File System be similar to that of 
+a centralized file system.
 
 > **Simplicity and ease of use** : 
-The user interface of a file system should be simple and 
-the number of commands in the file should be small.
+The user interface of a file system should 
+be simple and the number of commands in the 
+file should be small.
 
 > **High availability** : 
-A Distributed File System should be able to continue in case 
-of any partial failures like a link failure, a node failure, 
-or a storage drive crash. A high authentic and adaptable 
-distributed file system should have different and independent 
-file servers for controlling different and independent storage 
-devices.
+A Distributed File System should be able to 
+continue in case of any partial failures like 
+a link failure, a node failure, or a storage 
+drive crash. A high authentic and adaptable 
+distributed file system should have different 
+and independent file servers for controlling 
+different and independent storage devices.
 
 > **Scalability** : 
-Since growing the network by adding new machines or joining 
-two networks together is routine, the distributed system will 
-inevitably grow over time. As a result, a good distributed file 
-system should be built to scale quickly as the number of nodes 
-and users in the system grows. Service should not be substantially 
-disrupted as the number of nodes and users grows.
+Since growing the network by adding new machines 
+or joining two networks together is routine, the 
+distributed system will inevitably grow over time. 
+As a result, a good distributed file system should 
+be built to scale quickly as the number of nodes 
+and users in the system grows. Service should not 
+be substantially disrupted as the number of nodes 
+and users grows.
 
 > **High reliability** :
-The likelihood of data loss should be minimized as much as 
-feasible in a suitable distributed file system. That is, 
-because of the system’s unreliability, users should not 
-feel forced to make backup copies of their files. Rather, 
-a file system should create backup copies of key files that 
-can be used if the originals are lost. Many file systems 
-employ stable storage as a high-reliability strategy.
+The likelihood of data loss should be minimized 
+as much as feasible in a suitable distributed 
+file system. That is, because of the system’s 
+unreliability, users should not feel forced to 
+make backup copies of their files. Rather, a 
+file system should create backup copies of key 
+files that can be used if the originals are lost. 
+Many file systems employ stable storage as a 
+high-reliability strategy.
 
 > **Data integrity** :
-Multiple users frequently share a file system. The integrity 
-of data saved in a shared file must be guaranteed by the file 
-system. That is, concurrent access requests from many users 
-who are competing for access to the same file must be correctly 
-synchronized using a concurrency control method. Atomic transactions 
-are a high-level concurrency management mechanism for data integrity 
-that is frequently offered to users by a file system.
+Multiple users frequently share a file system. 
+The integrity of data saved in a shared file 
+must be guaranteed by the file system. That is, 
+concurrent access requests from many users who 
+are competing for access to the same file must 
+be correctly synchronized using a concurrency 
+control method. Atomic transactions are a 
+high-level concurrency management mechanism 
+for data integrity that is frequently offered 
+to users by a file system.
 
 > **Security** : 
-A distributed file system should be secure so that its users 
-may trust that their data will be kept private. To safeguard 
-the information contained in the file system from unwanted & 
-unauthorized access, security mechanisms must be implemented.
+A distributed file system should be secure 
+so that its users may trust that their data 
+will be kept private. To safeguard the 
+information contained in the file system from 
+unwanted & unauthorized access, security 
+mechanisms must be implemented.
 
 > **Heterogeneity** :
-Heterogeneity in distributed systems is unavoidable as a result 
-of huge scale. Users of heterogeneous distributed systems have 
-the option of using multiple computer platforms for different 
-purposes.
+Heterogeneity in distributed systems is 
+unavoidable as a result of huge scale. Users 
+of heterogeneous distributed systems have the 
+option of using multiple computer platforms 
+for different purposes.
 
 
 For more information refer to [What is DFS (Distributed File System)?
@@ -7914,13 +8047,14 @@ data for supporting business processes.
 ## Data Model
 According to 
 [Wikipedia](https://en.wikipedia.org/wiki/Data_model): 
-a data model is an abstract model that organizes elements 
-of data and standardizes how they relate to one another 
-and to the properties of real-world entities. For instance, 
-a data model may specify that the data element representing 
-a car be composed of a number of other elements which, 
-in turn, represent the color and size of the car and 
-define its owner.
+a data model is an abstract model that organizes 
+elements of data and standardizes how they relate 
+to one another and to the properties of real-world 
+entities. For instance, a data model may specify 
+that the data element representing a car be composed 
+of a number of other elements which, in turn, 
+represent the color and size of the car and define 
+its owner.
 
 
 ![](./images/data_model_3.png)
@@ -7936,16 +8070,18 @@ notation, which is often graphical in form.
 <a name="top"></a>
 
 ## Hive
-The Apache Hive data warehouse software facilitates 
-reading, writing, and managing large datasets residing 
-in distributed storage and queried using SQL syntax.
+The Apache Hive data warehouse software 
+facilitates reading, writing, and managing 
+large datasets residing in distributed storage 
+and queried using SQL syntax.
 
-Hive is an open source Hadoop-based data warehouse 
-software project for providing data summarization, 
-analysis, and query. Users can write queries in the 
-SQL-like language known as HiveQL. Hadoop is a 
-framework which handles large datasets in the 
-distributed computing environment.
+Hive is an open source Hadoop-based data 
+warehouse software project for providing 
+data summarization, analysis, and query. 
+Users can write queries in the SQL-like 
+language known as HiveQL. Hadoop is a 
+framework which handles large datasets in 
+the distributed computing environment.
 
 
 
@@ -7972,10 +8108,10 @@ the system
 <a name="top"></a>
 
 ## Log File
-A log file is the special type of file that allows 
-users keeping the record of events occurred or the 
-operating system or conversation between the users 
-or any running software.
+A log file is the special type of file that 
+allows users keeping the record of events 
+occurred or the operating system or conversation 
+between the users or any running software.
 
 Log file is a file automatically created by a 
 computer program to record events that occur 
@@ -7983,14 +8119,17 @@ while operational.
 
 **Examples**:
 
-* A search engine might create records of search query, 
-  response, response time, data and time
-* A financial company web server might create details
-  of every transaction (such as data and time, account number, 
-  transaction type, transaction amount, account number, ...)
-* Amazon.com might create records for every transcation:
-  date and time, transaction typem item sold, amount, 
-  state and city shipped, ...
+* A search engine might create records of search 
+  query, response, response time, data and time
+  
+* A financial company web server might create 
+  details of every transaction (such as data 
+  and time, account number, transaction type, 
+  transaction amount, account number, ...)
+  
+* Amazon.com might create records for every 
+  transcation: date and time, transaction typem 
+  item sold, amount, state and city shipped, ...
   
 
 
@@ -8184,11 +8323,13 @@ Prime examples of open-source products are:
 
 ## Relational Database
 
-The `relational` term here refers to the relations 
-(also commonly referred to as tables) in the database 
-- the tables and their relationships to each other. 
-The tables 'relate' to each other. It is these relations 
-(tables) and their relationships that make it `relational`.
+The `relational` term here refers to the 
+relations (also commonly referred to as tables) 
+in  the  database -  the  tables  and  their 
+relationships to each other.    The tables 
+'relate' to each other. It is these relations 
+(tables) and their relationships that make it 
+`relational`.
 
 A relational database exists to house and identify 
 data items that have pre-defined relationships with 
@@ -8217,6 +8358,7 @@ There are 3 different types of relations in the database:
 * one-to-many
 * many-to-many
 
+![](./images/Relational-Database-Relationships-3.png)
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -8224,8 +8366,9 @@ There are 3 different types of relations in the database:
 
 ## RDBMS
 
-* RDBMS stands for Relational DataBase Management System.
-  The following are examples of system, which implement RDBMS:
+* RDBMS stands for Relational DataBase Management 
+  System.  The following are examples of system, 
+  which implement RDBMS:
 	* Oracle database
 	* MySQL
 	* MariaDB
@@ -8238,15 +8381,15 @@ There are 3 different types of relations in the database:
 * RDBMS is a multi-tenant and can manage many databases,
   where each database may have many tables
   
-* RDBMS is built in such a way to respond to SQL queries in 
-  seconds
+* RDBMS is built in such a way to respond to SQL queries 
+  in seconds
   
-* With RDBMS, you can create databases, and within a 
-  database, you can create tables, which you may 
+* With RDBMS, you can create databases, and within
+  a database, you can create tables, which you may 
   insert/update/delete/query records 
   
-* The relational structure makes it possible to run queries
-  against many tables
+* The relational structure makes it possible to run 
+  queries against many tables
   
 * SQL (structured query langiage) is the standard 
   programming language used to access database
@@ -8383,21 +8526,22 @@ of NoSQL databases.
 
 
 ## PySpark
-What is PySpark? PySpark is the Python API for Apache 
-Spark, an open source, distributed computing framework 
-and set of libraries for near-real-time, large-scale 
-data processing. If you’re already familiar with Python 
-and libraries such as Pandas, then PySpark is a good 
-language to learn to create more scalable analyses and 
-pipelines. According to 
-[Spark documentation]
-(https://spark.apache.org/docs/latest/api/python/index.html): 
-"PySpark is an interface for Apache Spark in Python. It 
-not only allows you to write Spark applications using 
-Python APIs, but also provides the PySpark shell for 
-interactively analyzing your data in a distributed 
-environment. PySpark supports most of Spark’s features 
-such as Spark SQL, DataFrame, Streaming, MLlib (Machine 
+What is PySpark? PySpark is the Python API 
+for Apache Spark, an open source, distributed 
+computing framework and set of libraries for 
+near-real-time, large-scale data processing. 
+If you’re already familiar with Python and 
+libraries such as Pandas, then PySpark is a 
+good language to learn to create more scalable 
+analyses and pipelines. According to 
+[Spark documentation](https://spark.apache.org/docs/latest/api/python/index.html): 
+"PySpark is an interface for Apache Spark in 
+Python. It not only allows you to write Spark 
+applications using Python APIs, but also provides 
+the PySpark shell for interactively analyzing 
+your data in a distributed environment. PySpark 
+supports most of Spark’s features such as Spark 
+SQL, DataFrame, Streaming, MLlib (Machine 
 Learning) and Spark Core."
 
 **PySpark Data Abstractions:**
@@ -8405,10 +8549,12 @@ Learning) and Spark Core."
 PySpark supports two types of data abstractions:
 
 * `RDD`
+	* is a low-level API
 	* as a set of elements of type `T`
 	* can represent billions of elements
 	
 * `DataFrame`
+	* is a high-level API
 	* as a table of rows with named columns
 	* can represent billions of rows
 
@@ -8601,14 +8747,32 @@ from one form to the other.
 
 According to [Building the Data Lakehouse by Bill Inmon](https://www.databricks.com/resources/ebook/building-the-data-lakehouse):
 
-> Data transformation is the process of mapping andconverting data from one format to another. Datatransformation is needed when you expect data fromheterogeneous sources due to different data formats fromacross sources. This transformed format is nothing but theuniform format decided for the data lakehouse. Datatransformation is a component of almost all dataintegration and management activities, including datawarehousing and data lakehouse creation.
+> Data transformation is the process of mapping and
+converting data from one format to another. Data 
+transformation is needed when you expect data from
+heterogeneous sources due to different data formats 
+from across sources. This transformed format is nothing 
+but the uniform format decided for the data lakehouse. 
+Data transformation is a component of almost all data
+integration and management activities, including data
+warehousing and data lakehouse creation.
 
-> Transformation is needed whenever and wherever there areformat differences, and the data between source anddestination needs a strategic mapping with appropriatetransformation rules.
+> Transformation is needed whenever and wherever there 
+are format differences, and the data between source and
+destination needs a strategic mapping with appropriate
+transformation rules.
 
-> Three things are important to decide whether the dataneeds any transformation before storing it in the target fileformat. 
+> Three things are important to decide whether the data
+needs any transformation before storing it in the target 
+file format. 
 
-> * First is the source data format understanding,> * Second is the desired data format expected into thedestination, and 
-> * Third is the transformation logic to beapplied to bring the difference to an acceptable format intothe final destination file and storage data format.
+> * First is the source data format understanding
+> * Second is the desired data format expected 
+into the destination, and 
+> * Third is the transformation logic to be applied 
+to bring the difference to an acceptable format into
+the final destination file and storage data format.
+
 
 Note that data transformation in Python is sequential
 (and can handle small to meium size data) and single 
@@ -8968,25 +9132,31 @@ out to file systems, databases, and live dashboards.
 <a name="top"></a>
 
 ## Spark SQL
-According to [Spark Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html): Spark SQL is a Spark module for 
-structured data processing. Unlike the basic Spark RDD API, 
-the interfaces provided by Spark SQL provide Spark with more 
-information about the structure of both the data and the 
-computation being performed. Internally, Spark SQL uses this 
-extra information to perform extra optimizations. There are 
-several ways to interact with Spark SQL including SQL and the 
-Dataset API. When computing a result, the same execution engine 
-is used, independent of which API/language you are using to 
-express the computation. This unification means that developers 
-can easily switch back and forth between different APIs based 
-on which provides the most natural way to express a given 
-transformation.
+According to 
+[Spark Documentation](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
+Spark SQL is a Spark module for structured data 
+processing. Unlike the basic Spark RDD API, 
+the interfaces provided by Spark SQL provide 
+Spark with more information about the structure 
+of both the data and the computation being performed. 
+Internally, Spark SQL uses this extra information 
+to perform extra optimizations. There are several 
+ways to interact with Spark SQL including SQL and 
+the Dataset API. When computing a result, the same 
+execution engine is used, independent of which 
+API/language you are using to express the computation. 
+This unification means that developers can easily 
+switch back and forth between different APIs based 
+on which provides the most natural way to express 
+a given transformation.
 
 In PySpark, SQL can be used to perform transformations
 on structured data (expressed as a DataFrame): 
 
 * Step-1: create a DataFrame
+
 * Step-2: register your created DataFrame as a table 
+
 * Step-3: apply your SQL transformation to the registered table
 
 
@@ -9091,18 +9261,44 @@ For example, GraphFrames package is located [here]
 ## DATA LAKEHOUSE
 
 #### According to [Snowflake](https://www.snowflake.com/guides/what-data-lakehouse):
-> A data lakehouse starts with a data lake architecture, and attempts to add data warehouse capabilities to it, generally with modifications to the query engine and the addition of a predefined file format. Added features include version history, ACID transactions, and data governance, features that are typical in a data warehouse, but are generally lacking in a data lake. However, this data lake-first approach has challenges, as customers hoping for the best of both worlds often struggle with complexity, hidden costs, variable performance, limited concurrency support, and conflicts between governance controls in the data platform versus separate controls in the storage layer.	
+> A data lakehouse starts with a data lake architecture, 
+and attempts to add data warehouse capabilities to it, 
+generally with modifications to the query engine and 
+the addition of a predefined file format. Added features 
+include version history, ACID transactions, and data 
+governance, features that are typical in a data warehouse, 
+but are generally lacking in a data lake. However, this 
+data lake-first approach has challenges, as customers 
+hoping for the best of both worlds often struggle with 
+complexity, hidden costs, variable performance, limited 
+concurrency support, and conflicts between governance 
+controls in the data platform versus separate controls 
+in the storage layer.
 
 #### According to [Databricks](https://www.databricks.com/glossary/data-lakehouse):
 >What is a Data Lakehouse?
-A data lakehouse is a new, open data management architecture that combines the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses, enabling business intelligence (BI) and machine learning (ML) on all data.
+A data lakehouse is a new, open data management 
+architecture that combines the flexibility, cost-efficiency, 
+and scale of data lakes with the data management and 
+ACID transactions of data warehouses, enabling business 
+intelligence (BI) and machine learning (ML) on all data.
 
 >Data Lakehouse: Simplicity, Flexibility, and Low Cost
-Data lakehouses are enabled by a new, open system design: implementing similar data structures and data management features to those in a data warehouse, directly on the kind of low-cost storage used for data lakes. Merging them together into a single system means that data teams can move faster as they are able to use data without needing to access multiple systems. Data lakehouses also ensure that teams have the most complete and up-to-date data available for data science, machine learning, and business analytics projects.
+Data lakehouses are enabled by a new, open system design: 
+implementing similar data structures and data management 
+features to those in a data warehouse, directly on the 
+kind of low-cost storage used for data lakes. Merging 
+them together into a single system means that data teams 
+can move faster as they are able to use data without needing 
+to access multiple systems. Data lakehouses also ensure that 
+teams have the most complete and up-to-date data available 
+for data science, machine learning, and business analytics 
+projects.
 
 >Key Technology Enabling the Data Lakehouse
 
-> There are a few key technology advancements that have enabled the data lakehouse:
+> There are a few key technology advancements that have 
+enabled the data lakehouse:
 
 > * metadata layers for data lakes
 > * new query engine designs providing high-performance SQL execution on data lakes
@@ -9154,36 +9350,40 @@ additional special features and unique capabilities.
 >There is no hardware (virtual or physical) to 
 select, install, configure, or manage.
 
->There is virtually no software to install, configure, or manage.
+>There is virtually no software to install, 
+configure, or manage.
 
->Ongoing maintenance, management, upgrades, and tuning 
-are handled by Snowflake.
+>Ongoing maintenance, management, upgrades, 
+and tuning are handled by Snowflake.
 
->Snowflake runs completely on cloud infrastructure. All 
-components of Snowflake’s service (other than optional 
-command line clients, drivers, and connectors), run in 
-public cloud infrastructures.
+>Snowflake runs completely on cloud infrastructure. 
+All components of Snowflake’s service (other than 
+optional command line clients, drivers, and connectors), 
+run in public cloud infrastructures.
 
-> Snowflake uses virtual compute instances for its compute 
-needs and a storage service for persistent storage of data. 
-Snowflake cannot be run on private cloud infrastructures 
+> Snowflake uses virtual compute instances 
+for its compute needs and a storage service 
+for persistent storage of data. Snowflake 
+cannot be run on private cloud infrastructures 
 (on-premises or hosted).
 
->Snowflake is not a packaged software offering that can be 
-installed by a user. Snowflake manages all aspects of software 
-installation and updates.
+>Snowflake is not a packaged software offering that 
+can be installed by a user. Snowflake manages all 
+aspects of software installation and updates.
 
 >###Snowflake Architecture
->Snowflake’s architecture is a hybrid of traditional shared-disk 
-and shared-nothing database architectures. Similar to shared-disk 
-architectures, Snowflake uses a central data repository for persisted 
-data that is accessible from all compute nodes in the platform. But 
-similar to shared-nothing architectures, Snowflake processes queries 
-using MPP (massively parallel processing) compute clusters where each 
-node in the cluster stores a portion of the entire data set locally. 
-This approach offers the data management simplicity of a shared-disk 
-architecture, but with the performance and scale-out benefits of a 
-shared-nothing architecture.
+>Snowflake’s architecture is a hybrid of traditional 
+shared-disk and shared-nothing database architectures. 
+Similar to shared-disk architectures, Snowflake uses a 
+central data repository for persisted data that is 
+accessible from all compute nodes in the platform. 
+But similar to shared-nothing architectures, Snowflake 
+processes queries using MPP (massively parallel processing) 
+compute clusters where each node in the cluster stores a 
+portion of the entire data set locally. This approach 
+offers the data management simplicity of a shared-disk 
+architecture, but with the performance and scale-out 
+benefits of a shared-nothing architecture.
 
 
 Snowflake Architecture:
