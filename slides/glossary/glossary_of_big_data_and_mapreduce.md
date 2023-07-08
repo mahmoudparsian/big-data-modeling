@@ -112,7 +112,7 @@ Table of Contents
 1. [What are Spark Mappers?](#What-are-Spark-Mappers)
 1. [What are Spark Reducers?](#What-are-Spark-Reducers)
 1. [Data Structure](#Data-Structure)
-1. [Difference between Spark's Action and Transformation](#Difference-between-Spark-Action-and-Transformation)
+1. [Difference between Spark Action and Transformation](#Difference-between-Spark-Action-and-Transformation)
 1. [What is a Lineage in Spark?](#What-is-a-Lineage-in-Spark)
 1. [What are Spark operations or functions?](#What-are-Spark-operations-or-functions)
 1. [Spark Transformation](#Spark-Transformation)
@@ -4915,7 +4915,7 @@ Well known data structures are (partial list):
 <a name="top"></a>
 
 
-## Difference between Spark's Action and Transformation
+## Difference between Spark Action and Transformation
 A Spark transformation (such as `map()`, `filter()`, 
 `reduceByKey()`, ...) applies to a source RDD and 
 creates a new target RDD.  While, an action (such as 
