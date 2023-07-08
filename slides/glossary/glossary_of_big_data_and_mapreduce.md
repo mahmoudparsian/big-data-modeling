@@ -4870,15 +4870,25 @@ Reductions for Spark Dataframes can be handled by two means:
 
 
 ## Data Structure
-In computer science, a data structure is a data 
-organization, management, and storage format that 
-is usually chosen for efficient access to data.
+In computer science, a 
+[data structure](https://www.geeksforgeeks.org/data-structures/) 
+is a data organization, management, and storage 
+format that is usually chosen for efficient access 
+to data.
 
-There are numerous types of data structures, generally 
-built upon simpler primitive data types. Well known 
-examples are:
+What is a Data Structure? A data structure is a 
+storage that is used to store and organize data. 
+It is a way of arranging data on a computer so 
+that it can be accessed and updated efficiently.
+
+There are numerous types of data structures, 
+generally built upon simpler primitive data 
+types. 
+
+Well known data structures are (partial list):
 
 * Array
+* Suffix Array
 * Set
 * Stack
 * Linked List
@@ -4889,7 +4899,16 @@ examples are:
 * Graphs 
 * Tables
 * Tree
+* AVL Tree
+* B Tree
+* Red-Black Tree
 * Binary tree
+* Matrix
+
+
+**Cheatsheet on data structures**:
+
+![](./images/data_structures_cheat_sheet.jpeg)
 
 
 <a class="top-link hide" href="#top">↑</a>
