@@ -4928,11 +4928,17 @@ or RDD, it is a transformation. If it returns anything
 else or does not return a value at all (or returns Unit 
 in the case of Scala API), it is an action.
 
-Spark transformations and actions are summarized below:
+Spark transformations and actions are summarized below.
+
+
+#### Spark Transformation
 
 	transformation: RDD --> RDD
 	
 	transformation: DataFrame --> DataFrame
+
+
+#### Spark Action
 	
 	Action: RDD --> NON-RDD
 	
