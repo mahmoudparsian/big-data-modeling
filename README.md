@@ -23,11 +23,11 @@
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
 * Course MSIS 2527: Big Data Modeling & Analytics
-* Class meeting dates: 
+* **Class meeting dates**: 
 	* Start: September 19, 2023
 	* End: December 8, 2023
 	* Final Exam week: December 4-8, 2023
-* Class hours:  
+* **Class hours**:  
 	* Tuesday 5:45 PM - 7:20 PM PST
 	* Thursday 5:45 PM - 7:20 PM PST
 * Class room: TBDL
