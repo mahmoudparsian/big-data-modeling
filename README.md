@@ -28,15 +28,16 @@
 	* End: December 8, 2023
 	* Final Exam week: December 4-8, 2023
 * Class hours:  
-	* Tuesday 5:45 PM - 7:20 PM PST (via Zoom)
-	* Thursday 5:45 PM - 7:20 PM PST (via Zoom)
+	* Tuesday 5:45 PM - 7:20 PM PST
+	* Thursday 5:45 PM - 7:20 PM PST
 * Class room: TBDL
 * Office: TBDL, Lucas Hall 
 * Office Hours: TBDL (via Zoom and by appointment)
 
 ------------
 
-## 1.  [Instructor, Adjunct Professor: Mahmoud Parsian](./web_docs/instructor.md)
+## 1.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+[comment]: <> (./web_docs/instructor.md)()
 
 ## 2.  [Course Description & Concepts](./web_docs/course_description.md)
 
