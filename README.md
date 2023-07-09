@@ -1,5 +1,5 @@
-## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
 ## Fall Quarter 2023
+## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
 ## [Santa Clara University](http://scu.edu/)
 
 --------------------------
