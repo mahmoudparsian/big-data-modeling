@@ -1,4 +1,6 @@
-# SQL Tutorials
+# SQL Introduction and Tutorials
+
+### [Introduction to SQL by Phil Spector, UC Berkeley](https://www.stat.berkeley.edu/~spector/sql.pdf)
 
 ### [SQL Tutorial: w3schools](https://www.w3schools.com/sql/)
 

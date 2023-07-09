@@ -19,3 +19,5 @@
 ## 9. [Python Tutorial from W3 Schools](https://www.w3schools.com/python/default.asp)
 
 ## 10. [Learn Python Programming](https://pythonbasics.org)
+
+## 11. [Introduction to Python Programming Course Notes by Phil Spector, UC Berkeley](https://www.stat.berkeley.edu/~spector/python.pdf)
