@@ -1,5 +1,5 @@
-# [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
-
+## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
+## Fall Quarter 2023
 ## [Santa Clara University](http://scu.edu/)
 
 --------------------------
@@ -18,8 +18,10 @@
 
 ----------------------------
 
-## Fall Quarter 2023
-## Course Information: 
+
+
+## 1. Course Information: 
+
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
 * Course MSIS 2527: Big Data Modeling & Analytics
@@ -36,39 +38,41 @@
 
 ------------
 
-## 1.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+## 2.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 2.  [Prerequisite](./web_docs/prerequisite.md)
+## 3.  [Prerequisite](./web_docs/prerequisite.md)
 
-## 3.  [Course Description & Concepts](./web_docs/course_description.md)
+## 4.  [Course Description & Concepts](./web_docs/course_description.md)
 
-## 4.  [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
+## 5.  [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
-## 5.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
+## 6.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## 6.  [Required Books and Papers](./web_docs/required_books.md)
+## 7.  [Required Books and Papers](./web_docs/required_books.md)
 
-## 7.  [Optional Books and References](./web_docs/additional_books.md)
+## 8.  [Optional Books and References](./web_docs/additional_books.md)
 
-## 8.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
+## 9.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## 9.  [Syllabus, Fall Quarter 2023](./syllabus/2023-Fall/README.md)
+## 10.  [Syllabus, Fall Quarter 2023](./syllabus/2023-Fall/README.md)
 
-## 10.  [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
+## 11. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
-## 11. [Python Tutorials](./web_docs/python_tutorials.md)
+## 12. [Python Tutorials](./web_docs/python_tutorials.md)
 
-## 12. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
+## 13. [SQL Tutorials](./web_docs/sql_tutorials.md)
 
-## 13. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
+## 14. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
 
-## 14. [Office Hours](./web_docs/office_hours.md)
+## 15. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
 
-## 15. [Midterm Exam](./web_docs/midterm_exam.md)
+## 16. [Office Hours](./web_docs/office_hours.md)
 
-## 16. [Final Exam](./web_docs/final_exam.md)
+## 17. [Midterm Exam](./web_docs/midterm_exam.md)
 
-## 17. Mahmoud Parsian's Latest Books: 
+## 18. [Final Exam](./web_docs/final_exam.md)
+
+## 19. Mahmoud Parsian's Latest Books: 
 
 -------
 
