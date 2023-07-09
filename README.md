@@ -38,7 +38,7 @@
 
 ## 1.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 2.  [Prerequisite](./web_docs/course_description.md)
+## 2.  [Prerequisite](./web_docs/prerequisite.md)
 
 ## 3.  [Course Description & Concepts](./web_docs/course_description.md)
 
