@@ -38,35 +38,37 @@
 
 ## 1.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 2.  [Course Description & Concepts](./web_docs/course_description.md)
+## 2.  [Prerequisite](./web_docs/course_description.md)
 
-## 3.  [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
+## 3.  [Course Description & Concepts](./web_docs/course_description.md)
 
-## 4.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
+## 4.  [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
 
-## 5.  [Required Books and Papers](./web_docs/required_books.md)
+## 5.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## 6.  [Optional Books and References](./web_docs/additional_books.md)
+## 6.  [Required Books and Papers](./web_docs/required_books.md)
 
-## 7.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
+## 7.  [Optional Books and References](./web_docs/additional_books.md)
 
-## 8.  [Syllabus, Fall Quarter 2023](./syllabus/2023-Fall/README.md)
+## 8.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## 9.  [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
+## 9.  [Syllabus, Fall Quarter 2023](./syllabus/2023-Fall/README.md)
 
-## 10. [Python Tutorials](./web_docs/python_tutorials.md)
+## 10.  [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
-## 11. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
+## 11. [Python Tutorials](./web_docs/python_tutorials.md)
 
-## 12. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
+## 12. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
 
-## 13. [Office Hours](./web_docs/office_hours.md)
+## 13. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
 
-## 14. [Midterm Exam](./web_docs/midterm_exam.md)
+## 14. [Office Hours](./web_docs/office_hours.md)
 
-## 15. [Final Exam](./web_docs/final_exam.md)
+## 15. [Midterm Exam](./web_docs/midterm_exam.md)
 
-## 16. Mahmoud Parsian's Latest Books: 
+## 16. [Final Exam](./web_docs/final_exam.md)
+
+## 17. Mahmoud Parsian's Latest Books: 
 
 -------
 
