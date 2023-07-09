@@ -4,16 +4,16 @@
 
 ## What If I Have a Question?
 
-1. You may ask your question dring lecture hours
+1. You may ask your questions during scheduled lecture hours
 
-2. Participate in Scheduled Office Hours
+2. Participate in scheduled Office Hours
 
 3. Post your question on ***Camino's Discussions***
 	* We (students, TA, and me) will respond to your questions
 	
 -------
 
-## Office Hours
+## Office Hours: TBDL
 
 Tentative office hours ...
 
