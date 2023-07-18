@@ -13,7 +13,7 @@
 * Understand the fundamentals of MapReduce Paradigm
 * Use PySpark (Python API for Apache Spark) to solve big data problems
 * Use SQL for NoSQL data (DataFrames in Spark and Amazon Athena)
-* Understand Amazon Athena: Access Big Data by SQL
+* Understand Amazon Athena & Google BigQuery: Access & Analyze Big Data by SQL
 
 -----------------
 
@@ -21,27 +21,34 @@
 
 At the completion of this course, students will be able to understand:
 
-* What is MapReduce? Examples of MapReduce
-	* data partitioning and partitions
-	* mapper function: `map()`
-	* reducer function: `reduce()`
-	* combiner function: `combine()`
-	* Sort & Shuffle
-* Elements of Big Data: Persistence, Queries, Analytics
-* Distributed File System and Fault Tolerance
-* Introduction to classic MapReduce Algorithms
-* Understand Spark and Hadoop frameworks
-* MapReduce algorithms and some design patterns
-* NoSQL Databases
-* Fundamentals of Spark and PySpark
+* **Elements of Big Data**: 
+	* Cluster Comouting
+	* Persistence, Queries, Analytics
+	* Data Replication
+	* Distributed File System and Fault Tolerance
+	* Scale-out Architecture vs. Scale-up Architecture
+
+* **What is MapReduce paradigm?**
+	* Data partitioning and partitions
+	* Mapper function: `map()`
+	* Reducer function: `reduce()`
+	* Combiner function: `combine()`
+	* Sort & Shuffle: SQL's `GROUP BY`
+	* Classic MapReduce Algorithms
+	* Data Design Patterns
+
+* **Fundamentals of Spark and PySpark:**
 	* Spark Architecture
+	* Spark: engine for large-scale data analytics
 	* Data Abstractions in Spark and PySpark
 	* RDDs and DataFrames
 	* Transformations and Actions
-* Running simple programs in PySpark
-* Scale-out vs. Scale-up
-* SQL for NoSQL data & Relational Algebra
-* Amazon Athena and SQL
+	* Running simple programs in PySpark
+	
+* **NoSQL Databases & Serverless Architectures**
+	* SQL for NoSQL data & Relational Algebra
+	* Amazon Athena and SQL
+	* Google BigQuery and SQL
 
 ----------------
 ## Required books (all resources are online):
