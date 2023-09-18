@@ -1,19 +1,23 @@
-name: Mahmoud Parsian
+### name: Mahmoud Parsian
 
-email: mparsian@scu.edu
+### email: mparsian@scu.edu
 
-education: Ph.D in Computer Science
+### education: Ph.D in Computer Science
 
-Big Data Architect @Illumina
+### job: Big Data Architect @Illumina
 
-Writing Big Data Algorithms (12+ years)
+### what do I do: Writing Big Data Algorithms (12+ years)
 
-Adjunct Faculty @SCU (5+ years)
+### part-time: Adjunct Faculty @SCU (8+ years)
 
-Author of 5 Books:
+### Author of 5 Books:
 
-\* Data Algorithms with Spark (PySpark & Spark)
+* Data Algorithms with Spark (O'Reilly, 2022)
 
-\* Data Algorithms (MapReduce & Spark)
+* Data Algorithms (O'Reilly, 2015)
 
-\* PySpark Algorithms (PySpark & Spark)
+* PySpark Algorithms (Amazon.com, 2019)
+
+* JDBC Recipes (Apress, 2005)
+
+* JDBC Metadata Recipes (Apress, 2006)
