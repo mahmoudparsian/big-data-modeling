@@ -13,15 +13,46 @@
 	
 -------
 
-## Office Hours: TBDL
+## Weekly Office Hours
 
-Tentative office hours ...
+Office Hours will start from September 20, 2023
 
-Zoom URLs will be provided.
+~~~text
+1. Monday 6:30 to 7:00 pm PST (Mahmoud Parsian)
 
+https://scu.zoom.us/j/98189633933?pwd=L1E5NkhTZ3R0cXhTR3FycCtTUkJqUT09
+Meeting ID: 981 8963 3933  Password: 190488
 
-* Monday: 5:00 - 5:30pm, PST
-* Tuesday: 6:00 - 7:00pm, PST
-* Wednesday: 5:00 - 5:30pm, PST
-* Thursday: 5:00 - 6:00pm, PST
+Join by phone: +1 (669) 900-6833  Meeting ID: 981 8963 3933
+One tap mobile: +16699006833,,98189633933#
+~~~
+
+~~~text
+2. Tuesday 5:00 to 5:30 pm PST (Ms. Shrutanvi Datar, TA)
+
+https://scu.zoom.us/j/96424780151?pwd=TW9YaUxLclBjRFFEOGgyY1R4eDh2Zz09
+Meeting ID: 964 2478 0151  Password: 267009
+
+Join by phone: +1 (669) 900-6833  Meeting ID: 964 2478 0151
+One tap mobile: +16699006833,,96424780151#
+~~~
+
+~~~text
+3. Wednesday 6:30 to 7:00 pm PST (Mahmoud Parsian)
+https://scu.zoom.us/j/98189633933?pwd=L1E5NkhTZ3R0cXhTR3FycCtTUkJqUT09
+Meeting ID: 981 8963 3933  Password: 190488
+
+Join by phone: +1 (669) 900-6833  Meeting ID: 981 8963 3933
+One tap mobile: +16699006833,,98189633933#
+~~~
+
+~~~text
+4. Thursday 5:00 to 5:30 pm PST (Ms. Shrutanvi Datar, TA)
+https://scu.zoom.us/j/96424780151?pwd=TW9YaUxLclBjRFFEOGgyY1R4eDh2Zz09
+Meeting ID: 964 2478 0151  Password: 267009
+
+Join by phone: +1 (669) 900-6833  Meeting ID: 964 2478 0151
+One tap mobile: +16699006833,,96424780151#
+~~~
+
 
