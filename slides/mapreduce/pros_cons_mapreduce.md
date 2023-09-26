@@ -1,6 +1,6 @@
-Pros and Cons of MapReduce
+# Pros and Cons of MapReduce
 
-Pros:
+## Pros:
      1. Scalable (due to simple design)
         1.1 You can have a cluster of 10, 100, 1000, ... nodes
         1.2 Simple API: map(), combine(), reduce()
@@ -11,7 +11,7 @@ Pros:
      
      4. Handles fault tolerance by data replication in worker nodes
 
-Cons:
+## Cons:
      1. It is not flexible i.e. the MapReduce framework is rigid
         1.1 There is no join operation
         1.2 There is no explicit filter API
