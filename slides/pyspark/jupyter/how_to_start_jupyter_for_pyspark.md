@@ -1,12 +1,15 @@
-# 1. Create a file [`pyspark_jupyter.sh`](./pyspark_jupyter.sh)
+# 1. Create a Shell Script File 
 
-Update directories accordingly
+I have an example of [`pyspark_jupyter.sh`](./pyspark_jupyter.sh)
+
+Update directories accordingly.
 
 
-# 2. Execute `pyspark_jupyter.sh` as:
+# 2. Execute Created Shell Script as:
 
 		source pyspark_jupyter.sh
 		
-# 3. Then try some Spark commands:
+		
+# 3. Then try some Spark commands from Jupyter:
 
 ![](./pyspark_jupyter.png)
