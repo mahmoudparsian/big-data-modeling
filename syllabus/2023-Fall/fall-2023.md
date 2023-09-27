@@ -133,7 +133,7 @@ TOPIC: Introduction to Big Data and MapReduce
 TOPIC: Introduction to MapReduce
 
 * REQUIRED:
-	* [Introduction to MapReduce](https://courses.cs.ut.ee/MTAT.08.011/2013_spring/uploads/Main/L3_MapReduce.pdf)
+	* [Introduction to MapReduce](https://kodu.ut.ee/~srirama/cloud/2011/L3_MapReduce.pdf)
 	* [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
 	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)   
 
