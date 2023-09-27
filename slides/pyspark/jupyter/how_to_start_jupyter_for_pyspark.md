@@ -1,6 +1,7 @@
-# 1. Create a file pyspark_jupyter.sh
+# 1. Create a file [`pyspark_jupyter.sh`](./pyspark_jupyter.sh)
 
 Update directories accordingly
+
 
 # 2. Execute `pyspark_jupyter.sh` as:
 
