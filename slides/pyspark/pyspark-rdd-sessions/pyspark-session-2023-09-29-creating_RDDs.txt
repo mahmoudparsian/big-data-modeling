@@ -1,0 +1,154 @@
+Sample files used:
+
+$ cat /home/parsian/spark-3.5.0/zmp/gene-data.txt
+gene1,2.4,male
+gene1,2.0,female
+gene1,1.8,male
+gene1,2.2,female
+gene2,1.2,male
+gene2,1.4,female
+gene2,1.6,male
+gene2,1.8,female
+gene3,1.2,male
+gene3,1.8,female
+
+$ ls -l /home/parsian/spark-3.5.0/zmp/data_folder/
+-rwxr-xr-x@ 1 mparsian  staff  160 Sep 28 19:17 gene-data.txt
+-rwxr-xr-x@ 1 mparsian  staff  128 Sep 28 19:18 gene-data2.txt
+
+$ cat /home/parsian/spark-3.5.0/zmp/data_folder/gene-data.txt
+gene1,2.4,male
+gene1,2.0,female
+gene1,1.8,male
+gene1,2.2,female
+gene2,1.2,male
+gene2,1.4,female
+gene2,1.6,male
+gene2,1.8,female
+gene3,1.2,male
+gene3,1.8,female
+
+$ cat /home/parsian/spark-3.5.0/zmp/data_folder/gene-data2.txt
+gene3,2.4,male
+gene3,2.0,female
+gene1,1.8,male
+gene1,2.2,female
+gene2,1.2,male
+gene2,1.4,female
+gene4,1.6,male
+gene4,1.8,female
+
+
+$ ./bin/pyspark
+Python 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.0
+      /_/
+
+Using Python version 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023 19:15:51)
+Spark context Web UI available at http://172.20.209.201:4040
+Spark context available as 'sc' (master = local[*], app id = local-1695953014965).
+SparkSession available as 'spark'.
+>>> 
+>>> 
+>>> sc
+<SparkContext master=local[*] appName=PySparkShell>
+>>> 
+>>> 
+>>> sc.version
+'3.5.0'
+>>> 
+>>> 
+>>> # create an RDD from a python collection
+>>> my_collection = [('g1', 2), ('g1', 3), ('g1', 4), ('g1', 5), ('g2', 2), ('g2', 3)]
+>>> len(my_collection)
+6
+>>> rdd = sc.parallelize(my_collection)
+>>> 
+>>> 
+>>> rdd
+ParallelCollectionRDD[0] at readRDDFromFile at PythonRDD.scala:289
+>>> 
+>>> 
+>>> rdd.count()
+6                                                                               
+>>> rdd.collect()
+[
+ ('g1', 2), 
+ ('g1', 3), 
+ ('g1', 4), 
+ ('g1', 5), 
+ ('g2', 2), 
+ ('g2', 3)
+]
+>>> 
+>>> 
+>>> rdd.take(2)
+[('g1', 2), ('g1', 3)]
+>>> 
+>>> 
+>>> 
+>>> input_path = "/home/parsian/spark-3.5.0/zmp/gene-data.txt"
+>>> 
+>>> input_path
+'/home/parsian/spark-3.5.0/zmp/gene-data.txt'
+>>> 
+>>> # create an RDD from a single text file
+>>> rdd2 = sc.textFile(input_path)
+>>> 
+>>> rdd2.count()
+10
+>>> 
+>>> rdd2.collect()
+[
+ 'gene1,2.4,male', 
+ 'gene1,2.0,female', 
+ 'gene1,1.8,male', 
+ 'gene1,2.2,female', 
+ 'gene2,1.2,male', 
+ 'gene2,1.4,female', 
+ 'gene2,1.6,male', 
+ 'gene2,1.8,female', 
+ 'gene3,1.2,male', 
+ 'gene3,1.8,female'
+]
+>>> 
+>>> 
+>>> 
+>>> folder = "/home/parsian/spark-3.5.0/zmp/data_folder/"
+>>> folder
+'/home/parsian/spark-3.5.0/zmp/data_folder/'
+>>> 
+>>> # create an RDD from all text files in a folder
+>>> rdd3 = sc.textFile(folder)
+>>> 
+>>> rdd3.count()
+18
+>>> rdd3.collect()
+[
+ 'gene3,2.4,male', 
+ 'gene3,2.0,female', 
+ 'gene1,1.8,male', 
+ 'gene1,2.2,female', 
+ 'gene2,1.2,male', 
+ 'gene2,1.4,female', 
+ 'gene4,1.6,male', 
+ 'gene4,1.8,female', 
+ 'gene1,2.4,male', 
+ 'gene1,2.0,female', 
+ 'gene1,1.8,male', 
+ 'gene1,2.2,female', 
+ 'gene2,1.2,male', 
+ 'gene2,1.4,female', 
+ 'gene2,1.6,male', 
+ 'gene2,1.8,female', 
+ 'gene3,1.2,male', 
+ 'gene3,1.8,female'
+]
+>>> 
