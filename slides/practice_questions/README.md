@@ -1,5 +1,5 @@
 The zip files contain sample questions on 
-* MapReduce
-* Spark RDD
-* Spark DataFrame
-* Spark GraphFrame
+
+* [MapReduce and PySpark RDD](./mapreduce_and_RDD_questions.md.zip)
+
+* [Spark DataFrame and GraphFrame](./dataframe_questions.txt.zip)
