@@ -1,5 +1,7 @@
 ## Fall Quarter 2023
+
 ## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
+
 ## [Santa Clara University](http://scu.edu/)
 
 --------------------------
@@ -21,12 +23,24 @@
 
 ## 1. Course Information: 
 
+	This course is about  big data and its role in carrying 
+	out modern business intelligence for actionable insight 
+	to address new business needs. This course is a lab-led 
+	and open source software rooted course.  Students  will 
+	learn the fundamentals  of MapReduce, Spark  framework,
+	NoSQL databases, PySpark, and Amazon Athena.  The class 
+	will  focus on  the storage,  processing, and  analysis 
+	aspects of big data.  Students  will use  Spark cluster 
+	and  MapReduce fundamentals to solve big data problems.
+
+
 * Course MSIS 2527: **Big Data Modeling & Analytics**
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
 * Class room: Lucas Hall (LH) 310
 * Office: 316U, Lucas Hall (LH)
 * Office Hours: via scheduled Zoom and by appointment
+
 
 ## 2. Class Meeting Dates & Hours
 
