@@ -15,20 +15,20 @@ which represents `(sum, count, average)` per key.
 
 Two solutions are provided:
 
-* `groupByKey()` solution
+1. `groupByKey()` solution
 
 `groupByKey()` groups the values for each key in the 
 RDD into a single sequence. Hash-partitions the resulting 
 RDD with `numPartitions` partitions.
 
 
-* `reduceByKey()` solution
+2. `reduceByKey()` solution
 
 `reduceByKey()` merges the values for each key using an 
 **associative** and **commutative** reduce function.
 
 
-# `groupByKey()` solution
+#1. `groupByKey()` solution
 
 ~~~python
 spark-3.5.0  % ./bin/pyspark
@@ -80,7 +80,7 @@ SparkSession available as 'spark'.
 ~~~
 
 
-# `reduceByKey()` solution
+#2. `reduceByKey()` solution
 
 ~~~python
 spark-3.5.0  % ./bin/pyspark
