@@ -1,6 +1,14 @@
 # Join in Spark RDDs
 
+## SQL Joins
+
+SQL joins are explained [here](https://medium.com/@iammanolov98/mastering-sql-joins-coding-interview-preparation-innerjoin-e96bef58afc2).
+
 <img src="./sql_joins.png"/>        
+
+-------
+
+## RDD Joins
 
 PySpark supports JOIN operation for `(key, value)` RDDs.
 The most common join is an inner join and is supported 
