@@ -21,11 +21,19 @@ Two solutions are provided:
 RDD into a single sequence. Hash-partitions the resulting 
 RDD with `numPartitions` partitions.
 
+		# source_rdd : RDD[(K, V)]
+		# target_rdd : RDD[(K, [V1, V2, ...])]
+		target_rdd = source_rdd.groupByKey()
+
 
 2. `reduceByKey()` solution
 
 `reduceByKey()` merges the values for each key using an 
-**associative** and **commutative** reduce function.
+**associative** and **commutative** reduce function (`f`).
+
+		# source_rdd : RDD[(K, V)]
+		# target_rdd : RDD[(K, V)]
+		target_rdd = source_rdd.reduceByKey(lambda x, y : f(x, y))
 
 
 # 1. `groupByKey()` solution
