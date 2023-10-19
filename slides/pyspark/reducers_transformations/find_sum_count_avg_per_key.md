@@ -28,7 +28,7 @@ RDD with `numPartitions` partitions.
 **associative** and **commutative** reduce function.
 
 
-#1. `groupByKey()` solution
+# 1. `groupByKey()` solution
 
 ~~~python
 spark-3.5.0  % ./bin/pyspark
@@ -80,7 +80,7 @@ SparkSession available as 'spark'.
 ~~~
 
 
-#2. `reduceByKey()` solution
+# 2. `reduceByKey()` solution
 
 ~~~python
 spark-3.5.0  % ./bin/pyspark
