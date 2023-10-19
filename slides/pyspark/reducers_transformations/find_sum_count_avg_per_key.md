@@ -1,5 +1,10 @@
 # Find Sum, Count, Average Per key
 
+The purpose of this post is to show how to use
+`groupByKey()` and `reduceByKey()` reducers
+in PySpark by simple examples.
+
+
 Given `source_rdd as RDD[(String, Integer)]`, 
 which represents `(key, value)` pairs, the 
 goal is to find `RDD[(String, (T3)]` where 
@@ -12,7 +17,16 @@ Two solutions are provided:
 
 * `groupByKey()` solution
 
+`groupByKey()` groups the values for each key in the 
+RDD into a single sequence. Hash-partitions the resulting 
+RDD with `numPartitions` partitions.
+
+
 * `reduceByKey()` solution
+
+`reduceByKey()` merges the values for each key using an 
+**associative** and **commutative** reduce function.
+
 
 # `groupByKey()` solution
 
