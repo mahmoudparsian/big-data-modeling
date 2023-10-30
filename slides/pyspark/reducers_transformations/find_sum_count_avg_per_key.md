@@ -25,6 +25,8 @@ RDD with `numPartitions` partitions.
 		# target_rdd : RDD[(K, [V1, V2, ...])]
 		target_rdd = source_rdd.groupByKey()
 
+					
+
 
 2. `reduceByKey()` solution
 
@@ -34,6 +36,24 @@ RDD with `numPartitions` partitions.
 		# source_rdd : RDD[(K, V)]
 		# target_rdd : RDD[(K, V)]
 		target_rdd = source_rdd.reduceByKey(lambda x, y : f(x, y))
+
+		def f(x, y):
+			....
+          # value must be a data type of V
+  			return value
+		#end-def
+
+3. `combineByKey()` solution
+
+`combineByKey()` ....
+
+		# source_rdd : RDD[(K, V)]
+		# target_rdd : RDD[(K, T)]
+		# V and T can be different
+		target_rdd = source_rdd.combineByKey(
+          lambda1, lambda2, lambda3)
+
+	
 
 
 # 1. `groupByKey()` solution
