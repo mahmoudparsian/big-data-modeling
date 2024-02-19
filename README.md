@@ -1,4 +1,4 @@
-## Fall Quarter 2023
+## Spring Quarter 2024
 
 ## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
 
@@ -34,10 +34,10 @@
 	and  MapReduce fundamentals to solve big data problems.
 
 
-* Course MSIS 2527: **Big Data Modeling & Analytics**
+* Course MSIS 2427/2527: **Big Data Modeling & Analytics**
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
-* Class room: Lucas Hall (LH) 310
+* Class room: Lucas Hall (LH) TBDL
 * Office: 316U, Lucas Hall (LH)
 * Office Hours: via scheduled Zoom and by appointment
 
@@ -45,12 +45,12 @@
 ## 2. Class Meeting Dates & Hours
 
 * **Class meeting dates**: 
-	* Start: September 19, 2023
-	* End: December 8, 2023
-	* Final Exam week: December 4-8, 2023
+	* Start: April 2, 2024
+	* End: June 6, 2024
+	* Final Exam week: June 10-13, 2024
 * **Class hours**:  
-	* Tuesday 5:45 PM - 7:20 PM PST
-	* Thursday 5:45 PM - 7:20 PM PST
+	* Monday 5:45 PM - 7:20 PM PST
+	* Wednesday 5:45 PM - 7:20 PM PST
 
 ## 3.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
@@ -68,7 +68,7 @@
 
 ## 10.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## 11.  [Syllabus, Fall Quarter 2023](./syllabus/2023-Fall/README.md)
+## 11.  [Syllabus, Spring Quarter 2024](./syllabus/2024-Spring/README.md)
 
 ## 12. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
