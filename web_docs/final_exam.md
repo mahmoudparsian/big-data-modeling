@@ -1,6 +1,6 @@
 ## Final Exam:
 
-### &#x1F34E; Date: Thursday, December 7, 2023
+### &#x1F34E; Date: June 10-13, 2024
 
 ### &#x1F34E; Time: 5:45 PM - 7:45 PM PST
 
