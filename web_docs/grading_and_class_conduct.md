@@ -3,20 +3,20 @@
 ## Grade Distribution:
 
 
- | Assignment              | %    
- |-------------------------|----
- | Progrmming Assignment-1 | 10%     
- | Progrmming Assignment-2 | 10%     
- | Progrmming Assignment-3 | 10%     
- | Progrmming Assignment-4 | 10%     
- | Progrmming Assignment-5 | 10%     
- | Quiz 1                  | 10%     
- | Quiz 2                  | 10%     
- | Midterm Exam            | 15%     
- | Final Exam              | 15%  
- | Bonus                   | up to 2%   
- |-------------------------|-----
- | Total                   | 102%
+Assignment              | %    
+------------------------|----
+Progrmming Assignment-1 | 10%     
+Progrmming Assignment-2 | 10%     
+Progrmming Assignment-3 | 10%     
+Progrmming Assignment-4 | 10%     
+Progrmming Assignment-5 | 10%     
+Quiz 1                  | 10%     
+Quiz 2                  | 10%     
+Midterm Exam            | 15%     
+Final Exam              | 15%  
+Bonus                   | up to 2%   
+------------------------|-----
+Total                   | 102%
  
  
 * **Quiz 1** and **Quiz 2** are closed book/notes/internet/software.
