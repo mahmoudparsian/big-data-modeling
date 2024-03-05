@@ -49,6 +49,7 @@
 	* End: June 6, 2024
 	* Final Exam week: June 10-13, 2024
 * **Class hours**:  
+
 | Day            | Start time  | End time       |
 |----------------|-------------|----------------|
 |Monday          |5:45 PM  PST |7:45 PM  PST    |
