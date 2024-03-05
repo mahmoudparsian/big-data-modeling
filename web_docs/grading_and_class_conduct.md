@@ -2,20 +2,26 @@
 
 ## Grade Distribution:
 
-Midterm and final exams are closed book/notes.
 
+ | Assignment              | %    
+ |-------------------------|----
+ | Progrmming Assignment-1 | 10%     
+ | Progrmming Assignment-2 | 10%     
+ | Progrmming Assignment-3 | 10%     
+ | Progrmming Assignment-4 | 10%     
+ | Progrmming Assignment-5 | 10%     
+ | Quiz 1                  | 10%     
+ | Quiz 2                  | 10%     
+ | Midterm Exam            | 15%     
+ | Final Exam              | 15%  
+ | Bonus                   | up to 2%   
+ |-------------------------|-----
+ | Total                   | 102%
+ 
+ 
+* **Quiz 1** and **Quiz 2** are closed book/notes/internet/software.
 
-  Assignment   | %    
-  -------------|----
-  Assignment-1 | 12%     
-  Assignment-2 | 12%     
-  Assignment-3 | 12%     
-  Assignment-4 | 12%     
-  Assignment-5 | 12%     
-  Midterm Exam | 20%     
-  Final Exam   | 20%  
-  -------------|-----
-  Bonus        | up to 2%   
+* **Midterm** and **final** exams are closed book/notes/internet/software.
 
 
 ## Letter Grade Distribution:
