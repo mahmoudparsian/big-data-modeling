@@ -244,6 +244,7 @@ Table of Contents
 1. [spark-packages.org](#spark-packages-org)
 1. [DATA LAKEHOUSE](#DATA-LAKEHOUSE)
 1. [Snowflake](#Snowflake)
+1. [What is a synchronization?](#What-is-a-synchronization)
 1. [References](#References)
 1. [List of Books by Mahmoud Parsian](#List-of-Books-by-Mahmoud-Parsian)
 
@@ -9420,6 +9421,19 @@ Snowflake Architecture:
 <a name="top"></a>
 
 
+## What is a synchronization?
+
+* Synchronization makes sure that shared resources or data can 
+be accessed by only one thread at a time while execution. 
+
+* Its advantage is that it prevent data inconsistency 
+
+* Its disadvantage is that it makes execution slower as it makes 
+  other thread wait till current thread completes execution.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
 
 ## References
 
