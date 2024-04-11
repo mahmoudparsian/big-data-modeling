@@ -151,7 +151,7 @@ reduce(key, values){
      emit (key, total)
   }
 }
-~~~ text
+~~~
 
 # Homework
 
