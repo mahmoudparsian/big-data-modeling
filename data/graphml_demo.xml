@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+        http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+        
+    <key id="weight" for="edge" attr.name="weight" attr.type="float"/>
+    
+    <key id="name" for="node" attr.name="name" attr.type="string"/>
+    <key id="age"  for="node" attr.name="age"  attr.type="int"/>
+    <key id="lang" for="node" attr.name="lang" attr.type="string"/>
+    
+    <!--   
+     * c: concept  
+     * n: name     
+     * s: section  
+     * d: section_description                        
+     * t: ontology type ( such as: {"ICD9CM", "ICD10CM"} )
+     * e: type  
+    -->
+    
+    <key id="c" for="node" attr.name="c" attr.type="string"/>
+    <key id="n" for="node" attr.name="n" attr.type="string"/>
+    <key id="s" for="node" attr.name="s" attr.type="string"/>
+    <key id="d" for="node" attr.name="d" attr.type="string"/>
+    <key id="t" for="node" attr.name="t" attr.type="string"/>
+    <key id="e" for="node" attr.name="e" attr.type="string"/>    
+        
+    <graph id="G" edgedefault="directed">
+    
+        <node id="1">
+            <data key="name">marko</data>
+            <data key="age">29</data>
+        </node>
+        <node id="2">
+            <data key="name">vadas</data>
+            <data key="age">27</data>
+        </node>
+        <node id="3">
+            <data key="name">lop</data>
+            <data key="lang">java</data>
+        </node>
+        <node id="4">
+            <data key="name">josh</data>
+            <data key="age">32</data>
+        </node>
+        <node id="5">
+            <data key="name">ripple</data>
+            <data key="lang">java</data>
+        </node>
+        <node id="6">
+            <data key="name">peter</data>
+            <data key="age">35</data>
+        </node>
+        <edge id="7" source="1" target="2" label="knows">
+            <data key="weight">0.5</data>
+        </edge>
+        <edge id="8" source="1" target="4" label="knows">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="9" source="1" target="3" label="created">
+            <data key="weight">0.4</data>
+        </edge>
+        <edge id="10" source="4" target="5" label="created">
+            <data key="weight">1.0</data>
+        </edge>
+        <edge id="11" source="4" target="3" label="created">
+            <data key="weight">0.4</data>
+        </edge>
+        <edge id="12" source="6" target="3" label="created">
+            <data key="weight">0.2</data>
+        </edge>
+    
+        <node id="c100_icd9cm">
+            <data key="c">c100</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n100</data>
+            <data key="s">s100</data>
+            <data key="d">d100</data>            
+            <data key="e">e100</data>
+        </node>
+
+        <node id="c200_icd9cm">
+            <data key="c">c200</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n200</data>
+            <data key="s">s200</data>
+            <data key="d">d200</data>            
+            <data key="e">e200</data>
+        </node>
+        
+        <node id="c300_icd9cm">
+            <data key="c">c300</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n300</data>
+            <data key="s">s300</data>
+            <data key="d">d300</data>            
+            <data key="e">e300</data>
+        </node>
+        
+        <node id="c0_icd9cm">
+            <data key="c">c0</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n0</data>
+            <data key="s">s0</data>
+            <data key="d">d0</data>            
+            <data key="e">e0</data>
+        </node>
+        
+        <node id="c1_icd9cm">
+            <data key="c">c1</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n1</data>
+            <data key="s">s1</data>
+            <data key="d">d1</data>            
+            <data key="e">e1</data>
+        </node>
+
+        <node id="c2_icd9cm">
+            <data key="c">c2</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n2</data>
+            <data key="s">s2</data>
+            <data key="d">d2</data>            
+            <data key="e">e2</data>
+        </node>
+        
+        <node id="c3_icd9cm">
+            <data key="c">c3</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n3</data>
+            <data key="s">s3</data>
+            <data key="d">d3</data>            
+            <data key="e">e3</data>
+        </node>
+
+        <node id="c6_icd9cm">
+            <data key="c">c6</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n6</data>
+            <data key="s">s6</data>
+            <data key="d">d6</data>            
+            <data key="e">e6</data>
+        </node>
+
+        <node id="c7_icd9cm">
+            <data key="c">c7</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n7</data>
+            <data key="s">s7</data>
+            <data key="d">d7</data>            
+            <data key="e">e7</data>
+        </node>
+        
+        <node id="c8_icd9cm">
+            <data key="c">c8</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n8</data>
+            <data key="s">s8</data>
+            <data key="d">d8</data>            
+            <data key="e">e8</data>
+        </node>
+        
+        <node id="c9_icd9cm">
+            <data key="c">c9</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n9</data>
+            <data key="s">s9</data>
+            <data key="d">d9</data>            
+            <data key="e">e9</data>
+        </node>
+        
+        <node id="c14_icd9cm">
+            <data key="c">c14</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n14</data>
+            <data key="s">s14</data>
+            <data key="d">d14</data>            
+            <data key="e">e14</data>
+        </node>
+
+        <node id="c15_icd9cm">
+            <data key="c">c15</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n15</data>
+            <data key="s">s15</data>
+            <data key="d">d15</data>            
+            <data key="e">e15</data>
+        </node>
+
+        <node id="c16_icd9cm">
+            <data key="c">c16</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n16</data>
+            <data key="s">s16</data>
+            <data key="d">d16</data>            
+            <data key="e">e16</data>
+        </node>
+
+        <node id="c17_icd9cm">
+            <data key="c">c17</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n17</data>
+            <data key="s">s17</data>
+            <data key="d">d17</data>            
+            <data key="e">e17</data>
+        </node>
+
+        <node id="c91_icd9cm">
+            <data key="c">c91</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n91</data>
+            <data key="s">s91</data>
+            <data key="d">d91</data>            
+            <data key="e">e91</data>
+        </node>
+
+        <node id="c34_icd9cm">
+            <data key="c">c34</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n34</data>
+            <data key="s">s34</data>
+            <data key="d">d34</data>            
+            <data key="e">e34</data>
+        </node>
+
+        <node id="c35_icd9cm">
+            <data key="c">c35</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n35</data>
+            <data key="s">s35</data>
+            <data key="d">d35</data>            
+            <data key="e">e35</data>
+        </node>
+
+        <node id="c24_icd9cm">
+            <data key="c">c24</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n24</data>
+            <data key="s">s24</data>
+            <data key="d">d24</data>            
+            <data key="e">e24</data>
+        </node>
+        
+        <node id="c25_icd9cm">
+            <data key="c">c25</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n25</data>
+            <data key="s">s25</data>
+            <data key="d">d25</data>            
+            <data key="e">e25</data>
+        </node>
+                 
+        <node id="c26_icd9cm">
+            <data key="c">c26</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n26</data>
+            <data key="s">s26</data>
+            <data key="d">d26</data>            
+            <data key="e">e26</data>
+        </node>
+
+        <node id="c20_icd9cm">
+            <data key="c">c20</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n20</data>
+            <data key="s">s20</data>
+            <data key="d">d20</data>            
+            <data key="e">e20</data>
+        </node>
+                
+        <node id="c61_icd9cm">
+            <data key="c">c61</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n61</data>
+            <data key="s">s61</data>
+            <data key="d">d61</data>            
+            <data key="e">e61</data>
+        </node>
+        
+        <node id="c62_icd9cm">
+            <data key="c">c62</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n62</data>
+            <data key="s">s62</data>
+            <data key="d">d62</data>            
+            <data key="e">e62</data>
+        </node>
+        
+        <node id="c63_icd9cm">
+            <data key="c">c63</data>
+            <data key="t">ICD9CM</data>
+            <data key="n">n63</data>
+            <data key="s">s63</data>
+            <data key="d">d63</data>            
+            <data key="e">e63</data>
+        </node>
+        
+		<!-- 
+		     100 -> 0
+		     200 -> 0
+		     300 -> 0
+		-->
+        <edge id="100_0" source="c100_icd9cm" target="c0_icd9cm" label="knows"/>
+        <edge id="200_0" source="c200_icd9cm" target="c0_icd9cm" label="knows"/>
+        <edge id="300_0" source="c300_icd9cm" target="c0_icd9cm" label="knows"/>
+
+
+		<!-- 
+		     0 -> 1
+		     0 -> 2
+		     0 -> 3
+		-->
+        <edge id="0_1" source="c0_icd9cm" target="c1_icd9cm" label="knows"/>
+        <edge id="0_2" source="c0_icd9cm" target="c2_icd9cm" label="knows"/>
+        <edge id="0_3" source="c0_icd9cm" target="c3_icd9cm" label="knows"/>
+
+
+		<!-- 
+		     1 -> 6
+		     1 -> 8
+		-->
+        <edge id="1_6" source="c1_icd9cm" target="c6_icd9cm" label="knows"/>
+        <edge id="1_8" source="c1_icd9cm" target="c8_icd9cm" label="knows"/>
+
+		<!-- 
+		     2 -> 7
+		     2 -> 9
+		-->
+        <edge id="2_7" source="c2_icd9cm" target="c7_icd9cm" label="knows"/>
+        <edge id="2_9" source="c2_icd9cm" target="c9_icd9cm" label="knows"/>
+
+
+		<!-- 
+		     8 -> 14
+		     8 -> 15
+		     8 -> 16
+		-->
+        <edge id="8_14" source="c8_icd9cm" target="c14_icd9cm" label="knows"/>
+        <edge id="8_15" source="c8_icd9cm" target="c15_icd9cm" label="knows"/>
+        <edge id="8_16" source="c8_icd9cm" target="c16_icd9cm" label="knows"/>
+
+
+		<!-- 
+		     7 -> 17
+		     9 -> 91
+		-->
+        <edge id="7_17" source="c7_icd9cm" target="c17_icd9cm" label="knows"/>
+        <edge id="9_91" source="c9_icd9cm" target="c91_icd9cm" label="knows"/>
+
+		<!-- 
+		     34 -> 24
+		     35 -> 25
+		-->
+        <edge id="34_24" source="c34_icd9cm" target="c24_icd9cm" label="knows"/>
+        <edge id="35_25" source="c35_icd9cm" target="c25_icd9cm" label="knows"/>
+        
+
+		<!-- 
+		     24 -> 20
+		     25 -> 20
+		     26 -> 20
+		-->
+        <edge id="24_20" source="c24_icd9cm" target="c20_icd9cm" label="knows"/>
+        <edge id="25_20" source="c25_icd9cm" target="c20_icd9cm" label="knows"/>
+        <edge id="26_20" source="c26_icd9cm" target="c20_icd9cm" label="knows"/>
+
+		<!-- 
+		     20 -> 9
+		     20 -> 61
+		     20 -> 62
+		     20 -> 63
+		-->
+        <edge id="20_9"  source="c20_icd9cm" target="c9_icd9cm" label="knows"/>
+        <edge id="20_61" source="c20_icd9cm" target="c61_icd9cm" label="knows"/>
+        <edge id="20_62" source="c20_icd9cm" target="c62_icd9cm" label="knows"/>
+        <edge id="20_63" source="c20_icd9cm" target="c63_icd9cm" label="knows"/>
+        
+    </graph>
+    
+</graphml>
