@@ -10,7 +10,7 @@
     <img
         alt="Using_PySpark_in_Jupyter"
         src="./Using_PySpark_in_Jupyter.png"
-        width="650"
-        height="800"
+        width="850"
+        height="900"
     >
 </a>
