@@ -5,3 +5,12 @@
 ### [Get Started PySpark Jupyter Notebook in 3-Minutes](./get-started-pyspark-jupyter-notebook-3-minutes.pdf)
 
 ### [Basics of Pyspark Programming for RDD on Jupyter Notebook](./Basics_of_Pyspark_Programming_for_RDD_on_Jupyter_Notebook.pdf)
+
+<a href="https://jupyter.org">
+    <img
+        alt="Using_PySpark_in_Jupyter"
+        src="./Using_PySpark_in_Jupyter.png"
+        width="650"
+        height="800"
+    >
+</a>
