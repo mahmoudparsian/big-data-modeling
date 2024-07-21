@@ -1,0 +1,42 @@
+<!-- IE in quirks mode -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<title>Fixed left-sidebar and right-sidebar</title>
+<style type="text/css">
+ body{
+  margin:0;
+  padding:0 right-sidebar-<length> 0 left-sidebar-<length>;
+ }
+ div#left-sidebar{
+  position:absolute;
+  top:0;
+  left:0;
+  width:left-sidebar-<length>;
+  height:100%;
+ }
+ div#right-sidebar{
+  position:absolute;
+  top:0;
+  right:0;
+  width:right-sidebar-<length>;
+  height:100%;
+ }
+ @media screen{
+  body>div#left-sidebar{
+   position:fixed;
+  }
+  body>div#right-sidebar{
+   position:fixed;
+  }
+ }
+ * html body{
+  overflow:hidden;
+ } 
+ * html div#content{
+  height:100%;
+  overflow:auto;
+ }
+</style>
+<div id="left-sidebar"> left-sidebar </div>
+<div id="right-sidebar"> right-sidebar </div>
+<div id="content"> content </div>
+
