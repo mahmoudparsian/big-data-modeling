@@ -1,21 +1,25 @@
-## Spring Quarter 2024
+# Fall Quarter 2024
 
 ## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
 
 ## [Santa Clara University](http://scu.edu/)
 
+<!-- comment -->
+<!-- This is a comment, it will not be included -->
+<!-- Big Data, Big Data Modeling & Analytics -->
+<!-- MapReduce, map, mapper, reduce, reducer -->
+<!-- Spark, Apache Spark, PySpark, Apache PySpark, RDD, DataFrame -->
+<!-- Spark, PySpark, Transformations, Actions, Partitions -->
+<!-- Spark, PySpark, RDD, DataFrame, Action -->
+<!-- SCU web site  URL: https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/ -->
+<!-- SCU web site  online URL: https://onlinedegrees.scu.edu/academics/ -->
+<!-- SCU masters business analytics curriculum -->
+<!-- comment -->
+
 --------------------------
 
 
 <img src="images/big-data-words2.png"/>
-
-[comment]: <> (This is a comment, it will not be included)
-[comment]: <> (Big Data, Big Data Modeling & Analytics)
-[comment]: <> (MapReduce, map, mapper, reduce, reducer)
-[comment]: <> (Spark, PySpark, RDD, DataFrame)
-[comment]: <> (Spark, PySpark, Transformations, Actions, Partitions)
-[comment]: <> (SCU web site  URL: https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
-[comment]: <> (SCU web site  online URL: https://onlinedegrees.scu.edu/academics/masters-business-analytics/curriculum)
 
 
 ----------------------------
@@ -44,16 +48,19 @@
 
 ## 2. Class Meeting Dates & Hours
 
-* **Class meeting dates**: 
-	* Start: April 2, 2024
-	* End: June 6, 2024
-	* Final Exam week: June 10-13, 2024
-* **Class hours**:  
+#### Class Meeting Dates: 
 
-| Day            | Start time  | End time       |
-|----------------|-------------|----------------|
-|Monday          |5:45 PM  PST |7:45 PM  PST    |
-|Wednesday       |5:45 PM  PST |7:45 PM  PST    |
+| Start Date        | End Date         | Final Exam Week    |
+|-------------------|------------------|--------------------|
+|September 24, 2024 |December 12, 2024 |December 9-12, 2024 |
+
+	
+#### Class Hours:  
+
+| Day           | Start Time  | End Time     |
+|---------------|-------------|--------------|
+|Tuesday        |5:45 PM  PST |7:45 PM  PST  |
+|Thursday       |5:45 PM  PST |7:45 PM  PST  |
 
 
 ## 3.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)

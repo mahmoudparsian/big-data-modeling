@@ -1,6 +1,6 @@
 ## Instructor, Adjunct Professor: Mahmoud Parsian
 
-* [SCU, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+* [Mahmoud Parsian, Adjunct Professor, SCU](https://www.scu.edu/business/isa/faculty/parsian/)
 
 * [Ph.D in Computer Science, LinkedIn Profile](https://www.linkedin.com/in/mahmoudparsian/)
 
