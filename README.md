@@ -46,7 +46,7 @@
 * Office Hours: via scheduled Zoom and by appointment
 
 
-## 2. [Class Meeting Dates & Hours](./web_docs/class_meeting_dates_and_hours.md)
+## 2.  [Class Meeting Dates & Hours](./web_docs/class_meeting_dates_and_hours.md)
 
 ## 3.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
