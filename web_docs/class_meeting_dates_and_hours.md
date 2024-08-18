@@ -1,5 +1,7 @@
 # Class Meeting Dates & Hours
 
+-------
+
 ## Class Start & End Dates
 
 | Start Date        | End Date         | Final Exam Week    |
