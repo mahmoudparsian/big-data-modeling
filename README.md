@@ -48,19 +48,19 @@
 
 ## 2. Class Meeting Dates & Hours
 
-#### Class Meeting Dates: 
+#### Class Start & End Dates: 
 
 | Start Date        | End Date         | Final Exam Week    |
 |-------------------|------------------|--------------------|
 |September 24, 2024 |December 12, 2024 |December 9-12, 2024 |
 
 	
-#### Class Hours:  
+#### Class Schedule & Hours:  
 
 | Day           | Start Time  | End Time     |
 |---------------|-------------|--------------|
-|Tuesday        |5:45 PM  PST |7:45 PM  PST  |
-|Thursday       |5:45 PM  PST |7:45 PM  PST  |
+|Tuesday        |7:35 PM  PST |9:10 PM  PST  |
+|Thursday       |7:35 PM  PST |9:10 PM  PST  |
 
 
 ## 3.  [Instructor, Adjunct Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)

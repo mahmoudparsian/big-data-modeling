@@ -1,8 +1,9 @@
 # Prerequisite
 
-In order to succeed in this class, you need to know the following.
+In order to succeed in this class, 
+you need to know the following.
 
-## Basics of Python Programming Language
+## 1. Basics of Python Programming Language
 
 You need to know:
 
@@ -15,7 +16,7 @@ You need to know:
 * Difference of tuples and lists in Python
 * How to create and use dictionaries in Python
 
-## Basics of SQL
+## 2. Basics of SQL
 
 You need to know:
 
@@ -30,7 +31,7 @@ You need to know:
 	* left-join
 	* right-join
 
-## Basics of Data Structures
+## 3. Basics of Data Structures
 
 You need to know:
 

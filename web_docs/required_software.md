@@ -6,7 +6,7 @@
 * No software will be downloaded/used
 
 
-## PySpark
+## Apache PySpark
 
 For Spark/PySpark, we will write **executable code** in PySpark (Python API for Spark)
 

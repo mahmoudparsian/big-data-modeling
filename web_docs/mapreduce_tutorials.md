@@ -15,9 +15,14 @@
 ![](./mapreduce-flow-01.jpeg)
 
 -------
-## MapReduce Example
+## MapReduce Example 1
 
 ![](./word_count_mapreduce.jpeg)
 
 ------
+
+## MapReduce Example 2
+
+![](./mapreduce-flowchart.png)
+
 
