@@ -9,9 +9,11 @@
 
 ## Main Subjects
 
-###1. MapReduce Paradigm
-###2. PySpark and Spark
-###3. Data Partitioning and SQL Queries
+| Subject              | Percentage     |        
+|----------------------|----------------|
+|1. MapReduce Paradigm | 25%            |
+|2. PySpark and Spark  | 65%            |
+|3.Data Partitioning and SQL Queries | 10%|
 
 ------
 
