@@ -67,9 +67,9 @@
 
 ## 4.  [Prerequisite](./web_docs/prerequisite.md)
 
-## 5.  [Course Description & Concepts](./web_docs/course_description.md)
+## 5.  [Course Description](./web_docs/course_description.md)
 
-## 6.  [Big Data Modeling Class Web Site](https://github.com/mahmoudparsian/big-data-mapreduce-course)
+## 6.  [Course Outline](./web_docs/course_outline.md)
 
 ## 7.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
