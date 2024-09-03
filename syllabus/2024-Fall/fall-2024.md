@@ -305,7 +305,10 @@ TOPIC: RDD Design Patterns
   
 ----------------
 
-## November 25-29, Thanksgiving Recess; academic holiday (no classes)
+## November 25-29, Thanksgiving Recess
+
+* Academic holiday (no classes)
+* No Office Hours
 
 ----------------
 
@@ -318,7 +321,7 @@ TOPIC: RDD Design Patterns
 
 ---------------
 
-## Session-20: Tuesday, December 5, 2024
+## Session-20: Thursday, December 5, 2024
 
 * Review for Final Exam 
 * Q/A session 
@@ -326,8 +329,10 @@ TOPIC: RDD Design Patterns
 ----------------
 
 ## Session-21: Final Exam 
-	
-* Date: December 9-13, 2024 (TBDL)
+
+* In-Class Exam
+* Date: Tuesday, December 10, 2024
+* Time: 5:45 PM - 7:45 PM PST (TBDL)
 * closed book/notes/friend/internet/software
 
 

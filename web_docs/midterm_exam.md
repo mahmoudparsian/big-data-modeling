@@ -1,8 +1,11 @@
-## Midterm Exam: 
+# Exam-1: Thursday, October 10, 2024
 
-#### &#x1F34F; Date: Monday, May 13, 2024
+* In-Class
+* Closed books/notes/software/internet/friends
 
-#### &#x1F34F; Time: 5:45 PM - 7:20 PM PST
+----------
 
-#### &#x1F34F; Midterm exam is closed book/notes/friends/internet/phone/software
+# Exam-2: Thursday, November 7, 2024
 
+* In-Class
+* Closed books/notes/software/internet/friends

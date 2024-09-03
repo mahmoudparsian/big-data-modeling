@@ -78,7 +78,7 @@
 
 ## 17. [Office Hours](./web_docs/office_hours.md)
 
-## 18. [Midterm Exam](./web_docs/midterm_exam.md)
+## 18. [Exam 1 & Exam 2](./web_docs/midterm_exam.md)
 
 ## 19. [Final Exam](./web_docs/final_exam.md)
 
