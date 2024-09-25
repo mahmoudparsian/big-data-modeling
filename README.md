@@ -41,7 +41,7 @@
 * Course MSIS 2427/2527: **Big Data Modeling & Analytics**
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
-* Class room: Lucas Hall (LH) TBDL
+* Class room: 206 Lucas Hall (LH)
 * Office: 316U, Lucas Hall (LH)
 * Office Hours: via scheduled Zoom and by appointment
 
