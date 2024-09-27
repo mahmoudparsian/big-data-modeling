@@ -64,7 +64,7 @@
 
 ## 10.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## 11.  [Syllabus, Spring Quarter 2024](./syllabus/2024-Spring/README.md)
+## 11.  [Syllabus, Spring Quarter 2024](./syllabus/2024-Fall/README.md)
 
 ## 12. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
