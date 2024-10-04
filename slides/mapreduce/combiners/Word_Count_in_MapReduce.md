@@ -12,11 +12,11 @@ associated implementation for processing
 and generating big data sets with a parallel, 
 distributed algorithm on a cluster.
 
-## Mapreduce with Mappers and Reducers
+## MapReduce with Mappers and Reducers
 ![](./mapreduce_framework.jpg)
 
 
-## Mapreduce with Mappers, Combiners, and Reducers
+## MapReduce with Mappers, Combiners, and Reducers
 
 ![](./map-reduce-combine-image.png)
 
