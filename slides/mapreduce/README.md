@@ -21,3 +21,5 @@
 11. [Monoids](./monoids/)
 
 12. [Pros and Cons of MapReduce](./pros_and_cons_of_mapreduce/)
+
+13. [Partitions in MapReduce](./partitions_in_mapreduce/)
