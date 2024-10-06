@@ -6,7 +6,7 @@
 % echo $JAVA_HOME
 /Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
 
-~  % java --version
+% java --version
 java 11.0.19 2023-04-18 LTS
 Java(TM) SE Runtime Environment 18.9 (build 11.0.19+9-LTS-224)
 Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.19+9-LTS-224, mixed mode)
@@ -16,7 +16,7 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.19+9-LTS-224, mixed mode)
 `2.` Make sure that the Python3 is installed:
 
 ~~~
-~  % python3 --version
+% python3 --version
 Python 3.12.0
 ~~~
 
