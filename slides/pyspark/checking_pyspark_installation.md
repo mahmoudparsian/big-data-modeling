@@ -23,9 +23,11 @@ Python 3.12.0
 `3.` Make sure that the Spark is installed:
 
 ~~~
-# change your working directory to
-# where yoh have installed Spark
+change your working directory to
+where you have installed Spark
+~~~
 
+~~~
 % cd spark-3.5.3
 % ls -la
 drwxr-xr-x@  18 mparsian  staff    576 Oct  5 17:21 .
