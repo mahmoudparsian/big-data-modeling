@@ -1,17 +1,15 @@
-pyspark-tutorial-
-pyspark-tutorial provides basic algorithms using pyspark
+pyspark-tutorial
 
 interactive session: valid and tested: Feb. 23, 2015
 
-mparsian@Mahmouds-MacBook:~/zmp/BigData-MapReduce-Course/pyspark# cat data.txt
+# cat data.txt
 crazy crazy fox jumped
 crazy fox jumped
 fox is fast
 fox is smart
 dog is smart
 
-SPARK_HOME=~/zmp/zs/spark-1.2.0
-mparsian@Mahmouds-MacBook:~/zmp/BigData-MapReduce-Course/pyspark# ~/zmp/zs/spark-1.2.0/bin/pyspark
+# /home/zmp/zs/spark-1.2.0/bin/pyspark
 Python 2.6.9 (unknown, Sep  9 2014, 15:05:12)
 [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -30,19 +28,67 @@ SparkContext available as sc.
 >>> lines = sc.textFile("data.txt", 1)
 >>> debuglines = lines.collect();
 >>> debuglines
-[u'crazy crazy fox jumped', u'crazy fox jumped', u'fox is fast', u'fox is smart', u'dog is smart']
+[
+ u'crazy crazy fox jumped', 
+ u'crazy fox jumped', 
+ u'fox is fast', 
+ u'fox is smart', 
+ u'dog is smart'
+]
 >>> words = lines.flatMap(lambda x: x.split(' '))
 >>> debugwords = words.collect();
 >>> debugwords
-[u'crazy', u'crazy', u'fox', u'jumped', u'crazy', u'fox', u'jumped', u'fox', u'is', u'fast', u'fox', u'is', u'smart', u'dog', u'is', u'smart']
+[
+ u'crazy', 
+ u'crazy', 
+ u'fox', 
+ u'jumped', 
+ u'crazy', 
+ u'fox', 
+ u'jumped', 
+ u'fox', 
+ u'is', 
+ u'fast', 
+ u'fox', 
+ u'is', 
+ u'smart', 
+ u'dog', 
+ u'is', 
+ u'smart'
+]
 >>> ones = words.map(lambda x: (x, 1))
 >>> debugones = ones.collect()
 >>> debugones
-[(u'crazy', 1), (u'crazy', 1), (u'fox', 1), (u'jumped', 1), (u'crazy', 1), (u'fox', 1), (u'jumped', 1), (u'fox', 1), (u'is', 1), (u'fast', 1), (u'fox', 1), (u'is', 1), (u'smart', 1), (u'dog', 1), (u'is', 1), (u'smart', 1)]
+[
+ (u'crazy', 1), 
+ (u'crazy', 1), 
+ (u'fox', 1), 
+ (u'jumped', 1), 
+ (u'crazy', 1), 
+ (u'fox', 1), 
+ (u'jumped', 1), 
+ (u'fox', 1), 
+ (u'is', 1), 
+ (u'fast', 1), 
+ (u'fox', 1), 
+ (u'is', 1), 
+ (u'smart', 1), 
+ (u'dog', 1), 
+ (u'is', 1), 
+ (u'smart', 1)
+]
 >>> counts = ones.reduceByKey(lambda x, y: x + y)
 >>> debugcounts = counts.collect()
 >>> debugcounts
-[(u'crazy', 3), (u'jumped', 2), (u'is', 3), (u'fox', 4), (u'dog', 1), (u'fast', 1), (u'smart', 2)]
+[
+ (u'crazy', 3), 
+ (u'jumped', 2), 
+ (u'is', 3), 
+ (u'fox', 4), 
+ (u'dog', 1), 
+ (u'fast', 1), 
+ (u'smart', 2)
+]
 >>>
 
 >>> grouped = ones.groupByKey();
@@ -50,7 +96,7 @@ SparkContext available as sc.
 
 >>> counts.saveAsTextFile("output.txt")
 
-mparsian@Mahmouds-MacBook:~/zmp/BigData-MapReduce-Course/pyspark# cat output.txt/part*
+# cat output.txt/part*
 (u'crazy', 3)
 (u'jumped', 2)
 (u'is', 3)
