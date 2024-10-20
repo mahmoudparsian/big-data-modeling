@@ -12,7 +12,6 @@ dog is smart
 # /home/zmp/zs/spark-1.2.0/bin/pyspark
 Python 2.6.9 (unknown, Sep  9 2014, 15:05:12)
 [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
 
 Welcome to
       ____              __

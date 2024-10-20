@@ -1,12 +1,13 @@
 First session on PySpark
 
-# cat zfox_data.txt
+$ cat zfox_data.txt
 crazy red fox ran fast
 red fox jumped very very high
 red fox is very crazy
 red fox ran very fast
 
-/home/zmp/spark-1.3.0/bin/pyspark
+$ # invoke Interactive PySpark
+$ /home/zmp/spark-1.3.0/bin/pyspark
 Python 2.6.9 (unknown, Sep  9 2014, 15:05:12) 
 Welcome to
       ____              __

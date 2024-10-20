@@ -102,9 +102,8 @@ total 16
 (u'4', <pyspark.resultiterable.ResultIterable object at 0x104ba1f10>)
 (u'6', <pyspark.resultiterable.ResultIterable object at 0x104ba1f10>)
 
-
-val rdd = sc.sequenceFile[String, Double](path)
-rdd = sc.parallelize([('key1', 1.0), ('key2', 2.0), ('key3', 3.0)])
+key_value_pairs = [('key1', 1.0), ('key2', 2.0), ('key3', 3.0)]
+rdd = sc.parallelize(key_value_pairs)
 rdd.saveAsSequenceFile('/tmp/pysequencefile/')
 ...
 
