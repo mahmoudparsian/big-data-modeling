@@ -1,0 +1,50 @@
+ % python3 example_2_parse_unstructured_data_with_openai.py
+response.choices[0].message.content
+response= 
+Response(id='resp_6879e0538794819db7cd43bfad0324d807031eadf7d7949c', 
+         created_at=1752817747.0, 
+         error=None, 
+         incomplete_details=None, 
+         instructions=None, 
+         metadata={}, 
+         model='gpt-4o-2024-08-06', 
+         object='response', 
+         output=[ResponseOutputMessage(id='msg_6879e05469f8819d9f9beceb1670a98607031eadf7d7949c', 
+         content=[ResponseOutputText(annotations=[], 
+         text='
+         ```csv\n
+         Fruit,Color,Taste\n
+         Neoskizzles,Purple,Candy\n
+         Loheckles,Grayish Blue,Tart\n
+         Pounits,Bright Green,Savory\n
+         Loopnovas,Neon Pink,Cotton Candy\n
+         Glowls,Pale Orange,Sour and Bitter\n
+         ```', 
+         type='output_text', 
+         logprobs=[])], 
+         role='assistant', 
+         status='completed', 
+         type='message')], 
+         parallel_tool_calls=True, 
+         temperature=1.0, 
+         tool_choice='auto', 
+         tools=[], 
+         top_p=1.0, 
+         background=False, 
+         max_output_tokens=256, 
+         max_tool_calls=None, 
+         previous_response_id=None, 
+         prompt=None, 
+         reasoning=Reasoning(effort=None, generate_summary=None, summary=None), 
+         service_tier='default', 
+         status='completed', 
+         text=ResponseTextConfig(format=ResponseFormatText(type='text')), 
+         top_logprobs=0, 
+         truncation='disabled', 
+         usage=ResponseUsage(input_tokens=160, 
+                             input_tokens_details=InputTokensDetails(cached_tokens=0), 
+                             output_tokens=62, 
+                             output_tokens_details=OutputTokensDetails(reasoning_tokens=0), 
+                             total_tokens=222), 
+                             user=None, store=True)
+         

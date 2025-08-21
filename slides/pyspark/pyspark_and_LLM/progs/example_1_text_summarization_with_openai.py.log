@@ -1,0 +1,23 @@
+$ spark-submit example_1_text_summarization_with_openai.py
+WARNING: Using incubator modules: jdk.incubator.vector
+25/07/17 21:48:31 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
++---------+---------------------------------------------------------------------------------------+
+|review_id|review_text                                                                            |
++---------+---------------------------------------------------------------------------------------+
+|1        |This product is awesome, I would recommend everyone to buy one.                        |
+|2        |The quality of the product is so bad that I will ask for a refund from the manufacturer|
+|3        |It's okay, nothing special.                                                            |
++---------+---------------------------------------------------------------------------------------+
+
+It's mediocre or average.
+The reviewer highly praises the product and recommends it to others.
+The product's poor quality has prompted me to request a refund from the manufacturer.
++---------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+|review_id|review_text                                                                            |summary                                                                              |
++---------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+|1        |This product is awesome, I would recommend everyone to buy one.                        |The reviewer highly praises the product and recommends it to others.                 |
+|2        |The quality of the product is so bad that I will ask for a refund from the manufacturer|The product's poor quality has prompted me to request a refund from the manufacturer.|
+|3        |It's okay, nothing special.                                                            |It's mediocre or average.                                                            |
++---------+---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+
+
