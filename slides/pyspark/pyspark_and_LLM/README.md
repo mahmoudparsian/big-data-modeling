@@ -21,29 +21,30 @@ file/folder   | description
 
 ### Distributed Preprocessing and Feature Engineering:
 
-	PySpark's distributed nature excels at handling 
-	and transforming massive text datasets, preparing 
-	them for LLM input.   This  includes  tasks like 
-	cleaning, tokenization, and creating embeddings 
-	at scale.
+	PySpark's distributed nature excels at 
+	handling and transforming massive text datasets, 
+	preparing them for LLM input.   This  includes  
+	tasks like cleaning, tokenization, and creating 
+	embeddings at scale.
 
 ### Scalable LLM Inference:
 
-	Running LLM inference on large volumes of data 
-	can be computationally intensive. PySpark enables 
-	distributing inference tasks across a cluster, 
-	significantly accelerating the process compared 
-	to single-machine setups. This is particularly 
-	relevant for batch processing and generating 
-	insights from vast text corpora.
+	Running LLM inference on large volumes of 
+	data can be computationally intensive. PySpark 
+	enables distributing inference tasks across a 
+	cluster, significantly accelerating the process 
+	compared to single-machine setups. This is 
+	particularly relevant for batch processing and 
+	generating insights from vast text corpora.
 
 ### Building Retrieval-Augmented Generation (RAG) Systems:
 
-	PySpark can be used to build and manage the data 
-	pipelines for RAG systems. This involves processing 
-	data for vector databases, performing similarity 
-	searches, and preparing context for LLMs to generate 
-	more informed responses.
+	PySpark can be used to build and manage 
+	the data pipelines for RAG systems. This 
+	involves processing data for vector databases, 
+	performing similarity searches, and preparing 
+	context for LLMs to generate more informed 
+	responses.
 
 ### Managing and Tracking LLM Workflows:
 	
@@ -95,3 +96,5 @@ file/folder   | description
 4. [OpenAI Python](https://github.com/openai/openai-python)
 
 5. [Simplify Everyday Tasks with LLMs](https://medium.com/@avinash.narala6814/simplify-everyday-tasks-with-llms-9f18051f24c3)
+
+6. [PySpark AI (pyspark-ai) – English SDK Comprehensive Guide](https://sparkbyexamples.com/pyspark/pyspark-ai-comprehensive-guide)
