@@ -1,0 +1,22 @@
+~/spark-4.0.0/bin/spark-submit example_8_named_entity_recognition.py
+
+entities= James Duncan Farley, CEO, Ford Motor Company, Germany
+
++---+-----------------------------------------------------------------------------------------------------------------------------------------------+
+|id |document                                                                                                                                       |
++---+-----------------------------------------------------------------------------------------------------------------------------------------------+
+|1  |James Duncan Farley, CEO of Ford Motor Company announced a new Ford factory in Germany.                                                        |
+|2  |Microsoft and OpenAI signed a strategic partnership.                                                                                           |
+|3  |Your new monthly deposit will be added to any existing balance on your EBT card. This allows you to save money for larger purchases, if needed.|
+|4  |Ford is undergoing a massive shift, investing billions to launch a new, affordable midsize electric pickup truck in 2027                       |
++---+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---+-----------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+|id |document                                                                                                                                       |entities                                                   |
++---+-----------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+|1  |James Duncan Farley, CEO of Ford Motor Company announced a new Ford factory in Germany.                                                        |James Duncan Farley, CEO, Ford Motor Company, Germany      |
+|2  |Microsoft and OpenAI signed a strategic partnership.                                                                                           |Microsoft, OpenAI                                          |
+|3  |Your new monthly deposit will be added to any existing balance on your EBT card. This allows you to save money for larger purchases, if needed.|EBT card                                                   |
+|4  |Ford is undergoing a massive shift, investing billions to launch a new, affordable midsize electric pickup truck in 2027                       |Ford, a new, affordable midsize electric pickup truck, 2027|
++---+-----------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+

@@ -55,11 +55,11 @@ df = spark.createDataFrame(panda_df)
 df.show(truncate=False)
 
 # 6. create OpenAI client
-openai_api_key="your-openai-api-key"
+openai_api_key="xxxxxxxxxxxxxxxxxxx"
 client = create_client(openai_api_key)
 
 # 7. add a new column to df
-df = df.withColumn('summary', summarize(df.review_text))
+df = df.withColumn('summary', summarize(client, df.review_text))
 df.show(truncate=False)
 
 

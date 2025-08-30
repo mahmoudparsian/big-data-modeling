@@ -1,0 +1,21 @@
+% ~/spark-4.0.0/bin/spark-submit example_6_text_enrichment.py
+
+Text Enrichment= The reviewer is pleased with the headphones, stating that they work as expected and is a great product.
+
++---+--------------------------------------------------------+
+|id |review                                                  |
++---+--------------------------------------------------------+
+|1  |The headphone is a greate product and works as expected.|
+|2  |The product is okay but arrived late.                   |
+|3  |This computer is crashing all of the times.             |
+|4  |Excellent quality and fast delivery.                    |
++---+--------------------------------------------------------+
+
++---+--------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+|id |review                                                  |summary                                                                                          |
++---+--------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+|1  |The headphone is a greate product and works as expected.|The review is positive, stating that the headphone is a great product and functions as it should.|
+|2  |The product is okay but arrived late.                   |The reviewer thinks the product is satisfactory, but was dissatisfied with its late delivery.    |
+|3  |This computer is crashing all of the times.             |The review states that the computer frequently crashes.                                          |
+|4  |Excellent quality and fast delivery.                    |The review praises the product's high quality and quick delivery.                                |
++---+--------------------------------------------------------+-------------------------------------------------------------------------------------------------+

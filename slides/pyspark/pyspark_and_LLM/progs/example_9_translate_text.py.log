@@ -1,0 +1,18 @@
+% ~/spark-4.0.0/bin/spark-submit example_9_translate_text.py
+
+English-Translation= Hello, I need help with my order.
+
++---+------------------------------------------+
+|id |original_text                             |
++---+------------------------------------------+
+|1  |Hola, necesito ayuda con mi pedido.       |
+|2  |Bonjour, j’ai un problème avec mon compte.|
++---+------------------------------------------+
+
++---+------------------------------------------+----------------------------------------+
+|id |original_text                             |translated                              |
++---+------------------------------------------+----------------------------------------+
+|1  |Hola, necesito ayuda con mi pedido.       |Hello, I need help with my order.       |
+|2  |Bonjour, j’ai un problème avec mon compte.|Hello, I have a problem with my account.|
++---+------------------------------------------+----------------------------------------+
+

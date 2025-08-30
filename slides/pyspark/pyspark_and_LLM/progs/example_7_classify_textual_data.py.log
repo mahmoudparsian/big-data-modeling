@@ -1,0 +1,21 @@
+~/spark-4.0.0/bin/spark-submit example_7_classify_textual_data.py
+
+Text Enrichment= Technical
++---+-------------------------------------------------------------+
+|id |message                                                      |
++---+-------------------------------------------------------------+
+|1  |I need help updating my payment method.                      |
+|2  |My app keeps crashing when I open it.                        |
+|3  |Mr. Smith's account is overdue, they have not paid for months|
+|4  |My phone does not charge after 8 pm                          |
++---+-------------------------------------------------------------+
+
++---+-------------------------------------------------------------+--------------+
+|id |message                                                      |classification|
++---+-------------------------------------------------------------+--------------+
+|1  |I need help updating my payment method.                      |Billing       |
+|2  |My app keeps crashing when I open it.                        |Technical     |
+|3  |Mr. Smith's account is overdue, they have not paid for months|Billing       |
+|4  |My phone does not charge after 8 pm                          |Technical     |
++---+-------------------------------------------------------------+--------------+
+
