@@ -1,10 +1,12 @@
 # Batch Calls to OpenAI API
 
-In pyspark, let's say I have a DataFrame with 2 columns: 
-(id: int, review: string), using OpenAI API, I want to summarize 
-the "review" column, but I do not want to call OpenAI API for 
-every row of data. I want to batch 100 rows, and then send 100 
-rows to OpenAI API (rhater than one by one). 
+
+	In pyspark, let's say I have a DataFrame with 2 columns: 
+	(id: int, review: string), using OpenAI API, I want to 
+	summarize the "review" column, but I do not want to call 
+	OpenAI API for every row of data. I want to batch 100 rows, 
+	and then send 100 rows to OpenAI API (rhater than one by one). 
+
 
 Here is a detailed working solution with sample I/O. 
 
@@ -13,10 +15,12 @@ Here is a detailed working solution with sample I/O.
 # Detailed PySpark + OpenAI Batch Summarization
 
 
-Perfect use case 👌 — batching OpenAI API calls is exactly 
-what you want in order to avoid token explosion and rate limit 
-issues when summarizing text at scale. Let’s walk through a 
-detailed PySpark + OpenAI example that:
+## 👌 Perfect use case
+
+	Batching OpenAI API calls is exactly what you want in 
+	order to avoid token explosion and rate limit issues 
+	when summarizing text at scale. Let’s walk through a 
+	detailed PySpark + OpenAI example that:
 
 	1.	Creates a sample DataFrame with (id, review)
 	2.	Groups reviews into batches of 100
@@ -25,8 +29,9 @@ detailed PySpark + OpenAI example that:
 
 ⸻
 
-📝 Detailed PySpark + OpenAI Batch Summarization
+## 📝 Detailed PySpark + OpenAI Batch Summarization
 
+~~~python
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, collect_list, monotonically_increasing_id, floor
 import openai
@@ -48,18 +53,21 @@ data = [
 df = spark.createDataFrame(data, ["id", "review"])
 
 df.show()
+~~~
 
-Sample Input DataFrame
 
+# Sample Input DataFrame
+
+```
 id	review
 1	The product was excellent, delivery was quick.
 2	I didn’t like the service, it was very slow.
 3	Amazing experience, will buy again.
-
+```
 
 ⸻
 
-
+~~~python
 # ---------------------------
 # 3. Create batch IDs (every 100 rows = 1 batch)
 # ---------------------------
@@ -69,17 +77,19 @@ df_with_batch = df.withColumn("batch_id", floor(monotonically_increasing_id() / 
 batched_df = df_with_batch.groupBy("batch_id").agg(collect_list("review").alias("reviews"))
 
 batched_df.show(truncate=False)
+~~~
 
-Example Batched DataFrame
+# Example Batched DataFrame
 
+```
 batch_id	reviews (array of 100 strings)
 0	[“The product was excellent…”, “I didn’t like…”, “Amazing experience…”]
 1	[next 100 reviews…]
-
+```
 
 ⸻
 
-
+~~~python
 # ---------------------------
 # 4. Define OpenAI batch summarizer
 # ---------------------------
@@ -106,11 +116,12 @@ def summarize_batch(reviews):
     )
 
     return response["choices"][0]["message"]["content"].strip()
-
+~~~
 
 ⸻
 
 
+~~~python
 # ---------------------------
 # 5. Apply summarization per batch
 # ---------------------------
@@ -126,20 +137,21 @@ for row in batched_data:
 summary_df = spark.createDataFrame(results, ["batch_id", "summary"])
 
 summary_df.show(truncate=False)
-
+~~~
 
 ⸻
 
-Sample Output DataFrame
+# Sample Output DataFrame
 
+```
 batch_id	summary
 0	“Customers generally liked the product quality and fast delivery, though some reported slow service. Overall sentiment is positive with repeat purchase intent.”
 1	“Most reviews in this batch highlight …”
-
+```
 
 ⸻
 
-
+~~~python
 # ---------------------------
 # 6. (Optional) Join summaries back to original rows
 # ---------------------------
@@ -147,18 +159,20 @@ final_df = df_with_batch.join(summary_df, on="batch_id", how="left") \
                         .select("id", "review", "summary")
 
 final_df.show(truncate=False)
+~~~
 
-Final DataFrame (reviews + batch-level summary)
+# Final DataFrame (reviews + batch-level summary)
 
+```
 id	review	summary
 1	The product was excellent, delivery was quick.	Customers generally liked the product quality and fast delivery…
 2	I didn’t like the service, it was very slow.	Customers generally liked the product quality and fast delivery…
 3	Amazing experience, will buy again.	Customers generally liked the product quality and fast delivery…
-
+```
 
 ⸻
 
-⚡ Notes on Scaling
+# ⚡ Notes on Scaling
 	•	This approach calls OpenAI once per 100 reviews instead of once per row.
 	•	If you have millions of reviews, don’t use .collect() — instead, apply mapPartitions with API calls inside (streaming batches per partition).
 	•	Watch OpenAI rate limits → you might need retries + exponential backoff if handling large volumes.
@@ -166,20 +180,23 @@ id	review	summary
 
 ⸻
 
-# 👉 Scalable version using mapPartitions 
-(so it can run on large clusters without pulling everything to the driver)?
+# 👉 Scalable version using mapPartitions()  
 
-let’s make this scalable for large datasets using mapPartitions.
+So it can run on large clusters without pulling everything to the driver)?
 
+Let’s make this scalable for large datasets using mapPartitions.
+
+```
 Instead of collecting everything to the driver, we’ll:
 	1.	Split the DataFrame into partitions (Spark handles this).
 	2.	In each partition, group rows into batches of 100.
 	3.	Call the OpenAI API inside the partition (parallel across executors).
 	4.	Return (id, review, summary) per row.
-
+```
 
 # ⚡ Scalable PySpark + OpenAI Batch Summarization (mapPartitions)
 
+~~~python
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 import openai
@@ -277,26 +294,36 @@ final_schema = StructType([
 final_df = spark.createDataFrame(processed_rdd, schema=final_schema)
 
 final_df.show(truncate=False)
+~~~
 
 ⸻
 
 ✅ Example Output
 
+```
 id	review	summary
 1	The product was excellent, delivery was quick.	Customers liked the product quality and fast delivery, though some complained of slow service.
 2	I didn’t like the service, it was very slow.	Customers liked the product quality and fast delivery, though some complained of slow service.
 3	Amazing experience, will buy again.	Customers liked the product quality and fast delivery, though some complained of slow service.
+```
+⸻
 
+## ⚡ Notes
+	•	This runs fully distributed — each Spark executor 
+	    calls OpenAI for its partition.
+	•	Batch size is set to 100 (tuneable depending 
+	    on token limits).
+	•	Make sure executors have internet access + OpenAI 
+	    API key configured (via environment variables or 
+	    Spark config).
+	•	Add rate limiting + retry logic if running at scale 
+	    to avoid hitting API limits.
 
 ⸻
 
-⚡ Notes
-	•	This runs fully distributed — each Spark executor calls OpenAI for its partition.
-	•	Batch size is set to 100 (tuneable depending on token limits).
-	•	Make sure executors have internet access + OpenAI API key configured (via environment variables or Spark config).
-	•	Add rate limiting + retry logic if running at scale to avoid hitting API limits.
-
-⸻
-
-👉 Do you also want me to extend this so that all summaries are written per batch into a separate table (instead of repeating the same summary on every row)? That’s useful if you only need batch-level summaries, not per-row copies.
+## To DO Next
+👉 Extend this so that all summaries are written per 
+batch into a separate table (instead of repeating the 
+same summary on every row)? That’s useful if you only 
+need batch-level summaries, not per-row copies.
 
