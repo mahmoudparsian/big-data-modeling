@@ -8,6 +8,7 @@
 | `PySpark_and_LLM_Integration_slides.pptx` | PowerPoint Slides                      |
 | `pyspark_openai_integration_examples.md`  | Integration Examples                   |
 | `progs_row_level`                         | ROW-Level Sample integration programs  |
+| `progs_batch_level`                       | Batch-Level Sample integration programs|
 | `progs_table_level`                       | TABLE-Level Sample integration programs|
 | `README.md`                               | Landing Page                           |
 
