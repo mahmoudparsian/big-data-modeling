@@ -1,0 +1,81 @@
+% ~/spark-4.0.0/bin/spark-submit multi_table_analysis_nl_query_to_sql.py employees.csv departments.csv
+
+employees_csv= employees.csv
+
+departments_csv= departments.csv
+
+=== Sample Data ===
+
+=== Sample Data: Employees ===
++---+-------+---+-------------+------+
+|id |name   |age|department_id|salary|
++---+-------+---+-------------+------+
+|1  |Alice  |30 |1            |100000|
+|2  |Bob    |35 |2            |80000 |
+|3  |Charlie|25 |1            |70000 |
+|4  |Diana  |40 |3            |90000 |
+|5  |Evan   |38 |2            |85000 |
+|6  |Fay    |28 |3            |95000 |
+|7  |George |45 |1            |110000|
+|8  |Helen  |33 |2            |78000 |
++---+-------+---+-------------+------+
+
+=== Sample Data: Departments ===
++---+-----------+
+|id |name       |
++---+-----------+
+|1  |Engineering|
+|2  |HR         |
+|3  |Marketing  |
++---+-----------+
+
+
+=== 🔍 GPT-Generated SQL ===
+sql_query= ```sql
+SELECT departments.name AS department_name, AVG(employees.salary) AS average_salary
+FROM employees
+JOIN departments ON employees.department_id = departments.id
+WHERE employees.age > 30
+GROUP BY departments.name
+ORDER BY average_salary DESC
+LIMIT 1
+```
+cleaned_sql_query=
+SELECT departments.name AS department_name, AVG(employees.salary) AS average_salary
+FROM employees
+JOIN departments ON employees.department_id = departments.id
+WHERE employees.age > 30
+GROUP BY departments.name
+ORDER BY average_salary DESC
+LIMIT 1
+
+-- query 1:
+user_question = "Which department has the highest average salary for employees older than 30?"
+
+
+=== ✅ Query Result ===
++---------------+--------------+
+|department_name|average_salary|
++---------------+--------------+
+|    Engineering|      110000.0|
++---------------+--------------+
+
+
+-- query 2:
+user_question = "Which departments have no employees? Give detailed information."
+
+=== 🔍 GPT-Generated SQL ===
+sql_query= SELECT *
+FROM departments
+WHERE id NOT IN (SELECT DISTINCT department_id FROM employees)
+cleaned_sql_query= SELECT *
+FROM departments
+WHERE id NOT IN (SELECT DISTINCT department_id FROM employees)
+
+=== ✅ Query Result ===
++---+--------+
+| id|    name|
++---+--------+
+|  4|   Sales|
+|  5|Business|
++---+--------+
