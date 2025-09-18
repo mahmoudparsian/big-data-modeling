@@ -1,4 +1,4 @@
-# Big Data Modeling <be> Course Information <br/> for <br/> Fall Quarter 2025
+# Big Data Modeling <br> Course Information <br/> for <br/> Fall Quarter 2025
 
 
 ## [Santa Clara University](http://scu.edu/)
