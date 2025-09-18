@@ -6,7 +6,7 @@
 
 | Start Date        | End Date         | Final Exam Week    |
 |-------------------|------------------|--------------------|
-|September 24, 2024 |December 12, 2024 |December 9-12, 2024 |
+|September 23, 2025 |December 6, 2025  |December 8-12, 2025 |
 
 -------
 
@@ -14,6 +14,6 @@
 
 | Day           | Start Time  | End Time     |
 |---------------|-------------|--------------|
-|Tuesday        |7:35 PM  PST |9:10 PM  PST  |
-|Thursday       |7:35 PM  PST |9:10 PM  PST  |
+|Tuesday        |5:45 PM  PST |7:20 PM  PST  |
+|Thursday       |5:45 PM  PST |7:20 PM  PST  |
 
