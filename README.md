@@ -1,6 +1,6 @@
-# Fall Quarter 2024
+# Fall Quarter 2025
 
-## [Big Data Modeling & Analytics](https://www.scu.edu/business/graduate-degrees/ms-programs/ms-business-analytics/course-descriptions/)
+## [Big Data Modeling & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
 
 ## [Santa Clara University](http://scu.edu/)
 
@@ -38,9 +38,9 @@
 	and  MapReduce fundamentals to solve big data problems.
 
 
-* Course MSIS 2427/2527: **Big Data Modeling & Analytics**
+* Course ISBA2413: **Big Data Modeling & Analytics**
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
-* [Department of Information Systems & Analytics](https://www.scu.edu/business/isa/)
+* [Department of Information Systems & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
 * Class room: 206 Lucas Hall (LH)
 * Office: 316U, Lucas Hall (LH)
 * Office Hours: via scheduled Zoom and by appointment
@@ -64,7 +64,7 @@
 
 ## 10.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## 11.  [Syllabus, Fall Quarter 2024](./syllabus/2024-Fall/README.md)
+## 11.  [Syllabus, Fall Quarter 2025](./syllabus/2025-Fall/README.md)
 
 ## 12. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
