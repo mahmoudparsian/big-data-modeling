@@ -12,9 +12,9 @@
 | Subject                             | Percentage |        
 |-------------------------------------|------------|
 |1. Big Data Concepts                 | 10%        |
-|1. MapReduce Paradigm                | 20%        |
-|2. Big Data Analytics by PySpark     | 50%        |
-|3. Data Partitioning and SQL Queries | 20%        |
+|2. MapReduce Paradigm                | 20%        |
+|3. Big Data Analytics by PySpark     | 50%        |
+|4. Data Partitioning and SQL Queries | 20%        |
 
 ------
 
