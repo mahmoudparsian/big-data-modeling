@@ -41,7 +41,7 @@
 * Course ISBA2413: **Big Data Modeling & Analytics**
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
 * [Department of Information Systems & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
-* Class room: 206 Lucas Hall (LH)
+* Class room: 306 Lucas Hall (LH)
 * Office: 316U, Lucas Hall (LH)
 * Office Hours: via scheduled Zoom and by appointment
 
