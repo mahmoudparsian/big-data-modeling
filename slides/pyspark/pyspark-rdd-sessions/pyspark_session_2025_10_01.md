@@ -1,4 +1,4 @@
-# prepare some data files...
+# Prepare some data files...
 
 ~~~
 % ls -l /home/max/spark-4.0.0/zmp/data/
@@ -49,14 +49,25 @@ SparkSession available as 'spark'.
 >>> spark
 <pyspark.sql.session.SparkSession object at 0x10bde2ba0>
 >>>
+>>> #----------------------------------------
+>>> # Define an input path which has 2 files
+>>> #----------------------------------------
 >>> input_path = '/home/max/spark-4.0.0/zmp/data'
 >>>
+>>> #----------------------------------------
+>>> # Create your first RDD as rdd
+>>> #----------------------------------------
 >>> rdd = sc.textFile(input_path)
 >>>
+>>> #----------------------------------------
+>>> # Count the number of elements in your rdd
+>>> #----------------------------------------
 >>> rdd.count()
 7
 >>>
->>>
+>>> #----------------------------------------
+>>> # Get all of your rdd elements as a list
+>>> #----------------------------------------
 >>> rdd.collect()
 [
  'file2: hello alex', 
@@ -68,6 +79,9 @@ SparkSession available as 'spark'.
  'file1: fox jumped and jumped and jumped'
 ]
 >>>
+>>> #------------------------------------------------------
+>>> # Create another RDD as rdd2 (target) from rdd (source)
+>>> #------------------------------------------------------
 >>> rdd2 = rdd.map(lambda x: (x, len(x)))
 >>>
 >>> rdd2.count()
@@ -84,6 +98,9 @@ SparkSession available as 'spark'.
  ('file1: fox jumped and jumped and jumped', 39)
 ]
 >>>
+>>> #----------------------------------------
+>>> # Create another RDD as filtered
+>>> #----------------------------------------
 >>> filtered = rdd.filter(lambda x: len(x) > 20)
 >>> filtered.count()
 2
