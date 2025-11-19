@@ -259,12 +259,17 @@ TOPIC: RDD Design Patterns
 	* [mapPartitions() Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/mappartitions)
 	* Review reducers: `groupByKey()`, `reduceByKey()`, and `combineByKey()`
 
+* Review for  Exam-2
+* Problem solving & Q/A session 
+
 ----------------
 
 ## Session-13: Tuesday, November 4, 2025
 	
-* Review for  Exam-2
-* Problem solving & Q/A session 
+
+### * Independent Study
+
+ 
 	
 ----------------
 
