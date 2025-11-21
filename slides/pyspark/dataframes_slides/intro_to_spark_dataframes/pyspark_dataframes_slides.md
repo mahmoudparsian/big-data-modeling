@@ -637,4 +637,7 @@ root
 |  5|    v7|  7|    w8|
 +---+------+---+------+
 >>>
+>>> cross_join_df = df1.join(df2,  how="cross")
+>>> cross_join_df.count()
+56
 ```
