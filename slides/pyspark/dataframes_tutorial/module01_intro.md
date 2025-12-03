@@ -44,6 +44,33 @@ df = spark.read.option("header",True).csv("people.csv")
 ```python
 df.filter(df.age>30)
 df.groupBy("country").count()
+
+>>> rows = [(1, 'alex', 100000, 'USA'), 
+            (2, 'jane', 90000, 'USA'), 
+            (3, 'ted', 85000, 'CHINA'), 
+            (4, 'alex', 90000, 'CHINA')]
+
+>>> column_names = ["id", "name", "salary", "country"]
+>>> df = spark.createDataFrame(rows, column_names)
+>>> df.show()
++---+----+------+-------+
+| id|name|salary|country|
++---+----+------+-------+
+|  1|alex|100000|    USA|
+|  2|jane| 90000|    USA|
+|  3| ted| 85000|  CHINA|
+|  4|alex| 90000|  CHINA|
++---+----+------+-------+
+
+>>> df2 = df.groupBy("country").count()
+>>> df2.show()
++-------+-----+
+|country|count|
++-------+-----+
+|    USA|    2|
+|  CHINA|    2|
++-------+-----+
+
 ```
 
 ## Actions
@@ -77,6 +104,35 @@ df.select(F.upper("name"))
 ```python
 df.createOrReplaceTempView("people")
 spark.sql("SELECT name FROM people").show()
+
+>>> df.dtypes
+[('id', 'bigint'), ('name', 'string'), ('salary', 'bigint'), ('country', 'string')]
+>>> df.printSchema()
+root
+ |-- id: long (nullable = true)
+ |-- name: string (nullable = true)
+ |-- salary: long (nullable = true)
+ |-- country: string (nullable = true)
+
+>>> spark.sql("select * from people").show()
++---+----+------+-------+
+| id|name|salary|country|
++---+----+------+-------+
+|  1|alex|100000|    USA|
+|  2|jane| 90000|    USA|
+|  3| ted| 85000|  CHINA|
+|  4|alex| 90000|  CHINA|
++---+----+------+-------+
+
+>>> spark.sql("select country, avg(salary) as avg_salary, max(salary) as max_salry from people group by country").show()
++-------+----------+---------+
+|country|avg_salary|max_salry|
++-------+----------+---------+
+|    USA|   95000.0|   100000|
+|  CHINA|   87500.0|    90000|
++-------+----------+---------+
+
+>>
 ```
 
 ## Common Mistakes
