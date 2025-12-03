@@ -2,6 +2,7 @@
 
 ## Overview
 PySpark supports **seamless SQL integration**, enabling:
+
 - Writing SQL queries against DataFrames
 - Mixing DataFrame API + SQL
 - Leveraging SQL skills in Spark
@@ -40,6 +41,7 @@ spark.sql(
 ## SQL + DataFrames: Equivalent Code
 
 SQL:
+
 ```sql
 SELECT country, COUNT(*) 
 FROM employees 
@@ -47,6 +49,7 @@ GROUP BY country
 ```
 
 DataFrame:
+
 ```python
 df.groupBy("country").count()
 ```
@@ -67,6 +70,7 @@ spark.sql(
 ## Multi-Table SQL Joins
 
 Assume views exist:
+
 ```python
 emp.createOrReplaceTempView("emp")
 dept.createOrReplaceTempView("dept")
