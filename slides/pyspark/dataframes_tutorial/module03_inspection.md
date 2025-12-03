@@ -40,6 +40,10 @@ df.printSchema()
 ### schema
 ```python
 df.schema
+
+>>> df.schema
+StructType([StructField('id', LongType(), True), StructField('name', StringType(), True)])
+>>>
 ```
 
 ---
@@ -49,11 +53,46 @@ df.schema
 ### describe()
 ```python
 df.describe().show()
+
+>>> df.show()
++---+-----+
+| id| name|
++---+-----+
+|  1|Alice|
+|  2|  Bob|
++---+-----+
+>>> df.describe().show()
++-------+------------------+-----+
+|summary|                id| name|
++-------+------------------+-----+
+|  count|                 2|    2|
+|   mean|               1.5| NULL|
+| stddev|0.7071067811865476| NULL|
+|    min|                 1|Alice|
+|    max|                 2|  Bob|
++-------+------------------+-----+
+
+
 ```
 
 ### summary()
 ```python
 df.summary().show()
+
+>>> df.summary().show()
++-------+------------------+-----+
+|summary|                id| name|
++-------+------------------+-----+
+|  count|                 2|    2|
+|   mean|               1.5| NULL|
+| stddev|0.7071067811865476| NULL|
+|    min|                 1|Alice|
+|    25%|                 1| NULL|
+|    50%|                 1| NULL|
+|    75%|                 2| NULL|
+|    max|                 2|  Bob|
++-------+------------------+-----+
+
 ```
 
 ---
