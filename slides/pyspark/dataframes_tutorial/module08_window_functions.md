@@ -2,7 +2,9 @@
 
 ## Overview
 Window functions enable calculations across groups of rows without collapsing them into a single row.
+
 They are essential for:
+
 - Ranking
 - Running totals
 - Moving averages
@@ -31,6 +33,17 @@ df = spark.createDataFrame([
     ("Dan","HR",75000),
     ("Eve","HR",85000),
 ], ["name","dept","salary"])
+>>> df.show()
++-----+----+------+
+| name|dept|salary|
++-----+----+------+
+|Alice|  IT| 90000|
+|  Bob|  IT| 80000|
+|Carol|  HR| 70000|
+|  Dan|  HR| 75000|
+|  Eve|  HR| 85000|
++-----+----+------+
+
 ```
 
 ---
@@ -49,18 +62,49 @@ w = Window.partitionBy("dept").orderBy(F.col("salary").desc())
 
 ```python
 df.withColumn("rn", F.row_number().over(w)).show()
+>>> w = Window.partitionBy("dept").orderBy(F.col("salary").desc())
+>>> df.withColumn("rn", F.row_number().over(w)).show()
++-----+----+------+---+
+| name|dept|salary| rn|
++-----+----+------+---+
+|  Eve|  HR| 85000|  1|
+|  Dan|  HR| 75000|  2|
+|Carol|  HR| 70000|  3|
+|Alice|  IT| 90000|  1|
+|  Bob|  IT| 80000|  2|
++-----+----+------+---+
 ```
 
 ### rank()
 
 ```python
 df.withColumn("rnk", F.rank().over(w)).show()
+>>> df.withColumn("rnk", F.rank().over(w)).show()
++-----+----+------+---+
+| name|dept|salary|rnk|
++-----+----+------+---+
+|  Eve|  HR| 85000|  1|
+|  Dan|  HR| 75000|  2|
+|Carol|  HR| 70000|  3|
+|Alice|  IT| 90000|  1|
+|  Bob|  IT| 80000|  2|
++-----+----+------+---+
 ```
 
 ### dense_rank()
 
 ```python
 df.withColumn("drank", F.dense_rank().over(w)).show()
+>>> df.withColumn("drank", F.dense_rank().over(w)).show()
++-----+----+------+-----+
+| name|dept|salary|drank|
++-----+----+------+-----+
+|  Eve|  HR| 85000|    1|
+|  Dan|  HR| 75000|    2|
+|Carol|  HR| 70000|    3|
+|Alice|  IT| 90000|    1|
+|  Bob|  IT| 80000|    2|
++-----+----+------+-----+
 ```
 
 ---
