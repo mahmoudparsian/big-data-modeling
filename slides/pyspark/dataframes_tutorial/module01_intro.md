@@ -133,6 +133,33 @@ root
 +-------+----------+---------+
 
 >>
+>>> spark.sql("select country, avg(salary) as avg_salary, max(salary) as max_salry from people group by country").show()
++-------+----------+---------+
+|country|avg_salary|max_salry|
++-------+----------+---------+
+|    USA|   95000.0|   100000|
+|  CHINA|   87500.0|    90000|
++-------+----------+---------+
+
+>>>
+>>> # WHERE : filters raw rows before aggregation
+>>> # HAVING: filters aggregated result
+
+>>> spark.sql("""
+... select country,
+...        avg(salary) as avg_salary,
+...        max(salary) as max_salry
+... from people
+... group by country
+... HAVING avg_salary > 90000
+... """).show()
++-------+----------+---------+
+|country|avg_salary|max_salry|
++-------+----------+---------+
+|    USA|   95000.0|   100000|
++-------+----------+---------+
+
+>>>
 ```
 
 ## Common Mistakes
