@@ -66,7 +66,7 @@ update in progress...
 
 ## 10.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
 
-## 11.  [Syllabus, Fall Quarter 2025](./syllabus/2025-Fall/README.md)
+## 11.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
 ## 12. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
