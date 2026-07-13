@@ -1,4 +1,4 @@
-# Mahmoud Parsian
+# Mahmoud Parsian <br> Assistant Teaching Professor
 
 email: mparsian@scu.edu
 
@@ -8,7 +8,7 @@ work: Big Data Architect @Illumina
 
 big data experience: Writing Big Data Algorithms (12+ years)
 
-Adjunct Faculty @SCU (8+ years)
+Faculty @SCU (12+ years)
 
 Author of 5 Books:
 
