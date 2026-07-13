@@ -14,8 +14,7 @@ Sequence | Assignment              | %
 7        | Progrmming Assignment-5 | 10%     
 8        | Final Exam              | 20%  
 9        | Spot Bonus              | up to 2%   
-_________| _________               | _________
-         | Total                   | 102%
+Total    | Total                   | 102%
  
  
 * NOTE:  
