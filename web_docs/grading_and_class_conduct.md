@@ -13,12 +13,15 @@ Sequence | Assignment              | %
 6        | Exam-2                  | 15%     
 7        | Progrmming Assignment-5 | 10%     
 8        | Final Exam              | 20%  
-9   | Spot Bonus                   | up to 2%   
-_______| _______ | _______
-   | Total                   | 102%
+9        | Spot Bonus              | up to 2%   
+_________| _________               | _________
+         | Total                   | 102%
  
  
-* NOTE:  **Exam-1**, **Exam-2**, and **Final Exam** are closed book/notes/internet/software.
+* NOTE:  
+	* **Exam-1**: closed book/notes/internet/software
+	* **Exam-2**: closed book/notes/internet/software
+	* **Final Exam**: closed book/notes/internet/software
 
 
 
