@@ -1,11 +1,11 @@
-# Exam-1: done
+# Exam-1: TBDL
 
 * In-Class
 * Closed books/notes/software/internet/friends
 
 ----------
 
-# Exam-2: Thursday, November 6, 2025
+# Exam-2: TBDL
 
 * In-Class
 * Closed books/notes/software/internet/friends
