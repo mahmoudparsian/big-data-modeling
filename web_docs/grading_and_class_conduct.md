@@ -3,18 +3,18 @@
 ## Grade Distribution:
 
 
-Sequence | Assignment              | %    
----------|-------------------------|----
-1        | Progrmming Assignment-1 | 10%     
-2        | Progrmming Assignment-2 | 10% 
-3        | Exam-1                  | 15%    
-4        | Progrmming Assignment-3 | 10%     
-5        | Progrmming Assignment-4 | 10%
-6        | Exam-2                  | 15%     
-7        | Progrmming Assignment-5 | 10%     
-8        | Final Exam              | 20%  
-9        | Spot Bonus              | up to 2%   
-         | Total                   | 102%
+| Sequence | Assignment | % |
+| :---: | :--- | :---: |
+| 1 | Programming Assignment-1 | 10% |
+| 2 | Programming Assignment-2 | 10% |
+| 3 | Exam-1 | 15% |
+| 4 | Programming Assignment-3 | 10% |
+| 5 | Programming Assignment-4 | 10% |
+| 6 | Exam-2 | 15% |
+| 7 | Programming Assignment-5 | 10% |
+| 8 | Final Exam | 20% |
+| 9 | Spot Bonus | up to 2% |
+| | **Total** | **102%** |
  
  
 * NOTE:  
