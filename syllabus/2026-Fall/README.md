@@ -1,4 +1,4 @@
-# Big Data Modeling <br> Course Information <br/> for <br/> Fall Quarter 2025
+# Big Data Modeling <br> Course Information <br/> for <br/> Fall Quarter 2026
 
 
 ## [Santa Clara University](http://scu.edu/)
@@ -91,7 +91,7 @@ for the last 7 weeks of class
 
 ----------------
 
-## Session-1:  Tuesday, September 23, 2025
+## Session-1:  Monday, September 21, 2026
 
 TOPIC: Introduction to Big Data and MapReduce
 
@@ -106,7 +106,7 @@ TOPIC: Introduction to Big Data and MapReduce
 
 ----------------
 
-## Session-2: Thursday, September 25, 2025
+## Session-2: Wednesday, September 23, 2026
 	
 TOPIC: Introduction to Big Data and MapReduce
 
@@ -123,7 +123,7 @@ TOPIC: Introduction to Big Data and MapReduce
 
 ----------------
 
-## Session-3: Tuesday, September 30, 2025
+## Session-3: Monday, September 28, 2026
 
 TOPIC: Introduction to MapReduce
 
@@ -139,7 +139,7 @@ TOPIC: Introduction to MapReduce
 
 ----------------
 
-## Session-4: Thursday, October 2, 2025
+## Session-4: Wednesday, September 30, 2026
 
 
 TOPIC: Introduction to MapReduce
@@ -160,14 +160,14 @@ TOPIC: Introduction to MapReduce
 	
 ----------------
 
-## Session-5: Tuesday, October 7, 2025
+## Session-5: Monday, October 5, 2026
 
 * TOPIC: Review of MapReduce paradigm with Examples
 * TOPIC: Review of MapReduce Implementation with PySpark with Examples
 
 ----------------
 
-## Session-6: Thursday, October 9, 2025
+## Session-6: Wednesday, October 7, 2026
 
 * Exam-1, in-class
 * LockDown-Browser is Required
@@ -175,7 +175,7 @@ TOPIC: Introduction to MapReduce
 
 ----------------
 
-## Session-7: Tuesday, October 14, 2025
+## Session-7: Monday, October 12, 2026
 
 TOPIC: Introduction to Spark & PySpark
 
@@ -191,7 +191,7 @@ TOPIC: Introduction to Spark & PySpark
 
 ----------------
 
-## Session-8: Thursday, October 16, 2025
+## Session-8: Wednesday, October 14, 2026
 
 TOPIC: Introduction to Spark and PySpark (Python API for Spark)
 
@@ -207,7 +207,7 @@ TOPIC: Introduction to Spark and PySpark (Python API for Spark)
 
 ----------------
 
-## Session-9: Tuesday, October 21, 2025
+## Session-9: Monday, October 19, 2026
 
 TOPIC: Spark's Nuts and Bolts
 
@@ -222,7 +222,7 @@ TOPIC: Spark's Nuts and Bolts
 
 ----------------
 
-## Session-10: Thursday, October 23, 2025
+## Session-10: Wednesday, October 21, 2026
 
 TOPIC: Data Design Patterns
 
@@ -233,7 +233,7 @@ TOPIC: Data Design Patterns
 
 ----------------
 
-## Session-11: Tuesday, October 28, 2025
+## Session-11: Monday, October 26, 2026
 
 TOPIC: Data Design Patterns
 
@@ -248,7 +248,7 @@ TOPIC: Data Design Patterns
 
 ----------------
 
-## Session-12: Thursday, October 30, 2025
+## Session-12: Wednesday, October 28, 2026
 
 TOPIC: RDD Design Patterns
 
@@ -264,7 +264,7 @@ TOPIC: RDD Design Patterns
 
 ----------------
 
-## Session-13: Tuesday, November 4, 2025
+## Session-13: Monday, November 2, 2026
 	
 
 ### * Independent Study
@@ -273,7 +273,7 @@ TOPIC: RDD Design Patterns
 	
 ----------------
 
-## Session-14: Thursday, November 6, 2025
+## Session-14: Wednesday, November 4, 2026
 	
 * Exam-2, in-class
 * LockDown-Browser is Required
@@ -282,7 +282,7 @@ TOPIC: RDD Design Patterns
 
 ----------------
 
-## Session-15: Tuesday, November 11, 2025
+## Session-15: Monday, November 9, 2026
 	
 * Spark's DataFrames (1)
 * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
@@ -290,7 +290,7 @@ TOPIC: RDD Design Patterns
 
 ----------------
 
-## Session-16: Thursday, November 13, 2025
+## Session-16: Wednesday, November 11, 2026
 	
 * Spark's DataFrames (2)
 * [Chapters 4, 6, 7, 12 of PySpark Algorithms Book by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
@@ -298,7 +298,7 @@ TOPIC: RDD Design Patterns
 
 ----------------
 
-## Session-17: Tuesday, November 18, 2025
+## Session-17: Monday, November 16, 2026
 
 * Introduction to Graph data structures
 * MapReduce Design Pattern: Graph Algorithms 
@@ -307,7 +307,7 @@ TOPIC: RDD Design Patterns
  
 -----------------
 
-## Session-18: Thursday, November 20, 2025
+## Session-18: Wednesday, November 18, 2026
 	
 * MapReduce Design Pattern: Graph Algorithms 
 * [Chapter 6 of Data Algorithms with Spark Book by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1) 
@@ -315,14 +315,14 @@ TOPIC: RDD Design Patterns
   
 ----------------
 
-## November 24-28, Thanksgiving Recess
+## November 23-27, Thanksgiving Recess
 
 * Academic holiday (no classes)
 * No Office Hours
 
 ----------------
 
-## Session-19: Tuesday, December 2, 2025
+## Session-19: Monday, November 30, 2026
 	
 * Introduction to Serverless Analytics  
 * SQL Access to Big Data  
@@ -331,7 +331,7 @@ TOPIC: RDD Design Patterns
 
 ---------------
 
-## Session-20: Thursday, December 4, 2025
+## Session-20: Wednesday, December 2, 2026
 
 * Review for Final Exam 
 * Q/A session 
@@ -342,7 +342,7 @@ TOPIC: RDD Design Patterns
 
 * In-Class Exam
 * LockDown-Browser is Required
-* Date: TBDL (12/08/2025 – 12/12/2025)
+* Date: TBDL (12/07/2026 – 12/11/2026)
 * Time: TBDL
 * closed book/notes/friend/internet/software
 
