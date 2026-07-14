@@ -1,9 +1,9 @@
 # Fall Quarter 2026
-# ISBA-2413: Big Data Modeling & Analytics
+# [ISBA-2413: Big Data Modeling & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
+
 
 🔜 update in progress...
 
-## [Big Data Modeling & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
 
 <!-- comment -->
 <!-- This is a comment, it will not be included -->
