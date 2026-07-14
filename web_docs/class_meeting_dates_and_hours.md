@@ -6,7 +6,7 @@
 
 | Start Date        | End Date         | Final Exam Week    |
 |-------------------|------------------|--------------------|
-|September 23, 2025 |December 6, 2025  |December 8-12, 2025 |
+|September 21, 2026 |December 6, 2026  |December 8-12, 2026 |
 
 -------
 
@@ -14,6 +14,6 @@
 
 | Day           | Start Time  | End Time     |
 |---------------|-------------|--------------|
-|Tuesday        |5:45 PM  PST |7:20 PM  PST  |
-|Thursday       |5:45 PM  PST |7:20 PM  PST  |
+|Monday         |5:45 PM  PST |7:20 PM  PST  |
+|Wednesday      |5:45 PM  PST |7:20 PM  PST  |
 
