@@ -5,8 +5,6 @@
 
 ## [Big Data Modeling & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
 
-## [Santa Clara University](http://scu.edu/)
-
 <!-- comment -->
 <!-- This is a comment, it will not be included -->
 <!-- Big Data, Big Data Modeling & Analytics -->
@@ -41,11 +39,16 @@
 	and  MapReduce fundamentals to solve big data problems.
 
 
-* Course ISBA2413: **Big Data Modeling & Analytics**
+* Course ISBA-2413: **Big Data Modeling & Analytics**
+
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
+
 * [Department of Information Systems & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
+
 * Class room: 306 Lucas Hall (LH)
+
 * Office: 316U, Lucas Hall (LH)
+
 * Office Hours: via scheduled Zoom and by appointment
 
 
