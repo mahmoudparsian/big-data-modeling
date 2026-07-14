@@ -1,5 +1,5 @@
 # Fall Quarter 2026
-# ISBA-2413: Big Data Modeling
+# ISBA-2413: Big Data Modeling & Analytics
 
 🔜 update in progress...
 
