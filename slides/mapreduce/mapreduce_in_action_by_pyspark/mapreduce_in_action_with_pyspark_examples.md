@@ -22,11 +22,13 @@
 
 # ✅ 1. What is MapReduce?
 
-
-	1. MapReduce is a programming model for expressing 
-	   distributed computations on massive amounts 
-	   of data and an execution  framework for large-scale 
-	   data  processing  on clusters of commodity servers.
+	1. MapReduce is NOT a programming language
+	 
+	2. MapReduce is a programming model/paradigm 
+	   for expressing distributed computations on 
+	   massive amounts of data and an execution  
+	   framework for large-scale data  processing  
+	   on clusters of commodity servers.
 	
 	source : [Data-Intensive Text Processing with MapReduce, Jimmy Lin]
 
@@ -37,24 +39,25 @@
 
 ### 1. What is MapReduce? continued...
 
-	2. MapReduce was originally developed by Google and 
-	built on  well-known  principles in  parallel and 
-	distributed processing dating back several decades.
+	3. MapReduce was formalized by Google 
+	   and built on  well-known  principles 
+	   in parallel and distributed processing 
+	   dating back several decades.
 	
 	
 ### Sequential-processing-vs-parallel-processing
 
 	Sequential Computing vs. Parallel Computing
 
-	In sequential computing, operations are performed 
-	in order one at a time.
+	* In sequential computing, operations are performed 
+	  in order one at a time.
 	
-	In parallel computing, the program is broken into 
-	smaller steps, some of which are performed at the 
-	same time. Modern computers have multiple processors 
-	(4, 8, 16, 32, ...) in a single computer, so you can 
-	do small-scale parallel processing on the machine on 
-	your desk.
+	* In parallel computing, the program is broken into 
+	  smaller steps, some of which are performed at the 
+	  same time. Modern computers have multiple processors 
+	  (4, 8, 16, 32, ...) in a single computer, so you can 
+	  do small-scale parallel processing on the machine on 
+	  your desk.
 
 ![](https://cdn.prod.website-files.com/65d4cfd6cfd9f328de35409d/663b9255165c550c4058c410_Parallel-Testing-Diagram%20.png)
 
@@ -63,19 +66,21 @@
 ### 1. What is MapReduce? continued...
 
 
-	3. MapReduce is a programming model and execution 
-	framework, notably used in Apache Hadoop, for processing 
-	vast amounts of data in parallel across a large cluster 
-	of machines. It works by dividing data into smaller pieces 
-	for independent, parallel processing by "map" functions, 
-	then combining those results using "reduce" functions to 
-	produce the final output. 
+	4. MapReduce is a programming model and execution 
+	   framework, notably used in Apache Hadoop, for 
+	   processing vast amounts of data in parallel 
+	   across a large cluster of machines. 
+	   
+	   It works by dividing data into smaller pieces 
+	   for independent, parallel processing by "map" 
+	   functions, then combining those results using 
+	   "reduce" functions to produce the final output. 
 	
-	4. This approach simplifies distributed computing, 
-	allowing programmers to handle Big Data without deep 
-	expertise in parallel systems, making it suitable for 
-	tasks like data mining, search engine operations, and
-	 enterprise analytics. 
+	5. This approach simplifies distributed computing, 
+	   allowing programmers to handle Big Data without 
+	   deep expertise in parallel systems, making it 
+	   suitable for tasks like data mining, search 
+	   engine operations, and enterprise analytics. 
 	
 -------
  
@@ -801,7 +806,7 @@ Things to do:
 
 -------
 
-# ✅✅ Teach MapReduce with using PySpark ✅✅
+# ✅ Teach MapReduce with using PySpark
 
 # ✅ 6. What is an Apache Spark?
 
