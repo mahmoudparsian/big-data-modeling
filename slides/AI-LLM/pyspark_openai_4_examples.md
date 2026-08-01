@@ -582,11 +582,3 @@ summary_df.show(truncate=False)
 * 🧪 Evaluate GPT summaries using manual or automatic QA
 
 ---
-
-Would you like me to:
-
-* Show how to **save this DataFrame to Parquet** or another format?
-* Add **retry + exponential backoff** for robust GPT calls?
-
-Let me know how deep you want to go.
-
