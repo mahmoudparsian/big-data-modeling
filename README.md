@@ -1,6 +1,7 @@
 # Fall Quarter 2026
 # [ISBA-2413: Big Data Modeling & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
 
+@author: [Dr. Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
 🔜 update in progress...
 
@@ -54,7 +55,7 @@
 
 ## 2.  [Class Meeting Dates & Hours](./web_docs/class_meeting_dates_and_hours.md)
 
-## 3.  [Instructor, Assistant Teaching Professor: Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+## 3.  [Instructor: Dr. M. Parsian, Assistant Teaching Professor](https://www.scu.edu/business/isa/faculty/parsian/)
 
 ## 4.  [Prerequisite](./web_docs/prerequisite.md)
 
