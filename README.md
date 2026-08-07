@@ -3,8 +3,13 @@
 
 @author: [Dr. Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-🔜 update in progress...
-
+![Big Data](https://img.shields.io/badge/Big_Data-Modeling_%26_Analytics-FF6F00?style=for-the-badge)
+![MapReduce](https://img.shields.io/badge/MapReduce-Paradigm-6A1B9A?style=for-the-badge)
+![Apache Spark](https://img.shields.io/badge/Apache_Spark-4.x-FF3D00?style=for-the-badge&logo=apachespark&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-RDD_%26_DataFrame-00B0FF?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-Spark_SQL-00C853?style=for-the-badge&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-FFD600?style=for-the-badge&logo=python&logoColor=black)
+![Claude](https://img.shields.io/badge/Anthropic-Claude_LLM-E91E63?style=for-the-badge)
 
 <!-- comment -->
 <!-- This is a comment, it will not be included -->
@@ -27,18 +32,17 @@
 ----------------------------
 
 
-## 1. Course Information: 
+## 1. Course Information
 
-	This course is about  big data and its role in carrying 
-	out modern business intelligence for actionable insight 
-	to address new business needs. This course is a lab-led 
-	and open source software rooted course.  Students  will 
-	learn the fundamentals  of MapReduce, Spark  framework,
-	NoSQL databases, PySpark, and Amazon Athena.  The class 
-	will  focus on  the storage,  processing, and  analysis 
-	aspects of big data.  Students  will use  Spark cluster 
-	and  MapReduce fundamentals to solve big data problems.
-
+This course is about big data and its role in carrying
+out modern business intelligence for actionable insights
+to address new business needs. This course is lab-led
+and rooted in open-source software. Students will
+learn the fundamentals of MapReduce, the Spark framework,
+NoSQL databases, PySpark, and Amazon Athena. The class
+will focus on the storage, processing, and analysis
+aspects of big data. Students will use Spark clusters
+and MapReduce fundamentals to solve big data problems.
 
 * Course ISBA-2413: **Big Data Modeling & Analytics**
 
@@ -46,7 +50,7 @@
 
 * [Department of Information Systems & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
 
-* Class room: 306 Lucas Hall (LH)
+* Classroom: 306 Lucas Hall (LH)
 
 * Office: 316U, Lucas Hall (LH)
 
@@ -89,7 +93,7 @@
 
 ## 19. [Final Exam](./web_docs/final_exam.md)
 
-## 20. Mahmoud Parsian's Latest Books: 
+## 20. Mahmoud Parsian's Latest Books
 
 -------
 
