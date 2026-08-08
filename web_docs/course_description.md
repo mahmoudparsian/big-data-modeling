@@ -22,9 +22,9 @@ The main focus of this class is to cover the following concepts:
 	* Cluster Computing
 	* Scale-up Architecture: Why or Why Not
 	* Scale-out Architecture: Why or Why Not
-	* Scale-out Architectures (using Hadoop, Spark, PySpark)
-	* Fault Tolerance: How? 
-	* Data Replication: How?
+	* Scale-out Architectures (Spark, PySpark, Amazon Athena)
+	* Fault Tolerance: Why? How? 
+	* Data Replication: Why? How?
 
 * **Distributed Computing**
 	* Cluster Computing (Master and Worker Nodes)
@@ -39,7 +39,7 @@ The main focus of this class is to cover the following concepts:
 	* [MapReduce Paradigm](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 	* [MapReduce Algorithms](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
-* **Spark**
+* **Spark**/**PySpark**
 	* [Apache Spark](http://spark.apache.org/)
 	* Spark Cluster Computing
 	* Use Spark, PySpark, and Python to teach MapReduce and distributed computing

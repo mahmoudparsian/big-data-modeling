@@ -1,7 +1,7 @@
 # Glossary of Big Data, MapReduce, Spark
 
 * Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
-* Last updated date: 6/26/2023 (June 26, 2023)
+* Last updated date: August 7, 2026
 
 
 <a class="top-link hide" href="#top">↑</a>
@@ -245,6 +245,27 @@ Table of Contents
 1. [DATA LAKEHOUSE](#DATA-LAKEHOUSE)
 1. [Snowflake](#Snowflake)
 1. [What is a synchronization?](#What-is-a-synchronization)
+1. [Artificial Intelligence (AI)](#Artificial-Intelligence-AI)
+1. [Large Language Model (LLM)](#Large-Language-Model-LLM)
+1. [Generative AI](#Generative-AI)
+1. [Foundation Model](#Foundation-Model)
+1. [Transformer Architecture](#Transformer-Architecture)
+1. [Token (LLM)](#Token-LLM)
+1. [Prompt](#Prompt)
+1. [Prompt Engineering](#Prompt-Engineering)
+1. [LLM Hallucination](#LLM-Hallucination)
+1. [Temperature (LLM)](#Temperature-LLM)
+1. [Anthropic Claude](#Anthropic-Claude)
+1. [LLM API](#LLM-API)
+1. [API Rate Limiting](#API-Rate-Limiting)
+1. [LLM Cost Estimation](#LLM-Cost-Estimation)
+1. [Embedding](#Embedding)
+1. [Fine-Tuning](#Fine-Tuning)
+1. [Retrieval Augmented Generation (RAG)](#Retrieval-Augmented-Generation-RAG)
+1. [PySpark and LLM Integration](#PySpark-and-LLM-Integration)
+1. [Batching LLM Calls in PySpark](#Batching-LLM-Calls-in-PySpark)
+1. [Dead Letter Queue](#Dead-Letter-Queue)
+1. [Idempotent Processing](#Idempotent-Processing)
 1. [References](#References)
 1. [List of Books by Mahmoud Parsian](#List-of-Books-by-Mahmoud-Parsian)
 
@@ -9434,6 +9455,560 @@ be accessed by only one thread at a time while execution.
 
 <a class="top-link hide" href="#top">↑</a>
 <a name="top"></a>
+
+## Artificial Intelligence (AI)
+Artificial Intelligence (AI) is a branch of computer science
+that aims to create systems capable of performing tasks that
+normally require human intelligence. These tasks include
+learning, reasoning, problem solving, understanding natural
+language, and recognizing patterns. AI spans a wide range
+of techniques, from rule-based expert systems to modern
+deep learning and large language models.
+
+* **Narrow AI (Weak AI):** Systems designed for a specific
+  task, such as image classification or spam filtering.
+
+* **General AI (Strong AI):** A theoretical concept where
+  a machine can perform any intellectual task a human can.
+  This does not yet exist.
+
+* In the context of big data, AI is used to extract insights
+  from large datasets, automate data enrichment, and generate
+  structured outputs from unstructured text.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Large Language Model (LLM)
+A Large Language Model (LLM) is a type of AI model trained
+on vast amounts of text data to understand and generate
+human language. LLMs use deep neural networks with billions
+of parameters to learn patterns in language, enabling them
+to answer questions, summarize text, translate languages,
+classify content, and generate new text.
+
+Examples of LLMs include:
+
+* **Anthropic Claude** — used in this course for PySpark integration
+* **OpenAI GPT** — the model behind ChatGPT
+* **Google Gemini** — Google's multimodal LLM
+* **Meta LLaMA** — an open-weights LLM
+
+LLMs are accessed through APIs, where you send a text prompt
+and receive a text response. Each API call has a cost based
+on the number of tokens processed.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Generative AI
+Generative AI refers to AI systems that can create new content
+— text, images, code, music, or video — based on patterns
+learned during training. Large Language Models are one category
+of generative AI focused on text generation.
+
+In big data pipelines, generative AI is used to:
+
+* Enrich records with LLM-generated columns (e.g., sentiment,
+  summary, category)
+* Generate structured JSON output from unstructured text
+* Automate data labeling and classification tasks
+
+The key distinction from traditional ML: generative AI produces
+new content rather than simply classifying or predicting from
+existing data.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Foundation Model
+A foundation model is a large AI model trained on broad data
+at scale that can be adapted (via prompting or fine-tuning)
+to a wide range of downstream tasks. The term was introduced
+by Stanford researchers in 2021.
+
+Foundation models are characterized by:
+
+* **Scale:** Trained on massive datasets (terabytes of text)
+* **Generality:** A single model handles many different tasks
+* **Transfer learning:** Knowledge from training transfers to
+  new tasks without retraining
+
+Examples: Claude, GPT-4, LLaMA, Gemini. These are all
+foundation models that serve as LLMs.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Transformer Architecture
+The Transformer is a neural network architecture introduced
+in the 2017 paper "Attention Is All You Need" by Vaswani et al.
+It is the foundation of all modern LLMs.
+
+Key concepts:
+
+* **Self-attention mechanism:** Allows the model to weigh
+  the importance of different words in a sentence relative
+  to each other, regardless of their distance.
+* **Parallelism:** Unlike earlier RNN/LSTM models,
+  Transformers process all tokens simultaneously, making
+  training much faster.
+* **Encoder-Decoder:** The original Transformer has an
+  encoder (reads input) and decoder (generates output).
+  LLMs like Claude and GPT use the decoder portion.
+
+The Transformer architecture enabled training on far larger
+datasets than previous approaches, leading to the current
+generation of powerful LLMs.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Token (LLM)
+In the context of LLMs, a token is a unit of text that the
+model processes. A token can be a word, part of a word, or
+a punctuation mark. Tokenization is the process of splitting
+text into these units.
+
+Rules of thumb for English text:
+
+* 1 token ≈ 4 characters or ¾ of a word
+* 100 tokens ≈ 75 words
+* A typical paragraph is about 100 tokens
+
+Tokens matter because:
+
+* **Cost:** LLM APIs charge per token (input + output)
+* **Context window:** Each model has a maximum number of
+  tokens it can process in a single request (e.g., 200K tokens)
+* **Rate limits:** API providers limit tokens per minute
+
+In PySpark + LLM integration, managing token counts is
+critical for cost control and staying within rate limits.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Prompt
+A prompt is the text input sent to an LLM to instruct it
+on what task to perform. The quality of the prompt directly
+affects the quality of the LLM's response.
+
+A typical prompt for data enrichment includes:
+
+* **Role:** Tell the LLM what role to assume
+  (e.g., "You are a product review analyst")
+* **Task:** What to do with the input data
+  (e.g., "Classify the sentiment of each review")
+* **Format:** The expected output format
+  (e.g., "Return a JSON object with keys: sentiment, rating, summary")
+* **Constraints:** Rules or boundaries
+  (e.g., "Use only POSITIVE, NEGATIVE, or NEUTRAL")
+
+In PySpark integration, prompts are constructed inside UDF
+or partition functions and sent to the LLM API.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Prompt Engineering
+Prompt engineering is the practice of designing and refining
+prompts to get accurate, consistent, and useful responses
+from an LLM. It is a skill — not a science — that requires
+experimentation.
+
+Common prompt engineering techniques:
+
+* **Few-shot prompting:** Provide examples of input/output
+  pairs in the prompt so the LLM learns the pattern
+* **Zero-shot prompting:** Describe the task without examples
+* **Chain-of-thought:** Ask the LLM to reason step by step
+* **Structured output:** Request JSON or CSV format to make
+  parsing reliable in data pipelines
+
+For PySpark integration, structured output (JSON) is
+preferred because the response can be parsed with
+`from_json()` into typed DataFrame columns.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## LLM Hallucination
+Hallucination is when an LLM generates text that sounds
+plausible but is factually incorrect, fabricated, or
+unsupported by the input data. LLMs do not "know" facts —
+they predict likely text based on patterns.
+
+In data pipelines, hallucination risks include:
+
+* Inventing categories that were not in the prompt
+* Generating summaries that add information not in the source
+* Producing valid-looking JSON with incorrect values
+
+Mitigation strategies:
+
+* Constrain the output format (e.g., "only use these labels: ...")
+* Validate LLM output against expected schemas
+* Use sentinel values and dead-letter queues for unexpected responses
+* Set `temperature=0` for deterministic, less creative output
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Temperature (LLM)
+Temperature is a parameter that controls the randomness of
+an LLM's output. It is a floating-point number, typically
+between 0 and 1.
+
+* **Temperature = 0:** The model always picks the most
+  likely next token. Output is deterministic and consistent.
+* **Temperature = 0.5:** A balance between creativity and
+  consistency.
+* **Temperature = 1.0:** Maximum randomness. The model
+  explores less likely tokens, producing more varied output.
+
+For data enrichment pipelines (classification, sentiment
+analysis, structured extraction), use `temperature=0`
+to get consistent, reproducible results across records.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Anthropic Claude
+Claude is a family of LLMs developed by Anthropic. Claude
+models are designed with a focus on safety, helpfulness,
+and honesty. They are accessed through the Anthropic API.
+
+In this course, Claude is used for PySpark integration:
+
+* **Model used:** `claude-sonnet-4-6` (a fast, cost-effective model)
+* **Python SDK:** `anthropic` package
+* **API pattern:**
+  ```python
+  import anthropic
+  client = anthropic.Anthropic()
+  response = client.messages.create(
+      model="claude-sonnet-4-6",
+      max_tokens=300,
+      messages=[{"role": "user", "content": prompt}]
+  )
+  result = response.content[0].text
+  ```
+
+Key rule: The `anthropic.Anthropic()` client must be
+created **inside** the UDF or partition function, never
+at module scope, because Spark serialises closures and
+the client object cannot be pickled.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## LLM API
+An LLM API (Application Programming Interface) is a web
+service that allows programs to send text prompts to an
+LLM and receive text responses. The API handles all the
+complexity of running the model — the caller only sends
+HTTP requests.
+
+Key concepts:
+
+* **Endpoint:** The URL where requests are sent
+  (e.g., `https://api.anthropic.com/v1/messages`)
+* **API Key:** A secret token that authenticates the caller
+  and tracks usage. Stored in `.env`, never in source code.
+* **Request:** Contains the model name, prompt, and parameters
+  (max_tokens, temperature)
+* **Response:** Contains the generated text and usage metadata
+  (input tokens, output tokens)
+* **Pricing:** Charged per million tokens (input and output
+  priced separately)
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## API Rate Limiting
+Rate limiting is a mechanism used by API providers to control
+how many requests a client can make in a given time period.
+This prevents any single user from overloading the service.
+
+Common rate limit dimensions:
+
+* **Requests per minute (RPM):** Maximum number of API calls
+  per minute (e.g., 50 RPM)
+* **Tokens per minute (TPM):** Maximum tokens processed per
+  minute
+* **Tokens per day (TPD):** Daily token budget
+
+When a rate limit is exceeded, the API returns HTTP status
+code 429 (Too Many Requests).
+
+In PySpark + LLM integration, rate limiting is critical:
+
+* Too many Spark partitions running in parallel can trigger
+  429 errors ("rate limit storm")
+* Solutions: reduce partition count, add `time.sleep()`
+  between calls, use exponential backoff, or batch multiple
+  records into a single API call
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## LLM Cost Estimation
+LLM API calls are priced per token. Before running a large
+PySpark + LLM job, you should estimate the cost to avoid
+surprise bills.
+
+Cost estimation formula:
+
+```
+input_cost  = (num_rows × avg_input_tokens) × price_per_input_token
+output_cost = (num_rows × avg_output_tokens) × price_per_output_token
+total_cost  = input_cost + output_cost
+```
+
+With batching (N records per API call):
+
+```
+api_calls   = ceil(num_rows / batch_size)
+total_cost  = api_calls × avg_cost_per_call
+```
+
+Example: 1,000,000 rows at $3/M input tokens, 200 tokens/row:
+`1,000,000 × 200 / 1,000,000 × $3 = $600` for input alone.
+
+Batching 10 rows per call reduces API calls from 1,000,000
+to 100,000 — lowering HTTP overhead and often reducing
+total tokens due to shared instructions.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Embedding
+An embedding is a numerical vector representation of text
+(or other data) produced by an AI model. Embeddings capture
+the semantic meaning of text — similar texts have similar
+vectors.
+
+Uses of embeddings in big data:
+
+* **Similarity search:** Find records similar to a query
+* **Clustering:** Group documents by topic
+* **Classification:** Use embeddings as features for ML models
+* **Retrieval Augmented Generation (RAG):** Find relevant
+  documents to include in an LLM prompt
+
+Embeddings are typically dense vectors of 256 to 3072
+dimensions. They are produced by specialized embedding
+models (e.g., Voyage AI, OpenAI text-embedding).
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Fine-Tuning
+Fine-tuning is the process of further training a pre-trained
+LLM on a smaller, task-specific dataset to improve its
+performance on that task. The model's existing knowledge
+is preserved while it learns new patterns.
+
+Fine-tuning vs. prompting:
+
+| Approach | When to use |
+|----------|-------------|
+| Prompting | Small scale, flexible, no training needed |
+| Fine-tuning | High volume, consistent format, lower per-call cost |
+
+In PySpark pipelines, prompting is the most common approach
+because it requires no model training. Fine-tuning is
+considered when the volume justifies the upfront training
+cost and the task is highly repetitive.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Retrieval Augmented Generation (RAG)
+RAG is a technique that combines information retrieval with
+LLM text generation. Instead of relying solely on the LLM's
+training data, RAG retrieves relevant documents from a
+knowledge base and includes them in the prompt.
+
+RAG workflow:
+
+1. **Index:** Convert documents into embeddings and store
+   them in a vector database
+2. **Retrieve:** Given a query, find the most relevant
+   documents by similarity search
+3. **Generate:** Include the retrieved documents in the
+   LLM prompt as context, then generate a response
+
+RAG reduces hallucination by grounding the LLM's response
+in actual source documents. In big data contexts, RAG can
+be combined with PySpark to process and index large
+document collections.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## PySpark and LLM Integration
+PySpark and LLM integration refers to enriching Spark
+DataFrames or RDDs by calling an LLM API (such as
+Anthropic Claude) during distributed processing. The LLM
+acts as a mapper — it takes each record as input and
+produces structured output (e.g., sentiment, category,
+summary) as new columns.
+
+Two primary integration patterns:
+
+* **DataFrame API:** Use `pandas_udf` or `mapInPandas` to
+  call the LLM inside a user-defined function. The LLM
+  response (JSON string) is parsed with `from_json()` into
+  typed columns.
+
+* **RDD API:** Use `mapPartitions()` to process records
+  within each partition. One Claude client is created per
+  partition (not per record), reducing connection overhead.
+
+Critical rules:
+
+* **Serialisation rule:** Create the LLM client inside
+  the UDF/partition function, never at module scope
+* **Error handling:** Always wrap API calls in try/except
+  and return sentinel values — never let exceptions kill
+  a Spark partition
+* **Rate limit awareness:** Set partition count based on
+  the API's RPM limit
+* **Cost estimation:** Always estimate cost before running
+  on the full dataset
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Batching LLM Calls in PySpark
+Batching is the practice of sending multiple records in
+a single LLM API call instead of one record per call.
+This is the most important optimization for scaling
+PySpark + LLM integration.
+
+Without batching (1 row = 1 API call):
+```
+1,000,000 rows → 1,000,000 API calls
+```
+
+With batching (batch_size = 10):
+```
+1,000,000 rows → 100,000 API calls
+```
+
+How batching works:
+
+1. Collect `BATCH_SIZE` records (e.g., 5 or 10)
+2. Format them as a numbered list in the prompt
+3. Ask the LLM to return a JSON array with one result
+   per input record
+4. Match results back to records by position
+
+Benefits:
+
+* Fewer API calls → lower HTTP overhead
+* Shared prompt instructions → fewer total tokens
+* Fewer rate limit issues → smoother execution
+* Lower cost per record
+
+Implementation patterns:
+
+* **DataFrame:** Loop inside `@pandas_udf` over chunks
+  of the pandas Series
+* **RDD:** Loop inside `mapPartitions()` over batches
+  of the materialised iterator
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Dead Letter Queue
+A dead letter queue (DLQ) is a holding area for records
+that could not be processed successfully. In PySpark + LLM
+integration, a dead letter queue captures records where
+the LLM call failed or returned invalid output.
+
+When an LLM call fails (timeout, rate limit, malformed
+JSON response), the pipeline should:
+
+1. Log the failed record with its ID and error details
+2. Return a sentinel value (e.g., "UNKNOWN") so the
+   Spark job continues
+3. Write failed records to a dead-letter file (JSONL)
+   or increment a Spark Accumulator
+
+After the job completes, failed records can be retried
+or manually reviewed. This pattern prevents a single
+API error from crashing the entire Spark job.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Idempotent Processing
+Idempotent processing means that running the same operation
+multiple times produces the same result as running it once.
+In PySpark + LLM pipelines, idempotency prevents duplicate
+API calls when a job is restarted.
+
+Implementation:
+
+1. Assign each record a unique hash (e.g., MD5 of ID + text)
+2. Before processing, load hashes of already-processed records
+   from a checkpoint file
+3. Filter out already-processed records
+4. After processing, append new hashes to the checkpoint
+
+This is critical for cost control: if a Spark job fails
+halfway through 1,000,000 records, restarting without a
+checkpoint would re-process (and re-pay for) all records.
+With idempotent checkpointing, only unprocessed records
+are sent to the LLM.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
 
 ## References
 
