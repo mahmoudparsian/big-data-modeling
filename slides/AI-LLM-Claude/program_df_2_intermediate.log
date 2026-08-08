@@ -1,0 +1,91 @@
+ % python3 program_df_2_intermediate.py
+✅ ANTHROPIC_API_KEY  : sk-ant-api03...
+   ANTHROPIC_MODEL    : claude-sonnet-4-6
+   LLM_MAX_TOKENS     : 300
+   LLM_RATE_LIMIT_RPM : 50  (sleep 1.20s/call)
+   SPARK_MASTER       : local[*]
+   SPARK_PARTITIONS   : 4
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/08/07 10:40:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+✅  Spark 4.2.0  |  master: local[*]
+Dataset: 12 tickets  |  4 partition(s)
++---+----------------+-----------------------------------------------------------------+
+| id|           email|                                                      ticket_text|
++---+----------------+-----------------------------------------------------------------+
+|  2|sara@example.com|The app crashes whenever I try to upload a photo. iOS 17, iPho...|
+|  5| tom@example.com|I've been trying to reach support for 2 months. Completely una...|
+|  9| eli@example.com|Can you add dark mode? The white background hurts my eyes at n...|
+|  6|emma@example.com|    Thank you! My issue was resolved quickly. Great service team.|
+|  4|lucy@example.com|How do I change my billing address? I can't find it in the set...|
+|  7|noah@example.com|     Login button does nothing on Chrome 120. Firefox works fine.|
+|  8| mia@example.com|   Was I charged for the premium plan? I only signed up for free.|
+|  3|mike@example.com|           Package arrived 3 weeks late and the item was damaged.|
+|  1|john@example.com|  My order #12345 was charged twice! I need a refund immediately.|
+| 11| dan@example.com|                                                                 |
+| 12| zoe@example.com|                                                               Hi|
+| 10| ava@example.com|   Account was locked after I tried to reset my password 3 times.|
++---+----------------+-----------------------------------------------------------------+
+
+================================================
+  COST ESTIMATE  (12 rows)
+================================================
+  Input  tokens/row : ~200
+  Output tokens/row : ~80
+  Input  cost       : $0.0072
+  Output cost       : $0.0144
+  TOTAL ESTIMATE    : $0.0216
+================================================
+Local test → {"priority": "HIGH", "category": "BILLING", "sentiment": "NEGATIVE", "summary": "Customer was charged twice for their subscription and is requesting a refund."}
+Enriched Tickets:
++---+----------------+-------------------------------------------------------+--------+---------+---------+-------------------------------------------------------+
+| id|           email|                                            ticket_text|priority| category|sentiment|                                                summary|
++---+----------------+-------------------------------------------------------+--------+---------+---------+-------------------------------------------------------+
+|  2|sara@example.com|The app crashes whenever I try to upload a photo. iO...|    HIGH|TECHNICAL| NEGATIVE|App crashes on photo upload for user running iOS 17 ...|
+|  5| tom@example.com|I've been trying to reach support for 2 months. Comp...|    HIGH|  GENERAL| NEGATIVE|Customer has been unable to reach support for 2 mont...|
+|  9| eli@example.com|Can you add dark mode? The white background hurts my...|     LOW| FEEDBACK| NEGATIVE|Customer requests dark mode feature due to eye strai...|
+|  6|emma@example.com|Thank you! My issue was resolved quickly. Great serv...|     LOW| FEEDBACK| POSITIVE|Customer expressed satisfaction with quick issue res...|
+|  4|lucy@example.com|How do I change my billing address? I can't find it ...|     LOW|  BILLING|  NEUTRAL|Customer cannot locate the billing address update op...|
+|  7|noah@example.com|Login button does nothing on Chrome 120. Firefox wor...|    HIGH|TECHNICAL| NEGATIVE|Login button is unresponsive on Chrome 120 but works...|
+|  8| mia@example.com|Was I charged for the premium plan? I only signed up...|    HIGH|  BILLING| NEGATIVE|Customer questions unexpected charge for premium pla...|
+|  3|mike@example.com| Package arrived 3 weeks late and the item was damaged.|    HIGH| SHIPPING| NEGATIVE|Package arrived 3 weeks late and the item was damage...|
+|  1|john@example.com|My order #12345 was charged twice! I need a refund i...|    HIGH|  BILLING| NEGATIVE|Customer was charged twice for order #12345 and is r...|
+| 11| dan@example.com|                                                       |     LOW|  GENERAL|  NEUTRAL|                                             Too short.|
+| 12| zoe@example.com|                                                     Hi|     LOW|  GENERAL|  NEUTRAL|                                             Too short.|
+| 10| ava@example.com|Account was locked after I tried to reset my passwor...|    HIGH|TECHNICAL| NEGATIVE|Customer account locked after three failed password ...|
++---+----------------+-------------------------------------------------------+--------+---------+---------+-------------------------------------------------------+
+
+=== Priority Distribution ===
++--------+---+
+|priority|  n|
++--------+---+
+|    HIGH|  7|
+|     LOW|  5|
++--------+---+
+
+=== HIGH Priority Tickets ===
+
++---+----------------+------------------------------------------------------------+
+| id|           email|                                                     summary|
++---+----------------+------------------------------------------------------------+
+|  5| tom@example.com|Customer has been unable to reach support for two months ...|
+|  8| mia@example.com|Customer questions unexpected premium plan charge after s...|
+|  7|noah@example.com|Login button is unresponsive on Chrome 120 but works corr...|
+|  2|sara@example.com|App crashes on photo upload for user on iOS 17 and iPhone...|
+|  1|john@example.com|Customer was double charged for order #12345 and is reque...|
+|  3|mike@example.com|Package arrived 3 weeks late and the item was damaged upo...|
+| 10| ava@example.com|Account locked after three failed password reset attempts...|
++---+----------------+------------------------------------------------------------+
+
+✅  Saved → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/tickets_enriched_p2
+   _SUCCESS
+   priority=LOW/part-00001-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+   priority=LOW/part-00000-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+   priority=LOW/part-00003-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+   priority=HIGH/part-00001-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+   priority=HIGH/part-00000-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+   priority=HIGH/part-00002-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+   priority=HIGH/part-00003-f788615e-79da-4f36-bff3-d5630b5849c4.c000.snappy.parquet
+AI-LLM-Claude (master +) %

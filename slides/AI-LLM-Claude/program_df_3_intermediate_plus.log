@@ -1,0 +1,74 @@
+% python3 program_df_3_intermediate_plus.py
+✅ ANTHROPIC_API_KEY  : sk-ant-api03...
+   ANTHROPIC_MODEL    : claude-sonnet-4-6
+   LLM_MAX_TOKENS     : 300
+   LLM_RATE_LIMIT_RPM : 50
+   LLM_BATCH_SIZE     : 5
+   LLM_MAX_CHARS      : 1500
+   SPARK_MASTER       : local[*]
+   SPARK_PARTITIONS   : 4
+Effective configuration:
+  Model          : claude-sonnet-4-6
+  Batch size     : 5 rows/call
+  Partitions     : 4
+  Rate limit     : 50 RPM  → sleep 6.00s/batch
+  Max chars/row  : 1500
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/08/07 10:43:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+✅  Spark 4.2.0  |  shuffle.partitions=4
+Dataset: 12 products  |  4 partition(s)
++----------+------------------------------------+------------------------------------------------------------+------------+
+|product_id|                        product_name|                                             raw_description|    row_hash|
++----------+------------------------------------+------------------------------------------------------------+------------+
+|      P001|Wireless Noise-Cancelling Headphones|Premium over-ear headphones with 30h battery, ANC, and US...|ff511c6028db|
+|      P009|                    External SSD 1TB|USB 3.2 Gen2, 1050MB/s read, aluminum shell, IP55 rated, ...|2058ddf3dbe3|
+|      P002|                 Mechanical Keyboard|TKL layout, Cherry MX Red switches, RGB backlighting, alu...|e0323a018c4f|
+|      P011|                         Phone Stand|Adjustable angle, magnetic, MagSafe compatible, desk and ...|5c09e3af279c|
+|      P004|                        Laptop Stand|Adjustable aluminum stand, 6 angles, foldable, compatible...|073d66546919|
+|      P012|                      Drawing Tablet|8192 pressure levels, 10x6 in, 8 express keys, tilt suppo...|9d10f956b8b1|
+|      P007|                       Desk Lamp LED|Touch dimmer, 5 color temps, USB-A charging port, flexibl...|35b7feb10cae|
+|      P005|                    USB-C Hub 7-in-1|4K HDMI, 100W PD, 2x USB-A 3.0, SD/microSD, compatible wi...|14c3401c58d3|
+|      P003|                  4K Monitor 27-inch|IPS panel, 144Hz, HDR400, 1ms response, USB-C hub, height...|5246eee0ae7e|
+|      P008|                     Ergonomic Chair|Lumbar support, adjustable armrests, breathable mesh, 300...|84b84959d55f|
+|      P010|                       Smart Speaker|360 audio, voice assistant, multi-room, touch controls, 3...|119c39f9263d|
+|      P006|                        Webcam 1080p|Full HD 30fps, built-in stereo mic, privacy shutter, plug...|cdb0146a2c89|
++----------+------------------------------------+------------------------------------------------------------+------------+
+
+   No checkpoint — processing all rows
+   Rows to process: 12/12
+Local batch test:
+  1: {"quality_score": 8, "target_audience": "PROFESSIONAL", "key_features": ["Active Noise Cancellation", "Premium Sound Quality", "Comfortable Design"], "suggested_tag": "audio"}
+  2: {"quality_score": 7, "target_audience": "GAMER", "key_features": ["RGB Lighting", "Mechanical Switches", "Tactile Feedback"], "suggested_tag": "keyboard"}
+✅  'batched_enrich_udf' ready  (batch=5)
+   Dead-letter log → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/llm_dead_letters_p3.jsonl
+Enriched Products:
++----------+-----------------------------------+-------------+---------------+-------------+-------------+
+|product_id|                       product_name|quality_score|target_audience|suggested_tag|needs_rewrite|
++----------+-----------------------------------+-------------+---------------+-------------+-------------+
+|      P003|                 4K Monitor 27-inch|            8|          GAMER|      monitor|        false|
+|      P001|Wireless Noise-Cancelling Headph...|            8|        GENERAL|        audio|        false|
+|      P012|                     Drawing Tablet|            9|   PROFESSIONAL|      drawing|        false|
+|      P007|                      Desk Lamp LED|            7|        GENERAL|     lighting|        false|
+|      P011|                        Phone Stand|            6|        GENERAL|  accessories|        false|
+|      P009|                   External SSD 1TB|            9|   PROFESSIONAL|      storage|        false|
+|      P005|                   USB-C Hub 7-in-1|            8|   PROFESSIONAL|          hub|        false|
+|      P004|                       Laptop Stand|            7|        GENERAL|        stand|        false|
+|      P010|                      Smart Speaker|            7|        GENERAL|      speaker|        false|
+|      P002|                Mechanical Keyboard|            8|          GAMER|     keyboard|        false|
+|      P006|                       Webcam 1080p|            7|        GENERAL|       webcam|        false|
+|      P008|                    Ergonomic Chair|            8|   PROFESSIONAL|        chair|        false|
++----------+-----------------------------------+-------------+---------------+-------------+-------------+
+
+
+   Batch error (attempt 1): Unterminated string starting at: line 29 column 40 (char 841)
+   Batch error (attempt 2): Unterminated string starting at: line 29 column 22 (char 829)
+   Batch error (attempt 3): Unterminated string starting at: line 29 column 40 (char 839)
+   Batch error (attempt 1): Expecting property name enclosed in double quotes: line 29 column 76 (char 863)
+   Batch error (attempt 2): Expecting property name enclosed in double quotes: line 29 column 76 (char 861)
+   Batch error (attempt 3): Expecting property name enclosed in double quotes: line 29 column 76 (char 861)
+✅  Enriched data → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/products_enriched_p3
+✅  Checkpoint updated → 12 total rows marked done
+AI-LLM-Claude (master +) %

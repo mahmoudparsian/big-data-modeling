@@ -1,0 +1,246 @@
+
+% python3 program_df_2_intermediate_scale_out.py
+✅ ANTHROPIC_API_KEY  : sk-ant-api03...
+   ANTHROPIC_MODEL    : claude-sonnet-4-6
+   LLM_MAX_TOKENS     : 300
+   LLM_BATCH_SIZE     : 5  (rows per Claude call)
+   LLM_RATE_LIMIT_RPM : 50  → sleep 6.00s/batch
+   SPARK_MASTER       : local[*]
+   SPARK_PARTITIONS   : 4
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/08/07 11:42:34 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+✅  Spark 4.2.0  |  master: local[*]
+Dataset: 12 tickets  |  4 partition(s)
++---+----------------+-----------------------------------------------------------------+
+| id|           email|                                                      ticket_text|
++---+----------------+-----------------------------------------------------------------+
+|  2|sara@example.com|The app crashes whenever I try to upload a photo. iOS 17, iPho...|
+|  5| tom@example.com|I've been trying to reach support for 2 months. Completely una...|
+|  9| eli@example.com|Can you add dark mode? The white background hurts my eyes at n...|
+|  6|emma@example.com|    Thank you! My issue was resolved quickly. Great service team.|
+|  4|lucy@example.com|How do I change my billing address? I can't find it in the set...|
+|  7|noah@example.com|     Login button does nothing on Chrome 120. Firefox works fine.|
+|  8| mia@example.com|   Was I charged for the premium plan? I only signed up for free.|
+|  3|mike@example.com|           Package arrived 3 weeks late and the item was damaged.|
+|  1|john@example.com|  My order #12345 was charged twice! I need a refund immediately.|
+| 11| dan@example.com|                                                                 |
+| 12| zoe@example.com|                                                               Hi|
+| 10| ava@example.com|   Account was locked after I tried to reset my password 3 times.|
++---+----------------+-----------------------------------------------------------------+
+
+=======================================================
+  COST COMPARISON  (12 rows, batch_size=5)
+=======================================================
+  Unbatched (Program 2):     12 API calls  |  $0.0270
+  Batched   (this):           3 API calls  |  $0.0243
+  Savings:                    9 fewer      |  $0.0027
+=======================================================
+Local batch test (2 tickets in 1 call):
+      [test] OK — 2 tickets → 2 results
+  ticket 1: {"priority": "HIGH", "category": "BILLING", "sentiment": "NEGATIVE", "summary": "Customer was charged twice for subscription and is requesting a refund."}
+  ticket 2: {"priority": "MEDIUM", "category": "TECHNICAL", "sentiment": "NEGATIVE", "summary": "Login button is not functioning properly on the Chrome browser."}
+✅  'batched_ticket_udf' ready (batch_size=5)
+
+======================================================================
+  ENRICHED TICKETS (batched)
+======================================================================
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      row 0: SKIPPED (too short: '')
+      row 1: SKIPPED (too short: 'Hi')
+   Partition received 3 rows: 1 need LLM, 2 skipped
+      Sending [batch 1, 1 rows]: row indices [2]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 1 rows] OK — 1 tickets → 1 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
++---+----------------+-------------------------------------------------------+--------+---------+---------+-------------------------------------------------------+
+| id|           email|                                            ticket_text|priority| category|sentiment|                                                summary|
++---+----------------+-------------------------------------------------------+--------+---------+---------+-------------------------------------------------------+
+|  2|sara@example.com|The app crashes whenever I try to upload a photo. iO...|    HIGH|TECHNICAL| NEGATIVE|App crashes on photo upload for iPhone 15 running iO...|
+|  5| tom@example.com|I've been trying to reach support for 2 months. Comp...|    HIGH|  GENERAL| NEGATIVE|Customer has been unable to reach support for two mo...|
+|  9| eli@example.com|Can you add dark mode? The white background hurts my...|     LOW| FEEDBACK|  NEUTRAL|Customer requests dark mode feature to reduce eye st...|
+|  6|emma@example.com|Thank you! My issue was resolved quickly. Great serv...|     LOW| FEEDBACK| POSITIVE|Customer praises quick issue resolution and commends...|
+|  4|lucy@example.com|How do I change my billing address? I can't find it ...|  MEDIUM|  BILLING|  NEUTRAL|Customer cannot locate billing address change option...|
+|  7|noah@example.com|Login button does nothing on Chrome 120. Firefox wor...|    HIGH|TECHNICAL| NEGATIVE|Login button is unresponsive on Chrome 120 but works...|
+|  8| mia@example.com|Was I charged for the premium plan? I only signed up...|  MEDIUM|  BILLING|  NEUTRAL|Customer questions a possible incorrect charge for p...|
+|  3|mike@example.com| Package arrived 3 weeks late and the item was damaged.|    HIGH| SHIPPING| NEGATIVE|Package arrived three weeks late and the delivered i...|
+|  1|john@example.com|My order #12345 was charged twice! I need a refund i...|    HIGH|  BILLING| NEGATIVE|Customer was double charged on order 12345 and is ur...|
+| 11| dan@example.com|                                                       |     LOW|  GENERAL|  NEUTRAL|                                             Too short.|
+| 12| zoe@example.com|                                                     Hi|     LOW|  GENERAL|  NEUTRAL|                                             Too short.|
+| 10| ava@example.com|Account was locked after I tried to reset my passwor...|    HIGH|TECHNICAL| NEGATIVE|Account locked after three failed password reset att...|
++---+----------------+-------------------------------------------------------+--------+---------+---------+-------------------------------------------------------+
+
+=== Priority Distribution ===
+      row 2: SKIPPED (too short: '')
+   Partition received 3 rows: 2 need LLM, 1 skipped
+      Sending [batch 1, 2 rows]: row indices [0, 1]
+      row 0: SKIPPED (too short: 'Hi')
+   Partition received 3 rows: 2 need LLM, 1 skipped
+      Sending [batch 1, 2 rows]: row indices [1, 2]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
++--------+---+
+|priority|  n|
++--------+---+
+|    HIGH|  6|
+|     LOW|  3|
+|  MEDIUM|  3|
++--------+---+
+
+=== Category Distribution ===
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      row 0: SKIPPED (too short: 'Hi')
+   Partition received 3 rows: 2 need LLM, 1 skipped
+      Sending [batch 1, 2 rows]: row indices [1, 2]
+      row 2: SKIPPED (too short: '')
+   Partition received 3 rows: 2 need LLM, 1 skipped
+      Sending [batch 1, 2 rows]: row indices [0, 1]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
++---------+---+
+| category|  n|
++---------+---+
+|TECHNICAL|  3|
+|  GENERAL|  3|
+|  BILLING|  3|
+| FEEDBACK|  2|
+| SHIPPING|  1|
++---------+---+
+
+=== Sentiment Distribution ===
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      row 0: SKIPPED (too short: 'Hi')
+   Partition received 3 rows: 2 need LLM, 1 skipped
+      Sending [batch 1, 2 rows]: row indices [1, 2]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+      row 2: SKIPPED (too short: '')
+   Partition received 3 rows: 2 need LLM, 1 skipped
+      Sending [batch 1, 2 rows]: row indices [0, 1]
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
++---------+---+
+|sentiment|  n|
++---------+---+
+| NEGATIVE|  7|
+|  NEUTRAL|  4|
+| POSITIVE|  1|
++---------+---+
+
+=== HIGH Priority Tickets ===
+      row 10: SKIPPED (too short: '')
+      row 11: SKIPPED (too short: 'Hi')
+   Partition received 12 rows: 10 need LLM, 2 skipped
+      Sending [batch 1, 5 rows]: row indices [0, 1, 2, 3, 4]
+      [batch 1, 5 rows] OK — 5 tickets → 5 results
+      Sending [batch 2, 5 rows]: row indices [5, 6, 7, 8, 9]
+
+      [batch 2, 5 rows] OK — 5 tickets → 5 results
+   Partition done: 12 rows processed in 2 API call(s) (batch_size=5)
+   Partition received 1 rows: 1 need LLM, 0 skipped
+      Sending [batch 1, 1 rows]: row indices [0]
+      [batch 1, 1 rows] OK — 1 tickets → 1 results
+   Partition done: 1 rows processed in 1 API call(s) (batch_size=5)
+   Partition received 2 rows: 2 need LLM, 0 skipped
+      Sending [batch 1, 2 rows]: row indices [0, 1]
+   Partition received 2 rows: 2 need LLM, 0 skipped
+      Sending [batch 1, 2 rows]: row indices [0, 1]
+   Partition received 2 rows: 2 need LLM, 0 skipped
+      Sending [batch 1, 2 rows]: row indices [0, 1]
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 2 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 2 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 2 rows] OK — 2 tickets → 2 results
+   Partition done: 2 rows processed in 1 API call(s) (batch_size=5)
++---+----------------+---------+------------------------------------------------------------+
+| id|           email| category|                                                     summary|
++---+----------------+---------+------------------------------------------------------------+
+|  5| tom@example.com|  GENERAL|Customer has been unable to reach support for 2 months an...|
+|  8| mia@example.com|  BILLING|Customer was unexpectedly charged for premium plan despit...|
+|  7|noah@example.com|TECHNICAL|Login button is non-functional on Chrome 120 but works co...|
+|  2|sara@example.com|TECHNICAL|   App crashes on photo upload for user on iOS 17 iPhone 15.|
+|  1|john@example.com|  BILLING|Customer was double charged for order 12345 and urgently ...|
+|  3|mike@example.com| SHIPPING|Package arrived three weeks late and the item was damaged...|
+| 10| ava@example.com|TECHNICAL|Account locked after three failed password reset attempts...|
++---+----------------+---------+------------------------------------------------------------+
+
+      row 10: SKIPPED (too short: '')
+      row 11: SKIPPED (too short: 'Hi')
+   Partition received 12 rows: 10 need LLM, 2 skipped
+      Sending [batch 1, 5 rows]: row indices [0, 1, 2, 3, 4]
+      [batch 1, 5 rows] OK — 5 tickets → 5 results
+      Sending [batch 2, 5 rows]: row indices [5, 6, 7, 8, 9]
+      [batch 2, 5 rows] OK — 5 tickets → 5 results
+   Partition done: 12 rows processed in 2 API call(s) (batch_size=5)
+✅  All rows have valid enrichment values
+      row 0: SKIPPED (too short: '')   Partition received 3 rows: 3 need LLM, 0 skipped
+
+      row 1: SKIPPED (too short: 'Hi')
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+   Partition received 3 rows: 1 need LLM, 2 skipped
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 1 rows]: row indices [2]
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+   Partition received 3 rows: 3 need LLM, 0 skipped
+      Sending [batch 1, 3 rows]: row indices [0, 1, 2]
+
+
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 1 rows] OK — 1 tickets → 1 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+      [batch 1, 3 rows] OK — 3 tickets → 3 results
+   Partition done: 3 rows processed in 1 API call(s) (batch_size=5)
+✅  Saved → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/tickets_enriched_p2_scaleout
+   _SUCCESS
+   priority=LOW/part-00000-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=LOW/part-00001-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=LOW/part-00003-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=HIGH/part-00000-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=HIGH/part-00001-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=HIGH/part-00003-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=HIGH/part-00002-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=MEDIUM/part-00001-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+   priority=MEDIUM/part-00002-2f1a43a8-ddc9-4cc8-aaf5-3e9b24c89870.c000.snappy.parquet
+AI-LLM-Claude (master +) %

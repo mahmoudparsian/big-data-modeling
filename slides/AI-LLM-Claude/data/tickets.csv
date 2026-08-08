@@ -1,0 +1,13 @@
+id,email,ticket_text
+1,john@example.com,My order #12345 was charged twice! I need a refund immediately.
+2,sara@example.com,"The app crashes whenever I try to upload a photo. iOS 17, iPhone 15."
+3,mike@example.com,Package arrived 3 weeks late and the item was damaged.
+4,lucy@example.com,"How do I change my billing address? I can't find it in the settings."
+5,tom@example.com,I've been trying to reach support for 2 months. Completely unacceptable.
+6,emma@example.com,Thank you! My issue was resolved quickly. Great service team.
+7,noah@example.com,Login button does nothing on Chrome 120. Firefox works fine.
+8,mia@example.com,"Was I charged for the premium plan? I only signed up for free."
+9,eli@example.com,Can you add dark mode? The white background hurts my eyes at night.
+10,ava@example.com,Account was locked after I tried to reset my password 3 times.
+11,dan@example.com,""
+12,zoe@example.com,Hi

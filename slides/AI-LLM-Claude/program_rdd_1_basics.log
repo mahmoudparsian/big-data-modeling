@@ -1,0 +1,84 @@
+% python3 program_rdd_1_basics.py
+✅ ANTHROPIC_API_KEY  : sk-ant-api03...
+   ANTHROPIC_MODEL    : claude-sonnet-4-6
+   LLM_MAX_TOKENS     : 300
+   LLM_RATE_LIMIT_RPM : 50  → sleep 1.20s/call
+   SPARK_MASTER       : local[*]
+   SPARK_PARTITIONS   : 4
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/08/07 10:46:48 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+✅  Spark 4.2.0  |  master: local[*]
+   Default parallelism: 16
+RDD: 10 headlines  |  4 partitions
+
+Partition layout (via glom):
+  Partition 0: headline IDs []  (0 records)
+  Partition 1: headline IDs [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  (10 records)
+  Partition 2: headline IDs []  (0 records)
+  Partition 3: headline IDs []  (0 records)
+Local test (no Spark):
+  Headline : 'Scientists discover new exoplanet in the habitable zone'
+  Topic    : SPACE
+✅  enrich_partition() defined
+   Signature : iterator of (id, headline)
+   Yields    : (id, headline, topic)
+   Client    : ONE per partition (not one per record)
+Enriched Headlines:
+
+   ID  Topic           Headline
+  ---  --------------  --------------------------------------------------
+    1  ECONOMY         Central bank raises interest rates for the third time t
+    2  SPACE           Scientists discover new exoplanet in the habitable zone
+    3  SPORTS          Local football team wins championship after 20-year dro
+    4  TECHNOLOGY      Tech giant announces layoffs affecting 12
+    5  WEATHER         Tropical storm strengthens to category 4 hurricane over
+    6  HEALTH          New vaccine shows 94% efficacy against seasonal flu var
+    7  TECHNOLOGY      Electric vehicle sales surpass petrol cars for first ti
+    8  POLITICS        Supreme Court rules on landmark data privacy case
+    9  ENVIRONMENT     Wildfires consume 200,000 acres across three western st
+   10  SPACE           Astronomers detect repeating radio signal from distant
+
+=== Topic Distribution ===
+  SPACE           2  ██
+  TECHNOLOGY      2  ██
+  WEATHER         1  █
+  POLITICS        1  █
+  ECONOMY         1  █
+  SPORTS          1  █
+  HEALTH          1  █
+  ENVIRONMENT     1  █
+
+=== SCIENCE + SPACE Headlines ===
+
+  [ 2] Scientists discover new exoplanet in the habitable zone
+  [10] Astronomers detect repeating radio signal from distant galaxy
+DataFrame view of the enriched RDD:
++---+------------------------------------------------------------+-----------+
+| id|                                                    headline|      topic|
++---+------------------------------------------------------------+-----------+
+|  1|Central bank raises interest rates for the third time thi...|    ECONOMY|
+|  2|     Scientists discover new exoplanet in the habitable zone|      SPACE|
+|  3| Local football team wins championship after 20-year drought|     SPORTS|
+|  4|                   Tech giant announces layoffs affecting 12| TECHNOLOGY|
+|  5|Tropical storm strengthens to category 4 hurricane overnight|    WEATHER|
+|  6|New vaccine shows 94% efficacy against seasonal flu variants|     HEALTH|
+|  7|Electric vehicle sales surpass petrol cars for first time...| TECHNOLOGY|
+|  8|           Supreme Court rules on landmark data privacy case|   POLITICS|
+|  9| Wildfires consume 200,000 acres across three western states|ENVIRONMENT|
+| 10|Astronomers detect repeating radio signal from distant ga...|      SPACE|
++---+------------------------------------------------------------+-----------+
+
+Schema:
+root
+ |-- id: long (nullable = true)
+ |-- headline: string (nullable = true)
+ |-- topic: string (nullable = true)
+
+✅  Saved as text → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/headlines_enriched_rdd1_txt
+
+
+✅  Saved as Parquet (partitioned by topic) → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/headlines_enriched_rdd1_parquet
+AI-LLM-Claude (master +) %

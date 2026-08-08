@@ -1,0 +1,64 @@
+% python3 program_df_1_basics.py
+✅ .env loaded
+✅  ANTHROPIC_API_KEY : sk-ant-api03...
+   ANTHROPIC_MODEL    : claude-sonnet-4-6
+   LLM_MAX_TOKENS     : 300
+   LLM_RATE_LIMIT_RPM : 50  → sleep 1.20s between calls
+   SPARK_MASTER       : local[*]
+   SPARK_PARTITIONS   : 4
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/08/07 10:38:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+✅  Spark 4.2.0  |  master: local[*]
+Dataset: 10 reviews  |  2 partition(s)
++---+------------+------------------------------------------------------------+
+| id|product_type|                                                 review_text|
++---+------------+------------------------------------------------------------+
+| 10|      laptop|                                                        Meh.|
+|  5|      tablet|Returned it immediately. Screen had dead pixels out of th...|
+|  7|      laptop|Not bad. A bit slow for video editing but fine for browsing.|
+|  9|      tablet|        Solid build quality. Kids love it. Highly recommend.|
+|  4|       phone|       Best smartphone I have ever owned. Worth every penny.|
+|  8|       phone|  Stopped working after two weeks. Horrible quality control.|
+|  6|      tablet|  Perfect for reading and light work. Battery lasts all day.|
+|  3|       phone|Decent phone for the price. Camera is okay, nothing special.|
+|  1|      laptop|Absolutely love this laptop. Fast, lightweight, great bat...|
+|  2|      laptop|Terrible. Overheats after 20 minutes and the keyboard is ...|
++---+------------+------------------------------------------------------------+
+
+Local test → POSITIVE
+Enriched DataFrame:
++---+------------+-------------------------------------------------------+---------+
+| id|product_type|                                            review_text|sentiment|
++---+------------+-------------------------------------------------------+---------+
+| 10|      laptop|                                                   Meh.|TOO_SHORT|
+|  5|      tablet|Returned it immediately. Screen had dead pixels out ...| NEGATIVE|
+|  7|      laptop|Not bad. A bit slow for video editing but fine for b...|  NEUTRAL|
+|  9|      tablet|   Solid build quality. Kids love it. Highly recommend.| POSITIVE|
+|  4|       phone|  Best smartphone I have ever owned. Worth every penny.| POSITIVE|
+|  8|       phone|Stopped working after two weeks. Horrible quality co...| NEGATIVE|
+|  6|      tablet|Perfect for reading and light work. Battery lasts al...| POSITIVE|
+|  3|       phone|Decent phone for the price. Camera is okay, nothing ...|  NEUTRAL|
+|  1|      laptop|Absolutely love this laptop. Fast, lightweight, grea...| POSITIVE|
+|  2|      laptop|Terrible. Overheats after 20 minutes and the keyboar...| NEGATIVE|
++---+------------+-------------------------------------------------------+---------+
+
+=== Sentiment Distribution ===
+
+
++---------+-----+
+|sentiment|count|
++---------+-----+
+| POSITIVE|    4|
+| NEGATIVE|    3|
+|  NEUTRAL|    2|
+|TOO_SHORT|    1|
++---------+-----+
+
+
+
+
+
+✅  Saved → /var/folders/_5/wx3bhmf91dq3fv1bjwmpdlzc0000gn/T/reviews_enriched_p1
