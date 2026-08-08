@@ -49,6 +49,7 @@
 	to solve big data problems.
 	
 
+
 * Course ISBA-2413: **Big Data Modeling & Analytics**
 
 * [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
