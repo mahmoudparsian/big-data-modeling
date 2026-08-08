@@ -1,19 +1,25 @@
 # Mahmoud Parsian
 
-Mahmoud Parsian is a software architect and author.  He 
-leads Illumina's Big Data team focused on large-scale 
-genome analytics. He is a practicing software professional 
-with 30+ years of experience as a developer, designer, 
-architect, and author. For the past 15 years, he has been 
-involved in Java server-side, databases, MapReduce, Spark, 
-and distributed computing. Dr. Parsian is leading and 
-developing scalable distributed algorithms for genomics 
-data using Python, Java, MapReduce, Spark, Snowflake, 
-and open source tools.
+[Dr. Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/) 
+is an Assistant Teaching Professor 
+in the Department of Information Systems & 
+Analytics at Santa Clara University. He is 
+an educator, software architect, author, and 
+data professional with more than four decades 
+of experience spanning academia and industry. 
+His teaching and professional interests include 
+database management systems, data warehousing, 
+business intelligence, big data analytics, 
+machine learning, distributed computing, cloud 
+data platforms, and artificial intelligence.
 
 
-Mahmoud Parsian earned his M.S. and Ph.D in Computer 
+Mahmoud Parsian earned his Ph.D in Computer 
 Science from Iowa State University, Ames, Iowa.
+
+---
+
+# Publications
 
 Dr. Parsian has published five books:
 
@@ -27,17 +33,20 @@ Dr. Parsian has published five books:
 
 5. [Parsian, Mahmoud (2005). JDBC recipes.](https://link.springer.com/book/10.1007/978-1-4302-0061-1)
 
+---
 
-<p>
+# Professional Web Sites
+
+
 Dr. Parsian's professional web sites are:
-<br>
+
 <ul>
+
   <li><a href="https://github.com/mahmoudparsian/">Github Repositories</a></li>
+
   <li><a href="http://mapreduce4hackers.com">MapReduce 4 Hackers</a></li>
+
   <li><a href="https://www.linkedin.com/in/mahmoudparsian/">LinkedIn Profile</a></li>
+
 </ul>
 
-
-                   
-</body>
-</html>
