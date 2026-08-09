@@ -81,23 +81,25 @@
 
 ## 12. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
 
-## 13. [Python Tutorials](./web_docs/python_tutorials.md)
+## 13. [Academic Conduct](./web_docs/academic_conduct.md)
 
-## 14. [SQL Tutorials](./web_docs/sql_tutorials.md)
+## 14. [Python Tutorials](./web_docs/python_tutorials.md)
 
-## 15. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
+## 15. [SQL Tutorials](./web_docs/sql_tutorials.md)
 
-## 16. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
+## 16. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
 
-## 17. [Office Hours](./web_docs/office_hours.md)
+## 17. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
 
-## 18. [Exam 1 & Exam 2](./web_docs/midterm_exam.md)
+## 18. [Office Hours](./web_docs/office_hours.md)
 
-## 19. [Final Exam](./web_docs/final_exam.md)
+## 19. [Exam 1 & Exam 2](./web_docs/midterm_exam.md)
 
-## 20. Mahmoud Parsian's Latest Books
+## 20. [Final Exam](./web_docs/final_exam.md)
 
--------
+---
+
+## Mahmoud Parsian's Latest Books
 
 ### Data Algorithms with Spark 
 
