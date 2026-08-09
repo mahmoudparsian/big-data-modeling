@@ -59,43 +59,43 @@
 
 
 
-## 2.  [Class Room, Dates & Hours](./web_docs/class_meeting_dates_and_hours.md)
+## 2.  [Class Room, Dates & Hours](./docs/class_meeting_dates_and_hours.md)
 
 ## 3.  [Instructor: Dr. M. Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 4.  [Prerequisite](./web_docs/prerequisite.md)
+## 4.  [Prerequisite](./docs/prerequisite.md)
 
-## 5.  [Course Description](./web_docs/course_description.md)
+## 5.  [Course Description](./docs/course_description.md)
 
-## 6.  [Course Outline](./web_docs/course_outline.md)
+## 6.  [Course Outline](./docs/course_outline.md)
 
 ## 7.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## 8.  [Required Books and Papers](./web_docs/required_books.md)
+## 8.  [Required Books and Papers](./docs/required_books.md)
 
-## 9.  [Optional Books and References](./web_docs/additional_books.md)
+## 9.  [Optional Books and References](./docs/additional_books.md)
 
-## 10.  [Required Software](./web_docs/required_software.md)
+## 10.  [Required Software](./docs/required_software.md)
 
 ## 11.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
-## 12. [Grading and Class Conduct](./web_docs/grading_and_class_conduct.md)
+## 12. [Grading and Class Conduct](./docs/grading_and_class_conduct.md)
 
-## 13. [Academic Conduct](./web_docs/academic_conduct.md)
+## 13. [Academic Conduct](./docs/academic_conduct.md)
 
-## 14. [Python Tutorials](./web_docs/python_tutorials.md)
+## 14. [Python Tutorials](./docs/python_tutorials.md)
 
-## 15. [SQL Tutorials](./web_docs/sql_tutorials.md)
+## 15. [SQL Tutorials](./docs/sql_tutorials.md)
 
-## 16. [MapReduce Tutorials](./web_docs/mapreduce_tutorials.md)
+## 16. [MapReduce Tutorials](./docs/mapreduce_tutorials.md)
 
-## 17. [PySpark Tutorials](./web_docs/pyspark_tutorials.md)
+## 17. [PySpark Tutorials](./docs/pyspark_tutorials.md)
 
-## 18. [Office Hours](./web_docs/office_hours.md)
+## 18. [Office Hours](./docs/office_hours.md)
 
-## 19. [Exam 1 & Exam 2](./web_docs/midterm_exam.md)
+## 19. [Exam 1 & Exam 2](./docs/midterm_exam.md)
 
-## 20. [Final Exam](./web_docs/final_exam.md)
+## 20. [Final Exam](./docs/final_exam.md)
 
 ---
 
