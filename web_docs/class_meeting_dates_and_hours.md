@@ -1,6 +1,14 @@
-# Class Meeting Dates & Hours
+# Class Room, Dates & Hours
 
--------
+
+#### Classroom: 306, Lucas Hall 
+
+#### Instructor's Office: 316U, Lucas Hall 
+
+#### Office Hours: via scheduled Zoom and by appointment
+
+
+---
 
 ## Class Start & End Dates
 
@@ -8,7 +16,7 @@
 |-------------------|------------------|--------------------|
 |September 21, 2026 |December 6, 2026  |December 8-12, 2026 |
 
--------
+---
 
 ## Class Schedule & Hours 
 

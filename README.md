@@ -48,24 +48,20 @@
 	use Spark cluster and  MapReduce fundamentals 
 	to solve big data problems.
 	
+## Main Subjects
+
+| Subject                             | Percentage |        
+|-------------------------------------|------------|
+|1. Big Data Concepts                 | 10%        |
+|2. MapReduce Paradigm                | 20%        |
+|3. Big Data Analytics by PySpark     | 50%        |
+|4. Data Partitioning and SQL Queries | 20%        |
 
 
-* Course ISBA-2413: **Big Data Modeling & Analytics**
 
-* [Graduate School, Leavey School of Business](https://www.scu.edu/business/)
+## 2.  [Class Room, Dates & Hours](./web_docs/class_meeting_dates_and_hours.md)
 
-* [Department of Information Systems & Analytics](https://www.scu.edu/bulletin/graduate/leavey-school-of-business/chapter-7/information-systems-and-business-analytics-isba.html)
-
-* Classroom: 306 Lucas Hall (LH)
-
-* Office: 316U, Lucas Hall (LH)
-
-* Office Hours: via scheduled Zoom and by appointment
-
-
-## 2.  [Class Meeting Dates & Hours](./web_docs/class_meeting_dates_and_hours.md)
-
-## 3.  [Instructor: Dr. M. Parsian, Assistant Teaching Professor](https://www.scu.edu/business/isa/faculty/parsian/)
+## 3.  [Instructor: Dr. M. Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
 ## 4.  [Prerequisite](./web_docs/prerequisite.md)
 
@@ -79,7 +75,7 @@
 
 ## 9.  [Optional Books and References](./web_docs/additional_books.md)
 
-## 10.  [Required Software: MapReduce & Spark/PySpark](./web_docs/required_software.md)
+## 10.  [Required Software](./web_docs/required_software.md)
 
 ## 11.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
