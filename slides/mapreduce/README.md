@@ -1,4 +1,4 @@
-1. [Partitions and Executors](./Partitions_and_Executors.md)
+1. [Partitions and Executors](./partitions_in_mapreduce/Partitions_and_Executors.md)
 
 2. [Big Data Components](./big_data_components_ibm.png)
 
