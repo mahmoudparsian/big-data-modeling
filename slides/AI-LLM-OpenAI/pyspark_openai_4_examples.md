@@ -1,4 +1,4 @@
-# 4 Examples of PySpark integration with openAI LLM
+# 4 Examples of PySpark Integration <br> with openAI LLM
 
 	Here are **4 solid working examples** of 
 	integrating PySpark with **OpenAI LLMs** 
@@ -14,8 +14,7 @@
 
 ## **Example 1: Text Enrichment in a Spark DataFrame using GPT**
 
-	**Use Case:** 
-	Enhance or summarize text fields (e.g., customer 
+**Use Case:** Enhance or summarize text fields (e.g., customer 
 	reviews, support tickets) using GPT.
 
 ```python
@@ -145,7 +144,9 @@ translated_df.show(truncate=False)
 
 ---
 
-# Optimized Version using Batching or `foreachPartition` <br> to avoid hitting rate limits
+# Optimized Version using Batching 
+
+To avoid hitting rate limits, you may use `foreachPartition` functions/transformations.
 
 Here's an **optimized approach using `foreachPartition`** 
 in PySpark to safely integrate with OpenAI's API without 

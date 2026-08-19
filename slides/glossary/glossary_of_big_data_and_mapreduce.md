@@ -266,6 +266,7 @@ Table of Contents
 1. [Batching LLM Calls in PySpark](#Batching-LLM-Calls-in-PySpark)
 1. [Dead Letter Queue](#Dead-Letter-Queue)
 1. [Idempotent Processing](#Idempotent-Processing)
+1. [Fun Image of Programming Languages](#Fun-Image-of-Programming-Languages)
 1. [References](#References)
 1. [List of Books by Mahmoud Parsian](#List-of-Books-by-Mahmoud-Parsian)
 
@@ -10012,6 +10013,15 @@ checkpoint would re-process (and re-pay for) all records.
 With idempotent checkpointing, only unprocessed records
 are sent to the LLM.
 
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Fun Image of Programming Languages
+
+
+![](./images/fun_image_of_programming_languages.webp)
 
 <a class="top-link hide" href="#top">↑</a>
 <a name="top"></a>
