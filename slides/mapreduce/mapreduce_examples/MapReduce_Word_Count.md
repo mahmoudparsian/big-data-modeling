@@ -1,7 +1,7 @@
 # Classic Word Count
 
 	Author: Mahmoud Parsian
-	Last updated: 8/18/2026
+	Last updated: 8/19/2026
 
 ## Goal
 
@@ -16,37 +16,39 @@ the reducer.
    2. OUTPUT: frequency of words
    3. `map()` function
    4. `reduce()` function
-   5. `combine()` function (OPTIONAL, controlled by the programmer)
+   5. `combine()` function (OPTIONAL, controlled by the programmer — see Homework)
 
 ## Filters in MapReduce
 
-   1. When to apply a filter to a mapper
-   2. When to apply a filter to a reducer
+   1. When to apply a filter to a mapper (see "REVISED map() with a filter" below)
+   2. When to apply a filter to a reducer (see "REVISED reduce() with a filter" below)
 
 
 ## INPUT
 
-	fox jumped
-	fox jumped and fox jumped
-	fox is here
-	fox is there
+~~~text
+fox jumped
+fox jumped and fox jumped
+fox is here
+fox is there
+~~~
 
 ## Passing input to mappers
 
-	1. Input is split into chunks (records) and passed to mappers.
-
-	2. We assume that the partitioner passes each record
-	   to a mapper as a (key, value) pair, where:
-
-	         key:   the record number of the input, as an integer
-	         value: the entire record, as a string
+1. Input is split into chunks (records) and passed to mappers.
+2. We assume that the partitioner passes each record to a
+   mapper as a `(key, value)` pair, where:
+   - `key`: the record number of the input, as an integer
+   - `value`: the entire record, as a string
 
 Therefore:
 
-	First record  is passed as (1, "fox jumped")                 to a mapper
-	Second record is passed as (2, "fox jumped and fox jumped")  to a mapper
-	Third record  is passed as (3, "fox is here")                to a mapper
-	Fourth record is passed as (4, "fox is there")                to a mapper
+| Record # | Input line | Passed to a mapper as |
+|---|---|---|
+| 1 | `fox jumped` | `(1, "fox jumped")` |
+| 2 | `fox jumped and fox jumped` | `(2, "fox jumped and fox jumped")` |
+| 3 | `fox is here` | `(3, "fox is here")` |
+| 4 | `fox is there` | `(4, "fox is there")` |
 
 
 ## Mapper function
@@ -97,7 +99,7 @@ The framework groups all values by key and hands each
 reducer a `(key, Iterable<Integer>)` pair:
 
 ~~~text
-(fox,    [1, 1, 1, 1, 1]) == (fox, Iterable<Integer>)
+(fox,    [1, 1, 1, 1, 1])   # i.e., (fox, Iterable<Integer>)
 (jumped, [1, 1, 1])
 (and,    [1])
 (is,     [1, 1])
@@ -216,6 +218,12 @@ depends on an aggregate (e.g., minimum frequency, top-K).
 ## Homework
 
    1. Write a `combine()` function for word count.
+      (Hint: word count is the *easy* case for combining —
+      contrast it with the Average Temperature example,
+      where naively combining partial *averages* produces
+      the wrong answer; see the "Combiner" section of
+      `MapReduce_Find_Average_Temperature.md`. Why does
+      summing not have that problem?)
    2. Argue why your combiner is correct: since integer
       addition is both **associative** and **commutative**,
       partial sums computed by a combiner on a mapper's
@@ -223,3 +231,10 @@ depends on an aggregate (e.g., minimum frequency, top-K).
       and still produce the same final total.
    3. Does the reducer filter (`total > 1`) still work
       correctly if a combiner is used? Why or why not?
+   4. The mapper tokenizes with `value.split(" ")`, which
+      treats `"Fox"` and `"fox"` as different words and
+      breaks on multiple consecutive spaces or punctuation
+      (e.g., `"fox,"` would never match `"fox"`). Revise
+      `map()` to lowercase each token and strip punctuation
+      before emitting it. Would that change the counts in
+      this example's output? Why or why not?
