@@ -549,3 +549,9 @@ https://data-flair.training/blogs/hadoop-combiner-tutorial/)
 
 4. [MapReduce From Wikipedia](
 https://en.wikipedia.org/wiki/MapReduce)
+
+5. [MapReduce Combiners](https://www.tutorialscampus.com/tutorials/map-reduce/combiners.htm)
+
+6. [Mapreduce Combiner Example](https://examples.javacodegeeks.com/enterprise-java/apache-hadoop/hadoop-mapreduce-combiner-example/)
+
+7. [Combiner in Mapreduce](http://hadooptutorial.info/combiner-in-mapreduce/)
