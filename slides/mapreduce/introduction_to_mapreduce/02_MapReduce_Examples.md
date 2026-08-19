@@ -1,5 +1,8 @@
 # MapReduce: Complete Scenarios and Step-by-Step Solutions
 
+	Author: Mahmoud Parsian
+	Last updated: 8/19/2026
+
 This document walks through two MapReduce examples in full detail:
 
 1. **Basic example** — Word Count (the canonical example, used to introduce the mechanics)
@@ -15,6 +18,8 @@ Input Split
 → Reduce 
 → Output
 ```
+
+See also the worked examples in [`../mapreduce_examples/`](../mapreduce_examples/) (Word Count, Palindromes, Average Temperature) for more end-to-end walkthroughs — including a case where a naive combiner produces the *wrong* answer, referenced in Step 3 below.
 
 ---
 
@@ -82,6 +87,16 @@ A Combiner runs on each Mapper's node before data is sent across the network. It
 function COMBINE(word, list_of_counts):
     emit(word, sum(list_of_counts))
 ```
+
+**Why this combiner is correct:** integer addition is both **associative**
+and **commutative**, so it doesn't matter whether a partial sum is computed
+by a combiner, computed directly by the reducer, or some mix of both —
+applying the combiner zero, one, or many times, in any order, always
+yields the same final count. Not every `reduce()` function has this
+property: see the Average Temperature example in
+[`../mapreduce_examples/MapReduce_Find_Average_Temperature.md`](../mapreduce_examples/MapReduce_Find_Average_Temperature.md),
+where naively combining partial *averages* gives the wrong answer, and the
+combiner has to emit `(sum, count)` pairs instead of an average.
 
 | Mapper | Combined output |
 |---|---|
@@ -211,6 +226,8 @@ function MAP(line_number, line_text):
 
 Each Mapper's Combiner sums amounts sharing the same key **within that Mapper's own output** before shuffling. In this small dataset no key repeats within a single mapper split, so the combined output equals the raw output — but at real scale (millions of rows per split) this step is what prevents huge volumes of duplicate keys from crossing the network.
 
+*Illustrative aside:* if Mapper 1's split instead contained *two* `West|Electronics` rows — say amounts `250` and `90` — the combiner would collapse them into a single `(West|Electronics, 340)` pair before the shuffle, instead of sending two separate pairs across the network. At millions of rows per split, that collapsing is what makes the combiner worth having.
+
 **Combiner pseudocode:**
 
 ```
@@ -235,7 +252,19 @@ function PARTITION(key, num_reducers):
     if region == "West":  return Reducer_1
     if region == "East":  return Reducer_2
     if region == "South": return Reducer_3
+    # any other region falls back to a generic, evenly-spread bucket
+    return hash(region) % num_reducers
 ```
+
+This custom partitioner only makes sense because we know, in advance,
+that the data has exactly three regions and we deliberately want each
+one isolated on its own Reducer. A real Hadoop job's default
+partitioner (`HashPartitioner`) instead computes
+`hash(key) % num_reducers` for *every* key — simpler, and it
+load-balances automatically, but it gives no guarantee that all of one
+region's rows land on the same Reducer. You write a custom partitioner
+like this one specifically when you need that placement guarantee
+(e.g., a downstream step needs every region's rows co-located).
 
 ### Step 5 — Shuffle & Sort
 
