@@ -22,12 +22,12 @@ distributed algorithm on a cluster.
 5. Questions, answers, and homework
 
 ## MapReduce with Mappers and Reducers
-![](./mapreduce_framework.jpg)
+![](./images/mapreduce_framework.jpg)
 
 
 ## MapReduce with Mappers, Combiners, and Reducers
 
-![](./map-reduce-combine-image.png)
+![](./images/mapreduce-combine-image.png)
 
 
 ## MapReduce Functions
@@ -212,8 +212,8 @@ map(key=1, value="fox is red"):
 # Input to Sort & Shuffle
 
 Without a combiner, **every** mapper output record
-(15 records total) is shipped across the network
-as-is:
+(18 records total — count the `(word, 1)` pairs below)
+is shipped across the network as-is:
 
 ~~~text
 (fox, 1)
@@ -383,7 +383,7 @@ aggregations like sum, min, max, and count.
 ## Input to final Sort & Shuffle
 
 After combining, only **10** records cross the
-network instead of the original 15 — a ~33% cut
+network instead of the original 18 — a ~44% cut
 for this tiny example, and the savings grow with
 the amount of repetition in the data:
 
@@ -540,18 +540,16 @@ g2,1
 
 # References
 
-1. [MapReduce – Combiners](https://www.geeksforgeeks.org/mapreduce-combiners/)
+[1. MapReduce – Combiners](https://www.geeksforgeeks.org/mapreduce-combiners/)
 
-2. [MapReduce - Combiners](https://www.tutorialspoint.com/map_reduce/map_reduce_combiners.htm)
+[2. MapReduce - Combiners](https://www.tutorialspoint.com/map_reduce/map_reduce_combiners.htm)
 
-3. [Best Explanation to MapReduce Combiner](
-https://data-flair.training/blogs/hadoop-combiner-tutorial/)
+[3. Best Explanation to MapReduce Combiner](https://data-flair.training/blogs/hadoop-combiner-tutorial/)
 
-4. [MapReduce From Wikipedia](
-https://en.wikipedia.org/wiki/MapReduce)
+[4. MapReduce From Wikipedia](https://en.wikipedia.org/wiki/MapReduce)
 
-5. [MapReduce Combiners](https://www.tutorialscampus.com/tutorials/map-reduce/combiners.htm)
+[5. MapReduce Combiners](https://www.tutorialscampus.com/tutorials/map-reduce/combiners.htm)
 
-6. [Mapreduce Combiner Example](https://examples.javacodegeeks.com/enterprise-java/apache-hadoop/hadoop-mapreduce-combiner-example/)
+[6. Mapreduce Combiner Example](https://examples.javacodegeeks.com/enterprise-java/apache-hadoop/hadoop-mapreduce-combiner-example/)
 
-7. [Combiner in Mapreduce](http://hadooptutorial.info/combiner-in-mapreduce/)
+[7. Combiner in Mapreduce](http://hadooptutorial.info/combiner-in-mapreduce/)

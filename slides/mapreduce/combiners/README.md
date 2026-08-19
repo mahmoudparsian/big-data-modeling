@@ -19,15 +19,15 @@ with a parallel, distributed algorithm on a cluster.
 |---|---|
 | `README.md` (this file) | Core concepts: mapper, reducer, combiner, and why a combiner is safe (or not) to use |
 | [`Word_Count_in_MapReduce.md`](./Word_Count_in_MapReduce.md) | Worked example: word count, solved with and without a combiner, including a partition-by-partition walkthrough and a Q&A/homework section |
-| [`MapReduce_with_Combiners_Examples.md`](./MapReduce_with_Combiners_Examples.md) | Two more worked examples: average value per gene, and `(avg, min, max)` per gene — each solved with and without a combiner |
+| [`MapReduce_with_Combiners.md`](./MapReduce_with_Combiners.md) | Two more worked examples: average value per gene, and `(avg, min, max)` per gene — each solved with and without a combiner |
 
 ## MapReduce with Mappers and Reducers
 
-![](./mapreduce_framework.jpg)
+![](./images/mapreduce_framework.jpg)
 
 ## MapReduce with Mappers, Combiners, and Reducers
 
-![](./map-reduce-combine-image.png)
+![](./images/mapreduce-combine-image.png)
 
 ## MapReduce Functions
 
@@ -114,6 +114,12 @@ A combiner is also an **optimization, never a
 guarantee** — Hadoop/Spark may skip running it entirely,
 so the reducer must still be correct on its own.
 
+A worked numeric example, showing that the "no combiner" and
+"with combiner" paths land on the exact same final answer
+(`A=22, B=11, C=15` either way):
+
+![Understanding Combiners in Classic MapReduce, by Mahmoud Parsian](./images/combiners_in_mapreduce.png)
+
 ## Worked Examples
 
 * **Word count** — the classic MapReduce example, solved
@@ -128,7 +134,7 @@ so the reducer must still be correct on its own.
   and the fix is to emit a small aggregate tuple
   (`(sum, count)`, then `(sum, count, min, max)`) that
   *is* associative and commutative:
-  see [`MapReduce_with_Combiners_Examples.md`](./MapReduce_with_Combiners_Examples.md).
+  see [`MapReduce_with_Combiners.md`](./MapReduce_with_Combiners.md).
 
 ## References
 
