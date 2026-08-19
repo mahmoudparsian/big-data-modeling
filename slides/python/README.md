@@ -1,10 +1,9 @@
 ## Python Tutorials
 
-* [Tutorial - Learn Python in 10 minutes](https://www.stavros.io/tutorials/python/)
+* [1. Introduction to Python - Phil Spector](./introduction_to_Python_by_Phil_Spector.pdf)
 
-* [Google's Python Class](https://developers.google.com/edu/python/)
+* [2. Tutorial - Learn Python in 10 minutes](https://www.stavros.io/tutorials/python/)
 
-* [Python Introduction](https://www.w3schools.com/python/python_intro.asp)
+* [3. Google's Python Class](https://developers.google.com/edu/python/)
 
-* [Fundamentals of Python Programming Book](./zpython-book.pdf) 
-
+* [4. Python Introduction](https://www.w3schools.com/python/python_intro.asp)
