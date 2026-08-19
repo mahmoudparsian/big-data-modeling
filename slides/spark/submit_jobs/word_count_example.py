@@ -26,7 +26,7 @@ def main():
   # Compact solution
   # The next sections will collect each stage and display the output
   counts = data.flatMap(lambda x: x.split(' ')) \
-      .filter(lambda x: len(x) > 3) \
+      .filter(lambda x: len(x) >= 3) \
       .map(lambda x: (x, 1)) \
       .reduceByKey(lambda x, y: x + y) \
       .collect()

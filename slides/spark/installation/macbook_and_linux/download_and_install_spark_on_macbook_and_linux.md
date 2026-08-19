@@ -3,7 +3,7 @@
 * Note that these instructions are for MacBook and Linux.
 
 * To install Spark on Windows, 
-[Follow This Link](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/spark/windows/Installing_Spark_On_VirtualBox_Ubuntu_Hrishikesh_Panchbhai.pdf)
+[Follow This Link](../windows/Installing_Spark_On_VirtualBox_Ubuntu_Hrishikesh_Panchbhai.pdf)
 
 
 * If there an error in this document, please notify me to correct it. Thanks.
