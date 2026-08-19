@@ -1,7 +1,7 @@
 # Amazon Athena Demo
 
 * Author: *Mahmoud Parsian*
-* Date Updated: *Nonember 28, 2023*
+* Date Updated: *August 18, 2026*
 
 
 ## 1. Input Prep: Create Data File(s)
@@ -208,3 +208,17 @@ data**):
 
 	s3://mybucket/output/customers/customer_id=c1/date=2017/
 
+# References
+
+* [1. What is Amazon Athena (video 1)](https://www.youtube.com/watch?v=ihVI-MZ6xR0)
+
+* [2. What is Amazon Athena (video 2)](https://www.youtube.com/watch?time_continue=13&v=DxAuj_Ky5aw&feature=emb_logo)
+
+* [3. What is Amazon Athena (video 3)](https://www.youtube.com/watch?v=UwnRi4ZDJEk)
+
+
+* [4. Introduction to Amazon Athena (37 slides)](https://www.slideshare.net/AmazonWebServices/introduction-to-amazon-athena-80673567)
+
+* [5. Introduction to Amazon Athena (46 slides)](https://www.slideshare.net/AmazonWebServices/introduction-to-amazon-athena-79695119)
+
+* [6. Google Bigquery (video)](https://www.youtube.com/watch?v=qqbYrQGSibQ)
