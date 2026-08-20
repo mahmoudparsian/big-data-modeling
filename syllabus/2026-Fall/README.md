@@ -47,7 +47,8 @@
 
 At the completion of this course, students will be able to understand:
 
-**Elements of Big Data**
+**Elements of Big Data**:
+
 - Cluster computing
 - Persistence, queries, analytics
 - Data replication
@@ -55,6 +56,7 @@ At the completion of this course, students will be able to understand:
 - Scale-out architecture vs. scale-up architecture
 
 **What is the MapReduce paradigm?**
+
 - Data partitioning and partitions
 - Mapper function: `map()`
 - Reducer function: `reduce()`
@@ -64,6 +66,7 @@ At the completion of this course, students will be able to understand:
 - Data design patterns
 
 **Fundamentals of Spark and PySpark**
+
 - Spark architecture
 - Spark: engine for large-scale data analytics
 - Data abstractions in Spark and PySpark
@@ -72,6 +75,7 @@ At the completion of this course, students will be able to understand:
 - Running simple programs in PySpark
 
 **NoSQL Databases & Serverless Architectures**
+
 - SQL for NoSQL data & relational algebra
 - Amazon Athena and SQL
 - Google BigQuery and SQL
@@ -122,7 +126,7 @@ At the completion of this course, students will be able to understand:
 
 | # | Day | Date | Topic |
 |---|-----|------|-------|
-| 1  | Monday    | Sep 21, 2026 | [Introduction to Big Data and MapReduce](#session-1) |
+| 1  | Monday    | Sep 21, 2026 | [Introduction to Big Data and Cluster Computing](#session-1) |
 | 2  | Wednesday | Sep 23, 2026 | [Introduction to Big Data and MapReduce](#session-2) |
 | 3  | Monday    | Sep 28, 2026 | [Introduction to MapReduce](#session-3) |
 | 4  | Wednesday | Sep 30, 2026 | [Introduction to MapReduce](#session-4) |
