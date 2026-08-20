@@ -1,4 +1,4 @@
-### Error running `start-all.sh` Connection refused
+## Error running `start-all.sh` Connection refused
 
 If you are on a Mac and run into the following error 
 when running `.../sbin/start-all.sh` (to start Spark
@@ -12,6 +12,6 @@ localhost port 22: Connection refused
 ````
 
 
-You need to enable *Remote Login* for your machine. 
-From *System Preferences*, select *Sharing*, and then 
-turn on *Remote Login*.
+You need to enable *Remote Login* for your machine. <br>
+From **System Preferences**, select **Sharing**, and then 
+turn on **Remote Login**.
