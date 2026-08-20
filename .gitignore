@@ -1,5 +1,6 @@
 .env*
 CLAUDE.md*
+TODAY.txt
 data/white_house_log/whitehouse_waves-2016_12.csv
 
 # Local-only credentials/scratch data — never commit
