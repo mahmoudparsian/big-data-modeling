@@ -1,4 +1,11 @@
-# wordcount-demo
+# Word Count Demo
+
+The word count problem is the "Hello World"
+program of distributed data processing. Given 
+a massive collection of text documents, the 
+goal is to count how many times each unique 
+word appears across the entire dataset using 
+a distributed MapReduce framework.
 
 Word-count demo script and its input data (`data/`), with a sample run log.
 
