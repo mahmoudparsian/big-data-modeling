@@ -48,7 +48,18 @@
 	use Spark cluster and  MapReduce fundamentals 
 	to solve big data problems.
 	
-## Main Subjects
+# 2. Folders
+
+
+| folder                                      | Description |        
+|---------------------------------------------|-------------|
+| [`slides`](./slides)                        | slides, lecture notes, and notebooks        |
+| [`syllabus`](./syllabus/2026-Fall/README.md)| 10-weeks session-by-session syllabus        | 
+| [`course_info`](./course_info)              | Course Information: grading, exams, academic conduct |
+| [`data`](./data)| Samples of data for analytics       |
+| [`instructor`](./instructor) | Mahmoud Parsian as Instructor |
+	
+## 3. Main Subjects
 
 | Subject                             | Percentage |        
 |-------------------------------------|------------|
@@ -58,44 +69,43 @@
 |4. Data Partitioning and SQL Queries | 20%        |
 
 
+## 4.  [Class Room, Dates & Hours](./course_info/class_meeting_dates_and_hours.md)
 
-## 2.  [Class Room, Dates & Hours](./course_info/class_meeting_dates_and_hours.md)
+## 5.  [Instructor: Dr. M. Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 3.  [Instructor: Dr. M. Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
+## 6.  [Prerequisite](./course_info/prerequisite.md)
 
-## 4.  [Prerequisite](./course_info/prerequisite.md)
+## 7.  [Course Description](./course_info/course_description.md)
 
-## 5.  [Course Description](./course_info/course_description.md)
+## 8.  [Course Outline](./course_info/course_outline.md)
 
-## 6.  [Course Outline](./course_info/course_outline.md)
+## 9.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## 7.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
+## 10.  [Required Books and Papers](./course_info/required_books.md)
 
-## 8.  [Required Books and Papers](./course_info/required_books.md)
+## 11.  [Optional Books and References](./course_info/additional_books.md)
 
-## 9.  [Optional Books and References](./course_info/additional_books.md)
+## 12.  [Required Software](./course_info/required_software.md)
 
-## 10.  [Required Software](./course_info/required_software.md)
+## 13.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
-## 11.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
+## 14. [Grading and Class Conduct](./course_info/grading_and_class_conduct.md)
 
-## 12. [Grading and Class Conduct](./course_info/grading_and_class_conduct.md)
+## 15. [Academic Conduct](./course_info/academic_conduct.md)
 
-## 13. [Academic Conduct](./course_info/academic_conduct.md)
+## 16. [Python Tutorials](./course_info/python_tutorials.md)
 
-## 14. [Python Tutorials](./course_info/python_tutorials.md)
+## 17. [SQL Tutorials](./course_info/sql_tutorials.md)
 
-## 15. [SQL Tutorials](./course_info/sql_tutorials.md)
+## 18. [MapReduce Tutorials](./course_info/mapreduce_tutorials.md)
 
-## 16. [MapReduce Tutorials](./course_info/mapreduce_tutorials.md)
+## 19. [PySpark Tutorials](./course_info/pyspark_tutorials.md)
 
-## 17. [PySpark Tutorials](./course_info/pyspark_tutorials.md)
+## 20. [Office Hours](./course_info/office_hours.md)
 
-## 18. [Office Hours](./course_info/office_hours.md)
+## 21. [Exam 1 & Exam 2](./course_info/midterm_exam.md)
 
-## 19. [Exam 1 & Exam 2](./course_info/midterm_exam.md)
-
-## 20. [Final Exam](./course_info/final_exam.md)
+## 22. [Final Exam](./course_info/final_exam.md)
 
 ---
 
