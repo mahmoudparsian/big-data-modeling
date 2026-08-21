@@ -15,7 +15,7 @@ Examples, slides, and notes for learning PySpark.
 
 ## Core Concepts
 
-* [`rdd_transformations/`](rdd_transformations) — creating RDDs, `map`, `filter`, `flatMap`
+* [`rdd_slides/`](rdd_slides) — creating RDDs, `map`, `filter`, `flatMap`
 * [`rdd_reducers_by_key/`](rdd_reducers_by_key) — `groupByKey`, `reduceByKey`, `combineByKey`
 * [`rdd_class_demos/`](rdd_class_demos) — RDD example scripts and notebooks
 * [`join_operation/`](join_operation) — join examples in PySpark and MapReduce
@@ -32,4 +32,5 @@ Examples, slides, and notes for learning PySpark.
 * [`graphframes/`](graphframes) — GraphFrames intro and demos
 * [`pyspark_and_LLM/`](pyspark_and_LLM) — PySpark & LLM integration
 * [`spark-submit-example/`](spark-submit-example) — running jobs with `spark-submit`
-* [`wordcount-example/`](wordcount-example) and [`wordcount-demo/`](wordcount-demo) — classic word count examples
+* [`rdd_wordcount_example/`](rdd_wordcount_example) — classic word count example
+* [`rdd_wordcount_demo/`](rdd_wordcount_demo) — classic word count example
