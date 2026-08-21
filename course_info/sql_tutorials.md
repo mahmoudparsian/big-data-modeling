@@ -7,5 +7,3 @@
 ### 3. [SQL Tutorial: by sqltutorial.org](https://www.sqltutorial.org)
 
 ### 4. [SQL Tutorial: by mode.com](https://mode.com/sql-tutorial/)
-
-### 5. SQL Tutorial: PDF format (no longer available online)
