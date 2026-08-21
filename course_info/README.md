@@ -1,4 +1,4 @@
-# course_info
+# Course Information
 
 Administrative and reference material for the course (syllabus policies, tutorials, book lists, exam info) linked from the top-level [README](../README.md).
 
