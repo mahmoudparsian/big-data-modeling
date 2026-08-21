@@ -20,6 +20,7 @@ Examples, slides, and notes for learning PySpark.
 * [`pyspark-rdd-sessions/`](pyspark-rdd-sessions) — RDD example scripts and notebooks
 * [`join_operation/`](join_operation) — join examples in PySpark and MapReduce
 * [`UDF/`](UDF) — user-defined functions
+* [`mapreduce-pyspark-tutorial/`](mapreduce-pyspark-tutorial) — Tutorial 1: MapReduce thinking with PySpark RDDs, slides + companion notebook
 
 ## DataFrames
 

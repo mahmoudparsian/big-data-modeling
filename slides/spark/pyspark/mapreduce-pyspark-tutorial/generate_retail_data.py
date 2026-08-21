@@ -1,12 +1,14 @@
-"""Generate the synthetic retail dataset used by mapreduce-pyspark-tutorial.md
-and mapreduce-pyspark-notebook.ipynb.
+"""
+Generate the synthetic retail dataset used by 
+mapreduce-pyspark-tutorial.md and mapreduce-pyspark-notebook.ipynb.
 
 Run once from anywhere:
 
     python3 generate_retail_data.py
 
-Writes four related CSVs into data/ (next to this script), deterministically
-(seed=7), so re-running always produces the same numbers:
+Writes four related CSVs into data/ (next to this script), 
+deterministically (seed=7), so re-running always produces 
+the same numbers:
 
     data/customers.csv   customer_id, country, segment
     data/products.csv    product_id, sku, category, price

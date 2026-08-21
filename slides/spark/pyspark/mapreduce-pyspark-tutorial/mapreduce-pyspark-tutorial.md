@@ -17,9 +17,9 @@ style: |
 ---
 
 # MapReduce with PySpark
-### A hands-on tutorial — from word count to retail analytics
+### A hands-on tutorial 
+### From "word count" to retail analytics
 
-Big Data Modeling · MSIS
 
 ---
 
