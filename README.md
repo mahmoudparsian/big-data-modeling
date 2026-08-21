@@ -59,43 +59,43 @@
 
 
 
-## 2.  [Class Room, Dates & Hours](./docs/class_meeting_dates_and_hours.md)
+## 2.  [Class Room, Dates & Hours](./course_info/class_meeting_dates_and_hours.md)
 
 ## 3.  [Instructor: Dr. M. Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 4.  [Prerequisite](./docs/prerequisite.md)
+## 4.  [Prerequisite](./course_info/prerequisite.md)
 
-## 5.  [Course Description](./docs/course_description.md)
+## 5.  [Course Description](./course_info/course_description.md)
 
-## 6.  [Course Outline](./docs/course_outline.md)
+## 6.  [Course Outline](./course_info/course_outline.md)
 
 ## 7.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## 8.  [Required Books and Papers](./docs/required_books.md)
+## 8.  [Required Books and Papers](./course_info/required_books.md)
 
-## 9.  [Optional Books and References](./docs/additional_books.md)
+## 9.  [Optional Books and References](./course_info/additional_books.md)
 
-## 10.  [Required Software](./docs/required_software.md)
+## 10.  [Required Software](./course_info/required_software.md)
 
 ## 11.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
-## 12. [Grading and Class Conduct](./docs/grading_and_class_conduct.md)
+## 12. [Grading and Class Conduct](./course_info/grading_and_class_conduct.md)
 
-## 13. [Academic Conduct](./docs/academic_conduct.md)
+## 13. [Academic Conduct](./course_info/academic_conduct.md)
 
-## 14. [Python Tutorials](./docs/python_tutorials.md)
+## 14. [Python Tutorials](./course_info/python_tutorials.md)
 
-## 15. [SQL Tutorials](./docs/sql_tutorials.md)
+## 15. [SQL Tutorials](./course_info/sql_tutorials.md)
 
-## 16. [MapReduce Tutorials](./docs/mapreduce_tutorials.md)
+## 16. [MapReduce Tutorials](./course_info/mapreduce_tutorials.md)
 
-## 17. [PySpark Tutorials](./docs/pyspark_tutorials.md)
+## 17. [PySpark Tutorials](./course_info/pyspark_tutorials.md)
 
-## 18. [Office Hours](./docs/office_hours.md)
+## 18. [Office Hours](./course_info/office_hours.md)
 
-## 19. [Exam 1 & Exam 2](./docs/midterm_exam.md)
+## 19. [Exam 1 & Exam 2](./course_info/midterm_exam.md)
 
-## 20. [Final Exam](./docs/final_exam.md)
+## 20. [Final Exam](./course_info/final_exam.md)
 
 ---
 

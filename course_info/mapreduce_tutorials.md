@@ -6,23 +6,26 @@
 
 #### 3. [Introduction to MapReduce by Fernando Chirigati, (PDF, 50 Slides)](https://vgc.poly.edu/~fchirigati/mda-class/mapreduce-intro.pdf)
 
-#### 4. [Google's MapReduce Programming Modell Revisited by Ralf Lammel](./Googles_MapReduce_Programming_Modell_Revisited_by_Ralf_Lammel.pdf)
+#### 4. [Google's MapReduce Programming Modell Revisited by Ralf Lammel](../slides/mapreduce/google_mapreduce_paper/Googles_MapReduce_Programming_Model_Revisited_by_Ralf_Lammel.pdf)
 
+#### 5. [Google's MapReduce Paper](../slides/mapreduce/google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 
-------
+---
+
 ## MapReduce Flow
 
-![](./mapreduce-flow-01.jpeg)
+![](./../images/mapreduce-flow-01.jpeg)
 
--------
+---
+
 ## MapReduce Example 1
 
-![](./word_count_mapreduce.jpeg)
+![](./../images/word_count_mapreduce.jpeg)
 
-------
+---
 
 ## MapReduce Example 2
 
-![](./mapreduce-flowchart.png)
+![](./../images/mapreduce-flowchart.png)
 
 
