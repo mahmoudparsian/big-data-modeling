@@ -68,13 +68,13 @@ At the completion of this course, students will be able to understand:
 ### References and Papers
 
 
-* [1. Big Data Now -- book](http://www.oreilly.com/data/free/files/bigdatanow2013.pdf)
+* [1. Big Data Now -- book](http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf)
 
-* [2. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
+* [2. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](../../slides/mapreduce/google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 
-* [3. Designing Good Mapreduce Algorithms by Ullman](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
+* [3. Designing Good Mapreduce Algorithms by Ullman](../../slides/mapreduce/introduction_to_mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
 
-* [4: Bigtable: A Distributed Storage System for Structured Data](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
+* [4: Bigtable: A Distributed Storage System for Structured Data](../../slides/mapreduce/distributed_file_system/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
 
 
 ## Grade Distribution:
@@ -205,7 +205,7 @@ However, you must keep up with the reading assignments.
 |	* Introduction to Big Data |
 |	* [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf) |
 |	* [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |
 
 
 ----------------
@@ -216,7 +216,7 @@ However, you must keep up with the reading assignments.
 | * Introduction to MapReduce: Watch a Video   |  
 |	* [The Future of Big Data by Matei Zaharia](https://www.youtube.com/watch?v=oSj2vYw5RLs)  |  
 |	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  |  
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
 	 
 ----------------
 
@@ -226,7 +226,7 @@ However, you must keep up with the reading assignments.
 | * Introduction to MapReduce: Watch a Video    
 |	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  |  
 |	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |   
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |   
 	   
 ----------------
 
@@ -235,7 +235,7 @@ However, you must keep up with the reading assignments.
 |:------------|
 | * Introduction to MapReduce/Hadoop/Spark |   
 |	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
 	 
 ----------------
 
@@ -244,7 +244,7 @@ However, you must keep up with the reading assignments.
 |:------------|
 |   * Practice MapReduce/Hadoop/Spark  |  
 |   * [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
-|   * [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  |  
+|   * [Introduction to Spark by Shannon Quinn](https://web.archive.org/web/20230803213727/http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  |  
 
 	
 ----------------
@@ -255,7 +255,7 @@ However, you must keep up with the reading assignments.
 |   * Spark Nuts and Bolts    |
 |	* [Making Big Data Simple: by Matei Zaharia](https://www.youtube.com/watch?v=Nev1s6fHwMI) |   
 |	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  |  
-|	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) | 
+|	* [Parallel-Programming-With-Spark-Matei-Zaharia](https://web.archive.org/web/20191228201919/http://ampcamp.berkeley.edu:80/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) | 
 
 	   
 ----------------
@@ -376,7 +376,7 @@ However, you must keep up with the reading assignments.
 References:
 ============
 
-* [Relational Algebra and MapReduce](http://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high\_level.pdf)
+* [Relational Algebra and MapReduce](http://web.archive.org/web/20221127080039/https://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high_level.pdf)
 
 * [MapReduce examples](http://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf)
 

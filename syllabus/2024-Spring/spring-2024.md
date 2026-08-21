@@ -124,8 +124,8 @@ TOPIC: Introduction to Big Data and MapReduce
 
 * OPTIONAL:
 	* [MapReduce wikipedia](https://en.wikipedia.org/wiki/MapReduce)
-	* [A Comprehensive Study on MapReduce Applications](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/A_Comprehensive_Study_on_MapReduce_Applications.pdf)
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf) 
+	* A Comprehensive Study on MapReduce Applications (no longer available online)
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) 
 
 ----------------
 
@@ -141,7 +141,7 @@ TOPIC: Introduction to MapReduce
 * OPTIONAL:
 	* [Introduction to MapReduce: Watch a Video](https://www.youtube.com/watch?v=ht3dNvdNDzI&t=250s) 
 	* [The Future of Big Data by Matei Zaharia -- Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)   
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)  
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)  
 
 ----------------
 
@@ -156,11 +156,11 @@ TOPIC: Introduction to MapReduce
 
 	* [MapReduce Algorithms](https://courses.cs.ut.ee/MTAT.08.027/2018_spring/uploads/Main/L5_MapReduceAlgorithms2018.pdf)
 	* Classic Join in MapReduce (inner join)
-	* [Join Algorithms Using MapReduce](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.186.2140&rep=rep1&type=pdf)
+	* Join Algorithms Using MapReduce (no longer available online — CiteSeerX)
 
 * OPTIONAL:
 	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
 	* [Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
 	
 ----------------
@@ -170,7 +170,7 @@ TOPIC: Introduction to MapReduce
 TOPIC: Introduction to Spark 
 
 * REQUIRED:
-	* [A-Gentle-Introduction-to-Apache-Spark](pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
+	* [A-Gentle-Introduction-to-Apache-Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
 	* [Chapters 1, 2 of Data Algorithms with Spark Book by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1) 
 	* [PySpark Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/pyspark_tutorial)  
 	* [Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
@@ -187,13 +187,13 @@ TOPIC: Introduction to Spark and PySpark (Python API for Spark)
 
 * REQUIRED:
 	* [Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
-	* [A-Gentle-Introduction-to-Apache-Spark](pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
+	* [A-Gentle-Introduction-to-Apache-Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
 	* [Chapters 1, 2, 3, 4 of Data Algorithms with Spark Book by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1) 
 	* [Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
 
 * OPTIONAL:
 	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  
-	* [Introduction to Spark by Shannon Quinn](http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  
+	* [Introduction to Spark by Shannon Quinn](https://web.archive.org/web/20230803213727/http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)  
 
 ----------------
 
@@ -208,7 +208,7 @@ TOPIC: Spark's Nuts and Bolts
 
 * OPTIONAL:
 	* [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)  
-	* [Parallel-Programming-With-Spark-Matei-Zaharia](http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) 
+	* [Parallel-Programming-With-Spark-Matei-Zaharia](https://web.archive.org/web/20191228201919/http://ampcamp.berkeley.edu:80/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx) 
 
 ----------------
 

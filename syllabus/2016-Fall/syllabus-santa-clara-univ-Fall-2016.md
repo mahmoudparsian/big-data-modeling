@@ -58,13 +58,13 @@ Required books (all resources are online)
 References and Papers
 ---------------------
  
-* [1. Big Data Now -- book](http://www.oreilly.com/data/free/files/bigdatanow2013.pdf)
+* [1. Big Data Now -- book](http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf)
 
-* [2. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](http://lintool.github.io/MapReduce-course-2013s/material/Dean_Ghemawat_OSDI2004.pdf)
+* [2. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](../../slides/mapreduce/google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 
-* [3. Designing Good Mapreduce Algorithms by Ullman](http://lintool.github.io/MapReduce-course-2013s/material/Ullman_2012.pdf)
+* [3. Designing Good Mapreduce Algorithms by Ullman](../../slides/mapreduce/introduction_to_mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
          
-* [4: Bigtable: A Distributed Storage System for Structured Data](http://lintool.github.io/MapReduce-course-2013s/material/ChangFay_etal_OSDI2006.pdf)
+* [4: Bigtable: A Distributed Storage System for Structured Data](../../slides/mapreduce/distributed_file_system/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
 
 
 
@@ -177,7 +177,7 @@ However, you must keep up with the reading assignments.
 		<ul>
 			<li>Introduction to Big Data
 			</li>
-			<li> <a href="http://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
+			<li> <a href="http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
 			     Pages 1-40 of Big Data Now</a>
 			</li>
 			<li> <a href="http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf" >
@@ -203,7 +203,7 @@ However, you must keep up with the reading assignments.
 			<li>
 				<a href="http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf">				Introduction to MapReduce by Mahmoud Parsian</a>
 			</li>
-			<li> <a href="http://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
+			<li> <a href="http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
 			     Pages 41-80 of Big Data Now</a>
 			</li>
 			<li> <a href="http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf" >
@@ -225,7 +225,7 @@ However, you must keep up with the reading assignments.
 			<li>Introduction to MapReduce
 			</li>
 			
-			<li> <a href="http://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
+			<li> <a href="http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
 			     Pages 81-100 of Big Data Now</a>
 			</li>
 			<li> <a href="http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf" >
@@ -248,7 +248,7 @@ However, you must keep up with the reading assignments.
 			<li>Introduction to MapReduce
 			</li>
 			
-			<li> <a href="http://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
+			<li> <a href="http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
 			     Pages 100-120 of Big Data Now</a>
 			</li>
 			<li> <a href="http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf" >
@@ -269,7 +269,7 @@ However, you must keep up with the reading assignments.
 			<li>Introduction to MapReduce/Hadoop/Spark
 			</li>
 			
-			<li> <a href="http://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
+			<li> <a href="http://web.archive.org/web/20210505144035/https://www.oreilly.com/data/free/files/bigdatanow2013.pdf">
 			     Pages 121-187 of Big Data Now</a>
 			</li>
 			<li> <a href="http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf" >
@@ -294,7 +294,7 @@ However, you must keep up with the reading assignments.
 			</li>
 			
 			<li>
-			   <a href="http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf">			   Introduction to Spark by Shannon Quinn</a>
+			   <a href="https://web.archive.org/web/20230803213727/http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf">			   Introduction to Spark by Shannon Quinn</a>
 			</li>
 		</ul>
 		</td>  
@@ -315,7 +315,7 @@ However, you must keep up with the reading assignments.
 			<li>
 			   <a href="http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014?qid=a9e4b467-26b7-49a9-a361-8425876e9904&v=qf1&b=&from_search=4">			   Introduction to Spark</a>
 			</li>
-			<li> <a href="http://ampcamp.berkeley.edu/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx">
+			<li> <a href="https://web.archive.org/web/20191228201919/http://ampcamp.berkeley.edu:80/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx">
 			      Parallel-Programming-With-Spark-Matei-Zaharia</a>
 			</li>
 			
@@ -430,7 +430,7 @@ However, you must keep up with the reading assignments.
 References:
 ============
 
-* [Relational Algebra and MapReduce](http://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high\_level.pdf)
+* [Relational Algebra and MapReduce](http://web.archive.org/web/20221127080039/https://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high_level.pdf)
 
 * [MapReduce examples](http://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf)
 	
