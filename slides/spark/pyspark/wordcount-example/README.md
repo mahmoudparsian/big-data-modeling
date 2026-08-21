@@ -7,9 +7,9 @@ Standalone PySpark word-count example script, sample input, and filtered output;
 | Name | Type | Description |
 |---|---|---|
 | [`output/`](output/) | folder | 2 items |
-| [`data.txt`](data.txt) | txt (78B) |  |
-| [`data_kv.txt`](data_kv.txt) | txt (44B) |  |
-| [`word_count_with_filters.txt`](word_count_with_filters.txt) | txt (3.6KB) |  |
-| [`wordcount-with-spark-submit.txt`](wordcount-with-spark-submit.txt) | txt (1.4KB) |  |
-| [`wordcount.py`](wordcount.py) | py (1.2KB) |  |
-| [`wordcount.py.README`](wordcount.py.README) | readme (55B) |  |
+| [`data.txt`](data.txt) | txt (78B) | Toy text ("crazy crazy fox jumped...") used as sample input |
+| [`data_kv.txt`](data_kv.txt) | txt (44B) | Sample `id,name` key-value pairs |
+| [`word_count_with_filters.txt`](word_count_with_filters.txt) | txt (3.6KB) | Walkthrough: word count with filtering, run interactively in the PySpark shell |
+| [`wordcount-with-spark-submit.txt`](wordcount-with-spark-submit.txt) | txt (1.4KB) | Recorded terminal transcript of running `wordcount.py` via `spark-submit` |
+| [`wordcount.py`](wordcount.py) | py (1.2KB) | Standalone PySpark word-count script, takes an input path as a CLI argument |
+| [`wordcount.py.README`](wordcount.py.README) | txt (55B) | One-line usage note: `$SPARK_HOME/bin/spark-submit wordcount.py <input-path>` |

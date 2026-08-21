@@ -6,6 +6,6 @@ Lecture on monoids as a design principle for writing correct, efficient MapReduc
 
 | Name | Type | Description |
 |---|---|---|
-| [`Monoids_as_a_Design_Principle_for_Efficient_MapReduce_Algorithms.pdf`](Monoids_as_a_Design_Principle_for_Efficient_MapReduce_Algorithms.pdf) | pdf (77.9KB) |  |
+| [`Monoids_as_a_Design_Principle_for_Efficient_MapReduce_Algorithms.pdf`](Monoids_as_a_Design_Principle_for_Efficient_MapReduce_Algorithms.pdf) | pdf (77.9KB) | Reference slide deck on monoids as a MapReduce design principle |
 | [`monoid_as_a_design_principle.md`](monoid_as_a_design_principle.md) | md (23.4KB) | Monoid: A Design Principle <br> for <br>Correct and Efficient Reducers |
-| [`monoid_in_algebraic_structures.png`](monoid_in_algebraic_structures.png) | png (6.3KB) |  |
+| [`monoid_in_algebraic_structures.png`](monoid_in_algebraic_structures.png) | png (6.3KB) | Diagram: where monoids sit within algebraic structures (magma → semigroup → monoid → group) |

@@ -6,5 +6,5 @@ Demo script for creating and working with array-typed columns in a Spark DataFra
 
 | Name | Type | Description |
 |---|---|---|
-| [`creating_arrays_in_dataframes.log`](creating_arrays_in_dataframes.log) | log (1.3KB) |  |
-| [`creating_arrays_in_dataframes.py`](creating_arrays_in_dataframes.py) | py (2.2KB) |  |
+| [`creating_arrays_in_dataframes.log`](creating_arrays_in_dataframes.log) | log (1.3KB) | Sample output from running the script |
+| [`creating_arrays_in_dataframes.py`](creating_arrays_in_dataframes.py) | py (2.2KB) | Builds a DataFrame with an `ArrayType(StringType())` column from a list of string-lists |
