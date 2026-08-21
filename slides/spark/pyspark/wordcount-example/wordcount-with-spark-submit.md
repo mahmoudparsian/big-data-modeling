@@ -1,9 +1,17 @@
-$ cat /tmp/foxdata.txt
-red fox jumped high
-fox jumped over high fence
-red fox jumped
+# Input Data
 
-$ cat /tmp/wordcount.py
+```
+$ cat data.txt
+crazy crazy fox jumped
+crazy fox jumped
+fox is fast
+fox is smart
+dog is smart
+```
+
+# PySpark Program: `wordcount.py`
+
+```python
 from __future__ import print_function
 
 import sys
@@ -47,15 +55,22 @@ for (word, count) in output:
 
 #  DONE!
 spark.stop()
+```
 
-$ ./spark-2.4.4/bin/spark-submit /tmp/wordcount.py /tmp/foxdata.txt
-This is the name of the script:  /tmp/wordcount.py
+# Run PySpark Program
+
+```
+$SPARK_HOME/bin/spark-submit wordcount.py data.txt
+
+This is the name of the script: wordcount.py
 Number of arguments:  2
-The arguments are:  ['/tmp/wordcount.py', '/tmp/foxdata.txt']
-input_path:  foxdata.txt
-high: 2
-fence: 1
-red: 2
-fox: 3
-jumped: 3
-over: 1
+The arguments are:  ['wordcount.py', 'data.txt']
+
+crazy: 3
+fox: 4
+jumped: 2
+is: 3
+fast: 1
+smart: 2
+dog: 1
+```

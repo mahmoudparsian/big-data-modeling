@@ -1,1 +1,0 @@
-$SPARK_HOME/bin/spark-submit wordcount.py <input-path>

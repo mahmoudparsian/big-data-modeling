@@ -1,55 +1,55 @@
-First Program in PySpark
+# Word Count with Filters
 
-Using PySpark shell, you will read a text 
-file with  6 records outlined below:
+# Input Data 
 
-$ cat /tmp/foxy.txt
+```
+$ cat ./data/foxy.txt
 a Fox jumped high and high and jumped and jumped
 fox of red jumped
 fox of blue jumped
 a Fox is a red fox of hen 
 a fox is a high fox
 orange fox is high and blue and blue
-The final output:
+```
 
+# Desired Output:
+
+```
 <unique-word> <frequency>
+```
+
+# Requirements for PySpark Program
+
 The following rules will be applied:
 
-if a word's length is smaller than 3, that word will not appear in output
-if a frequency of a unique-word is less than 3,  that word will not appear in output
-all words must be converted to lowercase (example: 'fox' is the same as 'Fox', etc.)
-all of your solution must be properly documented
-even though your input is very small, but your program must be as generic as possible to handle any size input
-efficiency is very important for writing this program and all big data programs (it means that your solution should be optimized to handle big volume data without performance penalties)
-you can not change the content of input file
+* if a word's length is smaller than 3, that word will not appear in output
+
+* if a frequency of a unique-word is less than 3,  that word will not appear in output
+
+* all words must be converted to lowercase (example: 'fox' is the same as 'Fox', etc.)
+
+* all of your solution must be properly documented
+
+* even though your input is very small, but your program must be as generic as possible to handle any size input
+
+* efficiency is very important for writing this program and all big data programs (it means that your solution should be optimized to handle big volume data without performance penalties)
+
+* you can not change the content of input file
 the output does not need to be sorted
 
-$ cat /tmp/foxy.txt
-a Fox jumped high and high and jumped and jumped
-fox of red jumped
-fox of blue jumped
-a Fox is a red fox of hen
-a fox is a high fox
-orange fox is high and blue and blue
 
+# PySpark Solution
 
-$ ./spark-2.4.4/bin/pyspark
-Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
-[Clang 6.0 (clang-600.0.57)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
-Welcome to
-      ____              __
-     / __/__  ___ _____/ /__
-    _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 2.4.4
-      /_/
+```python
+$SPARK_HOME/bin/pyspark
+Python 3.7.2 
+Spark version 2.4.4
 
-Using Python version 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018 02:44:43)
 SparkSession available as 'spark'.
 
 
 # Define your input path
->>> input_path = '/tmp/foxy.txt'
+>>> input_path = './data/foxy.txt'
 
 # Read input and create RDD[String]
 >>> records = spark.sparkContext.textFile(input_path)
@@ -129,3 +129,4 @@ SparkSession available as 'spark'.
  ('blue', 3)
 ]
 >>>
+```
