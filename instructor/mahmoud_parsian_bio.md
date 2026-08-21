@@ -1,21 +1,19 @@
-# Mahmoud Parsian
+# Mahmoud Parsian <br> Assistant Teaching Professor
+### Information Systems & Analytics<br> Santa Clara University
 
 [Dr. Mahmoud Parsian](https://www.scu.edu/business/isa/faculty/parsian/) 
-is an Assistant Teaching Professor 
-in the Department of Information Systems & 
-Analytics at Santa Clara University. He is 
-an educator, software architect, author, and 
-data professional with more than four decades 
-of experience spanning academia and industry. 
-His teaching and professional interests include 
-database management systems, data warehousing, 
-business intelligence, big data analytics, 
-machine learning, distributed computing, cloud 
-data platforms, and artificial intelligence.
+is an Assistant Teaching Professor in the Department of Information Systems & Analytics at Santa Clara University. He is an educator, software architect, author, and data professional with more than four decades of experience spanning academia and industry. His teaching and professional interests include database management systems, data warehousing, business intelligence, big data analytics, machine learning, distributed computing, cloud data platforms, and artificial intelligence.
 
+Throughout his career, Dr. Parsian has taught undergraduate and graduate courses in database systems, data analytics, data warehousing, machine learning, and big data modeling. He is passionate about helping students bridge the gap between theory and practice through hands-on learning, real-world case studies, and modern data technologies.
+
+Prior to joining Santa Clara University as a full-time faculty member, Dr. Parsian held senior technical leadership roles in the technology industry, where he designed and developed large-scale analytics platforms, distributed data-processing systems, and cloud-based data solutions. His work has focused on scalable architectures, data engineering, and advanced analytics. 
 
 Mahmoud Parsian earned his Ph.D in Computer 
 Science from Iowa State University, Ames, Iowa.
+
+# Teaching philosophy
+
+Dr. Parsian believes that students learn best by building real systems with real data. His courses emphasize hands-on learning, analytical thinking, and practical problem-solving using modern data technologies, preparing students to become effective data professionals and technology leaders.
 
 ---
 
