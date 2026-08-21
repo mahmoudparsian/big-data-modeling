@@ -20,6 +20,7 @@ with a parallel, distributed algorithm on a cluster.
 | `README.md` (this file) | Core concepts: mapper, reducer, combiner, and why a combiner is safe (or not) to use |
 | [`Word_Count_in_MapReduce.md`](./Word_Count_in_MapReduce.md) | Worked example: word count, solved with and without a combiner, including a partition-by-partition walkthrough and a Q&A/homework section |
 | [`MapReduce_with_Combiners.md`](./MapReduce_with_Combiners.md) | Two more worked examples: average value per gene, and `(avg, min, max)` per gene — each solved with and without a combiner |
+| [`images/`](./images/) | Diagrams used by the files above |
 
 ## MapReduce with Mappers and Reducers
 

@@ -592,7 +592,7 @@ Further reading:
 3. [Google's MapReduce Programming Model — Revisited by Ralf Lämmel](https://userpages.uni-koblenz.de/~laemmel/MapReduce/paper.pdf)
 4. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 5. [Semigroups, Monoids, and Groups](https://faculty.etsu.edu/gardnerr/5410/notes/I-1.pdf)
-6. [Why Spark Can't foldLeft: Monoids and Associativity by Parker Gordon](https://parkergordon.io/2017/04/03/why-spark-cant-foldleft/)
+6. Why Spark Can't foldLeft: Monoids and Associativity by Parker Gordon (no longer available online)
 7. [Monoids and Semigroups in Scala](https://www.baeldung.com/scala/monoids-semigroups)
 8. [Monoidal Sparks](https://byorgey.wordpress.com/2018/10/01/monoidal-sparks/)
 9. [Semigroups and Monoids in Scala](https://blog.rockthejvm.com/semigroups-and-monoids-in-scala/)

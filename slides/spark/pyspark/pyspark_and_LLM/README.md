@@ -10,6 +10,9 @@
 | `progs_row_level`                         | ROW-Level Sample integration programs  |
 | `progs_batch_level`                       | Batch-Level Sample integration programs|
 | `progs_table_level`                       | TABLE-Level Sample integration programs|
+| `examples`                                | `pyspark_LLM_6_examples.md` — additional integration examples |
+| `sample_data`                             | Small CSV datasets used by the example programs |
+| `MP_no_git`                               | Instructor's local scratch folder (not tracked in git) |
 | `README.md`                               | Landing Page                           |
 
 

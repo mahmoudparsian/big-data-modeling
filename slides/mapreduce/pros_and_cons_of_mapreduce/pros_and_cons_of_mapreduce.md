@@ -67,4 +67,4 @@ by mappers and/or reducers)
 
 ## References
 
-* [Advantages of Hadoop MapReduce Programming](https://www.tutorialspoint.com/articles/advantages-of-hadoop-mapreduce-programming)
+* [Advantages of Hadoop MapReduce Programming](http://web.archive.org/web/20190509134744/https://www.tutorialspoint.com/articles/advantages-of-hadoop-mapreduce-programming)

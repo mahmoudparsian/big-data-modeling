@@ -6,7 +6,7 @@
 
 3. [MapReduce Algorithm Design, Jimmy Lin (PDF, 137 slides)](https://cs.uwaterloo.ca/~jimmylin/publications/WWW2013-MapReduce-tutorial-slides.pdf)
 
-4. [Introduction to MapReduce by Fernando Chirigati, (PDF, 50 Slides)](https://vgc.poly.edu/~fchirigati/mda-class/mapreduce-intro.pdf)
+4. Introduction to MapReduce by Fernando Chirigati (PDF, 50 Slides) (no longer available online)
 
 5. [Google's MapReduce Programming Modell Revisited by Ralf Lammel](../slides/mapreduce/google_mapreduce_paper/Googles_MapReduce_Programming_Model_Revisited_by_Ralf_Lammel.pdf)
 

@@ -1,6 +1,6 @@
 # Glossary of Big Data, MapReduce, Spark
 
-* Compiled and edited by: [Mahmoud Parsian](../../bio/mahmoud_parsian_scu_bio.md)
+* Compiled and edited by: [Mahmoud Parsian](../../instructor/mahmoud_parsian_bio.md)
 * Last updated date: August 7, 2026
 
 
@@ -6225,7 +6225,7 @@ execution time.
 
 
 ## GraphFrames
-[GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html)
+[GraphFrames](https://graphframes.io/)
 is an external package for Apache Spark which provides 
 DataFrame-based Graphs. It provides high-level APIs in 
 Scala, Java, and Python. It aims to provide both the 
@@ -7363,8 +7363,8 @@ query language that allows object to be found
 with a declarative programming approach.
 
 Examples of object-oriented databases 
-are [ObjectStore](www.ignitetech.com) and 
-[Versant Object Database](www.versant.com). 
+are [ObjectStore](https://www.ignitetech.com) and 
+Versant Object Database (Versant was acquired by Actian; its product page is no longer available). 
 Relational databases have also added 
 object-oriented features; for example, 
 UniSQL was one of the first products to 
@@ -8655,7 +8655,7 @@ where Spark is installed):
 
 **PySpark Graph Analysis:**
 
-You may use [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) (a DataFrame-based dolution)
+You may use [GraphFrames](https://graphframes.io/) (a DataFrame-based dolution)
 package to build and analyze graphs at scale.
 
 
@@ -10105,7 +10105,7 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 35. [List of Algorithms in Computer Programming](https://www.linkedin.com/pulse/list-algorithms-computer-programming-pranam-bhat/)
 
-36. [Data Analytics Glossary by Lean Methods Group](https://leanmethods.com/resources/articles/data-analytics-glossary/)
+36. [Data Analytics Glossary by Lean Methods Group](http://web.archive.org/web/20230407020546/https://leanmethods.com/resources/articles/data-analytics-glossary/)
 
 37. [Gartner Glossary](https://www.gartner.com/en/information-technology/glossary)
 
@@ -10125,7 +10125,7 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 45. [Greedy Algorithms](https://brilliant.org/wiki/greedy-algorithm/)
 
-46. [Software Design Patterns – A COMPLETE GUIDE](https://starship-knowledge.com/software-design-patterns)
+46. [Software Design Patterns – A COMPLETE GUIDE](http://web.archive.org/web/20221224080416/https://starship-knowledge.com/software-design-patterns)
 
 47. [Go: Concurrency vs Parallelism](https://medium.com/codex/go-concurrency-vs-parallelism-c3fc9cec55c8)
 

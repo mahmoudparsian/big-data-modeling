@@ -12,6 +12,14 @@ This short article shows how to use Python user-defined functions in PySpark app
 2. register UDF
 3. use UDF in Spark SQL.
 
+## Files in This Folder
+
+| Name | Description |
+|---|---|
+| [`UDF.pdf`](./UDF.pdf) | Slides covering PySpark User-Defined Functions |
+| [`dataframe_UDF_example.py`](./dataframe_UDF_example.py) | The `tripled_udf` example script used below |
+| [`dataframe_UDF_example.log`](./dataframe_UDF_example.log) | Sample output log from running the script |
+
 ## 1. Define a UDF IN Python
 
 Consider a function which triples its input:

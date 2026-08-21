@@ -8,7 +8,7 @@
 
 4. [PySpark Dataframe Basics -- notebook](https://github.com/changhsinlee/changhsinlee.github.io/blob/master/notebook/2018-03-04-pyspark-dataframe-basics/dataframe-basics.ipynb)
 
-5. [My Tutorial/Spark SQL Tutorial (PySpark)](https://www.zepl.com/viewer/notebooks/bm90ZTovL3pqZmZkdS8wN2M3YmI0MmJjMWI0YmE0OTc1M2IzMzZkMjA2MTk4Ny9ub3RlLmpzb24)
+5. My Tutorial/Spark SQL Tutorial (PySpark) (no longer available online — Zepl service was discontinued)
 
 6. [Complete Guide on DataFrame Operations in PySpark](https://www.analyticsvidhya.com/blog/2016/10/spark-dataframe-and-operations/)
 

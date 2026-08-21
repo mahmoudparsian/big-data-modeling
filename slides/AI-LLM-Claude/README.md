@@ -33,3 +33,13 @@ All 7 Marimo notebooks load their data from CSV files in the `data/` directory:
 | `data/product_reviews.csv` | 18 e-commerce reviews | `program_rdd_2_intermediate.py`, `program_rdd_2_intermediate_scale_out.py` |
 
 To use different data, replace the CSV files keeping the same column headers.
+
+## Other Files
+
+| Name | Description |
+|---|---|
+| [`data/`](./data/) | CSV datasets loaded by the notebooks above |
+| [`CLAUDE.md`](./CLAUDE.md) | Detailed reference: full repo structure, per-notebook walkthroughs, anti-patterns, and suggested teaching order |
+| [`pyspark_llm_slides.md`](./pyspark_llm_slides.md) | MARP slide deck on integrating PySpark with LLMs |
+| `.env.example` | Template for API keys/config — copy to `.env` and fill in |
+| `program_*.log` | Sample output logs from running the corresponding `.py` notebook |

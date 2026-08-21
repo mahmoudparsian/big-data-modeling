@@ -41,3 +41,14 @@ First of all we need to understand the data, depending upon the
 output we are expecting, we need to write a mapper class which 
 would emit `FromPhoneNumber` and `Duration` of STD Call intermediate 
 key value pairs.
+
+## Files in This Folder
+
+| Name | Description |
+|---|---|
+| [`src/`](./src/) | Java source: `TelecomDriver.java`, `TelecomMapper.java`, `TelecomReducer.java` |
+| [`input/`](./input/) | Sample CDR input data |
+| [`env.sh`](./env.sh) | Environment variables used by `run.sh` |
+| [`run.sh`](./run.sh) | Compiles and runs the job on Hadoop |
+| [`telecom.jar`](./telecom.jar) | Pre-built job JAR |
+

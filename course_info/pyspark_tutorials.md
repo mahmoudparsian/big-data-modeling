@@ -10,7 +10,7 @@
 
 ## 5. [PySpark Tutorial - Basic Algorithms using PySpark](https://github.com/mahmoudparsian/pyspark-tutorial)
 
-## 6. [PySpark Tutorial](https://www.javatpoint.com/pyspark)
+## 6. PySpark Tutorial (no longer available online)
 
 
 

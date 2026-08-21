@@ -16,7 +16,7 @@ export SPARK_HOME="/home/mparsian/spark-2.3.0"
 
 ## Sample Files
 
-This section has 3 files:
+This section has 3 core files:
 
 * `word_count_driver.py` (the PySpark program)
 
@@ -32,6 +32,17 @@ This section has 3 files:
 * Note that my files (.sh and .py) are in the 
   `/home/mparsian/code/` directory. You need to 
   update your directories accordingly
+
+## Files in This Folder
+
+| Name | Description |
+|---|---|
+| [`word_count_driver.py`](./word_count_driver.py) | The PySpark word-count program submitted via `spark-submit` |
+| [`word_count_driver.sh`](./word_count_driver.sh) | Shell script that runs `word_count_driver.py` via `$SPARK_HOME/bin/spark-submit` |
+| [`word_count_driver.log`](./word_count_driver.log) | Sample output log from running the shell script |
+| [`sample_file.txt`](./sample_file.txt) | Small sample text file used as input |
+| [`pyspark_0001.py`](./pyspark_0001.py) | A minimal standalone PySpark script example |
+| [`running_a_pyspark_program_by_spark-submit.txt`](./running_a_pyspark_program_by_spark-submit.txt) | Notes/transcript on running a PySpark program with `spark-submit` |
 
 ## Python Location
 

@@ -1,3 +1,9 @@
+# Movies Data
+
+| Name | Description |
+|---|---|
+| [`u.data`](./u.data) | MovieLens 100K ratings dataset (see below) |
+
 This data set (source: https://grouplens.org/datasets/movielens/100k/)
 consists of:
 

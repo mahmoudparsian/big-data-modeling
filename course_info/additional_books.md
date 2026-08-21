@@ -5,13 +5,13 @@
 
 ###[3. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
 
-###[4. Big Data Now -- book](http://www.oreilly.com/data/free/files/bigdatanow2013.pdf)
+###4. Big Data Now -- book (no longer available online)
 
-###[5. Designing Good Mapreduce Algorithms by Ullman](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
+###[5. Designing Good Mapreduce Algorithms by Ullman](../slides/mapreduce/introduction_to_mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
 
-###[6: Bigtable: A Distributed Storage System for Structured Data](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
+###[6: Bigtable: A Distributed Storage System for Structured Data](../slides/mapreduce/distributed_file_system/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
 
-###[7. Relational Algebra and MapReduce](http://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high\_level.pdf)
+###[7. Relational Algebra and MapReduce](http://web.archive.org/web/20221127080039/https://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high_level.pdf)
 
 ###[8. MapReduce examples](http://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf)
 

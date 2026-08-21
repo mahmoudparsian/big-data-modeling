@@ -466,7 +466,7 @@ than leaving idle slots at the end of a round.
 ## References
 
 * Jeffrey Dean and Sanjay Ghemawat,
-  ["MapReduce: Simplified Data Processing on Large Clusters"](../google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeffrey_Dean_and_Sanjay_Ghemawat.pdf)
+  ["MapReduce: Simplified Data Processing on Large Clusters"](../google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
   (Google, 2004) — the original MapReduce paper.
 * Apache Spark,
   [Cluster Mode Overview](https://spark.apache.org/docs/latest/cluster-overview.html)

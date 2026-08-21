@@ -20,8 +20,8 @@
 
 2. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 
-3. [MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](https://github.com/mahmoudparsian/big-data-mapreduce-course/tree/master/slides/mapreduce/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
+3. [MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](../slides/mapreduce/google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 
-4. [A Gentle Introduction to Spark by Databricks](./slides/spark/A-Gentle-Introduction-to-Apache-Spark.pdf)
+4. [A Gentle Introduction to Spark by Databricks](../slides/spark/docs/A-Gentle-Introduction-to-Apache-Spark.pdf)
 
 5. [PySpark Tutorial For Beginners (Spark with Python)](https://sparkbyexamples.com/pyspark-tutorial/)

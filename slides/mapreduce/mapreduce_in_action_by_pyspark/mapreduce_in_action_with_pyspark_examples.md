@@ -261,7 +261,7 @@ MapReduce follows a three-phase process to handle large datasets:
 ### MapReduce with Combiners
 
 
-![](https://raw.githubusercontent.com/mahmoudparsian/big-data-mapreduce-course/refs/heads/master/slides/mapreduce/combiners/map-reduce-combine-image.png)
+![](../combiners/images/mapreduce-combine-image.png)
 
 
 
@@ -824,9 +824,6 @@ Things to do:
 	   data science, and machine learning on 
 	   single-node machines or clusters.
 	   
-![](https://www.cloudduggu.com/spark/ecosystem/spark-ecosystem.png)
-
-
 ![](https://www.databricks.com/sites/default/files/2023-03/largest-open-source-apache-spark.png?v=1679038543)
 	
 # ✅ 7. What is PySpark?

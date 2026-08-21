@@ -8,4 +8,4 @@
 
 ### 4. [SQL Tutorial: by mode.com](https://mode.com/sql-tutorial/)
 
-### 5. [SQL Tutorial: PDF format](https://www.hcoe.edu.np/uploads/attachments/r96oytechsacgzi4.pdf)
+### 5. SQL Tutorial: PDF format (no longer available online)
