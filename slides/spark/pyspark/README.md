@@ -3,15 +3,18 @@
 Examples, slides, and notes for learning PySpark.
 
 ## External Resources
+
 * [PySpark Tutorial with Examples](https://github.com/mahmoudparsian/pyspark-tutorial)
 * [Spark with Python (PySpark) Tutorial For Beginners](https://sparkbyexamples.com/pyspark-tutorial/)
 
 ## Getting Started
+
 * [Checking Your PySpark Installation](../installation/checking_pyspark_installation.md)
 * [`jupyter/`](jupyter) — running PySpark from Jupyter notebooks
 * [`introduction/`](introduction) — intro slides: Spark basics, PySpark shell, data abstractions
 
 ## Core Concepts
+
 * [`rdd_transformations/`](rdd_transformations) — creating RDDs, `map`, `filter`, `flatMap`
 * [`reducers_transformations/`](reducers_transformations) — `groupByKey`, `reduceByKey`, `combineByKey`
 * [`pyspark-rdd-sessions/`](pyspark-rdd-sessions) — RDD example scripts and notebooks
@@ -19,6 +22,7 @@ Examples, slides, and notes for learning PySpark.
 * [`UDF/`](UDF) — user-defined functions
 
 ## DataFrames
+
 * [`dataframes_tutorial/`](dataframes_tutorial) — step-by-step DataFrame modules
 * [`dataframes_slides/`](dataframes_slides) — intro slides and articles
 * [`pyspark-dataframe-sessions/`](pyspark-dataframe-sessions) — DataFrame example sessions

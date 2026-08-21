@@ -1,4 +1,9 @@
-Practice questions for exam/homework review, covering MapReduce, PySpark RDDs, Spark DataFrames, and GraphFrames.
+# Practice questions for exams
+
+* MapReduce
+* PySpark RDDs
+* PySpark DataFrames
+* GraphFrames
 
 | Name | Description |
 |---|---|

@@ -1,6 +1,6 @@
 # Spark
 
-Slides, tutorials, and example code for teaching Apache Spark (Scala/Spark core concepts) and PySpark.
+Slides, tutorials, and example code for teaching Apache Spark and PySpark.
 
 ## Contents
 
