@@ -1,3 +1,8 @@
+# `spark-submit` Example
+
+# Input
+
+```
 $ cat /tmp/books.txt
 ISBN-100,sales,biology
 IS-01235,sales,econ
@@ -8,11 +13,10 @@ ISBN-103,CS,sales
 ISBN-104,CS,biology
 ISBN-105,CS,econ
 ISBN-200,CS
+```
+# PySpark Program: `pyspark_0001.py`
 
-$ wc -l /tmp/books.txt
-       9 books.txt
-
-$ cat /tmp/pyspark_0001.py
+```python
 from __future__ import print_function
 
 from pyspark.sql import SparkSession
@@ -39,8 +43,12 @@ print("records.count()=", records.count())
 print("records.collect()=", records.collect())
 
 spark.stop()
+```
 
-$ /Users/mparsian/spark-2.4.4/bin/spark-submit  /tmp/pyspark_0001.py  /tmp/books.txt
+# Submitting a PySpark Program
+
+```
+$SPARK_HOME/bin/spark-submit  pyspark_0001.py  /tmp/books.txt
 input_path= /tmp/books.txt
 records.count()= 9
 records.collect()= 
@@ -55,3 +63,4 @@ records.collect()=
  'ISBN-105,CS,econ', 
  'ISBN-200,CS'
 ]
+```
