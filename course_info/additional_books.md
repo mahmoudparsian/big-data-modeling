@@ -1,4 +1,4 @@
-# Additional Optional Books and References
+# Additional Books and References
 
 [1. PySpark Algorithms by Mahmoud Parsian](https://www.amazon.com/PySpark-Algorithms-Version-Mahmoud-Parsian-ebook/dp/B07X4B2218)
 
