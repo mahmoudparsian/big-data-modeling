@@ -2,7 +2,7 @@
 
 ------
 
-## Required Books (MapReduce and Spark) 
+## 1. Required Books (MapReduce and Spark) 
 
 #### 1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 * For the first 3 weeks of class
@@ -14,7 +14,7 @@
 
 ------
 
-## Required Readings (MapReduce and Spark) 
+## 2. Required Readings (MapReduce and Spark) 
 
 1. [A Very Brief Introduction to MapReduce by Diana MacLean](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 
