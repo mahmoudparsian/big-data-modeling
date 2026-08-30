@@ -28,6 +28,7 @@ mapreduce/
 ├── intro_to_mapreduce_with_pyspark/    # 3-part "BigData with PySpark" workshop PDFs
 │
 ├── word_count_in_python/               # plain-Python baseline (no MapReduce, no Spark)
+├── word_count_in_mapreduce/            # same problem, solved as mapper()/reducer() -- bridges to PySpark
 ├── mapreduce_examples/                 # Word Count, Palindromes, Average Temperature, ...
 ├── combiners/                          # combiner-focused worked examples
 ├── joins_in_mapreduce/                 # the join operation in MapReduce
@@ -51,6 +52,7 @@ mapreduce/
 | [`mapreduce_by_Jimmy_Lin/`](./mapreduce_by_Jimmy_Lin/) | Course materials from Jimmy Lin (University of Maryland / Waterloo): intro session slides, the *"Data-Intensive Text Processing with MapReduce"* book manuscript (two draft years), the WWW 2013 *"MapReduce Algorithm Design"* tutorial, and a Big Data Infrastructure course deck. |
 | [`intro_to_mapreduce_with_pyspark/`](./intro_to_mapreduce_with_pyspark/) | A 3-part PDF series from a "BigData with PySpark" workshop: Introduction → MapReduce Primer → Introduction to Spark. |
 | [`word_count_in_python/`](./word_count_in_python/) | Word count in **plain Python** — no Hadoop, no Spark — the "before MapReduce" baseline students see first. |
+| [`word_count_in_mapreduce/`](./word_count_in_mapreduce/) | The same word-count problem solved as a real MapReduce job: `(filename, record)` pairs → a Python `mapper()` → shuffle/sort → a Python `reducer()`, with every mapper/reducer call shown in full and a preview of the PySpark port (`flatMap`/`reduceByKey`). |
 | [`mapreduce_examples/`](./mapreduce_examples/) | Fully worked MapReduce examples: Word Count, Palindromes, and Average Temperature per City, each with mapper/reducer pseudocode, sample data, and homework questions; also includes a third-party "Finding Friends" article. |
 | [`combiners/`](./combiners/) | Combiner-focused worked examples: Word Count with/without a combiner (partition-by-partition trace), plus average and `(avg, min, max)` per gene, showing why a naive combiner breaks and how to fix it with `(sum, count)`-style partial results. See its own README. |
 | [`joins_in_mapreduce/`](./joins_in_mapreduce/) | Two lecture decks on performing relational join operations in MapReduce, including Jerome Simeon's (IBM Watson Research) *"Relational Processing on MapReduce."* |
@@ -63,5 +65,5 @@ mapreduce/
 1. **Read the source**: `google_mapreduce_paper/` — what Google actually built and why.
 2. **Learn the model**: `introduction_to_mapreduce/`, `mapreduce_by_Mahmoud_Parsian/`, or `mapreduce_by_Jimmy_Lin/` — pick one full treatment.
 3. **Learn the theory that keeps it correct**: `associativity_and_commutativity/` and `monoids/` — why some reducers/combiners are safe and others silently lie; `partitions_in_mapreduce/` for how the work is actually distributed.
-4. **See it worked out**: `word_count_in_python/` → `mapreduce_examples/` → `combiners/` → `joins_in_mapreduce/` → `mapreduce_in_action_by_pyspark/`.
+4. **See it worked out**: `word_count_in_python/` → `word_count_in_mapreduce/` → `mapreduce_examples/` → `combiners/` → `joins_in_mapreduce/` → `mapreduce_in_action_by_pyspark/`.
 5. **Appreciate what Spark replaced**: `classic_mapreduce_progs/` — read-only, for contrast.

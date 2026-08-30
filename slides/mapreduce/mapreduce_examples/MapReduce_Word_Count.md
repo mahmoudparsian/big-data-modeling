@@ -223,7 +223,11 @@ depends on an aggregate (e.g., minimum frequency, top-K).
       where naively combining partial *averages* produces
       the wrong answer; see the "Combiner" section of
       `MapReduce_Find_Average_Temperature.md`. Why does
-      summing not have that problem?)
+      summing not have that problem? For a worked answer —
+      a full 3-partition `combiner()` walkthrough on this
+      same word-count problem — see "Combiners in
+      MapReduce" in
+      [`word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md).)
    2. Argue why your combiner is correct: since integer
       addition is both **associative** and **commutative**,
       partial sums computed by a combiner on a mapper's
