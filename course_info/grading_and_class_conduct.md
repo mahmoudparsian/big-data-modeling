@@ -1,30 +1,30 @@
 # Grading and Class Conduct Policies
 
-## Grade Distribution:
+## 1. Grade Distribution:
 
 
-| Sequence | Assignment | % |
-| :---: | :--- | :---: |
-| 1 | Programming Assignment-1 | 10% |
-| 2 | Programming Assignment-2 | 10% |
-| 3 | Exam-1 | 15% |
-| 4 | Programming Assignment-3 | 10% |
-| 5 | Programming Assignment-4 | 10% |
-| 6 | Exam-2 | 15% |
-| 7 | Programming Assignment-5 | 10% |
-| 8 | Final Exam | 20% |
-| 9 | Spot Bonus | up to 2% |
-| | **Total** | **102%** |
+| Sequence | Assignment               | Points   | Percentage % |
+| :------: | :----------------------- | :------: | :-----------:|
+| 1        | Programming Assignment-1 | 120      | 12%          |
+| 2        | Programming Assignment-2 | 120      | 12%          |
+| 3        | Programming Assignment-3 | 120      | 12%          |
+| 4        | Programming Assignment-4 | 120      | 12%          |
+| 5        | Programming Assignment-5 | 120      | 12%          |
+| 6        | Exam-1                   | 100      | 10%          |
+| 7        | Exam-2                   | 100      | 10%          |
+| 8        | Final Exam               | 200      | 20%          |
+| 9        | Spot Bonus in Class      | up to 50 | up to 5%     |       
+|          | **Total**                | **1000** | 100%         |
  
  
-* NOTE:  
-	* **Exam-1**: closed book/notes/internet/software
-	* **Exam-2**: closed book/notes/internet/software
-	* **Final Exam**: closed book/notes/internet/software
+## 2. Exam-1, Exam-2, and Final Exam Requirements
+
+* LockDown Browser is required
+
+* closed books/notes/internet/AI/friends/phone/computer/software
 
 
-
-## Letter Grade Distribution:
+## 3. Letter Grade Distribution:
 
 
 Grade | Scale of 1 to 4
@@ -40,7 +40,7 @@ C-    | 1.7
 F     | 0.0
 
 
-## Grading Scale 
+## 4. Grading Scale 
 
 Letter Grade | Percentage Points
 -------------| -----------------
@@ -59,13 +59,13 @@ F            | Below 60
 
 
 
-## Course Policies
+## 5. Course Policies
 
-### General
+### 5.1 General
 
-* Quizzes and exams are closed book, closed notes
+* Exams are closed book/notes/internet/AI/friends/phone/computer
 
-* No makeup quizzes or exams will be given
+* No makeup exams will be given
 
 * Grades in the C range represent performance 
   that meets expectations
@@ -81,7 +81,7 @@ F            | Below 60
   for tracking their progress by referring 
   to the online gradebook.
 
-### Labs and Assignments
+### 5.2 Labs and Assignments
 
 * Students are expected to work independently. 
 
@@ -98,7 +98,7 @@ F            | Below 60
 * No late assignments will be accepted under 
   any circumstances
 
-### Attendance and Absences
+### 5.3 Attendance and Absences
 
 * Attendance is expected.
 
@@ -109,7 +109,7 @@ F            | Below 60
   to get all missing notes or materials.
 
 
-### Instructor's Intended Purpose
+### 5.4 Instructor's Intended Purpose
 
 * The student's work must match the instructor's 
   intended purpose for an assignment.  While the 
@@ -120,7 +120,7 @@ F            | Below 60
 * The student may not give or get any unauthorized or 
   excessive assistance in the preparation of any work.
 
-### Authorship of a work
+### 5.5 Authorship of a work
 
 1. **The student must clearly establish authorship of a work.** 
 

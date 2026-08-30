@@ -103,9 +103,7 @@
 
 ## 20. [Office Hours](./course_info/office_hours.md)
 
-## 21. [Exam 1 & Exam 2](./course_info/midterm_exam.md)
-
-## 22. [Final Exam](./course_info/final_exam.md)
+## 21. [Exam-1, Exam-2, and Final Exam Dates](./course_info/exam_dates.md)
 
 ---
 
