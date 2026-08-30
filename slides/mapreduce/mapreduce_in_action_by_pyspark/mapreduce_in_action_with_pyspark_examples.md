@@ -863,6 +863,12 @@ filters, and reducers
 
 ## Example 1: Word Count (Hello World of MapReduce)
 
+(For the same `flatMap`/`reduceByKey` skeleton built up from
+scratch — starting with plain Python `mapper()`/`reducer()`
+functions, every mapper/reducer call enumerated, filters, and
+a combiner — see
+[`word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md).)
+
 ### Concepts: 
 
 	map: (split words), 
@@ -928,7 +934,7 @@ word_pairs.collect()
 word_counts = word_pairs.reduceByKey(lambda a, b: a + b)
 
 word_counts.count()
-9
+6
 
 word_counts.collect()
 (big, 3) 
