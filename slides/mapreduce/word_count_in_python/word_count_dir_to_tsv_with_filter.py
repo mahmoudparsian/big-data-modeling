@@ -1,48 +1,67 @@
 """
 word_count_dir_to_tsv_with_filter.py
 
-Same as word_count_dir_to_tsv.py, plus two integer filter thresholds:
+Same as word_count_dir_to_tsv.py, plus two 
+integer filter thresholds:
 
-  M = minimum word length to keep (a "mapper-side" filter, applied
-      before counting -- words shorter than M are never added to the
-      dictionary at all).
-  N = minimum frequency to keep (a "reducer-side" filter, applied
-      after counting -- the word was counted, it's just dropped from
-      the final output if its total count is below N).
+  M = minimum word length to keep (a "mapper-side" 
+      filter, applied before counting -- words shorter 
+      than M are never added to the dictionary at all).
+      
+  N = minimum frequency to keep (a "reducer-side" filter, 
+      applied after counting -- the word was counted, it's 
+      just dropped from the final output if its total count 
+      is below N).
 
 Usage:
   python3 word_count_dir_to_tsv_with_filter.py <input_dir> <M> <N> [output_tsv]
+
 """
+
 import glob
 import os
 import sys
 
 
 #---------------------------------------
-# Given an input directory of text files, this function
-# returns a dictionary of (word, frequency) aggregated
-# over all *.txt files found in that directory.
+# Given an input directory of text files, 
+# this function returns a dictionary of 
+# (word, frequency) aggregated over all *.txt 
+# files found in that directory.
 #
-# Any word whose length is less than min_len (M) is ignored
-# entirely -- it is never added to the dictionary. This is a
-# "mapper-side" filter (applied before counting).
+# Any word whose length is less than min_len 
+# (M) is ignored entirely -- it is never added 
+# to the dictionary. This is a "mapper-side" filter 
+# (applied before counting).
 #
-# glob.glob() function is the primary tool within that
-# glob module. When you pass a pattern to it, it scans
-# the directory and returns a list of matching file paths.
+# "glob" refers to a pattern-matching technique 
+# used to find files and directories using wildcard 
+# characters. In Python, glob.glob() is a built-in 
+# function from the Python glob module that searches 
+# file paths and returns a list of everything matching 
+# your specified pattern.
+#
 def count_words_in_dir(input_dir, min_len):
-  """Count word frequencies across all *.txt files in a directory.
+  """Count word frequencies across all *.txt files 
+     in a directory.
 
   Args:
-    input_dir: path to a directory containing one or more *.txt files.
-    min_len: minimum word length to keep; shorter words are skipped
-      before they are ever added to the dictionary.
+  
+    input_dir: 
+        path to a directory containing one or 
+        more *.txt files.
+    
+    min_len: 
+        minimum word length to keep; shorter words 
+        are skipped before they are ever added to 
+        the dictionary.
 
   Returns:
-    A dict mapping each lowercase word (with length >= min_len) to
-    the number of times it appears across all *.txt files in
-    input_dir.
+    A dict mapping each lowercase word (with length >= min_len) 
+    to the number of times it appears across all *.txt files 
+    in input_dir.
   """
+  
   # Create an empty dictionary of (key, value) pairs
   word_counts = dict()
 
@@ -101,20 +120,23 @@ def count_words_in_dir(input_dir, min_len):
   return word_counts
 #end-def
 #---------------------------------------
-# Given a dictionary of (word, frequency) pairs, return a new
-# dictionary keeping only the words whose frequency is >= min_freq
-# (N). This is a "reducer-side" filter (applied after counting).
+# Given a dictionary of (word, frequency) pairs, 
+# return a new dictionary keeping only the words 
+# whose frequency is >= min_freq (N). This is a 
+# "reducer-side" filter (applied after counting).
+#
 def filter_by_frequency(word_counts, min_freq):
   """Keep only words whose frequency is >= min_freq.
 
   Args:
     word_counts: dict mapping word -> frequency.
-    min_freq: minimum frequency (inclusive) a word must have to be
-      kept in the result.
+    
+    min_freq: minimum frequency (inclusive) a word must 
+      have to be kept in the result.
 
   Returns:
-    A new dict containing only the (word, frequency) pairs from
-    word_counts whose frequency is >= min_freq.
+    A new dict containing only the (word, frequency) pairs 
+    from word_counts whose frequency is >= min_freq.
   """
   filtered = dict()
   for word, count in word_counts.items():
@@ -125,9 +147,11 @@ def filter_by_frequency(word_counts, min_freq):
   return filtered
 #end-def
 #---------------------------------------
-# Write a dictionary of (word, frequency) pairs out as a
-# TSV file: one "<word><TAB><count>" record per line,
-# sorted by word (mirrors typical MapReduce/Hadoop output).
+# Write a dictionary of (word, frequency) pairs 
+# out as a TSV file: one "<word><TAB><count>" record 
+# per line, sorted by word (mirrors typical 
+# MapReduce/Hadoop output).
+#
 def write_tsv(word_counts, output_path):
   """Write (word, frequency) pairs to a TSV file, sorted by word.
 

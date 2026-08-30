@@ -1,4 +1,4 @@
-# word_count_in_mapreduce
+# Word Count in MapReduce
 
 Word count solved as a real MapReduce job — `mapper()` and
 `reducer()` shown as Python functions, every mapper and

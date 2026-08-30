@@ -2,6 +2,13 @@
 
 	Author: Mahmoud Parsian
 	Last updated: 8/29/2026
+	
+**What is a  Word Count problem in MapReduce?**<br>
+A word count problem in MapReduce is a 
+classic **distributed computing task** 
+that counts how many times each word 
+appears in a large collection of text 
+(such a text files/documents).
 
 ## Table of Contents
 
@@ -29,36 +36,42 @@
 
 Walk through classic MapReduce word count step by step,
 showing **every** mapper call and **every** reducer call
-for a small multi-file input — nothing is abbreviated with
-"...". The `mapper()` / `reducer()` functions below are
-written in real Python syntax (not `{ }` pseudocode) on
-purpose: a later lecture ports this *exact* pair of
-functions to PySpark, so the shapes matter now.
+for a small multi-file input — nothing is abbreviated 
+with "...". The `mapper()` / `reducer()` functions below 
+are written in real Python syntax (not `{ }` pseudocode) 
+on purpose: a later lecture ports this *exact* pair 
+of functions to PySpark, so the shapes matter now.
 
 ## 2. Why Python syntax, and why it matters for PySpark later
 
-* `mapper(key, value)` returns a **list of `(word, 1)`
-  pairs**. That's precisely what you hand to PySpark's
-  `rdd.flatMap(...)` — a function that turns one input
-  record into zero or more output pairs.
-* `reducer(word, counts)` below is written as a **binary**
-  function — `f(a, b) -> combined` — because that's what
-  PySpark's `rdd.reduceByKey(f)` expects. It never sees the
-  full list of values for a key at once; it repeatedly
-  combines two values until one remains. That's exactly
-  what Python's own `functools.reduce()` does, which is
-  where this document's title comes from.
+* **`mapper(key, value)`** <br>
+  returns a **list of `(word, 1)` pairs**. <br>
+  That's precisely what you hand to PySpark's
+  `rdd.flatMap(...)` — a function that turns 
+  one input record into zero or more output pairs.
+  
+* **`reducer(word, counts)`** <br>
+  below is written as a **binary** function 
+  — `f(a, b) -> combined` — because that's what
+  PySpark's `rdd.reduceByKey(f)` expects. It never 
+  sees the full list of values for a key at once; 
+  it repeatedly combines two values until one remains. 
+  That's exactly what Python's own `functools.reduce()` 
+  does, which is where this document's title comes from.
 
-So: this write-up already uses the vocabulary and shapes
-that `rdd.flatMap(mapper)` and `rdd.reduceByKey(reducer)`
-will use, later, almost unchanged.
+So: this write-up already uses the vocabulary 
+and shapes that `rdd.flatMap(mapper)` and 
+`rdd.reduceByKey(reducer)` will use, later, 
+almost unchanged.
 
 ## 3. INPUT: multiple files in `data/`
 
-Word count input is rarely one file — it's a **directory**
-of files (see [`data/`](data/)). Each file is shorter here
-than in [`word_count_in_python/data/`](../word_count_in_python/data/)
-so that every mapper and reducer call below can be shown in full.
+Word count input is rarely one file — it's 
+a **directory** of files (see [`data/`](data/)). 
+Each file is shorter here than in 
+[`word_count_in_python/data/`](../word_count_in_python/data/)
+so that every mapper and reducer call below can be shown 
+in full.
 
 ~~~text
 $ cat data/file1.txt
@@ -93,30 +106,32 @@ key   = filename
 value = one record (one line of text)
 ~~~
 
-That `(filename, record)` pair is what gets passed to a mapper
-— not the raw file. (Word count itself never looks at the
-filename; it's included here to make explicit *where* each
-record came from, and because it's exactly the `(key, value)`
-shape `sc.wholeTextFiles()` produces in PySpark — see the
-preview at the end.)
+That `(filename, record)` pair is what gets passed 
+to a mapper — not the raw file. (Word count itself 
+never looks at the filename; it's included here to 
+make explicit *where* each record came from, and 
+because it's exactly the `(key, value)` shape 
+`sc.wholeTextFiles()` produces in PySpark — see 
+the preview at the end.)
 
-Every one of the 12 records, and the pair it's passed to a
-mapper as:
+Every one of the 12 records, and the pair it's 
+passed to a mapper as:
 
 | filename | record # | record | passed to a mapper as |
 |---|---|---|---|
-| file1.txt | 1 | `fox jumped` | `("file1.txt", "fox jumped")` |
-| file1.txt | 2 | `red fox` | `("file1.txt", "red fox")` |
-| file1.txt | 3 | `fox jumped high` | `("file1.txt", "fox jumped high")` |
-| file2.txt | 1 | `gray fox` | `("file2.txt", "gray fox")` |
-| file2.txt | 2 | `fox jumped` | `("file2.txt", "fox jumped")` |
-| file2.txt | 3 | `red fox jumped` | `("file2.txt", "red fox jumped")` |
-| file2.txt | 4 | `fox is quick` | `("file2.txt", "fox is quick")` |
-| file3.txt | 1 | `fox jumped` | `("file3.txt", "fox jumped")` |
-| file3.txt | 2 | `gray fox jumped` | `("file3.txt", "gray fox jumped")` |
-| file3.txt | 3 | `red fox` | `("file3.txt", "red fox")` |
-| file3.txt | 4 | `fox is red` | `("file3.txt", "fox is red")` |
-| file3.txt | 5 | `fox ran` | `("file3.txt", "fox ran")` |
+| `file1.txt` | 1 | `fox jumped` | `("file1.txt", "fox jumped")` |
+| `file1.txt` | 2 | `red fox` | `("file1.txt", "red fox")` |
+| `file1.txt` | 3 | `fox jumped high` | `("file1.txt", "fox jumped high")` |
+| `file2.txt` | 1 | `gray fox` | `("file2.txt", "gray fox")` |
+| `file2.txt` | 2 | `fox jumped` | `("file2.txt", "fox jumped")` |
+| `file2.txt` | 3 | `red fox jumped` | `("file2.txt", "red fox jumped")` |
+| `file2.txt` | 4 | `fox is quick` | `("file2.txt", "fox is quick")` |
+| `file3.txt` | 1 | `fox jumped` | `("file3.txt", "fox jumped")` |
+| `file3.txt` | 2 | `gray fox jumped` | `("file3.txt", "gray fox jumped")` |
+| `file3.txt` | 3 | `red fox` | `("file3.txt", "red fox")` |
+| `file3.txt` | 4 | `fox is red` | `("file3.txt", "fox is red")` |
+| `file3.txt` | 5 | `fox ran` | `("file3.txt", "fox ran")` |
+
 
 ## 5. Step 2 — the `mapper()` function
 
@@ -133,11 +148,11 @@ def mapper(filename, record):
     return [(word, 1) for word in words]
 ~~~
 
-`mapper()` is called once per `(filename, record)` pair — it
-never sees any other record, and it never sees any other
-mapper's output. That's what makes it safe to run in parallel,
-one mapper per record (or per batch of records), across a
-cluster.
+`mapper()` is called once per `(filename, record)` 
+pair — it never sees any other record, and it never 
+sees any other mapper's output. That's what makes 
+it safe to run in parallel, one mapper per record 
+(or per batch of records), across a cluster.
 
 ## 6. Step 3 — output of every mapper call (all 12 of them)
 
@@ -158,16 +173,17 @@ mapper("file3.txt", "fox is red")       -> [("fox", 1), ("is", 1), ("red", 1)]
 mapper("file3.txt", "fox ran")          -> [("fox", 1), ("ran", 1)]
 ~~~
 
-Flattened, that's **29** `(word, 1)` pairs crossing from
-mappers into the shuffle — one per word token in the input
-(matches `wc -w data/*.txt`).
+Flattened, that's **29** `(word, 1)` pairs crossing 
+from mappers into the shuffle — one per word token 
+in the input (matches `wc -w data/*.txt`).
 
 ## 7. Mappers with Filters: ignore words shorter than M
 
-A mapper filter is a **local** decision — it only needs the
-word itself, nothing about its overall frequency across the
-input — so it can run before the shuffle, cutting the amount
-of data that ever crosses the network:
+A mapper filter is a **local** decision — it only 
+needs the word itself, nothing about its overall 
+frequency across the input — so it can run before 
+the shuffle, cutting the amount of data that ever 
+crosses the network:
 
 ~~~python
 M = 3  # minimum word length to keep
@@ -181,9 +197,10 @@ def mapper_with_filter(filename, record):
     return [(word, 1) for word in words if len(word) >= M]
 ~~~
 
-Only two of the 12 records contain a word shorter than
-`M = 3` — both contain `is` (2 characters) — so only those
-two calls change; the other 10 are identical to Step 3:
+Only two of the 12 records contain a word 
+shorter than `M = 3` — both contain `is` 
+(2 characters) — so only those two calls change; 
+the other 10 are identical to Step 3:
 
 ~~~text
 mapper_with_filter("file1.txt", "fox jumped")       -> [("fox", 1), ("jumped", 1)]
@@ -202,20 +219,21 @@ mapper_with_filter("file3.txt", "fox is red")       -> [("fox", 1), ("red", 1)] 
 mapper_with_filter("file3.txt", "fox ran")          -> [("fox", 1), ("ran", 1)]
 ~~~
 
-`is` never reaches the shuffle at all — both of its
-occurrences (the only two in the whole input) are gone
-before anything is grouped, so the flattened pair count
-drops from 29 (Step 3) to **27**. If Step 4 were re-run on
-this filtered output, `is` would simply be absent from the
-grouped keys — the reducer never even gets *called* for it.
-(Contrast this with the frequency filter below, which *does*
-still call the reducer for every key.)
+`is` never reaches the shuffle at all — both of 
+its occurrences (the only two in the whole input) 
+are gone before anything is grouped, so the flattened 
+pair count drops from 29 (Step 3) to **27**. If Step 
+4 were re-run on this filtered output, `is` would simply 
+be absent from the grouped keys — the reducer never even 
+gets *called* for it. (Contrast this with the frequency 
+filter below, which *does* still call the reducer for 
+every key.)
 
 ## 8. Step 4 — shuffle & sort: group by key
 
-The framework collects all 29 `(word, 1)` pairs from every
-mapper, groups them by `word`, and hands each reducer a
-`(word, list_of_1s)` pair:
+The framework collects all 29 `(word, 1)` pairs 
+from every mapper, groups them by `word`, and 
+hands each reducer a `(word, list_of_1s)` pair:
 
 ~~~text
 (fox,    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])   # 12 ones
@@ -228,8 +246,9 @@ mapper, groups them by `word`, and hands each reducer a
 (ran,    [1])
 ~~~
 
-8 unique keys (words) come out of shuffle & sort — that's
-also how many times `reducer()` will be invoked, once per key.
+8 unique keys (words) come out of shuffle & sort 
+— that's also how many times `reducer()` will be 
+invoked, once per key.
 
 ## 9. Step 5 — the `reducer()` function
 
@@ -267,12 +286,13 @@ def reducer(word, counts):
     return (word, total)
 ~~~
 
-`combine` is exactly the function you'll later pass straight
-to `rdd.reduceByKey(combine)` in PySpark — no translation
-needed, because addition is **associative** and
-**commutative**: it doesn't matter what order the 1's are
-combined in, or how they're split across partitions, the
-total is always the same.
+`combine` is exactly the function you'll later 
+pass straight to `rdd.reduceByKey(combine)` in 
+PySpark —  no translation needed, because addition 
+is **associative** and **commutative**: it doesn't 
+matter what order the 1's are combined in, or how 
+they're split across partitions, the total is always
+the same.
 
 ## 10. Step 6 — output of every reducer call (all 8 of them)
 
@@ -289,11 +309,11 @@ reducer("ran",    [1])    -> ("ran", 1)
 
 ## 11. Reducers with Filters: ignore words with frequency less than N
 
-A reducer filter is a **global** decision — it depends on
-the *total* count for a word, and only the reducer ever sees
-that total (a single mapper only ever sees one record at a
-time), so this filter can only be applied here, after
-aggregation:
+A reducer filter is a **global** decision — it 
+depends on the *total* count for a word, and only 
+the reducer ever sees that total (a single mapper 
+only ever sees one record at a time), so this filter 
+can only be applied here, after aggregation:
 
 ~~~python
 N = 2  # minimum frequency to keep
@@ -332,13 +352,13 @@ Output with the filter applied:
 (is, 2)
 ~~~
 
-Notice this filter **keeps** `is` — its frequency (2) meets
-the `N = 2` threshold — while the *mapper* filter above
-dropped `is` unconditionally, on length alone. Same word,
-opposite outcome, because the two filters look at completely
-different information: one word at a time vs. the aggregated
-total. See the "Mapper filter vs. reducer filter" comparison
-table in
+Notice this filter **keeps** `is` — its frequency 
+(2) meets the `N = 2` threshold — while the *mapper* 
+filter above dropped `is` unconditionally, on length 
+alone. Same word, opposite outcome, because the two 
+filters look at completely different information: one 
+word at a time vs. the aggregated total. See the "Mapper 
+filter vs. reducer filter" comparison table in
 [`mapreduce_examples/MapReduce_Word_Count.md`](../mapreduce_examples/MapReduce_Word_Count.md)
 for the general rule of thumb.
 
@@ -355,10 +375,11 @@ for the general rule of thumb.
 (ran, 1)
 ~~~
 
-12 + 6 + 4 + 2 + 2 + 1 + 1 + 1 = 29 — matches the 29 tokens
-counted in Step 3, confirming no word was lost or double
-counted along the way. Sorted alphabetically (the convention
-used by [`word_count_dir_to_tsv.py`](../word_count_in_python/word_count_dir_to_tsv.py)'s
+`12 + 6 + 4 + 2 + 2 + 1 + 1 + 1 = 29` — matches the 
+29 tokens counted in Step 3, confirming no word was 
+lost or double counted along the way. Sorted alphabetically 
+(the convention used by 
+[`word_count_dir_to_tsv.py`](../word_count_in_python/word_count_dir_to_tsv.py)'s
 TSV output):
 
 ~~~text
@@ -374,21 +395,21 @@ red     4
 
 ## 13. Combiners in MapReduce
 
-A combiner is an **optional** step that runs locally, on a
-single partition's worth of mapper output, *before* that
-output is shuffled across the network to a reducer. It's
-shaped exactly like a reducer, but it only ever sees the
-values produced within its own partition — never the whole
-dataset. The point is to cut how much data crosses the
-network, without changing the final answer.
+A combiner is an **optional** step that runs locally, 
+on a single partition's worth of mapper output, *before* 
+that output is shuffled across the network to a reducer. 
+It's shaped exactly like a reducer, but it only ever sees 
+the values produced within its own partition — never the 
+whole dataset. The point is to cut how much data crosses 
+the network, without changing the final answer.
 
-To keep the partitioning simple here, route by source file:
-everything `mapper()` produced from `file1.txt` goes to
-partition **P1**, `file2.txt`'s output goes to **P2**, and
-`file3.txt`'s output goes to **P3**. (This mirrors the 3
-files from Step 1 — a common real-world case, since one
-input split often *is* one file.) Flattening Step 3's output
-by file:
+To keep the partitioning simple here, route by source 
+file: everything `mapper()` produced from `file1.txt` 
+goes to partition **P1**, `file2.txt`'s output goes 
+to **P2**, and `file3.txt`'s output goes to **P3**. 
+(This mirrors the 3 files from Step 1 — a common real-world 
+case, since one input split often *is* one file.) Flattening 
+Step 3's output by file:
 
 ~~~text
 P1 (from file1.txt, 7 pairs):
@@ -403,12 +424,12 @@ P3 (from file3.txt, 12 pairs):
 
 ## 14. `combiner()` function
 
-Same shape as `reducer()`'s aggregate form — that's not a
-coincidence, it's *why* a combiner is safe to use for word
-count: addition is associative and commutative, so summing
-a subset of the 1's early (per partition) and re-summing
-those partial sums later (in the reducer) gives the exact
-same final total.
+Same shape as `reducer()`'s aggregate form — 
+that's not a coincidence, it's *why* a combiner 
+is safe to use for word count: addition is associative 
+and commutative, so summing a subset of the 1's early 
+(per partition) and re-summing those partial sums later 
+(in the reducer) gives the exact same final total.
 
 ~~~python
 def combiner(word, counts):

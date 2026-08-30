@@ -1,15 +1,21 @@
 """
 word_count_dir_to_tsv.py
 
-Minimal, dependency-free word-count example: reads every *.txt file in
-an input directory, tokenizes it into words, counts the frequency of
-each word across all files, and writes the result as a TSV file
-("<word><TAB><count>" per line, sorted by word) -- mirroring typical
-MapReduce/Hadoop output.
+Minimal, dependency-free word-count example: 
+reads every *.txt file in an input directory, 
+tokenizes it into words, counts the frequency 
+of each word across all files, and writes the 
+result as a TSV file
+
+("<word><TAB><count>" per line, sorted by word) 
+-- mirroring typical MapReduce/Hadoop output.
 
 Usage:
+
   python3 word_count_dir_to_tsv.py <input_dir> [output_tsv]
+
 """
+
 import glob
 import os
 import sys
@@ -19,6 +25,13 @@ import sys
 # Given an input directory of text files, this function
 # returns a dictionary of (word, frequency) aggregated
 # over all *.txt files found in that directory.
+#
+# "glob" refers to a pattern-matching technique used to 
+# find files and directories using wildcard characters. 
+# In Python, glob.glob() is a built-in function from the 
+# Python glob module that searches file paths and returns 
+# a list of everything matching your specified pattern.
+#
 def count_words_in_dir(input_dir):
   """Count word frequencies across all *.txt files in a directory.
 

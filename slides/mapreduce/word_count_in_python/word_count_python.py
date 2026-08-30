@@ -1,16 +1,21 @@
 """
 word_count_python.py
 
-Minimal, dependency-free word-count example: reads a single text file,
-tokenizes it into words, and counts the frequency of each word.
+Minimal, dependency-free word-count example: 
+reads a single text file, tokenizes it into words, 
+and counts the frequency of each word.
 
-This mirrors the "map" (tokenize + emit) and "reduce" (aggregate by
-key) steps of a MapReduce word count, but runs entirely in-process
-using a plain Python dict as the aggregator -- no Hadoop/Spark needed.
+This mirrors the "map" (tokenize + emit) and "reduce" 
+(aggregate by key) steps of a MapReduce word count, 
+but runs entirely in-process using a plain Python dict 
+as the aggregator -- no Hadoop/Spark needed.
 
 Usage:
+
   python3 word_count_python.py <input_file>
+
 """
+
 import sys
 
 
