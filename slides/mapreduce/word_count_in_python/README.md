@@ -10,9 +10,9 @@ Minimal, dependency-free Python word-count scripts (no Spark/Hadoop) plus sample
 | [`data/file2.txt`](data/file2.txt) | txt | 4 records, "fox jumped..." text — sample input for `word_count_dir_to_tsv.py` |
 | [`data/file3.txt`](data/file3.txt) | txt | 5 records, "fox jumped..." text — sample input for `word_count_dir_to_tsv.py` |
 | [`test_file.txt`](test_file.txt) | txt (138B) | Toy text ("fox jumped...") used as sample input for `word_count_python.py` |
-| [`word_count_python.py`](word_count_python.py) | py (1.5KB) | Plain-Python word-count script (reads a single file, tokenizes, counts words, prints to stdout) |
-| [`word_count_dir_to_tsv.py`](word_count_dir_to_tsv.py) | py (2.9KB) | Plain-Python word-count script (reads all `.txt` files in an input directory, tokenizes, counts words, writes a `<word><TAB><count>` TSV file) |
-| [`word_count_dir_to_tsv_with_filter.py`](word_count_dir_to_tsv_with_filter.py) | py (3.4KB) | Same as `word_count_dir_to_tsv.py`, plus two filter thresholds `M` and `N` — see [Filtering: `word_count_dir_to_tsv_with_filter.py`](#filtering-word_count_dir_to_tsv_with_filterpy) below |
+| [`word_count_python.py`](word_count_python.py) | py (2.3KB) | Plain-Python word-count script (reads a single file, tokenizes, counts words, prints to stdout) |
+| [`word_count_dir_to_tsv.py`](word_count_dir_to_tsv.py) | py (4.0KB) | Plain-Python word-count script (reads all `.txt` files in an input directory, tokenizes, counts words, writes a `<word><TAB><count>` TSV file) |
+| [`word_count_dir_to_tsv_with_filter.py`](word_count_dir_to_tsv_with_filter.py) | py (5.9KB) | Same as `word_count_dir_to_tsv.py`, plus two filter thresholds `M` and `N` — see [Filtering: `word_count_dir_to_tsv_with_filter.py`](#filtering-word_count_dir_to_tsv_with_filterpy) below |
 
 
 ## Word Count Sample Run: `word_count_dir_to_tsv.py`
