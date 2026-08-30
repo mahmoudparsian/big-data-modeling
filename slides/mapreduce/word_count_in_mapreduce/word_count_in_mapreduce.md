@@ -489,7 +489,9 @@ reducer("ran",    [1])       -> ("ran", 1)
 Identical to Step 6's output — the combiner only changed
 **how much data moved**, never **what the answer was**. See
 [`combiners/Word_Count_in_MapReduce.md`](../combiners/Word_Count_in_MapReduce.md)
-for a deeper treatment of this exact example, and
+for a similar worked example — same combiner idea, applied
+to a different sample input and a different partitioning
+scheme — and
 [`combiners/MapReduce_with_Combiners.md`](../combiners/MapReduce_with_Combiners.md)
 for cases (like `average`) where a naive combiner *would*
 silently break correctness.

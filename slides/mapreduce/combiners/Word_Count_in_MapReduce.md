@@ -8,6 +8,12 @@ MapReduce example — word count — solved both
 with and without a combiner, so the effect of
 the combiner is visible side by side.
 
+(For the same combiner idea worked through with real
+Python `mapper()`/`combiner()`/`reducer()` functions,
+every call enumerated, and a preview of the PySpark port,
+see
+[`word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md).)
+
 MapReduce is a programming model and an
 associated implementation for processing
 and generating big data sets with a parallel,
