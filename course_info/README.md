@@ -11,11 +11,11 @@ Administrative and reference material for the course (syllabus policies, tutoria
 | [class\_meeting\_dates\_and\_hours.md](class_meeting_dates_and_hours.md) | Class Room, Dates & Hours |
 | [course\_description.md](course_description.md) | Big Data Modeling & Analytics |
 | [course\_outline.md](course_outline.md) | Course Outline |
-| [final\_exam.md](final_exam.md) | Final Exam: |
+| [final\_exam.md](final_exam.md) | Final Exam |
 | [grading\_and\_class\_conduct.md](grading_and_class_conduct.md) | Grading and Class Conduct Policies |
 | [instructor.md](instructor.md) | Mahmoud Parsian <br> Assistant Teaching Professor |
 | [mapreduce\_tutorials.md](mapreduce_tutorials.md) | MapReduce Tutorials |
-| [midterm\_exam.md](midterm_exam.md) | Exam-1: TBDL |
+| [midterm\_exam.md](midterm_exam.md) | Exam-1 and Exam-2 |
 | [office\_hours.md](office_hours.md) | Weekly Office Hours |
 | [prerequisite.md](prerequisite.md) | Prerequisite |
 | [pyspark\_tutorials.md](pyspark_tutorials.md) | PySpark Tutorials |
