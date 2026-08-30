@@ -1,4 +1,4 @@
-# word_count_in_python
+# Word Count in Python
 
 Minimal, dependency-free Python word-count scripts (no Spark/Hadoop) plus sample input files.
 
@@ -13,6 +13,38 @@ Minimal, dependency-free Python word-count scripts (no Spark/Hadoop) plus sample
 | [`word_count_python.py`](word_count_python.py) | py (1.5KB) | Plain-Python word-count script (reads a single file, tokenizes, counts words, prints to stdout) |
 | [`word_count_dir_to_tsv.py`](word_count_dir_to_tsv.py) | py (2.9KB) | Plain-Python word-count script (reads all `.txt` files in an input directory, tokenizes, counts words, writes a `<word><TAB><count>` TSV file) |
 | [`word_count_dir_to_tsv_with_filter.py`](word_count_dir_to_tsv_with_filter.py) | py (3.4KB) | Same as `word_count_dir_to_tsv.py`, plus two filter thresholds `M` and `N` — see [Filtering: `word_count_dir_to_tsv_with_filter.py`](#filtering-word_count_dir_to_tsv_with_filterpy) below |
+
+
+## Word Count Sample Run: `word_count_dir_to_tsv.py`
+
+```
+% python3 word_count_dir_to_tsv.py data
+input_dir= data
+output_path= word_count_output.tsv
+processing: data/file1.txt
+processing: data/file2.txt
+processing: data/file3.txt
+Wrote 17 unique words to word_count_output.tsv
+
+% cat word_count_output.tsv
+and	7
+cute	1
+far	1
+fox	22
+gray	4
+high	1
+is	3
+jumped	14
+lazy	2
+over	6
+quick	1
+ran	1
+red	7
+slept	1
+smart	1
+watched	1
+while	1
+```
 
 ## Filtering: `word_count_dir_to_tsv_with_filter.py`
 
@@ -48,4 +80,7 @@ over	6
 red	7
 ```
 
-(`is` is dropped by the `M` filter — length 2, below the M=3 threshold. `cute`, `far`, `high`, etc. pass `M` but are dropped by the `N` filter — each occurs only once, below the N=5 threshold.)
+* Some Notes:
+
+	* `is` is dropped by the `M` filter — length 2, below the M=3 threshold. 
+	* `cute`, `far`, `high`, etc. pass `M` but are dropped by the `N` filter — each occurs only once, below the N=5 threshold.
