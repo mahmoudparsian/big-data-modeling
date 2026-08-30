@@ -1,14 +1,19 @@
 """
-word_count_python.py
+word_count_single_file.py
 
 Minimal, dependency-free word-count example: 
-reads a single text file, tokenizes it into words, 
-and counts the frequency of each word.
+reads a single text file, tokenizes it into 
+words, and counts the frequency of each word.
 
-This mirrors the "map" (tokenize + emit) and "reduce" 
-(aggregate by key) steps of a MapReduce word count, 
-but runs entirely in-process using a plain Python dict 
-as the aggregator -- no Hadoop/Spark needed.
+This mirrors the "map" (tokenize + emit) and 
+"reduce" (aggregate by key) steps of a MapReduce 
+word count, but runs entirely in-process using 
+a plain Python dictioary as the aggregator -- 
+no Hadoop/Spark needed.
+
+So, the input is a single text file, and output is a 
+dictionary of `(word-as-a-key, frequency-as-an-integer)`.
+
 
 Usage:
 
@@ -22,6 +27,7 @@ import sys
 #---------------------------------------
 # Given a text file of records, this function
 # returns a dictionary of (word, frequency)
+#
 def count_word(file_name):
   """Count word frequencies in a single text file.
 
@@ -29,9 +35,11 @@ def count_word(file_name):
     file_name: path to a plain-text input file.
 
   Returns:
-    A dict mapping each lowercase word to the number of times it
-    appears in the file.
+    A dict mapping each lowercase word to the number 
+    of times it appears in the file.
+    
   """
+  
   # Create an empty dictionary of (key, value) pairs
   word_counts = dict()
 
@@ -88,9 +96,9 @@ if __name__ == "__main__":
 #end-if
 
 """
-sample run:
+SAMPLE RUN:
 
- % python3 word_count_python.py test_file.txt
+ % python3 word_count_single_file.py test_file.txt
 input_path= test_file.txt
 fox : 8
 jumped : 7
