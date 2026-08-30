@@ -1,60 +1,87 @@
-from __future__ import print_function
-import re
-import string
+"""
+word_count_python.py
+
+Minimal, dependency-free word-count example: reads a single text file,
+tokenizes it into words, and counts the frequency of each word.
+
+This mirrors the "map" (tokenize + emit) and "reduce" (aggregate by
+key) steps of a MapReduce word count, but runs entirely in-process
+using a plain Python dict as the aggregator -- no Hadoop/Spark needed.
+
+Usage:
+  python3 word_count_python.py <input_file>
+"""
 import sys
 
-#---------------------------------------
-# Given a text file of records, this function 
-# returns a dictionary of (word, frequecy)
-def count_word(file_name):
 
-  # Open the file in read mode
-  text = open(file_name, "r")
-  
+#---------------------------------------
+# Given a text file of records, this function
+# returns a dictionary of (word, frequency)
+def count_word(file_name):
+  """Count word frequencies in a single text file.
+
+  Args:
+    file_name: path to a plain-text input file.
+
+  Returns:
+    A dict mapping each lowercase word to the number of times it
+    appears in the file.
+  """
   # Create an empty dictionary of (key, value) pairs
-  d = dict()
-  
-  # iterate: loop through each line of the file
-  for line in text:
-  
-    # Remove the leading spaces and newline character
-    line = line.strip()
-  
-    # Convert the characters in line to 
-    # lowercase to avoid case mismatch
-    line = line.lower()
-  
-    # Remove the punctuation marks from the line
-    # line = line.translate(line.maketrans("", "", string.punctuation))
-  
-    # Split the line into words
-    words = line.split(" ")
-  
-    # Iterate over each word in line
-    for word in words:
+  word_counts = dict()
+
+  # Open the file in read mode (the "with" block closes it automatically)
+  with open(file_name, "r") as text:
+
+    # iterate: loop through each line of the file
+    for line in text:
+
+      # Remove the leading/trailing spaces and newline character, then
+      # lowercase the line to avoid case mismatch (e.g., "Fox" vs "fox")
+      line = line.strip().lower()
+
+      # Split the line into words
+      words = line.split()
+
+      # Iterate over each word in line
+      for word in words:
         # Check if the word is already in dictionary
-        if word in d:
-            # Increment count of word by 1
-            d[word] += 1
+        if word in word_counts:
+          # Increment count of word by 1
+          word_counts[word] += 1
         else:
-            # Add the word to dictionary with count 1
-            d[word] = 1
+          # Add the word to dictionary with count 1
+          word_counts[word] = 1
         #end-if
+      #end-for
     #end-for
-    
-  #end-for
-  return d
+  return word_counts
 #end-def
 #---------------------------------------
-    
-input_path = sys.argv[1]
-print("input_path=", input_path)
 
-dict = count_word(input_path)
-# Print the contents of dictionary
-for key in list(dict.keys()):
-    print(key, ":", dict[key])
-    
+
+def main():
+  if len(sys.argv) < 2:
+    print("Usage: python3 word_count_python.py <input_file>")
+    sys.exit(1)
+  #end-if
+
+  input_path = sys.argv[1]
+  print("input_path=", input_path)
+
+  word_counts = count_word(input_path)
+
+  # Print the contents of dictionary
+  for word in word_counts:
+    print(word, ":", word_counts[word])
+  #end-for
+#end-def
+
+
+if __name__ == "__main__":
+  main()
+#end-if
+
 """
 sample run:
 
