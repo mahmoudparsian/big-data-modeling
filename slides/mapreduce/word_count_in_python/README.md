@@ -26,6 +26,21 @@ files.
 | [`word_count_dir_to_tsv_with_filter.py`](word_count_dir_to_tsv_with_filter.py) | py  | Same as `word_count_dir_to_tsv.py`, plus two filter thresholds `M` and `N` — see [Filtering: `word_count_dir_to_tsv_with_filter.py`](#filtering-word_count_dir_to_tsv_with_filterpy) below |
 
 
+## Word Count Sample Run: `word_count_single_file_v2.py`
+
+```
+% python3 word_count_single_file_v2.py test_file.txt
+input_file= test_file.txt
+and: 3
+cute: 1
+fox: 8
+gray: 2
+is: 1
+jumped: 7
+over: 3
+red: 3
+```
+
 ## Word Count Sample Run: `word_count_dir_to_tsv.py`
 
 ```
