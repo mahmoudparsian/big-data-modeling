@@ -1,6 +1,6 @@
 # People You May Know (PYMK)
 
-Three runnable implementations of the classic "People You May Know"
+Five runnable implementations of the classic "People You May Know"
 mutual-friend recommendation algorithm:
 
 * [`pymk_pure_python.py`](pymk_pure_python.py) — a dependency-free,
@@ -13,11 +13,26 @@ mutual-friend recommendation algorithm:
 * [`pymk_pyspark_using_reducebykey.py`](pymk_pyspark_using_reducebykey.py) —
   the same PySpark job again, but aggregating with `reduceByKey()`
   and a map-side combiner instead of `groupByKey()` — see
-  [Section 7](#7-how-the-two-implementations-map-onto-each-other) for
+  [Section 7](#7-how-the-five-implementations-map-onto-each-other) for
   why that requires reshaping what the mapper emits, not just
   swapping one method call for another.
+* [`pymk_pyspark_using_dataframes.py`](pymk_pyspark_using_dataframes.py) —
+  the same algorithm again, this time on the Spark SQL DataFrame API
+  instead of RDDs: `explode`/`least`/`greatest` for Rule 1, a
+  self-join for Rule 2, `groupBy().agg()` for the shuffle+reduce, a
+  `left_anti` join to drop already-friend pairs, and a ranking
+  `Window` function in place of a second `groupByKey().mapValues(sort)`.
+* [`pymk_pyspark_using_graphframes.py`](pymk_pyspark_using_graphframes.py) —
+  the same algorithm expressed as a single declarative graph
+  pattern-match query over a [GraphFrames](https://graphframes.io/)
+  `GraphFrame` instead of joins: `g.find("(a)-[]->(c); (b)-[]->(c)")`
+  finds every pair sharing a mutual friend `c` in one call, with no
+  `combinations()`/self-join in sight — see
+  [Section 7](#7-how-the-five-implementations-map-onto-each-other) for
+  why that's a genuinely different (not just shorter) way to express
+  Rule 2.
 
-All three scripts implement **the same algorithm**, produce **the
+All five scripts implement **the same algorithm**, produce **the
 same output**, and are cross-checked against each other and against
 the worked-by-hand example below — they are different execution
 strategies for one idea, not different ideas.
@@ -57,6 +72,19 @@ example. PYMK extends it to non-friends, which is structurally a
 different computation — see Section 3 of the companion doc for why
 the Finding-Friends mapper can never produce a non-friend pair as a
 key at all.)
+
+**"Friend" here means a mutual, bidirectional relationship —
+Facebook-style, not Twitter/X-style.** If `A` lists `B` as a friend,
+`B` is expected to list `A` right back, and `sort_pair(A, B)` treats
+`(A, B)` and `(B, A)` as the same edge — which is exactly why every
+recommendation this algorithm produces is symmetric (if `A` is
+recommended `E`, `E` is recommended `A` back, with the same
+mutual-friend count and names). A one-way "follows" graph, where `A`
+following `B` doesn't imply `B` follows `A`, doesn't fit this
+algorithm as-is: Rule 1 and Rule 2 would both need to distinguish
+"follows" direction before "mutual friend" even has a well-defined
+meaning. Adapting the two rules for a directed graph is listed as an
+open extension in [Section 9](#9-extending-this), item 2.
 
 ## 2. The Algorithm
 
@@ -104,10 +132,15 @@ reduce(pair, values) {
 ```
 
 This is exactly [Section 4 and Section 10](../../../mapreduce/mapreduce_examples/MapReduce_People_You_May_Know.md)
-of the companion MapReduce document, and all three scripts in this
-folder name their functions after it (`sort_pair`, `map_person`/
-`rule1_friend_tags`, `reduce_pair`/`reduce_group`/`combine_pair_states`)
-so you can read the code and the algorithm doc side by side.
+of the companion MapReduce document, and the three RDD-based scripts
+in this folder name their functions after it (`sort_pair`,
+`map_person`/`rule1_friend_tags`, `reduce_pair`/`reduce_group`/
+`combine_pair_states`) so you can read the code and the algorithm doc
+side by side. `pymk_pyspark_using_dataframes.py` implements the same
+two rules under DataFrame-flavored names instead
+(`build_edges_df`/`build_vouches_df`) — see Section 7 for why its
+vocabulary (joins, `groupBy().agg()`, a `Window`) departs further from
+the algorithm doc's pseudocode than the other two Spark scripts do.
 
 ### Why not just intersect friend sets directly?
 
@@ -126,14 +159,15 @@ document for the numbers.
 ## 3. Input / Output Data Format
 
 **Input**, one line per person (`#`-prefixed and blank lines are
-comments, ignored by all three scripts):
+comments, ignored by all five scripts):
 
 ```text
 <person>,<friend_1>,<friend_2>,...,<friend_n>
 ```
 
-Friendship is symmetric, so every edge appears on both endpoints'
-lines (see [`data/friends.txt`](data/friends.txt)).
+Friendship is symmetric (bidirectional, Facebook-style — not a
+one-way Twitter/X "follows"), so every edge appears on both
+endpoints' lines (see [`data/friends.txt`](data/friends.txt)).
 
 **Output**, per person, ranked by descending mutual-friend count
 (ties broken alphabetically by candidate name):
@@ -158,6 +192,9 @@ recommendation:
 | [`pymk_pure_python.py`](pymk_pure_python.py) | py | Dependency-free Python implementation (Map/Shuffle/Reduce simulated with dicts) |
 | [`pymk_pyspark_using_groupbykey.py`](pymk_pyspark_using_groupbykey.py) | py | Standalone PySpark RDD implementation (`flatMap`/`groupByKey`/`mapValues`) |
 | [`pymk_pyspark_using_reducebykey.py`](pymk_pyspark_using_reducebykey.py) | py | Same PySpark job, aggregating with `reduceByKey`/a map-side combiner instead of `groupByKey` — see Section 7 |
+| [`pymk_pyspark_using_dataframes.py`](pymk_pyspark_using_dataframes.py) | py | Same algorithm on the Spark SQL DataFrame API — `explode`/joins/`groupBy().agg()`/a ranking `Window` instead of RDD operators — see Section 7 |
+| [`pymk_pyspark_using_graphframes.py`](pymk_pyspark_using_graphframes.py) | py | Same algorithm as one [GraphFrames](https://graphframes.io/) motif query (`g.find(...)`) over a `GraphFrame` instead of joins — needs the extra `graphframes` dependency, see Section 6 |
+| [`run_all_pyspark.sh`](run_all_pyspark.sh) | sh | Convenience script — runs all four PySpark scripts above against both sample graphs in one go, see Section 6 |
 
 ## 5. Running the Pure-Python Version
 
@@ -438,6 +475,24 @@ one process's memory, one dict or list at a time):
 | 6 | `recommendations` | `dict[str, list[Candidate]]` | 6 people (4 with candidates, 2 empty) |
 
 ## 6. Running the PySpark Versions
+
+### Quick start: run all four at once
+
+[`run_all_pyspark.sh`](run_all_pyspark.sh) runs all four PySpark
+scripts below against both sample graphs, one after another, so you
+can see all four agree without typing eight commands by hand:
+
+```text
+./run_all_pyspark.sh
+```
+
+It's a thin loop around the same `python3 <script> <input_file>
+[--top-k K]` commands documented for each script below — read on for
+what each one does differently, `spark-submit` equivalents for a real
+cluster, and (for `pymk_pyspark_using_graphframes.py`) the one extra
+dependency it needs. (`pymk_pure_python.py` isn't included in the
+script since it's a plain Python script, not a Spark job — see
+Section 5 above.)
 
 ### `pymk_pyspark_using_groupbykey.py`
 
@@ -1122,23 +1177,664 @@ Identical to `pymk_pyspark_using_groupbykey.py`'s output on the same
 input, and identical to the pure-Python output — the third
 confirmation that all three scripts compute the same thing.
 
-## 7. How the Three Implementations Map Onto Each Other
+### `pymk_pyspark_using_dataframes.py`
 
-| MapReduce concept (companion doc) | `pymk_pure_python.py` | `pymk_pyspark_using_groupbykey.py` | `pymk_pyspark_using_reducebykey.py` |
-|---|---|---|---|
-| Mapper Rule 1 (tag edges) | `map_person()`, first loop | `rule1_friend_tags()` via `flatMap` | `rule1_friend_tags()` via `flatMap` (emits a state tuple, not `"FRIEND"`) |
-| Mapper Rule 2 (vouch for pairs) | `map_person()`, second loop | `rule2_mutual_vouches()` via `flatMap` | `rule2_mutual_vouches()` via `flatMap` (emits a state tuple, not a raw name) |
-| Shuffle & sort (group by key) | `shuffle()` — a `dict[pair, list]` built by hand | `.union().groupByKey()` | `.union().reduceByKey(combine_pair_states)` — merges with a map-side combiner instead of shipping every value |
-| Reducer | `reduce_pair()` | `reduce_group()`, applied via `mapValues()` | folded into `combine_pair_states()` + a `.filter()`/`.map()` after `reduceByKey()` |
-| Downstream "sort by count" pass | `recommendations_by_person()` | `.groupByKey().mapValues(rank)` on the symmetrized RDD | `.reduceByKey(merge_ranked_candidates)` — merges already-ranked lists instead of collecting then sorting |
-| Execution model | Single process, in-memory dicts, `O(1)` — fine for classroom-sized graphs | Distributed, partitioned, shuffles over the network — the point is *this* is what scales | Same, but with map-side pre-aggregation reducing shuffle volume — see the design-choice discussion below |
+Same CLI, same usage pattern:
+
+```text
+python3 pymk_pyspark_using_dataframes.py <input_file> [--top-k K] [--output OUT_DIR]
+```
+
+```text
+$SPARK_HOME/bin/spark-submit pymk_pyspark_using_dataframes.py <input_file> [--top-k K] [--output OUT_DIR]
+```
+
+#### Sample run
+
+```text
+% python3 pymk_pyspark_using_dataframes.py data/friends.txt
+input_file= data/friends.txt
+people_in_graph= 6
+
+A: E (3 mutual: B/C/D), F (2 mutual: B/C)
+B: (no recommendations)
+C: (no recommendations)
+D: F (2 mutual: B/C)
+E: A (3 mutual: B/C/D), F (2 mutual: B/C)
+F: A (2 mutual: B/C), D (2 mutual: B/C), E (2 mutual: B/C)
+```
+
+Byte-for-byte identical to the other two PySpark scripts' output
+above — the fourth confirmation that all four implementations compute
+the same thing.
+
+#### Step-by-Step Transformation Trace (`data/friends.txt`)
+
+Unlike the two RDD scripts, there's no `flatMap`-per-record trace to
+walk here — each "step" below is a DataFrame with a fixed schema,
+built and `.show()`n by actually running `pymk_pyspark_using_dataframes.py`'s
+pipeline stage by stage on the same 6-person graph. Every table below
+is real Spark output, not hand-derived.
+
+Recall the graph:
+
+```text
+A -> B C D
+B -> A C D E F
+C -> A B D E F
+D -> A B C E
+E -> B C D
+F -> B C
+```
+
+**Step 1 — `spark.read.text(input_file)` → raw lines, then trim +
+filter comments/blanks → `data_lines`**
+
+Same 27 raw lines as the RDD scripts' `sc.textFile`, filtered down to
+the 6 data lines:
+
+```text
++-----------+
+|line       |
++-----------+
+|A,B,C,D    |
+|B,A,C,D,E,F|
+|C,A,B,D,E,F|
+|D,A,B,C,E  |
+|E,B,C,D    |
+|F,B,C      |
++-----------+
+```
+
+**Step 2 — `split` + `slice` → `friends_df`**
+
+One row per person, `friends` as an `array<string>` column instead of
+a Python list — the DataFrame counterpart of `friends_rdd`:
+
+```text
++------+---------------+
+|person|friends        |
++------+---------------+
+|A     |[B, C, D]      |
+|B     |[A, C, D, E, F]|
+|C     |[A, B, D, E, F]|
+|D     |[A, B, C, E]   |
+|E     |[B, C, D]      |
+|F     |[B, C]         |
++------+---------------+
+```
+
+**Step 3 — `build_edges_df(friends_df)` → `edges_df`** (Rule 1)
+
+`explode()` each person's friends into (person, friend) rows, then
+`least()`/`greatest()` fixes the order and `distinct()` drops the
+duplicate that each symmetric edge produces (22 exploded rows → 11
+distinct edges — half of Step 4's RDD-trace count, since `distinct()`
+collapses what the RDD traces leave as two `"FRIEND"` records per
+edge):
+
+```text
++---+---+
+|a  |b  |
++---+---+
+|A  |B  |
+|A  |C  |
+|A  |D  |
+|B  |C  |
+|B  |D  |
+|B  |E  |
+|B  |F  |
+|C  |D  |
+|C  |E  |
+|C  |F  |
+|D  |E  |
++---+---+
+(count = 11)
+```
+
+**Step 4 — `build_vouches_df(friends_df)` → `vouches_df`** (Rule 2)
+
+The self-join: explode `friends` twice (`friend1`, `friend2`), join
+on `person`, keep `friend1 < friend2`. Same 33 rows as the RDD
+scripts' Rule-2 output — the self-join produces exactly the
+2-combinations `itertools.combinations()` produces, just via a join
+condition instead of a loop:
+
+```text
++---+---+-------+
+|a  |b  |voucher|
++---+---+-------+
+|A  |B  |C      |
+|A  |B  |D      |
+|A  |C  |B      |
+|A  |C  |D      |
+|A  |D  |B      |
+|A  |D  |C      |
+|A  |E  |B      |
+|A  |E  |C      |
+|A  |E  |D      |
+|A  |F  |B      |
+|A  |F  |C      |
+|B  |C  |A      |
+|B  |C  |D      |
+|B  |C  |E      |
+|B  |C  |F      |
+|B  |D  |A      |
+|B  |D  |C      |
+|B  |D  |E      |
+|B  |E  |C      |
+|B  |E  |D      |
+|B  |F  |C      |
+|C  |D  |A      |
+|C  |D  |B      |
+|C  |D  |E      |
+|C  |E  |B      |
+|C  |E  |D      |
+|C  |F  |B      |
+|D  |E  |B      |
+|D  |E  |C      |
+|D  |F  |B      |
+|D  |F  |C      |
+|E  |F  |B      |
+|E  |F  |C      |
++---+---+-------+
+(count = 33)
+```
+
+**Step 5 — `vouches_df.groupBy("a", "b").agg(collect_set, count)` →
+`grouped`** (shuffle + reduce, before suppressing friend pairs)
+
+All 15 unique pairs (`C(6,2) = 15`, same as the RDD scripts'
+`groupByKey()` step), each with its full voucher set and count — the
+DataFrame counterpart of `grouped.mapValues(reduce_group)`, except
+the "is this pair already friends?" question hasn't been asked yet:
+
+```text
++---+---+--------------+------------+
+|a  |b  |mutual_friends|mutual_count|
++---+---+--------------+------------+
+|A  |B  |[C, D]        |2           |
+|A  |C  |[B, D]        |2           |
+|A  |D  |[B, C]        |2           |
+|A  |E  |[B, C, D]     |3           |
+|A  |F  |[B, C]        |2           |
+|B  |C  |[A, D, E, F]  |4           |
+|B  |D  |[A, C, E]     |3           |
+|B  |E  |[C, D]        |2           |
+|B  |F  |[C]           |1           |
+|C  |D  |[A, B, E]     |3           |
+|C  |E  |[B, D]        |2           |
+|C  |F  |[B]           |1           |
+|D  |E  |[B, C]        |2           |
+|D  |F  |[B, C]        |2           |
+|E  |F  |[B, C]        |2           |
++---+---+--------------+------------+
+(count = 15)
+```
+
+**Step 6 — `grouped.join(edges_df, on=["a","b"], how="left_anti")` →
+`reduced_df`**
+
+The `left_anti` join is this script's version of "if `FRIEND` in
+values: drop" — instead of checking membership inside a collected
+list, it checks whether `(a, b)` has a matching row in `edges_df` at
+all. 11 of the 15 grouped pairs match an edge and are dropped, the
+same 4 survive as the RDD traces' `filtered` step:
+
+```text
++---+---+--------------+------------+
+|a  |b  |mutual_friends|mutual_count|
++---+---+--------------+------------+
+|A  |E  |[B, C, D]     |3           |
+|A  |F  |[B, C]        |2           |
+|D  |F  |[B, C]        |2           |
+|E  |F  |[B, C]        |2           |
++---+---+--------------+------------+
+(count = 4)
+```
+
+**Step 7 — `unionByName` with `(a,b)` swapped → `symmetric_df`**
+
+Each pair recommends each endpoint to the other — 4 pairs become 8
+`(person, candidate, ...)` rows, the same shape and count as the RDD
+traces' `symmetric`:
+
+```text
++------+---------+------------+--------------+
+|person|candidate|mutual_count|mutual_friends|
++------+---------+------------+--------------+
+|A     |E        |3           |[B, C, D]     |
+|A     |F        |2           |[B, C]        |
+|D     |F        |2           |[B, C]        |
+|E     |A        |3           |[B, C, D]     |
+|E     |F        |2           |[B, C]        |
+|F     |A        |2           |[B, C]        |
+|F     |D        |2           |[B, C]        |
+|F     |E        |2           |[B, C]        |
++------+---------+------------+--------------+
+(count = 8)
+```
+
+**Step 8 — `Window.partitionBy("person").orderBy(...)` +
+`row_number()` → `ranked_df`**
+
+This is the step with no RDD-script equivalent shown as a single
+operation — `groupByKey().mapValues(sort)` collapses 8 rows down to 4
+grouped rows in one step, while the window function keeps all 8 rows
+and adds a per-person `rank` column alongside them instead:
+
+```text
++------+---------+------------+--------------+----+
+|person|candidate|mutual_count|mutual_friends|rank|
++------+---------+------------+--------------+----+
+|A     |E        |3           |[B, C, D]     |1   |
+|A     |F        |2           |[B, C]        |2   |
+|D     |F        |2           |[B, C]        |1   |
+|E     |A        |3           |[B, C, D]     |1   |
+|E     |F        |2           |[B, C]        |2   |
+|F     |A        |2           |[B, C]        |1   |
+|F     |D        |2           |[B, C]        |2   |
+|F     |E        |2           |[B, C]        |3   |
++------+---------+------------+--------------+----+
+(count = 8)
+```
+
+With `--top-k K` given, this step gains one more line —
+`.filter(F.col("rank") <= K)` — right here, before the final join.
+
+**Step 9 (final) — `all_people_df.join(ranked_df, on="person",
+how="left")` → `final_df`**
+
+The DataFrame counterpart of `leftOuterJoin`: restores `B` and `C`
+with null candidate columns instead of dropping them (same fix as
+Section 7's "people with zero candidates" correctness detail below,
+applied at the DataFrame level):
+
+```text
++------+---------+------------+--------------+----+
+|person|candidate|mutual_count|mutual_friends|rank|
++------+---------+------------+--------------+----+
+|A     |E        |3           |[B, C, D]     |1   |
+|A     |F        |2           |[B, C]        |2   |
+|B     |NULL     |NULL        |NULL          |NULL|
+|C     |NULL     |NULL        |NULL          |NULL|
+|D     |F        |2           |[B, C]        |1   |
+|E     |A        |3           |[B, C, D]     |1   |
+|E     |F        |2           |[B, C]        |2   |
+|F     |A        |2           |[B, C]        |1   |
+|F     |D        |2           |[B, C]        |2   |
+|F     |E        |2           |[B, C]        |3   |
++------+---------+------------+--------------+----+
+(count = 10)
+```
+
+`rows_to_recommendations()` then does what the RDD scripts do inside
+Spark — group by `person`, sort by `(-mutual_count, candidate)`,
+build the `{person: [...]}` dict `format_recommendations()` prints —
+in plain Python after `.collect()`, since a DataFrame `collect()`
+gives no ordering guarantee across a join to rely on directly (see
+that function's docstring).
+
+Row-count summary, to compare against both RDD traces at a glance:
+
+| Step | DataFrame operation | Row count |
+|---|---|---|
+| 1 | `spark.read.text` + filter comments/blanks | 6 |
+| 2 | `split`/`slice` → `friends_df` | 6 |
+| 3 | `build_edges_df` (`explode` + `least`/`greatest` + `distinct`) | 11 (unique edges) |
+| 4 | `build_vouches_df` (self-join) | 33 |
+| 5 | `groupBy("a","b").agg(...)` | 15 (unique pairs) |
+| 6 | `.join(edges_df, how="left_anti")` | 4 (non-friend pairs) |
+| 7 | `.unionByName(swapped)` | 8 |
+| 8 | `Window` + `row_number()` | 8 |
+| 9 | `.join(all_people_df, how="left")` | 10 (8 candidate rows + 2 null rows for `B`/`C`) |
+
+Notice Step 9's row count (10) is *not* "6, one per person" the way
+the RDD traces' final step is — a DataFrame keeps one row per
+`(person, candidate)` pair throughout (relational, not nested), so a
+person with multiple candidates (like `F`, with 3) contributes
+multiple rows, and only a person with *zero* candidates (`B`, `C`)
+contributes exactly one (null) row. `rows_to_recommendations()`
+performs the "one row per candidate" → "one entry per person, with a
+list of candidates" reshaping that the RDD scripts get for free from
+`groupByKey()`/`reduceByKey()`.
+
+#### Sample run — larger graph, top-2 recommendations per person
+
+```text
+% python3 pymk_pyspark_using_dataframes.py data/friends_larger.txt --top-k 2
+input_file= data/friends_larger.txt
+people_in_graph= 12
+top_k= 2
+
+A: F (2 mutual: B/E), G (2 mutual: D/E)
+B: G (2 mutual: D/E), H (1 mutual: F)
+C: F (2 mutual: B/E), G (2 mutual: D/E)
+D: F (2 mutual: B/E), H (1 mutual: G)
+E: H (2 mutual: F/G), I (1 mutual: G)
+F: A (2 mutual: B/E), C (2 mutual: B/E)
+G: A (2 mutual: D/E), B (2 mutual: D/E)
+H: E (2 mutual: F/G), K (2 mutual: I/J)
+I: L (2 mutual: J/K), D (1 mutual: G)
+J: G (2 mutual: H/I), F (1 mutual: H)
+K: H (2 mutual: I/J), G (1 mutual: I)
+L: I (2 mutual: J/K), H (1 mutual: J)
+```
+
+Identical to both RDD scripts' output on the same input — the fourth
+confirmation that all five implementations compute the same thing.
+
+### `pymk_pyspark_using_graphframes.py`
+
+This script needs one more thing than the other four: the
+[GraphFrames](https://graphframes.io/) package, on both sides of the
+PySpark/JVM boundary.
+
+```text
+pip install graphframes-py
+```
+
+installs the Python wrapper the script imports; the actual
+pattern-matching engine is a JVM library that PySpark loads
+separately. The script's `main()` adds it via `spark.jars.packages`
+on the `SparkSession` builder (pinned to
+`io.graphframes:graphframes-spark4_2.13:0.10.0` — a Spark 4.x /
+Scala 2.13 build, matching this folder's development environment), so
+plain `python3` resolves and downloads it automatically through
+Ivy/Maven the first time it runs (needs network access once; cached
+locally after that):
+
+```text
+python3 pymk_pyspark_using_graphframes.py <input_file> [--top-k K] [--output OUT_DIR]
+```
+
+On a real cluster, pass the coordinate explicitly instead of relying
+on the script's baked-in config, so the driver doesn't need internet
+access at submit time — and update the version suffix
+(`graphframes-spark4_2.13`) to match that cluster's Spark major
+version and Scala version if it differs from this one (run
+`python3 pymk_pyspark_using_graphframes.py --version-info` to print
+this install's):
+
+```text
+$SPARK_HOME/bin/spark-submit --packages io.graphframes:graphframes-spark4_2.13:0.10.0 \
+    pymk_pyspark_using_graphframes.py <input_file> [--top-k K] [--output OUT_DIR]
+```
+
+#### Sample run
+
+```text
+% python3 pymk_pyspark_using_graphframes.py data/friends.txt
+input_file= data/friends.txt
+people_in_graph= 6
+
+A: E (3 mutual: B/C/D), F (2 mutual: B/C)
+B: (no recommendations)
+C: (no recommendations)
+D: F (2 mutual: B/C)
+E: A (3 mutual: B/C/D), F (2 mutual: B/C)
+F: A (2 mutual: B/C), D (2 mutual: B/C), E (2 mutual: B/C)
+```
+
+Byte-for-byte identical to the other four scripts' output above — the
+fifth and final confirmation that all five implementations compute
+the same thing.
+
+#### Step-by-Step Transformation Trace (`data/friends.txt`)
+
+Every table below is real output from actually running
+`pymk_pyspark_using_graphframes.py`'s pipeline stage by stage on the
+same 6-person graph — nothing here is hand-derived.
+
+Recall the graph:
+
+```text
+A -> B C D
+B -> A C D E F
+C -> A B D E F
+D -> A B C E
+E -> B C D
+F -> B C
+```
+
+**Step 1 — `build_graph(friends_df)` → `vertices`, `edges`, `g`**
+
+One vertex per person; one *directed* edge per (person, friend) pair
+— 22 edges, the same count as the RDD scripts' 22 Rule-1
+`"FRIEND"`-tagged records (Step 4 of the `groupByKey()` trace above),
+because both are "one record per existing (person, friend)
+ordered-pair", just under different names:
+
+```text
+vertices (6 rows):        edges (22 rows):
++---+                     +---+---+
+|id |                     |src|dst|
++---+                     +---+---+
+|A  |                     |A  |B  |
+|B  |                     |A  |C  |
+|C  |                     |A  |D  |
+|D  |                     |B  |A  |
+|E  |                     |B  |C  |
+|F  |                     |B  |D  |
++---+                     |B  |E  |
+                           |B  |F  |
+                           |C  |A  |
+                           ...                  (22 rows total)
+                           |F  |C  |
+                           +---+---+
+```
+
+**Step 2 — `g.find("(a)-[]->(c); (b)-[]->(c)").filter("a.id != b.id")`
+→ `motifs`** (Rule 2, in one declarative query)
+
+Every `(a, c, b)` triple where `a` and `b` each have an edge to the
+same vertex `c`, with `a != b` — 66 matches. This single query is
+doing Rule 2's whole job: no `combinations()`, no self-join written
+by hand, just "find two edges into the same vertex from two different
+places":
+
+```text
+(A, B, C)   (A, B, D)   (A, B, E)   (A, B, F)   (A, C, B)
+(A, C, D)   (A, C, E)   (A, C, F)   (A, D, B)   (A, D, C)
+(A, D, E)   (B, A, C)   (B, A, D)   (B, C, A)   (B, C, D)
+...                                            (66 rows total)
+(F, B, D)   (F, B, E)   (F, C, A)   (F, C, B)   (F, C, D)
+(F, C, E)
+```
+
+Compare against Step 5 of the `pymk_pyspark_using_groupbykey.py`
+trace (`rule2_mutual_vouches`, 33 rows): that step emits one
+`(sort_pair(x,y), vouching_person)` record per unordered pair;
+`motifs` here has exactly *twice* as many rows (66 = 33 × 2), one for
+`(x, y)` and one for `(y, x)`, because `a` and `b` range freely over
+*all* vertices with a common neighbor rather than being pre-ordered
+by `sort_pair()`. That turns out to be convenient, not wasteful — see
+Step 4 below.
+
+**Step 3 — `.select(a.id, b.id, c.id)` → `candidate_pairs`, then
+`.join(edges, how="left_anti")` → `non_friend_pairs`** (Rule 1's job)
+
+`candidate_pairs` just renames `motifs`' columns (still 66 rows); the
+`left_anti` join against `edges` is this script's version of "if
+FRIEND in values: drop" — instead of scanning a collected list for a
+sentinel, it asks the same "does this key exist in that other table?"
+question as a join. 48 of the 66 candidate rows have a matching edge
+(already friends) and are dropped, leaving 18:
+
+```text
++------+---------+-------------+
+|person|candidate|mutual_friend|
++------+---------+-------------+
+|A     |E        |B            |
+|A     |E        |C            |
+|A     |E        |D            |
+|A     |F        |B            |
+|A     |F        |C            |
+|D     |F        |B            |
+|D     |F        |C            |
+|E     |A        |B            |
+|E     |A        |C            |
+|E     |A        |D            |
+|E     |F        |B            |
+|E     |F        |C            |
+|F     |A        |B            |
+|F     |A        |C            |
+|F     |D        |B            |
+|F     |D        |C            |
+|F     |E        |B            |
+|F     |E        |C            |
++------+---------+-------------+
+(count = 18)
+```
+
+**Step 4 — `.groupBy("person", "candidate").agg(collect_set,
+count)` → `reduced_df`**
+
+Groups the 18 rows down to 8 `(person, candidate)` pairs — and
+because Step 2's motif already produced both `(A, E, ...)` and `(E,
+A, ...)` directions, this table is **already** in the final
+per-person-recommendation shape. Unlike every other script in this
+folder, there is no separate "symmetrize: union the rows with `a`/`b`
+swapped" step here — the motif query made both directions in Step 2,
+for free:
+
+```text
++------+---------+--------------+------------+
+|person|candidate|mutual_friends|mutual_count|
++------+---------+--------------+------------+
+|A     |E        |[B, C, D]     |3           |
+|A     |F        |[B, C]        |2           |
+|D     |F        |[B, C]        |2           |
+|E     |A        |[B, C, D]     |3           |
+|E     |F        |[B, C]        |2           |
+|F     |A        |[B, C]        |2           |
+|F     |D        |[B, C]        |2           |
+|F     |E        |[B, C]        |2           |
++------+---------+--------------+------------+
+(count = 8)
+```
+
+Notice this is exactly Step 7 of the `pymk_pyspark_using_dataframes.py`
+trace's `symmetric_df` above — same 8 rows, same values — reached
+here in one fewer explicit step.
+
+**Step 5 — `Window.partitionBy("person").orderBy(...)` +
+`row_number()` → `ranked_df`**
+
+Identical in shape and purpose to Step 8 of the
+`pymk_pyspark_using_dataframes.py` trace — adds a per-person `rank`
+column instead of collapsing rows, so `--top-k` becomes a
+`.filter(rank <= K)`:
+
+```text
++------+---------+--------------+------------+----+
+|person|candidate|mutual_friends|mutual_count|rank|
++------+---------+--------------+------------+----+
+|A     |E        |[B, C, D]     |3           |1   |
+|A     |F        |[B, C]        |2           |2   |
+|D     |F        |[B, C]        |2           |1   |
+|E     |A        |[B, C, D]     |3           |1   |
+|E     |F        |[B, C]        |2           |2   |
+|F     |A        |[B, C]        |2           |1   |
+|F     |D        |[B, C]        |2           |2   |
+|F     |E        |[B, C]        |2           |3   |
++------+---------+--------------+------------+----+
+(count = 8)
+```
+
+**Step 6 (final) — `all_people_df.join(ranked_df, on="person",
+how="left")` → `final_df`**
+
+Restores `B` and `C` with null candidate columns, same fix and same
+result as Step 9 of the `pymk_pyspark_using_dataframes.py` trace:
+
+```text
++------+---------+--------------+------------+----+
+|person|candidate|mutual_friends|mutual_count|rank|
++------+---------+--------------+------------+----+
+|A     |E        |[B, C, D]     |3           |1   |
+|A     |F        |[B, C]        |2           |2   |
+|B     |NULL     |NULL          |NULL        |NULL|
+|C     |NULL     |NULL          |NULL        |NULL|
+|D     |F        |[B, C]        |2           |1   |
+|E     |A        |[B, C, D]     |3           |1   |
+|E     |F        |[B, C]        |2           |2   |
+|F     |A        |[B, C]        |2           |1   |
+|F     |D        |[B, C]        |2           |2   |
+|F     |E        |[B, C]        |2           |3   |
++------+---------+--------------+------------+----+
+(count = 10)
+```
+
+Row-count summary, to compare against the other two Spark traces at a
+glance:
+
+| Step | GraphFrames operation | Row count |
+|---|---|---|
+| 1 | `build_graph` (vertices + directed edges) | 6 vertices, 22 edges |
+| 2 | `g.find("(a)-[]->(c); (b)-[]->(c)")` + filter `a != b` | 66 |
+| 3 | `.join(edges, how="left_anti")` | 18 (non-friend `(person,candidate,mutual_friend)` rows) |
+| 4 | `.groupBy("person","candidate").agg(...)` | 8 (already symmetric — no union step needed) |
+| 5 | `Window` + `row_number()` | 8 |
+| 6 | `.join(all_people_df, how="left")` | 10 (8 candidate rows + 2 null rows for `B`/`C`) |
+
+#### Sample run — larger graph, top-2 recommendations per person
+
+```text
+% python3 pymk_pyspark_using_graphframes.py data/friends_larger.txt --top-k 2
+input_file= data/friends_larger.txt
+people_in_graph= 12
+top_k= 2
+
+A: F (2 mutual: B/E), G (2 mutual: D/E)
+B: G (2 mutual: D/E), H (1 mutual: F)
+C: F (2 mutual: B/E), G (2 mutual: D/E)
+D: F (2 mutual: B/E), H (1 mutual: G)
+E: H (2 mutual: F/G), I (1 mutual: G)
+F: A (2 mutual: B/E), C (2 mutual: B/E)
+G: A (2 mutual: D/E), B (2 mutual: D/E)
+H: E (2 mutual: F/G), K (2 mutual: I/J)
+I: L (2 mutual: J/K), D (1 mutual: G)
+J: G (2 mutual: H/I), F (1 mutual: H)
+K: H (2 mutual: I/J), G (1 mutual: I)
+L: I (2 mutual: J/K), H (1 mutual: J)
+```
+
+Identical to all four other scripts' output on the same input — the
+fifth and final confirmation that all five implementations compute
+the same thing.
+
+## 7. How the Five Implementations Map Onto Each Other
+
+| MapReduce concept (companion doc) | `pymk_pure_python.py` | `pymk_pyspark_using_groupbykey.py` | `pymk_pyspark_using_reducebykey.py` | `pymk_pyspark_using_dataframes.py` | `pymk_pyspark_using_graphframes.py` |
+|---|---|---|---|---|---|
+| Mapper Rule 1 (tag edges) | `map_person()`, first loop | `rule1_friend_tags()` via `flatMap` | `rule1_friend_tags()` via `flatMap` (emits a state tuple, not `"FRIEND"`) | `build_edges_df()` — `explode()` + `least()`/`greatest()` + `distinct()` | `build_graph()` — one directed edge per (person, friend); no separate tagging, since suppression happens later as a join |
+| Mapper Rule 2 (vouch for pairs) | `map_person()`, second loop | `rule2_mutual_vouches()` via `flatMap` | `rule2_mutual_vouches()` via `flatMap` (emits a state tuple, not a raw name) | `build_vouches_df()` — a self-join of `friends` exploded twice, filtered on `friend1 < friend2` | `g.find("(a)-[]->(c); (b)-[]->(c)")` — one motif query; the pattern matcher enumerates shared-neighbor pairs directly |
+| Shuffle & sort (group by key) | `shuffle()` — a `dict[pair, list]` built by hand | `.union().groupByKey()` | `.union().reduceByKey(combine_pair_states)` — merges with a map-side combiner instead of shipping every value | `.groupBy("a", "b").agg(collect_set, count)` | `.groupBy("person", "candidate").agg(collect_set, count)` |
+| Reducer | `reduce_pair()` | `reduce_group()`, applied via `mapValues()` | folded into `combine_pair_states()` + a `.filter()`/`.map()` after `reduceByKey()` | a `.join(edges_df, how="left_anti")` — membership check as a join instead of a list scan | a `.join(edges, how="left_anti")` — same idea, against the graph's own edge table |
+| Downstream "sort by count" pass | `recommendations_by_person()` | `.groupByKey().mapValues(rank)` on the symmetrized RDD | `.reduceByKey(merge_ranked_candidates)` — merges already-ranked lists instead of collecting then sorting | `Window.partitionBy("person").orderBy(...)` + `row_number()` — a declarative ranking window, no combiner to write | Same `Window` + `row_number()` — and no separate symmetrize step first, since the motif already produced both directions |
+| Execution model | Single process, in-memory dicts, `O(1)` — fine for classroom-sized graphs | Distributed, partitioned, shuffles over the network — the point is *this* is what scales | Same, but with map-side pre-aggregation reducing shuffle volume — see the design-choice discussion below | Same distributed execution, but expressed declaratively so Spark's Catalyst optimizer chooses the join/aggregation strategy instead of the script hand-picking one | Same distributed execution again, on top of GraphFrames' graph abstraction (itself built from DataFrames + a pattern-matching layer) — needs the extra `graphframes` dependency |
 
 The pure-Python version exists to make the algorithm's *logic*
-inspectable without any framework machinery in the way. The PySpark
-version exists to show the same logic expressed in the operators
-(`flatMap`, `groupByKey`, `mapValues`) a real distributed engine
-provides, and to be a starting point you can actually `spark-submit`
-against a bigger dataset or a cluster.
+inspectable without any framework machinery in the way. The two
+RDD-based PySpark versions exist to show the same logic expressed in
+the lower-level operators (`flatMap`, `groupByKey`/`reduceByKey`,
+`mapValues`) a distributed engine provides, with each step an
+explicit, hand-written transformation. The DataFrame version exists
+to show the same logic again in Spark SQL's declarative, columnar
+vocabulary — joins, `groupBy().agg()`, window functions — which reads
+closer to "what to compute" than "how to compute it" and lets
+Catalyst pick execution strategies (broadcast vs. shuffle join,
+partial aggregation, etc.) the RDD scripts pick by hand. The
+GraphFrames version goes one step further: it exists to show that
+once the data is modeled as an actual *graph* rather than two flat
+tables, "find pairs with a mutual friend" stops being something you
+build out of joins and becomes something you ask for directly, in one
+pattern-match query — see the GraphFrames-vs-DataFrame discussion
+below. All four Spark scripts are legitimate starting points for
+`spark-submit` against a bigger dataset or a cluster; which one to
+reach for in practice is mostly a house-style (and, for GraphFrames, a
+dependency-tolerance) question.
 
 ### A design choice worth calling out: `groupByKey`, not `reduceByKey`
 
@@ -1177,16 +1873,104 @@ For very large, high-degree graphs, prefer `aggregateByKey()` with an
 early "already saw FRIEND, stop looking" short-circuit instead of
 materializing the full value list per key — see Section 8 below.
 
+### DataFrame vs. RDD: why `pymk_pyspark_using_dataframes.py` looks so different
+
+The two RDD scripts above differ in *how* they aggregate
+(`groupByKey()` vs. `reduceByKey()`) but agree on vocabulary —
+`flatMap`, tuples, Python functions passed as arguments.
+[`pymk_pyspark_using_dataframes.py`](pymk_pyspark_using_dataframes.py)
+looks unlike either, because the DataFrame API isn't "the RDD API
+with different method names" — it's a different programming model:
+columns and query-plan operators instead of arbitrary Python
+callables over opaque records. Two consequences worth calling out:
+
+* **No `combinations()`, so Rule 2 becomes a join.** A pure/RDD
+  mapper can just write `for x, y in combinations(friends, 2)`
+  inside a Python function. A DataFrame column is not something you
+  iterate a nested loop over — the DataFrame way to pair up elements
+  *within* the same row's array is to `explode()` it twice (under
+  two aliases) and join those two exploded views back together on
+  the original row's key, then filter out the diagonal and one
+  ordering. It computes the identical set of pairs; it just has to
+  be phrased as a join because there's no per-row Python loop to drop
+  into.
+* **No membership check in a Python list, so dropping friend pairs
+  becomes a `left_anti` join.** `reduce_group()`/`combine_pair_states()`
+  can just ask `"FRIEND" in values` because they run as ordinary
+  Python code against a collected/merged list. A DataFrame reducer
+  step is a relational operator, not a Python function with access to
+  a materialized list — the relational way to ask "does this key
+  exist in that other table?" is a `left_anti` join against
+  `edges_df`, which is exactly what a query planner would choose for
+  a set-membership filter anyway.
+
+Every script here still implements `sort_pair()`'s job — collapsing
+`(X, Y)` and `(Y, X)` to one key — but the three RDD-based scripts do
+it once, up front, as a plain function call, while the DataFrame
+script does it per join column via `least()`/`greatest()`. Neither
+approach is "more correct" than the other; which one reads more
+naturally often
+comes down to whether your team's Spark code already leans RDD or
+DataFrame — see [Section 9](#9-extending-this) for further directions
+either style could be taken.
+
+### GraphFrames vs. DataFrame: Rule 2 as a graph query instead of a join
+
+[`pymk_pyspark_using_dataframes.py`](pymk_pyspark_using_dataframes.py)'s
+Rule 2 (`build_vouches_df()`) is a *workaround*: a DataFrame has no
+native notion of "two people connected through a third," so the
+script fakes it with a self-join — explode the same array twice under
+different aliases, join those two views back together, filter out the
+diagonal. It computes the right answer, but nothing about the join
+*says* "shared neighbor" — you have to already know the trick to
+recognize what it's doing.
+
+[`pymk_pyspark_using_graphframes.py`](pymk_pyspark_using_graphframes.py)
+replaces that whole self-join with one line that says exactly what it
+means:
+
+```python
+g.find("(a)-[]->(c); (b)-[]->(c)").filter("a.id != b.id")
+```
+
+"Two edges into the same vertex `c`, from two different vertices `a`
+and `b`" *is* the definition of "`a` and `b` have a mutual friend
+`c`." Loading the data into a `GraphFrame` first — a small amount of
+extra setup (`build_graph()`) — buys a pattern-matching query language
+where the question you actually want to ask ("who shares a neighbor
+with whom?") is directly expressible, instead of needing to be
+reconstructed from `explode`/join/filter primitives that don't know
+what a graph is. That's the sense in which this version is "more
+elegant" and not just shorter: the DataFrame script's join *implements*
+graph adjacency by hand; the GraphFrames script's motif query *is*
+graph adjacency, used directly.
+
+The trade-off is the dependency itself (see Section 6 above) and a
+second one worth flagging: `g.find()` enumerates a full path for every
+matching combination before any filtering happens (66 rows for this
+6-person graph before the `left_anti` join trims it to 18 — see that
+script's trace), the same `C(d,2)`-per-hub-node blowup Rule 2 always
+has, just produced by a general-purpose pattern matcher instead of a
+purpose-built self-join. For very large, high-degree graphs, a
+hand-tuned DataFrame or RDD join over a pre-filtered edge set can still
+out-scale a generic motif search — GraphFrames buys clarity, not a
+free performance win. See [Section 8](#8-complexity--scalability)
+below.
+
 ### A correctness detail: people with zero candidates
 
 A person who is already friends with everyone else in the graph (`B`
 and `C` in `data/friends.txt`) never vouches for a pair involving
 themselves as a *candidate*, and so never appears as a key in the
-Spark job's grouped-candidates RDD on its own. `build_recommendations()`
-restores them with an empty list via a `leftOuterJoin()` against the
-full set of people, so both PySpark scripts' output — deliberately —
-accounts for every person in the input graph, not just the ones with
-at least one recommendation.
+grouped-candidates RDD (or DataFrame) on its own. The two RDD scripts
+restore them with an empty list via a `leftOuterJoin()`; both
+DataFrame-shaped scripts (`pymk_pyspark_using_dataframes.py` and
+`pymk_pyspark_using_graphframes.py`) restore them the relational way,
+via a `how="left"` join against `all_people_df` that leaves
+`candidate`/`mutual_count`/`mutual_friends` as `NULL` for that row
+(see the last step of each script's trace above). All four PySpark
+scripts' output — deliberately — accounts for every person in the
+input graph, not just the ones with at least one recommendation.
 
 ## 8. Complexity & Scalability
 
@@ -1202,9 +1986,9 @@ d =   10,000 friends  ->  C(10,000, 2)  =  49,995,000 emitted records
 d = 1,000,000 friends ->  C(1e6, 2)     ≈ 5 * 10^11 emitted records
 ```
 
-Neither script here does anything about that — they're teaching
-implementations over classroom-sized graphs (6 and 12 people). A
-production system would add:
+None of the five scripts here does anything about that — they're
+teaching implementations over classroom-sized graphs (6 and 12
+people). A production system would add:
 
 1. **Degree capping / sampling** — cap how many of a hub node's
    friends participate in Rule 2, trading recall for tractability.
@@ -1231,13 +2015,20 @@ effort (also posed as open questions in
 [Section 16](../../../mapreduce/mapreduce_examples/MapReduce_People_You_May_Know.md#16-food-for-thought)
 of the companion document):
 
-1. **Top-K per person** — already implemented (`--top-k`); try
-   wiring it into a Spark DataFrame `Window` function instead of a
-   Python-side `sorted()[:k]` inside `mapValues`, which avoids
-   collecting full candidate lists into a single partition's memory.
+1. **Top-K per person** — already implemented (`--top-k`) two ways:
+   a Python-side `sorted()[:k]` inside `mapValues`/`reduceByKey` in
+   the two RDD scripts, and a Spark DataFrame `Window` function
+   (`row_number()` + `filter(rank <= K)`) in both
+   [`pymk_pyspark_using_dataframes.py`](pymk_pyspark_using_dataframes.py)
+   and [`pymk_pyspark_using_graphframes.py`](pymk_pyspark_using_graphframes.py) —
+   which avoids collecting full candidate lists into a single
+   partition's memory the way `mapValues(sorted)` does.
 2. **Directed graphs** — adapt Rule 1 and Rule 2 for one-way
-   "follows" relationships (Twitter-style) instead of symmetric
-   friendships.
+   "follows" relationships (Twitter/X-style) instead of symmetric,
+   Facebook-style friendships (see the callout in
+   [Section 1](#1-the-problem)) — mutual friends and one-way follows
+   are different graphs, so this changes what "mutual" even means,
+   not just how the pipeline is executed.
 3. **Exclusion lists** — suppress candidates a user has already
    dismissed, by anti-joining against a "dismissed" RDD/DataFrame
    before ranking.
@@ -1248,6 +2039,15 @@ of the companion document):
 5. **Robustness** — a friend list with duplicate entries or a
    person's own id (a data bug) will currently corrupt counts; add
    validation to `parse_line()`/`read_graph()`.
+6. **Other graph algorithms, now that the data is a `GraphFrame`** —
+   `pymk_pyspark_using_graphframes.py` already pays the cost of
+   building a graph; once it exists, GraphFrames' other built-ins
+   become one-line experiments on the same data: `triangleCount()` to
+   flag tightly-knit friend groups, `connectedComponents()` to check
+   whether the whole graph is really one community or several
+   isolated ones, or `pageRank()`/`stronglyConnectedComponents()` as
+   an alternative ranking signal to blend with raw mutual-friend
+   count (see item 4 above).
 
 ## 10. Comparison with Another Implementation
 
@@ -1292,6 +2092,11 @@ Hadoop-course PYMK exercise (see References below).
 5. [People You May Know by Andres Romero](https://andresromero.github.io/People-you-may-know/) —
    an independent write-up of the same algorithm, compared with this
    folder's implementation in Section 10 above.
+6. [GraphFrames documentation](https://graphframes.io/) — the package
+   [`pymk_pyspark_using_graphframes.py`](pymk_pyspark_using_graphframes.py)
+   is built on, including the motif-finding (`find()`) syntax used
+   for Rule 2 and the other graph algorithms mentioned in Section 9,
+   item 6.
 
 ## 12. Comments
 
