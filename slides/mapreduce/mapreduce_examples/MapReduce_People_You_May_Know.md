@@ -1,4 +1,4 @@
-# MapReduce Example: People You May Know (Mutual Friends for Non-Friends)
+# MapReduce Example: <br> People You May Know (PYMK)<br> (Mutual Friends for Non-Friends)
 
 	Author: Mahmoud Parsian
 	Last updated: 8/30/2026
@@ -22,7 +22,10 @@ dataset.
 
 ## 2. Problem
 
-Given a social graph represented as `Person -> [List of Friends]`,
+Given a social graph represented as 
+
+`Person -> [List of Friends]`
+
 for **every pair of people who are not already friends**, find:
 
 - whether they have any friends in common, and
@@ -179,6 +182,16 @@ person and their friend list:
 
 ## 10. Mapper
 
+### 10.1 `sort_pair()` function
+
+```python
+def sort_pair(a, b):
+    """Return two comparable values in ascending order."""
+    return (a, b) if a < b else (b, a)
+```
+
+### 10.2 Mapper function
+
 ```text
 # key: person P
 # value: P's friend list, an array of friend IDs
@@ -285,7 +298,8 @@ reduce(pair, values) {
    mutual_friends = []
    for v in values:
       if v == "FRIEND":
-         return                       # already friends -- suppress, emit nothing
+         # already friends -- suppress, emit nothing
+         return                       
       mutual_friends.append(v)
 
    emit(pair, (len(mutual_friends), sorted(mutual_friends)))
@@ -338,7 +352,7 @@ modest number of friends, but a small number of hub nodes (public
 figures, brand pages) have enormous ones. That tail dominates cost:
 
 ```text
-d =     200 friends  ->  C(200, 2)     =      19,900 emitted records
+d =     200 friends   ->  C(200, 2)     =      19,900 emitted records
 d =   10,000 friends  ->  C(10,000, 2)  =  49,995,000 emitted records
 d = 1,000,000 friends ->  C(1e6, 2)     ≈ 5 * 10^11 emitted records
 ```
