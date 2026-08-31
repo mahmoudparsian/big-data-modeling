@@ -218,7 +218,7 @@ map(P, friends) {
 order (e.g., lexicographic), so that `(A, E)` and `(E, A)` always
 collapse to the same key.
 
-### 10.1 Rule 1 output (FRIEND tags), all 6 people
+### 10.3 Rule 1 output (FRIEND tags), all 6 people
 
 ```text
 map(A, [B,C,D]):          (A,B)->FRIEND  (A,C)->FRIEND  (A,D)->FRIEND
@@ -229,7 +229,7 @@ map(E, [B,C,D]):          (B,E)->FRIEND  (C,E)->FRIEND  (D,E)->FRIEND
 map(F, [B,C]):            (B,F)->FRIEND  (C,F)->FRIEND
 ```
 
-### 10.2 Rule 2 output (mutual-friend vouches), all 6 people
+### 10.4 Rule 2 output (mutual-friend vouches), all 6 people
 
 ```text
 map(A, [B,C,D]):
@@ -256,31 +256,34 @@ map(F, [B,C]):
    pairs of {B,C}:                (B,C)->F
 ```
 
-A person with `d` friends contributes `d` Rule-1 records and
-`C(d, 2)` Rule-2 records — `B` and `C`, each with 5 friends here,
-contribute 5 + 10 = 15 records apiece, the largest of the six.
+A person with `d` friends contributes `d` Rule-1 records 
+and `C(d, 2)` Rule-2 records — `B` and `C`, each with 5 
+friends here, contribute `5 + 10 = 15` records apiece, 
+the largest of the six.
+
 
 ## 11. Sort & Shuffle Phase
 
-All emitted `(pair, value)` records — from both rules, from all six
-mappers — are grouped by key. Combining Sections 10.1 and 10.2:
+All emitted `(pair, value)` records — from both
+rules, from all six mappers — are grouped by key. 
+Combining Sections 10.3 and 10.4:
 
 ```text
-(A,B) -> [FRIEND, FRIEND, C, D]              <- has FRIEND
-(A,C) -> [FRIEND, FRIEND, B, D]              <- has FRIEND
-(A,D) -> [FRIEND, FRIEND, B, C]              <- has FRIEND
-(A,E) -> [B, C, D]                           <- no FRIEND!
-(A,F) -> [B, C]                              <- no FRIEND!
-(B,C) -> [FRIEND, FRIEND, A, D, E, F]        <- has FRIEND
-(B,D) -> [FRIEND, FRIEND, A, C, E]           <- has FRIEND
-(B,E) -> [FRIEND, FRIEND, C, D]              <- has FRIEND
-(B,F) -> [FRIEND, FRIEND, C]                 <- has FRIEND
-(C,D) -> [FRIEND, FRIEND, A, B, E]           <- has FRIEND
-(C,E) -> [FRIEND, FRIEND, B, D]              <- has FRIEND
-(C,F) -> [FRIEND, FRIEND, B]                 <- has FRIEND
-(D,E) -> [FRIEND, FRIEND, B, C]              <- has FRIEND
-(D,F) -> [B, C]                              <- no FRIEND!
-(E,F) -> [B, C]                              <- no FRIEND!
+(A,B) -> [FRIEND, FRIEND, C, D]            <- has FRIEND
+(A,C) -> [FRIEND, FRIEND, B, D]            <- has FRIEND
+(A,D) -> [FRIEND, FRIEND, B, C]            <- has FRIEND
+(A,E) -> [B, C, D]                         <- no FRIEND!
+(A,F) -> [B, C]                            <- no FRIEND!
+(B,C) -> [FRIEND, FRIEND, A, D, E, F]      <- has FRIEND
+(B,D) -> [FRIEND, FRIEND, A, C, E]         <- has FRIEND
+(B,E) -> [FRIEND, FRIEND, C, D]            <- has FRIEND
+(B,F) -> [FRIEND, FRIEND, C]               <- has FRIEND
+(C,D) -> [FRIEND, FRIEND, A, B, E]         <- has FRIEND
+(C,E) -> [FRIEND, FRIEND, B, D]            <- has FRIEND
+(C,F) -> [FRIEND, FRIEND, B]               <- has FRIEND
+(D,E) -> [FRIEND, FRIEND, B, C]            <- has FRIEND
+(D,F) -> [B, C]                            <- no FRIEND!
+(E,F) -> [B, C]                            <- no FRIEND!
 ```
 
 Exactly the four non-edges from Section 6 — `(A,E)`, `(A,F)`,
