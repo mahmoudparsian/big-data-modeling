@@ -424,6 +424,19 @@ an early "already saw FRIEND, drop the rest" short-circuit, and
 consider salting or pre-bucketing very high-degree vertices
 separately, as in Section 14.
 
+The sketch above is exactly that — a sketch. A complete, runnable
+expansion of it lives in
+[`slides/spark/pyspark/people_you_may_know/`](../../spark/pyspark/people_you_may_know/README.md):
+a `groupByKey()` version matching this sketch, a `reduceByKey()`
+version implementing the `aggregateByKey`-style short-circuit
+suggested above (via an associative, combinable per-pair state
+instead of raw `"FRIEND"`/name values), and a dependency-free
+pure-Python version that simulates Map → Shuffle → Reduce with plain
+dicts. All three include a full step-by-step transformation trace on
+this same 6-person graph, and their READMEs cross-reference this
+document. Start there if you want to run this instead of just
+reading it.
+
 ## 16. Food for Thought
 
 1. `sort_pair` assumes stable, comparable person IDs. What breaks
@@ -473,10 +486,16 @@ Comments and suggestions are welcome!
    the companion example this document extends (mutual friends for
    pairs who are already connected).
 
-2. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) —
+2. [`slides/spark/pyspark/people_you_may_know/`](../../spark/pyspark/people_you_may_know/README.md) —
+   the full runnable expansion of Section 15's sketch: a pure-Python
+   simulation plus `groupByKey()` and `reduceByKey()` PySpark
+   implementations, each with a step-by-step transformation trace on
+   this document's own 6-person graph.
+
+3. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) —
    source of the "pairs vs. stripes" and in-mapper combining patterns
    referenced in Sections 13–14.
 
-3. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+4. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 
-4. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+5. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)

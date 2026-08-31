@@ -1,0 +1,21 @@
+# People You May Know -- larger sample social graph (12 people)
+#
+# Two loosely-connected friend clusters {A..E} and {G..L}, bridged
+# through F and G/D, so several people end up with more than one
+# non-friend candidate -- useful for demonstrating --top-k ranking,
+# which the small 6-person data/friends.txt graph is too sparse to show.
+#
+# Format: <person>,<friend_1>,<friend_2>,...,<friend_n>
+# Friendship is symmetric, so each edge appears on both endpoints' lines.
+A,B,C,D,E
+B,A,C,D,E,F
+C,A,B,D,E
+D,A,B,C,E,G
+E,A,B,C,D,F,G
+F,B,E,H
+G,D,E,H,I
+H,F,G,I,J
+I,G,H,J,K
+J,H,I,K,L
+K,I,J,L
+L,J,K

@@ -13,6 +13,10 @@ Examples, slides, and notes for learning PySpark.
 * [`jupyter/`](jupyter) — running PySpark from Jupyter notebooks
 * [`introduction/`](introduction) — intro slides: Spark basics, PySpark shell, data abstractions
 
+## Flagship Worked Example
+
+* [`people_you_may_know/`](people_you_may_know) — **People You May Know**: a fully worked mutual-friend recommendation algorithm, with a dependency-free pure-Python version and a standalone PySpark RDD version side by side, both runnable, both cross-checked against each other and against the companion [MapReduce derivation](../../mapreduce/mapreduce_examples/MapReduce_People_You_May_Know.md)
+
 ## Core Concepts
 
 * [`rdd_slides/`](rdd_slides) — creating RDDs, `map`, `filter`, `flatMap`

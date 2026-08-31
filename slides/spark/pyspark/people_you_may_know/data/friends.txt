@@ -1,0 +1,27 @@
+# People You May Know -- sample social graph
+#
+# Same 6-person graph used in the worked MapReduce example:
+#   slides/mapreduce/mapreduce_examples/MapReduce_People_You_May_Know.md
+#
+# Format: <person>,<friend_1>,<friend_2>,...,<friend_n>
+# Friendship is symmetric, so each edge appears on both endpoints' lines.
+#
+# As a graph:
+#   A -> B C D
+#   B -> A C D E F
+#   C -> A B D E F
+#   D -> A B C E
+#   E -> B C D
+#   F -> B C
+#
+# Non-friend pairs with mutual friends (what this algorithm should find):
+#   (A,E): 3 mutual friends [B,C,D]
+#   (A,F): 2 mutual friends [B,C]
+#   (D,F): 2 mutual friends [B,C]
+#   (E,F): 2 mutual friends [B,C]
+A,B,C,D
+B,A,C,D,E,F
+C,A,B,D,E,F
+D,A,B,C,E
+E,B,C,D
+F,B,C
