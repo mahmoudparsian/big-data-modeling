@@ -1,43 +1,105 @@
-# MapReduce Slide Deck Series — by Mahmoud Parsian
+# MapReduce Slide Deck Series — Markdown/Marp Edition
 
 	Author: Mahmoud Parsian
-	Last updated: 8/19/2026
+	Last updated: 8/31/2026
 
-A numbered sequence of slide decks teaching the MapReduce paradigm
-from first principles (parallelism) through a complete, comparable
-worked example (with and without a combiner). Files are numbered so
-they can be read/presented in order.
+A numbered sequence of [Marp](https://marp.app/)-format Markdown
+slide decks teaching the MapReduce paradigm, from first principles
+(parallelism) through a complete, comparable worked example (with
+and without a combiner). This is a from-scratch rewrite of the
+`.pptx` decks in
+[`../mapreduce_by_Mahmoud_Parsian/`](../mapreduce_by_Mahmoud_Parsian/)
+— **11 original PPTX decks became 9 Markdown files here**, merging
+decks that turned out to be near-duplicates of each other (`01`+`02`,
+`03`+`04`) and, where this repo already had a more thorough writeup
+of a deck's material elsewhere, replacing that deck with a short
+**bridge** file that links to it instead of repeating it. See
+[Design Notes](#design-notes) below for the reasoning file by file.
+
+## Running These Decks
+
+Each `.md` file is plain Marp Markdown — read it directly on GitHub,
+or render it:
+
+```text
+npm install -g @marp-team/marp-cli    # once
+marp --allow-local-files 01_understanding_parallelism_and_concurrency.md -o out.pdf
+```
+
+`--allow-local-files` is required whenever a deck embeds an image
+from `images/` (Marp blocks local file access by default). A
+rendered `.pdf` is committed alongside every `.md` source in this
+folder already, so you don't have to render anything just to read
+them — regenerate only if you edit a `.md` file.
 
 ## Files
 
-| # | File | Format | Slides | Description |
-|---|---|---|---|---|
-| 00 | [`00_Understanding_MapReduce_by_Databricks.pdf`](./00_Understanding_MapReduce_by_Databricks.pdf) | PDF | 1 pg | *External reference, not authored by Mahmoud Parsian.* A short Databricks glossary page: what MapReduce is and a brief history (Dean & Ghemawat, Google, 2004). Useful as a one-page warm-up before the deck series below. |
-| 01 | [`01_understanding_parallelism.pptx`](./01_understanding_parallelism.pptx) | PPTX | 28 | Informal introduction to parallelism & concurrency — the foundation MapReduce, Hadoop, Spark, and Snowflake are all built on (partitioning data + executing in parallel). |
-| 02 | [`02_understanding_parallelism_birthday_party.pptx`](./02_understanding_parallelism_birthday_party.pptx) | PPTX | 22 | A second, more intuitive pass at the same parallelism & concurrency concepts, built around a birthday-party analogy — good for building intuition before the formal treatment. |
-| 03 | [`03_introduction_to_mapreduce.pptx`](./03_introduction_to_mapreduce.pptx) | PPTX | 66 | The core, in-depth introduction to the MapReduce programming model: partitioning data into chunks, and executing map/reduce tasks in parallel. The main deck in the series. |
-| 04 | [`04_Introduction_to_MapReduce_highlevel.pptx`](./04_Introduction_to_MapReduce_highlevel.pptx) | PPTX | 32 | A shorter, higher-level version of the MapReduce introduction (originally taught for CS512, Spring 2014) — a faster alternative to deck 03 when time is limited. |
-| 05 | [`05_word_count_in_python.pptx`](./05_word_count_in_python.pptx) | PPTX | 13 | Warm-up: solves the classic Word Count problem in plain Python first, so the MapReduce version (deck 06) has a familiar baseline to compare against. |
-| 06 | [`06_word_count_in_mapreduce.pptx`](./06_word_count_in_mapreduce.pptx) | PPTX | 68 | The full Word Count walkthrough in MapReduce: problem statement, MapReduce vs. Hadoop/GFS/HDFS, fundamentals, example code, and job workflows. |
-| 07 | [`07_filters_in_mapreduce.pptx`](./07_filters_in_mapreduce.pptx) | PPTX | 37 | How to apply filters inside a MapReduce job — at the mapper, at the reducer, and the tradeoffs between the two. |
-| 08 | [`08_Introduction_to_HDFS.pptx`](./08_Introduction_to_HDFS.pptx) | PPTX | 44 | Introduction to the Hadoop Distributed File System (HDFS) — the storage layer MapReduce jobs typically read from and write to. |
-| 09 | [`09_combiners_in_mapreduce.pptx`](./09_combiners_in_mapreduce.pptx) | PPTX | 34 | Introduces the optional `combine()` function: the components of a MapReduce job, and why/when a combiner helps. |
-| 10 | [`10_mapreduce_without_combiners.pptx`](./10_mapreduce_without_combiners.pptx) | PPTX | 20 | Worked example — average temperature per city — solved **without** a combiner. Pairs with deck 11 for a direct before/after comparison. |
-| 11 | [`11_mapreduce_with_combiners.pptx`](./11_mapreduce_with_combiners.pptx) | PPTX | 42 | The same average-temperature-per-city example, redone **with** a combiner, so decks 10 and 11 can be compared side by side to see exactly what the combiner changes. |
+| # | File | From (PPTX) | Slides | Type | Description |
+|---|---|---|---|---|---|
+| 01 | [`01_understanding_parallelism_and_concurrency.md`](01_understanding_parallelism_and_concurrency.md) | `01`+`02` | 21 | Full rewrite | Parallelism & concurrency from first principles, through the birthday-party analogy — the two source decks turned out ~90% identical, so this merges them into one deduplicated pass. |
+| 02 | [`02_introduction_to_mapreduce.md`](02_introduction_to_mapreduce.md) | `03`+`04` | 28 | Full rewrite | The core MapReduce model: motivation, LISP/functional-programming origins, the `(key,value)` interface, the pipeline, fault tolerance, job components. Merges the long-form deck with the condensed CS512 version, keeping what each contributed uniquely. |
+| 03 | [`03_word_count_in_python.md`](03_word_count_in_python.md) | `05` | 9 | Mostly rewrite | Word Count solved in plain Python first. Bridges to [`../word_count_in_python/`](../word_count_in_python/) for the runnable, file-based scripts rather than re-embedding older code. |
+| 04 | [`04_word_count_in_mapreduce.md`](04_word_count_in_mapreduce.md) | `06` | 11 | Bridge | Word Count as a complete MapReduce job. Three existing docs already cover the mapper/reducer/combiner/filter mechanics in depth (linked from this file); this one covers what they don't — sizing, the partitioner, cluster architecture, output committer, Writables. |
+| 05 | [`05_filters_in_mapreduce.md`](05_filters_in_mapreduce.md) | `07` | 11 | Full rewrite | The mapper-vs-reducer filter placement rule, with worked examples, a common mistake, and a filter that's *only* possible in the mapper. |
+| 06 | [`06_introduction_to_hdfs.md`](06_introduction_to_hdfs.md) | `08` | 26 | Full rewrite | HDFS architecture (NameNode/DataNode), replication, the read and write paths, security, configuration, and a shell command reference. |
+| 07 | [`07_combiners_in_mapreduce.md`](07_combiners_in_mapreduce.md) | `09` | 7 | Bridge | What a combiner is and where it sits in the pipeline. The theory (associativity/commutativity, the "average of an average" trap) is already covered far more rigorously elsewhere in this repo — linked, not repeated. |
+| 08 | [`08_mapreduce_example_without_combiners.md`](08_mapreduce_example_without_combiners.md) | `10` | 9 | Bridge + example | Average-temperature-per-city, worked without a combiner. The full derivation of this exact problem already exists elsewhere; this file gives a second, standalone worked example with its own numbers. |
+| 09 | [`09_mapreduce_example_with_combiners.md`](09_mapreduce_example_with_combiners.md) | `11` | 11 | Bridge + example | The same example, redone with a combiner — a complete multi-partition mapper→combiner→shuffle→reducer numeric trace showing the average-of-an-average fix in action. |
 
-## Suggested order
+`00_Understanding_MapReduce_by_Databricks.pdf` (the third-party
+Databricks reference) is not reproduced here — see the original
+folder for it.
 
-The numeric prefixes already give the intended order:
+## Suggested Order
 
-1. **00–02** — motivation and foundations (what MapReduce is, why parallelism matters)
-2. **03–04** — the MapReduce model itself (long form, then a condensed version)
-3. **05–06** — Word Count, first in plain Python, then in MapReduce
-4. **07–08** — filters, and the storage layer (HDFS) underneath MapReduce
-5. **09–11** — combiners, illustrated with a matched without/with example pair
+1. **01–02** — parallelism, then the MapReduce model itself
+2. **03–04** — Word Count, first in plain Python, then as a full MapReduce job
+3. **05–06** — filters, and the storage layer (HDFS) underneath MapReduce
+4. **07–09** — combiners, illustrated with a matched without/with example pair
 
-## Note on provenance
+## Design Notes
 
-Every deck prefixed `01`–`11` is Mahmoud Parsian's own material. The
-`00_Understanding_MapReduce_by_Databricks.pdf` file is a third-party
-reference (Databricks) kept here only as an introductory pointer —
-see the PDF for its original source and copyright.
+**Merging vs. bridging.** Two different problems came up while
+converting this series, and got two different fixes:
+
+- **decks `01`+`02` and `03`+`04` duplicated each other** almost
+  entirely — those got merged into one deduplicated file each
+  (`01`, `02` above).
+- **Several decks duplicated material that already existed elsewhere
+  in this repo**, sometimes written more thoroughly than the deck
+  itself (the Word Count mapper/reducer mechanics have three separate
+  existing writeups; the associativity/commutativity theory behind
+  combiners has a 1400+ line dedicated document; the temperature
+  example has its own complete derivation). Rewriting those a 4th or
+  5th time would only add to the repetition this project exists to
+  cut — so files `04`, `07`, `08`, and `09` are short **bridge**
+  files: enough to orient you, then a link to the fuller existing
+  treatment, plus (where the source deck had one) a genuinely
+  distinct worked example not found elsewhere.
+
+**Images.** A handful of diagrams were extracted directly from the
+source `.pptx` files into [`images/`](images/) (NameNode/DataNode
+architecture, replication, HDFS read/write sequence diagrams, the
+classic Deer-Bear-River Word Count diagram, and others). Two images
+found in the `09_combiners_in_mapreduce.pptx` source carried a
+visible third-party watermark and were deliberately **not** reused
+here.
+
+**Companion documents referenced throughout this series:**
+
+- [`../word_count_in_python/`](../word_count_in_python/) — runnable Word Count scripts
+- [`../mapreduce_examples/MapReduce_Word_Count.md`](../mapreduce_examples/MapReduce_Word_Count.md), [`../word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md), [`../combiners/Word_Count_in_MapReduce.md`](../combiners/Word_Count_in_MapReduce.md) — Word Count mechanics, three independent treatments
+- [`../mapreduce_examples/MapReduce_Find_Average_Temperature.md`](../mapreduce_examples/MapReduce_Find_Average_Temperature.md) — the temperature-per-city derivation, without and with a combiner
+- [`../associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md`](../associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md) — the formal theory behind combiner correctness
+- [`../combiners/MapReduce_with_Combiners.md`](../combiners/MapReduce_with_Combiners.md) — combiners worked through a different example (average/min/max per gene)
+- [`../introduction_to_mapreduce/02_MapReduce_Examples.md`](../introduction_to_mapreduce/02_MapReduce_Examples.md) — full worked scenarios (Word Count, Sales Revenue by Region)
+
+## Note on Provenance
+
+Every deck this series is derived from (`01`–`11`) is Mahmoud
+Parsian's own material; this folder is a reformatting and light edit
+of that material, not new authorship. Two embedded diagrams (in
+`02_introduction_to_mapreduce.md`) reuse a public-domain-style
+piano-keyboard illustration and the classic Deer-Bear-River Word
+Count diagram common across MapReduce tutorials — both unwatermarked
+and uncredited in the source deck.
