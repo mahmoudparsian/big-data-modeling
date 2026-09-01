@@ -56,7 +56,7 @@
 | [`slides`](./slides)                        | slides, lecture notes, and notebooks        |
 | [`course_outine_10_weeks`](./course_outine_10_weeks) | Course outline deck (10-week breakdown) |
 | [`syllabus`](./syllabus/2026-Fall/README.md)| 10-weeks session-by-session syllabus        | 
-| [`course_info`](./course_info)              | Course Information: grading, exams, academic conduct |
+| [`course_information`](./course_information)              | Course Information: grading, exams, academic conduct |
 | [`data`](./data)| Samples of data for analytics       |
 | [`instructor`](./instructor) | Mahmoud Parsian as Instructor |
 	
@@ -70,41 +70,41 @@
 |4. Data Partitioning and SQL Queries | 20%        |
 
 
-## 4.  [Class Room, Dates & Hours](./course_info/class_meeting_dates_and_hours.md)
+## 4.  [Class Room, Dates & Hours](./course_information/class_meeting_dates_and_hours.md)
 
 ## 5.  [Instructor: Dr. M. Parsian](https://www.scu.edu/business/isa/faculty/parsian/)
 
-## 6.  [Prerequisite](./course_info/prerequisite.md)
+## 6.  [Prerequisite](./course_information/prerequisite.md)
 
-## 7.  [Course Description](./course_info/course_description.md)
+## 7.  [Course Description](./course_information/course_description.md)
 
-## 8.  [Course Outline](./course_info/course_outline.md)
+## 8.  [Course Outline](./course_information/course_outline.md)
 
 ## 9.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
-## 10.  [Required Books and Papers](./course_info/required_books.md)
+## 10.  [Required Books and Papers](./course_information/required_books.md)
 
-## 11.  [Optional Books and References](./course_info/additional_books.md)
+## 11.  [Optional Books and References](./course_information/additional_books.md)
 
-## 12.  [Required Software](./course_info/required_software.md)
+## 12.  [Required Software](./course_information/required_software.md)
 
 ## 13.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
-## 14. [Grading and Class Conduct](./course_info/grading_and_class_conduct.md)
+## 14. [Grading and Class Conduct](./course_information/grading_and_class_conduct.md)
 
-## 15. [Academic Conduct](./course_info/academic_conduct.md)
+## 15. [Academic Conduct](./course_information/academic_conduct.md)
 
-## 16. [Python Tutorials](./course_info/python_tutorials.md)
+## 16. [Python Tutorials](./course_information/python_tutorials.md)
 
-## 17. [SQL Tutorials](./course_info/sql_tutorials.md)
+## 17. [SQL Tutorials](./course_information/sql_tutorials.md)
 
-## 18. [MapReduce Tutorials](./course_info/mapreduce_tutorials.md)
+## 18. [MapReduce Tutorials](./course_information/mapreduce_tutorials.md)
 
-## 19. [PySpark Tutorials](./course_info/pyspark_tutorials.md)
+## 19. [PySpark Tutorials](./course_information/pyspark_tutorials.md)
 
-## 20. [Office Hours](./course_info/office_hours.md)
+## 20. [Office Hours](./course_information/office_hours.md)
 
-## 21. [Exam-1, Exam-2, and Final Exam Dates](./course_info/exam_dates.md)
+## 21. [Exam-1, Exam-2, and Final Exam Dates](./course_information/exam_dates.md)
 
 ---
 
