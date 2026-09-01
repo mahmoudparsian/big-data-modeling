@@ -24,8 +24,15 @@ Parallelism and partitioning are foundations of big data solutions:
 - Spark is based on parallelism and partitioning data
 - Snowflake is based on parallelism and partitioning data
 
-Parallel computing divides a large problem into smaller ones, each
-carried out independently by its own processor.
+---
+
+## How to Solve Big Data Problems
+
+* Parallel computing divides a large problem 
+  into smaller ones, 
+
+* Each smaller problem/data carried out 
+  independently by its own processor.
 
 ---
 
@@ -175,25 +182,28 @@ thread alone) and parallel regions (work forked out and joined back).
 
 ## The Birthday Party Example
 
-Alex is throwing a big birthday party and has a list of **1000
-items** to buy from the grocery store. How long does shopping take —
+Alex is throwing a big birthday party and has a list of **1000 items** to buy from the grocery store. 
+
+How long does shopping take —
 and how does adding more shoppers change the answer?
 
 ---
 
 ## Shopping Alone: No Parallelism Yet
 
-One executor (Alex), working through the list in sequence: item-1,
-item-2, ..., item-1000.
+One executor (Alex), working through the list in sequence:
 
-It takes about **14 seconds per item** to find it and put it in the
-cart:
+item-1, item-2, ..., item-1000.
+
+It takes about **14 seconds per item** to find it and put it in the cart:
 
 ```text
 1000 items x 14 seconds = 14,000 seconds = 233 minutes
 ```
 
-Alex is busy and can't spend 233 minutes shopping. What to do?
+Alex is busy and can't spend 233 minutes shopping. 
+
+What to do?
 
 ---
 

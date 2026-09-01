@@ -39,9 +39,15 @@ pairs, Sort & Shuffle groups them by word, `reduce()` sums each
 word's group into a final count.
 
 ```text
-map(key, value):    "fox jumped and jumped" -> (fox,1) (jumped,1) (and,1) (jumped,1)
-shuffle:             (fox,[1]) (jumped,[1,1]) (and,[1])
-reduce(key, values): (fox,1) (jumped,2) (and,1)
+map(key, value):    
+"fox jumped and jumped" -> 
+(fox,1) (jumped,1) (and,1) (jumped,1)
+
+shuffle:             
+(fox,[1]) (jumped,[1,1]) (and,[1])
+
+reduce(key, values): 
+(fox,1) (jumped,2) (and,1)
 ```
 
 ---

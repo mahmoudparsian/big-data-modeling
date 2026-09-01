@@ -56,7 +56,8 @@ its city's, and its country's:
 ```python
 def map(key, value):
     country, city, temperature = value.split(",")
-    if temperature >= 0:                    # a mapper-side filter
+    if temperature >= 0:                    
+    # a mapper-side filter
         emit(f"{country},{city}", temperature)
         emit(country, temperature)
 ```
@@ -142,7 +143,8 @@ What does `reduce()` emit for `"CANADA,Toronto"` and for `"CANADA"`?
 
 ```text
 ("CANADA,Toronto", (29+48+61)/3) -> 46.0
-("CANADA",         (29+48+61)/3) -> 46.0   # only one city so far, so equal
+("CANADA",         (29+48+61)/3) -> 46.0   
+# only one city so far, so equal
 ```
 
 ---

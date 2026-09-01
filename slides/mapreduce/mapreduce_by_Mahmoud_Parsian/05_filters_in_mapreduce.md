@@ -59,7 +59,8 @@ less, as early as possible.
 def map(key, value):
     words = value.split(" ")
     for word in words:
-        if word.startswith("E"):   # skip words starting with "E"
+        if word.startswith("E"):   
+            # skip words starting with "E"
             continue
         emit(word, 1)
 ```
@@ -75,7 +76,8 @@ to know its eventual total count.
 def map(key, value):
     words = value.split(" ")
     for word in words:
-        if len(word) > 2:          # drop words < 3 chars
+        if len(word) > 2:          
+            # drop words < 3 chars
             emit(word, 1)
 ```
 
@@ -89,7 +91,8 @@ aggregated value involved — mapper is correct.
 
 ```python
 def map(key, value):
-    if len(value) < 80:            # drop the whole record
+    if len(value) < 80:            
+        # drop the whole record
         return
     words = value.split(" ")
     for word in words:
@@ -109,7 +112,8 @@ def reduce(key, values):
     count = 0
     for v in values:
         count += v
-    if count >= 5:                 # needs the FINAL sum
+    if count >= 5:                 
+        # needs the FINAL sum
         emit(key, count)
 ```
 
@@ -124,7 +128,8 @@ never sees more than one record at a time.
 
 ```python
 def reduce(key, values):
-    # WARNING: not a proper reducer filter — should be in the mapper!
+    # WARNING: not a proper reducer filter — 
+    # should be in the mapper!
     if len(key) <= 2:
         return
     count = 0
@@ -146,8 +151,10 @@ ever shipped them across the network. Putting it in the reducer isn't
 
 ```python
 def reduce(key, values):
-    # We CANNOT implement "drop records shorter than 80 chars" here —
-    # the reducer never sees the original record, only (key, values).
+    # We CANNOT implement "drop records 
+    # shorter  than 80 chars" here —
+    # the reducer never sees the original 
+    # record, only (key, values).
     ...
 ```
 

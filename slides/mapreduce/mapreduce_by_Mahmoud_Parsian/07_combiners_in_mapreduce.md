@@ -24,8 +24,8 @@ i.e. before Sort & Shuffle ships it across the network.
 map() -> combine() [OPTIONAL] -> partition/shuffle -> reduce()
 ```
 
-It's optional, and it runs entirely locally, once per mapper — never
-across mappers.
+It's optional, and it runs entirely locally, once 
+per mapper — never across mappers.
 
 ---
 

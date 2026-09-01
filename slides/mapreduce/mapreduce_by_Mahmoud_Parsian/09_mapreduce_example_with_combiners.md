@@ -62,7 +62,10 @@ commutative, so combining `(sum, count)` pairs is always safe —
 (K, 8) -> (K, (8, 1))
 
 combine: (K,(6,1)) + (K,(7,1)) -> (K, (13, 2))
-reduce:  (K,(13,2)) + (K,(8,1)) -> (K, (21, 3)) -> (K, 21/3) -> (K, 7.0)  ✓
+
+reduce:  (K,(13,2)) + (K,(8,1)) -> 
+         (K, (21, 3)) -> 
+         (K, 21/3) -> (K, 7.0)  ✓
 ```
 
 ---
@@ -119,8 +122,17 @@ Partition-1                          Partition-3
 ("USA,Cupertino", (78,1)) ("USA",(78,1))
 ```
 
-(Partition-2's mapper output follows the same pattern for the India
-records — omitted here for space.)
+---
+
+## Step 1 (Continued): Mapper Output — Partition-2
+
+```text
+Partition-2
+("INDIA,Mumbai", (90,1)) ("INDIA",(90,1))
+("INDIA,Mumbai", (96,1)) ("INDIA",(96,1))
+("INDIA,Agra",   (98,1)) ("INDIA",(98,1))
+("INDIA,Agra",   (92,1)) ("INDIA",(92,1))
+```
 
 ---
 
