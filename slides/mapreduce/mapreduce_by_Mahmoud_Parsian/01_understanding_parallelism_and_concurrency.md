@@ -31,11 +31,31 @@ carried out independently by its own processor.
 
 ## Parallelism Example: Array Addition
 
-```c
+* Sequential Solution
+
+```python
 for (i = 0; i < n; i++) {
     c[i] = a[i] + b[i];
 }
 ```
+
+---
+
+## Parallelism Example: Array Addition
+
+* Parallel Solution: by `n` parallel tasks
+
+```python
+c[0] = a[0] + b[0];       # parallel task
+c[1] = a[1] + b[1];       # parallel task
+...
+c[n-1] = a[n-1] + b[n-1]; # parallel task
+```
+
+---
+
+## Parallelism Example: Array Addition
+
 
 | | Steps | Processors |
 |---|---|---|
@@ -65,7 +85,11 @@ for (i = 0; i < n; i++) {
 
 ## Concurrency vs. Parallelism: A Worked Comparison
 
-`Task A = {A1,A2,A3,A4}`, `Task B = {B1,B2,B3}`, `Task C = {C1,C2}`
+```
+Task A = {A1,A2,A3,A4}
+Task B = {B1,B2,B3}
+Task C = {C1,C2}
+```
 
 **Sequential** (9 steps, one at a time):
 
@@ -73,8 +97,9 @@ for (i = 0; i < n; i++) {
 A1, A2, A3, A4, B1, B2, B3, C1, C2
 ```
 
-Assume Tasks A, B, C are independent of each other — what changes if
-we run them concurrently instead?
+Assume Tasks A, B, C are independent of each other — 
+
+what changes if we run them concurrently instead?
 
 ---
 
@@ -221,8 +246,9 @@ With only 1000 mappers and 100,000 partitions:
 2. As each mapper finishes, assign it another partition.
 3. Repeat until all 100,000 partitions are processed.
 
-At most 1000 mappers run at any single point in time. **The more
-mappers you have, the faster you execute.**
+At most 1000 mappers run at any single point in time. 
+
+**The more mappers you have, the faster you execute.**
 
 ---
 

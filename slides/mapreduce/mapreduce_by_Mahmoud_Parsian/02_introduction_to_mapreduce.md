@@ -60,12 +60,15 @@ Computation by Machine"*):
 
 ```text
 map(mf, [a1, a2, ..., an])    -> [b1, b2, ..., bn]
+
 reduce(rf, [b1, b2, ..., bn]) -> c
 ```
 
-`map()` applies a function to every element of a list; `reduce()`
-combines a list of values into one, using another function. `map()`'s
-output (a list) composes directly into `reduce()`'s input.
+`map()` applies a function to every element of a list; 
+
+`reduce()` combines a list of values into one, using another function. 
+
+`map()`'s output (a list) composes directly into `reduce()`'s input.
 
 ---
 
@@ -111,7 +114,9 @@ A piano *keyboard architecture* defines the standard layout; a grand
 piano, an upright, and a digital keyboard are different
 *implementations* of it.
 
-Likewise, MapReduce is a **model**; Google App Engine, Apache Hadoop,
+Likewise, MapReduce is a **model**; 
+
+Google App Engine, Apache Hadoop,
 Apache Spark, Apache Tez, Snowflake, and Amazon Athena are different
 **implementations** of that same model.
 
@@ -123,6 +128,15 @@ Apache Spark, Apache Tez, Snowflake, and Amazon Athena are different
 
 ---
 
+# Notation used: 
+
+#### `()` = tuple 
+#### `[]` = list  
+#### `{}` = set 
+#### `Iterable<T>` = a list of `T`-typed objects.
+
+---
+
 ## The Universal Interface: `(key, value)`
 
 Every MapReduce input and output is a `(key, value)` tuple — key and
@@ -130,13 +144,12 @@ value can be any data type.
 
 ```text
 Mapper:  map(key, value)      -> {(k2, v2), ...}
+
 Reducer: reduce(key2, value2) -> {(k3, v3), ...}
   # key2 is one of the mapper's k2's
-  # value2 is Iterable<objects> (or a list of objects) for that key2
+  # value2 is Iterable<objects> (or a list of objects) 
+  # for that key2
 ```
-
-Notation used throughout: `()` = tuple, `[]` = list, `{}` = set,
-`Iterable<T>` = a list of `T`-typed objects.
 
 ---
 
@@ -171,19 +184,23 @@ word's counts → final result.
 Input: `"fox jumped and fox jumped and jumped and jumped"`
 
 **Mapper output:**
+
 ```text
-(fox,1) (jumped,1) (and,1) (fox,1) (jumped,1) (and,1) (jumped,1) (and,1) (jumped,1)
+(fox,1) (jumped,1) (and,1) 
+(fox,1) (jumped,1) (and,1) 
+(jumped,1) (and,1) (jumped,1)
 ```
 
 **Sort & Shuffle output** (grouped by key):
+
 ```text
-(fox, [1,1])   (jumped, [1,1,1,1])   (and, [1,1,1])
+(fox, [1,1])   
+(jumped, [1,1,1,1])   
+(and, [1,1,1])
 ```
 
 **Reducer output:**
-```text
-(fox, 2)   (jumped, 4)   (and, 3)
-```
+`(fox, 2)   (jumped, 4)   (and, 3)`
 
 ---
 
@@ -278,7 +295,8 @@ Example paths: `s3://my_bucket/project7/*.txt` (input) →
 def map(key, value):
     words = value.split(" ")
     for word in words:
-        if len(word) > 2:          # filter: drop words < 3 chars
+        # filter: drop words < 3 chars
+        if len(word) > 2: 
             emit(word, 1)
 ```
 
@@ -353,18 +371,25 @@ lot of moving parts. For reference only, the classic (pre-2.0) Hadoop
 `Mapper`/`Reducer` classes for Word Count:
 
 ```java
-public void map(LongWritable key, Text value, OutputCollector<Text, IntWritable> output,
-                 Reporter reporter) throws IOException {
+public void map(LongWritable key, 
+                Text value, 
+                OutputCollector<Text, IntWritable> output,
+                Reporter reporter) throws IOException {
     StringTokenizer itr = new StringTokenizer(value.toString());
     while (itr.hasMoreTokens()) {
-        output.collect(new Text(itr.nextToken()), new IntWritable(1));
+        output.collect(new Text(itr.nextToken()), 
+                       new IntWritable(1));
     }
 }
 
-public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, IntWritable> output,
-                    Reporter reporter) throws IOException {
+public void reduce(Text key, 
+                   Iterator<IntWritable> values, 
+                   OutputCollector<Text, IntWritable> output,
+                   Reporter reporter) throws IOException {
     int sum = 0;
-    while (values.hasNext()) { sum += values.next().get(); }
+    while (values.hasNext()) { 
+       sum += values.next().get(); 
+    }
     output.collect(key, new IntWritable(sum));
 }
 ```
