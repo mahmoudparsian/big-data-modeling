@@ -1,6 +1,6 @@
 # Big Data
 
-Opening lecture unit: what Big Data is and core Big Data concepts (pptx/pdf). The course outline deck now lives in [`Course_Outine_10_Weeks/`](../../Course_Outine_10_Weeks/).
+Opening lecture unit: what Big Data is and core Big Data concepts (pptx/pdf). The course outline deck now lives in [`course_outine_10_weeks/`](../../course_outine_10_weeks/).
 
 ## Contents
 

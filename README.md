@@ -54,7 +54,7 @@
 | folder                                      | Description |        
 |---------------------------------------------|-------------|
 | [`slides`](./slides)                        | slides, lecture notes, and notebooks        |
-| [`Course_Outine_10_Weeks`](./Course_Outine_10_Weeks) | Course outline deck (10-week breakdown) |
+| [`course_outine_10_weeks`](./course_outine_10_weeks) | Course outline deck (10-week breakdown) |
 | [`syllabus`](./syllabus/2026-Fall/README.md)| 10-weeks session-by-session syllabus        | 
 | [`course_info`](./course_info)              | Course Information: grading, exams, academic conduct |
 | [`data`](./data)| Samples of data for analytics       |
