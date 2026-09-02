@@ -1,6 +1,6 @@
 ## Mahmoud Parsian <br> Assistant Teaching Professor
 
-* [Mahmoud Parsian, Assistant Teaching Professor](https://www.scu.edu/business/isa/faculty/parsian/)
+* [Dr. Mahmoud Parsian, Assistant Teaching Professor](https://www.scu.edu/business/isa/faculty/parsian/)
 
 * [Ph.D in Computer Science, LinkedIn Profile](https://www.linkedin.com/in/mahmoudparsian/)
 
