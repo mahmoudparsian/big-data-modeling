@@ -50,5 +50,5 @@ The main focus of this class is to cover the following concepts:
 * **Amazon Athena**
 	* Serverless Architectures
 	* [Amazon Athena](https://aws.amazon.com/athena/)
-	* [Amazon Athena, S3, Data Partitioning](https://aws.amazon.com/athena/)
+	* [Amazon Athena, S3, Data Partitioning](https://docs.aws.amazon.com/athena/latest/ug/partitions.html)
 

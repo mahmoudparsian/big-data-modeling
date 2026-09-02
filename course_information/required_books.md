@@ -45,7 +45,7 @@
 
 [6. Relational Algebra and MapReduce](http://web.archive.org/web/20221127080039/https://www.eurecom.fr/~michiard/teaching/slides/clouds/tutorial-high_level.pdf)
 
-[7. MapReduce examples](http://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf)
+[7. MapReduce examples](https://web.archive.org/web/20240511155435/https://courses.cs.washington.edu/courses/cse344/11sp/sections/section8/section8-mapreduce-solution.pdf) (Wayback Machine snapshot — the original UW course page now requires login)
 
 [8. MapReduce and relational algebra](http://www.cs.kent.edu/~jin/Cloud12Spring/DatabaseMapReduce.pptx)
 

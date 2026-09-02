@@ -21,7 +21,7 @@
 
 * LockDown Browser is required
 
-* closed books/notes/internet/AI/friends/phone/computer/software
+* closed book/notes/internet/AI/friends/phone/computer/software
 
 
 ## 3. Letter Grade Distribution:
@@ -37,6 +37,9 @@ B-    | 2.7
 C+    | 2.3
 C     | 2.0
 C-    | 1.7
+D+    | 1.3
+D     | 1.0
+D-    | 0.7
 F     | 0.0
 
 
@@ -63,7 +66,7 @@ F            | Below 60
 
 ### 5.1 General
 
-* Exams are closed book/notes/internet/AI/friends/phone/computer
+* Exams are closed book/notes/internet/AI/friends/phone/computer/software
 
 * No makeup exams will be given
 
@@ -126,5 +129,3 @@ F            | Below 60
 
 2. Referenced work must be clearly documented, cited, and 
   attributed, regardless of media or distribution.
-
-<!-- <span style="color:green">some *yellow* text</span> -->
