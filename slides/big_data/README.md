@@ -12,6 +12,10 @@ partitioning, governance), the Big Data life cycle, and Big Data
 solutions: MapReduce, Apache Hadoop, Apache Spark/PySpark, and Amazon
 Athena.
 
+For a shorter, non-technical framing of why Big Data matters, see
+[`1_what_is_big_data_by_Bernard_Marr.pdf`](1_what_is_big_data_by_Bernard_Marr.pdf)
+— a good on-ramp to read before the deck above.
+
 ## Contents
 
 | Name | Type | Description |
