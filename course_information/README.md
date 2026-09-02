@@ -1,4 +1,4 @@
-# course_information
+# Course Information
 
 Per-topic policy/reference pages for the course (grading, prerequisites, exam dates, required books, tutorials, etc.) — linked from the root `README.md` and from every term's syllabus. Each file here is the single source of truth for its topic.
 
@@ -7,7 +7,6 @@ Per-topic policy/reference pages for the course (grading, prerequisites, exam da
 | Name | Type | Description |
 |---|---|---|
 | [`academic_conduct.md`](academic_conduct.md) | md | Classroom conduct guidelines (respect, honesty, resourcefulness), adapted from a set written by UW professor Amy Ko |
-| [`additional_books.md`](additional_books.md) | md | Optional books, papers, and articles beyond the required texts (PySpark Algorithms, Mining of Massive Datasets, MapReduce/relational-algebra papers, Athena, etc.) |
 | [`class_meeting_dates_and_hours.md`](class_meeting_dates_and_hours.md) | md | Classroom/office location, class start/end dates, final exam week, and weekly meeting days/times |
 | [`course_description.md`](course_description.md) | md | Course description and the concept areas covered (Big Data, distributed computing/file systems, MapReduce, Spark/PySpark, Amazon Athena) |
 | [`COURSE_OUTLINE_10_WEEKS.pdf`](COURSE_OUTLINE_10_WEEKS.pdf) | pdf | 10-week course outline slide deck: MapReduce (25%), Spark/PySpark (60%), Serverless SQL (15%) |

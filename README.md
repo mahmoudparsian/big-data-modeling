@@ -83,27 +83,25 @@
 
 ## 10.  [Required Books and Papers](./course_information/required_books.md)
 
-## 11.  [Optional Books and References](./course_information/additional_books.md)
+## 11.  [Required Software](./course_information/required_software.md)
 
-## 12.  [Required Software](./course_information/required_software.md)
+## 12.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
 
-## 13.  [Syllabus, Fall Quarter 2026](./syllabus/2026-Fall/README.md)
+## 13. [Grading and Class Conduct](./course_information/grading_and_class_conduct.md)
 
-## 14. [Grading and Class Conduct](./course_information/grading_and_class_conduct.md)
+## 14. [Academic Conduct](./course_information/academic_conduct.md)
 
-## 15. [Academic Conduct](./course_information/academic_conduct.md)
+## 15. [Python Tutorials](./course_information/python_tutorials.md)
 
-## 16. [Python Tutorials](./course_information/python_tutorials.md)
+## 16. [SQL Tutorials](./course_information/sql_tutorials.md)
 
-## 17. [SQL Tutorials](./course_information/sql_tutorials.md)
+## 17. [MapReduce Tutorials](./course_information/mapreduce_tutorials.md)
 
-## 18. [MapReduce Tutorials](./course_information/mapreduce_tutorials.md)
+## 18. [PySpark Tutorials](./course_information/pyspark_tutorials.md)
 
-## 19. [PySpark Tutorials](./course_information/pyspark_tutorials.md)
+## 19. [Office Hours](./course_information/office_hours.md)
 
-## 20. [Office Hours](./course_information/office_hours.md)
-
-## 21. [Exam-1, Exam-2, and Final Exam Dates](./course_information/exam_dates.md)
+## 20. [Exam-1, Exam-2, and Final Exam Dates](./course_information/exam_dates.md)
 
 ---
 
