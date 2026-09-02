@@ -144,8 +144,10 @@ Big Data comes from many kinds of sources, generally one of:
 - **Semi-structured** — JSON, XML
 - **Unstructured** — text files, log files, audio, video, images
 
-High-variety data (e.g., audio/video from sensors across a city)
-often needs specialized processing and algorithms.
+Some also call out **multi-structured** data — a mix of the above
+in one source (e.g., a web log with structured fields plus a free-text
+message). High-variety data like this often needs specialized
+processing and algorithms.
 
 ---
 
