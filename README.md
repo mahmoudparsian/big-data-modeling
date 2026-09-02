@@ -54,9 +54,8 @@
 | folder                                      | Description |        
 |---------------------------------------------|-------------|
 | [`slides`](./slides)                        | slides, lecture notes, and notebooks        |
-| [`course_outine_10_weeks`](./course_outine_10_weeks) | Course outline deck (10-week breakdown) |
 | [`syllabus`](./syllabus/2026-Fall/README.md)| 10-weeks session-by-session syllabus        | 
-| [`course_information`](./course_information)              | Course Information: grading, exams, academic conduct |
+| [`course_information`](./course_information)              | Course information, outline, grading, exams, ... |
 | [`data`](./data)| Samples of data for analytics       |
 | [`instructor`](./instructor) | Mahmoud Parsian as Instructor |
 	
@@ -78,7 +77,7 @@
 
 ## 7.  [Course Description](./course_information/course_description.md)
 
-## 8.  [Course Outline](./course_information/course_outline.md)
+## 8.  [Course Outline 10 Weeks](./course_information/COURSE_OUTLINE_10_WEEKS.pdf)
 
 ## 9.  [Glossary of Big Data, MapReduce, Spark](./slides/glossary/glossary_of_big_data_and_mapreduce.md)
 
