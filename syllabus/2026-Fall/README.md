@@ -114,10 +114,10 @@ At the completion of this course, students will be able to understand:
 
 | Event | Date | Notes |
 |-------|------|-------|
-| 📝 Exam 1 | Wednesday, October 7, 2026 | In-class · LockDown Browser required · closed book/notes/software/internet/friends |
-| 📝 Exam 2 | Wednesday, November 4, 2026 | In-class · LockDown Browser required · closed book/notes/software/internet/friends |
+| 📝 Exam 1 | TBD (October 2026) | In-class · LockDown Browser required · closed book/notes/internet/AI/friends/phone/computer/software |
+| 📝 Exam 2 | TBD (November 2026) | In-class · LockDown Browser required · closed book/notes/internet/AI/friends/phone/computer/software |
 | 🦃 Thanksgiving Recess | November 23–27, 2026 | No classes · no office hours |
-| 🎓 Final Exam | TBD, between 12/07/2026 – 12/11/2026 | In-class · LockDown Browser required · closed book/notes/friends/internet/software |
+| 🎓 Final Exam | TBD, December 8–12, 2026 | In-class · LockDown Browser required · closed book/notes/internet/AI/friends/phone/computer/software |
 
 ---
 
@@ -147,7 +147,7 @@ At the completion of this course, students will be able to understand:
 | —  | Mon–Fri   | Nov 23–27, 2026 | 🦃 [Thanksgiving Recess](#thanksgiving) |
 | 19 | Monday    | Nov 30, 2026 | [Serverless Analytics & SQL Access to Big Data](#session-19) |
 | 20 | Wednesday | Dec 2, 2026  | [Review for Final Exam](#session-20) |
-| 21 | TBD       | 12/07–12/11/2026 | 🎓 [Final Exam](#session-21) |
+| 21 | TBD       | 12/08–12/12/2026 | 🎓 [Final Exam](#session-21) |
 
 ---
 
@@ -246,9 +246,9 @@ At the completion of this course, students will be able to understand:
 <a id="session-6"></a>
 ### Session 6: Wednesday, October 7, 2026
 
-**📝 Exam 1 — in-class**
+**📝 Exam 1 — in-class** *(date tentative — see [`exam_dates.md`](../../course_information/exam_dates.md) for the confirmed date)*
 - LockDown Browser is required
-- Closed books/notes/software/internet/friends
+- Closed book/notes/internet/AI/friends/phone/computer/software
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -374,9 +374,9 @@ At the completion of this course, students will be able to understand:
 <a id="session-14"></a>
 ### Session 14: Wednesday, November 4, 2026
 
-**📝 Exam 2 — in-class**
+**📝 Exam 2 — in-class** *(date tentative — see [`exam_dates.md`](../../course_information/exam_dates.md) for the confirmed date)*
 - LockDown Browser is required
-- Closed books/notes/software/internet/friends
+- Closed book/notes/internet/AI/friends/phone/computer/software
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -466,8 +466,8 @@ At the completion of this course, students will be able to understand:
 
 **🎓 In-class exam**
 - LockDown Browser is required
-- Closed book/notes/friends/internet/software
-- Date: TBD (between 12/07/2026 – 12/11/2026)
+- Closed book/notes/internet/AI/friends/phone/computer/software
+- Date: TBD (December 8–12, 2026)
 - Time: TBD
 
 [⇧ back to schedule](#schedule-overview)
