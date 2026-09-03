@@ -323,7 +323,7 @@ never inside the combiner (Section 13):
 
 The same `(sum, count, max)` combiner shape maps directly
 onto PySpark's `combineByKey` — this is exactly
-[`intro_to_mapreduce_with_pyspark.md`'s Section 18](../intro_to_mapreduce_with_pyspark/intro_to_mapreduce_with_pyspark.md#18-worked-example--average-per-key-and-why-naive-averaging-breaks)
+[`mapreduce_with_pyspark_intro.md`'s Section 18](../mapreduce_with_pyspark/mapreduce_with_pyspark_intro.md#18-worked-example--average-per-key-and-why-naive-averaging-breaks)
 average-per-key pattern, extended with one more tracked
 value:
 
@@ -405,5 +405,5 @@ Comments and suggestions are welcome!
 2. [`MapReduce_Word_Count.md`](MapReduce_Word_Count.md) — companion example; mapper-filter vs. reducer-filter discussion referenced in Section 20
 3. [`combiners/MapReduce_with_Combiners.md`](../combiners/MapReduce_with_Combiners.md) — the general theory of when a combiner is correct
 4. [`associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md`](../associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md) — the formal version of Section 13's associativity/commutativity argument
-5. [`intro_to_mapreduce_with_pyspark/intro_to_mapreduce_with_pyspark.md`, Section 18](../intro_to_mapreduce_with_pyspark/intro_to_mapreduce_with_pyspark.md#18-worked-example--average-per-key-and-why-naive-averaging-breaks) — the `combineByKey` pattern this article's Spark sketch extends
+5. [`mapreduce_with_pyspark/mapreduce_with_pyspark_intro.md`, Section 18](../mapreduce_with_pyspark/mapreduce_with_pyspark_intro.md#18-worked-example--average-per-key-and-why-naive-averaging-breaks) — the `combineByKey` pattern this article's Spark sketch extends
 6. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)

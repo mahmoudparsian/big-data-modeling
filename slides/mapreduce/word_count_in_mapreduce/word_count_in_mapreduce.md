@@ -545,7 +545,7 @@ Notice `mapper()` and `combine()` are called **as-is** — no
 rewrite required. That's the payoff of writing this
 walkthrough in Python syntax with a binary reducer from the
 start. See
-[`mapreduce_in_action_by_pyspark/mapreduce_in_action_with_pyspark_examples.md`](../mapreduce_in_action_by_pyspark/mapreduce_in_action_with_pyspark_examples.md)'s
+[`mapreduce_with_pyspark/mapreduce_with_pyspark_examples.md`](../mapreduce_with_pyspark/mapreduce_with_pyspark_examples.md)'s
 "Example 1: Word Count" for this same `flatMap`/`reduceByKey`
 skeleton run as an actual PySpark session, with real
 `.count()`/`.collect()` output at every step.

@@ -1266,6 +1266,6 @@ Comments and suggestions are welcome!
 9. [`partitions_in_mapreduce/partitions_and_executors.md`](../partitions_in_mapreduce/partitions_and_executors.md) — a deeper look at partitions and executors, referenced in Section 11
 10. [`joins_in_mapreduce/join_operation_in_action_using_MapReduce.md`](../joins_in_mapreduce/join_operation_in_action_using_MapReduce.md) — the reduce-side join and Top-N patterns referenced in Sections 13, 15, and 20
 11. [`associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md`](../associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md) — the full theory behind why naive averaging breaks, referenced in Section 18
-12. [`mapreduce_in_action_by_pyspark/mapreduce_in_action_with_pyspark_examples.md`](../mapreduce_in_action_by_pyspark/mapreduce_in_action_with_pyspark_examples.md) — a larger catalog of worked PySpark MapReduce examples
+12. [`mapreduce_with_pyspark_examples.md`](mapreduce_with_pyspark_examples.md) — a larger catalog of worked PySpark MapReduce examples
 13. Benjamin Bengfort, "Getting Started with Spark (in Python)" — cited in reference 3 above as further reading
 14. Lucas Allen, "Spark DataFrames and MLlib" — cited in reference 3 above as further reading
