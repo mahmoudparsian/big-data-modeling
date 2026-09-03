@@ -257,7 +257,7 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Spark & PySpark
 
 **Required:**
-- [1. Introduction to MapReduce with PySpark](../../slides/mapreduce/intro_to_mapreduce_with_pyspark/intro_to_mapreduce_with_pyspark.md)
+- [1. Introduction to MapReduce with PySpark](../../slides/mapreduce/mapreduce_with_pyspark/mapreduce_with_pyspark_intro.md)
 - [2. A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
 - [3. Chapters 1, 2 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
 - [4. PySpark Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/pyspark_tutorial)
