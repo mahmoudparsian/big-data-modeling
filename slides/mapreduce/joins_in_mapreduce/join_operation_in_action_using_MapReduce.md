@@ -1,7 +1,7 @@
 # Join Operation in Action <br> using MapReduce
 
 	Author: Mahmoud Parsian
-	Last updated: 9/2/2026
+	Last updated: 9/3/2026
 
 ## Table of Contents
 
@@ -12,12 +12,13 @@
 5. The Reduce-Side Join: Tag, Group, Match
 6. Worked Example, Goal 1 — Transaction Count and Total per Customer
 7. Worked Example, Goal 2 — Customers Who Have Not Purchased Anything
-8. Generalized Join Algorithms: INNER, LEFT OUTER, RIGHT OUTER
-9. Worked Join Example — Set A and Set B
-10. Why a Combiner Can't Do the Join Itself
-11. Food for Thought
-12. Comments
-13. References
+8. Worked Example, Goal 3 — Top-N Customers by Spending
+9. Generalized Join Algorithms: INNER, LEFT OUTER, RIGHT OUTER
+10. Worked Join Example — Set A and Set B
+11. Why a Combiner Can't Do the Join Itself
+12. Food for Thought
+13. Comments
+14. References
 
 ## 1. Introduction
 
@@ -52,7 +53,7 @@ customer_id,customer_name,age
 transaction_id,date,customer_id,transaction_amount
 ```
 
-Two goals for this article:
+Three goals for this article:
 
 1. Calculate the number of credit transactions made by
    each customer, along with the total transaction amount.
@@ -64,6 +65,15 @@ Two goals for this article:
 
 2. Find customers who have **not** made any purchases —
    i.e., customers with zero matching transaction records.
+
+3. Find the top-N (N = 2, 3, 5, 10) customers by total
+   spending amount — built directly on top of Goal 1's
+   per-customer totals rather than a fresh join. The output
+   after ranking is:
+
+   ```text
+   rank,customer_name,total_transaction_amount
+   ```
 
 ## 3. Input Data Format
 
@@ -160,7 +170,7 @@ a string, `transaction_amount` is a number), so a reducer
 that's a coincidence of this toy example, not a general
 technique: it breaks the moment two datasets share a value
 type (as most do), which is exactly why the generalized
-join in Section 8 uses an explicit `"A"`/`"B"` tag instead
+join in Section 9 uses an explicit `"A"`/`"B"` tag instead
 of inferring the source from shape.
 
 In real Hadoop this is wired up with
@@ -172,7 +182,7 @@ one shared reducer, and the tag comes for free from which
 mapper class ran, no `len()` check needed. Conceptually
 it's still a single `map()` that looks at which file a
 record came from and tags accordingly; that's exactly the
-pattern the generic `set A` / `set B` version in Section 8
+pattern the generic `set A` / `set B` version in Section 9
 makes explicit with a literal `"A"` / `"B"` tag.
 
 After shuffle & sort, every reducer call receives one
@@ -311,7 +321,153 @@ different reducers — proof that the tag-and-group step in
 Section 5 is doing all of the actual "join" work; everything
 after that is ordinary per-key filtering and aggregation.
 
-## 8. Generalized Join Algorithms: INNER, LEFT OUTER, RIGHT OUTER
+## 8. Worked Example, Goal 3 — Top-N Customers by Spending
+
+Goal 3 doesn't need a fresh join — it needs Goal 1's
+*output*. Section 6 already joined customers with
+transactions and produced exactly the ranking key we need:
+
+```text
+customer_name,transactions_count,total_transaction_amount
+Alice,3,205.75
+Bob,2,105.00
+Carol,1,200.00
+```
+
+So Goal 3 is a **second MapReduce job**, chained after
+Goal 1's, whose input is Goal 1's output and whose task is:
+given `(customer_name, total)` pairs, find the global
+top-N by `total`. Customers with zero transactions, like
+Dave, were already dropped by Goal 1's inner join and
+correctly never enter the ranking — a customer who spent
+nothing can't be a top spender.
+
+### Why not just sort everything at one reducer?
+
+The simplest possible reducer — route every
+`(customer_name, total)` pair to one reducer under a
+constant key, sort the whole list there, keep the first
+N — is correct, but it defeats the purpose of MapReduce at
+scale: every record in the dataset is forced through one
+reducer's memory, no matter how small `N` is. The standard
+fix is **local top-N, then merge**:
+
+1. **Map + in-mapper combine.** Each mapper keeps a bounded
+   min-heap of capacity `N` as it reads its split. For
+   every record, push `(total, customer_name)` onto the
+   heap; if the heap now holds more than `N` entries, evict
+   the smallest. By the time the mapper's split is
+   exhausted, the heap holds only that mapper's *local*
+   top-N — everything else was discarded early, in the
+   mapper, before a single byte crosses the shuffle.
+2. **Shuffle.** Every mapper emits its (at most `N`)
+   survivors under one shared key (e.g. `NULL`), so they
+   all land at the same single reducer.
+3. **Reduce.** That one reducer now sees at most
+   `(number of mappers) x N` candidates — not the whole
+   dataset — sorts just that small set, and keeps the top
+   `N`.
+
+This is correct because the global top-N can never contain
+a record that lost its own mapper's local top-N cut: if a
+record wasn't among the `N` largest within its own split,
+at least `N` larger records already exist elsewhere in the
+dataset, so it cannot be among the `N` largest overall
+either.
+
+```text
+# in-mapper combining: each mapper keeps a size-N min-heap,
+# keyed by total_transaction_amount
+map_topN(key, value) {
+   # value = "customer_name,transactions_count,total_transaction_amount"
+   customer_name, count, total = value.split(",")
+   heap.push((total, customer_name))
+   if heap.size() > N:
+      heap.pop_min()   # local top-N cut -- discard early, before shuffle
+}
+
+close_mapper() {
+   # end of this mapper's split: emit its surviving local
+   # top-N to the ONE reducer that merges every mapper's list
+   for (total, customer_name) in heap:
+      emit(NULL, (customer_name, total))
+}
+
+# single reducer: merges every mapper's local top-N
+reduce_topN(key, values) {
+   candidates = list(values)               # (customer_name, total) pairs
+   candidates.sort(by total, descending)
+   rank = 1
+   for (customer_name, total) in candidates[0 : N]:
+      emit(rank, (customer_name, total))
+      rank += 1
+}
+```
+
+### Trace it on the sample data, N = 2
+
+Split Goal 1's 3-row output across two mapper tasks, to
+show the local-cut-then-merge behavior instead of a
+trivial one-mapper case:
+
+**Mapper M1** (split = [Alice, Bob]), heap capacity N = 2:
+
+```text
+map_topN(_, "Alice,3,205.75")  -> heap.push((205.75,Alice))  heap=[(205.75,Alice)]
+map_topN(_, "Bob,2,105.00")    -> heap.push((105.00,Bob))    heap=[(205.75,Alice),(105.00,Bob)]
+                                   size == 2, no evict
+close_mapper() -> emit(NULL,(Alice,205.75)), emit(NULL,(Bob,105.00))
+```
+
+**Mapper M2** (split = [Carol]), heap capacity N = 2:
+
+```text
+map_topN(_, "Carol,1,200.00")  -> heap.push((200.00,Carol))  heap=[(200.00,Carol)]
+close_mapper() -> emit(NULL,(Carol,200.00))    # heap never filled past 1 -- nothing evicted
+```
+
+**Reducer** receives all three survivors under key `NULL`
+(no candidate was large enough, on either mapper, to force
+an eviction, so all 3 of the original 3 records reach the
+reducer here — the local cut only *starts* discarding once
+a split holds more than `N` candidates):
+
+```text
+reduce_topN(NULL, [(Alice,205.75), (Bob,105.00), (Carol,200.00)])
+   sorted descending by total: Alice(205.75), Carol(200.00), Bob(105.00)
+   -> (1, (Alice, 205.75))
+   -> (2, (Carol, 200.00))
+```
+
+**Top-2 output:**
+
+```text
+rank,customer_name,total_transaction_amount
+1,Alice,205.75
+2,Carol,200.00
+```
+
+### N = 2, 3, 5, 10 side by side
+
+There are only 3 ranked customers in this sample (Dave was
+dropped by Goal 1's inner join), so N = 5 and N = 10 can't
+produce 5 or 10 rows — the output simply stops at 3:
+
+| N | Output |
+|---|---|
+| 2 | Alice (205.75), Carol (200.00) |
+| 3 | Alice (205.75), Carol (200.00), Bob (105.00) |
+| 5 | Alice (205.75), Carol (200.00), Bob (105.00) — only 3 candidates exist |
+| 10 | Alice (205.75), Carol (200.00), Bob (105.00) — only 3 candidates exist |
+
+At real bank scale — millions of customers — the same
+algorithm holds without modification: only the
+`close_mapper()` heap size (`N`, a small constant like 10)
+and the final reducer's candidate count
+(`(number of mappers) x N`, still small) determine memory
+use, never the size of the full dataset.
+
+## 9. Generalized Join Algorithms: INNER, LEFT OUTER, RIGHT OUTER
 
 Now generalize away from customers/transactions. Given
 two arbitrary datasets:
@@ -366,6 +522,78 @@ split(values) {
    return (A_list, B_list)
 }
 ```
+
+### The General Reduce-Side Join Algorithm
+
+Stepping back from the three specific reducers below:
+every reduce-side join in MapReduce — whatever its
+semantics — follows the same four-step recipe. Sections
+5-7 already showed one instance of it (with "CUST"/"TXN"
+tags instead of "A"/"B"); what follows names the recipe
+explicitly so it's clear it's an *algorithm*, not just
+three snippets of code that happen to work:
+
+1. **Tag.** Every mapper, whichever input file it's
+   reading, emits `(key, (value, source_tag))` — the tag
+   survives the shuffle even though the reducer eventually
+   sees both datasets merged into one flat list.
+2. **Group.** The MapReduce shuffle groups all tagged
+   values for a given key at one reducer, by key, for
+   free — this step is provided by the framework, not
+   written by the join's author.
+3. **Split.** The reducer partitions its
+   `Iterable<value>` back into per-source lists (`A_list`,
+   `B_list`, ...) using the tag — this is the `split()`
+   helper above, and it's identical for every join type.
+4. **Match.** A join-type-specific rule looks only at the
+   *sizes* of `A_list` and `B_list` and decides whether to
+   emit anything for this key, and what: the full cross
+   product `A_list x B_list` when both are non-empty, plus
+   a join-type-specific fallback (drop the key, or pad with
+   `NULL`) for whichever side is allowed to survive
+   unmatched.
+
+Steps 1-3 never change — only step 4's rule changes across
+INNER / LEFT OUTER / RIGHT OUTER (and FULL OUTER, in the
+Section 12 exercise). That's the whole difference between
+them, and it's also why Goal 2's anti-join (Section 7)
+could reuse Section 5's tagging completely unmodified: same
+recipe, a different step 4.
+
+Two properties fall out of this recipe and are worth naming,
+because they're what make it a real *algorithm* — with a
+known cost model — and not just code that happens to
+produce the right rows:
+
+- **Cost per key is `O(|A_list| x |B_list|)`.** The cross
+  product in step 4 means a key with 1,000 rows on each
+  side emits 1,000,000 output rows. This is exactly what
+  makes join **skew** dangerous: one oversized key (a "hot
+  key" — e.g. one wildly popular product in an
+  orders-joined-with-reviews job) can dominate a single
+  reducer's running time and memory even though every other
+  key is tiny, because that reducer alone pays the
+  quadratic cost for its key. (Section 11 revisits why a
+  combiner can't pre-filter this away — the decision needs
+  *global* information a combiner doesn't have.)
+- **Memory is bounded by both lists together, unless the
+  algorithm is written more carefully.** The pseudocode
+  below buffers all of `A_list` and `B_list` in memory
+  before emitting anything — the simplest correct
+  implementation, and the one used throughout this article,
+  but it costs `O(|A_list| + |B_list|)` memory per key. A
+  more careful **streaming** variant buffers only the
+  smaller of the two lists and streams the larger side's
+  values past it one at a time without ever holding all of
+  it in memory — the classic trick (see Lin & Dyer,
+  Section 14, reference 1) is to make the reducer's
+  secondary sort put the smaller-cardinality tag first, so
+  its list is already fully buffered by the time the larger
+  side's values start arriving.
+
+With that backbone in place, the three join types below
+differ in exactly one `if` — what step 4 does when a list
+comes up empty.
 
 ### INNER JOIN
 
@@ -469,9 +697,9 @@ transactions" (every customer, matched transactions or
 `NULL`) and "transactions RIGHT OUTER JOIN customers"
 describe the exact same result set.
 
-## 9. Worked Join Example — Set A and Set B
+## 10. Worked Join Example — Set A and Set B
 
-Section 8's `map()`, `split()`, `reduce_inner()`,
+Section 9's `map()`, `split()`, `reduce_inner()`,
 `reduce_left_outer()`, and `reduce_right_outer()` are
 generic — they never mention customers or transactions.
 This section runs all of them, by hand, over one small
@@ -538,7 +766,7 @@ the 6 + 7 = 13 input records.
 (K4, [(b6,B), (b7,B)])                   # 2 values: all from B
 ```
 
-Running `split()` from Section 8 on each group gives the
+Running `split()` from Section 9 on each group gives the
 `A_list`/`B_list` every reducer below starts from:
 
 ```text
@@ -633,7 +861,7 @@ reduce_right_outer(K4, ...)  A_list=[], B_list=[b6,b7]
 
 All three reducers see the *exact same* shuffled input from
 Step 2 — every row of that table is produced by the `if`
-branches in Section 8's `reduce_inner()` /
+branches in Section 9's `reduce_inner()` /
 `reduce_left_outer()` / `reduce_right_outer()` alone,
 nothing else changes. `K1` (matched on both sides) is the
 only key that survives every join type, and its 4 rows
@@ -641,12 +869,12 @@ are identical in all three outputs — matching keys are
 unaffected by which join you choose; only the unmatched
 keys (`K2`, `K3`, `K4`) are treated differently. As a
 sanity check for the `reduce_full_outer()` exercise in
-Section 11: a FULL OUTER JOIN over this same data would be
+Section 12: a FULL OUTER JOIN over this same data would be
 the union of the LEFT OUTER and RIGHT OUTER outputs above
 — 4 (K1) + 4 (K2, padded) + 3 (K3, padded) + 2 (K4,
 padded) = **13 rows**, covering all four keys.
 
-## 10. Why a Combiner Can't Do the Join Itself
+## 11. Why a Combiner Can't Do the Join Itself
 
 It's tempting to add a `combine()` step to cut down
 shuffle traffic, the way Word Count does. But a combiner
@@ -669,10 +897,10 @@ commutative, same as in
 untouched and simply passes it through. That trims data
 volume; it does not, and cannot, decide the join itself.
 
-## 11. Food for Thought
+## 12. Food for Thought
 
 1. Rewrite `reduce_goal1()` (Section 6) using the
-   generic `reduce_inner()` from Section 8 as a starting
+   generic `reduce_inner()` from Section 9 as a starting
    point, by feeding its emitted `(customer_name,
    transaction_amount)` pairs into a second aggregation
    pass. What does that second pass's `map()`/`reduce()`
@@ -702,11 +930,11 @@ volume; it does not, and cannot, decide the join itself.
    look up "replicated join" / Hadoop's
    `DistributedCache`.)
 
-## 12. Comments
+## 13. Comments
 
 Comments and suggestions are welcome!
 
-## 13. References
+## 14. References
 
 1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) — see the chapter on relational joins
 2. [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md) — companion worked example, same map/shuffle/reduce trace style
