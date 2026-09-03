@@ -160,6 +160,8 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Big Data and MapReduce
 
 **Required:**
+
+- [Introduction to Big Data and Solutions](../../slides/big_data/2_introduction_to_big_data_and_solutions.pdf)
 - [MapReduce: Simplified Data Processing on Large Clusters by Jeffrey Dean and Sanjay Ghemawat](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 - [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
