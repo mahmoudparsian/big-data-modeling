@@ -1,11 +1,12 @@
 # intro_to_mapreduce_with_pyspark
 
-Three-part introductory slide deck: Big Data intro, MapReduce primer, and intro to Spark.
+A single comprehensive write-up covering NYU Center for Data Science's three-part "BigData with
+PySpark" lesson (Big Data intro, MapReduce primer, intro to Spark) and beyond. The original three
+slide/lesson PDFs previously kept in this folder have been replaced with links to their live
+source pages — see the write-up's References section.
 
 ## Contents
 
 | Name | Type | Description |
 |---|---|---|
-| [`01.introduction.pdf`](01.introduction.pdf) | pdf (158.3KB) | Part 1: introduction to Big Data |
-| [`02.mapreduce.primer.pdf`](02.mapreduce.primer.pdf) | pdf (330.2KB) | Part 2: a primer on the MapReduce programming model |
-| [`03.introduction.to.spark.pdf`](03.introduction.to.spark.pdf) | pdf (223.9KB) | Part 3: introduction to Apache Spark |
+| [`intro_to_mapreduce_with_pyspark.md`](intro_to_mapreduce_with_pyspark.md) | md | Comprehensive write-up covering all three source lessons — modernized Python 3 code, plus material they don't cover (lazy evaluation, narrow/wide transformations, DataFrames/Spark SQL, caching, a Top-N worked example, pitfalls, glossary) |
