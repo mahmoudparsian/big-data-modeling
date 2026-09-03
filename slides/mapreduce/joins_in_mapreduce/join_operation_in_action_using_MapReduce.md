@@ -16,9 +16,10 @@
 9. Generalized Join Algorithms: INNER, LEFT OUTER, RIGHT OUTER
 10. Worked Join Example — Set A and Set B
 11. Why a Combiner Can't Do the Join Itself
-12. Food for Thought
-13. Comments
-14. References
+12. From MapReduce to PySpark: join() on RDDs and DataFrames
+13. Food for Thought
+14. Comments
+15. References
 
 ## 1. Introduction
 
@@ -555,7 +556,7 @@ three snippets of code that happen to work:
 
 Steps 1-3 never change — only step 4's rule changes across
 INNER / LEFT OUTER / RIGHT OUTER (and FULL OUTER, in the
-Section 12 exercise). That's the whole difference between
+Section 13 exercise). That's the whole difference between
 them, and it's also why Goal 2's anti-join (Section 7)
 could reuse Section 5's tagging completely unmodified: same
 recipe, a different step 4.
@@ -586,7 +587,7 @@ produce the right rows:
   smaller of the two lists and streams the larger side's
   values past it one at a time without ever holding all of
   it in memory — the classic trick (see Lin & Dyer,
-  Section 14, reference 1) is to make the reducer's
+  Section 15, reference 1) is to make the reducer's
   secondary sort put the smaller-cardinality tag first, so
   its list is already fully buffered by the time the larger
   side's values start arriving.
@@ -869,7 +870,7 @@ are identical in all three outputs — matching keys are
 unaffected by which join you choose; only the unmatched
 keys (`K2`, `K3`, `K4`) are treated differently. As a
 sanity check for the `reduce_full_outer()` exercise in
-Section 12: a FULL OUTER JOIN over this same data would be
+Section 13: a FULL OUTER JOIN over this same data would be
 the union of the LEFT OUTER and RIGHT OUTER outputs above
 — 4 (K1) + 4 (K2, padded) + 3 (K3, padded) + 2 (K4,
 padded) = **13 rows**, covering all four keys.
@@ -897,7 +898,111 @@ commutative, same as in
 untouched and simply passes it through. That trims data
 volume; it does not, and cannot, decide the join itself.
 
-## 12. Food for Thought
+## 12. From MapReduce to PySpark: join() on RDDs and DataFrames
+
+Everything in Sections 5-11 was hand-rolled — tag, shuffle,
+split, match, written out explicitly because that's what
+raw MapReduce forces you to do. PySpark runs on the same
+shuffle-based execution model, but exposes the reduce-side
+join as a built-in operation on both of its APIs. The
+mechanism underneath doesn't change; only the amount of
+code you write to invoke it does.
+
+### RDDs — `join()` is Section 9's algorithm, pre-written
+
+Spark's pair-RDD API ships INNER/LEFT/RIGHT/FULL directly,
+each corresponding to one of Section 9's reducers:
+
+```python
+# (customer_id, customer_name)
+customers = sc.textFile("customers.csv") \
+    .map(lambda line: line.split(",")) \
+    .map(lambda f: (f[0], f[1]))
+
+# (customer_id, transaction_amount)
+transactions = sc.textFile("transactions.csv") \
+    .map(lambda line: line.split(",")) \
+    .map(lambda f: (f[2], float(f[3])))
+
+customers.join(transactions)           # INNER  -> reduce_inner()
+customers.leftOuterJoin(transactions)  # LEFT   -> reduce_left_outer()
+customers.rightOuterJoin(transactions) # RIGHT  -> reduce_right_outer()
+customers.fullOuterJoin(transactions)  # FULL   -> reduce_full_outer() (Section 13, exercise 3)
+```
+
+Each call shuffles both RDDs by key and groups them — that's
+Section 9's steps 1-3 (tag, group, split) done for you — then
+applies exactly the size-based rule Section 9's `reduce_*()`
+functions spell out by hand: `leftOuterJoin()` wraps the `B`
+side in `Optional`/`None` for the same reason
+`reduce_left_outer()` emits `NULL` — there's nothing on that
+side to pair with.
+
+Goal 1's aggregate (Section 6) collapses to:
+
+```python
+transactions.map(lambda kv: (kv[0], (1, kv[1]))) \
+    .reduceByKey(lambda a, b: (a[0] + b[0], a[1] + b[1])) \
+    .join(customers) \
+    .map(lambda kv: (kv[1][1], kv[1][0][0], kv[1][0][1]))
+# -> (customer_name, count, total) -- same output as reduce_goal1()
+```
+
+### DataFrames — `join()` reads like SQL
+
+```python
+customers_df.join(transactions_df, on="customer_id", how="inner")
+customers_df.join(transactions_df, on="customer_id", how="left")
+customers_df.join(transactions_df, on="customer_id", how="right")
+customers_df.join(transactions_df, on="customer_id", how="full")
+```
+
+Goal 1 becomes one chained expression:
+
+```python
+transactions_df.groupBy("customer_id") \
+    .agg(count("*").alias("transactions_count"),
+         sum("transaction_amount").alias("total_transaction_amount")) \
+    .join(customers_df, on="customer_id", how="inner") \
+    .select("customer_name", "transactions_count", "total_transaction_amount")
+```
+
+Goal 3 (top-N, Section 8) is just
+`.orderBy(desc("total_transaction_amount")).limit(N)` on that
+same result — Spark's Catalyst optimizer plans a `limit()`
+after a sort with essentially the local-top-N-then-merge
+strategy Section 8 built by hand (a bounded structure per
+partition, merged at the end), so that hand-written
+heap-and-merge logic is close to what actually runs.
+
+### Quick reference
+
+| Join type | Section 9 reducer | RDD method | DataFrame `how=` |
+|---|---|---|---|
+| INNER | `reduce_inner()` | `.join()` | `"inner"` |
+| LEFT OUTER | `reduce_left_outer()` | `.leftOuterJoin()` | `"left"` |
+| RIGHT OUTER | `reduce_right_outer()` | `.rightOuterJoin()` | `"right"` |
+| FULL OUTER | `reduce_full_outer()` (exercise) | `.fullOuterJoin()` | `"full"` |
+
+### Why Sections 5-11 still matter
+
+Two reasons the hand-rolled version isn't just busywork now
+that `df1.join(df2)` is one line:
+
+1. **The cost model doesn't go away.** Skewed keys, the
+   `O(|A_list| x |B_list|)` cross product, and shuffle cost
+   (Section 9's "General Reduce-Side Join Algorithm") are
+   exactly what makes a Spark join slow or blow out executor
+   memory in production. Knowing the algorithm underneath is
+   what lets you read a Spark UI stage and understand *why*
+   one task is stuck long after the others finish.
+2. **The map-side join escape hatch is the same idea.**
+   Section 13's "replicated join" exercise is
+   `pyspark.sql.functions.broadcast(small_df)` on DataFrames
+   (or a broadcast variable on RDDs) — Spark just gives it a
+   one-word spelling.
+
+## 13. Food for Thought
 
 1. Rewrite `reduce_goal1()` (Section 6) using the
    generic `reduce_inner()` from Section 9 as a starting
@@ -930,11 +1035,13 @@ volume; it does not, and cannot, decide the join itself.
    look up "replicated join" / Hadoop's
    `DistributedCache`.)
 
-## 13. Comments
+## 14. Comments
 
 Comments and suggestions are welcome!
 
-## 14. References
+## 15. References
 
 1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) — see the chapter on relational joins
 2. [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md) — companion worked example, same map/shuffle/reduce trace style
+3. [PySpark `pyspark.RDD.join()` API docs](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.RDD.join.html) — RDD join/leftOuterJoin/rightOuterJoin/fullOuterJoin
+4. [PySpark `pyspark.sql.DataFrame.join()` API docs](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.join.html) — DataFrame join with the `how=` parameter
