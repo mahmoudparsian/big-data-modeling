@@ -129,7 +129,7 @@ At the completion of this course, students will be able to understand:
 | 1  | Monday    | Sep 21, 2026 | [Introduction to Big Data and Cluster Computing](#session-1) |
 | 2  | Wednesday | Sep 23, 2026 | [Introduction to Big Data and MapReduce](#session-2) |
 | 3  | Monday    | Sep 28, 2026 | [Introduction to MapReduce](#session-3) |
-| 4  | Wednesday | Sep 30, 2026 | [Introduction to MapReduce](#session-4) |
+| 4  | Wednesday | Sep 30, 2026 | [Introduction to MapReduce & Join Operations](#session-4) |
 | 5  | Monday    | Oct 5, 2026  | [Review: MapReduce Paradigm & PySpark](#session-5) |
 | 6  | Wednesday | Oct 7, 2026  | 📝 [Exam 1 (in-class)](#session-6) |
 | 7  | Monday    | Oct 12, 2026 | [Introduction to Spark & PySpark](#session-7) |
@@ -160,15 +160,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Big Data and MapReduce
 
 **Required:**
-
-- [Introduction to Big Data and Solutions](../../slides/big_data/2_introduction_to_big_data_and_solutions.pdf)
-- [MapReduce: Simplified Data Processing on Large Clusters by Jeffrey Dean and Sanjay Ghemawat](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
-- [Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+- [1. Introduction to Big Data and Solutions](../../slides/big_data/2_introduction_to_big_data_and_solutions.pdf)
+- [2. MapReduce: Simplified Data Processing on Large Clusters - Google paper](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
+- [3. Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+- [4. A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 
 **Optional:**
-- [Introduction to Big Data](https://lagesoft.files.wordpress.com/2018/11/bd-introduction-to-big-data.pdf)
-- [Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf)
+- [1. Introduction to Big Data](https://lagesoft.files.wordpress.com/2018/11/bd-introduction-to-big-data.pdf)
+- [2. Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -180,14 +179,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Big Data and MapReduce
 
 **Required:**
-- [MapReduce Tutorial Slides by Jimmy Lin](https://cs.uwaterloo.ca/~jimmylin/publications/WWW2013-MapReduce-tutorial-slides.pdf)
-- [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
-- [MapReduce: Simplified Data Processing on Large Clusters by Jeffrey Dean and Sanjay Ghemawat](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
+- [1. MapReduce Tutorial Slides by Jimmy Lin](https://cs.uwaterloo.ca/~jimmylin/publications/WWW2013-MapReduce-tutorial-slides.pdf)
+- [2. Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+- [3. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+- [4. MapReduce: Simplified Data Processing on Large Clusters - Google paper](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 
 **Optional:**
-- [MapReduce, Wikipedia](https://en.wikipedia.org/wiki/MapReduce)
-- [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+- [1. MapReduce, Wikipedia](https://en.wikipedia.org/wiki/MapReduce)
+- [2. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -199,14 +198,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to MapReduce
 
 **Required:**
-- [Introduction to MapReduce](https://kodu.ut.ee/~srirama/cloud/2011/L3_MapReduce.pdf)
-- [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+- [1. Introduction to MapReduce](https://kodu.ut.ee/~srirama/cloud/2011/L3_MapReduce.pdf)
+- [2. Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+- [3. Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
 **Optional:**
-- [Introduction to MapReduce: Watch a Video](https://www.youtube.com/watch?v=ht3dNvdNDzI&t=250s)
-- [The Future of Big Data by Matei Zaharia — Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)
-- [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+- [1. Introduction to MapReduce: Watch a Video](https://www.youtube.com/watch?v=ht3dNvdNDzI&t=250s)
+- [2. The Future of Big Data by Matei Zaharia — Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)
+- [3. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -215,19 +214,16 @@ At the completion of this course, students will be able to understand:
 <a id="session-4"></a>
 ### Session 4: Wednesday, September 30, 2026
 
-**Topic:** Introduction to MapReduce
+**Topic:** Introduction to MapReduce & Join Operations
 
 **Required:**
 - [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [Chapter 5 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [MapReduce Algorithms](https://courses.cs.ut.ee/MTAT.08.027/2018_spring/uploads/Main/L5_MapReduceAlgorithms2018.pdf)
-- Classic Join in MapReduce (inner join)
-- Join Algorithms Using MapReduce
+- [Join Algorithms in Action Using MapReduce](../../slides/mapreduce/joins_in_mapreduce/join_operation_in_action_using_MapReduce.md)
 
 **Optional:**
 - [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)
-- [Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
 - [Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
 
 [⇧ back to schedule](#schedule-overview)
