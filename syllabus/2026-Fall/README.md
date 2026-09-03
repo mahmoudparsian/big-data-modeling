@@ -257,14 +257,15 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Spark & PySpark
 
 **Required:**
-- [A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
-- [Chapters 1, 2 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
-- [PySpark Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/pyspark_tutorial)
-- [Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
+- [1. Introduction to MapReduce with PySpark](../../slides/mapreduce/intro_to_mapreduce_with_pyspark/intro_to_mapreduce_with_pyspark.md)
+- [2. A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
+- [3. Chapters 1, 2 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
+- [4. PySpark Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/pyspark_tutorial)
+- [5. Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
 
 **Optional:**
-- [Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
-- [Introduction to Apache Spark](https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
+- [1. Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
+- [2. Introduction to Apache Spark](https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -276,14 +277,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Spark and PySpark (Python API for Spark)
 
 **Required:**
-- [Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
-- [A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
-- [Chapters 1, 2, 3, 4 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
-- [Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
+- [1. Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
+- [2. A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
+- [3. Chapters 1, 2, 3, 4 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
+- [4. Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
 
 **Optional:**
-- [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
-- [Introduction to Spark by Shannon Quinn](https://web.archive.org/web/20230803213727/http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)
+- [1. Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
+- [2. Introduction to Spark by Shannon Quinn](https://web.archive.org/web/20230803213727/http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 
