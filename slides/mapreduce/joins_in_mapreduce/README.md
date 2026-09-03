@@ -1,10 +1,9 @@
 # joins_in_mapreduce
 
-Lecture slides on implementing join operations in MapReduce.
+Worked example on implementing join operations in MapReduce.
 
 ## Contents
 
 | Name | Type | Description |
 |---|---|---|
-| [`join_example_on_MapReduce.pdf`](join_example_on_MapReduce.pdf) | pdf (339.9KB) | A worked join example implemented in MapReduce |
-| [`join_operation_in_MapReduce_lecture.pdf`](join_operation_in_MapReduce_lecture.pdf) | pdf (4.1MB) | Full lecture deck on join strategies in MapReduce |
+| [`join_operation_in_action_using_MapReduce.md`](join_operation_in_action_using_MapReduce.md) | md | Worked reduce-side join example (bank customers/transactions) plus a generic Set A/Set B worked example tracing map/shuffle/reduce for INNER, LEFT OUTER, and RIGHT OUTER joins |
