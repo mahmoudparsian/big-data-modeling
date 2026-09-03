@@ -217,14 +217,12 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to MapReduce & Join Operations
 
 **Required:**
-- [Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [Chapter 5 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
-- [Join Algorithms in Action Using MapReduce](../../slides/mapreduce/joins_in_mapreduce/join_operation_in_action_using_MapReduce.md)
+- [1. Chapters 3, 4, 5 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
+- [2. Join Algorithms in Action using MapReduce](../../slides/mapreduce/joins_in_mapreduce/join_operation_in_action_using_MapReduce.md)
 
 **Optional:**
-- [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)
-- [Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
+- [1. Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)
+- [2. Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -235,7 +233,8 @@ At the completion of this course, students will be able to understand:
 
 **Topic:**
 - Review of MapReduce paradigm with examples
-- Review of MapReduce implementation with PySpark, with examples
+- Review of Join Operations in MapReduce paradigm 
+- Review of MapReduce implementation with PySpark
 
 [⇧ back to schedule](#schedule-overview)
 
