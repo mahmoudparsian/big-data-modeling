@@ -12,13 +12,13 @@ Examples, slides, and notes for learning PySpark.
 * [Checking Your PySpark Installation](../installation/checking_pyspark_installation.md)
 * [`jupyter/`](jupyter) — running PySpark from Jupyter notebooks
 * [`marimo/`](marimo) — running PySpark from marimo reactive notebooks
-* [`introduction/`](introduction) — intro slides: Spark basics, PySpark shell, data abstractions
+* [`introduction_to_pyspark/`](./introduction_to_pyspark) — intro slides: Spark basics, PySpark shell, data abstractions
 
 ## Flagship Worked Example
 
 * [`people_you_may_know/`](people_you_may_know) — **People You May Know**: a fully worked mutual-friend recommendation algorithm, with a dependency-free pure-Python version and a standalone PySpark RDD version side by side, both runnable, both cross-checked against each other and against the companion [MapReduce derivation](../../mapreduce/mapreduce_examples/MapReduce_People_You_May_Know.md)
 
-## Core Concepts
+## Core Concepts: RDDs
 
 * [`rdd_slides/`](rdd_slides) — creating RDDs, `map`, `filter`, `flatMap`
 * [`rdd_reducers_by_key/`](rdd_reducers_by_key) — `groupByKey`, `reduceByKey`, `combineByKey`
