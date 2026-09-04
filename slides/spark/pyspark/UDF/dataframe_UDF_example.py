@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # import required libraries
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
@@ -6,8 +7,6 @@ from pyspark.sql.types import StringType
 
 #--------------------------------------------------
 # Demo concept of Spark UDF (user-defined-function)
-#--------------------------------------------------
-# @author: Mahmoud Parsian
 #--------------------------------------------------
 def convert_case(name):
     if name is None: return None
@@ -22,7 +21,7 @@ def convert_case(name):
 #--------------------------------------------------
 def to_upper_case(name):
     if name is None: return None
-    if len(name) < 1: return ""    
+    if len(name) < 1: return ""
     return name.upper()
 #end-def
 #--------------------------------------------------
@@ -46,20 +45,22 @@ df = spark.createDataFrame(data=some_data,schema=column_names)
 df.show(truncate=False)
 
 
-# Converting function to UDF 
+# Converting function to UDF
 convert_case_udf = udf(lambda p: convert_case(p))
 
 # use UDF in select stmt
 df.select(col("ID"), convert_case_udf(col("Name")).alias("Name")).show(truncate=False)
 
 # create a UDF function
-upper_case_udf = udf(lambda p: to_upper_case(p), StringType())    
+upper_case_udf = udf(lambda p: to_upper_case(p), StringType())
 
 # Apply a UDF using withColumn
 df.withColumn("Upper Name", upper_case_udf(col("Name"))).show(truncate=False)
 
-# Using UDF on SQL 
+# Using UDF on SQL
 spark.udf.register("convert_UDF", convert_case, StringType())
 df.createOrReplaceTempView("NAME_TABLE")
 spark.sql("select ID, convert_UDF(Name) as Name from NAME_TABLE").show(truncate=False)
-     
+
+# done!
+spark.stop()

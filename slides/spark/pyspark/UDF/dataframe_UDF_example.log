@@ -1,4 +1,4 @@
-% export SPARK_HOME=/home/mparsian/spark-3.2.0
+% export SPARK_HOME=/opt/spark
 % $SPARK_HOME/bin/spark-submit dataframe_UDF_example.py
 
 +---+------------+
