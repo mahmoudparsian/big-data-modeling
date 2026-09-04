@@ -15,12 +15,8 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 | `dataframes_slides_1.pdf` | DataFrames slides, part 1 |
 | `dataframes_slides_2.pdf` | DataFrames slides, part 2 |
 | `dataframes_slides_3.pdf` | DataFrames slides, part 3 |
-| `dataFrames_transformations_adding_columns.pptx` | Adding/deriving columns (earlier version) |
-| `dataFrames_transformations_groupby.pptx` | `groupBy` transformations (earlier version) |
-| `dataFrames_transformations_UDF.pptx` | User-defined functions (earlier version) |
-| `dataFrames_transformations_using_SQL.pptx` | Querying DataFrames with SQL (earlier version) |
 | `intro_to_spark_dataframes_slides_33.pdf` | 33-slide introduction to Spark DataFrames |
-| `intro_to_spark_with_python.pdf` | Introduction to Spark with Python (PySpark) |
+| `intro_to_spark_with_python_slides_34.pdf` | Introduction to Spark with Python (PySpark) |
 | `Introducing_DataFrames_in_Spark.pdf` | Introducing DataFrames in Spark |
 | `introduction_to_dataframes.pptx` | Introduction to DataFrames (earlier version) |
 | `partitioning_in_spark.pptx` | Partitioning in Spark |
