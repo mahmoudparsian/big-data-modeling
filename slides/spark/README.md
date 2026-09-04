@@ -10,8 +10,7 @@ Slides, tutorials, and example code for teaching Apache Spark and PySpark.
 | [`installation/`](installation/) | Notes and scripts for installing/building Spark on macOS, Linux, Windows, Google Cloud, and Amazon (EC2), plus troubleshooting notes (e.g. SSH port 22 issues). |
 | [`machine_learning/`](machine_learning/) | Slides on machine learning with Spark MLlib, including classification and logistic regression. |
 | [`movie_recommendation/`](movie_recommendation/) | Slides on building a movie recommendation system with Spark. |
-| [`pyspark/`](pyspark/) | PySpark tutorials and hands-on session materials: RDDs, DataFrames, joins, UDFs, GraphFrames, word count, Jupyter notebooks, and Spark + LLM examples. |
-| [`submit_jobs/`](submit_jobs/) | Example of submitting a Spark job via `spark-submit`, including a sample word-count script, shell script, and transcript. |
+| [`pyspark/`](pyspark/) | PySpark tutorials and hands-on session materials: RDDs, DataFrames, joins, UDFs, GraphFrames, word count, Jupyter notebooks, Spark + LLM examples, and a `spark-submit` example ([`pyspark/spark-submit-example/`](pyspark/spark-submit-example/)). |
 
 ## Getting Started
 
