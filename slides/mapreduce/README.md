@@ -31,7 +31,7 @@ mapreduce/
 ├── word_count_in_mapreduce/            # same problem, solved as mapper()/reducer() -- bridges to PySpark
 ├── mapreduce_examples/                 # Word Count, Palindromes, Average Temperature, ...
 ├── combiners/                          # combiner-focused worked examples
-├── joins_in_mapreduce/                 # the join operation in MapReduce
+├── joins_in_mapreduce/                 # reduce-side join, worked end to end, generalized to INNER/LEFT/RIGHT OUTER
 │
 └── classic_mapreduce_progs/            # real Hadoop Java programs — kept only for contrast with Spark
 ```
@@ -54,7 +54,7 @@ mapreduce/
 | [`word_count_in_mapreduce/`](./word_count_in_mapreduce/) | The same word-count problem solved as a real MapReduce job: `(filename, record)` pairs → a Python `mapper()` → shuffle/sort → a Python `reducer()`, with every mapper/reducer call shown in full and a preview of the PySpark port (`flatMap`/`reduceByKey`). |
 | [`mapreduce_examples/`](./mapreduce_examples/) | Fully worked MapReduce examples: Word Count, Palindromes, and Average Temperature per City, each with mapper/reducer pseudocode, sample data, and homework questions; also includes a third-party "Finding Friends" article. |
 | [`combiners/`](./combiners/) | Combiner-focused worked examples: Word Count with/without a combiner (partition-by-partition trace), plus average and `(avg, min, max)` per gene, showing why a naive combiner breaks and how to fix it with `(sum, count)`-style partial results. See its own README. |
-| [`joins_in_mapreduce/`](./joins_in_mapreduce/) | Two lecture decks on performing relational join operations in MapReduce, including Jerome Simeon's (IBM Watson Research) *"Relational Processing on MapReduce."* |
+| [`joins_in_mapreduce/`](./joins_in_mapreduce/) | *"Join Operation in Action using MapReduce"* — a bank customers/transactions dataset joined end to end via the reduce-side tag/group/split/match recipe (every mapper and reducer call traced by hand), then generalized into INNER/LEFT OUTER/RIGHT OUTER join algorithms and bridged to PySpark's `join()` on RDDs and DataFrames. |
 | [`classic_mapreduce_progs/`](./classic_mapreduce_progs/) | Real, compilable Hadoop MapReduce programs in Java (Word Count, Top Movie, Log Handler, Telecom CDR analytics) plus a Hadoop install guide. Kept **only** so students can appreciate the elegance of Spark/PySpark by contrast — students will not write any Hadoop programs. See its own README. |
 | [`images/`](./images/) | Shared diagrams (MapReduce framework illustrations, the Big Data components chart, etc.) referenced from the docs above. |
 
