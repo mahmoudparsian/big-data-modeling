@@ -8,13 +8,13 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 |---|---|
 | [`Lecture_Notes/`](./Lecture_Notes/) | Lecture Notes for DataFrame creation, transformation, and beyond |
 | [`dataframes_by_databricks/`](./dataframes_by_databricks/) | Set of DataFrames Tutorials by Databricks |
+| [`FIFA_Analysis_by_DataFrames/`](./FIFA_Analysis_by_DataFrames/) | Marimo notebook: FIFA World Cup match-events analysis with PySpark DataFrames |
 | [`arrays_in_dataframes/`](./arrays_in_dataframes/) | Demo: creating array-typed columns in a DataFrame |
 | [`convert_csv_to_dataframe/`](./convert_csv_to_dataframe/) | Demo: reading a CSV file (with header) into a DataFrame |
 | [`intro_to_spark_dataframes/`](./intro_to_spark_dataframes/) | Tutorial notes on DataFrames and DataFrame joins, with diagrams |
 | `intro_to_spark_dataframes_slides_33.pdf` | 33-slide introduction to Spark DataFrames |
 | `intro_to_spark_with_python_slides_34.pdf` | Introduction to Spark with Python (PySpark) |
 | `partitioning_in_spark.pptx` | Partitioning in Spark |
-| `pyspark-dataframe-tutorial.pdf` | PySpark DataFrame tutorial |
 
 ## Further Reading
 
