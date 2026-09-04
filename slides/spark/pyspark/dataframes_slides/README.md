@@ -7,21 +7,16 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 | Name | Description |
 |---|---|
 | [`Lecture_Notes/`](./Lecture_Notes/) | Lecture Notes for DataFrame creation, transformation, and beyond |
+| [`dataframes_by_databricks/`](./dataframes_by_databricks/) | Set of DataFrames Tutorials by Databricks |
 | [`arrays_in_dataframes/`](./arrays_in_dataframes/) | Demo: creating array-typed columns in a DataFrame |
 | [`convert_csv_to_dataframe/`](./convert_csv_to_dataframe/) | Demo: reading a CSV file (with header) into a DataFrame |
 | [`intro_to_spark_dataframes/`](./intro_to_spark_dataframes/) | Tutorial notes on DataFrames and DataFrame joins, with diagrams |
-| [`7.0_intro_RDD_to_DF_and_DF_to_RDD.md`](./7.0_intro_RDD_to_DF_and_DF_to_RDD.md) | Converting between RDDs and DataFrames |
-| `creating_dataframes.pptx` | Ways to create a DataFrame (earlier version) |
-| `dataframes_slides_1.pdf` | DataFrames slides, part 1 |
-| `dataframes_slides_2.pdf` | DataFrames slides, part 2 |
-| `dataframes_slides_3.pdf` | DataFrames slides, part 3 |
 | `intro_to_spark_dataframes_slides_33.pdf` | 33-slide introduction to Spark DataFrames |
 | `intro_to_spark_with_python_slides_34.pdf` | Introduction to Spark with Python (PySpark) |
 | `Introducing_DataFrames_in_Spark.pdf` | Introducing DataFrames in Spark |
 | `introduction_to_dataframes.pptx` | Introduction to DataFrames (earlier version) |
 | `partitioning_in_spark.pptx` | Partitioning in Spark |
 | `pyspark-dataframe-tutorial.pdf` | PySpark DataFrame tutorial |
-| `RDDs_DataFrames_by_Databricks.pdf` | RDDs vs. DataFrames, by Databricks |
 
 ## Further Reading
 
