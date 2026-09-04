@@ -11,6 +11,7 @@ Examples, slides, and notes for learning PySpark.
 
 * [Checking Your PySpark Installation](../installation/checking_pyspark_installation.md)
 * [`jupyter/`](jupyter) — running PySpark from Jupyter notebooks
+* [`marimo/`](marimo) — running PySpark from marimo reactive notebooks
 * [`introduction/`](introduction) — intro slides: Spark basics, PySpark shell, data abstractions
 
 ## Flagship Worked Example
