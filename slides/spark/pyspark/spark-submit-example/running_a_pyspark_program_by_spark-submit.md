@@ -1,6 +1,13 @@
 # `spark-submit` Example
 
-# Input
+A second, illustrative example of submitting a PySpark program with
+`$SPARK_HOME/bin/spark-submit`, using a different sample input file
+than the word-count example in this folder. The program shown below
+is inline only (there is no standalone `.py` file for it in this
+folder) — copy it out to try it, and point it at a text file of your
+own rather than `/tmp/books.txt`, which is just illustrative.
+
+## Input
 
 ```
 $ cat /tmp/books.txt
@@ -14,11 +21,9 @@ ISBN-104,CS,biology
 ISBN-105,CS,econ
 ISBN-200,CS
 ```
-# PySpark Program: `pyspark_0001.py`
+## PySpark Program
 
 ```python
-from __future__ import print_function
-
 from pyspark.sql import SparkSession
 
 import sys
@@ -30,7 +35,7 @@ import sys
 # builder pattern:
 
 spark = SparkSession.builder\
-   .appName("testing...") \
+   .appName("spark-submit-example") \
    .getOrCreate()
 
 input_path = sys.argv[1]
@@ -45,10 +50,10 @@ print("records.collect()=", records.collect())
 spark.stop()
 ```
 
-# Submitting a PySpark Program
+## Submitting a PySpark Program
 
 ```
-$SPARK_HOME/bin/spark-submit  pyspark_0001.py  /tmp/books.txt
+$SPARK_HOME/bin/spark-submit  my_program.py  /tmp/books.txt
 input_path= /tmp/books.txt
 records.count()= 9
 records.collect()= 

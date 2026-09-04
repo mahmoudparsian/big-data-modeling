@@ -1,37 +1,24 @@
-# $SPARK_HOME/bin/spark-submit Example
+# `$SPARK_HOME/bin/spark-submit` Example
+
+This folder shows how to run a PySpark program correctly with
+`$SPARK_HOME/bin/spark-submit` — the standard way to launch a Spark
+application from the command line (as opposed to running code
+interactively in a shell or notebook).
 
 ## Environment Variables
 
-* `SPARK_HOME` is an environment variable
-  which denotes the installation directory
-  for your Spark. For example, in my case,
-  I set it to `/home/mparsian/spark-2.3.0`.
-  An environment variable is a dynamic-named 
-  value that can affect the way running 
-  processes will behave on a computer. 
-  
+* `SPARK_HOME` is an environment variable that points to your Spark
+  installation directory. An environment variable is a dynamic-named
+  value that affects how running processes behave on a computer.
+  For example:
+
 ````
-export SPARK_HOME="/home/mparsian/spark-2.3.0"
+export SPARK_HOME=/opt/spark
 ````
 
-## Sample Files
-
-This section has 3 core files:
-
-* `word_count_driver.py` (the PySpark program)
-
-* `word_count_driver.sh` (a shell script to 
-  run the PySpark program by using the
-  `$SPARK_HOME/bin/spark-submit`.
-  Note that you need to update/edit the shell 
-  script accordingly to reflect your directories.
-  
-* `word_count_driver.log` (a sample log of output
-  when you run the shell script)
-  
-* Note that my files (.sh and .py) are in the 
-  `/home/mparsian/code/` directory. You need to 
-  update your directories accordingly
+  (Set this to wherever Spark is actually installed on your machine —
+  e.g. `/opt/spark`, `/usr/local/spark`, or a path under your home
+  directory.)
 
 ## Files in This Folder
 
@@ -41,42 +28,74 @@ This section has 3 core files:
 | [`word_count_driver.sh`](./word_count_driver.sh) | Shell script that runs `word_count_driver.py` via `$SPARK_HOME/bin/spark-submit` |
 | [`word_count_driver.log`](./word_count_driver.log) | Sample output log from running the shell script |
 | [`sample_file.txt`](./sample_file.txt) | Small sample text file used as input |
-| [`pyspark_0001.py`](./pyspark_0001.py) | A minimal standalone PySpark script example |
-| [`running_a_pyspark_program_by_spark-submit.txt`](./running_a_pyspark_program_by_spark-submit.txt) | Notes/transcript on running a PySpark program with `spark-submit` |
+| [`running_a_pyspark_program_by_spark-submit.md`](./running_a_pyspark_program_by_spark-submit.md) | A second, illustrative walkthrough of running a PySpark program with `spark-submit` |
 
-## Python Location
+## How `spark-submit` Picks a Python Interpreter
 
-Note that the first line of `word_count_driver.py`
-is the following:
-
-````
-#!/usr/bin/python
-````
-
-If your Python is installed at another location, 
-then you should change the first line of the 
-`word_count_driver.py` to your Python location.
-In MacBook, you can find the location of your 
-Python by using the `type` command as (from 
-the command line):
+`spark-submit` does **not** execute your `.py` file directly as a
+script (so its shebang line is just documentation, not something
+Spark reads) — it launches the program using the Python interpreter
+found on `PATH`, or the one named by the `PYSPARK_PYTHON` environment
+variable if you set it. If you need a specific interpreter, set:
 
 ````
-$ type python
-python is /usr/bin/python
+export PYSPARK_PYTHON=/usr/bin/python3
 ````
 
 ## How to Run the Shell Script
 
-````
-/<your-dir-location>/word_count_driver.sh
-````
-
-In my case, I can run the PySpark program
-as:
+1. Set `SPARK_HOME` as shown above.
+2. Make the script executable (once): `chmod +x word_count_driver.sh`
+3. Run it from this folder, or from anywhere by its full path:
 
 ````
-/home/mparsian/code/word_count_driver.sh
+./word_count_driver.sh
 ````
 
+The script locates its own directory, so it will always find
+`word_count_driver.py` and `sample_file.txt` next to it — no editing
+required.
 
+## Running It Manually
 
+You can also invoke `spark-submit` yourself instead of using the
+shell script:
+
+````
+$SPARK_HOME/bin/spark-submit word_count_driver.py sample_file.txt
+````
+
+Expected output is shown in [`word_count_driver.log`](./word_count_driver.log).
+
+## Common `spark-submit` Options
+
+The command above runs with all defaults, which is enough for a
+local, single-machine example. In practice you'll usually pass extra
+flags to control where and how the job runs — these go *before* the
+script name:
+
+````
+$SPARK_HOME/bin/spark-submit \
+    --master local[*] \
+    --deploy-mode client \
+    --name word-count-example \
+    --executor-memory 2g \
+    --num-executors 4 \
+    word_count_driver.py \
+    sample_file.txt
+````
+
+| Flag | Purpose |
+|---|---|
+| `--master` | Where to run: `local[*]` (all local cores), `spark://host:port` (standalone cluster), `yarn`, or `k8s://...` |
+| `--deploy-mode` | `client` (driver runs on the machine you submit from) or `cluster` (driver runs on the cluster) |
+| `--name` | A human-readable application name, shown in the Spark UI/history server |
+| `--executor-memory` / `--driver-memory` | Memory to allocate per executor / for the driver |
+| `--num-executors` | Number of executors to request (cluster managers that support it) |
+| `--py-files` | Extra `.py`/`.zip`/`.egg` files to ship alongside your main script |
+
+Anything after the script name (`word_count_driver.py` here) is
+passed straight through to your program as `sys.argv` — that's how
+`sample_file.txt` reaches `sys.argv[1]` in this example. See the
+[Spark documentation on submitting applications](https://spark.apache.org/docs/latest/submitting-applications.html)
+for the full flag reference.
