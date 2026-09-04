@@ -6,20 +6,11 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 
 | Name | Description |
 |---|---|
+| [`Lecture_Notes/`](./Lecture_Notes/) | Lecture Notes for DataFrame creation, transformation, and beyond |
 | [`arrays_in_dataframes/`](./arrays_in_dataframes/) | Demo: creating array-typed columns in a DataFrame |
 | [`convert_csv_to_dataframe/`](./convert_csv_to_dataframe/) | Demo: reading a CSV file (with header) into a DataFrame |
 | [`intro_to_spark_dataframes/`](./intro_to_spark_dataframes/) | Tutorial notes on DataFrames and DataFrame joins, with diagrams |
 | [`7.0_intro_RDD_to_DF_and_DF_to_RDD.md`](./7.0_intro_RDD_to_DF_and_DF_to_RDD.md) | Converting between RDDs and DataFrames |
-| `7.1_intro_to_dataframes.pptx` | Introduction to DataFrames |
-| `7.2_creating_dataframes.pptx` | Ways to create a DataFrame |
-| `7.3_dataFrames_transformations_groupby.pptx` | `groupBy` transformations |
-| `7.4_dataFrames_transformations_adding_columns.pptx` | Adding/deriving columns |
-| `7.5_dataFrames_transformations_using_SQL.pptx` | Querying DataFrames with SQL |
-| `7.6_dataFrames_transformations_UDF.pptx` | User-defined functions on DataFrames |
-| `7.7_dataFrames_tutorial_pointers.pptx` | Pointers to further DataFrame tutorials |
-| `7.8_joins_by_example.pdf` | DataFrame joins, worked by example |
-| `8.1_external_data_sources_in_spark.pptx` | Reading/writing external data sources |
-| `8.2_external_data_sources_API_and_Tutorials_and_Videos.pptx` | External data sources: API, tutorials, and videos |
 | `creating_dataframes.pptx` | Ways to create a DataFrame (earlier version) |
 | `dataframes_slides_1.pdf` | DataFrames slides, part 1 |
 | `dataframes_slides_2.pdf` | DataFrames slides, part 2 |
