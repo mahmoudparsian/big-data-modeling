@@ -1,6 +1,13 @@
 # Introduction to DataFrames
 
-Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joins, UDFs, and external data sources — plus a few worked-example subfolders.
+Lecture slides on Spark DataFrames:
+
+* Creation of DataFrames
+* Transformations
+* Join operations
+* UDFs
+* External data sources
+
 
 ## Contents
 
@@ -12,8 +19,7 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 | [`arrays_in_dataframes/`](./arrays_in_dataframes/) | Demo: creating array-typed columns in a DataFrame |
 | [`convert_csv_to_dataframe/`](./convert_csv_to_dataframe/) | Demo: reading a CSV file (with header) into a DataFrame |
 | [`intro_to_spark_dataframes/`](./intro_to_spark_dataframes/) | Tutorial notes on DataFrames and DataFrame joins, with diagrams |
-| `intro_to_spark_dataframes_slides_33.pdf` | 33-slide introduction to Spark DataFrames |
-| `intro_to_spark_with_python_slides_34.pdf` | Introduction to Spark with Python (PySpark) |
+
 
 ## Further Reading
 
