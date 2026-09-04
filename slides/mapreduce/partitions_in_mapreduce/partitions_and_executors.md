@@ -1,7 +1,7 @@
 # Partitions and Executors in MapReduce
 
 	Author: Mahmoud Parsian
-	Last updated: 8/18/2026
+	Last updated: 9/3/2026
 
 ## Table of Contents
 
@@ -15,8 +15,9 @@
 8. [Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
 9. [Scaling Out: Adding More Worker Nodes](#scaling-out-adding-more-worker-nodes)
 10. [Configuring Partitions and Executors in Spark](#configuring-partitions-and-executors-in-spark)
-11. [Key Takeaways](#key-takeaways)
-12. [References](#references)
+11. [Worked Example in PySpark](#worked-example-in-pyspark)
+12. [Key Takeaways](#key-takeaways)
+13. [References](#references)
 
 ---
 
@@ -31,7 +32,7 @@ functions, `map()` and `reduce()`. The MapReduce
 paradigm, or systems inspired by it, are implemented
 by many projects:
 
-* Google MapReduce (proprietary, not open sourced)
+* Google MapReduce (proprietary, not open-sourced)
 * Apache Hadoop MapReduce (open source)
 * Apache Tez (open source) — a more general
   DAG-based execution engine (used by Hive and Pig)
@@ -175,6 +176,13 @@ For example, if you have `80,000,000,000` records
 * Approximate number of records per partition: `2,000,000`
 * `40,000 x 2,000,000 = 80,000,000,000`
 * Label the partitions `P_1`, `P_2`, ..., `P_40000`
+
+We will carry this same example — `40,000` partitions — through the rest
+of this document, first against a 12-slot cluster
+([Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)),
+then against larger clusters
+([Scaling Out](#scaling-out-adding-more-worker-nodes)), so the abstract
+formulas below always have concrete numbers attached to them.
 
 ## Example: Cluster Configuration
 
@@ -351,6 +359,19 @@ approximately `ceil(P / S) x (average task duration)`
 (data skew) and the final, partially-filled round
 under-utilizes the cluster.
 
+**Worked numbers.** Suppose each `map()` task takes,
+on average, 2 seconds to process its `2,000,000`-record
+partition. With `P = 40,000` and `S = 12`:
+
+```
+rounds        = ceil(40,000 / 12)        = 3,334
+elapsed time  = 3,334 rounds x 2 sec     = 6,668 sec
+                                          ≈ 1 hour 51 minutes
+```
+
+We will call this baseline `T ≈ 6,668 sec` and reuse it in
+[Scaling Out](#scaling-out-adding-more-worker-nodes) below.
+
 The more worker nodes (and executors/cores) we have
 available, the faster the whole job completes, up
 to the point where partitions run out to assign or
@@ -362,17 +383,18 @@ itself) becomes the bottleneck.
 Suppose that, with our original cluster `C`
 (3 worker nodes, 12 executors, 1 core each ⇒ 12 task
 slots), executing all `40,000` partitions takes `T`
-seconds. In an **idealized case** — partitions of
-equal cost, no stragglers, and negligible
-shuffle/network overhead — doubling the worker nodes
-roughly halves the elapsed time, and tripling them
-roughly divides it by three:
+seconds — this is exactly the `T ≈ 6,668 sec`
+(~1 hour 51 minutes) computed above. In an
+**idealized case** — partitions of equal cost, no
+stragglers, and negligible shuffle/network overhead —
+doubling the worker nodes roughly halves the elapsed
+time, and tripling them roughly divides it by three:
 
 | Worker nodes | Executors (4/node) | Task slots (1 core/exec.) | Approx. elapsed time |
 |---|---|---|---|
-| 3 (`W1-W3`)  | 12 | 12 | `T`   |
-| 6 (`W1-W6`)  | 24 | 24 | `T/2` |
-| 9 (`W1-W9`)  | 36 | 36 | `T/3` |
+| 3 (`W1-W3`)  | 12 | 12 | `T` ≈ 6,668 sec (~1h 51m) |
+| 6 (`W1-W6`)  | 24 | 24 | `T/2` ≈ 3,334 sec (~56m)  |
+| 9 (`W1-W9`)  | 36 | 36 | `T/3` ≈ 2,223 sec (~37m)  |
 
 More precisely, this idealized linear speedup is the
 special case (`p = 1`, fully parallelizable) of
@@ -436,6 +458,82 @@ the cluster; too many adds scheduling overhead), and
 aim for 2-4 tasks queued per core so that stragglers
 and uneven task durations can be smoothed out rather
 than leaving idle slots at the end of a round.
+
+## Worked Example in PySpark
+
+The knobs listed above aren't just theoretical — here's how the exact
+cluster from our walkthrough (3 worker nodes, 4 executors per node, 4
+cores per executor ⇒ 12 executors / 48 task slots) is requested and
+inspected in a real PySpark job.
+
+**1. Requesting the cluster shape from `spark-submit`:**
+
+```bash
+spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --num-executors 12 \
+  --executor-cores 4 \
+  --executor-memory 8g \
+  --conf spark.sql.shuffle.partitions=200 \
+  partitions_demo.py
+```
+
+This asks YARN for `12` executors x `4` cores = `48` concurrent task
+slots — the same number derived in
+[Executors, Cores, and Task Slots](#executors-cores-and-task-slots) —
+and fixes the reduce-side (shuffle) parallelism at `200` partitions,
+independent of however many input partitions the job starts with.
+
+**2. Inspecting and controlling partition counts in code
+(`partitions_demo.py`):**
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("PartitionsDemo").getOrCreate()
+
+# Read a large, HDFS-resident dataset. Input-side (map) parallelism is
+# set by spark.sql.files.maxPartitionBytes and the file/block layout,
+# not by anything we do here.
+df = spark.read.parquet("hdfs:///data/large_dataset/")
+print("Input partitions:", df.rdd.getNumPartitions())
+# e.g. -> Input partitions: 40000   (mirrors the P_1 ... P_40000 example)
+
+# A wide transformation (groupBy) triggers a shuffle. Its output
+# partition count comes from spark.sql.shuffle.partitions, NOT from
+# the input partition count above.
+counts = df.groupBy("key").count()
+print("Shuffle-output partitions:", counts.rdd.getNumPartitions())
+# -> Shuffle-output partitions: 200  (from --conf spark.sql.shuffle.partitions=200)
+
+# repartition(n): full shuffle, redistributes rows -> exactly n
+# roughly-equal-sized partitions. Use when you need to increase
+# parallelism or fix skew.
+balanced = counts.repartition(48)   # match our 48 task slots
+print("After repartition(48):", balanced.rdd.getNumPartitions())
+
+# coalesce(n): merges existing partitions without a full shuffle ->
+# cheaper, but only shrinks the count (n must be <= current count).
+# Common right before writing output, to avoid thousands of tiny files.
+output = balanced.coalesce(12)
+print("After coalesce(12):", output.rdd.getNumPartitions())
+
+output.write.mode("overwrite").parquet("hdfs:///data/output/")
+```
+
+Running this job end to end should print something close to:
+
+```
+Input partitions: 40000
+Shuffle-output partitions: 200
+After repartition(48): 48
+After coalesce(12): 12
+```
+
+which is the whole chapter — input partitioning, shuffle partitioning,
+`repartition()` vs. `coalesce()`, and the executor/core budget that
+processes it all — condensed into one runnable example.
 
 ## Key Takeaways
 
