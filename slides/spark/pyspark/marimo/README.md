@@ -28,9 +28,10 @@ pip install marimo
 
 | Name | Description |
 |---|---|
-| [`pyspark_marimo_example.py`](./pyspark_marimo_example.py) | A simple marimo notebook: creates a PySpark DataFrame and filters it interactively with a slider |
+| [`pyspark_marimo_example.py`](./pyspark_marimo_example.py) | **Basic:** a simple marimo notebook — one DataFrame, filtered interactively with a slider |
+| [`pyspark_marimo_intermediate.py`](./pyspark_marimo_intermediate.py) | **Intermediate:** joining two DataFrames, `groupBy().agg()`, `when()`/`otherwise()`, filtered interactively with a dropdown *and* a slider |
 
-## Running the Notebook
+## Running a Notebook
 
 ```bash
 pip install marimo pyspark
@@ -50,7 +51,10 @@ or run it as a plain script:
 python pyspark_marimo_example.py
 ```
 
-## What the Example Notebook Does
+(Substitute `pyspark_marimo_intermediate.py` for the intermediate
+notebook.)
+
+## What the Basic Notebook Does
 
 1. Starts a local `SparkSession`.
 2. Creates a small sample DataFrame (name, age, salary).
@@ -58,6 +62,19 @@ python pyspark_marimo_example.py
 4. Filters the DataFrame with `df.filter(col("salary") >= min_salary.value)`
    — dragging the slider re-runs this cell automatically and shows
    the new result, no manual re-run needed.
+
+## What the Intermediate Notebook Does
+
+1. Starts a local `SparkSession`.
+2. Creates `employees` and `departments` DataFrames and **joins** them
+   on `dept_id`.
+3. Adds a `salary_band` column with `when()`/`otherwise()` (the
+   inline-if/else way to derive a column, as an alternative to a UDF
+   — see [`../UDF/`](../UDF)).
+4. Builds a per-department summary with `groupBy().agg()` — headcount,
+   average salary, max salary — sorted with `orderBy()`.
+5. Filters interactively by **both** a department dropdown and a
+   salary slider at once; moving either widget re-runs the filter.
 
 ## See Also
 
