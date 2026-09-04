@@ -6,6 +6,7 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 
 | Name | Description |
 |---|---|
+| `00_partitioning_in_spark.pptx` | Partitioning data in Spark |
 | `01_intro_RDD_to_DF_and_DF_to_RDD.md` | Converting between RDDs and DataFrames |
 | `02_intro_to_dataframes.pptx` | Introduction to DataFrames |
 | `03_creating_dataframes.pptx` | Ways to create a DataFrame |

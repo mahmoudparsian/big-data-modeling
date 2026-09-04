@@ -14,7 +14,6 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 | [`intro_to_spark_dataframes/`](./intro_to_spark_dataframes/) | Tutorial notes on DataFrames and DataFrame joins, with diagrams |
 | `intro_to_spark_dataframes_slides_33.pdf` | 33-slide introduction to Spark DataFrames |
 | `intro_to_spark_with_python_slides_34.pdf` | Introduction to Spark with Python (PySpark) |
-| `partitioning_in_spark.pptx` | Partitioning in Spark |
 
 ## Further Reading
 
