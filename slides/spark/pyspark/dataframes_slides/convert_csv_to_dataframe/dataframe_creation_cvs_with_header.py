@@ -6,9 +6,7 @@
 # Input Parameters:
 #    argv[1]: String, input path
 #-------------------------------------------------------
-# @author Mahmoud Parsian
-#-------------------------------------------------------
-from __future__ import print_function 
+from __future__ import print_function
 import sys 
 from pyspark.sql import SparkSession 
 
@@ -66,7 +64,7 @@ if __name__ == '__main__':
     # to a relational database table) for your DataFrame as:
     df.createOrReplaceTempView("emp_table")
     print("df=", df)
-    # DataFrame[id: string, name: string, salary: string, dept: string]
+    # DataFrame[id: int, name: string, salary: int, dept: string]
 
     df3 = spark.sql("SELECT * FROM emp_table WHERE id > 1002")
     df3.show()
@@ -97,7 +95,7 @@ if __name__ == '__main__':
     # based on a `salary` filter:
     df5 = spark.sql("SELECT name, salary FROM emp_table WHERE salary > 25000")
     print("df5=", df5)
-    # DataFrame[name: string, salary: string]
+    # DataFrame[name: string, salary: int]
     df5.show()
     # +-----+------+
     # | name|salary|
@@ -112,7 +110,7 @@ if __name__ == '__main__':
     # Also, using SQL query, you can project, filter and sort:
     df6 = spark.sql("SELECT name, salary FROM emp_table WHERE salary > 55000 ORDER BY salary")
     print("df6=", df6)
-    # DataFrame[name: string, salary: string]
+    # DataFrame[name: string, salary: int]
     df6.show()
     # +----+------+
     # |name|salary|

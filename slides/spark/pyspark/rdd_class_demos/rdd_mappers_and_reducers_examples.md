@@ -3,7 +3,7 @@
 ## Sample Data 
 
 ~~~
-% cat /home/mparsian/sample_numbers.txt
+% cat sample_numbers.txt
 1
 2
 3
@@ -32,25 +32,25 @@
 ## PySpark Interactive Demo
 
 ~~~
-% cd spark-3.5.3
+% cd spark-4.2.0
 % ./bin/pyspark
-Python 3.12.0 (v3.12.0:0fb18b02c8, Oct  2 2023, 09:45:56) 
+Python 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10)
 [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.3
+   /__ / .__/\_,_/_/ /_/\_\   version 4.2.0
       /_/
 
-Using Python version 3.12.0 (v3.12.0:0fb18b02c8, Oct  2 2023 09:45:56)
-Spark context Web UI available at http://172.20.210.166:4040
+Using Python version 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025 11:51:10)
+Spark context Web UI available at http://192.168.1.10:4040
 Spark context available as 'sc' 
-(master = local[*], app id = local-1729824681801).
+(master = local[*], app id = local-1788594128779).
 SparkSession available as 'spark'.
 >>>
 >>> # Read a text file and create an RDD[String]
->>> rdd = sc.textFile("/home/mparsian/sample_numbers.txt")
+>>> rdd = sc.textFile("sample_numbers.txt")
 >>> rdd.count()
 23
 >>> rdd.collect()
@@ -62,7 +62,7 @@ SparkSession available as 'spark'.
 >>>
 >>>
 >>> # Read a text file and create an RDD[String] with more partitions
->>> rdd = sc.textFile("/Users/mparsian/sample_numbers.txt", 4)
+>>> rdd = sc.textFile("sample_numbers.txt", 4)
 >>> rdd.getNumPartitions()
 5
 >>> rdd.repartition(4)

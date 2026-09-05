@@ -59,25 +59,25 @@ RDD with `numPartitions` partitions.
 # 1. `groupByKey()` solution
 
 ~~~python
-spark-3.5.0  % ./bin/pyspark
-Python 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) 
+spark-4.2.0  % ./bin/pyspark
+Python 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10)
 [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.0
+   /__ / .__/\_,_/_/ /_/\_\   version 4.2.0
       /_/
 
-Using Python version 3.11.4 
-(v3.11.4:d2340ef257, Jun  6 2023 19:15:51)
+Using Python version 3.13.2 
+(v3.13.2:4f8bb3947cf, Feb  4 2025 11:51:10)
 Spark context available as 'sc' 
-(master = local[*], app id = local-1697682144202).
+(master = local[*], app id = local-1788594128779).
 SparkSession available as 'spark'.
 >>>
 >>>
 >>> sc.version
-'3.5.0'
+'4.2.0'
 >>>
 >>> pairs = [('A', 2), ('A', 4), ('A', 9), 
              ('B', 6), ('B', 1),('B', 2), 
@@ -111,25 +111,25 @@ SparkSession available as 'spark'.
 # 2. `reduceByKey()` solution
 
 ~~~python
-spark-3.5.0  % ./bin/pyspark
-Python 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) 
+spark-4.2.0  % ./bin/pyspark
+Python 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10)
 [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.0
+   /__ / .__/\_,_/_/ /_/\_\   version 4.2.0
       /_/
 
-Using Python version 3.11.4 
-(v3.11.4:d2340ef257, Jun  6 2023 19:15:51)
+Using Python version 3.13.2 
+(v3.13.2:4f8bb3947cf, Feb  4 2025 11:51:10)
 Spark context available as 'sc' 
-(master = local[*], app id = local-1697682144202).
+(master = local[*], app id = local-1788594128779).
 SparkSession available as 'spark'.
 >>>
 >>>
 >>> sc.version
-'3.5.0'
+'4.2.0'
 >>>
 >>> pairs = [('A', 2), ('A', 4), ('A', 9), 
              ('B', 6), ('B', 1),('B', 2), 

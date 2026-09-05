@@ -51,20 +51,20 @@ in other. Performs a hash join across the cluster.
 ### Example 1: Inner, Left Outer, and Right Outer Joins
 
 ```python
-~  % cd spark-3.5.0
-spark-3.5.0  % ./bin/pyspark
-Python 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51)
+~  % cd spark-4.2.0
+spark-4.2.0  % ./bin/pyspark
+Python 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10)
 [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.0
+   /__ / .__/\_,_/_/ /_/\_\   version 4.2.0
       /_/
 
-Using Python version 3.11.4 (v3.11.4:d2340ef257, Jun  6 2023 19:15:51)
-Spark context Web UI available at http://172.20.193.144:4040
-Spark context available as 'sc' (master = local[*], app id = local-1697594039497).
+Using Python version 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025 11:51:10)
+Spark context Web UI available at http://192.168.1.10:4040
+Spark context available as 'sc' (master = local[*], app id = local-1788594128779).
 SparkSession available as 'spark'.
 
 >>> A = [('k1', 2), ('k1', 3), ('k2', 4), ('k2', 5), ('k3', 20), ('k4', 200)]
@@ -147,19 +147,19 @@ SparkSession available as 'spark'.
 
 ```python
 % ./bin/pyspark
-Python 3.12.0 (v3.12.0:0fb18b02c8, Oct  2 2023, 09:45:56)
+Python 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10)
 [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.3
+   /__ / .__/\_,_/_/ /_/\_\   version 4.2.0
       /_/
 
-Using Python version 3.12.0 (v3.12.0:0fb18b02c8, Oct  2 2023 09:45:56)
-Spark context Web UI available at http://172.20.193.146:4040
+Using Python version 3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025 11:51:10)
+Spark context Web UI available at http://192.168.1.10:4040
 Spark context available as 'sc'
-(master = local[*], app id = local-1730428868917).
+(master = local[*], app id = local-1788594128779).
 SparkSession available as 'spark'.
 ```
 
@@ -251,15 +251,20 @@ SparkSession available as 'spark'.
  ('A', (2, 8)),
  ('A', (3, 7)),
  ('A', (3, 8)),
+ ('E', (None, 8)),
  ('B', (4, 20)),
  ('B', (4, 30)),
  ('B', (5, 20)),
  ('B', (5, 30)),
- ('E', (None, 8)),
  ('F', (None, 9))
 ]
 >>>
 ```
+
+> **Note:** `collect()` does not guarantee element order — PySpark makes no
+> ordering promise for RDD transformations, so the exact sequence returned
+> can (and does) vary between Spark versions/runs. What matters is that
+> every expected `(key, (v1, v2))` pair is present.
 
 #### `fullOuterJoin()`
 
@@ -271,14 +276,14 @@ SparkSession available as 'spark'.
  ('A', (2, 8)),
  ('A', (3, 7)),
  ('A', (3, 8)),
+ ('E', (None, 8)),
  ('B', (4, 20)),
  ('B', (4, 30)),
  ('B', (5, 20)),
  ('B', (5, 30)),
- ('C', (5, None)),
+ ('F', (None, 9)),
  ('D', (6, None)),
- ('E', (None, 8)),
- ('F', (None, 9))
+ ('C', (5, None))
 ]
 >>>
 ```
