@@ -13,7 +13,6 @@ classic Hadoop Java programs.
 ```text
 mapreduce/
 ├── README.md                          # this file
-├── images/                             # shared diagrams used across the docs below
 │
 ├── google_mapreduce_paper/             # the original Google MapReduce papers
 ├── pros_and_cons_of_mapreduce/         # formal map()/reduce() definition, benefits & drawbacks
@@ -41,7 +40,7 @@ mapreduce/
 | Folder | Description |
 |---|---|
 | [`google_mapreduce_paper/`](./google_mapreduce_paper/) | The primary sources: Dean & Ghemawat's *"MapReduce: Simplified Data Processing on Large Clusters"* (Google's original paper), plus Ralf Lämmel's *"Google's MapReduce Programming Model — Revisited."* |
-| [`pros_and_cons_of_mapreduce/`](./pros_and_cons_of_mapreduce/) | A formal `map()`/`reduce()` definition, followed by MapReduce's benefits (scalability, fault tolerance, ...) and drawbacks. |
+| [`pros_and_cons_of_mapreduce/`](./pros_and_cons_of_mapreduce/pros_and_cons_of_mapreduce.md) | A formal `map()`/`reduce()` definition, followed by MapReduce's benefits (scalability, fault tolerance, ...) and drawbacks. |
 | [`associativity_and_commutativity/`](./associativity_and_commutativity/) | *"Associativity, Commutativity, and Reducers"* — a practical algebra of MapReduce reducers: why some reduce functions parallelize for free, why others quietly return wrong answers, and a "lifting recipe" for repairing the ones that don't. |
 | [`monoids/`](./monoids/) | *"Monoid: A Design Principle for Correct and Efficient Reducers"* — the algebraic hierarchy (magma → semigroup → monoid), why "average of averages" isn't the average, and how this connects to Spark's `reduceByKey()`. |
 | [`partitions_in_mapreduce/`](./partitions_in_mapreduce/) | *"Partitions and Executors in MapReduce"* — data parallelism, two kinds of partitioning, data locality, and how partitions map onto Spark executors/cores in practice. |
@@ -56,7 +55,6 @@ mapreduce/
 | [`combiners/`](./combiners/) | Combiner-focused worked examples: Word Count with/without a combiner (partition-by-partition trace), plus average and `(avg, min, max)` per gene, showing why a naive combiner breaks and how to fix it with `(sum, count)`-style partial results. See its own README. |
 | [`joins_in_mapreduce/`](./joins_in_mapreduce/) | *"Join Operation in Action using MapReduce"* — a bank customers/transactions dataset joined end to end via the reduce-side tag/group/split/match recipe (every mapper and reducer call traced by hand), then generalized into INNER/LEFT OUTER/RIGHT OUTER join algorithms and bridged to PySpark's `join()` on RDDs and DataFrames. |
 | [`classic_mapreduce_progs/`](./classic_mapreduce_progs/) | Real, compilable Hadoop MapReduce programs in Java (Word Count, Top Movie, Log Handler, Telecom CDR analytics) plus a Hadoop install guide. Kept **only** so students can appreciate the elegance of Spark/PySpark by contrast — students will not write any Hadoop programs. See its own README. |
-| [`images/`](./images/) | Shared diagrams (MapReduce framework illustrations, the Big Data components chart, etc.) referenced from the docs above. |
 
 ## Suggested path through this material
 
