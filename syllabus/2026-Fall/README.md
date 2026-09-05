@@ -24,10 +24,9 @@
 
 | # | Subject                             | Weight |
 |---|--------------------------------------|-------:|
-| 1 | Big Data Concepts                    |    10% |
-| 2 | MapReduce Paradigm                   |    20% |
-| 3 | Big Data Analytics by PySpark        |    50% |
-| 4 | Data Partitioning and SQL Queries    |    20% |
+| 1 | Introduction to MapReduce Paradigm   |    25% |
+| 2 | Spark and PySpark                    |    60% |
+| 3 | Serverless SQL Access to Big Data    |    15% |
 
 ---
 
