@@ -67,7 +67,7 @@ is created at all for that `gene_id`
 <font size="4">
 Given billions of numbers (assume each 
 record has a single number), find count, minimum, 
-maximum, and average for all numbers.  
+maximum, andd average for all numbers.  
 
 Discuss the number of mappers and reducers
 
