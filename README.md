@@ -34,20 +34,10 @@
 
 ## 1. Course Information
 
-	This course is about  big  data  and its role 
-	in carrying out  modern business intelligence 
-	for   actionable  insight   to   address  new  
-	business needs. This course is a lab-led  and 
-	open source software rooted course.  
-	
-	Students   will  learn  the  fundamentals  of 
-	MapReduce, Spark  framework, NoSQL databases, 
-	PySpark, and Amazon Athena.  The  class  will 
-	focus  on   the   storage,   processing,  and 
-	analysis aspects of  big  data. Students will 
-	use Spark cluster and  MapReduce fundamentals 
-	to solve big data problems.
-	
+This course is about big data and its role in carrying out modern business
+intelligence for actionable insight. See the full
+[Course Description](./course_information/course_description.md) for details.
+
 ## 2. Folders
 
 
@@ -61,12 +51,11 @@
 	
 ## 3. Main Subjects
 
-| Subject                             | Percentage |        
-|-------------------------------------|------------|
-|1. Big Data Concepts                 | 10%        |
-|2. MapReduce Paradigm                | 20%        |
-|3. Big Data Analytics by PySpark     | 50%        |
-|4. Data Partitioning and SQL Queries | 20%        |
+| Subject                                | Percentage |        
+|-----------------------------------------|------------|
+|1. Introduction to MapReduce Paradigm    | 25%        |
+|2. Spark and PySpark                     | 60%        |
+|3. Serverless SQL Access to Big Data     | 15%        |
 
 
 ## 4.  [Class Room, Dates & Hours](./course_information/class_meeting_dates_and_hours.md)
