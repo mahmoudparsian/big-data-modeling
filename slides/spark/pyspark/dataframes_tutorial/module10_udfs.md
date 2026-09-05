@@ -35,10 +35,10 @@ For that, we use **User-Defined Functions (UDFs)**.
 from pyspark.sql.functions import udf
 from pyspark.sql.types import IntegerType
 
-def double(x):
+def double_it(x):
     return x * 2
 
-double_udf = udf(double, IntegerType())
+double_udf = udf(double_it, IntegerType())
 
 df.withColumn("age2", double_udf("age")).show()
 ```
@@ -49,12 +49,15 @@ df.withColumn("age2", double_udf("age")).show()
 
 Register:
 ```python
-spark.udf.register("double", double, IntegerType())
+spark.udf.register("double_it", double_it, IntegerType())
 ```
+
+⚠️ Don't name a UDF `double` — it collides with Spark SQL's built-in `double(expr)` cast
+function, which silently wins over your registration.
 
 Use in SQL:
 ```python
-spark.sql("SELECT name, double(age) FROM employees").show()
+spark.sql("SELECT name, double_it(age) FROM employees").show()
 ```
 
 ---

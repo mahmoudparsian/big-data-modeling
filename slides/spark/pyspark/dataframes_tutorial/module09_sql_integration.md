@@ -69,17 +69,17 @@ spark.sql(
 
 ## Multi-Table SQL Joins
 
-Assume views exist:
+Assume DataFrames exist (see [Module 7](module07_joins.md) for `employees`/`departments`):
 
 ```python
-emp.createOrReplaceTempView("emp")
-dept.createOrReplaceTempView("dept")
+employees.createOrReplaceTempView("employees")
+departments.createOrReplaceTempView("departments")
 ```
 
 ```python
 spark.sql(
     "SELECT e.name, e.dept, d.dept_name "
-    "FROM emp e LEFT JOIN dept d ON e.dept = d.dept"
+    "FROM employees e LEFT JOIN departments d ON e.dept = d.dept"
 ).show()
 ```
 
@@ -107,15 +107,18 @@ from pyspark.sql.functions import udf
 from pyspark.sql.types import IntegerType
 
 @udf(IntegerType())
-def double(x):
+def double_it(x):
     return x*2
 
-spark.udf.register("double", double)
+spark.udf.register("double_it", double_it)
 ```
+
+⚠️ Don't name a UDF `double` — it collides with Spark SQL's built-in `double(expr)` cast
+function, which silently wins over your registration.
 
 Use in SQL:
 ```python
-spark.sql("SELECT name, double(age) FROM employees").show()
+spark.sql("SELECT name, double_it(age) FROM employees").show()
 ```
 
 ---

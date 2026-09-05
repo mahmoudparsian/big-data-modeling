@@ -112,8 +112,12 @@ spark.conf.set("spark.sql.adaptive.enabled", "true")
 
 Collect statistics:
 ```python
+df.write.mode("overwrite").saveAsTable("employees")
 spark.sql("ANALYZE TABLE employees COMPUTE STATISTICS")
 ```
+
+⚠️ `ANALYZE TABLE` requires a permanent catalog table (`saveAsTable`) — it fails with
+`EXPECT_PERMANENT_VIEW_NOT_TEMP` against a `createOrReplaceTempView()` temp view.
 
 Helps Spark choose:
 - Join order

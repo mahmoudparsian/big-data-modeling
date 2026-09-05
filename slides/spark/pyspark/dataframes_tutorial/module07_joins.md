@@ -142,7 +142,7 @@ employees.crossJoin(departments).show()
 ## Join with Expressions
 
 ```python
-emp.join(departments, emp.dept == departments.dept, "inner")
+employees.join(departments, employees.dept == departments.dept, "inner")
 ```
 
 ---
@@ -160,7 +160,7 @@ df1.join(df2, ["id","date"], "inner")
 Returns left rows **where match exists**
 
 ```python
-emp.join(departments, "dept", "left_semi").show()
+employees.join(departments, "dept", "left_semi").show()
 ```
 
 ---
@@ -170,7 +170,7 @@ emp.join(departments, "dept", "left_semi").show()
 Returns left rows **where NO match exists**
 
 ```python
-emp.join(departments, "dept", "left_anti").show()
+employees.join(departments, "dept", "left_anti").show()
 ```
 
 ---
@@ -181,7 +181,7 @@ Useful for small DataFrames
 
 ```python
 from pyspark.sql.functions import broadcast
-emp.join(broadcast(departments), "dept", "inner")
+employees.join(broadcast(departments), "dept", "inner")
 ```
 
 ---
@@ -189,7 +189,8 @@ emp.join(broadcast(departments), "dept", "inner")
 ## Avoiding Duplicate Columns
 
 ```python
-df = emp.join(departments, emp.dept == departments.dept, "inner")         .select(emp.emp_id, emp.name, departments.dept_name)
+df = (employees.join(departments, employees.dept == departments.dept, "inner")
+      .select(employees.emp_id, employees.name, departments.dept_name))
 ```
 
 ---
