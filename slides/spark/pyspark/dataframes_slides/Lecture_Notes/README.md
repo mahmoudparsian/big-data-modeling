@@ -17,3 +17,5 @@ Lecture slides (PDF/PPTX) on Spark DataFrames — creation, transformations, joi
 | `08_dataFrames_tutorial_pointers.pptx` | Pointers to further DataFrame tutorials |
 | `09_joins_by_example.pdf` | DataFrame joins, worked by example |
 | `10_external_data_sources_in_spark.pptx` | Reading/writing external data sources |
+| [`intro_to_spark_dataframes_slides_33.pdf`](intro_to_spark_dataframes_slides_33.pdf) | Third-party deck: "Introduction to PySpark DataFrames" — Upendra Devisetty, *Big Data Fundamentals with PySpark* (33 slides) |
+| [`intro_to_spark_with_python_slides_34.pdf`](intro_to_spark_with_python_slides_34.pdf) | Third-party deck: "Introduction to Spark with Python" — Gökhan Atıl, BigTalk #2 (34 slides) |
