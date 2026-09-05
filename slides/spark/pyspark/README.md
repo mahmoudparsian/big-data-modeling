@@ -23,7 +23,7 @@ Examples, slides, and notes for learning PySpark.
 * [`rdd_slides/`](rdd_slides) — creating RDDs, `map`, `filter`, `flatMap`
 * [`rdd_reducers_by_key/`](rdd_reducers_by_key) — `groupByKey`, `reduceByKey`, `combineByKey`
 * [`rdd_class_demos/`](rdd_class_demos) — RDD example scripts and notebooks
-* [`join_operation/`](join_operation) — join examples in PySpark and MapReduce
+* [`rdd_join_operation/`](rdd_join_operation) — join examples in RDD and MapReduce
 * [`UDF/`](UDF) — user-defined functions
 * [`mapreduce-pyspark-tutorial/`](mapreduce-pyspark-tutorial) — Tutorial 1: MapReduce thinking with PySpark RDDs, slides + companion notebook
 
