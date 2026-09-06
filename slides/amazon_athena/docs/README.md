@@ -1,4 +1,4 @@
-# docs
+# Amazon Athena Docs
 
 Lecture slides (pptx/pdf) and reference notes covering Amazon Athena, plus a copy of the Athena demo write-up.
 
@@ -6,6 +6,7 @@ Lecture slides (pptx/pdf) and reference notes covering Amazon Athena, plus a cop
 
 | Name | Type | Description |
 |---|---|---|
+| [`10.0_what_is_amazon_athena.md`](10.0_what_is_amazon_athena.md) | txt (3.5KB) |  |
 | [`10.1_intro_to_amazon_athena.pptx`](10.1_intro_to_amazon_athena.pptx) | pptx (2.2MB) |  |
 | [`10.2_data_partitioning_for_amazon_athena.pptx`](10.2_data_partitioning_for_amazon_athena.pptx) | pptx (483.6KB) |  |
 | [`10.3_amazon_athena_API_and_Tutorials_and_Videos.pptx`](10.3_amazon_athena_API_and_Tutorials_and_Videos.pptx) | pptx (98.6KB) |  |
@@ -18,4 +19,3 @@ Lecture slides (pptx/pdf) and reference notes covering Amazon Athena, plus a cop
 | [`nyc-taxi-data.url`](nyc-taxi-data.url) | url (48B) |  |
 | [`scu_amazon_athena.txt`](scu_amazon_athena.txt) | txt (215B) |  |
 | [`top-10-performance-tuning-tips-for-amazon-athena.pdf`](top-10-performance-tuning-tips-for-amazon-athena.pdf) | pdf (570.6KB) |  |
-| [`what_is_amazon_athena.txt`](what_is_amazon_athena.txt) | txt (3.5KB) |  |
