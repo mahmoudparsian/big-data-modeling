@@ -13,7 +13,7 @@ Per-topic policy/reference pages for the course (grading, prerequisites, exam da
 | [`COURSE_OUTLINE_10_WEEKS.pptx`](COURSE_OUTLINE_10_WEEKS.pptx) | pptx | Same deck as the PDF above, PowerPoint source |
 | [`exam_dates.md`](exam_dates.md) | md | Exam requirements (closed book, LockDown Browser) and date/time/location for Exam-1, Exam-2, and the Final Exam |
 | [`grading_and_class_conduct.md`](grading_and_class_conduct.md) | md | Grade distribution (assignments/exams/bonus), letter-grade scale, and course policies (exams, labs, attendance, authorship) |
-| [`instructor.md`](instructor.md) | md | Instructor bio blurb (Mahmoud Parsian) with links to his SCU faculty page, LinkedIn, and email |
+| [`instructor.md`](instructor.md) | md | Instructor bio (Mahmoud Parsian) — background, teaching philosophy, publications, and professional sites, with links to his SCU faculty page, LinkedIn, and email |
 | [`mapreduce_tutorials.md`](mapreduce_tutorials.md) | md | Linked MapReduce tutorials/papers (Parsian, Lin, Google's MapReduce paper) plus MapReduce data-flow diagrams |
 | [`office_hours.md`](office_hours.md) | md | How to get help (lecture, office hours, Camino discussions, email) and weekly office-hours schedule |
 | [`prerequisite.md`](prerequisite.md) | md | Prerequisite knowledge expected before the course: Python basics, SQL basics, data structures |

@@ -47,7 +47,7 @@ intelligence for actionable insight. See the full
 | [`syllabus`](./syllabus/2026-Fall/README.md)| 10-weeks session-by-session syllabus        | 
 | [`course_information`](./course_information)              | Course information, outline, grading, exams, ... |
 | [`data`](./data)| Samples of data for analytics       |
-| [`instructor`](./instructor) | Mahmoud Parsian as Instructor |
+| [`instructor`](./course_information/instructor.md) | Mahmoud Parsian as Instructor |
 	
 ## 3. Main Subjects
 
