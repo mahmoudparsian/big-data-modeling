@@ -480,7 +480,7 @@ This matches the output of `rdd1.join(rdd2)` from
 ## Further Reading
 
 1. SQL Join — [w3schools.com](https://www.w3schools.com/sql/sql_join.asp)
-2. PySpark Join — [`pyspark.sql.DataFrame.join`](http://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=join#pyspark.sql.DataFrame.join)
+2. PySpark Join — [`pyspark.sql.DataFrame.join`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.join.html)
 3. PySpark Joins by Example — [learnbymarketing.com](http://www.learnbymarketing.com/1100/pyspark-joins-by-example/#:~:text=Summary%3A%20Pyspark%20DataFrames%20have%20a,left_outer%2C%20right_outer%2C%20leftsemi)
 4. PySpark Join Explained — [dzone.com](https://dzone.com/articles/pyspark-join-explained-with-examples)
 5. Cartesian Product example — [chegg.com](https://www.chegg.com/homework-help/definitions/cartesian-product-33)

@@ -185,7 +185,7 @@ At the completion of this course, students will be able to understand:
 
 **Optional:**
 - [1. MapReduce, Wikipedia](https://en.wikipedia.org/wiki/MapReduce)
-- [2. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+- [2. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 
@@ -204,7 +204,7 @@ At the completion of this course, students will be able to understand:
 **Optional:**
 - [1. Introduction to MapReduce: Watch a Video](https://www.youtube.com/watch?v=ht3dNvdNDzI&t=250s)
 - [2. The Future of Big Data by Matei Zaharia — Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)
-- [3. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)
+- [3. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf)
 
 [⇧ back to schedule](#schedule-overview)
 

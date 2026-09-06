@@ -39,7 +39,7 @@
 
 [3. Mining of Massive Datasets by Jure Leskovec, Anand Rajaraman, Jeffrey D. Ullman](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)
 
-[4. Designing Good Mapreduce Algorithms by Ullman](../slides/mapreduce/introduction_to_mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
+[4. Designing Good Mapreduce Algorithms by Ullman](../slides/mapreduce/mapreduce_documents/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
 
 [5. Bigtable: A Distributed Storage System for Structured Data](../slides/mapreduce/distributed_file_system/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
 

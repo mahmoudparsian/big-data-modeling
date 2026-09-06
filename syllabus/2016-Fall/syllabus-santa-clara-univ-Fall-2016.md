@@ -62,7 +62,7 @@ References and Papers
 
 * [2. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](../../slides/mapreduce/google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 
-* [3. Designing Good Mapreduce Algorithms by Ullman](../../slides/mapreduce/introduction_to_mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
+* [3. Designing Good Mapreduce Algorithms by Ullman](../../slides/mapreduce/mapreduce_documents/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
          
 * [4: Bigtable: A Distributed Storage System for Structured Data](../../slides/mapreduce/distributed_file_system/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
 

@@ -72,7 +72,7 @@ At the completion of this course, students will be able to understand:
 
 * [2. MapReduce: Simplified Data Processing on Large Clusters, Jeffrey Dean and Sanjay Ghemawat](../../slides/mapreduce/google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 
-* [3. Designing Good Mapreduce Algorithms by Ullman](../../slides/mapreduce/introduction_to_mapreduce/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
+* [3. Designing Good Mapreduce Algorithms by Ullman](../../slides/mapreduce/mapreduce_documents/Designing-Good-MapReduce-Algorithms-Ullman-2012.pdf)
 
 * [4: Bigtable: A Distributed Storage System for Structured Data](../../slides/mapreduce/distributed_file_system/Bigtable_A_Distributed_Storage_System_for_Structured_Data.pdf)
 
@@ -205,7 +205,7 @@ However, you must keep up with the reading assignments.
 |	* Introduction to Big Data |
 |	* [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf) |
 |	* [Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf) |
 
 
 ----------------
@@ -216,7 +216,7 @@ However, you must keep up with the reading assignments.
 | * Introduction to MapReduce: Watch a Video   |  
 |	* [The Future of Big Data by Matei Zaharia](https://www.youtube.com/watch?v=oSj2vYw5RLs)  |  
 |	* [1st half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)  |  
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf) |  
 	 
 ----------------
 
@@ -226,7 +226,7 @@ However, you must keep up with the reading assignments.
 | * Introduction to MapReduce: Watch a Video    
 |	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  |  
 |	* [2nd half of Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |   
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf) |   
 	   
 ----------------
 
@@ -235,7 +235,7 @@ However, you must keep up with the reading assignments.
 |:------------|
 | * Introduction to MapReduce/Hadoop/Spark |   
 |	* [Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) |   
-|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) |  
+|	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf) |  
 	 
 ----------------
 

@@ -11,7 +11,7 @@ Introductory slide deck to
 
 | Name | Type | Description |
 |---|---|---|
-| [`1_Major_Hadoop_Limitations_with_Their_Solutions.pdf`](4.1_Major_Hadoop_Limitations_with_Their_Solutions.pdf) | pdf  | Six major limitations of Hadoop (MapReduce) and how Spark addresses them |
+| [`1_Major_Hadoop_Limitations_with_Their_Solutions.pdf`](1_Major_Hadoop_Limitations_with_Their_Solutions.pdf) | pdf  | Six major limitations of Hadoop (MapReduce) and how Spark addresses them |
 | [`2_Introduction_to_Spark.pptx`](2_Introduction_to_Spark.pptx) | pptx  | Introduction to spark.apache.org — what Spark is |
 | [`3_Introduction_to_PySpark.pptx`](3_Introduction_to_PySpark.pptx) | pptx  | Introduction to PySpark: RDDs, transformations/actions, RDD partitions, DataFrames |
 | [`4_pyspark_shell.pptx`](4_pyspark_shell.pptx) | pptx  | The interactive PySpark shell: learning, testing, and debugging PySpark from the command line |

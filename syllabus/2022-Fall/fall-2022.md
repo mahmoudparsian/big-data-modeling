@@ -104,7 +104,7 @@ TOPIC: Introduction to Big Data and MapReduce
 * OPTIONAL:
 	* [MapReduce wikipedia](https://en.wikipedia.org/wiki/MapReduce)
 	* A Comprehensive Study on MapReduce Applications (no longer available online)
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf) 
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf) 
 
 ----------------
 
@@ -120,7 +120,7 @@ TOPIC: Introduction to MapReduce
 * OPTIONAL:
 	* [Introduction to MapReduce: Watch a Video](https://www.youtube.com/watch?v=ht3dNvdNDzI&t=250s) 
 	* [The Future of Big Data by Matei Zaharia -- Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)   
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)  
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf)  
 
 ----------------
 
@@ -139,7 +139,7 @@ TOPIC: Introduction to MapReduce
 
 * OPTIONAL:
 	* [Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)  
-	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/introduction_to_mapreduce/MapReduce_by_Matei_Zaharia.pdf)   
+	* [Introduction to MapReduce and Hadoop by Matei Zaharia](../../slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf)   
 	* [Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
 ----------------
 

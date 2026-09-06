@@ -15,4 +15,4 @@ Tutorial 1: MapReduce thinking with PySpark RDDs — Marp slide deck plus a self
 
 - Render slides to PDF: `marp mapreduce-pyspark-tutorial.md --pdf`
 - Generate the sample data once: `python3 generate_retail_data.py`
-- Run the notebook: `jupyter notebook mapreduce-pyspark-notebook.ipynb` (requires `pyspark`; see [Checking Your PySpark Installation](../../installation/checking_pyspark_installation.md))
+- Run the notebook: `jupyter notebook mapreduce-pyspark-notebook.ipynb` (requires `pyspark`; see [Checking Your PySpark Installation](../../installation/README.md))

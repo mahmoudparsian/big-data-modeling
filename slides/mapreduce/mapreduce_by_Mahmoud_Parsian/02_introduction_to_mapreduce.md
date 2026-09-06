@@ -394,7 +394,7 @@ public void reduce(Text key,
 }
 ```
 
-Source: [Yahoo! Hadoop Tutorial, Module 4](https://developer.yahoo.com/hadoop/tutorial/module4.html)
+Source: [Yahoo! Hadoop Tutorial, Module 4](https://web.archive.org/web/20191209232920/https://developer.yahoo.com/hadoop/tutorial/module4.html)
 
 ---
 
@@ -443,7 +443,7 @@ against. The framework automates the tedious parts:
 ## Next
 
 - Full worked walkthroughs (Word Count, Sales Revenue by Region):
-  [`introduction_to_mapreduce/02_MapReduce_Examples.md`](../introduction_to_mapreduce/02_MapReduce_Examples.md)
+  [`mapreduce_examples/MapReduce_2_Examples.md`](../mapreduce_examples/MapReduce_2_Examples.md)
 - Word Count as a complete MapReduce job:
   [`04_word_count_in_mapreduce.md`](04_word_count_in_mapreduce.md)
 - Filtering, mapper-side vs. reducer-side:

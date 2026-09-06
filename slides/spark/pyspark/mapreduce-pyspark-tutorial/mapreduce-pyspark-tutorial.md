@@ -35,7 +35,7 @@ Later in the course we'll build a full **medallion data architecture** (Bronze /
 
 We'll close with how the same ideas appear in modern DataFrames.
 
-> A companion Jupyter notebook (`mapreduce-pyspark-notebook.ipynb`) mirrors every example on these slides — self-contained, no external files needed. New to PySpark itself? Start with [Checking Your PySpark Installation](../../installation/checking_pyspark_installation.md).
+> A companion Jupyter notebook (`mapreduce-pyspark-notebook.ipynb`) mirrors every example on these slides — self-contained, no external files needed. New to PySpark itself? Start with [Checking Your PySpark Installation](../../installation/README.md).
 
 ---
 

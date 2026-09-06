@@ -65,7 +65,7 @@ Table of Contents
 1. [Tez](#Tez)
 1. [Apache HBase](#Apache-HBase)
 1. [Google Bigtable](#Google-Bigtable)
-1. [Hadoop Distributed File System - HDFS](#Hadoop-Distributed-File-System)
+1. [Hadoop Distributed File System - HDFS](#hadoop-distributed-file-system---hdfs)
 1. [Scalability](#Scalability)
 1. [Amazon S3](#Amazon-S3)
 1. [Amazon Athena](#Amazon-Athena)
@@ -98,7 +98,7 @@ Table of Contents
 1. [What is a MapReduce Job](#What-is-a-MapReduce-Job)
 1. [Disadvantages of MapReduce](#Disadvantages-of-MapReduce)
 1. [Job Flow in MapReduce](#Job-Flow-in-MapReduce)
-1. [Hadoop vs. Spark](#Hadoop-vs.-Spark)
+1. [Hadoop vs. Spark](#hadoop-vs-spark)
 1. [Apache Spark](#Apache-Spark)
 1. [Apache Spark Components](#Apache-Spark-Components)
 1. [Apache Spark in Large-Scale Sorting](#Apache-Spark-in-Large-Scale-Sorting)
@@ -124,7 +124,7 @@ Table of Contents
 1. [What is an example of combineByKey()](#What-is-an-example-of-combineByKey)
 1. [What is an example of reduceByKey()](#What-is-an-example-of-reduceByKey)
 1. [What is an example of groupByKey()](#What-is-an-example-of-groupByKey)
-1. [Difference of groupByKey() and reduceByKey()](#Difference-groupByKey-and-reduceByKey)
+1. [Difference of groupByKey() and reduceByKey()](#difference-of-groupbykey-and-reducebykey)
 1. [What is a DataFrame?](#What-is-a-DataFrame)
 1. [What is an Spark DataFrame?](#What-is-an-Spark-DataFrame)
 1. [Spark RDD Example](#Spark-RDD-Example)
@@ -155,7 +155,7 @@ Table of Contents
 1. [Data mining](#Data-mining)
 1. [Data virtualization](#Data-virtualization)
 1. [De-identification](#De-identification)
-1. [ETL - Extract, Transform and Load](#ETL)
+1. [ETL - Extract, Transform and Load](#etl---extract-transform-and-load)
 1. [Failover](#Failover)
 1. [Graph Databases](#Graph-Databases)
 1. [Grid computing](#Grid-computing)
@@ -173,7 +173,7 @@ Table of Contents
 1. [Machine Learning](#Machine-Learning)
 1. [Internet of Things](#Internet-of-Things)
 1. [Metadata](#Metadata)
-1. [Natural Language Processing (NLP)](#Natural-Language-Processing)
+1. [Natural Language Processing (NLP)](#natural-language-processing-nlp)
 1. [Network analysis](#Network-analysis)
 1. [Workflow](#Workflow)
 1. [Schema](#Schema)
@@ -241,7 +241,7 @@ Table of Contents
 1. [Spark Streaming](#Spark-Streaming)
 1. [Spark SQL](#Spark-SQL)
 1. [Spark Programming Languages](#Spark-Programming-Languages)
-1. [spark-packages.org](#spark-packages-org)
+1. [spark-packages.org](#spark-packagesorg)
 1. [DATA LAKEHOUSE](#DATA-LAKEHOUSE)
 1. [Snowflake](#Snowflake)
 1. [What is a synchronization?](#What-is-a-synchronization)
@@ -4894,7 +4894,7 @@ Reductions for Spark Dataframes can be handled by two means:
 
 ## Data Structure
 In computer science, a 
-[data structure](https://www.geeksforgeeks.org/data-structures/) 
+[data structure](https://www.geeksforgeeks.org/dsa/data-structures/) 
 is a data organization, management, and storage 
 format that is usually chosen for efficient access 
 to data.
@@ -10097,7 +10097,7 @@ by Jure Leskovec, Anand Rajaraman, Jeff Ullman](http://www.mmds.org)
 
 31. [What is Big Data Engineering? : A Comprehensive Guide 101](https://hevodata.com/learn/big-data-engineering/#big_data_engineering)
 
-32. [What is an Algorithm? Definition, Types, Complexity, Examples](https://www.geeksforgeeks.org/what-is-an-algorithm-definition-types-complexity-examples/)
+32. [What is an Algorithm? Definition, Types, Complexity, Examples](https://www.geeksforgeeks.org/dsa/introduction-to-algorithms/)
 
 33. [7 Algorithms Every Programmer Should Know](https://www.makeuseof.com/algorithms-every-programmer-should-know/)
 
