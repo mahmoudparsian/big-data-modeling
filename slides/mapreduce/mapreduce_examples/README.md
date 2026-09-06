@@ -13,6 +13,7 @@ Worked MapReduce examples:
 
 | Name | Type | Description |
 |---|---|---|
+| [`MapReduce_2_Examples.md`](MapReduce_2_Examples.md) | md | MapReduce 2 Worked Examples |
 | [`MapReduce_Find_Average_Temperature.md`](MapReduce_Find_Average_Temperature.md) | md | MapReduce Example: Average Temperature per City |
 | [`MapReduce_Finding_Friends.html`](MapReduce_Finding_Friends.html) | html | Worked example: finding common/mutual friends with MapReduce (saved copy of an external blog post) |
 | [`MapReduce_Finding_Friends.pdf`](MapReduce_Finding_Friends.pdf) | pdf | Same "Finding Friends" example, PDF export |

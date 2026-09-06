@@ -37,8 +37,6 @@ optional epilogue for once Spark has also been covered.
 
 ## Other files in this folder
 
-- [`01_MapReduce_Introduction_24_slides.pptx`](./01_MapReduce_Introduction_24_slides.pptx) — Mahmoud Parsian's own introductory slide deck.
-- [`02_MapReduce_Examples.md`](./02_MapReduce_Examples.md) — Mahmoud Parsian's own worked examples.
 - [`MapReduce_with_map_and_reduce.jpg`](./MapReduce_with_map_and_reduce.jpg) — diagram illustrating the map/reduce data flow.
 
 ## Note on provenance

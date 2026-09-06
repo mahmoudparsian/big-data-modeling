@@ -21,8 +21,8 @@ mapreduce/
 ├── partitions_in_mapreduce/            # partitioning, data locality, executors & cores
 ├── distributed_file_system/            # HDFS/Bigtable background reading
 │
-├── introduction_to_mapreduce/          # curated reading list (6 papers/decks) + intro doc
 ├── mapreduce_by_Mahmoud_Parsian/       # Mahmoud's own 00-11 slide-deck series
+├── mapreduce_documents/                # curated reading list (6 papers/decks)
 ├── mapreduce_by_Jimmy_Lin/             # UMD/Waterloo course materials by Jimmy Lin
 ├── mapreduce_with_pyspark/             # comprehensive intro/tutorial + worked-examples catalog, both in PySpark
 │
@@ -45,7 +45,7 @@ mapreduce/
 | [`monoids/`](./monoids/) | *"Monoid: A Design Principle for Correct and Efficient Reducers"* — the algebraic hierarchy (magma → semigroup → monoid), why "average of averages" isn't the average, and how this connects to Spark's `reduceByKey()`. |
 | [`partitions_in_mapreduce/`](./partitions_in_mapreduce/) | *"Partitions and Executors in MapReduce"* — data parallelism, two kinds of partitioning, data locality, and how partitions map onto Spark executors/cores in practice. |
 | [`distributed_file_system/`](./distributed_file_system/) | Background reading on the storage layer beneath MapReduce/Hadoop: Google's Bigtable paper, and a distributed file systems seminar deck. |
-| [`introduction_to_mapreduce/`](./introduction_to_mapreduce/) | A curated reading list of 6 third-party papers/slide decks on MapReduce fundamentals (Ullman, MacLean, Zaharia, Freire, Anjum, Jermaine), pared down from 11 — see its own README for the full breakdown — plus Mahmoud's own intro deck and a worked-examples doc. |
+| [`mapreduce_documents/`](./mapreduce_documents/) | A curated reading list of 6 third-party papers/slide decks on MapReduce fundamentals (Ullman, MacLean, Zaharia, Freire, Anjum, Jermaine), pared down from 11 — see its own README for the full breakdown  |
 | [`mapreduce_by_Mahmoud_Parsian/`](./mapreduce_by_Mahmoud_Parsian/) | Mahmoud's own numbered slide-deck series (00–11): parallelism fundamentals → the MapReduce model → Word Count → filters → HDFS → combiners, with a matched without/with-combiner example pair. See its own README for the full sequence. |
 | [`mapreduce_by_Jimmy_Lin/`](./mapreduce_by_Jimmy_Lin/) | Course materials from Jimmy Lin (University of Maryland / Waterloo): intro session slides, the *"Data-Intensive Text Processing with MapReduce"* book manuscript (two draft years), the WWW 2013 *"MapReduce Algorithm Design"* tutorial, and a Big Data Infrastructure course deck. |
 | [`mapreduce_with_pyspark/`](./mapreduce_with_pyspark/) | Two write-ups: `mapreduce_with_pyspark_intro.md`, a comprehensive tutorial covering NYU Center for Data Science's three-part "BigData with PySpark" lesson (Big Data intro, MapReduce primer, intro to Spark) and beyond — modernized Python 3 code, lazy evaluation, narrow/wide transformations, DataFrames/Spark SQL, caching, a Top-N worked example, pitfalls, glossary; and `mapreduce_with_pyspark_examples.md`, a larger catalog of simple → intermediate → complex MapReduce-style problems solved directly in PySpark. |

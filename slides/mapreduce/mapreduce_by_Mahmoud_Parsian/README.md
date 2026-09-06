@@ -36,6 +36,7 @@ them — regenerate only if you edit a `.md` file.
 
 | # | File | From (PPTX) | Slides | Type | Description |
 |---|---|---|---|---|---|
+| 00 | [`01_MapReduce_Introduction_24_slides.pptx`](01_MapReduce_Introduction_24_slides.pptx) | 00 | 24 | Full rewrite | Introduction to MapReduce paradigm |
 | 01 | [`01_understanding_parallelism_and_concurrency.md`](01_understanding_parallelism_and_concurrency.md) | `01`+`02` | 24 | Full rewrite | Parallelism & concurrency from first principles, through the birthday-party analogy — the two source decks turned out ~90% identical, so this merges them into one deduplicated pass. |
 | 02 | [`02_introduction_to_mapreduce.md`](02_introduction_to_mapreduce.md) | `03`+`04` | 31 | Full rewrite | The core MapReduce model: motivation, LISP/functional-programming origins, the `(key,value)` interface, the pipeline, fault tolerance, job components. Merges the long-form deck with the condensed CS512 version, keeping what each contributed uniquely. |
 | 03 | [`03_word_count_in_python.md`](03_word_count_in_python.md) | `05` | 10 | Mostly rewrite | Word Count solved in plain Python first. Bridges to [`../word_count_in_python/`](../word_count_in_python/) for the runnable, file-based scripts rather than re-embedding older code. |
@@ -53,6 +54,7 @@ Markdown/PDF series.
 
 ## Suggested Order
 
+0. **00**    - Introduction to MapReduce
 1. **01–02** — parallelism, then the MapReduce model itself
 2. **03–04** — Word Count, first in plain Python, then as a full MapReduce job
 3. **05–06** — filters, and the storage layer (HDFS) underneath MapReduce
