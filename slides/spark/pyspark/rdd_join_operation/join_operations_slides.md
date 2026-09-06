@@ -341,7 +341,7 @@ returning when only `D1_list` or only `D2_list` is non-empty.
 2. PySpark Join — [`pyspark.sql.DataFrame.join`](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.join.html)
 3. PySpark Joins by Example — [learnbymarketing.com](http://www.learnbymarketing.com/1100/pyspark-joins-by-example/)
 4. PySpark Join Explained — [dzone.com](https://dzone.com/articles/pyspark-join-explained-with-examples)
-5. Cartesian Product example — [chegg.com](https://www.chegg.com/homework-help/definitions/cartesian-product-33)
+5. Cartesian Product example — [Wikipedia](https://en.wikipedia.org/wiki/Cartesian_product)
 
 ---
 
