@@ -14,5 +14,6 @@ For Spark/PySpark, we will write **executable code** in PySpark (Python API for 
 * To understand MapReduce, we will use PySpark executable code
 * Python
 * [Apache Spark Site](http://spark.apache.org/)
-* [Apache Spark Download](http://spark.apache.org/downloads.html) 
-* Always install the latest version of Spark
+* Install the exact tested combination — **Apache Spark 4.2.0 on Java 17 (LTS)** — do not substitute other versions:
+  * [Installing on macOS/Linux](../slides/spark/installation/spark_on_macbook.md)
+  * [Installing on Windows](../slides/spark/installation/spark_on_windows.md)
