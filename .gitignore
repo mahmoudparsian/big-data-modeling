@@ -6,6 +6,3 @@ data/white_house_log/whitehouse_waves-2016_12.csv
 # Local-only credentials/scratch data — never commit
 slides/spark/pyspark/pyspark_and_LLM/MP_no_git/
 slides/spark/pyspark/pyspark_and_LLM/MP_no_git_save/
-
-# Work-in-progress scratch area (may contain local credentials/drafts) — never commit
-/zwork_in_progress/
