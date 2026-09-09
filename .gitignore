@@ -1,4 +1,5 @@
 .env*
+!.env.example
 CLAUDE.md*
 TODAY.txt
 data/white_house_log/whitehouse_waves-2016_12.csv
