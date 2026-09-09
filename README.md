@@ -92,6 +92,8 @@ intelligence for actionable insight. See the full
 
 ## 20. [Exam-1, Exam-2, and Final Exam Dates](./course_information/exam_dates.md)
 
+## 21. [Git and GitHub — How to Clone and Refresh This Repository](./slides/git/README.md)
+
 ---
 
 ## Mahmoud Parsian's Latest Books
