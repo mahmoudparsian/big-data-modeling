@@ -1,4 +1,4 @@
-# installation
+# Spark Installation
 
 Guides for installing Spark/PySpark, consolidated by platform. Both
 guides install one exact, tested combination of versions — **Apache
