@@ -2082,17 +2082,27 @@ Hadoop-course PYMK exercise (see References below).
 1. [`MapReduce_People_You_May_Know.md`](../../../mapreduce/mapreduce_examples/MapReduce_People_You_May_Know.md) —
    the full MapReduce derivation this folder implements, worked by
    hand on the same 6-person graph used here as `data/friends.txt`.
-2. [`MapReduce_Finding_Friends.html`](../../../mapreduce/mapreduce_examples/MapReduce_Finding_Friends.html) —
+   
+2. [People you may know - by Andrés Romero Mier y Terán](https://andresromero.github.io/People-you-may-know/)
+   the idea here is to explain how to use MapReduce to process a 
+   social network a propose friendship recommendations according 
+   to the number of mutual friends.
+
+3. [`MapReduce_Finding_Friends.html`](../../../mapreduce/mapreduce_examples/MapReduce_Finding_Friends.html) —
    the companion "mutual friends for pairs who are already friends"
    example that motivates this one.
-3. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) —
+   
+4. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) —
    source of the "pairs vs. stripes" and in-mapper combining patterns
    referenced in Section 7 above.
-4. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
-5. [People You May Know by Andres Romero](https://andresromero.github.io/People-you-may-know/) —
+   
+5. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+
+6. [People You May Know by Andres Romero](https://andresromero.github.io/People-you-may-know/) —
    an independent write-up of the same algorithm, compared with this
    folder's implementation in Section 10 above.
-6. [GraphFrames documentation](https://graphframes.io/) — the package
+
+7. [GraphFrames documentation](https://graphframes.io/) — the package
    [`pymk_pyspark_using_graphframes.py`](pymk_pyspark_using_graphframes.py)
    is built on, including the motif-finding (`find()`) syntax used
    for Rule 2 and the other graph algorithms mentioned in Section 9,

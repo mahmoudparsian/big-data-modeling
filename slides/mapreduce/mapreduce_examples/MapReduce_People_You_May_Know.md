@@ -482,20 +482,25 @@ Comments and suggestions are welcome!
 
 ## 18. References
 
-1. [`MapReduce_Finding_Friends.html`](MapReduce_Finding_Friends.html) —
+1. [People you may know - by Andrés Romero Mier y Terán](https://andresromero.github.io/People-you-may-know/)
+   the idea here is to explain how to use MapReduce to process a 
+   social network a propose friendship recommendations according 
+   to the number of mutual friends.
+
+2. [`MapReduce_Finding_Friends.html`](MapReduce_Finding_Friends.html) —
    the companion example this document extends (mutual friends for
    pairs who are already connected).
 
-2. [`slides/spark/pyspark/people_you_may_know/`](../../spark/pyspark/people_you_may_know/README.md) —
+3. [`slides/spark/pyspark/people_you_may_know/`](../../spark/pyspark/people_you_may_know/README.md) —
    the full runnable expansion of Section 15's sketch: a pure-Python
    simulation plus `groupByKey()` and `reduceByKey()` PySpark
    implementations, each with a step-by-step transformation trace on
    this document's own 6-person graph.
 
-3. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) —
+4. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](https://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf) —
    source of the "pairs vs. stripes" and in-mapper combining patterns
    referenced in Sections 13–14.
 
-4. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
+5. [A Very Brief Introduction to MapReduce by Diana MacLean](https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 
-5. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
+6. [Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
