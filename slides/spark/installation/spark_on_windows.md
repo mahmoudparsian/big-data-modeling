@@ -6,7 +6,7 @@ roughly ordered from "closest to how Linux/macOS users do it" to
 
 * **[Path A](#path-a-install-natively-on-windows-no-vm)** — install Java, Spark, and Hadoop's `winutils.exe` directly on Windows. Most control, most manual steps.
 * **[Path B](#path-b-run-spark-inside-ubuntu-via-wsl2)** — run Ubuntu via WSL2 and follow the standard Linux install. Recommended if Path A gives you trouble with environment variables or `winutils`.
-* **[Path C](#path-c-pip-install-pyspark-simplest)** — just `pip install pyspark==4.2.0`. The fastest path if you only need the Python API and don't need a standalone cluster or the Spark shell binaries.
+* **[Path C](#path-c-pip-install-pyspark-simplest)** — just `pip install pyspark==4.2.0`. The fastest path: it gives you the Python API *and* the `pyspark` / `spark-submit` commands. What it does not give you is the standalone-cluster scripts (`start-all`, `start-master`, `start-worker`).
 
 > Installing on **macOS or Linux**? See
 > [`spark_on_macbook.md`](spark_on_macbook.md) instead — it also
@@ -69,11 +69,18 @@ Python 3.10.x
 
 1. Download
    [`spark-4.2.0-bin-hadoop3.tgz`](https://downloads.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz)
-   from the [Apache Spark downloads page](https://spark.apache.org/downloads.html)
-   (older releases live at `archive.apache.org` instead — do not
-   substitute a different Spark version).
-2. Extract it (7-Zip or WinRAR; you may need to extract twice if you
-   end up with an intermediate `.tar`) to `C:\spark\spark-4.2.0`.
+   from the [Apache Spark downloads page](https://spark.apache.org/downloads.html).
+
+   > If that link ever stops working (Apache moves older releases off
+   > `downloads.apache.org`), get the identical file from
+   > `https://archive.apache.org/dist/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz`.
+   > Do **not** substitute a different Spark version.
+2. Extract it into `C:\spark` (7-Zip or WinRAR; you may need to
+   extract twice if you end up with an intermediate `.tar`). You will
+   get a folder named `C:\spark\spark-4.2.0-bin-hadoop3`.
+3. **Rename that folder to `spark-4.2.0`**, so the final path is
+   `C:\spark\spark-4.2.0`. That is the `SPARK_HOME` value used in
+   Step 5 — if you skip the rename, use the longer name there instead.
 
    > ⚠️ **Important:** no folder in the extraction path may contain a
    > space (e.g. avoid `Program Files`). Spark's scripts can choke on
@@ -81,13 +88,21 @@ Python 3.10.x
 
 ### Step 4 — Install Hadoop's `winutils.exe`
 
-Spark's Windows build needs a small Hadoop compatibility binary:
+Spark's Windows build needs a small Hadoop compatibility binary for
+some file operations:
 
 1. Create a folder, e.g. `C:\hadoop\bin`.
-2. Download `winutils.exe` (and `hadoop.dll`) matching a Hadoop 3.x
-   release from
+2. Download `winutils.exe` **and** `hadoop.dll` from
    [github.com/cdarlint/winutils](https://github.com/cdarlint/winutils)
-   and place both files in `C:\hadoop\bin`.
+   and place both files in `C:\hadoop\bin`. Use the newest folder that
+   repository offers — **`hadoop-3.3.6/bin`**.
+
+> **Why 3.3.6 and not an exact match?** Spark 4.2.0 bundles Hadoop
+> 3.5.0, but nobody publishes a `winutils.exe` build that new. The
+> 3.3.6 binaries are the standard choice and work fine for local
+> development. If you are only running local jobs and never touch
+> HDFS, you can skip this step entirely — Spark will print a warning
+> and keep going (see [Common errors](#common-errors) below).
 
 ### Step 5 — Set environment variables
 
@@ -161,7 +176,7 @@ Inside the Ubuntu terminal:
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y openjdk-17-jdk
+sudo apt-get install -y openjdk-17-jdk curl
 java -version
 ```
 
@@ -216,8 +231,15 @@ Once your EC2 instance is running (see the AWS steps in
 
 ## Path C: `pip install pyspark` (simplest)
 
-If you only need the PySpark Python API — no standalone cluster
-scripts, no Spark shell binaries — this is the fastest path.
+This is the fastest path, and it is enough for everything we do in this
+course. `pip` installs the PySpark Python API **and** puts the
+`pyspark`, `spark-shell`, `spark-sql`, and `spark-submit` commands on
+your `PATH`. The only pieces it leaves out are the standalone-cluster
+scripts (`start-all`, `start-master`, `start-worker`) — if you want the
+master/worker web UI, use Path A or Path B instead.
+
+You still need Java 17 — PySpark is a Python wrapper around a JVM
+engine.
 
 ### Step 1 — Install Python 3.10+
 

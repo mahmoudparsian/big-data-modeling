@@ -84,7 +84,8 @@ ls ~/spark-4.2.0
 ```
 
 ```text
-LICENSE  NOTICE  README.md  bin  conf  data  examples  jars  licenses  python  sbin  ...
+LICENSE  NOTICE  R  README.md  RELEASE  bin  conf  data  examples
+jars  kubernetes  licenses  python  sbin  yarn
 ```
 
 > If [Apache's downloads page](https://spark.apache.org/downloads.html)
@@ -114,8 +115,10 @@ export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$JAVA_HOME/bin:$PATH
 ```
 
-Add these three lines to your shell profile (`~/.zshrc` on macOS,
-`~/.bashrc` on Linux) so they persist in every new terminal:
+Add those same three lines to your shell profile so they persist in
+every new terminal.
+
+**macOS** (writes to `~/.zshrc`):
 
 ```bash
 echo 'export SPARK_HOME=~/spark-4.2.0' >> ~/.zshrc
@@ -123,7 +126,21 @@ echo 'export JAVA_HOME=$(/usr/libexec/java_home -v17)' >> ~/.zshrc
 echo 'export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$JAVA_HOME/bin:$PATH' >> ~/.zshrc
 ```
 
-(Use `~/.bashrc` in place of `~/.zshrc` on Linux.)
+**Linux** (writes to `~/.bashrc` — note the different `JAVA_HOME` line;
+`/usr/libexec/java_home` is a macOS-only tool and does not exist here):
+
+```bash
+echo 'export SPARK_HOME=~/spark-4.2.0' >> ~/.bashrc
+echo 'export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))' >> ~/.bashrc
+echo 'export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$JAVA_HOME/bin:$PATH' >> ~/.bashrc
+```
+
+Open a new terminal, then confirm both variables are set:
+
+```bash
+echo $SPARK_HOME
+echo $JAVA_HOME
+```
 
 ---
 
@@ -252,9 +269,11 @@ identical once you're connected.
 5. Under **Security Groups**, allow HTTP and HTTPS from "Anywhere."
 6. **Launch**, then create (or reuse) a `.pem` key pair — save it
    somewhere you'll remember.
-7. Connect from your terminal:
+7. Connect from your terminal. The `chmod` is required — SSH refuses a
+   key file that other users can read (`UNPROTECTED PRIVATE KEY FILE`):
 
    ```bash
+   chmod 400 "<your-key>.pem"
    ssh -i "<your-key>.pem" ubuntu@<your-instance-public-dns>
    ```
 
