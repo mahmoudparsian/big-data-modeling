@@ -1,10 +1,13 @@
 # Spark Installation
 
+```text
 Guides for installing Spark/PySpark, consolidated by platform. 
 
-Both guides install one exact, tested combination of versions — **Apache
-Spark 4.2.0 on Java 17 (LTS)** — and walk through it step-by-step
-(Step 1, Step 2, ...). Do not substitute other Spark or Java versions.
+Both guides install one exact, tested combination of versions
+— **Apache Spark 4.2.0 on Java 17 (LTS)** — and walk through
+it step-by-step (Step 1, Step 2, ...). Do not substitute other
+Spark or Java versions.
+```
 
 ## Contents
 
