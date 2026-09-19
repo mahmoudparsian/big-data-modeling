@@ -9307,7 +9307,8 @@ install packages for any version of Spark and makes
 it easy for developers to contribute packages.
 
 For example, GraphFrames package is located [here]
-(https://spark-packages.org/package/graphframes/graphframes).
+(https://web.archive.org/web/20210303002050/https://spark-packages.org/package/graphframes/graphframes)
+(spark-packages.org itself is no longer reachable; archived snapshot).
 	
 
 <a class="top-link hide" href="#top">↑</a>

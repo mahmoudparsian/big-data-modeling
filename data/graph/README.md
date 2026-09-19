@@ -2,7 +2,7 @@
 
 Sample graph datasets (edge/vertex lists) used for GraphFrames and graph-algorithm exercises.
 
-Source of Data: https://dhs.stanford.edu/gephi-workshop/sample-graph-data/
+Source of Data: https://web.archive.org/web/20231205223101/https://dhs.stanford.edu/gephi-workshop/sample-graph-data/ (original page is gone; archived snapshot)
 
 | Name | Description |
 |---|---|

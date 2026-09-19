@@ -1068,9 +1068,9 @@ For a real 1B-row job, you combine multiple strategies:
 <div class="callout">
 
 📁 **Companion notebooks:**
-- `program_1_basics.py` — First integration, single column, small dataset
-- `program_2_intermediate.py` — Multi-column JSON enrichment, error handling, cost estimation
-- `program_3_intermediate_plus.py` — Batched prompts, schema validation, production patterns
+- `program_df_1_basics.py` — First integration, single column, small dataset
+- `program_df_2_intermediate.py` — Multi-column JSON enrichment, error handling, cost estimation
+- `program_df_3_intermediate_plus.py` — Batched prompts, schema validation, production patterns
 
 </div>
 

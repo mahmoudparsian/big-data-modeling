@@ -26,7 +26,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.60-b09, mixed mode)
 ### 2.1 You may download Hadoop from this URL: 
 
 ````
-http://mirror.metrocast.net/apache/hadoop/common/hadoop-2.6.0/hadoop-2.6.0.tar.gz
+https://archive.apache.org/dist/hadoop/common/hadoop-2.6.0/hadoop-2.6.0.tar.gz
 ````
 
 Move your downloaded copy to /Users/mparsian/hadoop-2.6.0.tar.gz (I am assuming 

@@ -1409,7 +1409,7 @@ speculative re-executions. That is the whole goal.
   cardinality estimation algorithm*, 2007.
 * `monoids/Monoids_as_a_Design_Principle_for_Efficient_MapReduce_Algorithms.pdf`
   (this repository)
-* `combiners/combiners_in_mapreduce.md` (this repository)
+* `mapreduce_by_Mahmoud_Parsian/07_combiners_in_mapreduce.md` (this repository)
 * `reducebykey_max_avg_filter.md` (this repository)
 
 ---

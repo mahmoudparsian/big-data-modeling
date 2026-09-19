@@ -26,7 +26,7 @@ def _(mo):
     > ```bash
     > cp .env.example .env   # then fill in your API key
     > pip install pyspark anthropic python-dotenv marimo
-    > marimo edit program_1_basics.py
+    > marimo edit program_df_1_basics.py
     > ```
     """)
     return
