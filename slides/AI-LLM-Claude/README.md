@@ -39,7 +39,6 @@ To use different data, replace the CSV files keeping the same column headers.
 | Name | Description |
 |---|---|
 | [`data/`](./data/) | CSV datasets loaded by the notebooks above |
-| [`CLAUDE.md`](./CLAUDE.md) | Detailed reference: full repo structure, per-notebook walkthroughs, anti-patterns, and suggested teaching order |
 | [`pyspark_llm_slides.md`](./pyspark_llm_slides.md) | MARP slide deck on integrating PySpark with LLMs |
 | `.env.example` | Template for API keys/config — copy to `.env` and fill in |
 | `program_*.log` | Sample output logs from running the corresponding `.py` notebook |
