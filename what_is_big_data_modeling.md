@@ -478,15 +478,16 @@ own `.show()` output.
 
 ## 8. 🧰 Tools for Big Data Modeling Analytics
 
-The worked examples in [Section 6](#6--four-worked-examples) each
-paired a modeling technique with a purpose-built engine — Cassandra
-for wide-column geo-partitioning, Delta Lake/Iceberg for the lakehouse
-star schema, TimescaleDB for the IoT bucket pattern, Pinecone/Milvus
-for vector search. The tools below are the more general-purpose,
-enterprise-grade platforms a big data modeler works with day to day:
-scalable storage systems, distributed processing engines,
-transformation frameworks, and the BI layer that sits on top of
-all of it.
+The worked examples in [Section 6](#6--four-worked-examples) 
+each paired a modeling technique with a purpose-built engine 
+— Cassandra for wide-column geo-partitioning, Delta Lake/Iceberg 
+for the lakehouse star schema, TimescaleDB for the IoT bucket 
+pattern, Pinecone/Milvus for vector search. The tools below are 
+the more general-purpose, enterprise-grade platforms a big data 
+modeler works with day to day: scalable storage systems, 
+distributed processing engines, transformation frameworks, and 
+the BI layer that sits on top of all of it.
+
 
 ### 8.1 🗄️ Storage & Data Warehouses
 
@@ -505,6 +506,7 @@ all of it.
   for data sitting directly in S3, with no cluster to manage
   (see [`slides/amazon_athena/`](./slides/amazon_athena)).
 
+
 ### 8.2 ⚡ Processing & Analytics Engines
 
 * **Apache Spark:** an in-memory distributed processing engine
@@ -512,31 +514,35 @@ all of it.
   — the engine behind [Section 7](#7--end-to-end-pyspark-example-building-example-2s-star-schema)'s
   worked pipeline (see [`slides/spark/`](./slides/spark)).
 
-* **Apache Hadoop:** a legacy framework for distributed storage
-  (HDFS) and MapReduce-based batch processing across server
-  clusters (see [`slides/mapreduce/`](./slides/mapreduce)).
+* **Apache Hadoop & MapReduce Paradigm:** a legacy framework for 
+  distributed storage (HDFS/S3) and MapReduce-based batch processing 
+  across server clusters (see [`slides/mapreduce/`](./slides/mapreduce)).
 
-* **Databricks:** a unified lakehouse platform built on top of
-  Spark for collaborative data engineering and machine learning.
+* **Databricks:** a unified lakehouse platform built 
+  on top of Spark for collaborative data engineering 
+  and machine learning.
+
 
 ### 8.3 🔧 Data Modeling & Transformation
 
-* **dbt (Data Build Tool):** a transformation workflow tool
-  that lets teams build and test data models inside their
-  data warehouse using SQL.
+* **dbt (Data Build Tool):** a transformation workflow 
+  tool that lets teams build and test data models inside 
+  their data warehouse using SQL.
 
 * **erwin Data Modeler:** enterprise modeling software used
   to design, document, and manage complex database structures
   — most often applied at the [conceptual and logical](#3--the-three-core-perspectives)
   stages, before a physical big-data platform is chosen.
 
+
 ### 8.4 📊 Visualization & Business Intelligence
 
-* **Tableau:** a leading platform for complex exploratory
-  dashboards and visual analytics.
+* **Tableau:** a leading platform for complex 
+  exploratory dashboards and visual analytics.
 
-* **Microsoft Power BI:** a business intelligence tool that
-  integrates natively with cloud and spreadsheet ecosystems.
+* **Microsoft Power BI:** a business intelligence 
+  tool that integrates natively with cloud  and 
+  spreadsheet ecosystems.
 
 ---
 
