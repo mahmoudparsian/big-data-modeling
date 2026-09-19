@@ -2,19 +2,21 @@
 
 ## Table of Contents
 
-1. [Overview](#-overview)
-2. [Traditional vs. Big Data Modeling](#-traditional-vs-big-data-modeling)
-3. [The Three Core Perspectives](#-the-three-core-perspectives)
-4. [Common Modeling Techniques for Big Data](#-common-modeling-techniques-for-big-data)
-5. [Three Worked Examples](#-three-worked-examples)
-   - [Example 1: Ride-Hailing Platform](#-example-1-ride-hailing-platform-eg-uberlyft--wide-column--geo-partitioned-model)
-   - [Example 2: E-Commerce Personalization](#-example-2-e-commerce-personalization--star-schema-on-a-lakehouse-schema-on-read)
-   - [Example 3: Healthcare IoT Telemetry](#-example-3-healthcare-iot-telemetry--document-based-time-series-model)
-6. [End-to-End PySpark Example](#-end-to-end-pyspark-example-building-example-2s-star-schema)
+1. [Overview](#1--overview)
+2. [Traditional vs. Big Data Modeling](#2--traditional-vs-big-data-modeling)
+3. [The Three Core Perspectives](#3--the-three-core-perspectives)
+4. [Query-Driven Schema Design](#4--query-driven-schema-design)
+5. [Common Modeling Techniques for Big Data](#5--common-modeling-techniques-for-big-data)
+6. [Four Worked Examples](#6--four-worked-examples)
+   - [6.1 Example 1: Ride-Hailing Platform](#61--example-1-ride-hailing-platform-eg-uberlyft--wide-column--geo-partitioned-model)
+   - [6.2 Example 2: E-Commerce Personalization](#62--example-2-e-commerce-personalization--star-schema-on-a-lakehouse-schema-on-read)
+   - [6.3 Example 3: Healthcare IoT Telemetry](#63--example-3-healthcare-iot-telemetry--document-based-time-series-model)
+   - [6.4 Example 4: LLM Retrieval-Augmented Generation](#64--example-4-llm-retrieval-augmented-generation-rag--vector-embedding-store-model)
+7. [End-to-End PySpark Example](#7--end-to-end-pyspark-example-building-example-2s-star-schema)
 
 ---
 
-## 🔎 Overview
+## 1. 🔎 Overview
 
 **Big data modeling** is the process of creating a visual or
 logical framework that defines how massive, complex datasets
@@ -32,7 +34,7 @@ halt.
 
 ---
 
-## 💡 Traditional vs. Big Data Modeling
+## 2. 💡 Traditional vs. Big Data Modeling
 
 The shift from standard databases to big data systems
 fundamentally changes how data is organized:
@@ -46,7 +48,7 @@ fundamentally changes how data is organized:
 
 ---
 
-## ⚙️ The Three Core Perspectives
+## 3. ⚙️ The Three Core Perspectives
 
 A comprehensive big data model is built in three distinct
 phases, moving from business logic to technical execution:
@@ -57,7 +59,39 @@ phases, moving from business logic to technical execution:
 
 ---
 
-## 🛠️ Common Modeling Techniques for Big Data
+## 4. 🎯 Query-Driven Schema Design
+
+Unlike traditional relational modeling — where the schema is
+normalized first and queries are written against it afterward —
+big data modeling typically works in the **opposite order**:
+
+1. **Study the requirements.** Identify who needs the data and why: which dashboards, reports, ML features, or applications will consume it.
+2. **Enumerate the access patterns.** Determine exactly how the data will be queried — which fields are filtered on, which are aggregated, how the data is expected to grow, and how fresh it needs to be.
+3. **Design the schema to fit those queries.** Choose partition keys, denormalization strategy, and physical layout so the *known* queries run fast — even if that means duplicating data or shaping the same entity differently across multiple tables.
+
+This is sometimes called **query-first** (or **query-driven**)
+design, and it's the reasoning behind every partition-key and
+denormalization choice made in the four worked examples below:
+the ride-hailing platform partitions by geospatial hex specifically
+because "find nearby drivers" is the dominant query, the
+e-commerce lakehouse's star schema is shaped around the BI
+aggregations analysts actually run, and the LLM/RAG example indexes
+its vector store around nearest-neighbor similarity search instead
+of exact-match lookups — none of it is an abstract, query-agnostic
+ideal of a "correct" schema.
+
+> **Exception — Data Vault:** Data Vault Modeling (below) deliberately
+> inverts this order. It's *source-driven*, not query-driven: Hubs,
+> Links, and Satellites are modeled to mirror how the business and its
+> source systems are structured, precisely so the model doesn't need
+> to be redesigned every time a new reporting requirement or query
+> pattern shows up. Query-optimized structures (like a star schema)
+> are then built as a downstream layer on top of the Data Vault, not
+> baked into it directly.
+
+---
+
+## 5. 🛠️ Common Modeling Techniques for Big Data
 
 Depending on the business case, engineers lean on specific
 frameworks to organize the information:
@@ -68,9 +102,9 @@ frameworks to organize the information:
 
 ---
 
-## 📚 Three Worked Examples
+## 6. 📚 Four Worked Examples
 
-### 🚗 Example 1: Ride-Hailing Platform (e.g., Uber/Lyft) — Wide-Column & Geo-Partitioned Model
+### 6.1 🚗 Example 1: Ride-Hailing Platform (e.g., Uber/Lyft) — Wide-Column & Geo-Partitioned Model
 
 Ride-hailing applications handle massive **velocity** and
 **volume**, with millions of concurrent GPS pings and trip
@@ -79,7 +113,7 @@ use distributed wide-column stores (like Apache Cassandra or
 ScyllaDB) optimized for fast writes and time-series lookups.
 
 * **Core Architecture:** distributed NoSQL wide-column store.
-* **Key Design Paradigm:** denormalization by query pattern, partitioned by geospatial cluster (using H3 or S2 spatial grids) paired with a timestamp.
+* **Key Design Paradigm:** denormalization by query pattern, with a partition key built from a geospatial cluster (using H3 or S2 spatial grids) paired with a timestamp.
 
 ```
 TABLE: driver_location_logs
@@ -99,7 +133,7 @@ TABLE: driver_location_logs
 
 ---
 
-### 🛍️ Example 2: E-Commerce Personalization — Star Schema on a Lakehouse (Schema-on-Read)
+### 6.2 🛍️ Example 2: E-Commerce Personalization — Star Schema on a Lakehouse (Schema-on-Read)
 
 Modern e-commerce lakehouses (built on Delta Lake, Apache
 Iceberg, or AWS Redshift) ingest billions of web clicks, cart
@@ -130,12 +164,12 @@ executive dashboards.
 
 **Why this works for big data:**
 
-* **High denormalization:** the central fact table keeps event-driven historical telemetry. Columnar formats let queries read only the columns needed (e.g., skipping `device_type` when computing average `dwell_time_seconds`).
+* **High denormalization:** the central fact table stores event-driven historical telemetry at full grain. Columnar formats let queries read only the columns needed (e.g., skipping `device_type` when computing average `dwell_time_seconds`).
 * **Time-based partitioning:** the fact table is physically partitioned by `date_key` (e.g., `year=2026/month=09/day=19`). Queries for today's metrics skip past petabytes of historical data sitting in older folders.
 
 ---
 
-### 🏥 Example 3: Healthcare IoT Telemetry — Document-Based Time-Series Model
+### 6.3 🏥 Example 3: Healthcare IoT Telemetry — Document-Based Time-Series Model
 
 Hospital tracking systems monitor patient vitals (heart rate,
 SpO2, blood pressure) from thousands of medical IoT sensors.
@@ -173,7 +207,43 @@ firmware.
 
 ---
 
-## 🐍 End-to-End PySpark Example (Building Example 2's Star Schema)
+### 6.4 🤖 Example 4: LLM Retrieval-Augmented Generation (RAG) — Vector Embedding Store Model
+
+Large Language Models don't query raw text — they query *meaning*.
+Grounding an LLM's answers in your own documents, instead of relying
+solely on what it memorized during training, means modeling millions
+of unstructured documents as high-dimensional vectors that support
+fast **similarity search** at big-data scale. It's the same
+query-driven discipline from [Section 4](#4--query-driven-schema-design),
+applied to a genuinely new access pattern: "find the *K* most
+semantically similar chunks," not "find the row where `id = X`."
+
+* **Core Architecture:** a vector database (e.g., Pinecone, Weaviate, Milvus, or Postgres with `pgvector`), populated by a distributed PySpark ingestion pipeline (see [`slides/AI-LLM-Claude/`](./slides/AI-LLM-Claude)).
+* **Key Design Paradigm:** documents are chunked and embedded at big-data scale, then indexed with an **Approximate Nearest Neighbor (ANN)** structure (e.g., HNSW or IVF) instead of the B-tree/hash indexes used for exact-match lookups.
+
+```
+TABLE: document_chunks_vector_store
++---------------+-----------------------+-----------------------------------------+
+| Column        | Type                  | Purpose                                 |
++---------------+-----------------------+-----------------------------------------+
+| chunk_id (PK) | string                | Unique ID for this chunk of text        |
+| document_id   | string (FK)           | Source document this chunk belongs to   |
+| embedding     | vector<float32, 1536> | Semantic representation (ANN-indexed)   |
+| chunk_text    | text                  | Raw text returned to the LLM as context |
+| metadata      | JSON                  | source_url, page_number, chunk_offset   |
+| created_at    | timestamp             | Freshness filtering / cache TTL         |
++---------------+-----------------------+-----------------------------------------+
+```
+
+**Why this works for big data:**
+
+* **Handles volume and variety at ingestion:** a distributed PySpark job chunks and embeds millions of heterogeneous documents in parallel (PDFs, HTML, transcripts, support tickets) — the same "LLM as a distributed mapper" pattern used to enrich any large DataFrame.
+* **Query-driven index design, in practice:** because the dominant query is nearest-neighbor similarity search over the `embedding` column, the physical layout is built around an ANN index rather than an exact-match index — a schema decision made to fit that one access pattern, exactly like the geo-partitioning chosen in Example 1.
+* **Keeps the model current without retraining:** updating what the LLM "knows" becomes a data-modeling problem (re-chunk, re-embed, re-index new or changed documents) rather than a costly machine-learning problem (fine-tuning or retraining).
+
+---
+
+## 7. 🐍 End-to-End PySpark Example (Building Example 2's Star Schema)
 
 The pipeline below is a complete, runnable implementation of
 the **E-Commerce Lakehouse Star Schema** from Example 2. It
@@ -285,7 +355,7 @@ if __name__ == "__main__":
 
 ### ⚙️ Why This Reflects Core Big Data Modeling Principles
 
-* **Schema-on-Read handling:** the incoming web click records (`raw_clicks_data`) are loaded into a DataFrame as plain text fields first; explicit timestamp casting and structure are applied afterward, not before ingestion.
+* **Schema-on-Read handling:** the incoming web click records (`raw_clicks_data`) are loaded into a DataFrame as plain text fields first; explicit timestamp casting and structure are applied only afterward, during transformation.
 * **Data veracity checks:** the transformation step checks for negative streaming metrics (`dwell_time_seconds < 0`) and uses a `when().otherwise()` conditional to repair corrupt payloads in-flight, without interrupting the pipeline.
 * **Optimized multi-dimensional joins:** the two dimension DataFrames (`df_dim_users`, `df_dim_products`) are joined against the fact stream using standard star-schema keys (`user_id`, `product_id`).
 * **Physical write partitioning:** `.write.partitionBy("year", "month", "day").parquet(...)` makes Spark create a hierarchical folder layout on disk. Downstream query engines can then skip entire directories that fall outside a requested date range, instead of scanning the whole dataset.

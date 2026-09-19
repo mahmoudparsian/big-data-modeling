@@ -208,7 +208,7 @@ Table of Contents
 1. [NoSQL](#NoSQL)
 1. [Scala](#Scala)
 1. [Columnar Database](#Columnar-Database)
-1. [Data Analyst](#Data-Analyst)
+1. [Data Analyst](#Data-Analyst-1)
 1. [Data Scientist](#Data-Scientist)
 1. [Data Model and Data Modelling](#Data-Model-and-Data-Modelling)
 1. [Data Model](#Data-Model)
