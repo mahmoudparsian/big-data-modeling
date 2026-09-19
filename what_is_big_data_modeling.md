@@ -3,6 +3,8 @@
 ## Table of Contents
 
 1. [Overview](#1--overview)
+   - [1.1 Modern Data Architecture Styles](#11--modern-data-architecture-styles)
+   - [1.2 Key Structural Patterns](#12--key-structural-patterns)
 2. [Traditional vs. Big Data Modeling](#2--traditional-vs-big-data-modeling)
 3. [The Three Core Perspectives](#3--the-three-core-perspectives)
 4. [Query-Driven Schema Design](#4--query-driven-schema-design)
@@ -36,6 +38,45 @@ systems — like Apache Spark, Hive, or cloud-based data lakes —
 query billions of rows of structured, semi-structured (JSON, XML),
 and unstructured (logs, sensor feeds) data without grinding to a
 halt.
+
+### 1.1 🏗️ Modern Data Architecture Styles
+
+Modern data architecture styles share a common goal: decoupling
+storage from compute, enabling real-time processing, and removing
+the operational bottlenecks of a single, centrally managed database.
+The three most prominent styles are:
+
+* **Data Lakehouse**
+* **Data Mesh**
+* **Data Fabric**
+
+| Architecture Type | Core Structural Premise | Primary Technical Drivers | Best For |
+| :--- | :--- | :--- | :--- |
+| **Data Lakehouse** | Merges the low-cost storage of a data lake with the ACID transactions and governance of a warehouse. | Open table formats (Delta Lake, Apache Iceberg, Apache Hudi). | Unifying traditional SQL analytics with unstructured machine learning/AI workloads. |
+| **Data Mesh** | Decentralized, domain-driven architecture where data is treated as an independent product. | Microservices principles, federated computational governance, self-service data infrastructure. | Large enterprises with many distributed product lines or business units. |
+| **Data Fabric** | A centralized semantic layer, driven by active metadata and AI, that automates pipeline orchestration. | Knowledge graphs, automated schema mapping, unified metadata catalogs. | Multi-cloud and hybrid environments that need a single logical access plane. |
+
+A term that's often mistaken for a fourth style is the **Medallion
+Architecture**. It isn't an alternative to the three above — it's
+the physical design pattern most commonly used to *implement* a
+Data Lakehouse (see [Section 1.2](#12--key-structural-patterns) below).
+
+---
+
+### 1.2 🧩 Key Structural Patterns
+
+* **Medallion Architecture (multi-hop lakes):**
+  * **Bronze layer** — raw data landed with minimal schema enforcement; captures append-only change logs.
+  * **Silver layer** — cleansed, enriched, validated data; fields are normalized and row-level duplicates are removed.
+  * **Gold layer** — heavily aggregated, business-ready data, typically shaped into dimensional star schemas for reporting.
+
+* **Kappa Architecture (stream-first):**
+  * **Streaming backbone** — a single real-time log engine (e.g., Apache Kafka) replaces the separate batch and speed layers of a Lambda architecture.
+  * **Reprocessing by replay** — there's no parallel batch layer to keep in sync. When processing logic changes, historical results are recomputed by replaying the immutable event log through that same stream-processing job.
+
+* **Modern Data Stack (MDS):**
+  * **ELT, not ETL** — managed connectors (e.g., Fivetran) extract and load raw data into the lakehouse/warehouse first; transformations run downstream, inside high-throughput MPP compute (e.g., Snowflake, BigQuery).
+  * **Modular by design** — each phase is owned by a dedicated tool: ingestion (Fivetran), version-controlled SQL transformations (dbt), and BI/serving (see [Section 8.4](#84--visualization--business-intelligence)).
 
 ---
 
