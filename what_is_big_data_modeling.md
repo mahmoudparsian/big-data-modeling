@@ -17,6 +17,7 @@
    - [6.3 Example 3: Healthcare IoT Telemetry](#63--example-3-healthcare-iot-telemetry--document-based-time-series-model)
    - [6.4 Example 4: LLM Retrieval-Augmented Generation](#64--example-4-llm-retrieval-augmented-generation-rag--vector-embedding-store-model)
 7. [End-to-End PySpark Example](#7--end-to-end-pyspark-example-building-example-2s-star-schema)
+   - [7.1 Why This Reflects Core Big Data Modeling Principles](#71--why-this-reflects-core-big-data-modeling-principles)
 8. [Tools for Big Data Modeling Analytics](#8--tools-for-big-data-modeling-analytics)
    - [8.1 Storage & Data Warehouses](#81--storage--data-warehouses)
    - [8.2 Processing & Analytics Engines](#82--processing--analytics-engines)
@@ -202,8 +203,8 @@ TABLE: driver_location_logs
 | Partition Key (Row)   | Clustering Key      | Column      | Column            |
 | geo_hex_resolution_8  | timestamp (DESC)    | driver_id   | lat_lng           |
 +-----------------------+---------------------+-------------+-------------------+
-| "8826856231ffffff"    | 2026-09-19 10:30:01 | "drv_98124" | "37.7749,-122.41" |
-| "8826856231ffffff"    | 2026-09-19 10:30:00 | "drv_11204" | "37.7742,-122.41" |
+| "8828856231fffff"     | 2026-09-19 10:30:01 | "drv_98124" | "37.7749,-122.41" |
+| "8828856231fffff"     | 2026-09-19 10:30:00 | "drv_11204" | "37.7742,-122.41" |
 +-----------------------+---------------------+-------------+-------------------+
 ```
 
@@ -223,10 +224,10 @@ TABLE: driver_location_logs
 
 ### 6.2 🛍️ Example 2: E-Commerce Personalization — Star Schema on a Lakehouse (Schema-on-Read)
 
-Modern e-commerce lakehouses (built on Delta Lake, Apache
-Iceberg, or AWS Redshift) ingest billions of web clicks, cart
-additions, and purchases to run recommendation algorithms and
-executive dashboards.
+Modern e-commerce lakehouses (built on open table formats like
+Delta Lake, Apache Iceberg, or Apache Hudi) ingest billions of
+web clicks, cart additions, and purchases to run recommendation
+algorithms and executive dashboards.
 
 * **Core Architecture:** cloud data lakehouse (e.g., Databricks / Snowflake).
 
@@ -311,8 +312,8 @@ firmware.
   or database downtime required.
 
 * **Prevents index bloat:** instead of writing a new row for every 
-  single heartbeat (which generates billions of distinct entries 
-  and overwhelms standard relational memory structures), this model 
+  single heartbeat (which would generate billions of distinct 
+  entries and overwhelm a traditional per-row index), this model 
   "buckets" data by device and hour. That dramatically shrinks index 
   size and keeps real-time tracking fast.
 
@@ -486,7 +487,7 @@ if __name__ == "__main__":
     run_pipeline()
 ```
 
-### ⚙️ Why This Reflects Core Big Data Modeling Principles
+### 7.1 ⚙️ Why This Reflects Core Big Data Modeling Principles
 
 * **Schema-on-Read handling:** the incoming web click 
   records (`raw_clicks_data`) are loaded into a DataFrame 
