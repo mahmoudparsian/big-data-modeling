@@ -53,9 +53,19 @@ fundamentally changes how data is organized:
 A comprehensive big data model is built in three distinct
 phases, moving from business logic to technical execution:
 
-* **Conceptual Modeling:** defines *what* business entities exist (e.g., customers, transactions, IoT devices) and how they relate at a high level, completely independent of technology.
-* **Logical Modeling:** details the specific attributes, keys, and data structures needed. It maps out the analytics needs without tying them to a specific database software.
-* **Physical Modeling:** implements the design into the underlying infrastructure. This phase optimizes for the target platform (e.g., designing partitions in an Apache Spark cluster, or sizing data blocks in a cloud lakehouse).
+* **Conceptual Modeling:** defines *what* business entities 
+  exist (e.g., customers, transactions, IoT devices) and 
+  how they relate at a high level, completely independent 
+  of technology.
+
+* **Logical Modeling:** details the specific attributes, 
+  keys, and data structures needed. It maps out the analytics 
+  needs without tying them to a specific database software.
+
+* **Physical Modeling:** implements the design into the underlying 
+  infrastructure. This phase optimizes for the target platform (e.g., 
+  designing partitions in an Apache Spark cluster, or sizing data 
+  blocks in a cloud lakehouse).
 
 ---
 
@@ -65,9 +75,20 @@ Unlike traditional relational modeling — where the schema is
 normalized first and queries are written against it afterward —
 big data modeling typically works in the **opposite order**:
 
-1. **Study the requirements.** Identify who needs the data and why: which dashboards, reports, ML features, or applications will consume it.
-2. **Enumerate the access patterns.** Determine exactly how the data will be queried — which fields are filtered on, which are aggregated, how the data is expected to grow, and how fresh it needs to be.
-3. **Design the schema to fit those queries.** Choose partition keys, denormalization strategy, and physical layout so the *known* queries run fast — even if that means duplicating data or shaping the same entity differently across multiple tables.
+1. **Study the requirements.** Identify who needs the 
+   data and why: which dashboards, reports, ML features, 
+   or applications will consume it.
+
+2. **Enumerate the access patterns.** Determine exactly 
+   how the data will be queried — which fields are filtered 
+   on, which are aggregated, how the data is expected to 
+   grow, and how fresh it needs to be.
+
+3. **Design the schema to fit those queries.** Choose partition 
+   keys, denormalization strategy, and physical layout so the 
+   *known* queries run fast — even if that means duplicating 
+   data or shaping the same entity differently across multiple 
+   tables.
 
 This is sometimes called **query-first** (or **query-driven**)
 design, and it's the reasoning behind every partition-key and
@@ -96,9 +117,19 @@ ideal of a "correct" schema.
 Depending on the business case, engineers lean on specific
 frameworks to organize the information:
 
-* **Dimensional Modeling (Star / Snowflake Schema):** optimizes business intelligence (BI) workloads by organizing data into central **fact tables** (numeric metrics) surrounded by **dimension tables** (descriptive context).
-* **Data Vault Modeling:** a flexible, agile method designed for enterprise data warehouses. It separates business keys (Hubs), relationships (Links), and context (Satellites) to easily absorb changing data sources.
-* **NoSQL Data Models:** wide-column stores, document stores, key-value stores, and graph models. These bypass relational limits entirely to focus on high-velocity throughput.
+* **Dimensional Modeling (Star / Snowflake Schema):** optimizes 
+  business intelligence (BI) workloads by organizing data into 
+  central **fact tables** (numeric metrics) surrounded by 
+  **dimension tables** (descriptive context).
+
+* **Data Vault Modeling:** a flexible, agile method designed 
+  for enterprise data warehouses. It separates business keys 
+  (Hubs), relationships (Links), and context (Satellites) to 
+  easily absorb changing data sources.
+
+* **NoSQL Data Models:** wide-column stores, document stores, 
+  key-value stores, and graph models. These bypass relational 
+  limits entirely to focus on high-velocity throughput.
 
 ---
 
@@ -128,8 +159,15 @@ TABLE: driver_location_logs
 
 **Why this works for big data:**
 
-* **Schema-on-Read mechanics:** raw location payloads are dropped into the cluster rapidly, with no upfront schema negotiation.
-* **Optimized distributed reads:** using the geospatial index (`geo_hex`) as the partition key means all drivers in the same neighborhood live on the same physical node. The system finds available rides in milliseconds, without a cluster-wide scan.
+* **Schema-on-Read mechanics:** raw location payloads 
+  are dropped into the cluster rapidly, with no upfront 
+  schema negotiation.
+  
+* **Optimized distributed reads:** using the geospatial 
+  index (`geo_hex`) as the partition key means all drivers 
+  in the same neighborhood live on the same physical node. 
+  The system finds available rides in milliseconds, without 
+  a cluster-wide scan.
 
 ---
 
@@ -141,31 +179,42 @@ additions, and purchases to run recommendation algorithms and
 executive dashboards.
 
 * **Core Architecture:** cloud data lakehouse (e.g., Databricks / Snowflake).
-* **Key Design Paradigm:** dimensional modeling (star schema) optimized for massively parallel processing (MPP) engines using **columnar storage (Parquet)**.
+
+* **Key Design Paradigm:** dimensional modeling (star schema) 
+  optimized for massively parallel processing (MPP) engines 
+  using **columnar storage (Parquet)**.
 
 ```
-              dim_users (Dim)                    dim_products (Dim)
-        +------------------------+          +---------------------------+
-        | user_id (PK)           |          | product_id (PK)           |
-        | signup_date, user_tier |          | product_name, category    |
-        +------------------------+          +---------------------------+
-                     |  1                              1  |
-                     |                                    |
-                     v  M                              M  v
-              +----------------------------------------------------+
-              |              fact_user_clicks (Fact)                |
-              +------------------------------------------------------+
-              | click_id (PK)                                        |
-              | user_id (FK) | product_id (FK) | date_key (FK)        |
-              | click_timestamp, session_id, device_type,             |
-              | dwell_time_seconds                                    |
-              +------------------------------------------------------+
+       dim_users (Dim)               dim_products (Dim)
+   +------------------------+     +-------------------------+
+   | user_id (PK)           |     | product_id (PK)         |
+   | signup_date, user_tier |     | product_name, category  |
+   +------------------------+     +-------------------------+
+              |  1                         1  |
+              |                               |
+              v  M                         M  v
+      +--------------------------------------------------+
+      |              fact_user_clicks (Fact)             |
+      +--------------------------------------------------+
+      | click_id (PK)                                    |
+      | user_id (FK) | product_id (FK) | date_key (FK)   |
+      | click_timestamp, session_id, device_type,        |
+      | dwell_time_seconds                               |
+      +--------------------------------------------------+
 ```
 
 **Why this works for big data:**
 
-* **High denormalization:** the central fact table stores event-driven historical telemetry at full grain. Columnar formats let queries read only the columns needed (e.g., skipping `device_type` when computing average `dwell_time_seconds`).
-* **Time-based partitioning:** the fact table is physically partitioned by `date_key` (e.g., `year=2026/month=09/day=19`). Queries for today's metrics skip past petabytes of historical data sitting in older folders.
+* **High denormalization:** the central fact table stores 
+  event-driven historical telemetry at full grain. Columnar 
+  formats let queries read only the columns needed (e.g., 
+  skipping `device_type` when computing average 
+  `dwell_time_seconds`).
+
+* **Time-based partitioning:** the fact table is physically 
+  partitioned by `date_key` (e.g., `year=2026/month=09/day=19`). 
+  Queries for today's metrics skip past petabytes of historical 
+  data sitting in older folders.
 
 ---
 
@@ -177,8 +226,12 @@ The data arrives as continuous streams of semi-structured JSON
 telemetry, varying slightly depending on the manufacturer's
 firmware.
 
-* **Core Architecture:** document store / time-series database (e.g., MongoDB time-series collections or TimescaleDB).
-* **Key Design Paradigm:** the **bucket pattern** — grouping sequential streaming records into unified documents to reduce index size.
+* **Core Architecture:** document store / time-series database 
+  (e.g., MongoDB time-series collections or TimescaleDB).
+
+* **Key Design Paradigm:** the **bucket pattern** — grouping 
+  sequential streaming records into unified documents to reduce 
+  index size.
 
 ```json
 {
@@ -202,8 +255,16 @@ firmware.
 
 **Why this works for big data:**
 
-* **Handles variety easily:** if a new model of heart monitor starts capturing an extra metric (like `signal_quality`), the document schema absorbs the new key seamlessly — no migration or database downtime required.
-* **Prevents index bloat:** instead of writing a new row for every single heartbeat (which generates billions of distinct entries and overwhelms standard relational memory structures), this model "buckets" data by device and hour. That dramatically shrinks index size and keeps real-time tracking fast.
+* **Handles variety easily:** if a new model of heart 
+  monitor starts capturing an extra metric (like `signal_quality`), 
+  the document schema absorbs the new key seamlessly — no migration 
+  or database downtime required.
+
+* **Prevents index bloat:** instead of writing a new row for every 
+  single heartbeat (which generates billions of distinct entries 
+  and overwhelms standard relational memory structures), this model 
+  "buckets" data by device and hour. That dramatically shrinks index 
+  size and keeps real-time tracking fast.
 
 ---
 
@@ -218,8 +279,15 @@ query-driven discipline from [Section 4](#4--query-driven-schema-design),
 applied to a genuinely new access pattern: "find the *K* most
 semantically similar chunks," not "find the row where `id = X`."
 
-* **Core Architecture:** a vector database (e.g., Pinecone, Weaviate, Milvus, or Postgres with `pgvector`), populated by a distributed PySpark ingestion pipeline (see [`slides/AI-LLM-Claude/`](./slides/AI-LLM-Claude)).
-* **Key Design Paradigm:** documents are chunked and embedded at big-data scale, then indexed with an **Approximate Nearest Neighbor (ANN)** structure (e.g., HNSW or IVF) instead of the B-tree/hash indexes used for exact-match lookups.
+* **Core Architecture:** a vector database (e.g., Pinecone, 
+  Weaviate, Milvus, or Postgres with `pgvector`), populated 
+  by a distributed PySpark ingestion pipeline 
+  (see [`slides/AI-LLM-Claude/`](./slides/AI-LLM-Claude)).
+
+* **Key Design Paradigm:** documents are chunked and embedded 
+  at big-data scale, then indexed with an **Approximate Nearest Neighbor (ANN)** 
+  structure (e.g., HNSW or IVF) instead of the B-tree/hash indexes used for 
+  exact-match lookups.
 
 ```
 TABLE: document_chunks_vector_store
@@ -237,20 +305,34 @@ TABLE: document_chunks_vector_store
 
 **Why this works for big data:**
 
-* **Handles volume and variety at ingestion:** a distributed PySpark job chunks and embeds millions of heterogeneous documents in parallel (PDFs, HTML, transcripts, support tickets) — the same "LLM as a distributed mapper" pattern used to enrich any large DataFrame.
-* **Query-driven index design, in practice:** because the dominant query is nearest-neighbor similarity search over the `embedding` column, the physical layout is built around an ANN index rather than an exact-match index — a schema decision made to fit that one access pattern, exactly like the geo-partitioning chosen in Example 1.
-* **Keeps the model current without retraining:** updating what the LLM "knows" becomes a data-modeling problem (re-chunk, re-embed, re-index new or changed documents) rather than a costly machine-learning problem (fine-tuning or retraining).
+* **Handles volume and variety at ingestion:** a distributed 
+  PySpark job chunks and embeds millions of heterogeneous 
+  documents in parallel (PDFs, HTML, transcripts, support tickets) 
+  — the same "LLM as a distributed mapper" pattern used to enrich 
+  any large DataFrame.
+
+* **Query-driven index design, in practice:** because the 
+  dominant query is nearest-neighbor similarity search over 
+  the `embedding` column, the physical layout is built around 
+  an ANN index rather than an exact-match index — a schema 
+  decision made to fit that one access pattern, exactly like 
+  the geo-partitioning chosen in Example 1.
+
+* **Keeps the model current without retraining:** updating 
+  what the LLM "knows" becomes a data-modeling problem (re-chunk, 
+  re-embed, re-index new or changed documents) rather than a costly 
+  machine-learning problem (fine-tuning or retraining).
 
 ---
 
 ## 7. 🐍 End-to-End PySpark Example (Building Example 2's Star Schema)
 
-The pipeline below is a complete, runnable implementation of
-the **E-Commerce Lakehouse Star Schema** from Example 2. It
-demonstrates the full modeling lifecycle: schema-on-read
-ingestion, data-type correction, veracity checks (repairing bad
-values), multi-table dimensional joins, aggregation, and
-physical partitioning — the same concepts covered in
+The pipeline below is a complete, runnable implementation 
+of the **E-Commerce Lakehouse Star Schema** from Example 2. 
+It demonstrates the full modeling lifecycle: schema-on-read
+ingestion, data-type correction, veracity checks (repairing 
+bad values), multi-table dimensional joins, aggregation, 
+and physical partitioning — the same concepts covered in
 [`slides/spark/pyspark/`](./slides/spark/pyspark).
 
 ```python
@@ -261,7 +343,8 @@ Implements an optimized, schema-on-read star schema data model.
 """
 
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, to_timestamp, year, month, dayofmonth, when, avg, count
+from pyspark.sql.functions import year, month, dayofmonth
+from pyspark.sql.functions import col, to_timestamp, when, avg, count
 
 
 def run_pipeline():
@@ -355,9 +438,31 @@ if __name__ == "__main__":
 
 ### ⚙️ Why This Reflects Core Big Data Modeling Principles
 
-* **Schema-on-Read handling:** the incoming web click records (`raw_clicks_data`) are loaded into a DataFrame as plain text fields first; explicit timestamp casting and structure are applied only afterward, during transformation.
-* **Data veracity checks:** the transformation step checks for negative streaming metrics (`dwell_time_seconds < 0`) and uses a `when().otherwise()` conditional to repair corrupt payloads in-flight, without interrupting the pipeline.
-* **Optimized multi-dimensional joins:** the two dimension DataFrames (`df_dim_users`, `df_dim_products`) are joined against the fact stream using standard star-schema keys (`user_id`, `product_id`).
-* **Physical write partitioning:** `.write.partitionBy("year", "month", "day").parquet(...)` makes Spark create a hierarchical folder layout on disk. Downstream query engines can then skip entire directories that fall outside a requested date range, instead of scanning the whole dataset.
+* **Schema-on-Read handling:** the incoming web click 
+  records (`raw_clicks_data`) are loaded into a DataFrame 
+  as plain text fields first; explicit timestamp casting 
+  and structure are applied only afterward, during 
+  transformation.
 
-This example was run end to end with PySpark 4.2.0 (`local[*]` master) to confirm it executes cleanly and produces the aggregation shown in the pipeline's own `.show()` output.
+* **Data veracity checks:** the transformation step checks 
+  for negative streaming metrics (`dwell_time_seconds < 0`) 
+  and uses a `when().otherwise()` conditional to repair 
+  corrupt payloads in-flight, without interrupting the 
+  pipeline.
+
+* **Optimized multi-dimensional joins:** the two dimension 
+  DataFrames (`df_dim_users`, `df_dim_products`) are joined 
+  against the fact stream using standard star-schema keys 
+  (`user_id`, `product_id`).
+
+* **Physical write partitioning:** 
+  `.write.partitionBy("year", "month", "day").parquet(...)` 
+  makes Spark create a hierarchical folder layout on disk. 
+  Downstream query engines can then skip entire directories 
+  that fall outside a requested date range, instead of 
+  scanning the whole dataset.
+
+This example was run end to end with PySpark 4.2.0 
+(`local[*]` master) to confirm it executes cleanly 
+and produces the aggregation shown in the pipeline's 
+own `.show()` output.
