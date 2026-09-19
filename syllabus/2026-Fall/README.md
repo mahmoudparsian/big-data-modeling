@@ -159,12 +159,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Big Data and MapReduce
 
 **Required:**
+
 - [1. Introduction to Big Data and Solutions](../../slides/big_data/2_introduction_to_big_data_and_solutions.pdf)
 - [2. MapReduce: Simplified Data Processing on Large Clusters - Google paper](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 - [3. Chapter 1 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [4. A Very Brief Introduction to MapReduce](http://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf)
 
 **Optional:**
+
 - [1. Introduction to Big Data](https://lagesoft.files.wordpress.com/2018/11/bd-introduction-to-big-data.pdf)
 - [2. Introduction to MapReduce](http://lsd.ls.fi.upm.es/lsd/nuevas-tendencias-en-sistemas-distribuidos/IntroToMapReduce_2.pdf)
 
@@ -178,12 +180,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Big Data and MapReduce
 
 **Required:**
+
 - [1. MapReduce Tutorial Slides by Jimmy Lin](https://cs.uwaterloo.ca/~jimmylin/publications/WWW2013-MapReduce-tutorial-slides.pdf)
 - [2. Chapter 2 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [3. Introduction to MapReduce by Mahmoud Parsian](http://mapreduce4hackers.com/docs/Introduction-to-MapReduce.pdf)
 - [4. MapReduce: Simplified Data Processing on Large Clusters - Google paper](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 
 **Optional:**
+
 - [1. MapReduce, Wikipedia](https://en.wikipedia.org/wiki/MapReduce)
 - [2. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf)
 
@@ -197,11 +201,13 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to MapReduce
 
 **Required:**
+
 - [1. Introduction to MapReduce](https://kodu.ut.ee/~srirama/cloud/2011/L3_MapReduce.pdf)
 - [2. Chapter 3 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [3. Chapter 4 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 
 **Optional:**
+
 - [1. Introduction to MapReduce: Watch a Video](https://www.youtube.com/watch?v=ht3dNvdNDzI&t=250s)
 - [2. The Future of Big Data by Matei Zaharia — Video](https://www.youtube.com/watch?v=oSj2vYw5RLs)
 - [3. Introduction to MapReduce and Hadoop by Matei Zaharia](https://github.com/mahmoudparsian/big-data-mapreduce-course/blob/master/slides/mapreduce/mapreduce_documents/MapReduce_by_Matei_Zaharia.pdf)
@@ -216,10 +222,12 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to MapReduce & Join Operations
 
 **Required:**
+
 - [1. Chapters 3, 4, 5 of Data-Intensive Text Processing with MapReduce](http://lintool.github.io/MapReduceAlgorithms/ed1n/MapReduce-algorithms.pdf)
 - [2. Join Algorithms in Action using MapReduce](../../slides/mapreduce/joins_in_mapreduce/join_operation_in_action_using_MapReduce.md)
 
 **Optional:**
+
 - [1. Simplifying Big Data Applications with Apache Spark 2.0 by Matei Zaharia](https://www.youtube.com/watch?v=Zb9YW8XjxnE)
 - [2. Relational Operations Using MapReduce](https://medium.com/swlh/relational-operations-using-mapreduce-f49e8bd14e31)
 
@@ -231,6 +239,7 @@ At the completion of this course, students will be able to understand:
 ### Session 5: Monday, October 5, 2026
 
 **Topic:**
+
 - Review of MapReduce paradigm with examples
 - Review of Join Operations in MapReduce paradigm 
 - Review of MapReduce implementation with PySpark
@@ -243,6 +252,7 @@ At the completion of this course, students will be able to understand:
 ### Session 6: Wednesday, October 7, 2026
 
 **📝 Exam 1 — in-class** *(date tentative — see [`exam_dates.md`](../../course_information/exam_dates.md) for the confirmed date)*
+
 - LockDown Browser is required
 - Closed book/notes/internet/AI/friends/phone/computer/software
 
@@ -256,6 +266,7 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Spark & PySpark
 
 **Required:**
+
 - [1. Introduction to MapReduce with PySpark](../../slides/mapreduce/mapreduce_with_pyspark/mapreduce_with_pyspark_intro.md)
 - [2. A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
 - [3. Chapters 1, 2 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
@@ -263,6 +274,7 @@ At the completion of this course, students will be able to understand:
 - [5. Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
 
 **Optional:**
+
 - [1. Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
 - [2. Introduction to Apache Spark](https://stanford.edu/~rezab/sparkclass/slides/itas_workshop.pdf)
 
@@ -276,12 +288,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Introduction to Spark and PySpark (Python API for Spark)
 
 **Required:**
+
 - [1. Classic Word Count in PySpark](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/wordcount)
 - [2. A Gentle Introduction to Apache Spark](https://pages.databricks.com/rs/094-YMS-629/images/A-Gentle-Introduction-to-Apache-Spark.pdf)
 - [3. Chapters 1, 2, 3, 4 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
 - [4. Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
 
 **Optional:**
+
 - [1. Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
 - [2. Introduction to Spark by Shannon Quinn](https://web.archive.org/web/20230803213727/http://cobweb.cs.uga.edu/~squinn/mmd_s15/lectures/lecture13_mar3.pdf)
 
@@ -295,11 +309,13 @@ At the completion of this course, students will be able to understand:
 **Topic:** Spark's Nuts and Bolts
 
 **Required:**
+
 - [PySpark Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/pyspark_tutorial)
 - [Chapters 3, 4, 5 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
 - [Learning Spark (book)](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf)
 
 **Optional:**
+
 - [Introduction to Spark](http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014)
 - [Parallel Programming With Spark by Matei Zaharia](https://web.archive.org/web/20191228201919/http://ampcamp.berkeley.edu:80/wp-content/uploads/2013/02/Parallel-Programming-With-Spark-Matei-Zaharia-Strata-2013.pptx)
 
@@ -313,6 +329,7 @@ At the completion of this course, students will be able to understand:
 **Topic:** Data Design Patterns
 
 **Required:**
+
 - [PySpark Tutorial](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/pyspark_tutorial)
 - [MinMax Algorithm](https://github.com/mahmoudparsian/pyspark-tutorial/blob/master/tutorial/map-partitions/README.md)
 - [Top-10 Algorithm](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/Top-N)
@@ -327,12 +344,14 @@ At the completion of this course, students will be able to understand:
 **Topic:** Data Design Patterns
 
 **Required:**
+
 - [Chapters 3, 4, 5 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
 - Data Design Patterns: In-Mapper Combiner, `mapPartitions()`
 - [Top-10 Algorithm](https://github.com/mahmoudparsian/data-algorithms-with-spark/tree/master/code/bonus_chapters/Top-N)
 - [MinMax Algorithm](https://github.com/mahmoudparsian/pyspark-tutorial/blob/master/tutorial/map-partitions/README.md)
 
 **Optional:**
+
 - [Chapters 4, 6, 7, 12 of PySpark Algorithms by Mahmoud Parsian](https://github.com/mahmoudparsian/pyspark-algorithms)
 
 [⇧ back to schedule](#schedule-overview)
@@ -345,6 +364,7 @@ At the completion of this course, students will be able to understand:
 **Topic:** RDD Design Patterns
 
 **Required:**
+
 - Spark's RDD partitioning
 - [Chapters 3, 4, 5 of Data Algorithms with Spark by Mahmoud Parsian](https://www.amazon.com/Data-Algorithms-Spark-Recipes-Patterns/dp/1492082384/ref=sr_1_1)
 - Spark's `mapPartitions()` transformation
@@ -352,6 +372,7 @@ At the completion of this course, students will be able to understand:
 - Review reducers: `groupByKey()`, `reduceByKey()`, and `combineByKey()`
 
 **Also:**
+
 - Review for Exam 2
 - Problem solving & Q/A session
 
@@ -372,6 +393,7 @@ At the completion of this course, students will be able to understand:
 ### Session 14: Wednesday, November 4, 2026
 
 **📝 Exam 2 — in-class** *(date tentative — see [`exam_dates.md`](../../course_information/exam_dates.md) for the confirmed date)*
+
 - LockDown Browser is required
 - Closed book/notes/internet/AI/friends/phone/computer/software
 
@@ -462,6 +484,7 @@ At the completion of this course, students will be able to understand:
 ### Session 21: Final Exam
 
 **🎓 In-class exam**
+
 - LockDown Browser is required
 - Closed book/notes/internet/AI/friends/phone/computer/software
 - Date: TBD (December 8–12, 2026)
