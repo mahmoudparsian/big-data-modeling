@@ -1,5 +1,7 @@
 # What is Big Data Modeling?
 
+* Last updated date: September 19, 2026
+
 ## Table of Contents
 
 1. [Overview](#1--overview)
@@ -529,7 +531,6 @@ modeler works with day to day: scalable storage systems,
 distributed processing engines, transformation frameworks, and 
 the BI layer that sits on top of all of it.
 
-
 ### 8.1 🗄️ Storage & Data Warehouses
 
 * **Snowflake:** a cloud data platform with separated compute
@@ -547,7 +548,6 @@ the BI layer that sits on top of all of it.
   for data sitting directly in S3, with no cluster to manage
   (see [`slides/amazon_athena/`](./slides/amazon_athena)).
 
-
 ### 8.2 ⚡ Processing & Analytics Engines
 
 * **Apache Spark:** an in-memory distributed processing engine
@@ -563,7 +563,6 @@ the BI layer that sits on top of all of it.
   on top of Spark for collaborative data engineering 
   and machine learning.
 
-
 ### 8.3 🔧 Data Modeling & Transformation
 
 * **dbt (Data Build Tool):** a transformation workflow 
@@ -575,14 +574,13 @@ the BI layer that sits on top of all of it.
   — most often applied at the [conceptual and logical](#3--the-three-core-perspectives)
   stages, before a physical big-data platform is chosen.
 
-
 ### 8.4 📊 Visualization & Business Intelligence
 
 * **Tableau:** a leading platform for complex 
   exploratory dashboards and visual analytics.
 
 * **Microsoft Power BI:** a business intelligence 
-  tool that integrates natively with cloud  and 
+  tool that integrates natively with cloud and 
   spreadsheet ecosystems.
 
 ---
