@@ -19,7 +19,6 @@
    - [8.3 Data Modeling & Transformation](#83--data-modeling--transformation)
    - [8.4 Visualization & Business Intelligence](#84--visualization--business-intelligence)
 
-   
 ---
 
 ## 1. 🔎 Overview
@@ -68,7 +67,7 @@ phases, moving from business logic to technical execution:
   keys, and data structures needed. It maps out the analytics 
   needs without tying them to a specific database software.
 
-* **Physical Modeling:** implements the design into the underlying 
+* **Physical Modeling:** translates the design into the underlying 
   infrastructure. This phase optimizes for the target platform (e.g., 
   designing partitions in an Apache Spark cluster, or sizing data 
   blocks in a cloud lakehouse).
@@ -102,10 +101,12 @@ denormalization choice made in the four worked examples below:
 the ride-hailing platform partitions by geospatial hex specifically
 because "find nearby drivers" is the dominant query, the
 e-commerce lakehouse's star schema is shaped around the BI
-aggregations analysts actually run, and the LLM/RAG example indexes
-its vector store around nearest-neighbor similarity search instead
-of exact-match lookups — none of it is an abstract, query-agnostic
-ideal of a "correct" schema.
+aggregations analysts actually run, the healthcare IoT model buckets
+vitals by device and hour so a time-range query never has to scan
+per-heartbeat rows, and the LLM/RAG example indexes its vector store
+around nearest-neighbor similarity search instead of exact-match
+lookups — none of it is an abstract, query-agnostic ideal of a
+"correct" schema.
 
 > **Exception — Data Vault:** Data Vault Modeling (below) deliberately
 > inverts this order. It's *source-driven*, not query-driven: Hubs,
@@ -482,8 +483,8 @@ paired a modeling technique with a purpose-built engine — Cassandra
 for wide-column geo-partitioning, Delta Lake/Iceberg for the lakehouse
 star schema, TimescaleDB for the IoT bucket pattern, Pinecone/Milvus
 for vector search. The tools below are the more general-purpose,
-enterprise-grade platforms a big data modeler reaches for day to
-day: scalable storage systems, distributed processing engines,
+enterprise-grade platforms a big data modeler works with day to day:
+scalable storage systems, distributed processing engines,
 transformation frameworks, and the BI layer that sits on top of
 all of it.
 
