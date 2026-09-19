@@ -13,7 +13,13 @@
    - [6.3 Example 3: Healthcare IoT Telemetry](#63--example-3-healthcare-iot-telemetry--document-based-time-series-model)
    - [6.4 Example 4: LLM Retrieval-Augmented Generation](#64--example-4-llm-retrieval-augmented-generation-rag--vector-embedding-store-model)
 7. [End-to-End PySpark Example](#7--end-to-end-pyspark-example-building-example-2s-star-schema)
+8. [Tools for Big Data Modeling Analytics](#8--tools-for-big-data-modeling-analytics)
+   - [8.1 Storage & Data Warehouses](#81--storage--data-warehouses)
+   - [8.2 Processing & Analytics Engines](#82--processing--analytics-engines)
+   - [8.3 Data Modeling & Transformation](#83--data-modeling--transformation)
+   - [8.4 Visualization & Business Intelligence](#84--visualization--business-intelligence)
 
+   
 ---
 
 ## 1. 🔎 Overview
@@ -466,3 +472,70 @@ This example was run end to end with PySpark 4.2.0
 (`local[*]` master) to confirm it executes cleanly 
 and produces the aggregation shown in the pipeline's 
 own `.show()` output.
+
+---
+
+## 8. 🧰 Tools for Big Data Modeling Analytics
+
+The worked examples in [Section 6](#6--four-worked-examples) each
+paired a modeling technique with a purpose-built engine — Cassandra
+for wide-column geo-partitioning, Delta Lake/Iceberg for the lakehouse
+star schema, TimescaleDB for the IoT bucket pattern, Pinecone/Milvus
+for vector search. The tools below are the more general-purpose,
+enterprise-grade platforms a big data modeler reaches for day to
+day: scalable storage systems, distributed processing engines,
+transformation frameworks, and the BI layer that sits on top of
+all of it.
+
+### 8.1 🗄️ Storage & Data Warehouses
+
+* **Snowflake:** a cloud data platform with separated compute
+  and storage for automated scaling.
+
+* **Google BigQuery:** a serverless, highly scalable enterprise
+  data warehouse for rapid SQL queries.
+
+* **MongoDB:** a NoSQL document database designed for handling
+  flexible and unstructured data schemas — the same document
+  model used for the bucket pattern in
+  [Example 3](#63--example-3-healthcare-iot-telemetry--document-based-time-series-model).
+
+* **Amazon Athena (with S3):** a serverless SQL query engine
+  for data sitting directly in S3, with no cluster to manage
+  (see [`slides/amazon_athena/`](./slides/amazon_athena)).
+
+### 8.2 ⚡ Processing & Analytics Engines
+
+* **Apache Spark:** an in-memory distributed processing engine
+  used for large-scale data transformation and real-time analytics
+  — the engine behind [Section 7](#7--end-to-end-pyspark-example-building-example-2s-star-schema)'s
+  worked pipeline (see [`slides/spark/`](./slides/spark)).
+
+* **Apache Hadoop:** a legacy framework for distributed storage
+  (HDFS) and MapReduce-based batch processing across server
+  clusters (see [`slides/mapreduce/`](./slides/mapreduce)).
+
+* **Databricks:** a unified lakehouse platform built on top of
+  Spark for collaborative data engineering and machine learning.
+
+### 8.3 🔧 Data Modeling & Transformation
+
+* **dbt (Data Build Tool):** a transformation workflow tool
+  that lets teams build and test data models inside their
+  data warehouse using SQL.
+
+* **erwin Data Modeler:** enterprise modeling software used
+  to design, document, and manage complex database structures
+  — most often applied at the [conceptual and logical](#3--the-three-core-perspectives)
+  stages, before a physical big-data platform is chosen.
+
+### 8.4 📊 Visualization & Business Intelligence
+
+* **Tableau:** a leading platform for complex exploratory
+  dashboards and visual analytics.
+
+* **Microsoft Power BI:** a business intelligence tool that
+  integrates natively with cloud and spreadsheet ecosystems.
+
+---
+
