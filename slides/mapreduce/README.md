@@ -60,7 +60,7 @@ mapreduce/
 ## Suggested path through this material
 
 1. **Read the source**: `google_mapreduce_paper/` — what Google actually built and why.
-2. **Learn the model**: `introduction_to_mapreduce/`, `mapreduce_by_Mahmoud_Parsian/`, or `mapreduce_by_Jimmy_Lin/` — pick one full treatment.
+2. **Learn the model**: `mapreduce_by_Mahmoud_Parsian/` (see its `02_introduction_to_mapreduce.md` for the core model) or `mapreduce_by_Jimmy_Lin/` — pick one full treatment.
 3. **Learn the theory that keeps it correct**: `associativity_and_commutativity/` and `monoids/` — why some reducers/combiners are safe and others silently lie; `partitions_in_mapreduce/` for how the work is actually distributed.
 4. **See it worked out**: `word_count_classic/` (`word_count_applications.md` → `word_count_in_python/` → `word_count_in_mapreduce/`) → `mapreduce_examples/` → `combiners/` → `joins_in_mapreduce/` → `mapreduce_with_pyspark/`.
 5. **Appreciate what Spark replaced**: `classic_mapreduce_progs/` — read-only, for contrast.
