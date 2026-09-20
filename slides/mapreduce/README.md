@@ -26,8 +26,10 @@ mapreduce/
 ├── mapreduce_by_Jimmy_Lin/             # UMD/Waterloo course materials by Jimmy Lin
 ├── mapreduce_with_pyspark/             # comprehensive intro/tutorial + worked-examples catalog, both in PySpark
 │
-├── word_count_in_python/               # plain-Python baseline (no MapReduce, no Spark)
-├── word_count_in_mapreduce/            # same problem, solved as mapper()/reducer() -- bridges to PySpark
+├── word_count_classic/                 # word count: motivation, then plain-Python and MapReduce solutions
+│   ├── word_count_applications.md      #   why word count matters in real products
+│   ├── word_count_in_python/           #   plain-Python baseline (no MapReduce, no Spark)
+│   └── word_count_in_mapreduce/        #   same problem, solved as mapper()/reducer() -- bridges to PySpark
 ├── mapreduce_examples/                 # Word Count, Palindromes, Average Temperature, ...
 ├── combiners/                          # combiner-focused worked examples
 ├── joins_in_mapreduce/                 # reduce-side join, worked end to end, generalized to INNER/LEFT/RIGHT OUTER
@@ -49,8 +51,7 @@ mapreduce/
 | [`mapreduce_by_Mahmoud_Parsian/`](./mapreduce_by_Mahmoud_Parsian/) | Mahmoud's own numbered slide-deck series (00–11): parallelism fundamentals → the MapReduce model → Word Count → filters → HDFS → combiners, with a matched without/with-combiner example pair. See its own README for the full sequence. |
 | [`mapreduce_by_Jimmy_Lin/`](./mapreduce_by_Jimmy_Lin/) | Course materials from Jimmy Lin (University of Maryland / Waterloo): intro session slides, the *"Data-Intensive Text Processing with MapReduce"* book manuscript (two draft years), the WWW 2013 *"MapReduce Algorithm Design"* tutorial, and a Big Data Infrastructure course deck. |
 | [`mapreduce_with_pyspark/`](./mapreduce_with_pyspark/) | Two write-ups: `mapreduce_with_pyspark_intro.md`, a comprehensive tutorial covering NYU Center for Data Science's three-part "BigData with PySpark" lesson (Big Data intro, MapReduce primer, intro to Spark) and beyond — modernized Python 3 code, lazy evaluation, narrow/wide transformations, DataFrames/Spark SQL, caching, a Top-N worked example, pitfalls, glossary; and `mapreduce_with_pyspark_examples.md`, a larger catalog of simple → intermediate → complex MapReduce-style problems solved directly in PySpark. |
-| [`word_count_in_python/`](./word_count_in_python/) | Word count in **plain Python** — no Hadoop, no Spark — the "before MapReduce" baseline students see first. |
-| [`word_count_in_mapreduce/`](./word_count_in_mapreduce/) | The same word-count problem solved as a real MapReduce job: `(filename, record)` pairs → a Python `mapper()` → shuffle/sort → a Python `reducer()`, with every mapper/reducer call shown in full and a preview of the PySpark port (`flatMap`/`reduceByKey`). |
+| [`word_count_classic/`](./word_count_classic/) | Word count worked from first principles: [`word_count_applications.md`](./word_count_classic/word_count_applications.md) on why it matters in real products, then [`word_count_in_python/`](./word_count_classic/word_count_in_python/) (plain Python, no Hadoop/Spark) and [`word_count_in_mapreduce/`](./word_count_classic/word_count_in_mapreduce/) (a real `mapper()`/`reducer()` job, every call shown in full, with a PySpark preview). See its own README. |
 | [`mapreduce_examples/`](./mapreduce_examples/) | Fully worked MapReduce examples: Word Count, Palindromes, and Average Temperature per City, each with mapper/reducer pseudocode, sample data, and homework questions; also includes a third-party "Finding Friends" article. |
 | [`combiners/`](./combiners/) | Combiner-focused worked examples: Word Count with/without a combiner (partition-by-partition trace), plus average and `(avg, min, max)` per gene, showing why a naive combiner breaks and how to fix it with `(sum, count)`-style partial results. See its own README. |
 | [`joins_in_mapreduce/`](./joins_in_mapreduce/) | *"Join Operation in Action using MapReduce"* — a bank customers/transactions dataset joined end to end via the reduce-side tag/group/split/match recipe (every mapper and reducer call traced by hand), then generalized into INNER/LEFT OUTER/RIGHT OUTER join algorithms and bridged to PySpark's `join()` on RDDs and DataFrames. |
@@ -61,5 +62,5 @@ mapreduce/
 1. **Read the source**: `google_mapreduce_paper/` — what Google actually built and why.
 2. **Learn the model**: `introduction_to_mapreduce/`, `mapreduce_by_Mahmoud_Parsian/`, or `mapreduce_by_Jimmy_Lin/` — pick one full treatment.
 3. **Learn the theory that keeps it correct**: `associativity_and_commutativity/` and `monoids/` — why some reducers/combiners are safe and others silently lie; `partitions_in_mapreduce/` for how the work is actually distributed.
-4. **See it worked out**: `word_count_in_python/` → `word_count_in_mapreduce/` → `mapreduce_examples/` → `combiners/` → `joins_in_mapreduce/` → `mapreduce_with_pyspark/`.
+4. **See it worked out**: `word_count_classic/` (`word_count_applications.md` → `word_count_in_python/` → `word_count_in_mapreduce/`) → `mapreduce_examples/` → `combiners/` → `joins_in_mapreduce/` → `mapreduce_with_pyspark/`.
 5. **Appreciate what Spark replaced**: `classic_mapreduce_progs/` — read-only, for contrast.
