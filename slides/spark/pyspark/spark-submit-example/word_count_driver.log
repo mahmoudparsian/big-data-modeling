@@ -1,72 +1,126 @@
 $ export SPARK_HOME=/opt/spark
 $ ./word_count_driver.sh
 
-input_path: sample_file.txt
+input_path: /path/to/spark-submit-example/sample_file.txt
 
-records.count():  3
+M (minimum word length): 3
+
+N (minimum word frequency): 2
+
+records.count():  5
 
 records.collect():
 [
- u'red fox jumped high and high',
- u'red fox jumped high fence',
- u'fox jumped'
+ 'a red fox jumped high and high',
+ 'red fox jumped high to fence',
+ 'a fox jumped',
+ 'a fox jumped and sparked',
+ ''
 ]
 
-non_empty_records.count():  3
+non_empty_records.count():  4
 
 non_empty_records.collect():
 [
- u'red fox jumped high and high',
- u'red fox jumped high fence',
- u'fox jumped'
+ 'a red fox jumped high and high',
+ 'red fox jumped high to fence',
+ 'a fox jumped',
+ 'a fox jumped and sparked'
 ]
 
-words.count():  13
+words.count():  21
 
 words.collect():
 [
- u'red',
- u'fox',
- u'jumped',
- u'high',
- u'and',
- u'high',
- u'red',
- u'fox',
- u'jumped',
- u'high',
- u'fence',
- u'fox',
- u'jumped'
+ 'a',
+ 'red',
+ 'fox',
+ 'jumped',
+ 'high',
+ 'and',
+ 'high',
+ 'red',
+ 'fox',
+ 'jumped',
+ 'high',
+ 'to',
+ 'fence',
+ 'a',
+ 'fox',
+ 'jumped',
+ 'a',
+ 'fox',
+ 'jumped',
+ 'and',
+ 'sparked'
 ]
 
-pairs.count():  13
+long_enough_words.count():  17
+
+long_enough_words.collect():
+[
+ 'red',
+ 'fox',
+ 'jumped',
+ 'high',
+ 'and',
+ 'high',
+ 'red',
+ 'fox',
+ 'jumped',
+ 'high',
+ 'fence',
+ 'fox',
+ 'jumped',
+ 'fox',
+ 'jumped',
+ 'and',
+ 'sparked'
+]
+
+pairs.count():  17
 
 pairs.collect():
 [
- (u'red', 1),
- (u'fox', 1),
- (u'jumped', 1),
- (u'high', 1),
- (u'and', 1),
- (u'high', 1),
- (u'red', 1),
- (u'fox', 1),
- (u'jumped', 1),
- (u'high', 1),
- (u'fence', 1),
- (u'fox', 1),
- (u'jumped', 1)
+ ('red', 1),
+ ('fox', 1),
+ ('jumped', 1),
+ ('high', 1),
+ ('and', 1),
+ ('high', 1),
+ ('red', 1),
+ ('fox', 1),
+ ('jumped', 1),
+ ('high', 1),
+ ('fence', 1),
+ ('fox', 1),
+ ('jumped', 1),
+ ('fox', 1),
+ ('jumped', 1),
+ ('and', 1),
+ ('sparked', 1)
 ]
 
-frequencies.count():  6
+frequencies.count():  7
 
 frequencies.collect():
 [
- (u'and', 1),
- (u'high', 3),
- (u'fox', 3),
- (u'red', 2),
- (u'fence', 1),
- (u'jumped', 3)
+ ('red', 2),
+ ('high', 3),
+ ('and', 2),
+ ('fox', 4),
+ ('jumped', 4),
+ ('fence', 1),
+ ('sparked', 1)
+]
+
+frequent_enough.count():  5
+
+frequent_enough.collect():
+[
+ ('red', 2),
+ ('high', 3),
+ ('and', 2),
+ ('fox', 4),
+ ('jumped', 4)
 ]

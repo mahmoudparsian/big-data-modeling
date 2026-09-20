@@ -13,14 +13,16 @@
 #------------------------------------------------------
 # Input Parameters:
 #    argv[1]: String, input path
+#    argv[2]: int, M: ignore words with length < M
+#    argv[3]: int, N: ignore words with frequency < N
 #-------------------------------------------------------
 import sys
 from pyspark.sql import SparkSession
 
 if __name__ == '__main__':
 
-    if len(sys.argv) != 2:
-        print("Usage: word_count_driver.py  <input-file>", file=sys.stderr)
+    if len(sys.argv) != 4:
+        print("Usage: word_count_driver.py  <input-file>  <M>  <N>", file=sys.stderr)
         sys.exit(1)
 
     spark = SparkSession\
@@ -31,7 +33,13 @@ if __name__ == '__main__':
     #  sys.argv[0] is the name of the script.
     #  sys.argv[1] is the first parameter
     input_path = sys.argv[1]
+    # ignore words with fewer than M characters
+    M = int(sys.argv[2])
+    # ignore words with a total frequency below N
+    N = int(sys.argv[3])
     print("input_path: {}".format(input_path))
+    print("M (minimum word length): {}".format(M))
+    print("N (minimum word frequency): {}".format(N))
 
     # read input and create an RDD<String>
     records = spark.sparkContext.textFile(input_path)
@@ -48,8 +56,13 @@ if __name__ == '__main__':
     print("words.count(): ", words.count())
     print("words.collect(): ", words.collect())
 
-    # create a pair of (word, 1) for all words
-    pairs = words.map(lambda word: (word, 1))
+    # ignore words shorter than M characters
+    long_enough_words = words.filter(lambda word: len(word) >= M)
+    print("long_enough_words.count(): ", long_enough_words.count())
+    print("long_enough_words.collect(): ", long_enough_words.collect())
+
+    # create a pair of (word, 1) for all remaining words
+    pairs = long_enough_words.map(lambda word: (word, 1))
     print("pairs.count(): ", pairs.count())
     print("pairs.collect(): ", pairs.collect())
 
@@ -57,6 +70,11 @@ if __name__ == '__main__':
     frequencies = pairs.reduceByKey(lambda a, b: a + b)
     print("frequencies.count(): ", frequencies.count())
     print("frequencies.collect(): ", frequencies.collect())
+
+    # ignore words whose frequency is less than N
+    frequent_enough = frequencies.filter(lambda pair: pair[1] >= N)
+    print("frequent_enough.count(): ", frequent_enough.count())
+    print("frequent_enough.collect(): ", frequent_enough.collect())
 
     # done!
     spark.stop()

@@ -25,10 +25,21 @@ export SPARK_HOME=/opt/spark
 | Name | Description |
 |---|---|
 | [`word_count_driver.py`](./word_count_driver.py) | The PySpark word-count program submitted via `spark-submit` |
-| [`word_count_driver.sh`](./word_count_driver.sh) | Shell script that runs `word_count_driver.py` via `$SPARK_HOME/bin/spark-submit` |
-| [`word_count_driver.log`](./word_count_driver.log) | Sample output log from running the shell script |
+| [`word_count_driver.sh`](./word_count_driver.sh) | Shell script that runs `word_count_driver.py` via `$SPARK_HOME/bin/spark-submit`, with optional arguments (see below) |
+| [`word_count_driver.log`](./word_count_driver.log) | Sample output log from running the shell script with its defaults |
 | [`sample_file.txt`](./sample_file.txt) | Small sample text file used as input |
 | [`running_a_pyspark_program_by_spark-submit.md`](./running_a_pyspark_program_by_spark-submit.md) | A second, illustrative walkthrough of running a PySpark program with `spark-submit` |
+
+## `word_count_driver.py` Parameters
+
+The program takes three positional arguments — `sys.argv[1]`,
+`sys.argv[2]`, `sys.argv[3]`:
+
+| Argument | Meaning |
+|---|---|
+| `<input-file>` | Path to the text file to word-count |
+| `M` | Ignore words shorter than `M` characters |
+| `N` | Ignore words whose overall frequency is less than `N` |
 
 ## How `spark-submit` Picks a Python Interpreter
 
@@ -49,12 +60,37 @@ export PYSPARK_PYTHON=/usr/bin/python3
 3. Run it from this folder, or from anywhere by its full path:
 
 ````
-./word_count_driver.sh
+./word_count_driver.sh [pyspark-script] [input-file] [M] [N]
 ````
 
-The script locates its own directory, so it will always find
-`word_count_driver.py` and `sample_file.txt` next to it — no editing
-required.
+The script locates its own directory, so with no arguments it will
+default to running `word_count_driver.py` against `sample_file.txt`
+next to it, with `M=3` and `N=2`. All four arguments are optional and
+can be overridden positionally, e.g.:
+
+````
+./word_count_driver.sh word_count_driver.py sample_file.txt 2 3
+````
+
+Expected output (for the no-argument, default case) is shown in
+[`word_count_driver.log`](./word_count_driver.log).
+
+### Fixing a `sparkDriver` bind error
+
+The script also pins the Spark driver to `127.0.0.1`
+(`SPARK_LOCAL_IP` plus `spark.driver.bindAddress`/`spark.driver.host`).
+On some machines — commonly when there's no active network interface,
+or a VPN is interfering — Spark otherwise fails with:
+
+````
+java.net.BindException: bind(..) failed with error(-49): Can't assign
+requested address: Service 'sparkDriver' failed after 16 retries
+(on a random free port)!
+````
+
+If you invoke `spark-submit` directly instead of through the script
+(see below) and hit this same error, add the equivalent flags/env var
+yourself.
 
 ## Running It Manually
 
@@ -62,10 +98,16 @@ You can also invoke `spark-submit` yourself instead of using the
 shell script:
 
 ````
-$SPARK_HOME/bin/spark-submit word_count_driver.py sample_file.txt
+export SPARK_LOCAL_IP=127.0.0.1
+$SPARK_HOME/bin/spark-submit \
+    --conf spark.driver.bindAddress=127.0.0.1 \
+    --conf spark.driver.host=127.0.0.1 \
+    word_count_driver.py sample_file.txt 3 2
 ````
 
-Expected output is shown in [`word_count_driver.log`](./word_count_driver.log).
+(The `SPARK_LOCAL_IP`/`--conf` bits are only needed if you hit the
+bind error above — omit them if plain `spark-submit` already works
+for you.)
 
 ## Common `spark-submit` Options
 
@@ -82,7 +124,9 @@ $SPARK_HOME/bin/spark-submit \
     --executor-memory 2g \
     --num-executors 4 \
     word_count_driver.py \
-    sample_file.txt
+    sample_file.txt \
+    3 \
+    2
 ````
 
 | Flag | Purpose |
@@ -96,6 +140,7 @@ $SPARK_HOME/bin/spark-submit \
 
 Anything after the script name (`word_count_driver.py` here) is
 passed straight through to your program as `sys.argv` — that's how
-`sample_file.txt` reaches `sys.argv[1]` in this example. See the
+`sample_file.txt`, `M`, and `N` reach `sys.argv[1]`, `sys.argv[2]`,
+and `sys.argv[3]` in this example. See the
 [Spark documentation on submitting applications](https://spark.apache.org/docs/latest/submitting-applications.html)
 for the full flag reference.
