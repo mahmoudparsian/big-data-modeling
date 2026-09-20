@@ -22,7 +22,7 @@ filters applied at the mapper vs. the reducer — are already worked
 out in detail in three companion documents:
 
 - [`mapreduce_examples/MapReduce_Word_Count.md`](../mapreduce_examples/MapReduce_Word_Count.md) — the classic version, with filters
-- [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md) — most detailed, ends with a PySpark preview
+- [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md) — most detailed, ends with a PySpark preview
 - [`combiners/Word_Count_in_MapReduce.md`](../combiners/Word_Count_in_MapReduce.md) — with vs. without a combiner, side by side
 
 This document instead covers what those three **don't**: running Word

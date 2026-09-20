@@ -83,7 +83,7 @@ Realistically the input is a file (or a directory of files), not a
 string literal. The up-to-date, runnable versions of that step
 already live in this repo:
 
-**[`word_count_in_python/`](../word_count_in_python/)**
+**[`word_count_in_python/`](../word_count_classic/word_count_in_python/)**
 
 | Script | What it does |
 |---|---|
@@ -112,7 +112,7 @@ red: 3
 Same `split()` + count-in-a-`dict()` idea as `word_count()` above —
 this is that idea, actually run against a real file. Full output
 (including the directory/TSV and filtered variants) in
-[`word_count_in_python/README.md`](../word_count_in_python/README.md).
+[`word_count_in_python/README.md`](../word_count_classic/word_count_in_python/README.md).
 
 ---
 
