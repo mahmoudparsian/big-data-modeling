@@ -19,12 +19,6 @@ This folder contains a collection of Apache Spark introductory and tutorial mate
 | [`intro_to_spark_workshop.pdf`](intro_to_spark_workshop.pdf) | Paco Nathan's full hands-on Databricks workshop — Getting Started, Spark Essentials, Interactive Spark, MLlib, Spark Streaming, and GraphX. | 194 | Intermediate |
 | [`Introduction_to_Spark_101.pdf`](Introduction_to_Spark_101.pdf) | "Spark 101" talk by a Box engineer covering distributed computing basics and Spark essentials. | 23 | Beginner |
 | [`Introduction_to_Spark_by_Mahmoud_Parsian.pptx`](Introduction_to_Spark_by_Mahmoud_Parsian.pptx) | Author's introductory Spark deck — RDDs, DataFrames, transformations/actions, and PySpark examples. | 39 | Beginner |
-| [`SparkForDataScienceMeetup1.pptx`](SparkForDataScienceMeetup1.pptx) | Trainologic meetup deck introducing PySpark for data science use cases. | 42 | Beginner |
+| [`Spark_for_Data_Science.pptx`](Spark_for_Data_Science.pptx) | Trainologic meetup deck introducing PySpark for data science use cases. | 42 | Beginner |
 
-**Notes**
-- "Pages / Slides" reflects PDF page counts or PowerPoint slide counts as reported by the file itself.
-- Difficulty is a rough guide based on topic depth (e.g., basic API tours vs. internals/fault-tolerance/parallel-computing theory), not the length of the deck.
-- Removed as redundant/low-value: `Spark-Architecture.pdf` (1-page diagram, content covered elsewhere), `spark-tutorial_spark-summit-2013.pptx` (duplicate of the PDF of the same talk), and `spark_tutorial_by_spencertung_CS239.pdf` (thin 5-page write-up overlapping other beginner decks).
-- Removed as redundant: `Spark_Tutorial_by_Databricks.pdf` (188p) and `spark_tutorial_stanford_115_pages.pdf` (115p) were both editions of the same Paco Nathan / Databricks "Intro to Apache Spark" workshop curriculum (identical "Getting Started" exercise steps, same Spark Essentials → MLlib → Streaming → GraphX structure) as `intro_to_spark_workshop.pdf`, which is kept as the most complete (194-page) edition.
-- Removed as redundant: `intro_to_spark_databricks.pdf` (15p, Matei Zaharia, Aug 2015) covered the same "What is Apache Spark?" material as `Big_Data_Analytics_with_Spark_by_Matei_Zaharia.pdf` (45p, Matei Zaharia, Apr 2015) — same author, same standard talk, the latter being the more complete version.
-- Removed as redundant: `spark-tutorial_spark-summit-2013.pdf` (52p, Pat McDonough, Databricks, Spark Summit 2013) turned out to be the same standard Databricks "Introduction to Apache Spark" template deck as `intro_to_Spark_by_Patrick_Wendell.pptx` (54p, also Databricks) — near word-for-word identical content (the same Log Mining code example, Fault Recovery/lineage slide, and key-value/Word Count example), just presented by a different Databricks employee at a different venue. Wendell's version is kept as the more complete, editable copy.
+
