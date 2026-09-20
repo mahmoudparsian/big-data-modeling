@@ -84,7 +84,7 @@ This mirrors
    on `dept_id`.
 3. Adds a `salary_band` column with `when()`/`otherwise()` (the
    inline-if/else way to derive a column, as an alternative to a UDF
-   — see [`../UDF/`](../UDF)).
+   — see [`../dataframes_udf/`](../dataframes_udf)).
 4. Builds a per-department summary with `groupBy().agg()` — headcount,
    average salary, max salary — sorted with `orderBy()`.
 5. Filters by both `DEPT_FILTER` and `MIN_SALARY` — change either

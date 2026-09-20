@@ -1,6 +1,12 @@
 # PySpark Tutorials 
 
-Examples, slides, and notes for learning PySpark.
+**PySpark** is the Python application programming 
+interface (API) for **Apache Spark**, a powerful 
+open-source engine designed for large-scale,
+distributed data processing.
+
+The following are list of examples, slides, 
+and notes for learning PySpark.
 
 ## External Resources
 
@@ -24,7 +30,6 @@ Examples, slides, and notes for learning PySpark.
 * [`rdd_reducers_by_key/`](rdd_reducers_by_key) — `groupByKey`, `reduceByKey`, `combineByKey`
 * [`rdd_class_demos/`](rdd_class_demos) — RDD example scripts and notebooks
 * [`rdd_join_operation/`](rdd_join_operation) — join examples in RDD and MapReduce
-* [`UDF/`](UDF) — user-defined functions
 * [`mapreduce-pyspark-tutorial/`](mapreduce-pyspark-tutorial) — Tutorial 1: MapReduce thinking with PySpark RDDs, slides + companion notebook
 
 ## DataFrames
@@ -32,6 +37,7 @@ Examples, slides, and notes for learning PySpark.
 * [`dataframes_tutorial/`](dataframes_tutorial) — step-by-step DataFrame modules
 * [`dataframes_slides/`](dataframes_slides) — intro slides and articles
 * [`dataframes_class_demos/`](dataframes_class_demos) — DataFrame example sessions
+* [`dataframes_udf/`](dataframes_udf) — user-defined functions
 
 ## Other Topics
 * [`graphframes/`](graphframes) — GraphFrames intro and demos

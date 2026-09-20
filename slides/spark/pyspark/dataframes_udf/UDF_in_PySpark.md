@@ -1,5 +1,11 @@
 # User-Defined Functions (UDF) in PySpark
 
+Spark User-Defined Functions (UDFs) are strictly 
+designed for the DataFrame and SQL API, but you 
+can achieve the exact same custom logic on RDDs 
+by passing standard native functions directly 
+into RDD transformation methods like `map()`.
+
 This article shows how to use Python user-defined functions (UDFs)
 in PySpark applications. To use a UDF, there are three basic steps:
 
