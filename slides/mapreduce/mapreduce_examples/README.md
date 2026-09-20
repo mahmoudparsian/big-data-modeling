@@ -6,6 +6,7 @@ Worked MapReduce examples:
 * average temperature per city
 * total sales, order count, and largest order per store
 * classic word count
+* inverted index construction (with document frequency as a bonus)
 * palindromes
 * finding (mutual) friends
 * people you may know
@@ -18,6 +19,7 @@ Worked MapReduce examples:
 | [`MapReduce_Find_Average_Temperature.md`](MapReduce_Find_Average_Temperature.md) | md | MapReduce Example: Average Temperature per City |
 | [`MapReduce_Finding_Friends.html`](MapReduce_Finding_Friends.html) | html | Worked example: finding common/mutual friends with MapReduce (saved copy of an external blog post) |
 | [`MapReduce_Finding_Friends.pdf`](MapReduce_Finding_Friends.pdf) | pdf | Same "Finding Friends" example, PDF export |
+| [`MapReduce_Inverted_Index.md`](MapReduce_Inverted_Index.md) | md | Complete map/combine/reduce worked example: inverted index (word → per-document positions) over 4 documents across two mapper partitions, plus document frequency (df) as a TF-IDF bonus — the fully worked solution to Question 19 in [`practice_questions/mapreduce_questions.md`](../../practice_questions/mapreduce_questions.md#question-19) |
 | [`MapReduce_People_You_May_Know.md`](MapReduce_People_You_May_Know.md) | md | Companion to Finding Friends: mutual friends for pairs who are *not* already friends (PYMK-style recommendation) — runnable pure-Python/PySpark implementations at [`slides/spark/pyspark/people_you_may_know/`](../../spark/pyspark/people_you_may_know/README.md) |
 | [`MapReduce_Total_Sales_per_Store.md`](MapReduce_Total_Sales_per_Store.md) | md | Complete map/combine/reduce worked example: total revenue, order count, and largest order per store, traced with and without a combiner over two mapper partitions |
 | [`MapReduce_Word_Count.md`](MapReduce_Word_Count.md) | md | Classic Word Count |
@@ -56,6 +58,9 @@ shape — only the key/value types and the aggregation logic change:
 ### 1. Inverted Index Construction
 
 Used by search engines to map words to the documents they appear in.
+See [`MapReduce_Inverted_Index.md`](MapReduce_Inverted_Index.md) for
+this same example traced mapper-by-mapper, reducer-by-reducer, with a
+combiner and document-frequency bonus.
 
 | Phase | What it does | Emits |
 |---|---|---|

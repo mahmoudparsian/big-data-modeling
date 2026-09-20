@@ -482,7 +482,11 @@ b. Write a `reduce()` function (a classic MapReduce reducer, NOT a PySpark
    function); you must identify Key and Value for the `reduce()`
 
 *(For the PySpark/RDD version of this same inverted-index problem, see
-[Question 6](rdds_questions.md#question-6) in `rdds_questions.md`.)*
+[Question 6](rdds_questions.md#question-6) in `rdds_questions.md`. For
+a fully worked solution — every mapper/combiner/reducer call traced by
+hand, plus a document-frequency bonus — see
+[`MapReduce_Inverted_Index.md`](../mapreduce/mapreduce_examples/MapReduce_Inverted_Index.md)
+in `mapreduce/mapreduce_examples/`.)*
 
 ---
 
