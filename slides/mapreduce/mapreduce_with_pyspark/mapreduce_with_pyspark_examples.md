@@ -867,7 +867,7 @@ filters, and reducers
 scratch — starting with plain Python `mapper()`/`reducer()`
 functions, every mapper/reducer call enumerated, filters, and
 a combiner — see
-[`word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md).)
+[`word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md).)
 
 ### Concepts: 
 

@@ -893,7 +893,7 @@ aggregate (Section 6), a combiner *could* pre-sum the
 `("TXN", amount)` values that share a `customer_id` within
 one mapper's partition — sum/count are associative and
 commutative, same as in
-[`word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md)
+[`word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md)
 — as long as it leaves the `("CUST", customer_name)` value
 untouched and simply passes it through. That trims data
 volume; it does not, and cannot, decide the join itself.
@@ -1042,6 +1042,6 @@ Comments and suggestions are welcome!
 ## 15. References
 
 1. [Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer](../mapreduce_by_Jimmy_Lin/MapReduce-algorithms-by-Jimmy-Lin.pdf) (this repository) — see the chapter on relational joins
-2. [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md) — companion worked example, same map/shuffle/reduce trace style
+2. [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md) — companion worked example, same map/shuffle/reduce trace style
 3. [PySpark `pyspark.RDD.join()` API docs](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.RDD.join.html) — RDD join/leftOuterJoin/rightOuterJoin/fullOuterJoin
 4. [PySpark `pyspark.sql.DataFrame.join()` API docs](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.join.html) — DataFrame join with the `how=` parameter

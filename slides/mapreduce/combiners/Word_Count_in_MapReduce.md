@@ -12,7 +12,7 @@ the combiner is visible side by side.
 Python `mapper()`/`combiner()`/`reducer()` functions,
 every call enumerated, and a preview of the PySpark port,
 see
-[`word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md).)
+[`word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md).)
 
 MapReduce is a programming model and an
 associated implementation for processing

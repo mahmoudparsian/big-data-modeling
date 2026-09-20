@@ -168,7 +168,7 @@ necessarily exact. The word-counting *logic* is unaffected
 either way — this article's code was verified end to end
 against a real PySpark install, just not necessarily against
 the identical file bytes the `14620` figure came from.
-[`word_count_in_python/`](../word_count_in_python/) sidesteps
+[`word_count_in_python/`](../word_count_classic/word_count_in_python/) sidesteps
 this entirely with small, fixed, checked-in toy text files
 instead of a live download.)
 
@@ -398,9 +398,9 @@ maps the lines it can already see), let the framework's
 shuffle merge everyone's intermediate files by key across the
 network, and split the reduce step across machines too (each
 reducer only needs the values for the keys assigned to it).
-[`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md)
+[`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md)
 traces that fully-distributed version call by call, including
-combiners; [`word_count_in_python/`](../word_count_in_python/)
+combiners; [`word_count_in_python/`](../word_count_classic/word_count_in_python/)
 has similarly-shaped single-file and multi-file-directory
 word-count scripts, over small checked-in toy text instead of
 a downloaded book, for tinkering without the Section 4
@@ -1237,7 +1237,7 @@ cluster.
 5. Rewrite Section 19's DataFrame word count so that words
    shorter than a broadcast-variable-configured minimum
    length are excluded, mirroring
-   [`word_count_in_mapreduce/word_count_in_mapreduce.md`, Section 7](../word_count_in_mapreduce/word_count_in_mapreduce.md)'s
+   [`word_count_in_mapreduce/word_count_in_mapreduce.md`, Section 7](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md)'s
    mapper-side length filter but expressed as a DataFrame
    `.filter()`.
 6. Extend Section 18's `combineByKey` example to also track
@@ -1261,7 +1261,7 @@ Comments and suggestions are welcome!
    [`google_mapreduce_paper/`](../google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
 5. [Apache Spark RDD Programming Guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html)
 6. [Apache Spark SQL, DataFrames and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html)
-7. [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_in_mapreduce/word_count_in_mapreduce.md) — full mapper/reducer trace of word count, plus combiners
+7. [`word_count_in_mapreduce/word_count_in_mapreduce.md`](../word_count_classic/word_count_in_mapreduce/word_count_in_mapreduce.md) — full mapper/reducer trace of word count, plus combiners
 8. [`combiners/MapReduce_with_Combiners.md`](../combiners/MapReduce_with_Combiners.md) — the map-side combine optimization referenced in Section 14
 9. [`partitions_in_mapreduce/partitions_and_executors.md`](../partitions_in_mapreduce/partitions_and_executors.md) — a deeper look at partitions and executors, referenced in Section 11
 10. [`joins_in_mapreduce/join_operation_in_action_using_MapReduce.md`](../joins_in_mapreduce/join_operation_in_action_using_MapReduce.md) — the reduce-side join and Top-N patterns referenced in Sections 13, 15, and 20

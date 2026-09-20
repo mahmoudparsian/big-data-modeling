@@ -359,7 +359,7 @@ alone. Same word, opposite outcome, because the two
 filters look at completely different information: one 
 word at a time vs. the aggregated total. See the "Mapper 
 filter vs. reducer filter" comparison table in
-[`mapreduce_examples/MapReduce_Word_Count.md`](../mapreduce_examples/MapReduce_Word_Count.md)
+[`mapreduce_examples/MapReduce_Word_Count.md`](../../mapreduce_examples/MapReduce_Word_Count.md)
 for the general rule of thumb.
 
 ## 12. Final Output
@@ -509,11 +509,11 @@ reducer("ran",    [1])       -> ("ran", 1)
 
 Identical to Step 6's output — the combiner only changed
 **how much data moved**, never **what the answer was**. See
-[`combiners/Word_Count_in_MapReduce.md`](../combiners/Word_Count_in_MapReduce.md)
+[`combiners/Word_Count_in_MapReduce.md`](../../combiners/Word_Count_in_MapReduce.md)
 for a similar worked example — same combiner idea, applied
 to a different sample input and a different partitioning
 scheme — and
-[`combiners/MapReduce_with_Combiners.md`](../combiners/MapReduce_with_Combiners.md)
+[`combiners/MapReduce_with_Combiners.md`](../../combiners/MapReduce_with_Combiners.md)
 for cases (like `average`) where a naive combiner *would*
 silently break correctness.
 
@@ -545,7 +545,7 @@ Notice `mapper()` and `combine()` are called **as-is** — no
 rewrite required. That's the payoff of writing this
 walkthrough in Python syntax with a binary reducer from the
 start. See
-[`mapreduce_with_pyspark/mapreduce_with_pyspark_examples.md`](../mapreduce_with_pyspark/mapreduce_with_pyspark_examples.md)'s
+[`mapreduce_with_pyspark/mapreduce_with_pyspark_examples.md`](../../mapreduce_with_pyspark/mapreduce_with_pyspark_examples.md)'s
 "Example 1: Word Count" for this same `flatMap`/`reduceByKey`
 skeleton run as an actual PySpark session, with real
 `.count()`/`.collect()` output at every step.
@@ -608,7 +608,7 @@ Two things worth noticing:
   no earlier point in the pipeline has that total yet. This
   is the PySpark version of "Reducers with Filters" above —
   the same mapper-filter-vs-reducer-filter distinction from
-  [`mapreduce_examples/MapReduce_Word_Count.md`](../mapreduce_examples/MapReduce_Word_Count.md),
+  [`mapreduce_examples/MapReduce_Word_Count.md`](../../mapreduce_examples/MapReduce_Word_Count.md),
   now expressed as `.filter()` placement instead of an `if`
   inside `map()`/`reduce()`.
 
