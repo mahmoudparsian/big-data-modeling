@@ -1,6 +1,7 @@
 # Course Information
 
-Per-topic policy/reference pages for the course (grading, prerequisites, exam dates, required books, tutorials, etc.) — linked from the root `README.md` and from every term's syllabus. Each file here is the single source of truth for its topic.
+* Per-topic policy/reference pages for the course (grading, prerequisites, exam dates, required books, tutorials, etc.) — linked from the root `README.md` and from every term's syllabus. 
+* Each file here is the single source of truth for its topic.
 
 ## 10 Weeks Course Outline
 
