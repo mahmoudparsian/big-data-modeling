@@ -1,7 +1,7 @@
 # Partitions and Executors in MapReduce
 
 	Author: Mahmoud Parsian
-	Last updated: 9/3/2026
+	Last updated: 9/21/2026
 
 ## Table of Contents
 
@@ -13,11 +13,12 @@
 6. [Example: Cluster Configuration](#example-cluster-configuration)
 7. [Executors, Cores, and Task Slots](#executors-cores-and-task-slots)
 8. [Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
-9. [Scaling Out: Adding More Worker Nodes](#scaling-out-adding-more-worker-nodes)
-10. [Configuring Partitions and Executors in Spark](#configuring-partitions-and-executors-in-spark)
-11. [Worked Example in PySpark](#worked-example-in-pyspark)
-12. [Key Takeaways](#key-takeaways)
-13. [References](#references)
+9. [Worked Example: 30 Partitions, Step by Step](#worked-example-30-partitions-step-by-step)
+10. [Scaling Out: Adding More Worker Nodes](#scaling-out-adding-more-worker-nodes)
+11. [Configuring Partitions and Executors in Spark](#configuring-partitions-and-executors-in-spark)
+12. [Worked Example in PySpark](#worked-example-in-pyspark)
+13. [Key Takeaways](#key-takeaways)
+14. [References](#references)
 
 ---
 
@@ -377,6 +378,149 @@ available, the faster the whole job completes, up
 to the point where partitions run out to assign or
 some other resource (network, disk I/O, the driver
 itself) becomes the bottleneck.
+
+## Worked Example: 30 Partitions, Step by Step
+
+The round-based assignment process described in
+[Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
+works the same way no matter how many partitions or
+task slots are involved — only the round count
+changes. The `40,000`-partition example above needs
+`3,334` rounds, far too many to enumerate by hand.
+This companion example uses a much smaller input so
+that **every single round** can be shown explicitly,
+from the first partition assigned to the last one
+processed.
+
+### Input Data
+
+* Input: `30,000,000` rows
+* Number of partitions: `30`
+* Approximate number of rows per partition: `1,000,000`
+* `30 x 1,000,000 = 30,000,000`
+* Label the partitions `P1, P2, P3, ..., P30`
+
+### Cluster Configuration
+
+Same 4-node shape as
+[Example: Cluster Configuration](#example-cluster-configuration):
+one master (`M`) and 3 worker nodes (`W1`, `W2`,
+`W3`), `C = {M, W1, W2, W3}`. `M` acts only as the
+cluster manager and does not execute mappers or
+reducers. Each worker node can run 4 mappers in
+parallel (4 task slots, 1 core each), so the cluster's
+total task-slot capacity is:
+
+```
+S = 3 workers x 4 mappers/worker = 12 task slots
+```
+
+```
+            M  (cluster manager, no compute)
+            |
+   +--------+--------+
+   |        |         |
+   W1       W2        W3
+ 4 slots  4 slots   4 slots   ->  S = 12 task slots total
+```
+
+### Round-by-Round Walkthrough
+
+With `P = 30` partitions and `S = 12` task slots, the
+number of rounds needed is:
+
+```
+rounds = ceil(P / S) = ceil(30 / 12) = 3
+```
+
+**Round 1 — all 12 slots busy, partitions `P1`-`P12`
+assigned:**
+
+| Worker | Slot | Partition |
+|---|---|---|
+| W1 | 1 | P1 |
+| W1 | 2 | P2 |
+| W1 | 3 | P3 |
+| W1 | 4 | P4 |
+| W2 | 1 | P5 |
+| W2 | 2 | P6 |
+| W2 | 3 | P7 |
+| W2 | 4 | P8 |
+| W3 | 1 | P9 |
+| W3 | 2 | P10 |
+| W3 | 3 | P11 |
+| W3 | 4 | P12 |
+
+12 partitions processed; 18 remain in the queue
+(`P13`-`P30`).
+
+**Round 2 — all 12 slots busy again, partitions
+`P13`-`P24` assigned:**
+
+| Worker | Slot | Partition |
+|---|---|---|
+| W1 | 1 | P13 |
+| W1 | 2 | P14 |
+| W1 | 3 | P15 |
+| W1 | 4 | P16 |
+| W2 | 1 | P17 |
+| W2 | 2 | P18 |
+| W2 | 3 | P19 |
+| W2 | 4 | P20 |
+| W3 | 1 | P21 |
+| W3 | 2 | P22 |
+| W3 | 3 | P23 |
+| W3 | 4 | P24 |
+
+24 partitions processed; 6 remain in the queue
+(`P25`-`P30`).
+
+**Round 3 — only 6 partitions left, so only 6 of the
+12 slots are used; the other 6 sit idle:**
+
+| Worker | Slot | Partition |
+|---|---|---|
+| W1 | 1 | P25 |
+| W1 | 2 | P26 |
+| W2 | 1 | P27 |
+| W2 | 2 | P28 |
+| W3 | 1 | P29 |
+| W3 | 2 | P30 |
+| W1 | 3 | *idle* |
+| W1 | 4 | *idle* |
+| W2 | 3 | *idle* |
+| W2 | 4 | *idle* |
+| W3 | 3 | *idle* |
+| W3 | 4 | *idle* |
+
+All 30 partitions have now been processed. The queue
+is empty — the map phase is complete.
+
+### Summary
+
+* Total rounds: `3` (`ceil(30 / 12) = 3`).
+* Rounds 1 and 2: full cluster utilization (`12 / 12`
+  slots busy).
+* Round 3: partial utilization (`6 / 12` slots busy,
+  `50%` idle) — the same "partially-filled final
+  round" effect noted for the `40,000`-partition
+  example, just easier to see at this smaller scale.
+
+**Worked numbers.** If each `map()` task takes, on
+average, `2` seconds to process its `1,000,000`-row
+partition:
+
+```
+rounds        = ceil(30 / 12)      = 3
+elapsed time  = 3 rounds x 2 sec   = 6 sec
+```
+
+versus the `T ≈ 6,668 sec` computed for the
+`40,000`-partition example on the same 12-slot
+cluster in
+[Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
+— the formula (`ceil(P / S) x average task duration`)
+is identical; only `P` changed.
 
 ## Scaling Out: Adding More Worker Nodes
 
