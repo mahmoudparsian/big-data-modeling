@@ -5,29 +5,29 @@
 
 ## Table of Contents
 
-1. [Introduction to MapReduce and Beyond](#introduction-to-mapreduce-and-beyond)
-2. [Data Parallelism in MapReduce](#data-parallelism-in-mapreduce)
-3. [Two Kinds of Partitioning](#two-kinds-of-partitioning)
-4. [Data Locality](#data-locality)
-5. [Example: Input Data](#example-input-data)
-6. [Example: Cluster Configuration](#example-cluster-configuration)
-7. [Executors, Cores, and Task Slots](#executors-cores-and-task-slots)
-8. [Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
-9. [Worked Example: 30 Partitions, Step by Step](#worked-example-30-partitions-step-by-step)
-10. [Scaling Out: Adding More Worker Nodes](#scaling-out-adding-more-worker-nodes)
-11. [Configuring Partitions and Executors in Spark](#configuring-partitions-and-executors-in-spark)
-12. [Worked Example in PySpark](#worked-example-in-pyspark)
-13. [Key Takeaways](#key-takeaways)
-14. [References](#references)
+1. [Introduction to MapReduce and Beyond](#1-introduction-to-mapreduce-and-beyond)
+2. [Data Parallelism in MapReduce](#2-data-parallelism-in-mapreduce)
+3. [Two Kinds of Partitioning](#3-two-kinds-of-partitioning)
+4. [Data Locality](#4-data-locality)
+5. [Example: Input Data](#5-example-input-data)
+6. [Example: Cluster Configuration](#6-example-cluster-configuration)
+7. [Executors, Cores, and Task Slots](#7-executors-cores-and-task-slots)
+8. [Distributing Partitions to Worker Nodes](#8-distributing-partitions-to-worker-nodes)
+9. [Worked Example: 30 Partitions, Step by Step](#9-worked-example-30-partitions-step-by-step)
+10. [Scaling Out: Adding More Worker Nodes](#10-scaling-out-adding-more-worker-nodes)
+11. [Configuring Partitions and Executors in Spark](#11-configuring-partitions-and-executors-in-spark)
+12. [Worked Example in PySpark](#12-worked-example-in-pyspark)
+13. [Key Takeaways](#13-key-takeaways)
+14. [References](#14-references)
 
 ---
 
-## Introduction to MapReduce and Beyond
+## 1. Introduction to MapReduce and Beyond
 
 MapReduce is a parallel programming model
 and an associated implementation introduced
 by Google (Dean and Ghemawat, 2004 — see
-[References](#references)). In this programming
+[References](#14-references)). In this programming
 model, a user specifies the computation with two
 functions, `map()` and `reduce()`. The MapReduce
 paradigm, or systems inspired by it, are implemented
@@ -68,7 +68,7 @@ by many projects:
     depends heavily on the workload and cluster
     configuration.
 
-## Data Parallelism in MapReduce
+## 2. Data Parallelism in MapReduce
 
 The MapReduce programming model was created
 to exploit **data parallelism**: the ability to
@@ -106,7 +106,7 @@ to MapReduce and to Spark, though — as the next
 section explains — the word "partition" actually
 covers two related but distinct ideas.
 
-## Two Kinds of Partitioning
+## 3. Two Kinds of Partitioning
 
 It's easy to conflate two different concepts that
 both go by the name "partition":
@@ -142,7 +142,7 @@ how they get scheduled. Reduce-side parallelism
 would be sized independently, typically much smaller
 than the map-side partition count.
 
-## Data Locality
+## 4. Data Locality
 
 Real cluster schedulers don't hand out partitions
 purely first-come-first-served — they also try to
@@ -167,7 +167,7 @@ partition in the queue" model used below is a useful
 mental model, but a real scheduler also factors in
 where the data physically lives.
 
-## Example: Input Data
+## 5. Example: Input Data
 
 Your input is partitioned into chunks called partitions.
 For example, if you have `80,000,000,000` records
@@ -180,12 +180,12 @@ For example, if you have `80,000,000,000` records
 
 We will carry this same example — `40,000` partitions — through the rest
 of this document, first against a 12-slot cluster
-([Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)),
+([Distributing Partitions to Worker Nodes](#8-distributing-partitions-to-worker-nodes)),
 then against larger clusters
-([Scaling Out](#scaling-out-adding-more-worker-nodes)), so the abstract
+([Scaling Out](#10-scaling-out-adding-more-worker-nodes)), so the abstract
 formulas below always have concrete numbers attached to them.
 
-## Example: Cluster Configuration
+## 6. Example: Cluster Configuration
 
 Assume you have a cluster of 4 nodes: one master
 (`M`) and 3 worker nodes (`W1`, `W2`, `W3`). We
@@ -238,7 +238,7 @@ executor runs one task at a time** (i.e., 1 core per
 executor). The following section relaxes that
 assumption.
 
-## Executors, Cores, and Task Slots
+## 7. Executors, Cores, and Task Slots
 
 An executor is not necessarily limited to one task
 at a time. In Spark, each executor is a JVM process
@@ -315,7 +315,7 @@ processed at once. This is why, when sizing a real
 Spark cluster, you must reason about
 *executors x cores*, not just the executor count.
 
-## Distributing Partitions to Worker Nodes
+## 8. Distributing Partitions to Worker Nodes
 
 The question is: how does the cluster manager
 distribute and execute `40,000` partitions across
@@ -334,7 +334,7 @@ The assignment proceeds in rounds:
 1. **Round 1:** the cluster manager assigns the first
    12 partitions to the 12 idle task slots, one
    partition per slot — subject to data-locality
-   preferences (see [Data Locality](#data-locality)),
+   preferences (see [Data Locality](#4-data-locality)),
    which this simplified walk-through otherwise
    ignores.
 2. As soon as a task slot finishes `map()` on its
@@ -371,7 +371,7 @@ elapsed time  = 3,334 rounds x 2 sec     = 6,668 sec
 ```
 
 We will call this baseline `T ≈ 6,668 sec` and reuse it in
-[Scaling Out](#scaling-out-adding-more-worker-nodes) below.
+[Scaling Out](#10-scaling-out-adding-more-worker-nodes) below.
 
 The more worker nodes (and executors/cores) we have
 available, the faster the whole job completes, up
@@ -379,10 +379,10 @@ to the point where partitions run out to assign or
 some other resource (network, disk I/O, the driver
 itself) becomes the bottleneck.
 
-## Worked Example: 30 Partitions, Step by Step
+## 9. Worked Example: 30 Partitions, Step by Step
 
 The round-based assignment process described in
-[Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
+[Distributing Partitions to Worker Nodes](#8-distributing-partitions-to-worker-nodes)
 works the same way no matter how many partitions or
 task slots are involved — only the round count
 changes. The `40,000`-partition example above needs
@@ -403,7 +403,7 @@ processed.
 ### Cluster Configuration
 
 Same 4-node shape as
-[Example: Cluster Configuration](#example-cluster-configuration):
+[Example: Cluster Configuration](#6-example-cluster-configuration):
 one master (`M`) and 3 worker nodes (`W1`, `W2`,
 `W3`), `C = {M, W1, W2, W3}`. `M` acts only as the
 cluster manager and does not execute mappers or
@@ -518,11 +518,11 @@ elapsed time  = 3 rounds x 2 sec   = 6 sec
 versus the `T ≈ 6,668 sec` computed for the
 `40,000`-partition example on the same 12-slot
 cluster in
-[Distributing Partitions to Worker Nodes](#distributing-partitions-to-worker-nodes)
+[Distributing Partitions to Worker Nodes](#8-distributing-partitions-to-worker-nodes)
 — the formula (`ceil(P / S) x average task duration`)
 is identical; only `P` changed.
 
-## Scaling Out: Adding More Worker Nodes
+## 10. Scaling Out: Adding More Worker Nodes
 
 Suppose that, with our original cluster `C`
 (3 worker nodes, 12 executors, 1 core each ⇒ 12 task
@@ -565,7 +565,7 @@ reduce the actual speedup you observe in practice,
 so real numbers typically fall short even of what
 Amdahl's Law predicts.
 
-## Configuring Partitions and Executors in Spark
+## 11. Configuring Partitions and Executors in Spark
 
 The concepts above map directly onto Spark
 configuration knobs you can set at submit time or in
@@ -603,7 +603,7 @@ aim for 2-4 tasks queued per core so that stragglers
 and uneven task durations can be smoothed out rather
 than leaving idle slots at the end of a round.
 
-## Worked Example in PySpark
+## 12. Worked Example in PySpark
 
 The knobs listed above aren't just theoretical — here's how the exact
 cluster from our walkthrough (3 worker nodes, 4 executors per node, 4
@@ -625,7 +625,7 @@ spark-submit \
 
 This asks YARN for `12` executors x `4` cores = `48` concurrent task
 slots — the same number derived in
-[Executors, Cores, and Task Slots](#executors-cores-and-task-slots) —
+[Executors, Cores, and Task Slots](#7-executors-cores-and-task-slots) —
 and fixes the reduce-side (shuffle) parallelism at `200` partitions,
 independent of however many input partitions the job starts with.
 
@@ -679,7 +679,7 @@ which is the whole chapter — input partitioning, shuffle partitioning,
 `repartition()` vs. `coalesce()`, and the executor/core budget that
 processes it all — condensed into one runnable example.
 
-## Key Takeaways
+## 13. Key Takeaways
 
 * Input data is split into many equal-sized
   **partitions** (input splits); each partition is
@@ -705,7 +705,7 @@ processes it all — condensed into one runnable example.
   skew, and stragglers, so it falls short of ideal
   linear speedup.
 
-## References
+## 14. References
 
 * Jeffrey Dean and Sanjay Ghemawat,
   ["MapReduce: Simplified Data Processing on Large Clusters"](../google_mapreduce_paper/MapReduce_Simplified_Data_Processing_on_Large_Clusters_by_Jeff_Dean.pdf)
@@ -724,4 +724,4 @@ processes it all — condensed into one runnable example.
   configuration.
 * [Amdahl's Law](https://en.wikipedia.org/wiki/Amdahl%27s_law)
   — the theoretical limit of parallel speedup used in
-  [Scaling Out](#scaling-out-adding-more-worker-nodes).
+  [Scaling Out](#10-scaling-out-adding-more-worker-nodes).
