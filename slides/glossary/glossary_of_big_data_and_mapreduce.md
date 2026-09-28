@@ -82,6 +82,7 @@ Table of Contents
 1. [What is an Example of a Mapper in MapReduce](#What-is-an-Example-of-a-Mapper-in-MapReduce)
 1. [What is an Example of a Reducer in MapReduce](#What-is-an-Example-of-a-Reducer-in-MapReduce)
 1. [What is an Example of a Combiner in MapReduce](#What-is-an-Example-of-a-Combiner-in-MapReduce)
+1. [Pairs and Stripes](#Pairs-and-Stripes)
 1. [Partition](#Partition)
 1. [Parallel Computing](#Parallel-Computing)
 1. [Difference between Concurrency and Parallelism?](#Difference-between-Concurrency-and-Parallelism)
@@ -3364,6 +3365,49 @@ are mini-reducer optimizations
 and they reduce network traffic 
 by combining many values into a 
 single value.
+
+
+<a class="top-link hide" href="#top">↑</a>
+<a name="top"></a>
+
+
+## Pairs and Stripes
+**Pairs** and **Stripes** are two design patterns for computing 
+a co-occurrence matrix in MapReduce: for every pair of things 
+that appear together (words in a sentence, products in an order, 
+etc.), count how often they co-occur.
+
+**Pairs**: the mapper emits one `(item1, item2) -> 1` record for 
+every co-occurring pair. The reducer sums the 1's for each pair.
+
+**Stripes**: the mapper emits one `item -> {other_item: count, ...}` 
+record per item, mapping it to all of its co-occurring neighbors. 
+The reducer merges the maps it receives for the same key.
+
+Example: a mapper sees the words `cat sat mat` on one line.
+
+	Pairs mapper output:
+	(cat,sat)=1  (cat,mat)=1  (sat,cat)=1  (sat,mat)=1  (mat,cat)=1  (mat,sat)=1
+
+	Stripes mapper output:
+	cat -> {sat:1, mat:1}
+	sat -> {cat:1, mat:1}
+	mat -> {cat:1, sat:1}
+
+Both patterns produce the same final co-occurrence counts. 
+**Pairs** emits many tiny records — simple, but heavy shuffle 
+traffic. **Stripes** emits fewer, larger records — lighter 
+shuffle traffic and a much bigger combiner win, at the cost of 
+higher reducer memory (one key's entire row has to fit in memory 
+at once).
+
+For a full worked trace of both patterns on the same example, 
+plus a second example (products bought together), see 
+[`mapreduce_by_Mahmoud_Parsian/10_pairs_and_stripes.md`](../mapreduce/mapreduce_by_Mahmoud_Parsian/10_pairs_and_stripes.md).
+
+Reference: Jimmy Lin & Chris Dyer, "Basic MapReduce Algorithm 
+Design" (Pairs and Stripes), from *Data-Intensive Text Processing 
+with MapReduce*.
 
 
 <a class="top-link hide" href="#top">↑</a>

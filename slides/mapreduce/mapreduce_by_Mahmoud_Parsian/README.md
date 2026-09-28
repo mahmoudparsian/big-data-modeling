@@ -46,6 +46,7 @@ them — regenerate only if you edit a `.md` file.
 | 07 | [`07_combiners_in_mapreduce.md`](07_combiners_in_mapreduce.md) | `09` | 9 | Bridge | What a combiner is and where it sits in the pipeline. The theory (associativity/commutativity, the "average of an average" trap) is already covered far more rigorously elsewhere in this repo — linked, not repeated. |
 | 08 | [`08_mapreduce_example_without_combiners.md`](08_mapreduce_example_without_combiners.md) | `10` | 10 | Bridge + example | Average-temperature-per-city, worked without a combiner. The full derivation of this exact problem already exists elsewhere; this file gives a second, standalone worked example with its own numbers plus a "Try It Yourself" exercise. |
 | 09 | [`09_mapreduce_example_with_combiners.md`](09_mapreduce_example_with_combiners.md) | `11` | 13 | Bridge + example | The same example, redone with a combiner — a complete multi-partition mapper→combiner→shuffle→reducer numeric trace showing the average-of-an-average fix in action, plus a matching "Try It Yourself" exercise cross-checked against deck 08's answer. |
+| 10 | [`10_pairs_and_stripes.md`](10_pairs_and_stripes.md) | — (new) | 17 | New content | The Pairs and Stripes design patterns for building an `N x N` co-occurrence matrix in MapReduce, per Jimmy Lin & Chris Dyer's "Basic MapReduce Algorithm Design". Same tiny word-co-occurrence corpus solved both ways, side by side, plus a second worked example (products bought together) showing the pattern generalizes beyond text. |
 
 The 11 original `.pptx` decks and the third-party
 `00_Understanding_MapReduce_by_Databricks.pdf` reference have been
@@ -59,6 +60,7 @@ Markdown/PDF series.
 2. **03–04** — Word Count, first in plain Python, then as a full MapReduce job
 3. **05–06** — filters, and the storage layer (HDFS) underneath MapReduce
 4. **07–09** — combiners, illustrated with a matched without/with example pair
+5. **10** — Pairs and Stripes, a design-pattern choice for building co-occurrence matrices
 
 ## Design Notes
 
