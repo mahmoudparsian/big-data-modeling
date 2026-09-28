@@ -99,9 +99,14 @@ Line 1 emits:
 ## Pairs — All Mapper Output
 
 ```text
-Line 1: (cat,sat)=1 (cat,mat)=1 (sat,cat)=1 (sat,mat)=1 (mat,cat)=1 (mat,sat)=1
-Line 2: (cat,sat)=1 (cat,rug)=1 (sat,cat)=1 (sat,rug)=1 (rug,cat)=1 (rug,sat)=1
-Line 3: (sat,mat)=1 (sat,rug)=1 (mat,sat)=1 (mat,rug)=1 (rug,sat)=1 (rug,mat)=1
+Line 1: (cat,sat)=1 (cat,mat)=1 (sat,cat)=1 
+        (sat,mat)=1 (mat,cat)=1 (mat,sat)=1
+
+Line 2: (cat,sat)=1 (cat,rug)=1 (sat,cat)=1 
+        (sat,rug)=1 (rug,cat)=1 (rug,sat)=1
+
+Line 3: (sat,mat)=1 (sat,rug)=1 (mat,sat)=1 
+        (mat,rug)=1 (rug,sat)=1 (rug,mat)=1
 ```
 
 18 key-value records cross the shuffle — one per pair, per line.
@@ -165,9 +170,17 @@ drives the logic.
 ## Stripes — All Mapper Output
 
 ```text
-Line 1: cat->{sat:1,mat:1}  sat->{cat:1,mat:1}  mat->{cat:1,sat:1}
-Line 2: cat->{sat:1,rug:1}  sat->{cat:1,rug:1}  rug->{cat:1,sat:1}
-Line 3: sat->{mat:1,rug:1}  mat->{sat:1,rug:1}  rug->{sat:1,mat:1}
+Line 1: cat->{sat:1,mat:1}  
+        sat->{cat:1,mat:1}  
+        mat->{cat:1,sat:1}
+        
+Line 2: cat->{sat:1,rug:1}  
+        sat->{cat:1,rug:1}  
+        rug->{cat:1,sat:1}
+        
+Line 3: sat->{mat:1,rug:1}  
+        mat->{sat:1,rug:1}  
+        rug->{sat:1,mat:1}
 ```
 
 9 records cross the shuffle, not 18 — each one just carries more
@@ -262,9 +275,16 @@ Order 3: milk eggs cheese
 ## Example 2 — Mapper, Worked
 
 ```text
-map(O1): bread->{milk:1,eggs:1}  milk->{bread:1,eggs:1}  eggs->{bread:1,milk:1}
-map(O2): bread->{eggs:1}  eggs->{bread:1}
-map(O3): milk->{eggs:1,cheese:1}  eggs->{milk:1,cheese:1}  cheese->{milk:1,eggs:1}
+map(Order 1): bread->{milk:1,eggs:1}  
+              milk->{bread:1,eggs:1}  
+              eggs->{bread:1,milk:1}
+         
+map(Order 2): bread->{eggs:1}  
+              eggs->{bread:1}
+         
+map(Order 3): milk->{eggs:1,cheese:1}  
+              eggs->{milk:1,cheese:1}  
+              cheese->{milk:1,eggs:1}
 ```
 
 7 records total — one per item per order. Every record is listed
