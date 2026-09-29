@@ -15,7 +15,18 @@ Ph.D. in Computer Science
 
 ---
 
-## Where the Full Derivation Already Lives
+## Table of Contents
+
+1. Where the Full Derivation Already Lives
+2. The Problem
+3. The Mapper: One Record, Two Keys
+4. Worked Example
+5. Try It Yourself
+6. Next
+
+---
+
+## 1. Where the Full Derivation Already Lives
 
 This exact problem — average temperature per city — is already
 worked out step by step, key by key, in:
@@ -31,7 +42,7 @@ extends with a combiner. Both should land on the same final answer.
 
 ---
 
-## The Problem
+## 2. The Problem
 
 Input record: `<country>,<city>,<temperature>`
 
@@ -48,7 +59,7 @@ the average temperature **per country** too.
 
 ---
 
-## The Mapper: One Record, Two Keys
+## 3. The Mapper: One Record, Two Keys
 
 Each input record contributes to *two* running averages at once —
 its city's, and its country's:
@@ -67,7 +78,7 @@ def map(key, value):
 
 ---
 
-## Worked Example: Input
+## 4. Worked Example
 
 ```text
 USA,Cupertino,58      USA,Cupertino,78
@@ -128,7 +139,7 @@ def reduce(key, values):
 
 ---
 
-## Try It Yourself
+## 5. Try It Yourself
 
 A third partition arrives with more records:
 
@@ -149,9 +160,72 @@ What does `reduce()` emit for `"CANADA,Toronto"` and for `"CANADA"`?
 
 ---
 
+## Try It Yourself: MEDIAN, Not Just AVERAGE
+
+The Sort & Shuffle step already grouped every raw value by key —
+nothing was pre-summarized. So the reducer can compute *any*
+aggregate from that list, not just `AVERAGE`.
+
+From the **Worked Example: Sort & Shuffle Output** slide, compute the
+**median** for each of the 6 keys. Then compare against the
+`AVERAGE` reducer's output shown earlier.
+
+---
+
+## Try It Yourself: MEDIAN — Answer
+
+```text
+("USA,Cupertino", median=67)    # avg was 67.67 — close
+("USA,Sunnyvale", median=82.5)  # avg was 82.5  — same (n=2)
+("USA",           median=77)    # avg was 73.6  — genuinely different!
+("INDIA,Mumbai",  median=93)    # avg was 93    — same (n=2)
+("INDIA,Agra",    median=95)    # avg was 95    — same (n=2)
+("INDIA",         median=94)    # avg was 94    — same (n=4, symmetric)
+```
+
+`("USA", ...)` is the interesting one: 5 raw values, genuinely
+different median vs. average. This works *only* because there's no
+combiner here — every raw value survives to the reducer. Add a
+combiner and this same `median()` reducer silently breaks — see
+[`07_combiners_in_mapreduce.md`](07_combiners_in_mapreduce.md)'s
+"Hard Case 1: MEDIAN".
+
+---
+
+## Try It Yourself: The Filter in Action
+
+The third partition (previous exercise) also includes a bad sensor
+reading:
+
+```text
+CANADA,Toronto,29
+CANADA,Toronto,48
+CANADA,Toronto,61
+CANADA,Toronto,-10     # faulty reading
+```
+
+Trace `map()`'s `if temperature >= 0` check on the `-10` record —
+does it reach the reducer? What does `reduce()` now emit for
+`"CANADA,Toronto"`?
+
+---
+
+## Try It Yourself: The Filter in Action — Answer
+
+```text
+map(): -10 fails the filter, never emitted at all
+reduce("CANADA,Toronto", [29,48,61]) -> 46.0   # unchanged
+```
+
+The bad reading is dropped at the **mapper**, before shuffle — see
+[`05_filters_in_mapreduce.md`](05_filters_in_mapreduce.md) for the
+general mapper-vs-reducer filter placement rule.
+
+---
+
 <!-- _class: lead -->
 
-## Next
+## 6. Next
 
 - Filtering by temperature or by average — same rules as always:
   [`05_filters_in_mapreduce.md`](05_filters_in_mapreduce.md)
