@@ -31,6 +31,9 @@ and notes for learning PySpark.
 * [`rdd_class_demos/`](rdd_class_demos) — RDD example scripts and notebooks
 * [`rdd_join_operation/`](rdd_join_operation) — join examples in RDD and MapReduce
 * [`mapreduce-pyspark-tutorial/`](mapreduce-pyspark-tutorial) — Tutorial 1: MapReduce thinking with PySpark RDDs, slides + companion notebook
+* [`rdd_examples/`](rdd_examples) — growing collection of self-contained, runnable RDD examples:
+  [`word_count/`](rdd_examples/word_count) (classic word count) and
+  [`distinct_visitor_per_day/`](rdd_examples/distinct_visitor_per_day) (exact distinct visitors per day, with a companion DataFrame solution below)
 
 ## DataFrames
 
@@ -38,10 +41,11 @@ and notes for learning PySpark.
 * [`dataframes_slides/`](dataframes_slides) — intro slides and articles
 * [`dataframes_class_demos/`](dataframes_class_demos) — DataFrame example sessions
 * [`dataframes_udf/`](dataframes_udf) — user-defined functions
+* [`dataframes_examples/`](dataframes_examples) — growing collection of self-contained, runnable DataFrame examples:
+  [`distinct_visitor_per_day/`](dataframes_examples/distinct_visitor_per_day) (exact distinct visitors per day, with a companion RDD solution above)
 
 ## Other Topics
 * [`graphframes/`](graphframes) — GraphFrames intro and demos
 * [`pyspark_and_LLM/`](pyspark_and_LLM) — PySpark & LLM integration
 * [`spark-submit-example/`](spark-submit-example) — running jobs with `spark-submit`
-* [`rdd_wordcount_example/`](rdd_wordcount_example) — classic word count example
 * [`rdd_wordcount_demo/`](rdd_wordcount_demo) — classic word count example

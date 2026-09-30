@@ -1,0 +1,7 @@
+event_id,date,user_id,page
+E01,2026-09-01,U1,/home
+E02,2026-09-01,U2,/home
+E03,2026-09-01,U1,/pricing
+E04,2026-09-02,U1,/home
+E05,2026-09-02,U3,/docs
+E06,2026-09-02,U3,/pricing

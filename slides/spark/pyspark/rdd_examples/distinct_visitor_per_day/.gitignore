@@ -1,0 +1,4 @@
+__pycache__/
+.sparkStaging/
+spark-warehouse/
+artifacts/

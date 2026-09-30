@@ -3,6 +3,7 @@
 Worked MapReduce examples:
 
 * word count (basic) and sales revenue by region/category (intermediate), traced phase by phase
+* distinct website visitors per day (two jobs: deduplicate, then count)
 * average temperature per city
 * total sales, order count, and largest order per store
 * classic word count
@@ -15,6 +16,7 @@ Worked MapReduce examples:
 
 | Name | Type | Description |
 |---|---|---|
+| [`MapReduce_Distinct_Visitors_per_Day.md`](MapReduce_Distinct_Visitors_per_Day.md) | md | Two-job worked example: distinct daily visitors, full map/combine/shuffle/reduce traces, why local distinct counts cannot be added, and a runnable Python simulation |
 | [`MapReduce_2_Examples.md`](MapReduce_2_Examples.md) | md | MapReduce 2 Worked Examples |
 | [`MapReduce_Find_Average_Temperature.md`](MapReduce_Find_Average_Temperature.md) | md | MapReduce Example: Average Temperature per City |
 | [`MapReduce_Finding_Friends.html`](MapReduce_Finding_Friends.html) | html | Worked example: finding common/mutual friends with MapReduce (saved copy of an external blog post) |
