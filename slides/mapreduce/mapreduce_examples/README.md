@@ -2,7 +2,8 @@
 
 Worked MapReduce examples:
 
-* word count (basic) and sales revenue by region/category (intermediate), traced phase by phase
+* sales revenue by region/category (composite key, combiner, custom partitioner), traced phase by phase
+* top 10 disaster-relief hubs by meals delivered (aggregate first, then bounded-heap selection)
 * distinct website visitors per day (two jobs: deduplicate, then count)
 * average temperature per city
 * total sales, order count, and largest order per store
@@ -16,8 +17,9 @@ Worked MapReduce examples:
 
 | Name | Type | Description |
 |---|---|---|
+| [`MapReduce_Top_10/`](MapReduce_Top_10/) | folder | Exact two-job top-10 algorithm with synthetic disaster-relief data, bounded heaps, deterministic ties, correctness proof, and a runnable Python simulation over a CSV dataset — see [`MapReduce_Top_10/MapReduce_Top_10.md`](MapReduce_Top_10/MapReduce_Top_10.md) |
 | [`MapReduce_Distinct_Visitors_per_Day.md`](MapReduce_Distinct_Visitors_per_Day.md) | md | Two-job worked example: distinct daily visitors, full map/combine/shuffle/reduce traces, why local distinct counts cannot be added, and a runnable Python simulation |
-| [`MapReduce_2_Examples.md`](MapReduce_2_Examples.md) | md | MapReduce 2 Worked Examples |
+| [`MapReduce_Sales_by_Region.md`](MapReduce_Sales_by_Region.md) | md | Complete map/combine/partition/reduce worked example: total sales revenue by region and category, with a composite key, a meaningful combiner, and a custom partitioner |
 | [`MapReduce_Find_Average_Temperature.md`](MapReduce_Find_Average_Temperature.md) | md | MapReduce Example: Average Temperature per City |
 | [`MapReduce_Finding_Friends.html`](MapReduce_Finding_Friends.html) | html | Worked example: finding common/mutual friends with MapReduce (saved copy of an external blog post) |
 | [`MapReduce_Finding_Friends.pdf`](MapReduce_Finding_Friends.pdf) | pdf | Same "Finding Friends" example, PDF export |
@@ -73,8 +75,7 @@ combiner and document-frequency bonus.
 
 The classic MapReduce benchmark used for analyzing logs or text
 repositories. See [`MapReduce_Word_Count.md`](MapReduce_Word_Count.md)
-and Part 1 of [`MapReduce_2_Examples.md`](MapReduce_2_Examples.md) for
-this same example traced mapper-by-mapper, reducer-by-reducer.
+for this same example traced mapper-by-mapper, reducer-by-reducer.
 
 | Phase | What it does | Emits |
 |---|---|---|

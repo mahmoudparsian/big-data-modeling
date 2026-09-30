@@ -442,8 +442,8 @@ against. The framework automates the tedious parts:
 
 ## Next
 
-- Full worked walkthroughs (Word Count, Sales Revenue by Region):
-  [`mapreduce_examples/MapReduce_2_Examples.md`](../mapreduce_examples/MapReduce_2_Examples.md)
+- Full worked walkthrough (Sales Revenue by Region):
+  [`mapreduce_examples/MapReduce_Sales_by_Region.md`](../mapreduce_examples/MapReduce_Sales_by_Region.md)
 - Word Count as a complete MapReduce job:
   [`04_word_count_in_mapreduce.md`](04_word_count_in_mapreduce.md)
 - Filtering, mapper-side vs. reducer-side:

@@ -1,14 +1,11 @@
-# MapReduce: Complete Scenarios and Step-by-Step Solutions
+# MapReduce Example: Sales Revenue by Region and Category
 
 	Author: Mahmoud Parsian
-	Last updated: 8/19/2026
+	Last updated: 9/30/2026
 
-This document walks through two MapReduce examples in full detail:
+This document walks through a MapReduce example in full detail: computing the **total sales revenue per region and category** — a composite-key aggregation with a combiner and a custom partitioner, closer to a real business use case than the canonical word-count example.
 
-1. **Basic example** — Word Count (the canonical example, used to introduce the mechanics)
-2. **Intermediate example** — Sales Revenue by Region and Category (a composite-key aggregation with a combiner and a custom partitioner, closer to a real business use case)
-
-Both examples follow the same five phases: 
+The example follows the same five phases used throughout this series:
 
 ```
 Input Split 
@@ -19,140 +16,11 @@ Input Split
 → Output
 ```
 
-See also the worked examples in [`../mapreduce_examples/`](../mapreduce_examples/) (Word Count, Palindromes, Average Temperature) for more end-to-end walkthroughs — including a case where a naive combiner produces the *wrong* answer, referenced in Step 3 below.
+See also the other worked examples in this folder — [`MapReduce_Word_Count.md`](MapReduce_Word_Count.md) (the canonical example, used to introduce the mechanics), [`MapReduce_of_Palindromes.md`](MapReduce_of_Palindromes.md), and [`MapReduce_Find_Average_Temperature.md`](MapReduce_Find_Average_Temperature.md) — for more end-to-end walkthroughs, including a case where a naive combiner produces the *wrong* answer, referenced in Step 3 below.
 
 ---
 
-## Part 1: Basic Example — Word Count
-
-### Scenario
-
-You have three short text documents and want to count how many times each word appears across all of them.
-
-**Input documents:**
-
-```
-doc1.txt: "the cat sat on the mat"
-doc2.txt: "the dog sat on the log"
-doc3.txt: "the cat and the dog played"
-```
-
-### Step 1 — Input Splitting
-
-The MapReduce framework splits the input into chunks and assigns one chunk (an "input split") to each Mapper. Here, one document = one split = one Mapper.
-
-| Split | Assigned to | Content |
-|---|---|---|
-| Split 1 | Mapper 1 | "the cat sat on the mat" |
-| Split 2 | Mapper 2 | "the dog sat on the log" |
-| Split 3 | Mapper 3 | "the cat and the dog played" |
-
-### Step 2 — Map Phase
-
-Each Mapper independently tokenizes its line and emits a key-value pair `(word, 1)` for every word occurrence.
-
-**Map pseudocode:**
-
-```
-function MAP(document_id, document_text):
-    for each word w in split(document_text):
-        emit(w, 1)
-```
-
-**Mapper 1 output** (from "the cat sat on the mat"):
-
-```
-(the, 1) (cat, 1) (sat, 1) (on, 1) (the, 1) (mat, 1)
-```
-
-**Mapper 2 output** (from "the dog sat on the log"):
-
-```
-(the, 1) (dog, 1) (sat, 1) (on, 1) (the, 1) (log, 1)
-```
-
-**Mapper 3 output** (from "the cat and the dog played"):
-
-```
-(the, 1) (cat, 1) (and, 1) (the, 1) (dog, 1) (played, 1)
-```
-
-### Step 3 — Combine Phase (optional local reduce)
-
-A Combiner runs on each Mapper's node before data is sent across the network. It pre-aggregates values sharing the same key, cutting network traffic.
-
-**Combiner pseudocode** (identical logic to the Reducer, applied locally):
-
-```
-function COMBINE(word, list_of_counts):
-    emit(word, sum(list_of_counts))
-```
-
-**Why this combiner is correct:** integer addition is both **associative**
-and **commutative**, so it doesn't matter whether a partial sum is computed
-by a combiner, computed directly by the reducer, or some mix of both —
-applying the combiner zero, one, or many times, in any order, always
-yields the same final count. Not every `reduce()` function has this
-property: see the Average Temperature example in
-[`../mapreduce_examples/MapReduce_Find_Average_Temperature.md`](../mapreduce_examples/MapReduce_Find_Average_Temperature.md),
-where naively combining partial *averages* gives the wrong answer, and the
-combiner has to emit `(sum, count)` pairs instead of an average.
-
-| Mapper | Combined output |
-|---|---|
-| Mapper 1 | (the, 2) (cat, 1) (sat, 1) (on, 1) (mat, 1) |
-| Mapper 2 | (the, 2) (dog, 1) (sat, 1) (on, 1) (log, 1) |
-| Mapper 3 | (the, 2) (cat, 1) (and, 1) (dog, 1) (played, 1) |
-
-### Step 4 — Shuffle & Sort
-
-The framework groups all values by key across every mapper, and sorts the keys before handing them to Reducers.
-
-**Grouped intermediate data** (this is what each Reducer actually receives):
-
-```
-and     -> [1]
-cat     -> [1, 1]
-dog     -> [1, 1]
-log     -> [1]
-mat     -> [1]
-on      -> [1, 1]
-played  -> [1]
-sat     -> [1, 1]
-the     -> [2, 2, 2]
-```
-
-### Step 5 — Reduce Phase
-
-Each Reducer sums the list of values for its assigned key(s).
-
-**Reduce pseudocode:**
-
-```
-function REDUCE(word, list_of_counts):
-    total = sum(list_of_counts)
-    emit(word, total)
-```
-
-### Final Output
-
-| Word | Count |
-|---|---|
-| and | 1 |
-| cat | 2 |
-| dog | 2 |
-| log | 1 |
-| mat | 1 |
-| on | 2 |
-| played | 1 |
-| sat | 2 |
-| the | 6 |
-
----
-
-## Part 2: Intermediate Example — Sales Revenue by Region and Category
-
-### Scenario
+## Scenario — Sales Revenue by Region and Category
 
 You run an e-commerce platform and have a raw transaction log. 
 
@@ -162,7 +30,7 @@ Each line is:
 
 You need the **total revenue per (region, category) pair**, computed at scale across a cluster.
 
-This example is "intermediate" because it introduces:
+This example introduces:
 
 - A **composite key** (`region|category`) instead of a single word
 - A **Combiner** that does meaningful local aggregation (not just a formality)
@@ -234,6 +102,16 @@ Each Mapper's Combiner sums amounts sharing the same key **within that Mapper's 
 function COMBINE(key, list_of_amounts):
     emit(key, sum(list_of_amounts))
 ```
+
+**Why this combiner is correct:** integer addition is both **associative**
+and **commutative**, so it doesn't matter whether a partial sum is computed
+by a combiner, computed directly by the reducer, or some mix of both —
+applying the combiner zero, one, or many times, in any order, always
+yields the same final total. Not every `reduce()` function has this
+property: see the Average Temperature example in
+[`MapReduce_Find_Average_Temperature.md`](MapReduce_Find_Average_Temperature.md),
+where naively combining partial *averages* gives the wrong answer, and the
+combiner has to emit `(sum, count)` pairs instead of an average.
 
 | Mapper | Combined output |
 |---|---|
@@ -336,8 +214,6 @@ Each Reducer writes its own output file (`part-r-00000`, `part-r-00001`, `part-r
 | Reduce | Each Reducer node | Aggregates all values for a key into the final result |
 | Output | Framework | Writes each Reducer's result to a separate output file |
 
-### Why these two examples together
+### Relation to the Word Count example
 
-Word Count shows the mechanics with the simplest possible key (a single string) and no real need for a custom partitioner. 
-
-The sales example builds on it directly: same five phases, but with a composite key, a Combiner that actually matters at scale, and a Partitioner that deliberately controls data placement across Reducers — which is closer to how MapReduce is used in production (log analysis, revenue rollups, click aggregation, etc.).
+[`MapReduce_Word_Count.md`](MapReduce_Word_Count.md) shows the mechanics with the simplest possible key (a single string) and no real need for a custom partitioner. This sales example builds on it directly: same five phases, but with a composite key, a Combiner that actually matters at scale, and a Partitioner that deliberately controls data placement across Reducers — which is closer to how MapReduce is used in production (log analysis, revenue rollups, click aggregation, etc.).

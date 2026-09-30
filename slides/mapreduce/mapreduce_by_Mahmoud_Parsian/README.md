@@ -97,7 +97,7 @@ here.
 - [`../mapreduce_examples/MapReduce_Find_Average_Temperature.md`](../mapreduce_examples/MapReduce_Find_Average_Temperature.md) — the temperature-per-city derivation, without and with a combiner
 - [`../associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md`](../associativity_and_commutativity/Associativity_Commutativity_and_Reducers.md) — the formal theory behind combiner correctness
 - [`../combiners/MapReduce_with_Combiners.md`](../combiners/MapReduce_with_Combiners.md) — combiners worked through a different example (average/min/max per gene)
-- [`../mapreduce_examples/MapReduce_2_Examples.md`](../mapreduce_examples/MapReduce_2_Examples.md) — full worked scenarios (Word Count, Sales Revenue by Region)
+- [`../mapreduce_examples/MapReduce_Sales_by_Region.md`](../mapreduce_examples/MapReduce_Sales_by_Region.md) — full worked scenario: Sales Revenue by Region and Category
 
 ## Note on Provenance
 
