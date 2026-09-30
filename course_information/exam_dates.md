@@ -13,7 +13,7 @@
 
 ## Exam-1:
 
-### &#x1F34E; Date: October 2026 (TBD)
+### &#x1F34E; Date: Wednesday, October 7, 2026
 
 ### &#x1F34E; Time: 5:45 PM - 7:45 PM PST
 
