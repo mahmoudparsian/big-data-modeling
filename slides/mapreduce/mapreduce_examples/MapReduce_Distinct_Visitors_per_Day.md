@@ -1,10 +1,10 @@
-# MapReduce Example: Distinct Website Visitors per Day
+# MapReduce Example: <br> Distinct Website Visitors per Day
 
 ## 1. Problem
 
-A website records one event for every page visit. A person can visit
-several pages, and their events can appear in different input splits.
-Find the number of **distinct users per day**, not the number of visits.
+* A website records one event for every page visit. 
+* A person can visit several pages, and their events can appear in different input splits.
+* Find the number of **distinct users per day**, not the number of visits.
 
 This example uses **two MapReduce jobs**:
 
@@ -366,8 +366,10 @@ operations, not merely the number of test cases.
 
 ## 13. Design Tradeoffs and Common Mistakes
 
-- **Why two jobs?** Job 1 groups by `(date, user_id)`; Job 2 regroups by
-  `date`. They require different grouping keys and a job boundary.
+- **Why two jobs?** 
+	- Job 1 groups by `(date, user_id)`; 
+	- Job 2 regroups by `date`. 
+	- Job 1 & Job 2 require different grouping keys and a job boundary.
 - **Could one job work?** Yes: map to `(date, user_id)` as separate key
   and value, then build a set of users in each date's reducer. That
   simple approach needs memory proportional to the users for a date.
@@ -400,11 +402,13 @@ operations, not merely the number of test cases.
 5. Return only dates with at least four distinct users. Why should
    this filter run after Job 2's final aggregation, not in a combiner?
 
-**Answer checks:** (1) September 1 becomes 4; September 2 remains 4.
-(2) Deduplicate `(date, page, user_id)`, then count by `(date, page)`.
-(3) Deduplicate by `user_id`, then count under a constant key: 5 users.
-(4) Filter the original events in Job 1's mapper while `page` is present.
-(5) Partial counts below four can still combine into a final count of four
+**Answer checks:** <br>
+
+* (1) September 1 becomes 4; September 2 remains 4.
+* (2) Deduplicate `(date, page, user_id)`, then count by `(date, page)`.
+* (3) Deduplicate by `user_id`, then count under a constant key: 5 users.
+* (4) Filter the original events in Job 1's mapper while `page` is present.
+* (5) Partial counts below four can still combine into a final count of four
 or more.
 
 ## 15. Related Worked Examples

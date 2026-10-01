@@ -1,4 +1,4 @@
-# MapReduce Example: Total Sales, Order Count, and Largest Order per Store
+# MapReduce Example: <br> Total Sales, Order Count, and Largest Order per Store
 
 	Author: Mahmoud Parsian
 	Last updated: 9/3/2026
@@ -204,6 +204,28 @@ ratio or rate in general) — only combine the raw ingredients
 (`sum`, `count`, `max`) that are safe to combine, and compute
 anything derived from them exactly once, in the reducer
 (Section 18 does that here).
+
+**Revised Mapper: (to enable use of combine() function**
+
+```text
+# key: a record number, ignored
+# value: "<order_id>,<date>,<store_id>,<store_name>,<amount>"
+map(key, value) {
+   tokens = value.split(",")
+   # order_id = tokens[0]
+   # date     = tokens[1]
+   store_id   = tokens[2]
+   store_name = tokens[3]
+   amount     = float(tokens[4])
+
+   output_key = store_id + "-" + store_name
+   # triplet_value = (amount, count, largest)
+   triplet_value = (amount, 1, amount)
+   emit(output_key, triplet_value)
+}
+```
+
+**combine() function:**
 
 ```text
 # key: "<store_id>-<store_name>"
