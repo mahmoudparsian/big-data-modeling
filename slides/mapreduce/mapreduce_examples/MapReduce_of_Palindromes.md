@@ -3,15 +3,48 @@
 	Author: Mahmoud Parsian
 	Last updated: 8/19/2026
 
-## Problem
+## 1. Problem
 
-Given a set of text documents, the goal is to
+* Given a set of text documents, the goal is to
 find the frequency of palindromes in these
-documents. What is a palindrome? A palindrome
+documents. 
+* What is a palindrome? A palindrome
 is a word that reads the same backward as
 forward, e.g., "madam" or "refer".
 
-## Python function `is_palindrome()`
+## 2. Application of Palindromes
+
+WWhile palindromes often seem like just a word 
+game, they play critical roles across several 
+real-world fields:
+
+### 1. Genetics & Molecular Biology (Biotech)
+
+In biology, a palindromic sequence occurs when 
+a double-stranded DNA sequence reads the same 
+forwards on one strand as it does backwards 
+on the complementary strand.
+
+* **Restriction Enzymes:** Bacteria produce restriction enzymes that recognize specific palindromic DNA sequences to cut foreign viral DNA. Genetic engineering relies heavily on this mechanism to cut and edit DNA segments precisely.
+* **CRISPR-Cas9:** The "PR" in CRISPR stands for **P**alindromic **R**epeats. These repeated palindromic sequences act as an immune memory system in bacteria, forming the basis of modern gene editing.
+* **RNA Structure:** Single-stranded RNA can fold back on itself at palindromic points to form "hairpin loops," which dictate how the RNA functions and stabilizes inside a cell.
+
+### 2. Computer Science & Software Engineering
+
+Palindromes are foundational concepts for testing and building computational algorithms:
+
+* **Text Processing & Search Engines:** Detecting palindromic structures helps test string manipulation algorithms, dynamic programming, and sliding-window techniques.
+* **Data Integrity & Compression:** Certain data structures (like suffix trees and Manacher’s Algorithm) use palindrome detection to identify symmetric repeating patterns in massive strings, which is used in biological sequence analysis and data compression.
+* **Formal Language Theory:** Palindromes are classic examples used to demonstrate the limits of *Context-Free Grammars* (CFGs) in theoretical computer science.
+
+### 3. Cryptography & Security
+
+* **Hash Collisions & Symmetric Ciphers:** Palindromic properties are analyzed in cryptographic hashing and block cipher design to identify structural weaknesses or unwanted symmetries in encryption algorithms.
+
+---
+
+
+## 3. Python function
 
 Given a string, we write a Python function to
 check whether it is a palindrome. A string is
@@ -22,10 +55,12 @@ is a palindrome, but "radix" is not.
 ```python
 # find the reverse of the string and check
 # whether the reverse and the original are the same
-def is_palindrome(s):
+def is_palindrome(s: str) -> bool:
+    """Check if a string is a palindrome, ignoring case."""
     if s is None:
         return False
-    return s == s[::-1]
+    lowercased = s.lower()
+    return lowercased == lowercased[::-1]
 ```
 
 Note: this simple check assumes the token is
@@ -37,7 +72,7 @@ normalize each token — strip punctuation and
 lowercase it — before calling `is_palindrome()`.
 See Homework question 3 below.
 
-## Sample Input
+## 4. Sample Input
 
 ```text
 today level ok dont civic madam is madam
@@ -45,7 +80,7 @@ tomorrow level madam civic yes level
 there is no palindromes in this record except madam
 ```
 
-## Mapper
+## 5. Mapper
 
 ```text
 # pseudo-code:
@@ -63,7 +98,7 @@ map(k, v) {
 }
 ```
 
-## Output of Mappers
+## 6. Output of Mappers
 
 ```text
 (level, 1)
@@ -77,7 +112,7 @@ map(k, v) {
 (madam, 1)
 ```
 
-## Output of Sort and Shuffle
+## 7. Output of Sort and Shuffle
 
 ```text
 (level, [1, 1, 1])
@@ -85,7 +120,7 @@ map(k, v) {
 (madam, [1, 1, 1, 1])
 ```
 
-## Reducer
+## 8. Reducer
 
 ```text
 # pseudo-code:
@@ -102,7 +137,7 @@ reduce(key, values) {
 }
 ```
 
-## Output of Reducers
+## 9. Output of Reducers
 
 ```text
 (level, 3)
@@ -110,7 +145,7 @@ reduce(key, values) {
 (madam, 4)
 ```
 
-## Homework
+## 10. Homework
 
 1. Write a `combine()` function for this
    MapReduce job.
