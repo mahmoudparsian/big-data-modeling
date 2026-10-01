@@ -113,6 +113,8 @@ Every mapper call is shown below:
 Keep one presence marker per key in each local group:
 
 ```text
+# date_user : (date, userID)
+# markers : Iterable<Integer> (list of 1's)
 combine1(date_user, markers):
     emit(date_user, max(markers))
 ```
@@ -168,6 +170,8 @@ files are globally sorted.
 Emit exactly one record for every distinct pair:
 
 ```text
+# date_user : (date, userID)
+# markers : Iterable<Integer> (list of 1's)
 reduce1(date_user, markers):
     emit(date_user, max(markers))
 ```
@@ -194,6 +198,8 @@ Job 2 reads **all successfully committed output from Job 1**. These are
 seven deduplicated records, not the original thirteen events.
 
 ```text
+# date_user : (date, userID)
+# presence : Integer as 1
 map2(date_user, presence):
     date, user_id = date_user
     emit(date, 1)
