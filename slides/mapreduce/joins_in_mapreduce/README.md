@@ -1,4 +1,4 @@
-# joins_in_mapreduce
+# Joins in MapReduce
 
 Worked example on implementing join operations in MapReduce.
 
