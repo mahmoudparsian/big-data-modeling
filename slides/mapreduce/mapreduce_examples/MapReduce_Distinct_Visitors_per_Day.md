@@ -169,11 +169,22 @@ files are globally sorted.
 
 Emit exactly one record for every distinct pair:
 
+**Option 1: not optimized:**
+
 ```text
 # date_user : (date, userID)
 # markers : Iterable<Integer> (list of 1's)
 reduce1(date_user, markers):
     emit(date_user, max(markers))
+```
+
+**Better revised reducer: optimized**
+
+```text
+# date_user : (date, userID)
+# markers : Iterable<Integer> (list of 1's)
+reduce1(date_user, markers):
+    emit(date_user, 1)
 ```
 
 All seven reducer calls return `1`, regardless of whether combining ran:
