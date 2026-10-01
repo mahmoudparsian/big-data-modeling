@@ -1,4 +1,4 @@
-# MapReduce Top 10
+# MapReduce Top 10 Design Pattern
 
 Worked example: finding the top 10 disaster-relief 
 hubs by meals delivered — a two-job MapReduce algorithm 
