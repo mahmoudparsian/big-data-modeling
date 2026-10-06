@@ -148,6 +148,10 @@ map(key, value) {
 
 # Reducer
 
+Here we assume that there is well-defined function 
+`calculate_median(values)`, which returns the median
+of a given list of `values`.
+
 ```
 #key: gene_id as a string
 # values: Iterable<double>
@@ -163,7 +167,7 @@ reduce (key, values) {
    }
 
    # here avg >= 1.5
-   median = median_function(values)
+   median = calculate_median(values)
    
    emit (gene_id, (avg, median))
 }
