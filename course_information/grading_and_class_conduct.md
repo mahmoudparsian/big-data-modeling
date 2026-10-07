@@ -19,7 +19,7 @@
  
 ## 2. Exam-1, Exam-2, and Final Exam Requirements
 
-* LockDown Browser is required
+* LockDown Browser is required ([SCU LockDown Browser download](https://download.respondus.com/lockdown/download.php?ID=597745928))
 
 * closed book/notes/internet/AI/friends/phone/computer/software
 

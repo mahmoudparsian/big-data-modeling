@@ -253,7 +253,7 @@ At the completion of this course, students will be able to understand:
 
 **📝 Exam 1 — in-class** *(date tentative — see [`exam_dates.md`](../../course_information/exam_dates.md) for the confirmed date)*
 
-- LockDown Browser is required
+- LockDown Browser is required ([SCU LockDown Browser download](https://download.respondus.com/lockdown/download.php?ID=597745928))
 - Closed book/notes/internet/AI/friends/phone/computer/software
 
 [⇧ back to schedule](#schedule-overview)
@@ -394,7 +394,7 @@ At the completion of this course, students will be able to understand:
 
 **📝 Exam 2 — in-class** *(date tentative — see [`exam_dates.md`](../../course_information/exam_dates.md) for the confirmed date)*
 
-- LockDown Browser is required
+- LockDown Browser is required ([SCU LockDown Browser download](https://download.respondus.com/lockdown/download.php?ID=597745928))
 - Closed book/notes/internet/AI/friends/phone/computer/software
 
 [⇧ back to schedule](#schedule-overview)
@@ -485,7 +485,7 @@ At the completion of this course, students will be able to understand:
 
 **🎓 In-class exam**
 
-- LockDown Browser is required
+- LockDown Browser is required ([SCU LockDown Browser download](https://download.respondus.com/lockdown/download.php?ID=597745928))
 - Closed book/notes/internet/AI/friends/phone/computer/software
 - Date: TBD (December 8–12, 2026)
 - Time: TBD
