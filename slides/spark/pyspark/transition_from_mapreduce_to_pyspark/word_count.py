@@ -9,7 +9,7 @@ from pyspark.sql import SparkSession
 
 # 1. check the number of arguments passed
 if len(sys.argv) != 3:
-    print("Usage: wordcount <input-path> <output-path>", file=sys.stderr)
+    print("Usage: word_count <input-path> <output-path>", file=sys.stderr)
     sys.exit(-1)
 #end-if
 

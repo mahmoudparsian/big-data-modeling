@@ -1,14 +1,24 @@
 # Transitioning from MapReduce to PySpark: <br> A Practical Guide
 
-This tutorial is designed for developers familiar with the classic Hadoop MapReduce paradigm (`map()`, `shuffle/sort`, `combine()`, `reduce()`) who want to transition to **PySpark**. 
+This tutorial is designed for developers 
+familiar with the classic Hadoop MapReduce 
+paradigm (`map()`, `shuffle/sort`, `combine()`, 
+`reduce()`) who want to transition to **PySpark**. 
 
-Unlike traditional MapReduce, which writes intermediate states to disk after every job stage, Apache Spark holds data in memory across pipeline operations whenever possible, resulting in significantly faster performance and a much richer, expressive API.
+Unlike traditional MapReduce, which writes 
+intermediate states to disk after every job 
+stage, Apache Spark holds data in memory across 
+pipeline operations whenever possible, resulting 
+in significantly faster performance and a much 
+richer, expressive API.
 
 ---
 
 ## 1. Mental Model: MapReduce vs. Spark
 
-To bridge the gap between traditional MapReduce and Spark, keep the following core conceptual mappings in mind:
+To bridge the gap between traditional MapReduce 
+and Spark, keep the following core conceptual 
+mappings in mind:
 
 | MapReduce Concept | Spark Equivalent |
 | :--- | :--- |
@@ -33,11 +43,15 @@ To bridge the gap between traditional MapReduce and Spark, keep the following co
 
 ## 3. Part I: Resilient Distributed Datasets (RDDs)
 
-An **RDD** is Spark’s core low-level abstraction: an immutable, fault-tolerant collection of elements partitioned across cluster nodes. It is closest to raw MapReduce programming.
+An **RDD** is Spark’s core low-level abstraction: 
+an immutable, fault-tolerant collection of elements 
+partitioned across cluster nodes. It is closest to 
+raw MapReduce programming.
 
 ### 3.1 Initializing PySpark
 
 ```python
+# Import required libraries
 from pyspark.sql import SparkSession
 
 # Initialize SparkSession
@@ -54,7 +68,8 @@ sc = spark.sparkContext
 
 ### 3.2 Basic Level: Word Count (MapReduce Classic)
 
-Let's start with the quintessential MapReduce example: Word Count.
+Let's start with the quintessential MapReduce 
+example: Word Count.
 
 #### MapReduce Logic Review
 1. **Map**: Parse text into key-value pairs `(word, 1)`.
@@ -89,35 +104,54 @@ results = word_counts.collect()
 print("Word Count Output:", results)
 ```
 
-**Key Insight:** `reduceByKey` replaces both the Combiner and Reducer in MapReduce. It performs local map-side aggregation before sending data across the network (shuffle), avoiding the network bottlenecks common in naive MapReduce jobs.
+**Key Insight:** `reduceByKey` replaces both the 
+Combiner and Reducer in MapReduce. It performs 
+local map-side aggregation before sending data 
+across the network (shuffle), avoiding the network 
+bottlenecks common in naive MapReduce jobs.
 
 ---
 
 ### 3.3 Intermediate Level: Filtering, Custom Keys, and `aggregateByKey`
 
-In Hadoop MapReduce, custom aggregations often require complex `Writable` types, custom partitioners, and custom combiners. PySpark provides built-in functional primitives to handle these seamlessly.
+In Hadoop MapReduce, custom aggregations often 
+require complex `Writable` types, custom partitioners, 
+and custom combiners. PySpark provides built-in functional 
+primitives to handle these seamlessly.
 
 #### Scenario: Computing Average Score per Subject
-Suppose we want to find the average score for each subject from a stream of `(subject, score)` tuples.
+Suppose we want to find the average score for each 
+subject from a stream of `(subject, score)` tuples.
 
-If we use `groupByKey()`, Spark collects all scores for a key across the network before aggregating, which can easily trigger Out-Of-Memory (OOM) errors on large datasets (similar to doing a raw shuffle without a combiner in MapReduce). Instead, we use **`aggregateByKey`**.
+If we use `groupByKey()`, Spark collects all scores 
+for a key across the network before aggregating, 
+which can easily trigger Out-Of-Memory (OOM) errors 
+on large datasets (similar to doing a raw shuffle 
+without a combiner in MapReduce). Instead, we use 
+**`aggregateByKey`**.
 
 ```python
 scores = sc.parallelize([
-    ("Math", 85), ("Math", 95), ("Physics", 80),
-    ("Math", 90), ("Physics", 90), ("Chemistry", 70)
+    ("Math", 85), 
+    ("Math", 95), 
+    ("Physics", 80),
+    ("Math", 90), 
+    ("Physics", 90), 
+    ("Chemistry", 70)
 ])
 
 # Goal: Calculate Average = Sum / Count
 
-# Zero Value: Initial accumulator state for a key: (total_score, count)
+# Zero Value: Initial accumulator state for a key: 
+# (total_score, count)
 zero_value = (0, 0)
 
 # SeqOp (Sequence Operator): How to merge a new value into the local accumulator (within a partition)
 def seq_op(accumulator, element):
     return (accumulator[0] + element, accumulator[1] + 1)
 
-# CombOp (Combine Operator): How to merge two accumulators from different partitions (across partitions)
+# CombOp (Combine Operator): How to merge two accumulators 
+# from different partitions (across partitions)
 def comb_op(acc1, acc2):
     return (acc1[0] + acc2[0], acc1[1] + acc2[1])
 
@@ -134,7 +168,9 @@ print("Average Scores:", averages.collect())
 
 ### 3.4 Intermediate+ Level: Map-Side Joins & Broadcast Variables
 
-In MapReduce, performing a **Map-Side Join** (Replicated Join) requires manually passing smaller lookup datasets through Hadoop's `DistributedCache`.
+In MapReduce, performing a **Map-Side Join** (Replicated Join) 
+requires manually passing smaller lookup datasets through 
+Hadoop's `DistributedCache`.
 
 In PySpark, this is accomplished using **Broadcast Variables**.
 
@@ -171,16 +207,22 @@ print("Enriched Transactions:", enriched_txns.collect())
 
 ## 4. Part II: PySpark DataFrames & Catalyst Optimizer
 
-While RDDs offer low-level control, **DataFrames** (built on Spark’s Structured APIs) provide optimized execution via the **Catalyst Optimizer** and **Tungsten Engine**.
+While RDDs offer low-level control, **DataFrames** 
+(built on Spark’s Structured APIs) provide optimized 
+execution via the **Catalyst Optimizer** and 
+**Tungsten Engine**.
 
-DataFrames introduce named columns and strong typing concepts, similar to relational tables or pandas DataFrames, while remaining fully distributed.
+DataFrames introduce named columns and strong typing 
+concepts, similar to relational tables or pandas 
+DataFrames, while remaining fully distributed.
 
 ---
 
 ### 4.1 Basic Level: Schema Definition & Basic Queries
 
 ```python
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType
+from pyspark.sql.types import StructType, StructField
+from pyspark.sql.types import StringType, IntegerType, DoubleType
 import pyspark.sql.functions as F
 
 # Define Schema (Best practice vs schema inference)
@@ -216,7 +258,9 @@ eng_df.show()
 
 ### 4.2 Intermediate Level: Aggregations & GroupBy
 
-In DataFrames, you don't need manual map-side combiners or `aggregateByKey` functions; Catalyst automatically plans optimal shuffles and local aggregations.
+In DataFrames, you don't need manual map-side combiners 
+or `aggregateByKey` functions; Catalyst automatically 
+plans optimal shuffles and local aggregations.
 
 ```python
 # Grouping and Aggregating
@@ -250,17 +294,22 @@ joined_df.show()
 
 ### 4.3 Intermediate+ Level: Window Functions & Spark SQL Engine
 
-In traditional MapReduce, computing running totals, rankings, or moving averages required writing complex secondary sorts and custom partitioning algorithms. 
+In traditional MapReduce, computing running totals, rankings, 
+or moving averages required writing complex secondary sorts 
+and custom partitioning algorithms. 
 
-PySpark **Window Functions** allow you to perform these operations cleanly and efficiently.
+PySpark **Window Functions** allow you to perform these 
+operations cleanly and efficiently.
 
 #### Scenario: Rank Employees by Salary within Each Department
 
 ```python
 from pyspark.sql.window import Window
 
-# Define Window Specification (partitioned by department, ordered by salary desc)
-window_spec = Window.partitionBy("department").orderBy(F.col("salary").desc())
+# Define Window Specification 
+# (partitioned by department, ordered by salary desc)
+window_spec = Window.partitionBy("department")
+                    .orderBy(F.col("salary").desc())
 
 # Apply Window Function
 ranked_df = df.withColumn("rank", F.rank().over(window_spec)) \
@@ -271,7 +320,8 @@ ranked_df.show()
 
 #### Native Spark SQL Query Execution
 
-You can also write standard SQL queries directly over your DataFrames by registering temporary views:
+You can also write standard SQL queries directly over 
+your DataFrames by registering temporary views:
 
 ```python
 # Register temporary view
