@@ -2,15 +2,15 @@
 
 ## 1. Tutorial
 
-* [Transition from MapReduce to PySpark Tutorial](./transition_from_mapreduce_to_pyspark_tutorial.md)
+* [Transition from MapReduce to PySpark Tutorial](./Transition_from_MapReduce_to_PySpark_Tutorial.md)
 
 
 ## 2. Slides/Documentation
 
 * [`Transitioning_from_MapReduce_to_PySpark.pdf`](./Transitioning_from_MapReduce_to_PySpark.pdf)
 * [`Transitioning_from_MapReduce_to_PySpark.pptx`](./Transitioning_from_MapReduce_to_PySpark.pptx)
-* [`Introduction_to_PySpark_PySpark_in_Action.pdf`](./Introduction_to_PySpark_PySpark_in_Action.pdf)
-* [`Introduction_to_PySpark_PySpark_in_Action.pptx`](./Introduction_to_PySpark_PySpark_in_Action.pptx)
+* [`Introduction_to_PySpark.pdf`](./Introduction_to_PySpark.pdf)
+* [`Introduction_to_PySpark.pptx`](./Introduction_to_PySpark.pptx)
 
 
 ## 3. PySpark Sample Programs
