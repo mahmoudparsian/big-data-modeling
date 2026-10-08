@@ -1,7 +1,11 @@
 # Transition from MapReduce to PySpark
 
-## 1. Basic Documentation
+## 1. Tutorial
 
+* [Transition from MapReduce to PySpark Tutorial](./transition_from_mapreduce_to_pyspark_tutorial.md)
+
+
+## 2. Slides/Documentation
 
 * [`Transitioning_from_MapReduce_to_PySpark.pdf`](./Transitioning_from_MapReduce_to_PySpark.pdf)
 * [`Transitioning_from_MapReduce_to_PySpark.pptx`](./Transitioning_from_MapReduce_to_PySpark.pptx)
@@ -9,7 +13,7 @@
 * [`Introduction_to_PySpark_PySpark_in_Action.pptx`](./Introduction_to_PySpark_PySpark_in_Action.pptx)
 
 
-## 2. PySpark Sample Programs
+## 3. PySpark Sample Programs
 
 | Program | Description |
 |---------|-------------|
@@ -19,7 +23,7 @@
 |[`what_other_filters_we_can_apply.md`](./what_other_filters_we_can_apply.md) | what other filters? we can apply |
 
 
-## 3. How to run `word_count.py`
+## 4. How to run `word_count.py`
 
 ```
 export SPARK_HOME="/Users/mparsian/spark-4.2.0"
@@ -42,7 +46,7 @@ Sample run output:
 ('high', 1)
 ```
 
-## 4. How to run `word_count_with_filters.py`
+## 5. How to run `word_count_with_filters.py`
 
 ```
 export SPARK_HOME="/Users/mparsian/spark-4.2.0"
