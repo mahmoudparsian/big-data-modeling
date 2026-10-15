@@ -3,7 +3,7 @@
 Small text input files for the RDD practice questions
 ([Set 01](../QUESTIONS_01.md), [Set 02](../QUESTIONS_02.md), [Set 03](../QUESTIONS_03.md),
 [Set 04](../QUESTIONS_04.md), [Set 05](../QUESTIONS_05.md), [Set 06](../QUESTIONS_06.md),
-[Set 07](../QUESTIONS_07.md), [Set 08](../QUESTIONS_08.md), [Set 09](../QUESTIONS_09.md)).
+[Set 07](../QUESTIONS_07.md), [Set 08](../QUESTIONS_08.md), [Set 09](../QUESTIONS_09.md), [Set 10](../QUESTIONS_10.md)).
 
 | File | Used in | Format |
 |---|---|---|
@@ -24,3 +24,6 @@ Small text input files for the RDD practice questions
 | [shop_products.txt](shop_products.txt) | Set 05 Q8, Set 09 Q4, Q9 | `product_id,name,category,price` (5 lines) |
 | [visitors_sep.txt](visitors_sep.txt) | Set 07 Q5 | one customer id per visit in September (8 lines, with repeat visits) |
 | [visitors_oct.txt](visitors_oct.txt) | Set 07 Q5 | one customer id per visit in October (8 lines, with repeat visits) |
+| [trips.txt](trips.txt) | Set 10 | `trip_id,driver_id,rider,city,hour,distance_km,fare,rating`, ride-sharing trips; an empty rating means "not rated" (20 lines) |
+| [drivers.txt](drivers.txt) | Set 10 Q5, Q8 | `driver_id,name,car_type` (5 lines; one driver has no trips) |
+| [trips_raw.txt](trips_raw.txt) | Set 10 Q8 | the raw trip log: the 20 trips of `trips.txt` plus a header, a blank line, an unknown driver, a missing fare, and a negative distance (25 lines) |
