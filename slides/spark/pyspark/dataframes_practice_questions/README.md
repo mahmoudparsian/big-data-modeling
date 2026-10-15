@@ -18,6 +18,7 @@ concepts behind each set, see the [DataFrames tutorial](../dataframes_tutorial/R
 | 04 | [QUESTIONS_04.md](QUESTIONS_04.md) | [ANSWERS_04.md](ANSWERS_04.md) | Grouping and aggregation: `groupBy`/`agg`, whole-table aggregates, `collect_list`/`collect_set`, conditional counts, `WHERE` vs. `HAVING`, `pivot`, `rollup`/`cube` subtotals, medians and approximate aggregates, the average-of-ratios trap |
 | 05 | [QUESTIONS_05.md](QUESTIONS_05.md) | [ANSWERS_05.md](ANSWERS_05.md) | Joins: inner, left, right, full, semi, and anti joins, key-name and ambiguity problems, four-table joins, broadcast joins in `explain()`, range joins, reconciliation with a full outer join, duplicate and `NULL` keys, self-joins |
 | 06 | [QUESTIONS_06.md](QUESTIONS_06.md) | [ANSWERS_06.md](ANSWERS_06.md) | Window functions: `row_number`/`rank`/`dense_rank`, group totals on every row, top N per group, keeping the first record per key, `lag`/`lead`, running totals and window frames (the default-frame trap), `ntile`/`percent_rank`, gaps and islands |
+| 07 | [QUESTIONS_07.md](QUESTIONS_07.md) | [ANSWERS_07.md](ANSWERS_07.md) | Spark SQL: temporary views and `spark.sql()`, SQL vs. the DataFrame API, `F.expr()`, joins and subqueries (and the `NOT IN` + `NULL` trap), CTEs, window functions and `QUALIFY`, named parameters and SQL injection, view lifetimes, a full pipeline in SQL |
 
 | Folder | Purpose |
 |---|---|
