@@ -43,6 +43,7 @@ and notes for learning PySpark.
 * [`dataframes_slides/`](dataframes_slides) — intro slides and articles
 * [`dataframes_class_demos/`](dataframes_class_demos) — DataFrame example sessions
 * [`dataframes_udf/`](dataframes_udf) — user-defined functions
+* [`dataframes_practice_questions/`](dataframes_practice_questions) — numbered sets of DataFrame practice questions with answers, solved interactively in `bin/pyspark`, using the same ride-sharing data as the RDD sets (Set 01: creating and inspecting DataFrames; Set 02: working with columns; Set 03: filtering, sorting, nulls, and duplicates)
 * [`dataframes_examples/`](dataframes_examples) — growing collection of self-contained, runnable DataFrame examples:
   [`distinct_visitor_per_day/`](dataframes_examples/distinct_visitor_per_day) (exact distinct visitors per day, with a companion RDD solution above)
 

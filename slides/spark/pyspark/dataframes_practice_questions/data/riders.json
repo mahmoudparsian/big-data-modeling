@@ -1,0 +1,7 @@
+{"rider": "r1", "name": "Maya", "member_since": 2021, "home": {"city": "San Jose", "zip": "95112"}, "tags": ["student", "frequent"]}
+{"rider": "r2", "name": "Omar", "member_since": 2019, "home": {"city": "San Jose", "zip": "95126"}, "tags": ["frequent"]}
+{"rider": "r3", "name": "Lena", "member_since": 2024, "home": {"city": "Oakland", "zip": "94607"}, "tags": []}
+{"rider": "r4", "name": "Kofi", "member_since": 2022, "home": {"city": "Oakland", "zip": "94610"}, "tags": ["business"]}
+{"rider": "r5", "name": "Ines", "member_since": 2023, "home": {"city": "Oakland", "zip": "94612"}, "tags": ["student"]}
+{"rider": "r6", "name": "Tom", "member_since": 2020, "home": {"city": "San Jose", "zip": "95110"}}
+{"rider": "r7", "name": "Yuki", "member_since": 2025, "home": {"city": "San Jose", "zip": "95113"}, "tags": ["business", "frequent"]}
