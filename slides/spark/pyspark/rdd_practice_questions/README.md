@@ -15,6 +15,7 @@ file and a matching answers file. Try the questions before you open the answers.
 | 06 | [QUESTIONS_06.md](QUESTIONS_06.md) | [ANSWERS_06.md](ANSWERS_06.md) | `aggregateByKey()`: choosing a neutral zero value, histograms, one-pass reports, the zero-value trap, and building it yourself from `combineByKey()` |
 | 07 | [QUESTIONS_07.md](QUESTIONS_07.md) | [ANSWERS_07.md](ANSWERS_07.md) | Set operations: `union()`, `intersection()`, `subtract()`, including how each treats duplicates, customer retention, Jaccard similarity, and "bag" operations |
 | 08 | [QUESTIONS_08.md](QUESTIONS_08.md) | [ANSWERS_08.md](ANSWERS_08.md) | Partitioning and caching: `partitionBy()`, `repartition()`, `coalesce()`, `cache()`, including partitioners, joins without a shuffle, skew and salting, range partitioning, and where to put `cache()` |
+| 09 | [QUESTIONS_09.md](QUESTIONS_09.md) | [ANSWERS_09.md](ANSWERS_09.md) | Broadcast variables and accumulators: lookup tables, broadcast joins, counting bad records, custom accumulators, when accumulators count twice, k-means, and a join-free clean-and-enrich pipeline |
 
 | Folder | Purpose |
 |---|---|
