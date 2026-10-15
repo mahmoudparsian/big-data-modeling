@@ -14,6 +14,7 @@ file and a matching answers file. Try the questions before you open the answers.
 | 05 | [QUESTIONS_05.md](QUESTIONS_05.md) | [ANSWERS_05.md](ANSWERS_05.md) | Joins: `join()`, `leftOuterJoin()`, `cogroup()`, including data quality checks, join size, 3-way joins, self-joins, and building the joins yourself from `cogroup()` |
 | 06 | [QUESTIONS_06.md](QUESTIONS_06.md) | [ANSWERS_06.md](ANSWERS_06.md) | `aggregateByKey()`: choosing a neutral zero value, histograms, one-pass reports, the zero-value trap, and building it yourself from `combineByKey()` |
 | 07 | [QUESTIONS_07.md](QUESTIONS_07.md) | [ANSWERS_07.md](ANSWERS_07.md) | Set operations: `union()`, `intersection()`, `subtract()`, including how each treats duplicates, customer retention, Jaccard similarity, and "bag" operations |
+| 08 | [QUESTIONS_08.md](QUESTIONS_08.md) | [ANSWERS_08.md](ANSWERS_08.md) | Partitioning and caching: `partitionBy()`, `repartition()`, `coalesce()`, `cache()`, including partitioners, joins without a shuffle, skew and salting, range partitioning, and where to put `cache()` |
 
 | Folder | Purpose |
 |---|---|

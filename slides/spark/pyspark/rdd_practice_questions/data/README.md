@@ -3,7 +3,7 @@
 Small text input files for the RDD practice questions
 ([Set 01](../QUESTIONS_01.md), [Set 02](../QUESTIONS_02.md), [Set 03](../QUESTIONS_03.md),
 [Set 04](../QUESTIONS_04.md), [Set 05](../QUESTIONS_05.md), [Set 06](../QUESTIONS_06.md),
-[Set 07](../QUESTIONS_07.md)).
+[Set 07](../QUESTIONS_07.md), [Set 08](../QUESTIONS_08.md)).
 
 | File | Used in | Format |
 |---|---|---|
@@ -18,8 +18,8 @@ Small text input files for the RDD practice questions
 | [documents.txt](documents.txt) | Set 02 Q8, Set 07 Q8 | `doc_id\|text` (4 lines) |
 | [class_scores.txt](class_scores.txt) | Set 02 Q9, Set 04 Q8 | `class,student,score` (12 lines) |
 | [customers.csv](customers.csv) | Set 03 Q6 | `id,name,city,balance`, a real CSV file with a header and quoted fields that contain commas (7 lines) |
-| [sensors.txt](sensors.txt) | Set 04 Q4, Q5, Set 06 Q4 | `sensor_id,temperature` (12 lines) |
-| [shop_customers.txt](shop_customers.txt) | Set 05 Q4, Q5, Q8 | `customer_id,name,city` (5 lines) |
+| [sensors.txt](sensors.txt) | Set 04 Q4, Q5, Set 06 Q4, Set 08 Q9 | `sensor_id,temperature` (12 lines) |
+| [shop_customers.txt](shop_customers.txt) | Set 05 Q4, Q5, Q8, Set 08 Q8 | `customer_id,name,city` (5 lines) |
 | [shop_orders.txt](shop_orders.txt) | Set 05 Q4, Q5, Q8 | `order_id,customer_id,product_id,quantity` (10 lines, including one order for an unknown customer and one for an unknown product, on purpose) |
 | [shop_products.txt](shop_products.txt) | Set 05 Q8 | `product_id,name,category,price` (5 lines) |
 | [visitors_sep.txt](visitors_sep.txt) | Set 07 Q5 | one customer id per visit in September (8 lines, with repeat visits) |
