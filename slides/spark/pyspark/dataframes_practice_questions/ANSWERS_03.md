@@ -403,7 +403,7 @@ only showing top 3 rows
   one of `p02` and `p02b`. That hides the double charge instead of reporting it.
 * **Find before you fix:** after removing the exact copies, `groupBy("trip_id").count()`
   with `count > 1` lists the trips that still have more than one payment.
-  `groupBy()` is the subject of Set 04.
+  `groupBy()` is the subject of [Set 04](QUESTIONS_04.md).
 * To keep a **chosen** row per key, such as the first payment of each trip, use a window
   function with `row_number()` (Set 06).
 

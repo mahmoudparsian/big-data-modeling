@@ -1,11 +1,11 @@
 # Data for the DataFrame Practice Questions
 
 Small input files for the DataFrame practice questions
-([Set 01](../QUESTIONS_01.md), [Set 02](../QUESTIONS_02.md), [Set 03](../QUESTIONS_03.md)).
+([Set 01](../QUESTIONS_01.md), [Set 02](../QUESTIONS_02.md), [Set 03](../QUESTIONS_03.md), [Set 04](../QUESTIONS_04.md)).
 
 | File | Used in | Format |
 |---|---|---|
-| [trips.csv](trips.csv) | Set 01 Q4, Q5, Q7, Q9; Sets 02, 03 | CSV with a header: `trip_id,driver_id,rider,city,hour,distance_km,fare,rating`, ride-sharing trips; an empty rating means "not rated" (20 rows). The same trips as the RDD sets' [`trips.txt`](../../rdd_practice_questions/data/trips.txt) |
+| [trips.csv](trips.csv) | Set 01 Q4, Q5, Q7, Q9; Sets 02–04 | CSV with a header: `trip_id,driver_id,rider,city,hour,distance_km,fare,rating`, ride-sharing trips; an empty rating means "not rated" (20 rows). The same trips as the RDD sets' [`trips.txt`](../../rdd_practice_questions/data/trips.txt) |
 | [trips_no_header.csv](trips_no_header.csv) | Set 01 Q4 | the same 20 trips as `trips.csv`, **without** the header line |
 | [trips_raw.csv](trips_raw.csv) | Set 01 Q8 | the 20 trips plus 2 bad rows (a non-numeric hour, and a row with too few fields) |
 | [drivers.csv](drivers.csv) | Set 02 Q5 | CSV with a header: `driver_id,name,car_type` (5 rows; one driver has no trips) |
