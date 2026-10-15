@@ -1,4 +1,4 @@
-# rdd_transformations
+# RDD Transformations
 
 Lecture slides on RDD transformations (`map`, `filter`, `flatMap`, `mapValues`, `mapPartitions`, partitioning); diagrams in `images/`.
 
