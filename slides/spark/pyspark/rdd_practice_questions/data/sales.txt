@@ -1,0 +1,10 @@
+S1,apple,3.50
+S2,banana,1.25
+S1,milk,4.00
+S3,bread,2.75
+S2,apple,3.50
+S1,bread,2.75
+S3,milk,4.00
+S2,eggs,5.10
+S1,apple,3.50
+S3,banana,1.25

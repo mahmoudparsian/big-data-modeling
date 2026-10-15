@@ -1,0 +1,14 @@
+city,date,temp_c
+San Jose,2026-10-01,24
+San Jose,2026-10-02,27
+San Jose,2026-10-03,NA
+Seattle,2026-10-01,14
+
+Seattle,2026-10-02,11
+Seattle,2026-10-03,16
+Boston,2026-10-01,9
+Boston,2026-10-02
+Boston,2026-10-03,15
+Boston,2026-10-04,12
+Phoenix,2026-10-01,35
+Phoenix,2026-10-02,38

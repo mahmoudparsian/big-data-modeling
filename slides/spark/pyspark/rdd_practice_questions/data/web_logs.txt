@@ -1,0 +1,14 @@
+2026-10-01,alex,/home,200
+2026-10-01,bob,/home,200
+2026-10-01,alex,/cart,200
+2026-10-01,carol,/login,404
+2026-10-01,bob,/checkout,200
+2026-10-02,alex,/home,200
+2026-10-02,dana,/home,200
+2026-10-02,dana,/cart,500
+2026-10-02,erin,/home,200
+2026-10-02,erin,/search,200
+2026-10-02,bob,/home,200
+2026-10-03,carol,/home,200
+2026-10-03,carol,/cart,200
+2026-10-03,frank,/login,404

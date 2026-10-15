@@ -1,0 +1,15 @@
+c1,fruit,apple
+c2,fruit,apple
+c3,fruit,banana
+c1,fruit,banana
+c4,fruit,apple
+c2,dairy,milk
+c3,dairy,cheese
+c4,dairy,milk
+c1,dairy,yogurt
+c5,bakery,bread
+c2,bakery,bagel
+c3,bakery,bread
+c4,bakery,bagel
+c5,fruit,cherry
+c1,fruit,apple
