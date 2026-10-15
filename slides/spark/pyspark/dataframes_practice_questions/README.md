@@ -19,7 +19,11 @@ concepts behind each set, see the [DataFrames tutorial](../dataframes_tutorial/R
 | 05 | [QUESTIONS_05.md](QUESTIONS_05.md) | [ANSWERS_05.md](ANSWERS_05.md) | Joins: inner, left, right, full, semi, and anti joins, key-name and ambiguity problems, four-table joins, broadcast joins in `explain()`, range joins, reconciliation with a full outer join, duplicate and `NULL` keys, self-joins |
 | 06 | [QUESTIONS_06.md](QUESTIONS_06.md) | [ANSWERS_06.md](ANSWERS_06.md) | Window functions: `row_number`/`rank`/`dense_rank`, group totals on every row, top N per group, keeping the first record per key, `lag`/`lead`, running totals and window frames (the default-frame trap), `ntile`/`percent_rank`, gaps and islands |
 | 07 | [QUESTIONS_07.md](QUESTIONS_07.md) | [ANSWERS_07.md](ANSWERS_07.md) | Spark SQL: temporary views and `spark.sql()`, SQL vs. the DataFrame API, `F.expr()`, joins and subqueries (and the `NOT IN` + `NULL` trap), CTEs, window functions and `QUALIFY`, named parameters and SQL injection, view lifetimes, a full pipeline in SQL |
+| 08 | [QUESTIONS_08.md](QUESTIONS_08.md) | [ANSWERS_08.md](ANSWERS_08.md) | UDFs: Python UDFs and their traps (return types, `NULL`s), UDFs in SQL, pandas UDFs, the Python vs. Spark rounding difference, why built-in functions are faster (`EvalPython` in the plan), struct-returning UDFs, `applyInPandas`/`mapInPandas`, fuzzy matching |
+| 09 | [QUESTIONS_09.md](QUESTIONS_09.md) | [ANSWERS_09.md](ANSWERS_09.md) | Reading, writing, and performance: CSV, JSON, and Parquet, save modes, `partitionBy` and partition pruning, controlling the number of output files, reading `explain()` (pushdown, column pruning), caching DataFrames, adaptive query execution and join strategies, an end-to-end ETL job |
+| 10 | [QUESTIONS_10.md](QUESTIONS_10.md) | [ANSWERS_10.md](ANSWERS_10.md) | **Mixed review**: 9 exam-style questions on the ride-sharing data, where choosing the right tools from Sets 01–09 is part of the question (the DataFrame companion to [RDD Set 10](../rdd_practice_questions/QUESTIONS_10.md)) |
 
 | Folder | Purpose |
 |---|---|
 | [data/](data) | Small CSV and JSON input files used by the questions |
+| `output/` | Created by the Set 09 answers when you run them; ignored by git (see [`.gitignore`](.gitignore)) |
