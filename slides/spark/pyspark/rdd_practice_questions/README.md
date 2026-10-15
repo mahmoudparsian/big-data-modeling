@@ -12,6 +12,8 @@ file and a matching answers file. Try the questions before you open the answers.
 | 03 | [QUESTIONS_03.md](QUESTIONS_03.md) | [ANSWERS_03.md](ANSWERS_03.md) | The power of `mapPartitions()` (and `mapPartitionsWithIndex()`): once-per-partition setup, local combining, batching, one-pass statistics, CSV parsing, global top-N, running totals |
 | 04 | [QUESTIONS_04.md](QUESTIONS_04.md) | [ANSWERS_04.md](ANSWERS_04.md) | Reducers only: `groupByKey()`, `reduceByKey()`, `combineByKey()`, including when each one is right, and when `reduceByKey()` gives a wrong answer |
 | 05 | [QUESTIONS_05.md](QUESTIONS_05.md) | [ANSWERS_05.md](ANSWERS_05.md) | Joins: `join()`, `leftOuterJoin()`, `cogroup()`, including data quality checks, join size, 3-way joins, self-joins, and building the joins yourself from `cogroup()` |
+| 06 | [QUESTIONS_06.md](QUESTIONS_06.md) | [ANSWERS_06.md](ANSWERS_06.md) | `aggregateByKey()`: choosing a neutral zero value, histograms, one-pass reports, the zero-value trap, and building it yourself from `combineByKey()` |
+| 07 | [QUESTIONS_07.md](QUESTIONS_07.md) | [ANSWERS_07.md](ANSWERS_07.md) | Set operations: `union()`, `intersection()`, `subtract()`, including how each treats duplicates, customer retention, Jaccard similarity, and "bag" operations |
 
 | Folder | Purpose |
 |---|---|
