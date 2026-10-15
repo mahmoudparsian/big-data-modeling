@@ -1,0 +1,5 @@
+p1,laptop,electronics,1000
+p2,mouse,electronics,20
+p3,desk,furniture,300
+p4,chair,furniture,150
+p5,lamp,home,40
