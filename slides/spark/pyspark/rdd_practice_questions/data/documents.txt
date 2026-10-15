@@ -1,0 +1,4 @@
+d1|spark makes big data simple
+d2|big data needs a big cluster
+d3|spark runs on a cluster
+d4|data science uses spark and python

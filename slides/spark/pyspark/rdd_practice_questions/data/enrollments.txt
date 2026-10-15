@@ -1,0 +1,6 @@
+alice:math,physics,art
+bob:math,history
+carol:physics,math,cs,art
+dan:cs
+erin:history,art,cs
+frank:math

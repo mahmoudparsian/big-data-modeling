@@ -1,0 +1,12 @@
+A,ann,88
+A,ben,92
+A,cal,75
+A,dee,92
+B,eli,67
+B,fay,81
+B,gus,95
+B,lea,59
+C,hal,70
+C,ivy,85
+C,jon,78
+C,kim,85

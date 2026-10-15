@@ -1,0 +1,5 @@
+Spark is fast. Spark is fun!
+Data is big, and big data needs Spark.
+The map step maps; the reduce step reduces.
+Is the data big? The data is big.
+Learn Spark, learn data, learn the map and the reduce.
