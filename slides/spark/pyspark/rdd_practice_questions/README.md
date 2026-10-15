@@ -8,6 +8,7 @@ file and a matching answers file. Try the questions before you open the answers.
 | Set | Questions | Answers | Covers |
 |---|---|---|---|
 | 01 | [QUESTIONS_01.md](QUESTIONS_01.md) | [ANSWERS_01.md](ANSWERS_01.md) | 9 questions (3 basic, 3 intermediate, 3 intermediate+) using `parallelize()`/`textFile()`, `map()`, `mapValues()`, `filter()`, `distinct()`, `reduceByKey()`, `collect()`, `count()` |
+| 02 | [QUESTIONS_02.md](QUESTIONS_02.md) | [ANSWERS_02.md](ANSWERS_02.md) | 9 questions (3 basic, 3 intermediate, 3 intermediate+) adding `flatMap()`, `groupByKey()`, `sortByKey()`, including "implement `distinct()` yourself" |
 
 | Folder | Purpose |
 |---|---|
