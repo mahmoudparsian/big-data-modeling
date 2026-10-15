@@ -221,7 +221,7 @@ only showing top 4 rows
   in one line.
 * **`dropDuplicates(["rider"])`** keeps **one whole row** per rider. All the columns stay,
   but **which** of a rider's trips is kept is **not defined**. Use it when any row will do;
-  otherwise, choose the row deliberately (Q6, and window functions in Set 06).
+  otherwise, choose the row deliberately (Q6, and window functions in [Set 06](QUESTIONS_06.md)).
 * `trips.distinct().count()` is 20, so there are no fully duplicated trips.
 * Like the RDD `distinct()`, these need a **shuffle** to bring equal rows together.
 
@@ -405,7 +405,7 @@ only showing top 3 rows
   with `count > 1` lists the trips that still have more than one payment.
   `groupBy()` is the subject of [Set 04](QUESTIONS_04.md).
 * To keep a **chosen** row per key, such as the first payment of each trip, use a window
-  function with `row_number()` (Set 06).
+  function with `row_number()` ([Set 06, Q5](ANSWERS_06.md#q5-intermediate--keeping-the-first-payment-per-trip)).
 
 ---
 

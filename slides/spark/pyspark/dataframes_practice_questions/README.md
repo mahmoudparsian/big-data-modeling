@@ -17,6 +17,7 @@ concepts behind each set, see the [DataFrames tutorial](../dataframes_tutorial/R
 | 03 | [QUESTIONS_03.md](QUESTIONS_03.md) | [ANSWERS_03.md](ANSWERS_03.md) | Filtering, sorting, nulls, and duplicates: `filter`/`where`, `&`, `\|`, `~`, text and list filters, `orderBy` with `NULL` placement, `distinct`/`dropDuplicates`, `na.drop`/`na.fill`, top N and paging, three-valued logic, rule-based validation |
 | 04 | [QUESTIONS_04.md](QUESTIONS_04.md) | [ANSWERS_04.md](ANSWERS_04.md) | Grouping and aggregation: `groupBy`/`agg`, whole-table aggregates, `collect_list`/`collect_set`, conditional counts, `WHERE` vs. `HAVING`, `pivot`, `rollup`/`cube` subtotals, medians and approximate aggregates, the average-of-ratios trap |
 | 05 | [QUESTIONS_05.md](QUESTIONS_05.md) | [ANSWERS_05.md](ANSWERS_05.md) | Joins: inner, left, right, full, semi, and anti joins, key-name and ambiguity problems, four-table joins, broadcast joins in `explain()`, range joins, reconciliation with a full outer join, duplicate and `NULL` keys, self-joins |
+| 06 | [QUESTIONS_06.md](QUESTIONS_06.md) | [ANSWERS_06.md](ANSWERS_06.md) | Window functions: `row_number`/`rank`/`dense_rank`, group totals on every row, top N per group, keeping the first record per key, `lag`/`lead`, running totals and window frames (the default-frame trap), `ntile`/`percent_rank`, gaps and islands |
 
 | Folder | Purpose |
 |---|---|
