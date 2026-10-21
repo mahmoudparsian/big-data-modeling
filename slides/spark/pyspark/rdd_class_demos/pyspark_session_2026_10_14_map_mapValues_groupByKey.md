@@ -160,17 +160,17 @@ SyntaxError: invalid syntax
 >>> frequencies.collect()
 26/10/14 18:56:22 ERROR Executor: Exception in task 1.0 in stage 23.0 (TID 133)
 org.apache.spark.api.python.PythonException: [PYTHON_EXCEPTION] An exception was thrown from the Python worker: Traceback (most recent call last):
-  File "/Users/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/worker.py", line 3622, in main
+  File "/home/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/worker.py", line 3622, in main
     process()
-  File "/Users/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/worker.py", line 3612, in process
+  File "/home/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/worker.py", line 3612, in process
     serializer.dump_stream(out_iter, outfile)
-  File "/Users/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/serializers.py", line 257, in dump_stream
+  File "/home/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/serializers.py", line 257, in dump_stream
     vs = list(itertools.islice(iterator, batch))
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/util.py", line 159, in wrapper
+  File "/home/mparsian/spark-4.2.0/python/lib/pyspark.zip/pyspark/util.py", line 159, in wrapper
     return f(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^
-  File "/Users/mparsian/spark-4.2.0/python/pyspark/core/rdd.py", line 4122, in map_values_fn
+  File "/home/mparsian/spark-4.2.0/python/pyspark/core/rdd.py", line 4122, in map_values_fn
     return kv[0], f(kv[1])
                   ^^^^^^^^
   File "<stdin>", line 1, in <lambda>
@@ -244,3 +244,4 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 >>> x
 [('alex', [20, 30]), ('alex', [40, 50, 60])]
 
+```
