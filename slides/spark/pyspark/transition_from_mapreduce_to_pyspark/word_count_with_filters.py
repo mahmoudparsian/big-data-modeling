@@ -9,12 +9,16 @@ from pyspark.sql import SparkSession
 """
 Applying Filters:
 
-giving the following pyspark program (word_count.py) 
-for word count:  modify it so that it will discard 
-every word which is  less than 3 characters and then 
-after finding word_counts as (unique-word, frequency) 
-it will discard the words if their frequency is less 
-than 4.
+giving the following pyspark program 
+(word_count_with_filters.py) for word count:  
+modify it so that it will discard every word 
+which is  less than 3 characters and then 
+after finding word_counts as 
+
+    (unique-word, frequency) 
+
+it will discard the words if their frequency 
+is less than 4.
 
 To apply these two filters, add .filter() 
 transformations at two specific stages:
@@ -71,6 +75,7 @@ print("lines.count()=", lines.count())
 
 # 8. Create word_counts as RDD[(String, Integer)] 
 #    with length and frequency filters
+# item = (word, frequency)
 word_counts = (
     lines.flatMap(lambda x: x.split(" "))
     .filter(lambda word: len(word) >= L)  # Filter 1: Keep words with L+ characters
