@@ -35,7 +35,7 @@ transformations at two specific stages:
 
 # 1. Check the number of arguments passed
 if len(sys.argv) != 5:
-    print("Usage: wordcount <input-path> <output-path> <L> <F>", file=sys.stderr)
+    print("Usage: spark-submit word_count_with_filters.py <input-path> <output-path> <L> <F>", file=sys.stderr)
     sys.exit(-1)
 # end-if
 
@@ -60,6 +60,11 @@ print("F=", F)
 
 # 6. Create an RDD[String] from input_path
 lines = spark.sparkContext.textFile(input_path)
+
+# 6.1 get the number of partitions from lines RDD
+num_of_partitions = lines.getNumPartitions()
+print("num_of_partitions=", num_of_partitions)
+
 
 # 7. Count the number of records read
 print("lines.count()=", lines.count())

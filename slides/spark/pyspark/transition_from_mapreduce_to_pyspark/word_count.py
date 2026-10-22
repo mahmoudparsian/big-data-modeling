@@ -9,7 +9,7 @@ from pyspark.sql import SparkSession
 
 # 1. check the number of arguments passed
 if len(sys.argv) != 3:
-    print("Usage: word_count <input-path> <output-path>", file=sys.stderr)
+    print("Usage: spark-submit word_count.py <input-path> <output-path>", file=sys.stderr)
     sys.exit(-1)
 #end-if
 
@@ -26,15 +26,22 @@ output_path = sys.argv[2]
 print("output_path=", output_path)
 
 # 5. Create an RDD[String] from input_path
+# lines: RDD[String]
 lines = spark.sparkContext.textFile(input_path)
+
+# 5.1 get the number of partitions from lines RDD
+num_of_partitions = lines.getNumPartitions()
+print("num_of_partitions=", num_of_partitions)
 
 
 # 6. Count the number of records read
 print("lines.count()=", lines.count())
 
 # 7. Create word_count as RDD[(String, Integer)]
+# word_count = RDD[(unique_word, frequency)]
+#
 word_counts = lines.flatMap(lambda x: x.split(' ')) \
-    .map(lambda x: (x, 1)) \
+    .map(lambda word: (word, 1)) \
     .reduceByKey(lambda a, b: a+b)
 
 # 8. Get elements of word_count as a List
