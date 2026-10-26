@@ -26,7 +26,6 @@ $$\text{groupByKey} : \text{RDD}[(K, V)] \longrightarrow \text{RDD}[(K, \text{It
 Given an input RDD dataset $D = \{(k_i, v_i)\}_{i=1}^N$:
 
 $$\text{groupByKey}(D) = \left\{ \left( k, [v_i \mid (k_i, v_i) \in D \text{ and } k_i = k] \right) \;\middle|\; k \in \{k_i\}_{i=1}^N \right\}$$
-
 ### Execution & Shuffle Mechanism
 
 1. **Map Phase (Pre-shuffle):** No local aggregation occurs. All pairs $(k, v)$ are collected per partition.
