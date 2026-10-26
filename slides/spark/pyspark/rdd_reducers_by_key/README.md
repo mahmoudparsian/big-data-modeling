@@ -1,4 +1,4 @@
-# Reducers Transformations
+# Reducer Transformations
 
 Lecture slides and examples on RDD reducers (`groupByKey`, `reduceByKey`, `combineByKey`).
 
