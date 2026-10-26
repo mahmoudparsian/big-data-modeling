@@ -342,3 +342,6 @@ The same solution, written with lambda expressions:
 
 For a more formal treatment of these four transformations, see
 [PySpark (Key, Value) RDD Transformations](key_value_reducer_transformations.md).
+
+For the same problem solved with DataFrames and Spark SQL, see the
+[DataFrame version](find_sum_count_avg_per_key_dataframe.md).
