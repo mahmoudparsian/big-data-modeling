@@ -99,3 +99,6 @@ avg_salary_le_10k = avg_salary_by_name.filter(lambda kv: kv[1] <= 10000)
 - `reduceByKey()` is **efficient** for aggregation — it reduces data before shuffling.
 - `combineByKey()` gives more flexibility (for averages, sums, etc.).
 - `filter()` is element-wise and easily removes unwanted entries.
+
+For the same example solved with DataFrames and Spark SQL, see the
+[DataFrame version](reducebykey_max_avg_filter_dataframe.md).

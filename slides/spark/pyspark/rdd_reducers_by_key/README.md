@@ -16,3 +16,4 @@ Lecture slides and examples on RDD reducers (`groupByKey`, `reduceByKey`, `combi
 | [`find_sum_count_avg_per_key.md`](find_sum_count_avg_per_key.md) | Find sum, count, and average per key, solved four ways: `groupByKey`, `reduceByKey`, `aggregateByKey`, `combineByKey` |
 | [`find_sum_count_avg_per_key_dataframe.md`](find_sum_count_avg_per_key_dataframe.md) | DataFrame version of the same problem: `groupBy().agg()`, Spark SQL, window functions, and how Spark plans the aggregation |
 | [`reducebykey_max_avg_filter.md`](reducebykey_max_avg_filter.md) | PySpark Example: Using `reduceByKey()` to Find Maximum or Average Salary |
+| [`reducebykey_max_avg_filter_dataframe.md`](reducebykey_max_avg_filter_dataframe.md) | DataFrame version of the same example: `groupBy().agg()` with `max`/`avg`, filtering groups (`HAVING`) vs. rows (`WHERE`) |
