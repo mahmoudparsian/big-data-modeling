@@ -26,7 +26,7 @@ $$\text{groupByKey} : \text{RDD}[(K, V)] \longrightarrow \text{RDD}[(K, \text{It
 
 Given an input RDD dataset $D = \{(k_i, v_i)\}_{i=1}^N$:
 
-$$\text{groupByKey}(D) = \left\{ \left( k, [v_i \mid (k_i, v_i) \in D \text{ and } k_i = k] \right) \;\middle|\; k \in \{ k_1, \dots, k_N \} \right\}$$
+$$\text{groupByKey}(D) = \left\lbrace \left( k, [v_i \mid (k_i, v_i) \in D \text{ and } k_i = k] \right) \middle| k \in \{ k_1, \dots, k_N \} \right\rbrace$$
 
 
 ### Execution & Shuffle Mechanism
