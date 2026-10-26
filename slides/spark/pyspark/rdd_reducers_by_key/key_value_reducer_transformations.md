@@ -21,11 +21,15 @@ This guide formulates the four main pair-RDD reduction and aggregation operation
 
 ### Mathematical Formulation
 
+
 $$\text{groupByKey} : \text{RDD}[(K, V)] \longrightarrow \text{RDD}[(K, \text{Iterable}[V])]$$
+
 
 Given an input RDD dataset $D = \{(k_i, v_i)\}_{i=1}^N$:
 
+
 $$\text{groupByKey}(D) = \left\{ \left( k, [v_i \mid (k_i, v_i) \in D \text{ and } k_i = k] \right) \;\middle|\; k \in \{k_i\}_{i=1}^N \right\}$$
+
 
 ### Execution & Shuffle Mechanism
 
