@@ -18,3 +18,4 @@ Lecture slides and examples on RDD reducers (`groupByKey`, `reduceByKey`, `combi
 | [`reducebykey_max_avg_filter.md`](reducebykey_max_avg_filter.md) | PySpark Example: Using `reduceByKey()` to Find Maximum or Average Salary |
 | [`reducebykey_max_avg_filter_dataframe.md`](reducebykey_max_avg_filter_dataframe.md) | DataFrame version of the same example: `groupBy().agg()` with `max`/`avg`, filtering groups (`HAVING`) vs. rows (`WHERE`) |
 | [`combinebykey_customer_profile.md`](combinebykey_customer_profile.md) | A real-life case for `combineByKey()`: building customer profiles from an order log, and why it is a cleaner fit than `map()` + `reduceByKey()` or `aggregateByKey()` |
+| [`aggregatebykey_product_ratings.md`](aggregatebykey_product_ratings.md) | A real-life case for `aggregateByKey()`: star-rating boxes on product pages, where the `zeroValue` (an empty rating box) has a real business meaning |

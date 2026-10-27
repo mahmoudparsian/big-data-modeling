@@ -302,5 +302,9 @@ Two rules to remember:
   give the same answer in every order. That's why we use `min()`/`max()` for
   dates instead of "the latest order seen so far".
 
+For the opposite case, where the result **does** have a natural empty value
+and `aggregateByKey()` is the better fit, see
+[Star Ratings on Product Pages](aggregatebykey_product_ratings.md).
+
 For the basics of all four reducers on a simpler problem, see
 [Find Sum, Count, and Average Per Key](find_sum_count_avg_per_key.md).
