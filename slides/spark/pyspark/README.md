@@ -27,7 +27,7 @@ and notes for learning PySpark.
 ## Core Concepts: RDDs
 
 * [`rdd_slides/`](rdd_slides) — creating RDDs, `map`, `filter`, `flatMap`
-* [`rdd_reducers_by_key/`](rdd_reducers_by_key) — `groupByKey`, `reduceByKey`, `aggregateByKey`, `combineByKey` (plus DataFrame versions of the sum/count/average and max/average-salary examples, and [`real_life_examples/`](rdd_reducers_by_key/real_life_examples): one real-life case per reducer)
+* [`rdd_reducers_by_key/`](rdd_reducers_by_key) — `groupByKey`, `reduceByKey`, `aggregateByKey`, `combineByKey` (plus DataFrame versions of the sum/count/average and max/average-salary examples, and [`real_life_examples/`](rdd_reducers_by_key/real_life_examples): one real-life case per reducer, plus `sortByKey`)
 * [`rdd_class_demos/`](rdd_class_demos) — RDD example scripts and notebooks
 * [`rdd_join_operation/`](rdd_join_operation) — join examples in RDD and MapReduce
 * [`rdd_practice_questions/`](rdd_practice_questions) — numbered sets of practice questions with answers, solved interactively in `bin/pyspark` (Set 01: `map`, `mapValues`, `filter`, `distinct`, `reduceByKey`; Set 02: `flatMap`, `groupByKey`, `sortByKey`; Set 03: `mapPartitions`; Set 04: reducers incl. `combineByKey`; Set 05: joins and `cogroup`; Set 06: `aggregateByKey`; Set 07: `union`, `intersection`, `subtract`; Set 08: `partitionBy`, `repartition`, `coalesce`, `cache`; Set 09: broadcast variables and accumulators; Set 10: mixed review)
