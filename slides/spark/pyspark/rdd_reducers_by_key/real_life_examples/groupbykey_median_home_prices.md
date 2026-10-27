@@ -261,7 +261,7 @@ So, before reaching for `groupByKey()`, ask:
    merged?** (count, sum, average, minimum, maximum, top-N, a histogram, a
    set of distinct values ...) Then use `reduceByKey()`, `aggregateByKey()`,
    or `combineByKey()`. See
-   [groupByKey vs reduceByKey](groupbykey_vs_reducebykey_guide.md).
+   [groupByKey vs reduceByKey](../groupbykey_vs_reducebykey_guide.md).
 2. **Does the answer really need all values of a key together** (a median, or
    anything that depends on the order of the values), **and is each group
    small enough** to fit in memory? Then `groupByKey()` is the right tool.
@@ -293,4 +293,4 @@ Other real-life jobs that need all values of a key:
   server.
 
 For the basics of all four reducers on a simpler problem, see
-[Find Sum, Count, and Average Per Key](find_sum_count_avg_per_key.md).
+[Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).

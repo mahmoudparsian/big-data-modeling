@@ -300,11 +300,12 @@ that is very hard to find. Business rules like "add a bonus" belong
 
 ## 9. Takeaways
 
-| Use ... | When ... |
-|---|---|
-| `reduceByKey()` | The value and the result are the same kind of thing (a count, a sum, a maximum). |
-| `aggregateByKey()` | The result is different from the value, **and** it has a natural empty value that means "no data yet", like an empty rating box. |
-| `combineByKey()` | The result is different from the value, and there is **no** sensible empty value (a first/last date, a minimum, a maximum), so the first real value must start it. |
+| Use ... | When ... | Example |
+|---|---|---|
+| `reduceByKey()` | the value and the result are the same kind of thing, and one rule combines any two of them in any order | [current scan](reducebykey_package_tracking.md) per package |
+| `aggregateByKey()` | the result is different from the value, and has a natural empty value | star-rating box per product (this example) |
+| `combineByKey()` | the result is different from the value, with no sensible empty value; the first value starts it | [customer profile](combinebykey_customer_profile.md) |
+| `groupByKey()` | the answer needs **all** the values of a key together, and each group is small enough | [median home price](groupbykey_median_home_prices.md) per zip code |
 
 Other real-life jobs with the same shape as the rating box (a fixed set of
 counters that all start at zero):
@@ -327,4 +328,4 @@ Two rules to remember:
   makes a fresh copy of the `zeroValue` for every key in every partition.
 
 For the basics of all four reducers on a simpler problem, see
-[Find Sum, Count, and Average Per Key](find_sum_count_avg_per_key.md).
+[Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).

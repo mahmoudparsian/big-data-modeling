@@ -293,4 +293,4 @@ values: `max`, `min`, `+`, "keep the later timestamp" are all fine; "keep the
 second one" is not.
 
 For the basics of all four reducers on a simpler problem, see
-[Find Sum, Count, and Average Per Key](find_sum_count_avg_per_key.md).
+[Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).

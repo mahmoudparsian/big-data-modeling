@@ -278,11 +278,12 @@ real order** starts the profile. In general, whenever the result has a
 
 ## 8. Takeaways
 
-| Use ... | When ... |
-|---|---|
-| `reduceByKey()` | The value and the result are the same kind of thing (a count, a sum, a maximum). |
-| `aggregateByKey()` | The result is different from the value, **and** there is a natural empty result to start from (like `(0, 0)` for `(sum, count)`). |
-| `combineByKey()` | The result is different from the value, and the natural way to describe the job is: *start* a result from the first value, *add* one value, *merge* two results. This works even if there is no sensible empty result. |
+| Use ... | When ... | Example |
+|---|---|---|
+| `reduceByKey()` | the value and the result are the same kind of thing, and one rule combines any two of them in any order | [current scan](reducebykey_package_tracking.md) per package |
+| `aggregateByKey()` | the result is different from the value, and has a natural empty value | [star-rating box](aggregatebykey_product_ratings.md) per product |
+| `combineByKey()` | the result is different from the value, with no sensible empty value; the first value starts it | customer profile (this example) |
+| `groupByKey()` | the answer needs **all** the values of a key together, and each group is small enough | [median home price](groupbykey_median_home_prices.md) per zip code |
 
 Other real-life jobs with the same shape as the customer profile:
 
@@ -307,4 +308,4 @@ and `aggregateByKey()` is the better fit, see
 [Star Ratings on Product Pages](aggregatebykey_product_ratings.md).
 
 For the basics of all four reducers on a simpler problem, see
-[Find Sum, Count, and Average Per Key](find_sum_count_avg_per_key.md).
+[Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).
