@@ -303,6 +303,7 @@ that is very hard to find. Business rules like "add a bonus" belong
 | Use ... | When ... | Example |
 |---|---|---|
 | `reduceByKey()` | the value and the result are the same kind of thing, and one rule combines any two of them in any order | [current scan](reducebykey_package_tracking.md) per package |
+| `foldByKey()` | same as `reduceByKey()`, **and** there is a natural empty value of that same type | [vote tally](foldbykey_election_results.md) per county |
 | `aggregateByKey()` | the result is different from the value, and has a natural empty value | star-rating box per product (this example) |
 | `combineByKey()` | the result is different from the value, with no sensible empty value; the first value starts it | [customer profile](combinebykey_customer_profile.md) |
 | `groupByKey()` | the answer needs **all** the values of a key together, and each group is small enough | [median home price](groupbykey_median_home_prices.md) per zip code |

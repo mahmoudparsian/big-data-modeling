@@ -276,6 +276,7 @@ collecting every value of a group in one place.)
 | Use ... | When ... | Example |
 |---|---|---|
 | `reduceByKey()` | the value and the result are the same kind of thing | total sales per zip code |
+| `foldByKey()` | same as `reduceByKey()`, **and** there is a natural empty value of that same type | [vote tally](foldbykey_election_results.md) per county |
 | `aggregateByKey()` | the result has a natural empty value | [star-rating box](aggregatebykey_product_ratings.md) per product |
 | `combineByKey()` | the result has no sensible empty value; the first value starts it | [customer profile](combinebykey_customer_profile.md) |
 | `groupByKey()` | the answer needs **all** the values of a key together, and each group is small enough | median home price per zip code |
