@@ -17,6 +17,7 @@ This guide formulates the four main pair-RDD reduction and aggregation operation
 
 ---
 
+
 ## 1. `groupByKey`
 
 ### Mathematical Formulation
@@ -25,7 +26,8 @@ $$\text{groupByKey} : \text{RDD}[(K, V)] \longrightarrow \text{RDD}[(K, \text{It
 
 Given an input RDD dataset $D = \{(k_i, v_i)\}_{i=1}^N$:
 
-$$\text{groupByKey}(D) = \left\{ \left( k, [v_i \mid (k_i, v_i) \in D \text{ and } k_i = k] \right) \;\middle|\; k \in \{k_i\}_{i=1}^N \right\}$$
+$$\text{groupByKey}(D) = \left\lbrace \left( k, [v_i \mid (k_i, v_i) \in D \text{ and } k_i = k] \right) \middle| k \in \{ k_1, \dots, k_N \} \right\rbrace$$
+
 
 ### Execution & Shuffle Mechanism
 
@@ -75,7 +77,8 @@ $$\text{reduceByKey}(f: (V, V) \to V) : \text{RDD}[(K, V)] \longrightarrow \text
 
 Given an associative binary function $f: V \times V \to V$ (where $f(v_1, v_2) = v_1 \oplus v_2$):
 
-$$\text{reduceByKey}(f, D) = \left\{ \left( k, \bigoplus_{(k_i, v_i) \in D, k_i = k} v_i \right) \;\middle|\; k \in \{k_i\}_{i=1}^N \right\}$$
+$$\text{reduceByKey}(f, D) = \left\lbrace \left( k, \bigoplus_{(k_i, v_i) \in D, k_i = k} v_i \right) \middle\vert{} k \in \{k_i\}_{i=1}^N \right\rbrace$$
+
 
 #### Mathematical Property Requirement
 The reduction function $f$ **must** be associative:
