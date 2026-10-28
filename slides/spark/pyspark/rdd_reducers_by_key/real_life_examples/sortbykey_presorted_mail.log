@@ -1,0 +1,78 @@
+$ $SPARK_HOME/bin/spark-submit sortbykey_presorted_mail.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (zip_code, (customer, amount_due))
+========================================================================
+number of statements: 12
+number of partitions: 2
+
+========================================================================
+2. The sortByKey() solution: one ZIP range per printer
+========================================================================
+02138 Murphy       310.25
+10001 Okafor        45.10
+10001 Bernstein     19.99
+30301 Washington   150.00
+60601 Kowalski      88.00
+73301 Hernandez     75.00
+94105 Nakamura     210.40
+95050 Chen         120.00
+95050 Alvarez       64.75
+95050 Baker         33.30
+98101 Larsen         9.50
+98101 Andersen      99.00
+
+printer 1: 5 statements, ZIP 02138 to 60601
+printer 2: 5 statements, ZIP 73301 to 95050
+printer 3: 2 statements, ZIP 98101 to 98101
+Only the KEY is sorted: customers in the same ZIP code (Okafor and
+Bernstein, or the three in 95050) are in no particular order.
+
+========================================================================
+3. How sortByKey() works: find the boundaries, then sort
+========================================================================
+sorted keys: ['02138', '10001', '10001', '30301', '60601', '73301', '94105', '95050', '95050', '95050', '98101', '98101']
+boundaries (keys at 1/3 and 2/3): ['60601', '95050']
+Keys up to '60601' -> printer 1, up to '95050' -> printer 2, the
+rest -> printer 3. All three 95050 statements must stay together,
+so printer 3 got only 2: the batches are only ROUGHLY equal.
+
+========================================================================
+4. Sorting by more than one field, and in descending order
+========================================================================
+by (zip_code, customer):
+  02138 Murphy       310.25
+  10001 Bernstein     19.99
+  10001 Okafor        45.10
+  30301 Washington   150.00
+  60601 Kowalski      88.00
+  73301 Hernandez     75.00
+  94105 Nakamura     210.40
+  95050 Alvarez       64.75
+  95050 Baker         33.30
+  95050 Chen         120.00
+  98101 Andersen      99.00
+  98101 Larsen         9.50
+
+by amount due, largest first (top 3): [(310.25, ('Murphy', '02138')), (210.4, ('Nakamura', '94105')), (150.0, ('Washington', '30301'))]
+same with sortBy(amount, ascending=False): [('02138', ('Murphy', 310.25)), ('94105', ('Nakamura', 210.4)), ('30301', ('Washington', 150.0))]
+
+========================================================================
+5. Why not collect() + sorted(), or takeOrdered()?
+========================================================================
+collect() + sorted() same records? True
+takeOrdered(3, largest amount first): [('02138', ('Murphy', 310.25)), ('94105', ('Nakamura', 210.4)), ('30301', ('Washington', 150.0))]
+statements per ZIP, in ZIP order: [('02138', 1), ('10001', 2), ('30301', 1), ('60601', 1), ('73301', 1), ('94105', 1), ('95050', 3), ('98101', 2)]
+
+========================================================================
+6. A common mistake: sorting numbers stored as strings
+========================================================================
+amounts as strings, 'largest' first: ['99.00', '9.50', '88.00', '75.00', '64.75']
+  -> '99.00' first ('9' is the largest first character), and the
+     real largest amount '310.25' much later.
+amounts as numbers, largest first:   [310.25, 210.4, 150.0, 120.0, 99.0]
+
+int('02138') = 2138  <- only 4 digits: not a valid ZIP code
+Rule: sort by the type that has the order you want. Amounts are
+numbers; ZIP codes, phone and account numbers are fixed-width strings.

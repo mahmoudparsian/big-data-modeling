@@ -1,0 +1,50 @@
+$ $SPARK_HOME/bin/spark-submit reducebykey_package_tracking.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (package_id, (timestamp, location, status))
+========================================================================
+partition 0
+    ('PKG-1001', ('2026-10-21 06:05', 'Santa Clara, CA', 'out for delivery'))
+    ('PKG-1002', ('2026-10-22 03:10', 'Portland, OR', 'in transit'))
+    ('PKG-1001', ('2026-10-20 08:15', 'San Jose, CA', 'picked up'))
+    ('PKG-1003', ('2026-10-22 11:45', 'Austin, TX', 'picked up'))
+partition 1
+    ('PKG-1001', ('2026-10-21 14:32', 'Santa Clara, CA', 'delivered'))
+    ('PKG-1002', ('2026-10-21 09:00', 'Seattle, WA', 'picked up'))
+    ('PKG-1003', ('2026-10-22 18:20', 'Dallas, TX', 'in transit'))
+    ('PKG-1001', ('2026-10-20 19:40', 'Oakland, CA', 'in transit'))
+Every package has scans in BOTH partitions.
+
+========================================================================
+2. The reduceByKey() solution: the current scan per package
+========================================================================
+PKG-1001   delivered        Santa Clara, CA  (2026-10-21 14:32)
+PKG-1002   in transit       Portland, OR     (2026-10-22 03:10)
+PKG-1003   in transit       Dallas, TX       (2026-10-22 18:20)
+
+Same answer with reduceByKey(max)? True
+
+========================================================================
+3. Bonus: a status dashboard, with reduceByKey() again
+========================================================================
+[('delivered', 1), ('in transit', 2)]
+
+========================================================================
+4. Why not groupByKey(), aggregateByKey(), or combineByKey()?
+========================================================================
+groupByKey().mapValues(max)    same answer? True
+aggregateByKey(no_scan, ...)   same answer? True
+combineByKey(identity, f, f)   same answer? True
+
+========================================================================
+5. A common mistake: "the last one wins"
+========================================================================
+last_wins,  log order:      ('2026-10-20 19:40', 'Oakland, CA', 'in transit')
+last_wins,  another order:  ('2026-10-21 06:05', 'Santa Clara, CA', 'out for delivery')
+later_scan, log order:      ('2026-10-21 14:32', 'Santa Clara, CA', 'delivered')
+later_scan, another order:  ('2026-10-21 14:32', 'Santa Clara, CA', 'delivered')
+
+last_wins says 'in transit' (or 'out for delivery'), when the package
+was delivered a day ago. later_scan compares the timestamps, so the
+order doesn't matter.

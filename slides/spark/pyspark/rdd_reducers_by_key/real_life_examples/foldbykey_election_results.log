@@ -1,0 +1,49 @@
+$ $SPARK_HOME/bin/spark-submit foldbykey_election_results.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (county, {candidate: votes})
+========================================================================
+partition 0 : ['Santa Clara', 'Alameda', 'Santa Clara', 'Alameda']
+partition 1 : ['Santa Clara', 'San Mateo', 'San Mateo', 'San Mateo']
+Santa Clara has reports in BOTH partitions; Alameda only in
+partition 0, and San Mateo only in partition 1.
+
+========================================================================
+2. The foldByKey() solution: one empty tally, one function
+========================================================================
+Alameda      Lee 1,210   Patel 1,200   Rivera 510   write-in 7
+San Mateo    Patel 710   Lee 540   Rivera 155
+Santa Clara  Patel 1,385   Lee 1,235   Rivera 348   write-in 4
+
+Statewide    Patel 3,295   Lee 2,985   Rivera 1,013   write-in 11
+
+========================================================================
+3. Why add_tallies may safely change its first argument
+========================================================================
+the first precinct's report: {'Lee': 410, 'Patel': 385, 'Rivera': 120}
+like foldByKey()   : {'Lee': 1235, 'Patel': 1385, 'Rivera': 348, 'write-in': 4}
+   first report now: {'Lee': 410, 'Patel': 385, 'Rivera': 120}  <- unchanged
+like reduceByKey() : {'Lee': 1235, 'Patel': 1385, 'Rivera': 348, 'write-in': 4}
+   first report now: {'Lee': 1235, 'Patel': 1385, 'Rivera': 348, 'write-in': 4}  <- overwritten!
+Same answer both times, but the second call quietly destroyed the
+first precinct's report. With reduceByKey(), build a NEW tally.
+
+========================================================================
+4. Why not reduceByKey(), aggregateByKey(), or groupByKey()?
+========================================================================
+reduceByKey(new_total)                       same answer? True
+aggregateByKey({}, add_tallies, add_tallies) same answer? True
+groupByKey().mapValues(...)                  same answer? True
+
+========================================================================
+5. A common mistake: a zeroValue that is not empty
+========================================================================
+Alameda      Lee 1,310   Patel 1,200   Rivera 510   write-in 7
+San Mateo    Patel 710   Lee 640   Rivera 155
+Santa Clara  Lee 1,435   Patel 1,385   Rivera 348   write-in 4
+
+Alameda and San Mateo (reports in one partition each) gave Lee 100
+extra votes. Santa Clara (reports in two partitions) gave 200, and
+that flipped the result: Lee now 'wins' Santa Clara, which Patel
+really won by 150 votes. The zeroValue must be truly empty: {}.

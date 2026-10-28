@@ -1,0 +1,62 @@
+$ $SPARK_HOME/bin/spark-submit aggregatebykey_product_ratings.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (product, stars)
+========================================================================
+partition 0 : [('grinder', 5), ('kettle', 4), ('grinder', 4), ('mug', 5)]
+partition 1 : [('grinder', 5), ('kettle', 2), ('grinder', 3), ('kettle', 4)]
+grinder and kettle have reviews in BOTH partitions; mug only in one.
+
+========================================================================
+2. The aggregateByKey() solution
+========================================================================
+rating boxes: [('grinder', [0, 0, 1, 1, 2]), ('kettle', [0, 1, 0, 2, 0]), ('mug', [0, 0, 0, 0, 1])]
+(number of reviews, average rating): [('grinder', (4, 4.25)), ('kettle', (3, 3.33)), ('mug', (1, 5.0))]
+
+grinder   4.25 out of 5   (4 reviews)
+  5 stars | ##   | 2
+  4 stars | #    | 1
+  3 stars | #    | 1
+  2 stars |      | 0
+  1 stars |      | 0
+kettle   3.33 out of 5   (3 reviews)
+  5 stars |      | 0
+  4 stars | ##   | 2
+  3 stars |      | 0
+  2 stars | #    | 1
+  1 stars |      | 0
+mug   5.0 out of 5   (1 reviews)
+  5 stars | #    | 1
+  4 stars |      | 0
+  3 stars |      | 0
+  2 stars |      | 0
+  1 stars |      | 0
+
+EMPTY_BOX itself never changed: [0, 0, 0, 0, 0]
+
+========================================================================
+3. The empty box shows up in the final report, too
+========================================================================
+Coffee grinder   [0, 0, 1, 1, 2]
+Electric kettle  [0, 1, 0, 2, 0]
+Travel mug       [0, 0, 0, 0, 1]
+Glass teapot     [0, 0, 0, 0, 0]
+The zeroValue is the SAME value the business uses for 'no data yet':
+the sign that aggregateByKey() is the right reducer.
+
+========================================================================
+4. Why not combineByKey() or map() + reduceByKey()?
+========================================================================
+combineByKey(first_review, add_review, merge_boxes) same answer? True
+one-review boxes (first 2): [('grinder', [0, 0, 0, 0, 1]), ('kettle', [0, 0, 0, 1, 0])]
+mapValues(one_review_box).reduceByKey(merge_boxes)  same answer? True
+
+========================================================================
+5. A common mistake: a zeroValue that is not empty
+========================================================================
+[('grinder', [0, 0, 1, 1, 4]), ('kettle', [0, 1, 0, 2, 2]), ('mug', [0, 0, 0, 0, 2])]
+mug got ONE free 5-star review (its reviews are in one partition),
+but grinder and kettle got TWO (their reviews are in two partitions).
+Business rules like 'add a bonus' belong AFTER the aggregation
+(in mapValues()), never in the zeroValue.

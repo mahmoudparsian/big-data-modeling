@@ -1,0 +1,48 @@
+$ $SPARK_HOME/bin/spark-submit combinebykey_customer_profile.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (customer, (date, product, amount))
+========================================================================
+partition 0
+    ('alice', ('2026-01-05', 'coffee', 12.0))
+    ('bob', ('2026-01-07', 'tea', 8.0))
+    ('alice', ('2026-02-11', 'mug', 15.0))
+    ('alice', ('2026-01-20', 'coffee', 12.0))
+partition 1
+    ('bob', ('2026-03-02', 'tea', 8.0))
+    ('alice', ('2026-03-15', 'coffee', 24.0))
+    ('carol', ('2026-02-28', 'teapot', 30.0))
+    ('bob', ('2026-02-14', 'cookies', 5.0))
+alice and bob have orders in BOTH partitions; carol only in one.
+
+========================================================================
+2. The combineByKey() solution
+========================================================================
+(orders, total, first order, last order, favorite product)
+alice (4, 63.0, '2026-01-05', '2026-03-15', 'coffee')
+bob (3, 21.0, '2026-01-07', '2026-03-02', 'tea')
+carol (1, 30.0, '2026-02-28', '2026-02-28', 'teapot')
+
+We miss you! list (no order since 2026-03-01): ['carol']
+
+========================================================================
+3. Can't we just use map() + reduceByKey()?
+========================================================================
+first one-order profile: ('alice', {'orders': 1, 'total': 12.0, 'first': '2026-01-05', 'last': '2026-01-05', 'products': {'coffee': 1}})
+mapValues(start_profile).reduceByKey(merge_profiles) same answer? True
+
+Same answer, but rule 2 ('add an order') disappears: 8 fake
+'profiles' for 3 customers, and one profile dictionary built for
+EVERY order. combineByKey() builds one profile per customer per
+partition, and the code reads like the business rules.
+
+========================================================================
+4. And aggregateByKey()?
+========================================================================
+fake empty profile: {'orders': 0, 'total': 0.0, 'first': '9999-12-31', 'last': '0000-01-01', 'products': {}}
+aggregateByKey(zero, add_order, merge_profiles)      same answer? True
+
+It works, but a profile with 0 orders and a first order in the year
+9999 makes no sense in the business. With combineByKey(), the
+customer's first REAL order starts the profile.

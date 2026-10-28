@@ -24,6 +24,32 @@ with a common mistake.
 |---|---|---|
 | `sortByKey()` | [Printing presorted mail](sortbykey_presorted_mail.md): statements in ZIP code order, one ZIP range per printer | The whole RDD must be in order by its key, and the output partitions are contiguous key ranges |
 
+### Runnable programs
+
+Each case also comes as a standalone PySpark program, with its sample data
+built inside the program. Each program follows the sections of its write-up
+(sample data, solution, alternatives, common mistake) and prints the same
+results. Its docstring tells the business story and maps each business rule
+to an argument of the operation. Each `.log` file is the output of a real
+run.
+
+| Program | Output of a real run | Write-up |
+|---|---|---|
+| [`reducebykey_package_tracking.py`](reducebykey_package_tracking.py) | [`.log`](reducebykey_package_tracking.log) | [Package tracking](reducebykey_package_tracking.md) |
+| [`foldbykey_election_results.py`](foldbykey_election_results.py) | [`.log`](foldbykey_election_results.log) | [Election-night vote totals](foldbykey_election_results.md) |
+| [`groupbykey_median_home_prices.py`](groupbykey_median_home_prices.py) | [`.log`](groupbykey_median_home_prices.log) | [Median home prices](groupbykey_median_home_prices.md) |
+| [`aggregatebykey_product_ratings.py`](aggregatebykey_product_ratings.py) | [`.log`](aggregatebykey_product_ratings.log) | [Star ratings](aggregatebykey_product_ratings.md) |
+| [`combinebykey_customer_profile.py`](combinebykey_customer_profile.py) | [`.log`](combinebykey_customer_profile.log) | [Customer profiles](combinebykey_customer_profile.md) |
+| [`sortbykey_presorted_mail.py`](sortbykey_presorted_mail.py) | [`.log`](sortbykey_presorted_mail.log) | [Presorted mail](sortbykey_presorted_mail.md) |
+
+Run any of them with `spark-submit`, or with plain `python3` if PySpark is
+installed in your Python (`pip install pyspark`):
+
+```
+$SPARK_HOME/bin/spark-submit reducebykey_package_tracking.py
+python3 reducebykey_package_tracking.py
+```
+
 All examples were run in the PySpark shell on Spark 4.2.0. For the basics of
 the four reducers on one simple problem, start with
 [Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).
