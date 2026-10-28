@@ -1,0 +1,98 @@
+$ $SPARK_HOME/bin/spark-submit combinebykey_customer_profile_dataframe.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: one row per order
+========================================================================
+root
+ |-- customer: string (nullable = true)
+ |-- order_date: date (nullable = true)
+ |-- product: string (nullable = true)
+ |-- amount: double (nullable = true)
+
++--------+----------+-------+------+
+|customer|order_date|product|amount|
++--------+----------+-------+------+
+|   alice|2026-01-05| coffee|  12.0|
+|     bob|2026-01-07|    tea|   8.0|
+|   alice|2026-02-11|    mug|  15.0|
+|   alice|2026-01-20| coffee|  12.0|
+|     bob|2026-03-02|    tea|   8.0|
+|   alice|2026-03-15| coffee|  24.0|
+|   carol|2026-02-28| teapot|  30.0|
+|     bob|2026-02-14|cookies|   5.0|
++--------+----------+-------+------+
+
+
+========================================================================
+2. The solution: one agg(), one column per profile field
+========================================================================
++--------+------+-----+-----------+----------+--------+
+|customer|orders|total|first_order|last_order|favorite|
++--------+------+-----+-----------+----------+--------+
+|   alice|     4| 63.0| 2026-01-05|2026-03-15|  coffee|
+|     bob|     3| 21.0| 2026-01-07|2026-03-02|     tea|
+|   carol|     1| 30.0| 2026-02-28|2026-02-28|  teapot|
++--------+------+-----+-----------+----------+--------+
+
+We miss you! list (no order since 2026-03-01):
++--------+
+|customer|
++--------+
+|   carol|
++--------+
+
+
+========================================================================
+3. The favorite product, with any tie-breaking rule
+========================================================================
+orders per (customer, product): the RDD profile's 'products' dict, as rows
++--------+-------+-----+
+|customer|product|times|
++--------+-------+-----+
+|   alice| coffee|    3|
+|   alice|    mug|    1|
+|     bob|cookies|    1|
+|     bob|    tea|    2|
+|   carol| teapot|    1|
++--------+-------+-----+
+
+the top product per customer (window: times desc, then product):
++--------+--------+
+|customer|favorite|
++--------+--------+
+|   alice|  coffee|
+|     bob|     tea|
+|   carol|  teapot|
++--------+--------+
+
+profile + window favorite, same as section 2? True
+
+========================================================================
+4. Spark SQL
+========================================================================
++--------+------+-----+-----------+----------+--------+
+|customer|orders|total|first_order|last_order|favorite|
++--------+------+-----+-----------+----------+--------+
+|   alice|     4| 63.0| 2026-01-05|2026-03-15|  coffee|
+|     bob|     3| 21.0| 2026-01-07|2026-03-02|     tea|
+|   carol|     1| 30.0| 2026-02-28|2026-02-28|  teapot|
++--------+------+-----+-----------+----------+--------+
+
+
+========================================================================
+5. A common mistake: max() (or first()) as the 'favorite'
+========================================================================
++--------+--------+
+|customer|favorite|
++--------+--------+
+|   alice|     mug|
+|     bob|     tea|
+|   carol|  teapot|
++--------+--------+
+
+alice bought coffee 3 times and a mug once, yet her coupon is for
+MUGS: max() of a string is the alphabetically last value ('mug' >
+'coffee'). bob's 'tea' is right only by luck. F.first() is no better:
+whichever row comes first, non-deterministic after a shuffle.
+'Most often' is a count: use mode(), or count per product (section 3).

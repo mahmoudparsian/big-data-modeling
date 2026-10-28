@@ -330,3 +330,6 @@ Two rules to remember:
 
 For the basics of the reducers on one simple problem, see
 [Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).
+
+The same case with DataFrames (built-in aggregates, Spark SQL, and the
+DataFrame-specific mistakes): [DataFrame version](foldbykey_election_results_dataframe.md).

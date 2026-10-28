@@ -1,0 +1,104 @@
+$ $SPARK_HOME/bin/spark-submit aggregatebykey_product_ratings_dataframe.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (product, stars)
+========================================================================
+root
+ |-- product: string (nullable = true)
+ |-- stars: integer (nullable = true)
+
+reviews: 8
+
+========================================================================
+2. The solution: one count(when(...)) per star level
+========================================================================
++-------+-------+-------+-------+-------+-------+-------+-------+
+|product|stars_1|stars_2|stars_3|stars_4|stars_5|reviews|average|
++-------+-------+-------+-------+-------+-------+-------+-------+
+|grinder|      0|      0|      1|      1|      2|      4|   4.25|
+| kettle|      0|      1|      0|      2|      0|      3|   3.33|
+|    mug|      0|      0|      0|      0|      1|      1|    5.0|
++-------+-------+-------+-------+-------+-------+-------+-------+
+
+grinder   4.25 out of 5   (4 reviews)
+  5 stars | ##   | 2
+  4 stars | #    | 1
+  3 stars | #    | 1
+  2 stars |      | 0
+  1 stars |      | 0
+kettle   3.33 out of 5   (3 reviews)
+  5 stars |      | 0
+  4 stars | ##   | 2
+  3 stars |      | 0
+  2 stars | #    | 1
+  1 stars |      | 0
+mug   5.0 out of 5   (1 reviews)
+  5 stars | #    | 1
+  4 stars |      | 0
+  3 stars |      | 0
+  2 stars |      | 0
+  1 stars |      | 0
+
+========================================================================
+3. The empty box, for a product with no reviews
+========================================================================
+After the left join:
++-------+---------------+-------+-------+-------+-------+-------+-------+-------+
+|product|           name|stars_1|stars_2|stars_3|stars_4|stars_5|reviews|average|
++-------+---------------+-------+-------+-------+-------+-------+-------+-------+
+|grinder| Coffee grinder|      0|      0|      1|      1|      2|      4|   4.25|
+| kettle|Electric kettle|      0|      1|      0|      2|      0|      3|   3.33|
+|    mug|     Travel mug|      0|      0|      0|      0|      1|      1|    5.0|
+| teapot|   Glass teapot|   NULL|   NULL|   NULL|   NULL|   NULL|   NULL|   NULL|
++-------+---------------+-------+-------+-------+-------+-------+-------+-------+
+
+After fillna(0, subset=counters):
++-------+---------------+-------+-------+-------+-------+-------+-------+-------+
+|product|           name|stars_1|stars_2|stars_3|stars_4|stars_5|reviews|average|
++-------+---------------+-------+-------+-------+-------+-------+-------+-------+
+|grinder| Coffee grinder|      0|      0|      1|      1|      2|      4|   4.25|
+| kettle|Electric kettle|      0|      1|      0|      2|      0|      3|   3.33|
+|    mug|     Travel mug|      0|      0|      0|      0|      1|      1|    5.0|
+| teapot|   Glass teapot|      0|      0|      0|      0|      0|      0|   NULL|
++-------+---------------+-------+-------+-------+-------+-------+-------+-------+
+
+
+========================================================================
+4. Other ways: pivot(), and Spark SQL
+========================================================================
+pivot('stars', [1, 2, 3, 4, 5]).count(), then fillna(0):
++-------+---+---+---+---+---+
+|product|  1|  2|  3|  4|  5|
++-------+---+---+---+---+---+
+|grinder|  0|  0|  1|  1|  2|
+| kettle|  0|  1|  0|  2|  0|
+|    mug|  0|  0|  0|  0|  1|
++-------+---+---+---+---+---+
+
+Spark SQL, with count_if():
++-------+-------+-------+-------+-------+-------+-------+-------+
+|product|stars_1|stars_2|stars_3|stars_4|stars_5|reviews|average|
++-------+-------+-------+-------+-------+-------+-------+-------+
+|grinder|      0|      0|      1|      1|      2|      4|   4.25|
+| kettle|      0|      1|      0|      2|      0|      3|   3.33|
+|    mug|      0|      0|      0|      0|      1|      1|    5.0|
++-------+-------+-------+-------+-------+-------+-------+-------+
+
+
+========================================================================
+5. A common mistake: pivot() without the list of values
+========================================================================
++-------+----+----+----+----+
+|product|   2|   3|   4|   5|
++-------+----+----+----+----+
+|grinder|NULL|   1|   1|   2|
+| kettle|   1|NULL|   2|NULL|
+|    mug|NULL|NULL|NULL|   1|
++-------+----+----+----+----+
+
+1. The 1-star column is gone: no one gave 1 star, so Spark never saw
+   the value 1. The shape of the report depends on the data.
+2. Empty cells are NULL, not 0: the page would print '2 stars | NULL'.
+A rating box ALWAYS has 5 bars (the RDD version's 5-counter zeroValue).
+Say it in the code: list the values, or use count(when(...)) as above.

@@ -50,6 +50,24 @@ $SPARK_HOME/bin/spark-submit reducebykey_package_tracking.py
 python3 reducebykey_package_tracking.py
 ```
 
+### DataFrame versions
+
+The same six cases, with the same data, solved with DataFrames and Spark SQL,
+so you can compare the two APIs side by side. With DataFrames you don't write
+the combining functions: you pick built-in aggregates, and Spark already knows
+how to start, combine, and merge each one per partition. Each write-up maps
+the RDD solution to the DataFrame one, checks the plan where it matters, and
+ends with a common mistake that only happens with DataFrames.
+
+| Case | RDD | DataFrame | Common mistake | Program | Output |
+|---|---|---|---|---|---|
+| [Package tracking](reducebykey_package_tracking_dataframe.md) | `reduceByKey(later_scan)` | `max(struct(time, ...))` or `max_by(col, time)` | `max()` of every column glues together a scan that never happened | [`.py`](reducebykey_package_tracking_dataframe.py) | [`.log`](reducebykey_package_tracking_dataframe.log) |
+| [Election-night vote totals](foldbykey_election_results_dataframe.md) | `foldByKey({}, add_tallies)` | `explode()` each tally into rows, then `sum()`; `rollup()` for the statewide total | `NULL` is not zero: one missing candidate makes the county total `NULL` | [`.py`](foldbykey_election_results_dataframe.py) | [`.log`](foldbykey_election_results_dataframe.log) |
+| [Median home prices](groupbykey_median_home_prices_dataframe.md) | `groupByKey()` + `mapValues(median)` | `median()`; `collect_list()` when you need every value | `percentile_approx()` is not the median (2900 instead of 3000) | [`.py`](groupbykey_median_home_prices_dataframe.py) | [`.log`](groupbykey_median_home_prices_dataframe.log) |
+| [Star ratings](aggregatebykey_product_ratings_dataframe.md) | `aggregateByKey([0, 0, 0, 0, 0], ...)` | `count(when(stars == k, 1))` per star level | `pivot()` without the list of values drops the 1-star column | [`.py`](aggregatebykey_product_ratings_dataframe.py) | [`.log`](aggregatebykey_product_ratings_dataframe.log) |
+| [Customer profiles](combinebykey_customer_profile_dataframe.md) | `combineByKey(start, add, merge)` | `count()`, `sum()`, `min()`, `max()`, `mode()` in one `agg()` | `max("product")` as the favorite gives alice a coupon for mugs | [`.py`](combinebykey_customer_profile_dataframe.py) | [`.log`](combinebykey_customer_profile_dataframe.log) |
+| [Presorted mail](sortbykey_presorted_mail_dataframe.md) | `sortByKey(numPartitions=3)` | `orderBy()`; `repartitionByRange(3, key).sortWithinPartitions(key)` for one range per printer | `inferSchema` turns ZIP code `02138` into `2138` | [`.py`](sortbykey_presorted_mail_dataframe.py) | [`.log`](sortbykey_presorted_mail_dataframe.log) |
+
 All examples were run in the PySpark shell on Spark 4.2.0. For the basics of
 the four reducers on one simple problem, start with
 [Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).

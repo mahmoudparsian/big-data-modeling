@@ -1,0 +1,89 @@
+$ $SPARK_HOME/bin/spark-submit groupbykey_median_home_prices_dataframe.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (zip_code, price in $1000s)
+========================================================================
+root
+ |-- zip_code: string (nullable = true)
+ |-- price: integer (nullable = true)
+
+sales: 12
+
+========================================================================
+2. The solution: groupBy().agg(median())
+========================================================================
++--------+----------+------------+
+|zip_code|homes_sold|median_price|
++--------+----------+------------+
+|   95014|         4|      3000.0|
+|   95050|         5|      1310.0|
+|   95112|         3|      1050.0|
++--------+----------+------------+
+
+95014 has 4 sales: its median is (2900 + 3100) / 2 = 3000.0.
+(median() always returns a double.)
+
+The report the website shows:
+  95014 (Cupertino)   4 homes sold   median price: $3,000K
+  95050 (Santa Clara)   5 homes sold   median price: $1,310K
+  95112 (San Jose)   3 homes sold   median price: $1,050K
+
+Average vs. median:
++--------+-------+------+
+|zip_code|average|median|
++--------+-------+------+
+|   95014| 3012.5|3000.0|
+|   95050| 2988.0|1310.0|
+|   95112| 1050.0|1050.0|
++--------+-------+------+
+
+The one $9,800K mansion in 95050 more than doubles the average.
+
+========================================================================
+3. What median() does inside: still 'all the values'
+========================================================================
+'partial_percentile' in plan:        True
+'Exchange hashpartitioning' in plan: True
+
+groupByKey() by hand, with collect_list():
++--------+------------------------------+
+|zip_code|prices                        |
++--------+------------------------------+
+|95014   |[2750, 2900, 3100, 3300]      |
+|95050   |[1180, 1250, 1310, 1400, 9800]|
+|95112   |[980, 1050, 1120]             |
++--------+------------------------------+
+
+
+========================================================================
+4. Spark SQL: median() and percentile_cont()
+========================================================================
++--------+----------+------------+---------------+
+|zip_code|homes_sold|median_price|percentile_cont|
++--------+----------+------------+---------------+
+|   95014|         4|      3000.0|         3000.0|
+|   95050|         5|      1310.0|         1310.0|
+|   95112|         3|      1050.0|         1050.0|
++--------+----------+------------+---------------+
+
+
+========================================================================
+5. A common mistake: percentile_approx() is not the median
+========================================================================
++--------+------+-----------------+
+|zip_code|median|percentile_approx|
++--------+------+-----------------+
+|   95014|3000.0|             2900|
+|   95050|1310.0|             1310|
+|   95112|1050.0|             1050|
++--------+------+-----------------+
+
+For 95014 (4 sales), percentile_approx() says 2900, not 3000.0:
+  1. it never averages: it returns an ACTUAL value from the data (the
+     smallest price with at least half of the prices <= it);
+  2. it is approximate: it keeps a small fixed-size sketch per group,
+     not every value (error controlled by its 'accuracy' argument).
+Point 2 is also its strength: sketches merge like partial sums, so it
+works on groups of ANY size. Use median() for an exact median when each
+group fits in memory; percentile_approx() for huge groups.

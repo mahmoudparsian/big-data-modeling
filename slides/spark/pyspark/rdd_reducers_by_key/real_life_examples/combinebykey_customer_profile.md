@@ -310,3 +310,6 @@ and `aggregateByKey()` is the better fit, see
 
 For the basics of all four reducers on a simpler problem, see
 [Find Sum, Count, and Average Per Key](../find_sum_count_avg_per_key.md).
+
+The same case with DataFrames (built-in aggregates, Spark SQL, and the
+DataFrame-specific mistakes): [DataFrame version](combinebykey_customer_profile_dataframe.md).

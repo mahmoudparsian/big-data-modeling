@@ -1,0 +1,103 @@
+$ $SPARK_HOME/bin/spark-submit reducebykey_package_tracking_dataframe.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: one row per scan
+========================================================================
+root
+ |-- package_id: string (nullable = true)
+ |-- scan_time: timestamp (nullable = true)
+ |-- location: string (nullable = true)
+ |-- status: string (nullable = true)
+
++----------+-------------------+---------------+----------------+
+|package_id|scan_time          |location       |status          |
++----------+-------------------+---------------+----------------+
+|PKG-1001  |2026-10-21 06:05:00|Santa Clara, CA|out for delivery|
+|PKG-1002  |2026-10-22 03:10:00|Portland, OR   |in transit      |
+|PKG-1001  |2026-10-20 08:15:00|San Jose, CA   |picked up       |
+|PKG-1003  |2026-10-22 11:45:00|Austin, TX     |picked up       |
+|PKG-1001  |2026-10-21 14:32:00|Santa Clara, CA|delivered       |
+|PKG-1002  |2026-10-21 09:00:00|Seattle, WA    |picked up       |
+|PKG-1003  |2026-10-22 18:20:00|Dallas, TX     |in transit      |
+|PKG-1001  |2026-10-20 19:40:00|Oakland, CA    |in transit      |
++----------+-------------------+---------------+----------------+
+
+
+========================================================================
+2. The solution: max() of a struct, and max_by()
+========================================================================
+max(struct(scan_time, location, status)):
++----------+-------------------+---------------+----------+
+|package_id|scan_time          |location       |status    |
++----------+-------------------+---------------+----------+
+|PKG-1001  |2026-10-21 14:32:00|Santa Clara, CA|delivered |
+|PKG-1002  |2026-10-22 03:10:00|Portland, OR   |in transit|
+|PKG-1003  |2026-10-22 18:20:00|Dallas, TX     |in transit|
++----------+-------------------+---------------+----------+
+
+max_by(column, scan_time):
++----------+-------------------+---------------+----------+
+|package_id|scan_time          |location       |status    |
++----------+-------------------+---------------+----------+
+|PKG-1001  |2026-10-21 14:32:00|Santa Clara, CA|delivered |
+|PKG-1002  |2026-10-22 03:10:00|Portland, OR   |in transit|
+|PKG-1003  |2026-10-22 18:20:00|Dallas, TX     |in transit|
++----------+-------------------+---------------+----------+
+
+
+========================================================================
+3. What Spark does with it: the reduceByKey() plan
+========================================================================
+'partial_max' in plan:               True
+'Exchange hashpartitioning' in plan: True
+
+========================================================================
+4. Bonus: the status dashboard
+========================================================================
++----------+-----+
+|    status|count|
++----------+-----+
+| delivered|    1|
+|in transit|    2|
++----------+-----+
+
+
+========================================================================
+5. Other ways: a row_number() window, and Spark SQL
+========================================================================
+row_number() over a window:
++----------+-------------------+---------------+----------+
+|package_id|scan_time          |location       |status    |
++----------+-------------------+---------------+----------+
+|PKG-1001  |2026-10-21 14:32:00|Santa Clara, CA|delivered |
+|PKG-1002  |2026-10-22 03:10:00|Portland, OR   |in transit|
+|PKG-1003  |2026-10-22 18:20:00|Dallas, TX     |in transit|
++----------+-------------------+---------------+----------+
+
+Spark SQL:
++----------+-------------------+---------------+----------+
+|package_id|scan_time          |location       |status    |
++----------+-------------------+---------------+----------+
+|PKG-1001  |2026-10-21 14:32:00|Santa Clara, CA|delivered |
+|PKG-1002  |2026-10-22 03:10:00|Portland, OR   |in transit|
+|PKG-1003  |2026-10-22 18:20:00|Dallas, TX     |in transit|
++----------+-------------------+---------------+----------+
+
+
+========================================================================
+6. A common mistake: the max() of every column
+========================================================================
++----------+-------------------+---------------+---------+
+|package_id|scan_time          |location       |status   |
++----------+-------------------+---------------+---------+
+|PKG-1001  |2026-10-21 14:32:00|Santa Clara, CA|picked up|
+|PKG-1002  |2026-10-22 03:10:00|Seattle, WA    |picked up|
+|PKG-1003  |2026-10-22 18:20:00|Dallas, TX     |picked up|
++----------+-------------------+---------------+---------+
+
+Every package is now 'picked up', and PKG-1002 is in Seattle at
+03:10 on 10-22: a scan that never happened (it was in Portland).
+Columns that must come from the SAME row must travel together: in
+one struct, with max_by(), or with a window. (Similarly, F.last()
+is 'the last one wins': non-deterministic after a shuffle.)

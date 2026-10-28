@@ -341,3 +341,6 @@ split into ranges):
 For the reducers (`reduceByKey()`, `foldByKey()`, `groupByKey()`,
 `aggregateByKey()`, `combineByKey()`), see the other examples in
 [this folder](README.md).
+
+The same case with DataFrames (built-in aggregates, Spark SQL, and the
+DataFrame-specific mistakes): [DataFrame version](sortbykey_presorted_mail_dataframe.md).

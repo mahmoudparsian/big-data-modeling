@@ -1,0 +1,137 @@
+$ $SPARK_HOME/bin/spark-submit sortbykey_presorted_mail_dataframe.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (zip_code, customer, amount_due)
+========================================================================
+root
+ |-- zip_code: string (nullable = true)
+ |-- customer: string (nullable = true)
+ |-- amount_due: double (nullable = true)
+
+statements: 12
+
+========================================================================
+2. All statements in ZIP code order: orderBy()
+========================================================================
+ZIP codes in order: ['02138', '10001', '10001', '30301', '60601', '73301', '94105', '95050', '95050', '95050', '98101', '98101']
+number of partitions (printers) after orderBy(): 1
+orderBy() promises the ORDER, not the PARTITIONS.
+
+========================================================================
+3. One ZIP range per printer: repartitionByRange()
+========================================================================
+number of partitions (printers): 3
++--------+----------+----------+-------+
+|zip_code|  customer|amount_due|printer|
++--------+----------+----------+-------+
+|   02138|    Murphy|    310.25|      1|
+|   10001| Bernstein|     19.99|      1|
+|   10001|    Okafor|      45.1|      1|
+|   30301|Washington|     150.0|      1|
+|   60601|  Kowalski|      88.0|      2|
+|   73301| Hernandez|      75.0|      2|
+|   94105|  Nakamura|     210.4|      2|
+|   95050|   Alvarez|     64.75|      2|
+|   95050|     Baker|      33.3|      2|
+|   95050|      Chen|     120.0|      2|
+|   98101|  Andersen|      99.0|      3|
+|   98101|    Larsen|       9.5|      3|
++--------+----------+----------+-------+
+
++-------+----------+--------+------+
+|printer|statements|from_zip|to_zip|
++-------+----------+--------+------+
+|      1|         4|   02138| 30301|
+|      2|         6|   60601| 95050|
+|      3|         2|   98101| 98101|
++-------+----------+--------+------+
+
+Three contiguous ranges, in order, each one sorted.
+
+========================================================================
+4. Several sort columns, top N, and Spark SQL
+========================================================================
+orderBy('zip_code', 'customer'):
++--------+----------+----------+
+|zip_code|  customer|amount_due|
++--------+----------+----------+
+|   02138|    Murphy|    310.25|
+|   10001| Bernstein|     19.99|
+|   10001|    Okafor|      45.1|
+|   30301|Washington|     150.0|
+|   60601|  Kowalski|      88.0|
+|   73301| Hernandez|      75.0|
+|   94105|  Nakamura|     210.4|
+|   95050|   Alvarez|     64.75|
+|   95050|     Baker|      33.3|
+|   95050|      Chen|     120.0|
+|   98101|  Andersen|      99.0|
+|   98101|    Larsen|       9.5|
++--------+----------+----------+
+
+orderBy(desc('amount_due')).limit(3):
++--------+----------+----------+
+|zip_code|  customer|amount_due|
++--------+----------+----------+
+|   02138|    Murphy|    310.25|
+|   94105|  Nakamura|     210.4|
+|   30301|Washington|     150.0|
++--------+----------+----------+
+
+'TakeOrderedAndProject' in plan: True
+
+Spark SQL, ORDER BY ... LIMIT 3:
++--------+----------+----------+
+|zip_code|  customer|amount_due|
++--------+----------+----------+
+|   02138|    Murphy|    310.25|
+|   94105|  Nakamura|     210.4|
+|   30301|Washington|     150.0|
++--------+----------+----------+
+
+
+========================================================================
+5. A common mistake: letting Spark guess the column types
+========================================================================
+first CSV lines: ['zip_code,customer,amount_due', '95050,Chen,120.00', '10001,Okafor,45.10']
+
+With inferSchema=True:
+root
+ |-- zip_code: integer (nullable = true)
+ |-- customer: string (nullable = true)
+ |-- amount_due: double (nullable = true)
+
++--------+---------+----------+
+|zip_code| customer|amount_due|
++--------+---------+----------+
+|    2138|   Murphy|    310.25|
+|   10001|Bernstein|     19.99|
+|   10001|   Okafor|      45.1|
++--------+---------+----------+
+only showing top 3 rows
+'02138' became 2138: a 4-digit ZIP code the post office can't deliver.
+
+Without inferSchema (all strings), 'largest amount first':
++--------+---------+----------+
+|zip_code| customer|amount_due|
++--------+---------+----------+
+|   98101| Andersen|     99.00|
+|   98101|   Larsen|      9.50|
+|   60601| Kowalski|     88.00|
+|   73301|Hernandez|     75.00|
+|   95050|  Alvarez|     64.75|
++--------+---------+----------+
+only showing top 5 rows
+The real largest amount, '310.25', is not even in the top 5.
+
+With an explicit schema:
++--------+---------+----------+
+|zip_code| customer|amount_due|
++--------+---------+----------+
+|   02138|   Murphy|    310.25|
+|   10001|Bernstein|     19.99|
+|   10001|   Okafor|      45.1|
++--------+---------+----------+
+only showing top 3 rows
+largest amounts correct? True

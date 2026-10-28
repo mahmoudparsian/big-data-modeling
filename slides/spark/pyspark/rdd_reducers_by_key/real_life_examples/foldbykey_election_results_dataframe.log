@@ -1,0 +1,129 @@
+$ $SPARK_HOME/bin/spark-submit foldbykey_election_results_dataframe.py
+Spark version: 4.2.0
+
+========================================================================
+1. Sample data: (county, tally MAP<STRING, INT>)
+========================================================================
+root
+ |-- county: string (nullable = true)
+ |-- tally: map (nullable = true)
+ |    |-- key: string
+ |    |-- value: integer (valueContainsNull = true)
+
+precinct reports: 8
+
+========================================================================
+2. Step 1: one row per candidate per precinct, with explode()
+========================================================================
+root
+ |-- county: string (nullable = true)
+ |-- candidate: string (nullable = false)
+ |-- votes: integer (nullable = true)
+
+rows after explode(): 25
+Santa Clara's rows:
++-----------+---------+-----+
+|     county|candidate|votes|
++-----------+---------+-----+
+|Santa Clara|      Lee|  295|
+|Santa Clara|      Lee|  410|
+|Santa Clara|      Lee|  530|
+|Santa Clara|    Patel|  240|
+|Santa Clara|    Patel|  385|
+|Santa Clara|    Patel|  760|
+|Santa Clara|   Rivera|   88|
+|Santa Clara|   Rivera|  120|
+|Santa Clara|   Rivera|  140|
+|Santa Clara| write-in|    4|
++-----------+---------+-----+
+
+A candidate with no votes in a precinct simply has NO ROW: that is
+the DataFrame's 'empty tally'.
+
+========================================================================
+3. Step 2: add up the votes, with groupBy().agg(sum())
+========================================================================
++-----------+---------+-----+
+|     county|candidate|votes|
++-----------+---------+-----+
+|    Alameda|      Lee| 1210|
+|    Alameda|    Patel| 1200|
+|    Alameda|   Rivera|  510|
+|    Alameda| write-in|    7|
+|  San Mateo|    Patel|  710|
+|  San Mateo|      Lee|  540|
+|  San Mateo|   Rivera|  155|
+|Santa Clara|    Patel| 1385|
+|Santa Clara|      Lee| 1235|
+|Santa Clara|   Rivera|  348|
+|Santa Clara| write-in|    4|
++-----------+---------+-----+
+
+The TV view, with pivot():
++-----------+----+-----+------+--------+
+|     county| Lee|Patel|Rivera|write-in|
++-----------+----+-----+------+--------+
+|    Alameda|1210| 1200|   510|       7|
+|  San Mateo| 540|  710|   155|    NULL|
+|Santa Clara|1235| 1385|   348|       4|
++-----------+----+-----+------+--------+
+
+San Mateo had no write-in rows, so its sum is NULL, not 0.
+
+========================================================================
+4. Bonus: the statewide total, and rollup()
+========================================================================
+statewide, per candidate:
++---------+-----+
+|candidate|votes|
++---------+-----+
+|    Patel| 3295|
+|      Lee| 2985|
+|   Rivera| 1013|
+| write-in|   11|
++---------+-----+
+
+votes counted per county, and in the whole state (rollup()):
++-----------+---------+-----+
+|     county|candidate|votes|
++-----------+---------+-----+
+|    Alameda|     NULL| 2927|
+|  San Mateo|     NULL| 1405|
+|Santa Clara|     NULL| 2972|
+|       NULL|     NULL| 7304|
++-----------+---------+-----+
+
+
+========================================================================
+5. Keeping the dictionaries: aggregate() over collect_list()
+========================================================================
+aggregate(collect_list(tally), {}, add_tallies) same answer? True
+It works, but collect_list() gathers EVERY tally of a county in one
+place (that's groupByKey(), not foldByKey()): every tally crosses the
+network and no votes are added before the shuffle. To aggregate
+dictionaries, explode() them into rows first.
+
+========================================================================
+6. A common mistake: NULL is not zero
+========================================================================
++-----------+----+-----+------+--------+-----+
+|     county| Lee|Patel|Rivera|write-in|total|
++-----------+----+-----+------+--------+-----+
+|    Alameda|1210| 1200|   510|       7| 2927|
+|  San Mateo| 540|  710|   155|    NULL| NULL|
+|Santa Clara|1235| 1385|   348|       4| 2972|
++-----------+----+-----+------+--------+-----+
+
+San Mateo's total is NULL: in SQL, anything + NULL is NULL. One NULL
+(no write-in votes) erased 1,405 real votes.
+
+With fillna(0) first:
++-----------+----+-----+------+--------+-----+
+|     county| Lee|Patel|Rivera|write-in|total|
++-----------+----+-----+------+--------+-----+
+|    Alameda|1210| 1200|   510|       7| 2927|
+|  San Mateo| 540|  710|   155|       0| 1405|
+|Santa Clara|1235| 1385|   348|       4| 2972|
++-----------+----+-----+------+--------+-----+
+
+The totals now match the rollup() in section 4.
