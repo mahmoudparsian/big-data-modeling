@@ -53,7 +53,7 @@ The output of a real run is in groupbykey_median_home_prices.log.
 The full write-up is in groupbykey_median_home_prices.md.
 """
 from pyspark.sql import SparkSession
-
+import statistics
 
 def section(title):
     """Print a section header, to make the output easy to follow."""
@@ -63,7 +63,7 @@ def section(title):
     print("=" * 72)
 
 
-def median(values):
+def median2(values):
     """Return the median of a collection of numbers.
 
     Odd number of values: the middle value of the sorted values.
@@ -85,7 +85,7 @@ def medians_in_partition(records):
     prices = {}
     for zip_code, price in records:
         prices.setdefault(zip_code, []).append(price)
-    return [(z, (sorted(p), median(p))) for z, p in prices.items()]
+    return [(z, (sorted(p), statistics.median(p))) for z, p in prices.items()]
 
 
 # The three combineByKey() functions that build a list of prices per key:
@@ -142,7 +142,7 @@ def main():
 
     # Step 2: compute the summary from each complete list.
     # summary : RDD[(zip_code, (number of sales, median price))]
-    summary = grouped.mapValues(lambda prices: (len(prices), median(prices)))
+    summary = grouped.mapValues(lambda prices: (len(prices), statistics.median(prices)))
     print()
     print("Step 2: (number of sales, median price)")
     print("  ", sorted(summary.collect()))
@@ -158,7 +158,7 @@ def main():
     for zip_code, prices in sorted(grouped.collect()):
         prices = list(prices)
         print("  ", zip_code, "average:", sum(prices) / len(prices),
-              "  median:", median(prices))
+              "  median:", statistics.median(prices))
     print("The one mansion in 95050 more than doubles the average.")
 
     # ---------------------------------------------------------------------
@@ -172,9 +172,9 @@ def main():
     print("partial medians of 95050:", partial_95050)
 
     medians = [med for zip_code, (prices, med) in partial_95050]
-    print("median of the partial medians:", median(medians), " <- WRONG")
+    print("median of the partial medians:", statistics.median(medians), " <- WRONG")
     print("the true median:              ",
-          median([price for zip_code, price in sales if zip_code == '95050']))
+          statistics.median([price for zip_code, price in sales if zip_code == '95050']))
     print("The partial medians do not have enough information to recover the")
     print("true median, and the wrong answer depends on how Spark happened to")
     print("split the data. (The sum of partial sums, by contrast, is ALWAYS")
@@ -186,7 +186,7 @@ def main():
     # Since the only summary that works is the whole list of prices, any
     # other reducer would have to build that list. With combineByKey():
     lists = sales_rdd.combineByKey(start_list, add_price, merge_lists)
-    summary2 = lists.mapValues(lambda prices: (len(prices), median(prices)))
+    summary2 = lists.mapValues(lambda prices: (len(prices), statistics.median(prices)))
     print("combineByKey(start_list, add_price, merge_lists):")
     print("  ", sorted(summary2.collect()))
     print("same answer?", sorted(summary2.collect()) == sorted(summary.collect()))
