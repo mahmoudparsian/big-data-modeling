@@ -78,16 +78,24 @@ in other. Performs a hash join across the cluster.
 ## Example 1 — setup
 
 ```python
->>> A = [('k1', 2), ('k1', 3), ('k2', 4), ('k2', 5), ('k3', 20), ('k4', 200)]
->>> B = [('k1', 20), ('k1', 30), ('k2', 40), ('k2', 50), ('k7', 20), ('k8', 2)]
+>>> A = [('k1', 2), ('k1', 3), 
+         ('k2', 4), ('k2', 5), 
+         ('k3', 20), ('k4', 200)]
+>>> B = [('k1', 20), ('k1', 30), 
+         ('k2', 40), ('k2', 50), 
+         ('k7', 20), ('k8', 2)]
 
 >>> rdd1 = sc.parallelize(A)
 >>> rdd2 = sc.parallelize(B)
 
 >>> rdd1.collect()
-[('k1', 2), ('k1', 3), ('k2', 4), ('k2', 5), ('k3', 20), ('k4', 200)]
+[('k1', 2), ('k1', 3), 
+('k2', 4), ('k2', 5), 
+('k3', 20), ('k4', 200)]
 >>> rdd2.collect()
-[('k1', 20), ('k1', 30), ('k2', 40), ('k2', 50), ('k7', 20), ('k8', 2)]
+[('k1', 20), ('k1', 30), 
+('k2', 40), ('k2', 50), 
+('k7', 20), ('k8', 2)]
 ```
 
 ---
@@ -116,17 +124,23 @@ inner join keeps only matching keys.
 >>> left_outer_join = rdd1.leftOuterJoin(rdd2)
 >>> left_outer_join.collect()
 [
- ('k1', (2, 20)), ('k1', (2, 30)), ('k1', (3, 20)), ('k1', (3, 30)),
- ('k2', (4, 40)), ('k2', (4, 50)), ('k2', (5, 40)), ('k2', (5, 50)),
- ('k3', (20, None)), ('k4', (200, None))
+ ('k1', (2, 20)), ('k1', (2, 30)), 
+ ('k1', (3, 20)), ('k1', (3, 30)),
+ ('k2', (4, 40)), ('k2', (4, 50)), 
+ ('k2', (5, 40)), ('k2', (5, 50)),
+ ('k3', (20, None)), 
+ ('k4', (200, None))
 ]
 
 >>> right_outer_join = rdd1.rightOuterJoin(rdd2)
 >>> right_outer_join.collect()
 [
- ('k1', (2, 20)), ('k1', (2, 30)), ('k1', (3, 20)), ('k1', (3, 30)),
- ('k2', (4, 40)), ('k2', (4, 50)), ('k2', (5, 40)), ('k2', (5, 50)),
- ('k8', (None, 2)), ('k7', (None, 20))
+ ('k1', (2, 20)), ('k1', (2, 30)), 
+ ('k1', (3, 20)), ('k1', (3, 30)),
+ ('k2', (4, 40)), ('k2', (4, 50)), 
+ ('k2', (5, 40)), ('k2', (5, 50)),
+ ('k8', (None, 2)), 
+ ('k7', (None, 20))
 ]
 ```
 
@@ -137,8 +151,12 @@ inner join keeps only matching keys.
 Same idea, different data — this time we'll add `fullOuterJoin`.
 
 ```python
->>> data1 = [('A', 2), ('A', 3), ('B', 4), ('B', 5), ('C', 5), ('D', 6)]
->>> data2 = [('A', 7), ('A', 8), ('B', 20), ('B', 30), ('E', 8), ('F', 9)]
+>>> data1 = [('A', 2), ('A', 3), 
+             ('B', 4), ('B', 5), 
+             ('C', 5), ('D', 6)]
+>>> data2 = [('A', 7), ('A', 8), 
+             ('B', 20), ('B', 30), 
+             ('E', 8), ('F', 9)]
 
 >>> rdd1 = sc.parallelize(data1)
 >>> rdd2 = sc.parallelize(data2)
@@ -157,8 +175,10 @@ Same idea, different data — this time we'll add `fullOuterJoin`.
 >>> joined = rdd1.join(rdd2)
 >>> joined.collect()
 [
- ('A', (2, 7)), ('A', (2, 8)), ('A', (3, 7)), ('A', (3, 8)),
- ('B', (4, 20)), ('B', (4, 30)), ('B', (5, 20)), ('B', (5, 30))
+ ('A', (2, 7)), ('A', (2, 8)), 
+ ('A', (3, 7)), ('A', (3, 8)),
+ ('B', (4, 20)), ('B', (4, 30)), 
+ ('B', (5, 20)), ('B', (5, 30))
 ]
 ```
 
@@ -172,9 +192,12 @@ Keys `C`, `D` (only in `rdd1`) and `E`, `F` (only in `rdd2`) are dropped.
 >>> left_join = rdd1.leftOuterJoin(rdd2)
 >>> left_join.collect()
 [
- ('A', (2, 7)), ('A', (2, 8)), ('A', (3, 7)), ('A', (3, 8)),
- ('B', (4, 20)), ('B', (4, 30)), ('B', (5, 20)), ('B', (5, 30)),
- ('D', (6, None)), ('C', (5, None))
+ ('A', (2, 7)), ('A', (2, 8)), 
+ ('A', (3, 7)), ('A', (3, 8)),
+ ('B', (4, 20)), ('B', (4, 30)), 
+ ('B', (5, 20)), ('B', (5, 30)),
+ ('D', (6, None)), 
+ ('C', (5, None))
 ]
 ```
 
@@ -189,9 +212,12 @@ or `(k, (v, None))` if `k` has no match on the right.
 >>> right_join = rdd1.rightOuterJoin(rdd2)
 >>> right_join.collect()
 [
- ('A', (2, 7)), ('A', (2, 8)), ('A', (3, 7)), ('A', (3, 8)),
- ('B', (4, 20)), ('B', (4, 30)), ('B', (5, 20)), ('B', (5, 30)),
- ('E', (None, 8)), ('F', (None, 9))
+ ('A', (2, 7)), ('A', (2, 8)), 
+ ('A', (3, 7)), ('A', (3, 8)),
+ ('B', (4, 20)), ('B', (4, 30)), 
+ ('B', (5, 20)), ('B', (5, 30)),
+ ('E', (None, 8)), 
+ ('F', (None, 9))
 ]
 ```
 
@@ -206,10 +232,14 @@ Mirror image of `leftOuterJoin` — now `E`, `F` (right-only) are kept with
 >>> full_join = rdd1.fullOuterJoin(rdd2)
 >>> full_join.collect()
 [
- ('A', (2, 7)), ('A', (2, 8)), ('A', (3, 7)), ('A', (3, 8)),
- ('B', (4, 20)), ('B', (4, 30)), ('B', (5, 20)), ('B', (5, 30)),
- ('C', (5, None)), ('D', (6, None)),
- ('E', (None, 8)), ('F', (None, 9))
+ ('A', (2, 7)), ('A', (2, 8)), 
+ ('A', (3, 7)), ('A', (3, 8)),
+ ('B', (4, 20)), ('B', (4, 30)), 
+ ('B', (5, 20)), ('B', (5, 30)),
+ ('C', (5, None)), 
+ ('D', (6, None)),
+ ('E', (None, 8)), 
+ ('F', (None, 9))
 ]
 ```
 
@@ -234,13 +264,21 @@ We'll re-derive `rdd1.join(rdd2)` from **Example 2** (`data1`, `data2`) by hand.
 ## Step 1–2: `map()` tags each row with its source
 
 ```text
-D1: data1                      D2: data2
-('A', 2)  -> ('A', ('D1', 2))  ('A', 7)  -> ('A', ('D2', 7))
-('A', 3)  -> ('A', ('D1', 3))  ('A', 8)  -> ('A', ('D2', 8))
-('B', 4)  -> ('B', ('D1', 4))  ('B', 20) -> ('B', ('D2', 20))
-('B', 5)  -> ('B', ('D1', 5))  ('B', 30) -> ('B', ('D2', 30))
-('C', 5)  -> ('C', ('D1', 5))  ('E', 8)  -> ('E', ('D2', 8))
-('D', 6)  -> ('D', ('D1', 6))  ('F', 9)  -> ('F', ('D2', 9))
+D1: data1                      
+('A', 2)  -> ('A', ('D1', 2))  
+('A', 3)  -> ('A', ('D1', 3))  
+('B', 4)  -> ('B', ('D1', 4))  
+('B', 5)  -> ('B', ('D1', 5))  
+('C', 5)  -> ('C', ('D1', 5))  
+('D', 6)  -> ('D', ('D1', 6))  
+
+D2: data2
+('A', 7)  -> ('A', ('D2', 7))
+('A', 8)  -> ('A', ('D2', 8))
+('B', 20) -> ('B', ('D2', 20))
+('B', 30) -> ('B', ('D2', 30))
+('E', 8)  -> ('E', ('D2', 8))
+('F', 9)  -> ('F', ('D2', 9))
 ```
 
 Every value is wrapped with a label (`D1` or `D2`) so the reducer can later
@@ -288,8 +326,12 @@ reduce(key, values) {
 
     D1_list, D2_list = [], []
     for (label, data) in values {
-        if (label == 'D1') D1_list.append(data)
-        else                D2_list.append(data)
+        if (label == 'D1') {
+           D1_list.append(data)
+        }
+        else {
+           D2_list.append(data)
+        }
     }
     if (len(D1_list) == 0 or len(D2_list) == 0) return
 
