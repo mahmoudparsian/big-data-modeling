@@ -43,7 +43,9 @@ transactions = sc.parallelize([
 zero_value = (0.0, 0, 0.0)
 
 # 3. Sequence Operation (seqOp)
-# Combines an incoming value (float) with the current accumulator tuple WITHIN the same partition.
+# Combines an incoming value (float) with 
+# the current accumulator tuple WITHIN 
+# the same partition.
 def seq_op(accumulator, current_value):
     total, count, current_max = accumulator
     new_total = total + current_value
@@ -52,7 +54,8 @@ def seq_op(accumulator, current_value):
     return (new_total, new_count, new_max)
 
 # 4. Combine Operation (combOp)
-# Merges two accumulator tuples from DIFFERENT partitions during the shuffle step.
+# Merges two accumulator tuples from 
+# DIFFERENT partitions during the shuffle step.
 def comb_op(acc1, acc2):
     total1, count1, max1 = acc1
     total2, count2, max2 = acc2
