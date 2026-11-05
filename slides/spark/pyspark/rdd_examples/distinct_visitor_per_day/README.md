@@ -10,12 +10,12 @@ solves the same problem in its own sibling folder.
 
 | File | Purpose |
 |---|---|
-| [RDD solution guide](Distinct_Visitors_RDD.md) | Key/value transformations, local combining, shuffles, and worked results |
-| [distinct_visitors_rdd.py](distinct_visitors_rdd.py) | Runnable RDD application |
-| [test_solutions.py](test_solutions.py) | Checks the RDD implementation on Spark 4.2.0 |
-| [data/partition_1.csv](data/partition_1.csv) | Six input events |
-| [data/partition_2.csv](data/partition_2.csv) | Seven input events, including the new U5 visit |
-| [requirements.txt](requirements.txt) | PySpark version pin |
+| [`RDD solution guide`](Distinct_Visitors_RDD.md) | Key/value transformations, local combining, shuffles, and worked results |
+| [`distinct_visitors_rdd.py`](distinct_visitors_rdd.py) | Runnable RDD application |
+| [`test_solutions.py`](test_solutions.py) | Checks the RDD implementation on Spark 4.2.0 |
+| [`data/partition_1.csv`](data/partition_1.csv) | Six input events |
+| [`data/partition_2.csv`](data/partition_2.csv) | Seven input events, including the new U5 visit |
+| [`requirements.txt`](requirements.txt) | PySpark version pin |
 
 ## 1. Setup
 

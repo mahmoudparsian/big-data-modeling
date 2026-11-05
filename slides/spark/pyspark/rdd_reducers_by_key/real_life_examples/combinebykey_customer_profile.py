@@ -65,8 +65,16 @@ def section(title):
 
 
 # A profile C is a Python dictionary, for example:
-#   {'orders': 4, 'total': 63.0, 'first': '2026-01-05', 'last': '2026-03-15',
-#    'products': {'coffee': 3, 'mug': 1}}
+#   {
+#     'orders': 4, 
+#     'total': 63.0, 
+#     'first': '2026-01-05', 
+#     'last': '2026-03-15',
+#     'products': {
+#                  'coffee': 3, 
+#                  'mug': 1
+#                 }
+#   }
 
 # -------------------------------------------------------------------------
 # Rule 1: start a profile from a customer's first order. V -> C

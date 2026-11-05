@@ -1,4 +1,7 @@
-"""Exact daily distinct visitors using RDDs; Spark 4.2.0, classic mode."""
+"""
+Exact daily distinct visitors using RDDs; 
+Spark 4.2.0, classic mode.
+"""
 import argparse
 import csv
 import os
@@ -23,7 +26,8 @@ def parse_partition(lines):
 
 
 def distinct_visitors(pairs):
-    """Input: RDD[(date, user_id)]. Output: RDD[(date, count)]."""
+    ## Input: RDD[(date, user_id)]. 
+    ## Output: RDD[(date, count)].
     unique_pairs = pairs.map(lambda pair: (pair, 1)).reduceByKey(max)
     return unique_pairs.map(lambda item: (item[0][0], 1)).reduceByKey(add)
 
