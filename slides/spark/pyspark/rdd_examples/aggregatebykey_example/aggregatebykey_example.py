@@ -79,3 +79,16 @@ final_result = aggregated_rdd.mapValues(
 # Output results
 for customer, stats in final_result.collect():
     print(f"{customer}: {stats}")
+
+"""
+% spark-submit pyspark_aggregatebykey_example.py
+transactions.count()= 7
+transactions.collect()= [('cust_101', 150.0), ('cust_102', 45.0), ('cust_101', 200.0), ('cust_103', 89.0), ('cust_102', 120.0), ('cust_101', 50.0), ('cust_103', 310.0)]
+
+aggregated_rdd.count()= 3
+aggregated_rdd.collect()= [('cust_103', (399.0, 2, 310.0)), ('cust_102', (165.0, 2, 120.0)), ('cust_101', (400.0, 3, 200.0))]
+
+cust_103: {'avg_order_value': 199.5, 'total_orders': 2, 'max_order_value': 310.0}
+cust_102: {'avg_order_value': 82.5, 'total_orders': 2, 'max_order_value': 120.0}
+cust_101: {'avg_order_value': 133.33, 'total_orders': 3, 'max_order_value': 200.0}
+"""
