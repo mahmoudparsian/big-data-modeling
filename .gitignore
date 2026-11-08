@@ -7,3 +7,6 @@ data/white_house_log/whitehouse_waves-2016_12.csv
 # Local-only credentials/scratch data — never commit
 slides/spark/pyspark/pyspark_and_LLM/MP_no_git/
 slides/spark/pyspark/pyspark_and_LLM/MP_no_git_save/
+
+# marimo session caches (created by marimo edit/run/export, in any folder)
+__marimo__/
