@@ -52,3 +52,4 @@ Written and tested with Spark 4.3.0 and marimo 0.23. Spark 4 runs in ANSI mode b
 * [`../dataframes_tutorial/`](../dataframes_tutorial): step-by-step DataFrame modules (text)
 * [`../marimo/`](../marimo): a short intro to marimo with PySpark
 * [`../rdd_transformations_review/`](../rdd_transformations_review): the RDD review these notebooks build on
+* [`../dataframes_transformations_review/`](../dataframes_transformations_review): the DataFrame exam review (same data as the RDD review)

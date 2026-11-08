@@ -1556,6 +1556,8 @@ the top 2.
 
 ## Want more practice?
 
+* [`../dataframes_transformations_review/`](../dataframes_transformations_review): the
+  **DataFrame** version of this review, with the same data and the same order of topics.
 * [`../rdd_practice_questions/`](../rdd_practice_questions): 10 sets of practice
   questions with full answers (Set 10 is an exam-style mixed review).
 * [`../rdd_reducers_by_key/real_life_examples/`](../rdd_reducers_by_key/real_life_examples):
