@@ -1,0 +1,5 @@
+{"order_id": "A1", "ts": "2026-10-01 08:15:00", "customer": {"id": "C1", "tier": "gold"}, "items": [{"product": "Latte", "qty": 2}, {"product": "Croissant", "qty": 1}]}
+{"order_id": "A2", "ts": "2026-10-01 12:40:00", "customer": {"id": "C2", "tier": "basic"}, "items": [{"product": "Cold Brew", "qty": 1}]}
+{"order_id": "A3", "ts": "2026-10-02 07:55:00", "customer": {"id": "C1", "tier": "gold"}, "items": [{"product": "Espresso", "qty": 1}, {"product": "Muffin", "qty": 2}, {"product": "Latte", "qty": 1}]}
+{"order_id": "A4", "ts": "2026-10-02 16:05:00", "customer": {"id": "C3", "tier": "silver"}, "items": []}
+{"order_id": "A5", "ts": "2026-10-03 09:30:00", "customer": {"id": "C2", "tier": "basic"}, "items": [{"product": "Green Tea", "qty": 2}, {"product": "Latte", "qty": 1}]}

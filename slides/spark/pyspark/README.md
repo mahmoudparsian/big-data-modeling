@@ -40,6 +40,7 @@ and notes for learning PySpark.
 
 ## DataFrames
 
+* [`dataframes_notebooks/`](dataframes_notebooks) — **start here if you know RDDs**: five marimo notebooks, (1) basics: creating, inspecting, querying, and cleaning DataFrames, (2) aggregations, (3) joins, each compared with the RDD way, and (4) Spark + Claude: labeling text with an LLM, Claude-written Spark SQL, AI summaries (API key read from a `.env` file), and (5) advanced: arrays and `explode`, nested JSON, window functions, set operations, dates and strings, writing Parquet, `cache`
 * [`dataframes_tutorial/`](dataframes_tutorial) — step-by-step DataFrame modules
 * [`dataframes_slides/`](dataframes_slides) — intro slides and articles
 * [`dataframes_class_demos/`](dataframes_class_demos) — DataFrame example sessions
