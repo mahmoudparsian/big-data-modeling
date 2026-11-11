@@ -102,6 +102,7 @@ def _():
     spark.sparkContext.setLogLevel("ERROR")
     sc = spark.sparkContext  # the SparkContext you know from RDDs
     print("Spark version:", spark.version)
+    print("sc version:", sc.version)
     return (
         DoubleType,
         F,
@@ -119,10 +120,31 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## 3. Your first DataFrame
+    # Create a DataFrame from a Collection
+    """)
+    return
 
-    The simplest way: a Python list of tuples plus a list of column names. Compare it with
-    the RDD you would have built from the same list.
+
+@app.cell
+def _(sales_rows, spark):
+    # Create DataFrame from a Collection
+    columns= ["sale_id", "store_id", "product", "category", "quantity", "unit_price"]
+    sales_dataframe = spark.createDataFrame(sales_rows, schema=columns)
+
+    # Display content and schema
+    sales_dataframe.show()
+    sales_dataframe.printSchema()
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## 3. Create a DataFrame from an RDD
+
+            The simplest way: a Python list of tuples plus
+            a list of column names. Compare it with
+            the RDD you would have built from the same list.
     """)
     return
 
@@ -150,7 +172,7 @@ def _(sc, spark):
         ["sale_id", "store_id", "product", "category", "quantity", "unit_price"],
     )
     sales.show()
-    return sales, sales_rdd
+    return sales, sales_rdd, sales_rows
 
 
 @app.cell(hide_code=True)

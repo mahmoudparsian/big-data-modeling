@@ -1,0 +1,26 @@
+from pyspark.sql import SparkSession
+
+# Initialize SparkSession
+spark = SparkSession.builder.appName("SalesData").getOrCreate()
+
+# Define the rows data
+sales_rows = [
+    (1, "S01", "Latte",      "Coffee", 2, 4.50),
+    (2, "S01", "Espresso",   "Coffee", 1, 3.00),
+    (3, "S02", "Croissant",  "Bakery", 3, 3.25),
+    (4, "S03", "Cold Brew",  "Coffee", 1, 4.00),
+    (5, "S02", "Latte",      "Coffee", 4, 4.50),
+    (6, "S03", "Green Tea",  "Tea",    2, 3.50),
+    (7, "S04", "Muffin",     "Bakery", 5, 2.75),
+    (8, "S01", "Chai Latte", "Tea",    1, 4.25),
+]
+
+# Define column names
+columns = ["sale_id", "store_id", "product", "category", "quantity", "unit_price"]
+
+# Create DataFrame
+sales_df = spark.createDataFrame(sales_rows, schema=columns)
+
+# Display content and schema
+sales_df.show()
+sales_df.printSchema()
