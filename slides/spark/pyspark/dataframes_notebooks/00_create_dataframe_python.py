@@ -13,6 +13,7 @@ sales_rows = [
     (6, "S03", "Green Tea",  "Tea",    2, 3.50),
     (7, "S04", "Muffin",     "Bakery", 5, 2.75),
     (8, "S01", "Chai Latte", "Tea",    1, 4.25),
+    (9, "S01", "Chai Latte", None,    1, 4.25),
 ]
 
 # Define column names

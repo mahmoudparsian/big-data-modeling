@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.23.10"
+__generated_with = "0.24.2"
 app = marimo.App(width="medium")
 
 
@@ -12,6 +12,7 @@ def _():
 
     # Initialize SparkSession with DuckDB-like / ANSI SQL capabilities
     spark = SparkSession.builder.appName("PySparkSQLCSVAnalysis").getOrCreate()
+    print("spark.version=", spark.version)
     return mo, spark
 
 
@@ -90,7 +91,7 @@ def _(mo, spark):
     query1 = """
     SELECT sale_id, store_id, product, category, quantity, unit_price
     FROM sales_data
-    ORDER BY sale_id ASC
+    ORDER BY sale_id DESC
     """
     df_raw = spark.sql(query1)
 
@@ -118,6 +119,33 @@ def _(mo, spark):
 
 @app.cell
 def _(mo, spark):
+    # Cell 5.1: SQL Query 2 - Filtering Rows
+    # Filtering items belonging exclusively to the 'Coffee' category using WHERE.
+    query22 = """
+    SELECT sale_id, store_id, product, quantity, unit_price
+    FROM sales_data
+    WHERE category = 'Coffee'
+    ORDER BY unit_price DESC
+    """
+    df_filtered_22 = spark.sql(query22)
+
+    mo.md("### Cell 5: Filtering Data (`WHERE category = 'Coffee'`)")
+    print("df_filtered_22.collect()=", df_filtered_22.collect())
+
+    """
+    df_filtered_22.collect()= 
+    [
+      Row(sale_id=1, store_id='S01', product='Latte', quantity=2, unit_price=4.5),
+      Row(sale_id=5, store_id='S02', product='Latte', quantity=4, unit_price=4.5),
+      Row(sale_id=4, store_id='S03', product='Cold Brew', quantity=1, unit_price=4.0),
+      Row(sale_id=2, store_id='S01', product='Espresso', quantity=1, unit_price=3.0)
+    ]
+    """
+    return
+
+
+@app.cell
+def _(mo, spark):
     # Cell 6: SQL Query 3 - Calculated Columns & Expressions
     # Calculating line-item revenue (quantity * unit_price) directly in standard SQL.
     query3 = """
@@ -135,6 +163,7 @@ def _(mo, spark):
 
     mo.md("### Cell 6: Calculated Column (`quantity * unit_price AS line_item_revenue`)")
     df_calculated.show()
+
     return
 
 
@@ -156,6 +185,7 @@ def _(mo, spark):
 
     mo.md("### Cell 7: Grouping & Aggregating (`GROUP BY store_id`)")
     df_aggregated.show()
+
     return
 
 
