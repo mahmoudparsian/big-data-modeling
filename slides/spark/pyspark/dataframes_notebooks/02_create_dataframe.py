@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.23.10"
+__generated_with = "0.24.2"
 app = marimo.App(width="medium")
 
 
@@ -26,6 +26,8 @@ def _():
     from pyspark.sql.functions import col, round, sum, count, desc
 
     spark = SparkSession.builder.appName("SalesDataTutorial").getOrCreate()
+
+    print("spark.version=", spark.version)
     return col, count, desc, round, spark, sum
 
 
