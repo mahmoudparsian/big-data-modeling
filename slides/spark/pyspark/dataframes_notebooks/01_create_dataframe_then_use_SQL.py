@@ -9,11 +9,12 @@ def _():
     import marimo as mo
     from pyspark.sql import SparkSession
     from pyspark.sql.functions import col, round, sum, count, desc
+    from pyspark.sql import functions as F  # used by the DataFrame API cells
 
     # Initialize SparkSession with DuckDB-like / ANSI SQL capabilities
     spark = SparkSession.builder.appName("PySparkSQLCSVAnalysis").getOrCreate()
     print("spark.version=", spark.version)
-    return mo, spark
+    return F, mo, spark
 
 
 @app.cell
@@ -101,6 +102,16 @@ def _(mo, spark):
 
 
 @app.cell
+def _(F, sales_df):
+    # The same query with the DataFrame API
+    (sales_df
+        .select("sale_id", "store_id", "product", "category", "quantity", "unit_price")
+        .orderBy(F.desc("sale_id"))
+        .show())
+    return
+
+
+@app.cell
 def _(mo, spark):
     # Cell 5: SQL Query 2 - Filtering Rows
     # Filtering items belonging exclusively to the 'Coffee' category using WHERE.
@@ -108,12 +119,23 @@ def _(mo, spark):
     SELECT sale_id, store_id, product, quantity, unit_price
     FROM sales_data
     WHERE category = 'Coffee'
-    ORDER BY unit_price DESC
+    ORDER BY unit_price DESC, sale_id  -- sale_id breaks the tie (sales 1 and 5 both cost 4.50)
     """
     df_filtered = spark.sql(query2)
 
     mo.md("### Cell 5: Filtering Data (`WHERE category = 'Coffee'`)")
     df_filtered.show()
+    return
+
+
+@app.cell
+def _(F, sales_df):
+    # The same query with the DataFrame API
+    (sales_df
+        .filter(F.col("category") == "Coffee")
+        .select("sale_id", "store_id", "product", "quantity", "unit_price")
+        .orderBy(F.desc("unit_price"), "sale_id")
+        .show())
     return
 
 
@@ -125,7 +147,7 @@ def _(mo, spark):
     SELECT sale_id, store_id, product, quantity, unit_price
     FROM sales_data
     WHERE category = 'Coffee'
-    ORDER BY unit_price DESC
+    ORDER BY unit_price DESC, sale_id
     """
     df_filtered_22 = spark.sql(query22)
 
@@ -141,6 +163,19 @@ def _(mo, spark):
       Row(sale_id=2, store_id='S01', product='Espresso', quantity=1, unit_price=3.0)
     ]
     """
+    return
+
+
+@app.cell
+def _(F, sales_df):
+    # The same query with the DataFrame API
+    df_filtered_22_api = (
+        sales_df
+        .filter(F.col("category") == "Coffee")
+        .select("sale_id", "store_id", "product", "quantity", "unit_price")
+        .orderBy(F.desc("unit_price"), "sale_id")
+    )
+    print("df_filtered_22_api.collect()=", df_filtered_22_api.collect())
     return
 
 
@@ -168,6 +203,23 @@ def _(mo, spark):
 
 
 @app.cell
+def _(F, sales_df):
+    # The same query with the DataFrame API
+    (sales_df
+        .select(
+            "sale_id",
+            "store_id",
+            "product",
+            "quantity",
+            "unit_price",
+            F.round(F.col("quantity") * F.col("unit_price"), 2).alias("line_item_revenue"),
+        )
+        .orderBy(F.desc("line_item_revenue"))
+        .show())
+    return
+
+
+@app.cell
 def _(mo, spark):
     # Cell 7: SQL Query 4 - Aggregating & Summarizing by Group
     # Grouping by store_id to compute total transactions, total units sold, and total sales revenue.
@@ -186,6 +238,21 @@ def _(mo, spark):
     mo.md("### Cell 7: Grouping & Aggregating (`GROUP BY store_id`)")
     df_aggregated.show()
 
+    return
+
+
+@app.cell
+def _(F, sales_df):
+    # The same query with the DataFrame API
+    (sales_df
+        .groupBy("store_id")
+        .agg(
+            F.count("sale_id").alias("total_transactions"),
+            F.sum("quantity").alias("total_items_sold"),
+            F.round(F.sum(F.col("quantity") * F.col("unit_price")), 2).alias("total_store_revenue"),
+        )
+        .orderBy(F.desc("total_store_revenue"))
+        .show())
     return
 
 

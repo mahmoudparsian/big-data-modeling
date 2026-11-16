@@ -10,3 +10,6 @@ slides/spark/pyspark/pyspark_and_LLM/MP_no_git_save/
 
 # marimo session caches (created by marimo edit/run/export, in any folder)
 __marimo__/
+
+# Parquet staging written by dataframes_notebooks/auto_insurance_analysis_pyspark.py (any folder it runs from)
+tmp_spark_staging/

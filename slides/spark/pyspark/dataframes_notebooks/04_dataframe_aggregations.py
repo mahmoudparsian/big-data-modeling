@@ -1,15 +1,15 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 2 — Aggregations")
+app = marimo.App(width="medium", app_title="DataFrames 4 — Aggregations")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 2: Aggregations
+    # DataFrames, Part 4: Aggregations
 
-    **Notebook 2 of 5** · before: `01_dataframe_basics.py` · next: `03_dataframe_joins.py`
+    **Notebook 4 of 7** · before: `03_dataframe_basics.py` · next: `05_dataframe_joins.py`
 
     With RDDs you summarized data with **reducers**: `reduceByKey()`, `groupByKey()`,
     `aggregateByKey()`, `combineByKey()`. You first had to build `(key, value)` pairs,
@@ -22,7 +22,7 @@ def _(mo):
     df.groupBy("key column(s)").agg(F.sum("x"), F.avg("y"), F.count("*"), ...)
     ```
 
-    **Our story:** the *Bean & Leaf* coffee chain (from Notebook 1) wants a sales report
+    **Our story:** the *Bean & Leaf* coffee chain (from Notebook 3) wants a sales report
     for October 1–3, 2026: revenue per store, per city, per category, tips, payment mix,
     and the best-selling products.
 
@@ -35,6 +35,10 @@ def _(mo):
     5. Conditional aggregation, collecting values into lists, and more functions
     6. Pivot tables, subtotals (`rollup`), and a first look at window functions
     7. The same queries in Spark SQL
+
+    **Every query is shown twice:** first with the DataFrame API, then the same query in
+    **Spark SQL**, with the same result. Compare them: `groupBy` is `GROUP BY`, a `filter`
+    after `agg` is `HAVING`, `when` is `CASE WHEN`, and so on.
     """)
     return
 
@@ -65,7 +69,7 @@ def _(mo):
     ## 1. The data
 
     18 clean sales from four stores over three days. Each row already carries the store's
-    `city` and the product's `category` (in Notebook 3 you will see how a **join** builds
+    `city` and the product's `category` (in Notebook 5 you will see how a **join** builds
     such a table from separate tables). `tip` is `NULL` when the customer did not leave a
     tip.
     """)
@@ -108,6 +112,13 @@ def _(F, spark):
     return sales, sales_rows, sales_schema
 
 
+@app.cell
+def _(sales):
+    # Register `sales` as a temporary SQL view, so every section can show the SQL version too
+    sales.createOrReplaceTempView("sales")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -140,6 +151,22 @@ def _(F, sales):
     )
     totals.show()
     return (totals,)
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: aggregates without GROUP BY -> one row for the whole table
+    spark.sql("""
+        SELECT COUNT(*)                AS num_sales,
+               SUM(quantity)           AS items_sold,
+               SUM(revenue)            AS total_revenue,
+               ROUND(AVG(revenue), 2)  AS avg_sale,
+               MIN(revenue)            AS smallest_sale,
+               MAX(revenue)            AS largest_sale,
+               COUNT(DISTINCT product) AS num_products
+        FROM   sales
+    """).show()
+    return
 
 
 @app.cell(hide_code=True)
@@ -194,6 +221,18 @@ def _(F, add, sales):
     return store_revenue, store_revenue_rdd
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   store_id, SUM(revenue) AS revenue
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -231,6 +270,18 @@ def _(F, sales):
     return (avg_rdd,)
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   store_id, ROUND(AVG(revenue), 2) AS avg_sale
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -265,6 +316,30 @@ def _(F, sales):
     return (store_report,)
 
 
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    spark.sql("""
+        SELECT   store_id,
+                 COUNT(*)               AS num_sales,
+                 SUM(quantity)          AS items,
+                 SUM(revenue)           AS revenue,
+                 ROUND(AVG(revenue), 2) AS avg_sale,
+                 MAX(revenue)           AS biggest_sale
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY revenue DESC, store_id
+    """).show()
+
+    spark.sql("""
+        SELECT   store_id, COUNT(*) AS count
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -288,6 +363,20 @@ def _(F, sales):
     )
     city_category.show()
     return (city_category,)
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   city, category,
+                 SUM(quantity) AS items,
+                 SUM(revenue)  AS revenue
+        FROM     sales
+        GROUP BY city, category
+        ORDER BY city, category
+    """).show()
+    return
 
 
 @app.cell(hide_code=True)
@@ -324,6 +413,29 @@ def _(F, sales):
     return
 
 
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    # A: WHERE filters rows BEFORE grouping
+    spark.sql("""
+        SELECT   store_id, SUM(revenue) AS card_revenue
+        FROM     sales
+        WHERE    payment = 'card'
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show()
+
+    # B: HAVING filters groups AFTER grouping
+    spark.sql("""
+        SELECT   store_id, SUM(revenue) AS revenue
+        FROM     sales
+        GROUP BY store_id
+        HAVING   SUM(revenue) > 30
+        ORDER BY store_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -353,6 +465,23 @@ def _(F, sales):
           )
           .orderBy("store_id")
           .show())
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   store_id,
+                 COUNT(*)                        AS sales,
+                 COUNT(tip)                      AS sales_with_tip,
+                 SUM(tip)                        AS total_tips,
+                 ROUND(AVG(tip), 2)              AS avg_tip_if_tipped,
+                 ROUND(AVG(COALESCE(tip, 0)), 2) AS avg_tip_per_sale
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show()
     return
 
 
@@ -386,6 +515,22 @@ def _(F, sales):
     return (payment_mix,)
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: when() inside the aggregate is CASE WHEN inside SUM()
+    spark.sql("""
+        SELECT   store_id,
+                 SUM(CASE WHEN payment = 'card' THEN revenue END)    AS card_revenue,
+                 SUM(CASE WHEN payment = 'cash' THEN revenue END)    AS cash_revenue,
+                 COUNT_IF(payment = 'cash')                          AS cash_sales,
+                 ROUND(AVG(CAST(payment = 'card' AS INT)) * 100, 1)  AS pct_card
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -413,6 +558,20 @@ def _(F, sales):
           )
           .orderBy("store_id")
           .show(truncate=False))
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   store_id,
+                 ARRAY_SORT(COLLECT_SET(product)) AS products,
+                 SIZE(COLLECT_SET(product))       AS num_products
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY store_id
+    """).show(truncate=False)
     return
 
 
@@ -451,6 +610,23 @@ def _(F, sales):
     return
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   category,
+                 COUNT(*)                    AS sales,
+                 MEDIAN(revenue)             AS median_sale,
+                 ROUND(STDDEV(revenue), 2)   AS stddev_sale,
+                 MAX(revenue)                AS biggest_sale,
+                 MAX_BY(sale_id, revenue)    AS biggest_sale_id
+        FROM     sales
+        GROUP BY category
+        ORDER BY category
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -480,6 +656,29 @@ def _(F, sales):
     pivoted.show()
     pivoted.fillna(0).show()
     return (pivoted,)
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: PIVOT takes the aggregate and the list of values
+    spark.sql("""
+        SELECT *
+        FROM   (SELECT store_id, category, revenue FROM sales)
+        PIVOT  (SUM(revenue) FOR category IN ('Coffee' AS Coffee, 'Tea' AS Tea, 'Bakery' AS Bakery))
+        ORDER BY store_id
+    """).show()
+
+    # fillna(0) is COALESCE(column, 0) for each pivoted column
+    spark.sql("""
+        SELECT store_id,
+               COALESCE(Coffee, 0) AS Coffee,
+               COALESCE(Tea, 0)    AS Tea,
+               COALESCE(Bakery, 0) AS Bakery
+        FROM   (SELECT store_id, category, revenue FROM sales)
+        PIVOT  (SUM(revenue) FOR category IN ('Coffee' AS Coffee, 'Tea' AS Tea, 'Bakery' AS Bakery))
+        ORDER BY store_id
+    """).show()
+    return
 
 
 @app.cell(hide_code=True)
@@ -515,6 +714,20 @@ def _(F, sales):
     return (rolled,)
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: GROUP BY ROLLUP(...)
+    spark.sql("""
+        SELECT   city, store_id,
+                 SUM(revenue)       AS revenue,
+                 GROUPING(store_id) AS is_subtotal
+        FROM     sales
+        GROUP BY ROLLUP(city, store_id)
+        ORDER BY city ASC NULLS LAST, store_id ASC NULLS LAST
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -545,6 +758,25 @@ def _(F, Window, sales):
     return (by_store,)
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: OVER (PARTITION BY ...) is the window.
+    # WHERE runs BEFORE window functions, so (like the DataFrame code) we compute the
+    # window in an inner query and keep store S01 in the outer one.
+    spark.sql("""
+        SELECT *
+        FROM (
+            SELECT sale_id, store_id, product, revenue,
+                   SUM(revenue) OVER (PARTITION BY store_id) AS store_total,
+                   ROUND(revenue / SUM(revenue) OVER (PARTITION BY store_id) * 100, 1) AS pct_of_store
+            FROM   sales
+        )
+        WHERE  store_id = 'S01'
+        ORDER BY sale_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -567,6 +799,28 @@ def _(F, Window, sales):
     )
     top_products.show()
     return product_by_city, rank_in_city, top_products
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: GROUP BY in a WITH step, then rank with a window
+    spark.sql("""
+        WITH product_by_city AS (
+            SELECT   city, product, SUM(revenue) AS revenue
+            FROM     sales
+            GROUP BY city, product
+        ),
+        ranked AS (
+            SELECT *,
+                   DENSE_RANK() OVER (PARTITION BY city ORDER BY revenue DESC) AS rank
+            FROM   product_by_city
+        )
+        SELECT   *
+        FROM     ranked
+        WHERE    rank = 1
+        ORDER BY city, product
+    """).show()
+    return
 
 
 @app.cell(hide_code=True)
@@ -595,6 +849,20 @@ def _(sales, spark):
         HAVING   SUM(revenue) > 20
         ORDER BY revenue DESC, store_id
     """).show()
+    return
+
+
+@app.cell
+def _(F, sales):
+    # The same query with the DataFrame API
+    (sales.filter(F.col("payment") == "card")                     # WHERE
+          .groupBy("store_id")                                    # GROUP BY
+          .agg(F.count("*").alias("num_sales"),
+               F.sum("revenue").alias("revenue"),
+               F.round(F.avg("revenue"), 2).alias("avg_sale"))
+          .filter(F.col("revenue") > 20)                          # HAVING
+          .orderBy(F.desc("revenue"), "store_id")                 # ORDER BY
+          .show())
     return
 
 
@@ -642,6 +910,28 @@ def _(F, group_choice, metric_choice, sales):
     return metrics, report
 
 
+@app.cell
+def _(group_choice, metric_choice, spark):
+    # The same report in Spark SQL. The query text is built from the widget values
+    # (safe here: they come from fixed dropdown lists, not from free text).
+    sql_metrics = {
+        "total revenue":   "SUM(revenue)",
+        "number of sales": "COUNT(*)",
+        "items sold":      "SUM(quantity)",
+        "average sale":    "ROUND(AVG(revenue), 2)",
+        "total tips":      "SUM(tip)",
+    }
+    report_sql = f"""
+        SELECT   {group_choice.value}, {sql_metrics[metric_choice.value]} AS value
+        FROM     sales
+        GROUP BY {group_choice.value}
+        ORDER BY value DESC, {group_choice.value}
+    """
+    print(report_sql)
+    spark.sql(report_sql).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -659,7 +949,7 @@ def _(mo):
     | Whole-data total | `rdd.map(...).sum()` | `df.agg(F.sum("v"))` |
     | Keep only big groups | `.filter(lambda kv: kv[1] > 30)` after reducing | `.filter(F.col("total") > 30)` after `agg` |
 
-    **Next notebook:** `03_dataframe_joins.py`, combining several tables.
+    **Next notebook:** `05_dataframe_joins.py`, combining several tables.
     """)
     return
 
@@ -704,19 +994,27 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 1
         (sales.groupBy("product")
               .agg(F.sum("quantity").alias("items"), F.sum("revenue").alias("revenue"))
               .orderBy(F.desc("revenue"), "product")
               .show())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT   product, SUM(quantity) AS items, SUM(revenue) AS revenue
+            FROM     sales
+            GROUP BY product
+            ORDER BY revenue DESC, product
+        """).show()
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 2
         (sales.groupBy("sale_date")
@@ -724,12 +1022,20 @@ def _(F, sales, solution):
                    F.countDistinct("store_id").alias("stores"))
               .orderBy("sale_date")
               .show())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT   sale_date, SUM(revenue) AS revenue, COUNT(DISTINCT store_id) AS stores
+            FROM     sales
+            GROUP BY sale_date
+            ORDER BY sale_date
+        """).show()
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 3 -- a HAVING-style filter after the aggregation
         (sales.groupBy("product")
@@ -737,12 +1043,21 @@ def _(F, sales, solution):
               .filter(F.col("stores") >= 3)
               .orderBy("product")
               .show())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL: the filter after the aggregation is HAVING
+        spark.sql("""
+            SELECT   product, COUNT(DISTINCT store_id) AS stores
+            FROM     sales
+            GROUP BY product
+            HAVING   COUNT(DISTINCT store_id) >= 3
+            ORDER BY product
+        """).show()
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 4 -- count("tip") skips NULLs, count("*") does not
         (sales.groupBy("city")
@@ -750,7 +1065,16 @@ def _(F, sales, solution):
                    F.round(F.count("tip") / F.count("*") * 100, 1).alias("pct_tipped"))
               .orderBy("city")
               .show())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT   city, SUM(tip) AS total_tips,
+                     ROUND(COUNT(tip) / COUNT(*) * 100, 1) AS pct_tipped
+            FROM     sales
+            GROUP BY city
+            ORDER BY city
+        """).show()
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 

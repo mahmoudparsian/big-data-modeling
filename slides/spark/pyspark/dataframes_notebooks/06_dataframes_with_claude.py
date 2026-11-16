@@ -1,22 +1,22 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 4 — Claude")
+app = marimo.App(width="medium", app_title="DataFrames 6 — Claude")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 4: Spark + Claude
+    # DataFrames, Part 6: Spark + Claude
 
-    **Notebook 4 of 5** · before: `01_dataframe_basics.py`, `02_dataframe_aggregations.py`, `03_dataframe_joins.py` · next: `05_dataframe_advanced.py`
+    **Notebook 6 of 7** · before: `03_dataframe_basics.py`, `04_dataframe_aggregations.py`, `05_dataframe_joins.py` · next: `07_dataframe_advanced.py`
 
     Spark is great with **structured** data: numbers, categories, dates. But a lot of
     business data is **free text**: customer reviews, support emails, notes. A large
     language model (LLM) such as **Claude** can read that text and turn it into structured
     columns, which Spark can then group, join, and count.
 
-    **Our story:** *Bean & Leaf* (the coffee chain from Notebooks 1–3) collected customer
+    **Our story:** *Bean & Leaf* (the coffee chain from Notebooks 3–5) collected customer
     reviews. Some are in English, some in Spanish. The manager wants to know: *what are
     customers happy or unhappy about, in each store?*
 
@@ -27,7 +27,7 @@ def _(mo):
        matches a schema) instead of free text
     3. Two ways to label a DataFrame with Claude: on the **driver** (small data) and
        inside **`mapPartitions()`** on the executors (bigger data)
-    4. Analyzing Claude's labels with `groupBy()` and `join()` (Notebooks 2 and 3)
+    4. Analyzing Claude's labels with `groupBy()` and `join()` (Notebooks 4 and 5)
     5. Letting Claude **write Spark SQL** from an English question, safely
     6. Letting Claude **summarize** an aggregated result for a manager
     7. Cost, speed, and privacy: what to watch out for
@@ -308,7 +308,7 @@ def _(mo):
     1. `collect()` the text column to the driver (your Python process)
     2. call Claude once per row, in a normal Python loop
     3. turn the answers into a new DataFrame with `createDataFrame()`
-    4. `join()` it back to the original on the key (`review_id`), as in Notebook 3
+    4. `join()` it back to the original on the key (`review_id`), as in Notebook 5
 
     The answers are **not deterministic**: if you run the notebook again, a borderline
     review may get a different label. In a real project you run the labeling **once**, save
@@ -389,7 +389,7 @@ def _(mo):
 
     ## 8. Analyze the labels with Spark
 
-    Now the free text has become columns, and everything from Notebooks 2 and 3 works.
+    Now the free text has become columns, and everything from Notebooks 4 and 5 works.
     **Question:** per store: number of reviews, average star rating, share of negative
     reviews, and the most common complaint.
     """)

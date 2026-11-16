@@ -69,7 +69,7 @@ With `(venv)` active in Terminal, run:
 
 ```bash
 pip install --upgrade pip
-pip install marimo pyspark duckdb pandas polars pyarrow
+pip install marimo pyspark "duckdb>=2.0" pandas polars pyarrow
 ```
 
 ---

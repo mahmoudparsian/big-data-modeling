@@ -1,15 +1,15 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 3 — Joins")
+app = marimo.App(width="medium", app_title="DataFrames 5 — Joins")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 3: Joins
+    # DataFrames, Part 5: Joins
 
-    **Notebook 3 of 5** · before: `01_dataframe_basics.py`, `02_dataframe_aggregations.py` · next: `04_dataframes_with_claude.py`, `05_dataframe_advanced.py`
+    **Notebook 5 of 7** · before: `03_dataframe_basics.py`, `04_dataframe_aggregations.py` · next: `06_dataframes_with_claude.py`, `07_dataframe_advanced.py`
 
     Real data lives in **several tables**. A sale records only a `store_id` and a
     `product_id`; the store's city and the product's price live in other tables. A
@@ -24,7 +24,7 @@ def _(mo):
     sales.join(stores, on="store_id", how="inner")
     ```
 
-    **Our story:** *Bean & Leaf* (the coffee chain from Notebooks 1 and 2) keeps its data
+    **Our story:** *Bean & Leaf* (the coffee chain from Notebooks 3 and 4) keeps its data
     in three tables: `stores`, `products`, and `sales`. We want revenue by city and
     category, and we want to find data problems: sales for unknown stores or products,
     stores with no sales, products nobody buys.
@@ -38,6 +38,10 @@ def _(mo):
     5. Joins on several columns, on a range (non-equi joins), and self-joins
     6. Traps: duplicate keys, `NULL` keys
     7. Broadcast joins, and joins in Spark SQL
+
+    **Every query is shown twice:** first with the DataFrame API, then the same query in
+    **Spark SQL**, with the same result. Joining on a column **name** (`on="store_id"`) is
+    SQL's `JOIN ... USING (store_id)`; joining on a **condition** is `JOIN ... ON ...`.
     """)
     return
 
@@ -124,6 +128,15 @@ def _(spark):
     return products, sales, stores
 
 
+@app.cell
+def _(products, sales, stores):
+    # Register the three tables as temporary SQL views, for the SQL version of each query
+    sales.createOrReplaceTempView("sales")
+    stores.createOrReplaceTempView("stores")
+    products.createOrReplaceTempView("products")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -166,6 +179,19 @@ def _(sales, stores):
     sales_with_city.orderBy("sale_id").show()
     print("sales:", sales.count(), " after inner join:", sales_with_city.count())
     return (sales_with_city,)
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: USING (store_id) = on="store_id" (one store_id column)
+    sales_with_city_sql = spark.sql("""
+        SELECT *
+        FROM   sales
+        JOIN   stores USING (store_id)
+    """)
+    sales_with_city_sql.orderBy("sale_id").show()
+    print("sales:", spark.table("sales").count(), " after inner join:", sales_with_city_sql.count())
+    return
 
 
 @app.cell(hide_code=True)
@@ -214,6 +240,21 @@ def _(F, sales, stores):
     return (by_condition,)
 
 
+@app.cell
+def _(spark):
+    # The same in Spark SQL: ON keeps both key columns, just like a condition ...
+    print(spark.sql("SELECT * FROM sales s JOIN stores t ON s.store_id = t.store_id").columns)
+
+    # ... and in SQL table aliases are the normal way to say which one you mean
+    spark.sql("""
+        SELECT   s.sale_id, s.store_id, t.city
+        FROM     sales s
+        JOIN     stores t ON s.store_id = t.store_id
+        ORDER BY s.sale_id
+    """).show(3)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -257,6 +298,18 @@ def _(sales, stores):
     return
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   *
+        FROM     sales
+        LEFT JOIN stores USING (store_id)
+        ORDER BY sale_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -275,6 +328,18 @@ def _(F, sales, stores):
           .select("store_id", "city", "sale_id", "quantity")
           .orderBy("store_id", F.col("sale_id").asc_nulls_last())
           .show())
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   store_id, city, sale_id, quantity
+        FROM     sales
+        RIGHT JOIN stores USING (store_id)
+        ORDER BY store_id, sale_id ASC NULLS LAST
+    """).show()
     return
 
 
@@ -303,6 +368,27 @@ def _(F, sales, stores):
               .orderBy("store_id")
               .show())
     return (full_join,)
+
+
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    spark.sql("""
+        SELECT   store_id, sale_id, store_name, city
+        FROM     sales
+        FULL OUTER JOIN stores USING (store_id)
+        ORDER BY store_id, sale_id ASC NULLS LAST
+    """).show()
+
+    # Just the mismatches
+    spark.sql("""
+        SELECT   store_id, sale_id, store_name
+        FROM     sales
+        FULL OUTER JOIN stores USING (store_id)
+        WHERE    sale_id IS NULL OR store_name IS NULL
+        ORDER BY store_id
+    """).show()
+    return
 
 
 @app.cell(hide_code=True)
@@ -339,6 +425,30 @@ def _(products, sales, stores):
     return
 
 
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL: LEFT SEMI JOIN and LEFT ANTI JOIN
+    # (the classic SQL way to write them is WHERE EXISTS / WHERE NOT EXISTS)
+    print("Stores with at least one sale (LEFT SEMI JOIN):")
+    spark.sql("""
+        SELECT * FROM stores LEFT SEMI JOIN sales USING (store_id)
+        ORDER BY store_id
+    """).show()
+
+    print("Stores with no sales (LEFT ANTI JOIN):")
+    spark.sql("SELECT * FROM stores LEFT ANTI JOIN sales USING (store_id)").show()
+
+    print("Sales with an unknown product (LEFT ANTI JOIN):")
+    spark.sql("SELECT * FROM sales LEFT ANTI JOIN products USING (product_id)").show()
+
+    print("Products never sold (NOT EXISTS, the same as LEFT ANTI JOIN):")
+    spark.sql("""
+        SELECT * FROM products p
+        WHERE  NOT EXISTS (SELECT 1 FROM sales s WHERE s.product_id = p.product_id)
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -366,6 +476,27 @@ def _(products, sales, stores):
     return grid, never_sold
 
 
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    print("grid rows:", spark.sql("""
+        SELECT t.store_id, p.product_id, p.product
+        FROM   stores t CROSS JOIN products p
+    """).count())
+
+    never_sold_sql = spark.sql("""
+        WITH grid AS (
+            SELECT t.store_id, p.product_id, p.product
+            FROM   stores t CROSS JOIN products p
+        )
+        SELECT * FROM grid
+        LEFT ANTI JOIN sales USING (store_id, product_id)
+    """)
+    print("store-product pairs with no sales:", never_sold_sql.count())
+    never_sold_sql.filter("store_id = 'S01'").orderBy("product_id").show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -387,6 +518,22 @@ def _(sales, spark, stores):
     return (join_counts,)
 
 
+@app.cell
+def _(spark):
+    # The same counts in Spark SQL (CROSS JOIN has no USING clause)
+    join_counts_sql = [
+        (how, spark.sql(f"SELECT * FROM sales {sql_join} stores USING (store_id)").count())
+        for how, sql_join in [
+            ("inner", "JOIN"), ("left", "LEFT JOIN"), ("right", "RIGHT JOIN"),
+            ("full", "FULL OUTER JOIN"), ("left_semi", "LEFT SEMI JOIN"),
+            ("left_anti", "LEFT ANTI JOIN"),
+        ]
+    ]
+    join_counts_sql.append(("cross", spark.sql("SELECT * FROM sales CROSS JOIN stores").count()))
+    spark.createDataFrame(join_counts_sql, "join_type STRING, rows LONG").show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -394,7 +541,7 @@ def _(mo):
 
     **Question:** *revenue by city and category.* Revenue needs the `price` (in
     `products`); the city is in `stores`. Chain two joins, compute the revenue, then
-    `groupBy` (Notebook 2).
+    `groupBy` (Notebook 4).
     """)
     return
 
@@ -413,6 +560,27 @@ def _(F, products, sales, stores):
                .show())
     print("sales used in the report:", sales_full.count(), "of", sales.count())
     return (sales_full,)
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: two JOINs, then GROUP BY
+    spark.sql("""
+        SELECT   city, category,
+                 SUM(quantity)         AS items,
+                 SUM(quantity * price) AS revenue
+        FROM     sales
+        JOIN     stores   USING (store_id)
+        JOIN     products USING (product_id)
+        GROUP BY city, category
+        ORDER BY city, category
+    """).show()
+    used = spark.sql("""
+        SELECT COUNT(*) FROM sales
+        JOIN stores USING (store_id) JOIN products USING (product_id)
+    """).first()[0]
+    print("sales used in the report:", used, "of", spark.table("sales").count())
+    return
 
 
 @app.cell(hide_code=True)
@@ -442,6 +610,23 @@ def _(F, products, sales, stores):
               .orderBy("city", "category")
               .show())
     return (sales_all,)
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: LEFT JOINs keep every sale, COALESCE labels the gaps
+    spark.sql("""
+        SELECT   COALESCE(city, '(unknown store)')       AS city,
+                 COALESCE(category, '(unknown product)') AS category,
+                 COUNT(*)                                AS sales,
+                 SUM(quantity * price)                   AS revenue
+        FROM     sales
+        LEFT JOIN stores   USING (store_id)
+        LEFT JOIN products USING (product_id)
+        GROUP BY 1, 2
+        ORDER BY city, category
+    """).show()
+    return
 
 
 @app.cell(hide_code=True)
@@ -477,6 +662,27 @@ def _(F, sales_full, spark):
     return promotions, with_promo
 
 
+@app.cell
+def _(promotions, spark):
+    # The same query in Spark SQL: USING with two columns = on=["store_id", "product_id"]
+    promotions.createOrReplaceTempView("promotions")
+    spark.sql("""
+        WITH sales_full AS (
+            SELECT *, quantity * price AS revenue
+            FROM   sales
+            JOIN   stores   USING (store_id)
+            JOIN   products USING (product_id)
+        )
+        SELECT   sale_id, store_id, product, revenue,
+                 COALESCE(discount_pct, 0)                                    AS discount_pct,
+                 ROUND(revenue * (1 - COALESCE(discount_pct, 0) / 100), 2)    AS net_revenue
+        FROM     sales_full
+        LEFT JOIN promotions USING (store_id, product_id)
+        ORDER BY sale_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -506,6 +712,19 @@ def _(F, sales, spark):
     return (bands,)
 
 
+@app.cell
+def _(bands, spark):
+    # The same query in Spark SQL: any condition can go after ON
+    bands.createOrReplaceTempView("bands")
+    spark.sql("""
+        SELECT   s.sale_id, s.quantity, b.band
+        FROM     sales s
+        LEFT JOIN bands b ON s.quantity BETWEEN b.min_qty AND b.max_qty
+        ORDER BY s.sale_id
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -528,6 +747,17 @@ def _(F, stores):
                    F.col("a.store_name").alias("store_1"),
                    F.col("b.store_name").alias("store_2"))
            .show())
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT a.city, a.store_name AS store_1, b.store_name AS store_2
+        FROM   stores a
+        JOIN   stores b ON a.city = b.city AND a.store_id < b.store_id
+    """).show()
     return
 
 
@@ -566,6 +796,32 @@ def _(F, products, sales, spark):
     return products_dup, revenue_with
 
 
+@app.cell
+def _(products_dup, spark):
+    # The same queries in Spark SQL
+    products_dup.createOrReplaceTempView("products_dup")
+
+    def revenue_with_sql(prod_view):
+        return spark.sql(f"""
+            SELECT COUNT(*) AS rows, SUM(quantity * price) AS revenue
+            FROM   sales JOIN {prod_view} USING (product_id)
+        """)
+
+    print("correct products table:")
+    revenue_with_sql("products").show()
+    print("products table with a duplicate P01:")
+    revenue_with_sql("products_dup").show()
+
+    # The check to run BEFORE joining: is the key really unique?
+    spark.sql("""
+        SELECT   product_id, COUNT(*) AS count
+        FROM     products_dup
+        GROUP BY product_id
+        HAVING   COUNT(*) > 1
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -595,6 +851,20 @@ def _(spark):
     return left_t, right_t
 
 
+@app.cell
+def _(left_t, right_t, spark):
+    # The same queries in Spark SQL: <=> is the null-safe equality
+    left_t.createOrReplaceTempView("left_t")
+    right_t.createOrReplaceTempView("right_t")
+
+    print("Normal equality: the NULL keys do not match")
+    spark.sql("SELECT * FROM left_t l JOIN right_t r ON l.k = r.k").show()
+
+    print("<=>: NULL matches NULL")
+    spark.sql("SELECT * FROM left_t l JOIN right_t r ON l.k <=> r.k ORDER BY left_val").show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -617,6 +887,17 @@ def _(mo):
 @app.cell
 def _(F, sales, stores):
     sales.join(F.broadcast(stores), on="store_id").explain()
+    return
+
+
+@app.cell
+def _(spark):
+    # The same in Spark SQL: a /*+ BROADCAST(...) */ hint after SELECT
+    spark.sql("""
+        SELECT /*+ BROADCAST(stores) */ *
+        FROM   sales
+        JOIN   stores USING (store_id)
+    """).explain()
     return
 
 
@@ -653,6 +934,20 @@ def _(products, sales, spark, stores):
     return
 
 
+@app.cell
+def _(F, products, sales, stores):
+    # The same queries with the DataFrame API
+    (sales.join(stores, on="store_id")
+          .join(products, on="product_id")
+          .groupBy("city", "category")
+          .agg(F.sum(F.col("quantity") * F.col("price")).alias("revenue"))
+          .orderBy("city", "category")
+          .show())
+
+    products.join(sales, on="product_id", how="left_anti").show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -683,6 +978,19 @@ def _(F, how_choice, sales, stores):
     return (picked,)
 
 
+@app.cell
+def _(how_choice, spark):
+    # The same join in Spark SQL (the join keyword comes from a fixed list, so this is safe)
+    sql_join = {
+        "inner": "JOIN", "left": "LEFT JOIN", "right": "RIGHT JOIN",
+        "full": "FULL OUTER JOIN", "left_semi": "LEFT SEMI JOIN", "left_anti": "LEFT ANTI JOIN",
+    }[how_choice.value]
+    picked_sql = spark.sql(f"SELECT * FROM sales {sql_join} stores USING (store_id)")
+    print(f"SELECT * FROM sales {sql_join} stores USING (store_id) -> {picked_sql.count()} rows")
+    picked_sql.orderBy(picked_sql.sale_id.asc_nulls_last(), "store_id").show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -708,8 +1016,8 @@ def _(mo):
     3. Are there `NULL` keys, and what should happen to them?
     4. After the join: did the row count change the way you expected?
 
-    **Next notebooks:** `04_dataframes_with_claude.py` (Spark + an LLM) and
-    `05_dataframe_advanced.py` (arrays, nested data, window functions, set operations, dates, writing data).
+    **Next notebooks:** `06_dataframes_with_claude.py` (Spark + an LLM) and
+    `07_dataframe_advanced.py` (arrays, nested data, window functions, set operations, dates, writing data).
     """)
     return
 
@@ -755,14 +1063,21 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(F, products, sales, solution, stores):
-    exercise_ns = {"F": F, "sales": sales, "stores": stores, "products": products}
+def _(F, products, sales, solution, spark, stores):
+    exercise_ns = {"F": F, "sales": sales, "stores": stores, "products": products, "spark": spark}
     solution('''
         # Exercise 1 -- a left join keeps sale 9 (unknown product) with NULLs
         (sales.join(products, on="product_id", how="left")
               .select("sale_id", "product_id", "product", "price")
               .orderBy("sale_id")
               .show())
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT   sale_id, product_id, product, price
+            FROM     sales LEFT JOIN products USING (product_id)
+            ORDER BY sale_id
+        """).show()
     ''', exercise_ns)
     return (exercise_ns,)
 
@@ -776,6 +1091,14 @@ def _(exercise_ns, solution):
                .agg(F.coalesce(F.sum("quantity"), F.lit(0)).alias("items"))
                .orderBy("store_name")
                .show())
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT   store_name, COALESCE(SUM(quantity), 0) AS items
+            FROM     stores LEFT JOIN sales USING (store_id)
+            GROUP BY store_name
+            ORDER BY store_name
+        """).show()
     ''', exercise_ns)
     return
 
@@ -791,6 +1114,16 @@ def _(exercise_ns, solution):
               .distinct()
               .orderBy("category")
               .show())
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT DISTINCT category
+            FROM   sales
+            JOIN   stores   USING (store_id)
+            JOIN   products USING (product_id)
+            WHERE  city = 'San Jose'
+            ORDER BY category
+        """).show()
     ''', exercise_ns)
     return
 
@@ -804,6 +1137,15 @@ def _(exercise_ns, solution):
               .select("sale_id")
               .orderBy("sale_id")
               .show())
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT   sale_id
+            FROM     sales
+            LEFT SEMI JOIN stores   USING (store_id)
+            LEFT SEMI JOIN products USING (product_id)
+            ORDER BY sale_id
+        """).show()
     ''', exercise_ns)
     return
 

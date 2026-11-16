@@ -68,7 +68,7 @@ With `(venv)` active in Command Prompt, run:
 
 ```cmd
 python -m pip install --upgrade pip
-pip install marimo pyspark duckdb pandas polars pyarrow
+pip install marimo pyspark "duckdb>=2.0" pandas polars pyarrow
 ```
 
 ---

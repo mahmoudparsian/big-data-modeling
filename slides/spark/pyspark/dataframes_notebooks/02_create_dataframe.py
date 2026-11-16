@@ -67,6 +67,14 @@ def _(mo, sales_df):
 
 
 @app.cell
+def _(mo, sales_df):
+    # Register the DataFrame as a temporary view, so the cells below can also query it with SQL
+    sales_df.createOrReplaceTempView("sales")
+    mo.md("### Temporary SQL view `sales` created")
+    return
+
+
+@app.cell
 def _(col, mo, sales_df):
     mo.md("### 1. Filtering Rows (Coffee Only)")
     coffee_df = sales_df.filter(col("category") == "Coffee")
@@ -75,10 +83,32 @@ def _(col, mo, sales_df):
 
 
 @app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT *
+        FROM   sales
+        WHERE  category = 'Coffee'
+    """).show()
+    return
+
+
+@app.cell
 def _(col, mo, round, sales_df):
     mo.md("### 2. Adding Calculated Columns (Total Revenue)")
     revenue_df = sales_df.withColumn("total_revenue", round(col("quantity") * col("unit_price"), 2))
     revenue_df.show()
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT *,
+               ROUND(quantity * unit_price, 2) AS total_revenue
+        FROM   sales
+    """).show()
     return
 
 
@@ -97,6 +127,21 @@ def _(col, count, desc, mo, sales_df, sum):
         .orderBy(desc("gross_revenue"))
     )
     store_summary_df.show()
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT   store_id,
+                 COUNT(sale_id)            AS total_transactions,
+                 SUM(quantity)             AS items_sold,
+                 SUM(quantity * unit_price) AS gross_revenue
+        FROM     sales
+        GROUP BY store_id
+        ORDER BY gross_revenue DESC
+    """).show()
     return
 
 
