@@ -31,7 +31,7 @@ Two extra notebooks show how to move data from [DuckDB](https://duckdb.org) into
 | Notebook | What it shows |
 |---|---|
 | [`duckdb_to_pyspark.py`](duckdb_to_pyspark.py) | Query DuckDB (in memory), pass the result through Apache Arrow, and turn it into a PySpark DataFrame |
-| [`auto_insurance_analysis_pyspark.py`](auto_insurance_analysis_pyspark.py) | Export the `insurance` table of `auto_insurance_db.duckdb` to Parquet with DuckDB, read it with `spark.read.parquet()`, then answer four business questions in Spark SQL (loss ratio, renewal conversion, top-3 outliers per state, tenure cohorts). It writes the Parquet file to `./tmp_spark_staging/`, so run it from this folder |
+| [`auto_insurance_analysis_pyspark.py`](auto_insurance_analysis_pyspark.py) | Export the `insurance` table of `auto_insurance_db.duckdb` to Parquet with DuckDB, read it with `spark.read.parquet()`, then answer 17 questions, each in Spark SQL **and** with the DataFrame API (the notebook checks that both give the same rows): 4 business questions (loss ratio, renewal conversion, top-3 outliers per state, tenure cohorts), 3 simple, 5 intermediate (`HAVING`, `CASE WHEN` buckets, `PIVOT`, scalar subquery, conditional aggregation) and 5 intermediate+ (percent of total, compare with the group average, `ROLLUP`, best offer per state, `NTILE` deciles with a running total). It writes the Parquet file to `./tmp_spark_staging/`, so run it from this folder |
 
 ### Other files
 
