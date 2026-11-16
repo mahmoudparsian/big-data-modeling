@@ -1,0 +1,1001 @@
+emp_id,name,dept_id,role,salary,years_exp,skills
+1001,Charlotte Abbott,ENG,Software Engineer,180849.15,8,AWS
+1002,Fiona Edwards,DAT,Principal Data Scientist,145498.21,3,SQL
+1003,Emily Torres,DAT,Data Analyst,180950.89,9,PyTorch
+1004,Abigail Campbell,DAT,Senior Data Scientist,174648.74,7,Spark|Python|SQL
+1005,George Baker,HR,People Operations Specialist,131514.05,9,Recruiting|Onboarding|Compensation|Workday
+1006,Charlotte Adams,MKT,Marketing Director,125580.21,2,Strategy|Analytics|HubSpot
+1007,Yusuf Young,DAT,Data Scientist,160922.9,6,Tableau|R
+1008,Evelyn Wright,MKT,Growth Specialist,178666.03,18,SQL|HubSpot
+1009,Rachel Parker,ENG,Software Engineer,157109.21,2,Go
+1010,Zoe Young,ENG,DevOps Engineer,192596.47,11,Kubernetes|SQL|Spark|Scala
+1011,Ian Hall,FIN,Accountant,173076.28,14,Forecasting|SQL|SAP|Python
+1012,Sophia Lopez,FIN,Financial Controller,138850.25,5,SAP|Excel|GAAP|SQL
+1013,Jacob Roberts,DAT,ML Engineer,144217.87,1,Tableau
+1014,Amelia Green,ENG,Principal Engineer,176592.91,6,AWS|Scala|Kafka
+1015,George King,HR,People Operations Specialist,115845.43,7,Recruiting|Workday
+1016,Umar Phillips,ENG,Software Engineer,189053.46,10,Spark|AWS
+1017,Elizabeth Phillips,HR,People Operations Specialist,110254.26,5,Onboarding|Compensation|Workday|Recruiting
+1018,Ethan Rodriguez,FIN,FP&A Manager,159076.27,12,Excel|SQL|SAP|Python
+1019,Victoria Martinez,MKT,Growth Specialist,134615.05,8,Analytics
+1020,Evan Kim,HR,HR Business Partner,143208.07,17,Onboarding|Workday|Recruiting|Compensation
+1021,Priya Carter,FIN,Senior Financial Analyst,127039.78,4,Forecasting|GAAP|SAP|SQL
+1022,Elizabeth Patel,MKT,Marketing Director,121441.94,2,Strategy|Analytics|Campaigns
+1023,Michael Torres,DAT,Data Analyst,159456.72,6,Spark|SQL
+1024,Logan Wu,ENG,DevOps Engineer,164976.16,1,Scala|Kubernetes
+1025,Sophia Carter,ENG,Principal Engineer,156078.64,2,Kubernetes
+1026,Quentin Roberts,ENG,DevOps Engineer,211532.3,16,Java|Python|Kafka
+1027,Sofia Torres,ENG,Software Engineer,154246.72,2,AWS|Scala|Python|Kafka
+1028,Fiona Garcia,ENG,Staff Engineer,183738.19,8,Python|Spark
+1029,Liam Edwards,MKT,Brand Manager,141018.15,9,Analytics|SEO|SQL
+1030,Ian King,DAT,Principal Data Scientist,140665.9,1,Spark
+1031,Ethan Lee,DAT,Senior Data Scientist,195093.83,12,R|PyTorch
+1032,Kevin Mitchell,HR,People Operations Specialist,130986.84,10,Workday
+1033,Harper Wu,OPS,Operations Manager,132846.86,9,Lean
+1034,Julia Young,ENG,Senior Engineer,192452.0,11,AWS|SQL|Scala
+1035,Diana Lopez,MKT,Brand Manager,115056.73,2,HubSpot|SEO
+1036,Kevin Mitchell,DAT,Data Analyst,207154.72,18,PyTorch
+1037,Ethan Kim,HR,People Operations Specialist,144369.5,18,Recruiting|Onboarding
+1038,Xena Kim,OPS,Operations Manager,138782.05,8,Lean|Tableau|Agile
+1039,Sofia Nguyen,OPS,Operations Manager,137952.63,6,Tableau|Logistics
+1040,Laura Green,FIN,FP&A Manager,143046.67,8,GAAP
+1041,Charlie Carter,ENG,Principal Engineer,198049.72,12,Java|Python
+1042,Harper Rodriguez,DAT,Data Scientist,157470.23,3,R|Statistics|Tableau
+1043,Zoe Torres,DAT,Principal Data Scientist,160365.95,4,PyTorch|Tableau|Statistics
+1044,Charlie Wu,MKT,Brand Manager,151232.3,11,SQL
+1045,James Rodriguez,ENG,Principal Engineer,157790.95,1,Go|Kubernetes
+1046,Evan Green,MKT,Marketing Director,149113.96,10,SEO|SQL|HubSpot|Campaigns
+1047,Ian Rodriguez,DAT,Data Analyst,164848.24,6,TensorFlow|Tableau|Python
+1048,Tara Hernandez,ENG,DevOps Engineer,196634.26,11,Java|SQL|Kubernetes|Go
+1049,Kevin Lopez,ENG,DevOps Engineer,190688.64,11,Kafka|Java
+1050,Michael Nguyen,ENG,Senior Engineer,218835.94,16,SQL
+1051,Liam Collins,ENG,Principal Engineer,215450.0,16,Python|Spark
+1052,Emma Walker,ENG,DevOps Engineer,205886.83,15,Spark|SQL
+1053,Ian Roberts,MKT,Product Marketing Manager,159450.63,11,Campaigns|HubSpot|SQL|SEO
+1054,Noah Singh,FIN,FP&A Manager,166180.4,15,Python|Forecasting
+1055,Lucas Phillips,MKT,Brand Manager,158489.73,15,Analytics|SEO|Campaigns
+1056,Umar Torres,ENG,Senior Engineer,183406.34,8,Java|Spark
+1057,Liam Ramirez,DAT,Data Analyst,190662.92,14,TensorFlow|Statistics|Tableau|Python
+1058,Avery Collins,DAT,Principal Data Scientist,185777.8,12,TensorFlow|Tableau|R|Statistics
+1059,Jacob Walker,DAT,Data Scientist,197436.94,14,R|Statistics|TensorFlow|SQL
+1060,Elizabeth Singh,HR,HR Business Partner,142431.46,18,Recruiting|Compensation|Onboarding|Workday
+1061,Olivia Garcia,ENG,Principal Engineer,192581.01,11,Go|Kubernetes|Scala
+1062,Avery Ramirez,ENG,Staff Engineer,209365.69,16,Go
+1063,Oscar Wright,FIN,Financial Controller,130716.01,1,Excel|SAP
+1064,Julia Hall,ENG,Staff Engineer,180746.1,7,Go|Scala|Kafka
+1065,Jacob Abbott,FIN,Senior Financial Analyst,147151.8,10,Forecasting
+1066,James Nelson,DAT,Senior Data Scientist,151473.57,3,Spark|R
+1067,Tara Stewart,FIN,Financial Controller,160590.59,12,Excel|SAP|Forecasting
+1068,Alice Ramirez,HR,HR Business Partner,146972.6,14,Onboarding|Compensation|Recruiting|Workday
+1069,Mia Torres,FIN,FP&A Manager,171922.86,14,Forecasting|SQL|Excel
+1070,Rachel Mitchell,ENG,Principal Engineer,202521.23,13,Go|Scala|Java|Spark
+1071,William Allen,DAT,ML Engineer,176892.66,9,Spark|Statistics
+1072,Elizabeth Ramirez,DAT,Senior Data Scientist,208667.78,16,Statistics|TensorFlow|Python|R
+1073,Samuel Walker,DAT,Senior Data Scientist,182956.69,10,Statistics|Tableau|TensorFlow
+1074,William Campbell,,Contractor,151329.01,12,Architecture|Advisory|Chaos Theory
+1075,Hannah Rodriguez,ENG,DevOps Engineer,172397.99,6,Kafka|AWS|Python|Spark
+1076,Samuel Walker,DAT,Data Scientist,144661.63,1,Tableau|Python
+1077,Diana Parker,ENG,Senior Engineer,210696.96,16,Kafka
+1078,Ava Carter,DAT,Senior Data Scientist,141706.32,2,Spark|TensorFlow|Python|SQL
+1079,Sophia Wright,MKT,Marketing Director,127137.16,5,Strategy|Analytics|HubSpot
+1080,Logan Ramirez,MKT,Product Marketing Manager,146911.1,8,SQL|HubSpot|SEO|Campaigns
+1081,Emma King,MKT,Marketing Director,136661.44,4,HubSpot|Analytics
+1082,Quentin Lopez,ENG,Senior Engineer,218201.04,18,Kubernetes
+1083,Noah Stewart,DAT,Principal Data Scientist,168276.34,8,Statistics|Python|R
+1084,Oscar Allen,FIN,Senior Financial Analyst,160547.53,14,Python|SQL
+1085,Rachel Nguyen,ENG,Senior Engineer,194742.93,10,SQL|Spark|Java
+1086,Abigail King,MKT,Brand Manager,172389.71,17,Strategy|Campaigns|HubSpot|Analytics
+1087,Sofia Scott,MKT,Marketing Director,121912.79,3,HubSpot
+1088,Rachel Collins,ENG,Senior Engineer,217358.98,16,Kafka|Scala|AWS|Java
+1089,Charlotte Phillips,OPS,Supply Chain Analyst,146200.24,12,Logistics|SQL|Tableau
+1090,Liam Phillips,ENG,Principal Engineer,217587.15,18,Go
+1091,Quentin Scott,ENG,Principal Engineer,226226.61,17,AWS
+1092,Olivia Ramirez,ENG,DevOps Engineer,203128.81,12,SQL|Python|Spark|Scala
+1093,Logan Malcolm,OPS,Supply Chain Analyst,153165.04,16,SQL|Agile
+1094,Logan Chen,DAT,Principal Data Scientist,179542.78,8,Statistics
+1095,Hannah Nguyen,DAT,Data Scientist,213953.25,17,Statistics|SQL|Spark|TensorFlow
+1096,Logan Nguyen,DAT,ML Engineer,214607.35,17,Spark|PyTorch
+1097,Liam Green,OPS,Program Manager,144128.79,9,Agile|Tableau|Logistics
+1098,Noah Torres,DAT,Data Scientist,219205.96,18,Statistics|PyTorch|Spark|R
+1099,James Nelson,ENG,Principal Engineer,158535.27,2,Kubernetes|AWS|Go|SQL
+1100,Julia Phillips,OPS,Operations Manager,169556.77,17,Logistics|Tableau|Lean
+1101,Lucas Roberts,ENG,Senior Engineer,215046.04,14,Spark|SQL
+1102,Quentin Green,MKT,Content Strategist,131878.24,3,SEO|SQL|Strategy|HubSpot
+1103,Evan Hall,MKT,Brand Manager,146448.26,8,Strategy|HubSpot|SQL|Campaigns
+1104,Abigail King,OPS,Operations Manager,149516.07,11,Agile|Lean|SQL
+1105,Julia Hall,DAT,ML Engineer,157719.74,6,TensorFlow
+1106,Mia Hall,DAT,ML Engineer,154381.68,5,Statistics|PyTorch|R
+1107,Alice Roberts,OPS,Program Manager,159527.61,18,Agile|Lean|Tableau|SQL
+1108,Abigail Allen,DAT,Data Scientist,175323.31,7,Spark|Statistics|SQL|Tableau
+1109,William Collins,ENG,Software Engineer,165119.33,1,Kafka|Python|AWS|Go
+1110,Sofia Patel,OPS,Program Manager,164547.64,16,SQL|Agile|Logistics
+1111,Charlotte Rodriguez,MKT,Growth Specialist,135954.46,4,SEO
+1112,Noah Kim,MKT,Growth Specialist,132804.04,3,HubSpot|SQL|Analytics
+1113,Michael Malcolm,FIN,Accountant,176706.49,17,SQL|Forecasting|GAAP
+1114,Samuel Green,FIN,FP&A Manager,124418.78,3,Python|GAAP
+1115,Logan Adams,ENG,Principal Engineer,153703.56,1,SQL
+1116,Xena Allen,MKT,Brand Manager,132297.38,4,Strategy|Campaigns|SEO|SQL
+1117,Oscar Wright,MKT,Content Strategist,151387.83,10,Analytics
+1118,Charlie Kim,ENG,Principal Engineer,162943.96,4,Kubernetes|SQL
+1119,Xena Torres,DAT,Senior Data Scientist,200145.42,14,TensorFlow|PyTorch|Python|Statistics
+1120,Nina Mitchell,DAT,Senior Data Scientist,182589.67,12,R|Python|SQL
+1121,Rachel Rodriguez,OPS,Supply Chain Analyst,124270.97,3,Logistics
+1122,Victoria Hall,,External Consultant,135485.42,3,Advisory|Chaos Theory
+1123,Victoria Nguyen,FIN,Financial Controller,155834.5,9,SQL|SAP
+1124,Quentin Garcia,ENG,Staff Engineer,165598.88,5,Go|Python
+1125,Laura Allen,ENG,Principal Engineer,214846.17,17,SQL
+1126,Noah Adams,DAT,Principal Data Scientist,202061.42,15,Tableau
+1127,Olivia Martinez,ENG,Principal Engineer,203959.27,13,SQL
+1128,Emily Mitchell,ENG,Staff Engineer,198927.2,11,Scala
+1129,Rachel Edwards,DAT,Data Scientist,201247.38,13,Statistics|Tableau|TensorFlow
+1130,Emma Wu,FIN,Financial Controller,183533.44,18,GAAP|Python
+1131,Oscar Ramirez,DAT,Data Analyst,191989.17,13,R
+1132,Emma Scott,MKT,Brand Manager,135739.14,5,Strategy|HubSpot|Campaigns|SQL
+1133,Emma Wu,FIN,Accountant,137713.04,5,Python|Excel|GAAP
+1134,William Campbell,HR,People Operations Specialist,115894.38,2,Workday|Recruiting|Compensation
+1135,Julia Carter,ENG,Staff Engineer,206692.64,12,Spark|Kafka|SQL
+1136,Oscar Campbell,HR,People Operations Specialist,142420.06,18,Recruiting|Compensation|Onboarding
+1137,Abigail King,OPS,Supply Chain Analyst,110791.38,1,Lean|Tableau
+1138,Evan Nguyen,FIN,Financial Controller,134104.45,3,GAAP|Python
+1139,Olivia Green,ENG,Software Engineer,201623.81,11,Python
+1140,Julia Singh,FIN,Financial Controller,126520.31,3,GAAP|SAP|Python|SQL
+1141,Rachel Lee,FIN,Financial Controller,158945.28,12,Python|SAP|GAAP
+1142,Lucas King,ENG,Principal Engineer,153567.44,2,Java|Scala|Kubernetes
+1143,Quentin Hernandez,DAT,Principal Data Scientist,210285.56,16,PyTorch|SQL
+1144,Ethan Walker,DAT,Data Scientist,148353.14,3,TensorFlow
+1145,Bob Roberts,OPS,Supply Chain Analyst,154618.84,14,Agile|Logistics|SQL|Tableau
+1146,Umar Singh,FIN,FP&A Manager,153476.74,12,SQL
+1147,Emma Edwards,DAT,Principal Data Scientist,199261.72,13,SQL|PyTorch|Spark
+1148,Evan Evans,MKT,Product Marketing Manager,166852.46,17,SEO|Analytics|Campaigns
+1149,George Nguyen,ENG,Senior Engineer,177524.56,5,Scala
+1150,Charlotte Phillips,DAT,ML Engineer,204898.14,15,R|Spark|SQL
+1151,Evan Carter,DAT,Data Scientist,177462.72,9,Spark|PyTorch|SQL
+1152,Noah Kim,ENG,Software Engineer,167731.33,3,AWS
+1153,Yusuf Roberts,MKT,Marketing Director,171794.8,15,SEO|Campaigns
+1154,Ava Evans,ENG,Staff Engineer,206739.36,15,Spark|Scala|Python
+1155,Priya Mitchell,,External Consultant,146048.97,12,Security|Advisory|Architecture
+1156,Evelyn Stewart,ENG,Software Engineer,162691.72,3,Kafka|AWS|Go|Kubernetes
+1157,Jacob Nguyen,DAT,ML Engineer,165334.61,5,TensorFlow|Spark|Tableau
+1158,Emily Lopez,ENG,Principal Engineer,202205.4,11,Kubernetes
+1159,Mason Adams,ENG,Software Engineer,184552.04,6,SQL|Java|Spark
+1160,Ian Nguyen,ENG,Staff Engineer,225361.77,17,Go
+1161,Mia Malcolm,MKT,Growth Specialist,130893.54,6,HubSpot|SQL
+1162,Charlie Ramirez,DAT,Senior Data Scientist,203769.53,15,SQL|Tableau|Spark|PyTorch
+1163,Ava Rodriguez,DAT,ML Engineer,201386.88,15,TensorFlow|Tableau|Statistics
+1164,Liam Singh,HR,People Operations Specialist,122168.03,5,Compensation
+1165,Xena Parker,OPS,Program Manager,167729.77,17,Logistics|SQL|Tableau
+1166,Noah Evans,ENG,Principal Engineer,172559.28,3,SQL|Go
+1167,Bob Ramirez,ENG,DevOps Engineer,196939.12,12,Go
+1168,Oscar Martinez,ENG,Staff Engineer,201856.53,11,Python|Kafka
+1169,Ava Malcolm,FIN,FP&A Manager,171878.91,15,Excel
+1170,Quentin Lee,HR,People Operations Specialist,146172.08,17,Onboarding|Compensation|Recruiting
+1171,Diana Hall,DAT,ML Engineer,195004.91,15,Python|R|Tableau|TensorFlow
+1172,Priya Nguyen,ENG,Staff Engineer,197015.69,12,Scala|Spark|Kafka|AWS
+1173,Evan Turner,DAT,ML Engineer,207325.35,18,Python|R|SQL|PyTorch
+1174,Quentin Martinez,DAT,Principal Data Scientist,184858.01,12,R
+1175,Ian Kim,DAT,Data Scientist,168286.14,6,Statistics|R|Spark|TensorFlow
+1176,Evan Roberts,ENG,Senior Engineer,166102.19,2,Go
+1177,Tara Evans,DAT,ML Engineer,202386.35,16,Tableau|PyTorch
+1178,Diana Green,ENG,Software Engineer,215342.9,14,Kubernetes|Go|Spark|Java
+1179,Abigail Phillips,DAT,ML Engineer,180818.37,9,Spark|SQL|Tableau|Statistics
+1180,Ethan Hernandez,DAT,Principal Data Scientist,187241.37,11,Statistics|Tableau|R
+1181,Emma Singh,MKT,Brand Manager,157927.68,15,Campaigns|SQL|SEO
+1182,Charlotte Patel,ENG,Principal Engineer,201376.04,12,Python|Scala
+1183,Jacob Mitchell,ENG,Staff Engineer,189734.02,8,Go|Kubernetes|Kafka
+1184,Charlie Stewart,ENG,Principal Engineer,199118.88,12,Scala
+1185,Lucas Adams,DAT,Data Scientist,179034.99,8,PyTorch
+1186,Sophia Turner,DAT,ML Engineer,150521.76,4,Statistics|Spark|Tableau
+1187,Samuel Phillips,ENG,Senior Engineer,164649.35,3,Spark|Go|SQL|Scala
+1188,Emily Wright,DAT,Data Scientist,185955.13,10,R|Tableau
+1189,Oscar Abbott,,External Consultant,144784.86,8,Architecture
+1190,Logan Collins,DAT,ML Engineer,160457.84,5,Spark
+1191,Tara Hill,,Contractor,156586.61,17,Chaos Theory|Security|Advisory|Architecture
+1192,Noah Roberts,MKT,Brand Manager,138797.36,5,Analytics|SQL
+1193,Mason Patel,HR,People Operations Specialist,113065.99,5,Workday|Compensation
+1194,Oscar Baker,OPS,Program Manager,147423.83,10,SQL|Agile|Logistics
+1195,Charlotte King,MKT,Marketing Director,174005.8,17,Analytics|Campaigns
+1196,Elizabeth Stewart,DAT,ML Engineer,150870.45,2,Spark
+1197,Charlie Collins,ENG,Senior Engineer,211000.85,14,SQL
+1198,Charlotte Torres,ENG,Software Engineer,212973.6,16,Kafka|SQL|Python|Go
+1199,Diana Singh,DAT,Data Analyst,197264.37,15,R|TensorFlow
+1200,Emily Scott,FIN,Accountant,157481.15,13,SAP|Python|Excel
+1201,Umar Hall,DAT,Data Scientist,197966.7,15,Python
+1202,Samuel Nelson,HR,Talent Acquisition Lead,131402.97,8,Workday|Compensation
+1203,Elizabeth Scott,ENG,Senior Engineer,224991.07,16,SQL|Kafka|Java|Python
+1204,Fiona Hill,DAT,Senior Data Scientist,168666.84,7,Python
+1205,Samuel Phillips,MKT,Content Strategist,149587.05,10,SQL
+1206,Ian Allen,FIN,FP&A Manager,152790.54,12,SAP
+1207,Logan Rodriguez,DAT,Data Scientist,148181.58,3,Tableau|TensorFlow|Statistics|R
+1208,Hannah Malcolm,,Contractor,152801.69,12,Architecture|Chaos Theory|Security
+1209,Jacob Evans,DAT,Principal Data Scientist,138289.29,2,Statistics|Tableau|SQL
+1210,Julia Stewart,OPS,Operations Manager,151679.68,11,SQL|Tableau|Agile
+1211,Sofia King,MKT,Product Marketing Manager,172267.44,17,SQL|Strategy|SEO
+1212,Victoria Abbott,,Contractor,127786.66,1,Advisory|Architecture|Chaos Theory
+1213,Benjamin Carter,ENG,DevOps Engineer,199503.3,13,Python|Spark
+1214,Michael Martinez,DAT,Data Analyst,157274.03,5,TensorFlow|Tableau
+1215,Mia Carter,HR,People Operations Specialist,111692.4,2,Workday|Compensation
+1216,Ava Turner,DAT,Senior Data Scientist,208593.99,15,R|Statistics|TensorFlow
+1217,Evelyn Allen,MKT,Growth Specialist,138964.1,8,Analytics|SEO|Campaigns
+1218,Emily Lee,MKT,Content Strategist,151926.85,11,SEO|Strategy|SQL
+1219,Zoe Baker,OPS,Operations Manager,134561.95,10,Agile
+1220,Noah Allen,FIN,Senior Financial Analyst,148702.78,7,SAP|Forecasting|SQL
+1221,George Edwards,ENG,Staff Engineer,216638.52,17,Python|Spark
+1222,Liam Green,FIN,Financial Controller,128894.01,5,GAAP|Python
+1223,Ava Rodriguez,FIN,Accountant,153311.09,11,Excel
+1224,Amelia Collins,ENG,Staff Engineer,176019.49,6,Python|Kubernetes
+1225,Sophia Garcia,OPS,Supply Chain Analyst,110926.05,2,Agile
+1226,Samuel Roberts,,Contractor,139797.51,5,Architecture|Chaos Theory|Security|Advisory
+1227,Kevin Roberts,MKT,Growth Specialist,123535.89,1,Campaigns|Analytics|HubSpot
+1228,Mia Hill,HR,People Operations Specialist,125187.8,11,Onboarding
+1229,Ian Carter,DAT,Senior Data Scientist,137505.9,1,Statistics|TensorFlow
+1230,Rachel Green,ENG,DevOps Engineer,153657.07,1,Java|Python|Go
+1231,Hannah Roberts,ENG,Principal Engineer,227797.47,17,Spark|Kafka|Scala
+1232,Mia Walker,ENG,Senior Engineer,211506.52,16,Kubernetes|SQL|AWS
+1233,Ethan Lee,FIN,Financial Controller,175825.75,17,Excel|SAP|Python
+1234,Diana Parker,OPS,Operations Manager,159397.64,18,Lean|Tableau|Logistics
+1235,Evelyn Lee,FIN,FP&A Manager,136548.9,3,Excel|GAAP|SQL|Forecasting
+1236,Liam Roberts,MKT,Product Marketing Manager,168014.28,15,HubSpot|Strategy|SQL
+1237,Quentin Chen,FIN,Financial Controller,125623.6,2,SAP
+1238,Diana Wright,,Contractor,124815.67,2,Advisory|Architecture
+1239,Elizabeth Ramirez,DAT,Data Analyst,207913.92,15,TensorFlow|Python|R|Tableau
+1240,Ian Baker,ENG,DevOps Engineer,205600.37,13,Python|AWS
+1241,Tara Roberts,MKT,Product Marketing Manager,162510.94,14,Analytics|SQL
+1242,William Nguyen,ENG,Staff Engineer,166396.1,2,Python|Java|Spark|AWS
+1243,George Stewart,ENG,DevOps Engineer,157360.19,2,Kubernetes
+1244,Noah Walker,DAT,Principal Data Scientist,158729.0,5,SQL|TensorFlow|R
+1245,James Scott,MKT,Brand Manager,139328.23,8,HubSpot|Campaigns
+1246,Oscar Ramirez,ENG,Staff Engineer,232176.32,18,Kubernetes|SQL
+1247,Diana Baker,OPS,Program Manager,155128.43,13,Tableau|Lean|Logistics
+1248,Tara Nelson,ENG,DevOps Engineer,212911.05,16,Kafka|Scala
+1249,Olivia Patel,MKT,Content Strategist,175479.87,18,Analytics|SEO|HubSpot|SQL
+1250,Amelia Lopez,OPS,Supply Chain Analyst,122236.84,3,Logistics|Agile
+1251,Yusuf Stewart,MKT,Marketing Director,144124.41,7,SQL|Analytics
+1252,Victoria King,OPS,Operations Manager,140216.78,7,Tableau
+1253,Priya Stewart,MKT,Content Strategist,143333.27,8,SQL|HubSpot|SEO
+1254,Tara Allen,DAT,Data Analyst,195577.73,15,R|Spark|PyTorch|Statistics
+1255,Liam Kim,MKT,Growth Specialist,125009.52,5,SEO|Analytics|Campaigns|SQL
+1256,Oscar Nelson,MKT,Growth Specialist,169310.28,16,SEO|SQL|Campaigns
+1257,Olivia Singh,FIN,Accountant,134372.67,6,SQL|SAP|Excel|Forecasting
+1258,Charlie Wright,OPS,Program Manager,123007.2,2,SQL|Lean|Logistics|Agile
+1259,Alice Lee,DAT,Data Scientist,147552.03,2,Statistics|Python|TensorFlow|Tableau
+1260,Logan Ramirez,ENG,DevOps Engineer,189821.81,9,Python|Kubernetes|SQL
+1261,Laura Wu,OPS,Program Manager,123299.95,5,Agile|Lean|SQL
+1262,Fiona Adams,OPS,Supply Chain Analyst,143954.84,8,Agile|Logistics
+1263,Amelia Kim,ENG,Principal Engineer,205982.11,13,Python
+1264,Abigail Singh,ENG,Principal Engineer,198248.15,11,AWS
+1265,Charlie Walker,ENG,DevOps Engineer,213393.08,16,Kafka
+1266,Ethan Collins,MKT,Growth Specialist,144500.53,11,Campaigns|Analytics
+1267,Avery Hill,OPS,Supply Chain Analyst,131356.66,6,Lean|Agile|SQL|Logistics
+1268,Abigail Lopez,DAT,Data Scientist,139229.64,2,Spark|PyTorch
+1269,Jacob Stewart,DAT,Data Scientist,143479.3,1,Statistics|Spark|PyTorch|Tableau
+1270,Yusuf Campbell,ENG,DevOps Engineer,198509.99,13,Java|Spark|Python
+1271,Rachel Nguyen,DAT,Senior Data Scientist,190400.18,13,Spark
+1272,Alice King,DAT,Data Scientist,148453.45,4,TensorFlow|SQL
+1273,Logan Parker,DAT,Principal Data Scientist,134767.23,1,R
+1274,Yusuf Chen,ENG,Principal Engineer,169014.17,3,AWS|Scala
+1275,Evelyn Nelson,ENG,Software Engineer,189516.73,10,Spark|Scala
+1276,Emma Young,DAT,Data Analyst,147778.0,3,Statistics|Tableau
+1277,Mia Rodriguez,DAT,Senior Data Scientist,172441.61,10,R|TensorFlow|Tableau|SQL
+1278,Victoria Mitchell,DAT,ML Engineer,155473.63,5,Statistics|PyTorch
+1279,Laura Hill,OPS,Supply Chain Analyst,166706.43,16,Agile|Tableau
+1280,Rachel Hill,DAT,ML Engineer,168808.97,7,Python|R
+1281,Olivia Lee,DAT,Data Scientist,155103.45,3,Statistics|Spark|R|PyTorch
+1282,Priya Allen,MKT,Content Strategist,151933.44,13,Campaigns|SQL|HubSpot|SEO
+1283,Charlie Adams,MKT,Product Marketing Manager,119999.91,3,HubSpot|SEO
+1284,Kevin Kim,MKT,Content Strategist,159701.47,11,Strategy|HubSpot|Campaigns|Analytics
+1285,Oscar Evans,FIN,Senior Financial Analyst,168019.25,15,Python|SAP|SQL|GAAP
+1286,Bob Carter,ENG,Principal Engineer,159273.78,3,Go|Kafka
+1287,Victoria Roberts,FIN,FP&A Manager,159685.27,12,Python|GAAP|Forecasting|Excel
+1288,Tara Kim,HR,HR Business Partner,111386.88,1,Onboarding
+1289,Sofia Hall,DAT,ML Engineer,160295.83,6,Statistics|Spark|SQL|TensorFlow
+1290,Laura Campbell,DAT,ML Engineer,166526.53,7,TensorFlow|Python|R|Spark
+1291,Nina Young,FIN,Financial Controller,138280.93,4,Forecasting|Python
+1292,Michael Roberts,ENG,Principal Engineer,228482.44,17,Kubernetes|AWS|Kafka
+1293,Hannah Baker,DAT,Data Analyst,168019.81,6,Spark|R|Statistics
+1294,Umar Abbott,ENG,Staff Engineer,175306.23,6,AWS|Kubernetes
+1295,Liam Stewart,ENG,Principal Engineer,204083.17,14,AWS|Scala
+1296,Sophia Hernandez,ENG,Software Engineer,214993.89,15,Python|SQL|Spark
+1297,Michael Nelson,OPS,Program Manager,157768.37,16,Tableau|Lean|SQL|Logistics
+1298,Fiona Collins,ENG,Senior Engineer,185745.34,10,AWS|Kafka
+1299,Kevin Roberts,MKT,Content Strategist,175172.9,18,SEO
+1300,Ethan Adams,DAT,Principal Data Scientist,202741.65,15,Spark|R|TensorFlow|Statistics
+1301,Tara Kim,DAT,Data Scientist,149025.12,3,SQL
+1302,Nina Edwards,MKT,Product Marketing Manager,156655.71,14,Analytics|HubSpot
+1303,Diana Collins,DAT,Data Scientist,209694.04,18,Tableau|Statistics|PyTorch
+1304,Mason Wu,ENG,Principal Engineer,169324.22,2,Scala|Java
+1305,Julia Scott,HR,People Operations Specialist,136831.34,13,Compensation|Onboarding|Workday
+1306,Evan Lopez,DAT,Data Scientist,188275.13,12,R|Tableau|Python|Statistics
+1307,Elizabeth Roberts,MKT,Brand Manager,130980.85,3,Analytics|SQL|HubSpot|Campaigns
+1308,Rachel Scott,HR,Talent Acquisition Lead,151246.94,18,Workday|Compensation|Recruiting|Onboarding
+1309,George Roberts,ENG,Senior Engineer,212387.62,15,Java|Scala|Go|SQL
+1310,Kevin Young,ENG,Software Engineer,182568.73,9,Python|Kubernetes
+1311,Charlotte King,FIN,Senior Financial Analyst,169198.87,14,Excel
+1312,Nina Carter,ENG,DevOps Engineer,185588.89,8,Python|AWS|Go|Scala
+1313,Hannah Campbell,MKT,Content Strategist,121913.15,3,HubSpot
+1314,George Wu,ENG,Software Engineer,171484.65,5,Scala|Spark
+1315,Lucas Collins,ENG,Senior Engineer,210702.34,15,Scala|Kubernetes
+1316,Mia Mitchell,HR,HR Business Partner,107840.21,4,Compensation
+1317,William Campbell,ENG,Senior Engineer,181709.26,8,Java
+1318,Logan Stewart,MKT,Product Marketing Manager,153463.51,10,HubSpot
+1319,Tara Lee,DAT,ML Engineer,171298.83,7,Python|TensorFlow|Spark
+1320,Sophia Nelson,ENG,Principal Engineer,165869.25,3,Go
+1321,Umar Malcolm,DAT,ML Engineer,195513.27,14,Statistics|TensorFlow
+1322,Evan Martinez,MKT,Marketing Director,141201.89,9,SQL
+1323,Mason Hernandez,MKT,Product Marketing Manager,160777.2,14,Strategy|Campaigns|Analytics|SQL
+1324,Fiona King,ENG,Senior Engineer,173943.35,5,Spark|Kafka|Go|Java
+1325,Elizabeth Hall,ENG,Staff Engineer,202966.9,14,Kafka
+1326,Harper Garcia,ENG,Senior Engineer,152093.54,1,AWS|Kafka|Spark
+1327,Xena Malcolm,FIN,Accountant,137831.77,4,Forecasting
+1328,Emma Young,DAT,Data Scientist,149938.36,3,Python|SQL|Tableau
+1329,Kevin Adams,ENG,Staff Engineer,165043.36,4,Python
+1330,Alice Hall,ENG,Software Engineer,211862.51,13,Python|Kubernetes
+1331,Oscar Scott,ENG,Software Engineer,194465.95,9,Spark|Python|AWS
+1332,Oscar Turner,,Contractor,136240.19,3,Architecture|Advisory|Chaos Theory
+1333,Logan Roberts,ENG,Senior Engineer,194243.13,10,Java|SQL|Scala
+1334,Benjamin Phillips,,External Consultant,164167.72,18,Advisory|Chaos Theory
+1335,Liam Martinez,ENG,Software Engineer,164688.07,1,Kubernetes
+1336,Sofia King,ENG,DevOps Engineer,183994.83,8,Scala
+1337,Emily Young,ENG,Senior Engineer,219636.69,17,SQL|Spark|Kafka
+1338,George Evans,ENG,Principal Engineer,166887.0,3,Kubernetes
+1339,Harper Malcolm,ENG,Software Engineer,204011.12,11,Go|AWS|Java|Scala
+1340,Oscar Wright,OPS,Operations Manager,119042.12,4,Tableau|Lean
+1341,Umar Ramirez,ENG,Software Engineer,180536.23,7,Kafka|Spark|Python|SQL
+1342,Evelyn King,HR,People Operations Specialist,103840.33,2,Onboarding|Recruiting|Workday
+1343,William Hill,DAT,Data Scientist,181121.43,9,Python|SQL
+1344,Noah Parker,FIN,Senior Financial Analyst,132881.58,4,Excel|Python
+1345,Diana Walker,ENG,Principal Engineer,204147.23,12,Kafka
+1346,Evan Martinez,,External Consultant,158990.45,15,Architecture
+1347,Hannah Kim,OPS,Operations Manager,137119.44,6,Tableau|Lean|Logistics|SQL
+1348,Evelyn Campbell,ENG,Senior Engineer,173733.04,6,Scala|Python|Kafka|Kubernetes
+1349,Mia Hall,MKT,Content Strategist,168124.46,14,Strategy|HubSpot|SEO|Analytics
+1350,Ian Ramirez,ENG,DevOps Engineer,187369.85,8,Kubernetes
+1351,Emily Baker,DAT,Data Analyst,195602.83,12,TensorFlow|PyTorch|Spark
+1352,Bob Scott,MKT,Marketing Director,138687.46,9,Campaigns|SEO|Analytics|Strategy
+1353,George Hall,MKT,Brand Manager,180060.56,18,Analytics
+1354,James Nelson,DAT,Senior Data Scientist,158784.82,6,R|Tableau|Python
+1355,Emily Baker,OPS,Program Manager,128454.19,5,Tableau|Agile
+1356,Laura Phillips,ENG,Staff Engineer,186904.38,8,AWS
+1357,Ava Chen,DAT,ML Engineer,172236.46,7,PyTorch|TensorFlow|Statistics
+1358,Diana Martinez,ENG,Senior Engineer,174932.58,4,Spark|Go|SQL
+1359,Harper Hill,MKT,Brand Manager,146161.65,10,HubSpot|SQL
+1360,Charlotte Phillips,MKT,Growth Specialist,178096.97,18,Analytics|Campaigns|HubSpot
+1361,Yusuf King,FIN,Accountant,131654.44,5,Python
+1362,James Hill,HR,People Operations Specialist,103313.31,2,Onboarding|Workday|Recruiting
+1363,Sophia Nguyen,DAT,Principal Data Scientist,169215.63,8,PyTorch|R|Python
+1364,Emily Green,DAT,Data Scientist,163325.99,7,R
+1365,Quentin Wu,FIN,Financial Controller,162400.41,13,SQL|GAAP|SAP|Python
+1366,William Torres,DAT,Data Analyst,166269.17,8,Python
+1367,Samuel Martinez,ENG,Staff Engineer,162885.6,3,Scala|Spark|Kafka|Python
+1368,Victoria Stewart,,Contractor,125137.28,1,Security|Chaos Theory
+1369,Diana Wu,DAT,Senior Data Scientist,200821.81,14,Tableau|PyTorch|Spark
+1370,George Patel,DAT,ML Engineer,200790.77,16,Python|SQL|Statistics
+1371,Samuel Stewart,DAT,Principal Data Scientist,136644.58,1,Spark|SQL|Python
+1372,Tara Hill,DAT,Data Scientist,152269.86,3,PyTorch|Statistics|SQL|TensorFlow
+1373,Laura Mitchell,ENG,Principal Engineer,209297.75,15,Python|Scala|Kubernetes
+1374,Abigail Wu,ENG,Software Engineer,223623.79,18,AWS|Python
+1375,Yusuf Turner,DAT,ML Engineer,207496.76,16,Statistics|PyTorch
+1376,Fiona Hill,OPS,Program Manager,118811.4,2,Logistics|Tableau
+1377,Laura Singh,,External Consultant,126863.37,5,Security
+1378,Michael Nguyen,HR,Talent Acquisition Lead,138372.87,11,Recruiting
+1379,Yusuf Parker,DAT,Data Scientist,176315.01,9,TensorFlow
+1380,Hannah Ramirez,ENG,DevOps Engineer,176187.74,4,Kafka
+1381,Ethan Baker,HR,Talent Acquisition Lead,139476.6,13,Recruiting|Compensation|Onboarding|Workday
+1382,Julia Stewart,MKT,Content Strategist,121332.68,2,HubSpot|Analytics|Strategy
+1383,Sofia Carter,OPS,Supply Chain Analyst,113294.75,1,Agile|Lean|SQL
+1384,Abigail Wu,,External Consultant,130988.24,5,Architecture|Advisory|Security|Chaos Theory
+1385,Michael Mitchell,ENG,Principal Engineer,221207.45,16,Python|Scala|AWS
+1386,Tara Evans,DAT,ML Engineer,136113.13,1,Python|Spark
+1387,Charlie Roberts,ENG,Software Engineer,177689.2,7,AWS|Kubernetes|Go|Python
+1388,Evelyn Martinez,ENG,Principal Engineer,207924.67,15,AWS|Go|Scala|Spark
+1389,Quentin Lopez,ENG,Principal Engineer,156050.96,2,Java|AWS
+1390,Evelyn Lee,ENG,Principal Engineer,213348.62,17,SQL
+1391,Ian Garcia,MKT,Marketing Director,138538.25,8,HubSpot|SEO|SQL
+1392,Yusuf Baker,DAT,Senior Data Scientist,198834.32,15,Spark|Python|Tableau|PyTorch
+1393,Logan Stewart,MKT,Brand Manager,129207.81,4,SEO|HubSpot|Campaigns
+1394,Quentin King,ENG,DevOps Engineer,191672.77,8,Go|Scala|AWS|Python
+1395,Amelia Phillips,,Contractor,150529.14,14,Advisory
+1396,Victoria Walker,MKT,Content Strategist,155617.04,12,HubSpot|Campaigns
+1397,Laura Hernandez,ENG,Senior Engineer,192852.99,9,Go|Spark
+1398,Oscar Baker,ENG,Software Engineer,213720.56,14,Go|Kafka|SQL
+1399,Samuel Roberts,HR,Talent Acquisition Lead,114262.29,2,Compensation
+1400,Michael Evans,ENG,Principal Engineer,217801.47,17,Scala
+1401,Ian Rodriguez,DAT,ML Engineer,196291.59,15,Spark|SQL
+1402,Victoria Garcia,ENG,Staff Engineer,156705.07,1,Scala|AWS
+1403,Sophia Lopez,ENG,Principal Engineer,207565.41,14,Kubernetes|Python|SQL|Kafka
+1404,Michael Adams,OPS,Supply Chain Analyst,157160.34,17,SQL
+1405,Oscar Baker,ENG,Staff Engineer,205192.27,13,Scala|Spark|Kubernetes
+1406,Charlie King,OPS,Supply Chain Analyst,163653.03,17,Tableau|SQL|Lean
+1407,Sophia Baker,FIN,Senior Financial Analyst,155694.88,13,Python|SQL
+1408,Nina Martinez,MKT,Growth Specialist,127365.46,4,SQL
+1409,Charlotte Allen,FIN,Financial Controller,129435.96,2,Excel
+1410,Abigail Abbott,DAT,Data Analyst,155089.85,4,PyTorch|Spark|R|Python
+1411,Tara Ramirez,MKT,Product Marketing Manager,147714.76,9,SQL|Strategy
+1412,Mason Abbott,ENG,Staff Engineer,212233.9,16,Kafka|Java
+1413,William Ramirez,ENG,Staff Engineer,224941.68,18,SQL|Go
+1414,Priya Chen,ENG,Staff Engineer,174752.6,4,Scala|Spark|Kubernetes|Kafka
+1415,Evan Wu,OPS,Program Manager,135419.13,8,Agile|Tableau|Logistics
+1416,George Garcia,HR,Talent Acquisition Lead,139225.54,12,Compensation|Workday|Recruiting
+1417,George Kim,ENG,Senior Engineer,174591.91,6,Kafka|Spark|Scala|Kubernetes
+1418,Laura Abbott,DAT,Data Analyst,181371.33,9,TensorFlow|R|Spark|Python
+1419,Ian Patel,,External Consultant,130850.89,4,Security|Chaos Theory|Advisory|Architecture
+1420,Mia Martinez,HR,People Operations Specialist,115929.27,5,Recruiting|Onboarding|Workday|Compensation
+1421,Evan Allen,MKT,Marketing Director,176030.46,17,HubSpot|SEO
+1422,Lucas Turner,MKT,Product Marketing Manager,128425.57,4,SQL|SEO
+1423,Harper Nelson,ENG,DevOps Engineer,153630.76,2,AWS|SQL
+1424,Sophia Singh,ENG,Principal Engineer,193048.71,11,Python|Java|Kafka
+1425,Amelia Nelson,DAT,Senior Data Scientist,149345.51,3,Spark|TensorFlow|SQL|R
+1426,Umar Abbott,,External Consultant,130649.48,4,Chaos Theory
+1427,Fiona Stewart,OPS,Program Manager,148130.66,10,Tableau|Agile
+1428,Xena Patel,HR,Talent Acquisition Lead,132762.41,11,Workday|Compensation|Onboarding|Recruiting
+1429,George Walker,ENG,Software Engineer,193985.27,10,Spark|Python|AWS
+1430,Sophia Malcolm,HR,People Operations Specialist,133311.38,14,Onboarding|Recruiting
+1431,Zoe Lee,DAT,Senior Data Scientist,178390.92,11,Python|R|TensorFlow|Tableau
+1432,Hannah Mitchell,DAT,ML Engineer,204820.84,17,Python|Tableau|R|Statistics
+1433,Logan Campbell,HR,Talent Acquisition Lead,151897.3,17,Onboarding|Workday
+1434,Ian Wu,DAT,ML Engineer,184732.43,11,TensorFlow|Tableau|R|Spark
+1435,Rachel Hill,OPS,Supply Chain Analyst,161210.08,15,Tableau|Agile
+1436,Abigail Parker,HR,People Operations Specialist,152121.33,18,Onboarding|Workday
+1437,Emily Hernandez,MKT,Growth Specialist,136062.3,6,HubSpot|Strategy|SEO
+1438,Logan Carter,MKT,Content Strategist,171574.85,18,Strategy|Campaigns|HubSpot|SQL
+1439,Yusuf Nguyen,ENG,Staff Engineer,177577.21,7,Kafka|AWS
+1440,Julia Patel,MKT,Brand Manager,143307.5,7,SEO
+1441,Noah Wu,MKT,Product Marketing Manager,146378.6,8,Analytics|Campaigns|SEO|SQL
+1442,Harper Patel,OPS,Supply Chain Analyst,160751.68,14,Lean|Logistics|Tableau
+1443,Sofia Allen,ENG,Principal Engineer,191861.56,8,AWS|Java|Kubernetes
+1444,Elizabeth Rodriguez,ENG,Senior Engineer,160408.29,3,AWS|Spark
+1445,Yusuf Kim,DAT,ML Engineer,170081.06,9,Python|PyTorch|SQL
+1446,Emily Nguyen,ENG,Software Engineer,165823.02,2,SQL|Go|Python
+1447,Emily Scott,DAT,Senior Data Scientist,203757.49,17,TensorFlow|Tableau
+1448,Ethan Hill,ENG,Senior Engineer,183918.91,7,Go|Kafka|Spark
+1449,Avery Turner,DAT,ML Engineer,135168.88,1,Statistics|Spark|R
+1450,Mia Hall,OPS,Program Manager,142879.74,11,Tableau
+1451,Quentin Torres,FIN,Financial Controller,181831.52,17,SAP|Python|GAAP
+1452,Sophia Kim,ENG,Senior Engineer,197416.76,11,Scala
+1453,Ethan Torres,ENG,Staff Engineer,184030.92,7,Kubernetes|Spark
+1454,Nina Torres,HR,People Operations Specialist,141944.98,14,Onboarding
+1455,Bob Roberts,FIN,Financial Controller,123338.64,3,Forecasting|SAP
+1456,Evan Collins,HR,Talent Acquisition Lead,137808.52,14,Compensation|Onboarding|Recruiting|Workday
+1457,Evelyn Abbott,DAT,ML Engineer,154095.37,3,Spark
+1458,William Evans,ENG,Software Engineer,161920.95,3,Kubernetes|AWS|SQL|Go
+1459,Bob Carter,ENG,Senior Engineer,177309.17,5,Scala|Kafka|Go
+1460,Elizabeth Adams,OPS,Operations Manager,170996.27,18,Logistics|Lean
+1461,Alice Collins,MKT,Product Marketing Manager,182151.67,18,Analytics|SEO|HubSpot
+1462,Liam Evans,ENG,Senior Engineer,187147.94,8,Java|Spark|SQL
+1463,Harper Collins,HR,People Operations Specialist,144514.79,15,Workday
+1464,Harper Wright,ENG,Senior Engineer,224280.19,16,Scala|Java|Python
+1465,Samuel Wright,OPS,Supply Chain Analyst,158432.56,16,Lean|SQL|Agile
+1466,James Adams,FIN,FP&A Manager,132210.64,6,SQL|GAAP
+1467,Rachel Adams,ENG,Software Engineer,216461.13,16,Kafka|SQL|AWS
+1468,George Garcia,MKT,Marketing Director,151489.42,9,Campaigns|Analytics
+1469,Quentin Wright,FIN,Financial Controller,178783.8,17,SAP|SQL|Excel|Forecasting
+1470,Quentin Torres,OPS,Program Manager,161684.75,16,Agile|Tableau
+1471,Oscar Edwards,FIN,Accountant,136246.33,5,GAAP
+1472,Xena Evans,ENG,Senior Engineer,181448.63,6,SQL|Scala
+1473,Laura Collins,OPS,Program Manager,131219.16,5,Agile|Logistics|Tableau|SQL
+1474,Oscar Wright,ENG,Senior Engineer,164141.81,2,Kubernetes|SQL|Java
+1475,Charlie Kim,,Contractor,135454.22,4,Architecture|Security|Chaos Theory
+1476,Yusuf Nelson,DAT,Principal Data Scientist,206692.05,17,TensorFlow|PyTorch
+1477,William Phillips,FIN,Financial Controller,182790.33,17,SQL|Python|Excel|Forecasting
+1478,Amelia Young,ENG,Senior Engineer,175128.9,6,Java
+1479,Liam Green,FIN,FP&A Manager,173019.89,16,Python|GAAP
+1480,Bob Hall,ENG,DevOps Engineer,171488.92,6,Scala
+1481,Diana Singh,ENG,Senior Engineer,228359.59,17,Kafka
+1482,Fiona Lee,DAT,Data Analyst,201062.4,16,PyTorch|TensorFlow|Tableau|Spark
+1483,Mia Evans,ENG,Software Engineer,214627.87,15,Java
+1484,Yusuf Nelson,ENG,Staff Engineer,181668.94,7,Scala|Spark|SQL|Java
+1485,Mia Stewart,ENG,DevOps Engineer,225065.91,17,SQL
+1486,Harper Malcolm,OPS,Program Manager,122240.39,1,Lean|Tableau|SQL|Logistics
+1487,Abigail Turner,DAT,Data Analyst,190941.62,13,TensorFlow
+1488,Ian Allen,DAT,Senior Data Scientist,146532.27,3,Tableau|Spark|Python|R
+1489,James Turner,ENG,Staff Engineer,207611.63,13,Kubernetes|Go|Python
+1490,Julia Campbell,MKT,Brand Manager,151429.63,9,Campaigns|SEO|HubSpot|SQL
+1491,Zoe Lee,DAT,ML Engineer,201192.85,16,Tableau|PyTorch|Statistics|TensorFlow
+1492,Emily Hill,FIN,Financial Controller,145923.3,8,Excel|SQL
+1493,Mason Hill,FIN,Financial Controller,138358.99,6,Excel
+1494,Julia Carter,OPS,Supply Chain Analyst,114691.95,3,Agile|Logistics
+1495,Jacob Kim,FIN,FP&A Manager,173261.29,17,SQL
+1496,Charlotte Phillips,DAT,Senior Data Scientist,207242.77,17,SQL
+1497,Mia Singh,MKT,Brand Manager,144980.31,8,Strategy|SEO
+1498,Zoe Baker,MKT,Content Strategist,139533.88,7,Strategy
+1499,Logan Hernandez,FIN,Accountant,167479.27,12,SQL|SAP|Python
+1500,Olivia Hill,MKT,Brand Manager,134514.15,6,Campaigns
+1501,Evan Evans,ENG,Staff Engineer,228335.13,17,SQL|Kubernetes|Kafka
+1502,Ava Hall,FIN,FP&A Manager,176377.71,15,GAAP
+1503,Hannah Allen,ENG,Senior Engineer,190080.36,8,Go|Python|AWS|Scala
+1504,Priya Hernandez,ENG,Software Engineer,166289.49,3,SQL|Go
+1505,William Lee,OPS,Supply Chain Analyst,137487.22,6,Tableau|SQL
+1506,Priya Hall,HR,HR Business Partner,119244.26,8,Workday|Recruiting
+1507,George Abbott,OPS,Program Manager,161043.45,16,Tableau
+1508,Xena Scott,DAT,ML Engineer,175852.89,9,TensorFlow|Spark|Tableau
+1509,Ian Patel,DAT,Data Analyst,213367.8,16,R
+1510,Zoe Garcia,DAT,Principal Data Scientist,210027.8,17,Python
+1511,Evelyn Lee,DAT,Principal Data Scientist,182452.3,11,PyTorch|Tableau|Statistics
+1512,Priya Young,DAT,ML Engineer,182521.45,11,TensorFlow|Spark|SQL|PyTorch
+1513,Xena Hill,ENG,Senior Engineer,181029.47,5,Spark|Kafka
+1514,Priya Parker,DAT,Data Analyst,161666.83,7,Statistics|TensorFlow
+1515,Alice Garcia,DAT,Senior Data Scientist,211210.39,17,Statistics|PyTorch|TensorFlow
+1516,Logan Collins,ENG,Staff Engineer,170293.92,6,SQL|Spark|Java
+1517,Sofia Green,ENG,Software Engineer,225919.86,18,Go|Python|Java
+1518,Hannah Baker,HR,People Operations Specialist,122629.66,7,Workday|Onboarding
+1519,Umar Evans,DAT,Data Analyst,148097.14,3,Statistics|R|Spark
+1520,Kevin Green,DAT,ML Engineer,198915.75,13,Spark
+1521,Kevin Green,ENG,Software Engineer,196589.16,10,Kafka|SQL|Kubernetes|Scala
+1522,Sofia Edwards,DAT,Data Analyst,192343.76,14,PyTorch
+1523,Elizabeth Hall,MKT,Marketing Director,133920.57,7,Strategy
+1524,Evan Carter,DAT,Principal Data Scientist,193717.06,13,Spark
+1525,Quentin Nguyen,ENG,Principal Engineer,188891.92,10,SQL|Scala|Spark
+1526,Lucas Singh,ENG,Software Engineer,203022.3,11,AWS|Kafka|SQL|Java
+1527,Ian Torres,ENG,DevOps Engineer,215180.09,15,AWS|Kafka|Scala|Java
+1528,Ethan Walker,FIN,FP&A Manager,151274.76,10,SQL|Forecasting|Excel
+1529,Alice Turner,HR,HR Business Partner,130988.2,12,Compensation
+1530,Avery Carter,ENG,Principal Engineer,194774.28,10,AWS
+1531,Xena Rodriguez,DAT,ML Engineer,195982.7,14,TensorFlow|Statistics
+1532,Yusuf Walker,ENG,Principal Engineer,185543.54,8,Kafka|AWS|Java
+1533,Michael Wright,ENG,Software Engineer,171579.17,4,Kafka|SQL|Spark|Scala
+1534,Bob Nguyen,ENG,DevOps Engineer,152447.22,1,Kafka
+1535,Rachel Malcolm,FIN,Financial Controller,140220.93,8,GAAP
+1536,Nina Green,DAT,Data Analyst,188418.95,12,R
+1537,Fiona Nguyen,ENG,Principal Engineer,166107.74,3,Java|Kafka
+1538,Yusuf Chen,ENG,Senior Engineer,209478.49,13,Java|Python|Spark|AWS
+1539,Sofia Wu,DAT,Senior Data Scientist,204559.3,16,R|Spark|Statistics
+1540,Elizabeth Kim,FIN,Financial Controller,149799.67,9,SQL|Forecasting|Excel
+1541,Harper Lee,,External Consultant,149247.77,14,Architecture|Security
+1542,Hannah Hill,FIN,Financial Controller,128141.68,2,Python|SAP|SQL|GAAP
+1543,Fiona Hall,ENG,Staff Engineer,204088.02,11,Python
+1544,William Nguyen,MKT,Marketing Director,132555.49,5,Campaigns|SEO|SQL
+1545,Elizabeth Rodriguez,ENG,Principal Engineer,204757.05,12,Python|SQL|Go
+1546,Noah Parker,ENG,Principal Engineer,182372.78,7,Go|SQL|Scala
+1547,Jacob Parker,ENG,DevOps Engineer,172551.26,5,AWS|Go|Java
+1548,Alice Evans,DAT,Senior Data Scientist,143249.09,1,SQL|PyTorch|R
+1549,Evan Torres,HR,HR Business Partner,150331.59,17,Workday|Onboarding
+1550,Liam Scott,ENG,DevOps Engineer,158117.1,3,Scala|Python
+1551,Michael Wu,DAT,Principal Data Scientist,146802.86,2,Statistics|Tableau|TensorFlow|R
+1552,Quentin Patel,DAT,ML Engineer,142209.38,3,Statistics|TensorFlow
+1553,Fiona Roberts,FIN,Financial Controller,160994.98,12,Forecasting|Excel|Python|GAAP
+1554,Charlie Wright,HR,HR Business Partner,128769.39,7,Recruiting
+1555,Elizabeth Walker,DAT,Senior Data Scientist,167752.41,7,PyTorch|Tableau
+1556,Sofia Parker,DAT,Principal Data Scientist,191791.88,12,Spark|Statistics|TensorFlow|Tableau
+1557,Zoe Evans,DAT,Senior Data Scientist,222974.94,18,R|PyTorch|Tableau|TensorFlow
+1558,Xena Ramirez,FIN,FP&A Manager,158479.06,11,GAAP|SAP
+1559,Sofia Allen,DAT,Data Analyst,209357.19,15,Python
+1560,Samuel Stewart,ENG,Senior Engineer,185327.32,10,Java|Go
+1561,Bob Young,OPS,Program Manager,166130.69,18,Logistics|Lean
+1562,Olivia Baker,ENG,Software Engineer,207400.67,12,Java|Kafka
+1563,Tara Lopez,MKT,Product Marketing Manager,142998.26,7,SQL|Analytics|HubSpot
+1564,Abigail Collins,HR,HR Business Partner,121797.95,10,Recruiting|Compensation|Onboarding|Workday
+1565,Emma Ramirez,OPS,Operations Manager,140073.97,8,Tableau
+1566,Diana King,DAT,Data Scientist,216038.61,18,SQL|Spark|Python
+1567,Evelyn Hill,,External Consultant,139049.86,8,Advisory|Chaos Theory|Security|Architecture
+1568,Ava Collins,FIN,FP&A Manager,143461.26,9,Python|SQL|SAP|GAAP
+1569,Logan Rodriguez,DAT,ML Engineer,168312.02,7,SQL|Python
+1570,Rachel Campbell,DAT,ML Engineer,143800.48,3,TensorFlow|PyTorch|Statistics|Spark
+1571,Umar Baker,MKT,Marketing Director,143708.08,10,Campaigns|SQL|Analytics
+1572,Noah Kim,OPS,Operations Manager,136187.97,7,Logistics|Lean
+1573,Sofia Patel,ENG,DevOps Engineer,179261.15,5,Python|Go|SQL
+1574,Hannah King,DAT,Principal Data Scientist,180010.82,11,SQL|Tableau
+1575,Lucas Allen,DAT,ML Engineer,161787.8,5,TensorFlow
+1576,Benjamin Turner,ENG,Senior Engineer,157988.66,2,Python|SQL|Go
+1577,Alice Wright,DAT,Data Scientist,194828.52,12,Tableau
+1578,Amelia Nelson,ENG,Principal Engineer,228653.57,17,Go
+1579,Sophia Stewart,DAT,Senior Data Scientist,167343.75,7,Python|Statistics|Spark|Tableau
+1580,Tara Green,DAT,Senior Data Scientist,138881.81,1,R|Statistics|PyTorch
+1581,Priya Evans,ENG,Staff Engineer,195308.84,9,AWS
+1582,Rachel Walker,ENG,Principal Engineer,166765.83,5,AWS|Java|SQL|Spark
+1583,James Nguyen,DAT,Data Scientist,183853.37,11,SQL|R
+1584,Ian Edwards,DAT,Senior Data Scientist,155610.64,5,TensorFlow|Statistics
+1585,Julia Collins,OPS,Supply Chain Analyst,122584.11,3,SQL
+1586,Umar Nguyen,FIN,Accountant,174090.25,14,GAAP|Forecasting|SQL
+1587,Michael Wu,ENG,Staff Engineer,190939.67,9,Java|AWS
+1588,Evelyn Martinez,DAT,Data Analyst,158703.86,5,R|Spark|SQL|Statistics
+1589,Ava Malcolm,ENG,Senior Engineer,159981.87,2,Kafka
+1590,Liam Walker,FIN,Senior Financial Analyst,136513.74,7,SAP|GAAP|Forecasting|SQL
+1591,Priya Campbell,DAT,Principal Data Scientist,196856.55,13,Python|Tableau|Statistics|SQL
+1592,Olivia Kim,HR,HR Business Partner,148005.91,17,Compensation
+1593,Lucas Patel,ENG,Principal Engineer,211289.25,13,SQL|Scala|Java
+1594,Samuel Patel,MKT,Growth Specialist,170528.3,15,Strategy|Campaigns|HubSpot|SQL
+1595,Benjamin Torres,ENG,Principal Engineer,196408.62,11,SQL|Java
+1596,Olivia Lopez,ENG,Senior Engineer,162847.95,4,Go|Spark|Kafka|AWS
+1597,Yusuf Evans,MKT,Growth Specialist,159555.53,13,Analytics
+1598,Victoria Collins,HR,HR Business Partner,124701.1,6,Recruiting|Onboarding
+1599,Tara King,FIN,FP&A Manager,155445.47,10,SQL
+1600,Michael Chen,MKT,Brand Manager,119088.28,1,Campaigns|Strategy|SQL|HubSpot
+1601,Nina Edwards,MKT,Content Strategist,161070.01,14,Analytics
+1602,Logan Young,MKT,Product Marketing Manager,132032.7,7,Strategy|SEO
+1603,Charlie Nguyen,HR,People Operations Specialist,126497.78,10,Recruiting
+1604,George Ramirez,,External Consultant,145888.55,10,Security|Architecture
+1605,Benjamin Adams,OPS,Operations Manager,139054.04,10,Logistics|Tableau|Agile|Lean
+1606,Samuel Carter,ENG,Software Engineer,197627.29,11,Java|Python
+1607,George Collins,FIN,Financial Controller,176940.74,16,GAAP|SAP|Forecasting
+1608,Quentin Turner,MKT,Product Marketing Manager,162333.69,12,Campaigns|SQL|HubSpot|Strategy
+1609,Mia Walker,MKT,Growth Specialist,113641.31,1,HubSpot|Strategy|Analytics|SEO
+1610,Liam Ramirez,ENG,Software Engineer,229896.7,18,Python|Java
+1611,Abigail Hernandez,ENG,Staff Engineer,190026.77,10,Python|Spark|Go
+1612,Victoria Green,DAT,ML Engineer,146646.02,1,R|TensorFlow
+1613,Victoria Carter,OPS,Operations Manager,127148.37,5,Lean|Agile|SQL|Tableau
+1614,Sofia Patel,HR,Talent Acquisition Lead,132682.84,11,Onboarding
+1615,James Green,FIN,Accountant,137680.48,3,Excel|Forecasting|GAAP
+1616,Charlotte Torres,HR,People Operations Specialist,131998.06,13,Workday
+1617,Emily Scott,MKT,Brand Manager,155388.76,14,SEO|SQL
+1618,Tara Lee,DAT,Senior Data Scientist,152320.78,4,SQL
+1619,Fiona Mitchell,DAT,Data Analyst,205131.91,17,Statistics|R|Tableau
+1620,Tara Scott,ENG,Staff Engineer,223855.25,17,Java|Python
+1621,Olivia Nelson,FIN,Financial Controller,120497.92,1,Python
+1622,Jacob Lopez,DAT,Principal Data Scientist,154662.58,4,Python|Tableau|PyTorch
+1623,Charlotte Lee,DAT,Senior Data Scientist,176759.73,10,Statistics|R|Python
+1624,Rachel Nguyen,ENG,Staff Engineer,164804.99,1,Java
+1625,Ethan Baker,DAT,Data Scientist,165759.11,5,SQL|Spark|Python
+1626,Tara Green,DAT,Principal Data Scientist,151130.55,5,Spark
+1627,Yusuf Patel,ENG,Principal Engineer,180608.17,6,Go|Kafka|Scala|Spark
+1628,Emily Torres,ENG,Principal Engineer,166847.77,5,Spark|SQL|Scala|Go
+1629,Amelia Roberts,DAT,Senior Data Scientist,164444.21,5,R|SQL|Spark
+1630,Abigail Green,FIN,Accountant,169833.44,15,GAAP
+1631,Hannah Baker,DAT,Senior Data Scientist,184620.4,10,Spark|SQL
+1632,Emily Wu,DAT,Principal Data Scientist,180857.26,10,TensorFlow|Spark|Tableau|Statistics
+1633,Logan Singh,,Contractor,127659.76,3,Security|Architecture|Advisory|Chaos Theory
+1634,Laura Wright,FIN,FP&A Manager,134963.5,4,Forecasting|SAP|Excel|SQL
+1635,Laura King,OPS,Operations Manager,127523.69,4,Agile|Tableau|Lean|Logistics
+1636,Fiona Lee,HR,People Operations Specialist,109913.24,1,Compensation|Workday
+1637,Samuel Nelson,MKT,Content Strategist,134540.59,7,SEO|Campaigns|HubSpot
+1638,Emma Baker,,External Consultant,156481.05,17,Architecture|Chaos Theory
+1639,Xena Parker,OPS,Operations Manager,170132.05,18,Logistics|Agile|Lean
+1640,Priya Campbell,MKT,Content Strategist,155638.38,11,SQL|HubSpot|Analytics|SEO
+1641,Laura Carter,ENG,DevOps Engineer,210632.13,13,Kubernetes|Scala|SQL
+1642,Harper Malcolm,ENG,Staff Engineer,151776.16,1,Kubernetes|Scala|Python|Spark
+1643,Amelia Ramirez,HR,People Operations Specialist,141571.98,14,Compensation|Workday|Onboarding|Recruiting
+1644,William Walker,ENG,DevOps Engineer,158719.24,1,AWS|Kafka
+1645,Liam Torres,MKT,Marketing Director,124090.39,2,Strategy|Campaigns|SQL
+1646,Abigail Lopez,ENG,DevOps Engineer,188688.98,9,AWS
+1647,Mia Lopez,ENG,Staff Engineer,229769.57,18,Python|Go|Kafka
+1648,Alice Carter,DAT,Data Analyst,183402.92,11,Tableau|Spark|Python
+1649,Abigail Stewart,FIN,Accountant,128913.25,2,SAP|Excel
+1650,Harper Hernandez,FIN,Financial Controller,153178.39,10,SAP|Excel
+1651,Rachel Allen,ENG,Software Engineer,194975.73,9,Spark
+1652,Jacob Garcia,OPS,Program Manager,129990.93,5,SQL|Agile|Tableau
+1653,Priya Phillips,ENG,DevOps Engineer,158930.01,2,Scala
+1654,Jacob Nguyen,HR,Talent Acquisition Lead,132807.16,13,Onboarding|Recruiting|Compensation|Workday
+1655,Amelia Allen,FIN,Financial Controller,121526.05,2,GAAP|Forecasting|Python|SAP
+1656,Avery Torres,ENG,Principal Engineer,213257.56,16,Python|Kafka|Kubernetes|Java
+1657,Yusuf Scott,OPS,Program Manager,112335.61,2,Tableau|Agile|SQL
+1658,Rachel Young,FIN,Accountant,162766.63,13,Python|SAP
+1659,Michael Turner,DAT,Senior Data Scientist,185428.47,11,Spark
+1660,Alice Ramirez,ENG,Staff Engineer,210707.6,15,Kafka|Java|Python
+1661,Bob Lopez,ENG,DevOps Engineer,188513.38,7,Spark
+1662,Fiona Stewart,ENG,DevOps Engineer,183669.36,6,Kafka|AWS
+1663,Olivia Wright,MKT,Brand Manager,165075.54,14,SEO|Analytics|Strategy
+1664,Rachel Patel,DAT,Data Scientist,141798.48,2,PyTorch|SQL|Python
+1665,Sophia Rodriguez,MKT,Growth Specialist,162234.89,16,Analytics|Campaigns|Strategy|HubSpot
+1666,Emily Allen,ENG,Staff Engineer,166558.18,3,SQL|Python|Java
+1667,Julia Chen,OPS,Program Manager,146818.54,13,Tableau|Logistics|Agile
+1668,Emily Phillips,DAT,Data Analyst,150642.06,3,TensorFlow
+1669,Abigail Carter,ENG,DevOps Engineer,198501.7,12,Kubernetes|Python|Go
+1670,Amelia Lopez,DAT,Data Scientist,155458.91,3,SQL|Spark|Tableau
+1671,Charlie Nelson,MKT,Brand Manager,165093.37,13,SQL|Strategy|HubSpot
+1672,Sofia Rodriguez,ENG,Senior Engineer,160988.05,1,SQL|Kubernetes
+1673,Evan Torres,MKT,Content Strategist,182439.26,18,Strategy|HubSpot|SEO|Campaigns
+1674,Victoria Kim,DAT,Senior Data Scientist,210000.59,17,SQL|Python
+1675,Charlie Nguyen,DAT,Principal Data Scientist,212848.2,16,SQL
+1676,Abigail Malcolm,ENG,Staff Engineer,198354.05,10,SQL
+1677,Mia Singh,HR,HR Business Partner,107426.87,4,Recruiting|Compensation
+1678,Emma Green,HR,People Operations Specialist,134187.76,13,Workday|Recruiting
+1679,Avery Kim,MKT,Brand Manager,120181.93,3,SQL|Analytics
+1680,Abigail Adams,DAT,Data Analyst,178477.48,8,PyTorch
+1681,George Nelson,FIN,Financial Controller,166647.12,16,SQL
+1682,Fiona Edwards,HR,Talent Acquisition Lead,147877.73,16,Onboarding|Workday
+1683,Rachel Turner,DAT,Senior Data Scientist,164768.61,6,PyTorch
+1684,Emily Phillips,MKT,Marketing Director,146565.66,10,Campaigns
+1685,Priya Rodriguez,ENG,DevOps Engineer,171291.62,4,SQL|Java
+1686,Rachel Patel,ENG,Senior Engineer,217015.79,16,Python|AWS
+1687,Amelia Adams,ENG,Principal Engineer,186598.71,9,Python|Spark|Go|AWS
+1688,Ethan Garcia,ENG,Staff Engineer,217294.02,16,Java
+1689,Elizabeth Mitchell,MKT,Brand Manager,157180.02,14,Analytics|Strategy|SEO
+1690,Oscar Wu,ENG,Principal Engineer,179314.07,7,Spark|SQL
+1691,Benjamin Phillips,ENG,Principal Engineer,168819.75,5,Scala|Kubernetes|AWS|Spark
+1692,Olivia Rodriguez,MKT,Brand Manager,136624.26,7,HubSpot
+1693,James Patel,ENG,Staff Engineer,212420.6,15,Go|Java
+1694,Samuel Stewart,ENG,DevOps Engineer,178583.28,6,Spark|Kubernetes
+1695,Lucas Phillips,HR,HR Business Partner,150191.82,16,Recruiting|Workday|Onboarding
+1696,Sofia Hall,ENG,Principal Engineer,191546.94,8,Python|Kubernetes
+1697,Charlie Kim,,External Consultant,152553.5,14,Chaos Theory|Advisory|Architecture|Security
+1698,Fiona Parker,FIN,FP&A Manager,137578.95,7,SQL|Excel|SAP
+1699,Ava King,ENG,Principal Engineer,165094.95,1,Scala|Kubernetes|Spark|AWS
+1700,Charlotte Roberts,MKT,Marketing Director,124408.07,3,Campaigns|Strategy|SEO
+1701,Emma Young,MKT,Product Marketing Manager,176203.67,18,HubSpot|Strategy
+1702,Mia Green,FIN,Financial Controller,183802.93,17,Excel|Python|GAAP
+1703,Xena Roberts,MKT,Brand Manager,150304.28,12,Campaigns
+1704,Emily Lee,ENG,Software Engineer,185911.92,8,Java|AWS|Scala|Kubernetes
+1705,Rachel Evans,MKT,Brand Manager,116013.91,2,SQL|HubSpot|Strategy
+1706,Ava Torres,MKT,Product Marketing Manager,148231.65,10,HubSpot|Strategy|Analytics
+1707,Olivia Lopez,ENG,Senior Engineer,200554.33,10,Spark
+1708,Kevin Young,ENG,Senior Engineer,211463.52,16,AWS|Python
+1709,Samuel Ramirez,OPS,Program Manager,127026.92,5,Tableau|Logistics|SQL|Lean
+1710,Evan Martinez,HR,HR Business Partner,149714.75,17,Workday|Compensation|Onboarding|Recruiting
+1711,Benjamin Turner,HR,Talent Acquisition Lead,139065.32,15,Workday|Recruiting
+1712,Quentin Walker,DAT,Data Scientist,140040.08,2,Statistics|Spark|Tableau
+1713,Kevin Torres,ENG,Senior Engineer,167941.19,5,Python
+1714,Umar Collins,ENG,Software Engineer,196118.61,12,Go
+1715,William Nguyen,DAT,ML Engineer,163538.29,6,Python
+1716,Zoe Phillips,FIN,FP&A Manager,151241.3,11,Python|Forecasting|GAAP
+1717,Samuel Collins,MKT,Product Marketing Manager,162668.95,15,HubSpot
+1718,Ava Kim,ENG,DevOps Engineer,166318.2,4,Java|SQL|Scala|Python
+1719,Umar Patel,MKT,Growth Specialist,167304.3,17,Analytics|Strategy|Campaigns
+1720,Ethan Mitchell,MKT,Marketing Director,170060.78,17,SEO|Campaigns|Strategy|HubSpot
+1721,Xena Hill,ENG,Principal Engineer,199344.47,12,Kafka
+1722,William Baker,ENG,Principal Engineer,218401.58,18,Kubernetes|SQL|Scala|Spark
+1723,Elizabeth Campbell,FIN,FP&A Manager,142179.3,5,SQL
+1724,Nina King,DAT,ML Engineer,177724.52,11,Spark|Python|SQL|PyTorch
+1725,Liam Garcia,DAT,ML Engineer,153854.79,5,Tableau|Statistics|SQL|Python
+1726,Tara Edwards,ENG,DevOps Engineer,208675.66,15,Scala
+1727,Quentin King,OPS,Program Manager,153209.05,16,Tableau|SQL|Lean
+1728,Abigail Hall,ENG,Software Engineer,224964.88,16,Go
+1729,Benjamin Carter,MKT,Brand Manager,176088.14,16,SEO
+1730,Mason Collins,ENG,Software Engineer,178639.81,6,Go|SQL
+1731,Abigail Malcolm,DAT,Principal Data Scientist,173778.62,9,Python|PyTorch|TensorFlow
+1732,Lucas Wright,DAT,Senior Data Scientist,155913.53,4,R|TensorFlow
+1733,Umar King,ENG,Software Engineer,169939.61,4,Scala|Python|Spark
+1734,Lucas Hernandez,DAT,Data Analyst,195111.68,14,Spark|Statistics
+1735,Julia Evans,ENG,Senior Engineer,226814.85,18,Kubernetes
+1736,Olivia Wright,ENG,Senior Engineer,157144.51,1,Go|Scala|Kubernetes
+1737,Noah Stewart,DAT,Data Scientist,166358.32,6,Spark
+1738,Oscar Malcolm,HR,HR Business Partner,120918.85,8,Onboarding|Recruiting
+1739,Emma Abbott,ENG,Principal Engineer,201791.38,14,Python
+1740,Harper Evans,MKT,Content Strategist,136036.47,4,Strategy
+1741,Tara Chen,FIN,Financial Controller,144857.2,7,SQL|Forecasting
+1742,Bob Lopez,ENG,Software Engineer,198801.92,12,AWS|Spark
+1743,George Edwards,FIN,Senior Financial Analyst,150883.78,7,SAP|Excel
+1744,Elizabeth Wu,OPS,Program Manager,157085.63,16,Tableau|Logistics
+1745,Laura Baker,,Contractor,138380.79,7,Chaos Theory|Advisory|Security|Architecture
+1746,Hannah Turner,ENG,Software Engineer,194136.34,10,Spark
+1747,Umar Phillips,ENG,Software Engineer,214689.57,15,SQL|Java|Kafka
+1748,Liam Hernandez,,Contractor,143861.16,7,Architecture|Chaos Theory|Security|Advisory
+1749,Evelyn Wu,DAT,ML Engineer,143907.49,3,TensorFlow|R|Tableau|Python
+1750,Sofia Singh,ENG,Senior Engineer,192398.66,11,Spark|Java|Kubernetes|SQL
+1751,Elizabeth Phillips,ENG,DevOps Engineer,193350.85,9,Go|SQL|AWS|Kafka
+1752,Zoe Phillips,DAT,Senior Data Scientist,195728.59,15,Statistics|SQL|Spark
+1753,Charlotte Malcolm,ENG,Staff Engineer,165386.83,3,Scala
+1754,Yusuf Stewart,MKT,Growth Specialist,150951.47,10,Strategy
+1755,Harper Turner,FIN,FP&A Manager,140152.56,7,GAAP|SAP|Forecasting|Python
+1756,Victoria Torres,DAT,Principal Data Scientist,203748.68,14,TensorFlow
+1757,Noah Scott,HR,Talent Acquisition Lead,134775.7,15,Workday|Compensation
+1758,Kevin Phillips,DAT,Data Scientist,193132.61,13,Statistics
+1759,Harper Parker,MKT,Product Marketing Manager,168114.58,16,Campaigns|Strategy
+1760,Zoe Allen,DAT,Data Analyst,193263.53,12,R|Python|TensorFlow
+1761,Benjamin Kim,ENG,Software Engineer,206119.52,12,Go
+1762,Yusuf Wu,DAT,Data Scientist,195286.97,14,SQL|Spark
+1763,Amelia King,MKT,Marketing Director,142831.54,10,Strategy|Campaigns
+1764,Umar Kim,DAT,Data Analyst,217089.22,17,Python|R|SQL
+1765,Benjamin Martinez,,Contractor,147228.19,13,Security
+1766,George Lee,DAT,ML Engineer,179332.7,11,R|SQL|Spark
+1767,Sophia Wright,HR,People Operations Specialist,117997.69,7,Workday
+1768,James Hill,FIN,Financial Controller,134958.72,4,Excel|SAP|GAAP
+1769,Emma Lee,DAT,Principal Data Scientist,180407.57,10,TensorFlow|R|Tableau
+1770,Umar Rodriguez,DAT,Data Scientist,209918.32,17,Python|R
+1771,Emily Turner,HR,People Operations Specialist,140207.24,16,Workday|Compensation|Onboarding|Recruiting
+1772,Lucas Rodriguez,DAT,Senior Data Scientist,166074.23,8,TensorFlow|SQL|PyTorch
+1773,Evan Lee,HR,Talent Acquisition Lead,131536.68,10,Onboarding|Compensation|Recruiting
+1774,Hannah Nguyen,ENG,Senior Engineer,192648.78,10,Kubernetes|Python|Spark|AWS
+1775,Rachel Malcolm,ENG,Software Engineer,219815.76,18,SQL
+1776,Bob Patel,HR,HR Business Partner,133425.6,11,Compensation
+1777,Xena Lopez,DAT,Senior Data Scientist,165457.58,8,Tableau
+1778,Sophia Lopez,ENG,Staff Engineer,194463.02,11,Java|Kubernetes|Spark|SQL
+1779,George Garcia,ENG,Software Engineer,211617.34,15,SQL
+1780,Ethan Adams,MKT,Marketing Director,152981.92,11,HubSpot|Analytics|SEO|Strategy
+1781,Xena Carter,FIN,Accountant,125848.58,1,Python
+1782,Harper Patel,MKT,Growth Specialist,146593.65,9,HubSpot|SEO|Strategy
+1783,Ethan Hall,HR,Talent Acquisition Lead,112356.63,1,Workday|Onboarding|Recruiting|Compensation
+1784,Tara Lee,HR,HR Business Partner,144301.64,15,Recruiting|Onboarding|Compensation|Workday
+1785,Ava Ramirez,OPS,Supply Chain Analyst,159472.62,14,SQL
+1786,Abigail Allen,DAT,Data Scientist,199300.52,14,Statistics|R|Python
+1787,Avery Patel,MKT,Growth Specialist,169906.31,15,Strategy|SQL
+1788,Michael King,ENG,Staff Engineer,163914.05,4,Kubernetes|Go
+1789,Noah Carter,HR,HR Business Partner,121375.66,9,Workday|Recruiting|Compensation
+1790,Liam Adams,ENG,Principal Engineer,177609.53,8,AWS
+1791,Amelia Walker,OPS,Supply Chain Analyst,129410.75,7,Logistics|Tableau
+1792,Mia Campbell,MKT,Growth Specialist,133578.53,3,Campaigns|Strategy
+1793,Alice Turner,DAT,Data Analyst,200229.53,16,SQL|TensorFlow
+1794,Rachel Hernandez,FIN,FP&A Manager,135712.05,5,SAP|SQL
+1795,Samuel Rodriguez,DAT,Data Analyst,151127.04,5,SQL|Tableau|Statistics
+1796,Priya Adams,MKT,Content Strategist,118415.12,3,SEO|SQL
+1797,Evelyn Lee,FIN,FP&A Manager,143268.89,9,Excel
+1798,Victoria Hall,DAT,Data Scientist,137752.44,2,Tableau|SQL|R|PyTorch
+1799,Ian Parker,ENG,Senior Engineer,183967.86,9,Go|SQL|Spark|Python
+1800,Umar Turner,DAT,Data Scientist,151345.65,4,Statistics|TensorFlow
+1801,Rachel Adams,OPS,Supply Chain Analyst,140806.91,9,Lean|Agile|SQL
+1802,Kevin Scott,FIN,FP&A Manager,137701.91,5,Excel|SQL|SAP|Python
+1803,Oscar Garcia,ENG,Software Engineer,180628.74,6,Spark|SQL|Python|Java
+1804,William Parker,DAT,Data Analyst,159866.75,4,Spark|PyTorch
+1805,Fiona Lee,HR,HR Business Partner,122798.99,6,Onboarding|Workday|Recruiting
+1806,Lucas Collins,ENG,Staff Engineer,189569.83,8,Go
+1807,Bob Hernandez,MKT,Marketing Director,156726.93,13,SEO
+1808,Julia Martinez,ENG,Principal Engineer,215137.04,15,Python|Go|AWS
+1809,Amelia Mitchell,DAT,ML Engineer,154048.54,5,Tableau
+1810,Umar Patel,FIN,FP&A Manager,128548.4,3,SQL|GAAP
+1811,Fiona Martinez,HR,HR Business Partner,141471.88,13,Onboarding|Recruiting|Compensation
+1812,Sophia Campbell,FIN,Accountant,134555.82,5,Forecasting
+1813,Mason Rodriguez,DAT,Data Analyst,202629.0,16,Spark|TensorFlow|SQL|PyTorch
+1814,Mia Garcia,DAT,Data Analyst,142647.01,3,Statistics|R|Spark
+1815,Amelia Nguyen,OPS,Program Manager,155454.63,17,Tableau|Logistics|SQL|Agile
+1816,Julia Malcolm,MKT,Brand Manager,142869.47,8,Campaigns|Strategy|HubSpot
+1817,Charlie Evans,ENG,Principal Engineer,202622.86,14,Go|Kafka|SQL
+1818,Fiona Evans,ENG,Principal Engineer,181912.17,6,Python|Spark|Java|Go
+1819,Tara Scott,MKT,Content Strategist,167230.97,15,SEO|Analytics|Campaigns
+1820,Laura Lopez,FIN,Accountant,132429.67,4,Excel
+1821,Zoe Abbott,ENG,Principal Engineer,216152.23,15,Kafka|Go|SQL|Kubernetes
+1822,Abigail Hill,FIN,Financial Controller,130972.93,5,Excel|Python
+1823,Abigail Rodriguez,HR,HR Business Partner,147177.97,16,Compensation|Workday
+1824,Ethan Rodriguez,ENG,Principal Engineer,172944.94,5,Spark
+1825,Kevin Nguyen,FIN,FP&A Manager,172899.38,16,SAP|SQL|Python|GAAP
+1826,James Hill,ENG,Staff Engineer,171475.45,4,Kubernetes|SQL|Go|Kafka
+1827,Jacob Parker,,External Consultant,154422.66,16,Advisory|Architecture|Chaos Theory|Security
+1828,Emma Collins,ENG,Staff Engineer,195536.04,9,SQL|Spark|Java|Kafka
+1829,Amelia Baker,DAT,Data Analyst,135914.67,1,Statistics|PyTorch
+1830,Noah Walker,DAT,ML Engineer,191414.44,11,PyTorch|Statistics|R|SQL
+1831,Liam Adams,FIN,Senior Financial Analyst,139974.87,7,Python
+1832,Ava Malcolm,ENG,Senior Engineer,210670.02,16,SQL|Kafka|Spark|Kubernetes
+1833,Logan Patel,,Contractor,139837.7,9,Advisory|Architecture
+1834,Charlie Wright,DAT,Principal Data Scientist,165597.68,8,Statistics|PyTorch
+1835,Victoria Baker,FIN,Accountant,142465.64,5,Python
+1836,Diana Mitchell,FIN,Financial Controller,137995.33,4,SAP
+1837,Charlie Evans,ENG,Staff Engineer,187881.33,7,Kafka|SQL
+1838,Avery Evans,DAT,Principal Data Scientist,161020.15,5,PyTorch|Python|Spark
+1839,Noah Ramirez,FIN,Financial Controller,152134.79,8,Forecasting|Python|SQL|Excel
+1840,Rachel Adams,FIN,FP&A Manager,162137.71,12,SQL|SAP
+1841,Liam Walker,ENG,Principal Engineer,215799.43,14,AWS|Go|Python|Java
+1842,Julia Chen,FIN,Financial Controller,127579.52,3,SQL|GAAP|Excel|Python
+1843,Avery Kim,MKT,Growth Specialist,130643.73,2,SQL|HubSpot|SEO
+1844,Elizabeth Scott,OPS,Operations Manager,145403.34,9,Tableau|Lean
+1845,Amelia Lee,HR,People Operations Specialist,145359.54,15,Onboarding|Compensation|Recruiting|Workday
+1846,Ethan Green,DAT,Senior Data Scientist,218537.45,17,SQL|Python|Tableau
+1847,Logan King,DAT,Senior Data Scientist,133779.59,1,SQL|TensorFlow|PyTorch
+1848,Elizabeth Campbell,,External Consultant,133687.56,2,Architecture|Chaos Theory|Security
+1849,Avery Abbott,DAT,ML Engineer,140583.69,1,SQL|PyTorch
+1850,Tara Hernandez,MKT,Product Marketing Manager,136179.62,5,Strategy|SEO
+1851,Lucas Edwards,ENG,Software Engineer,206651.14,15,Kubernetes|Spark|Python|AWS
+1852,Emma Malcolm,DAT,Data Analyst,147908.71,3,TensorFlow|Statistics|PyTorch|Tableau
+1853,Sophia Campbell,,Contractor,157236.54,14,Advisory|Security
+1854,Emily Roberts,ENG,DevOps Engineer,214916.71,17,SQL|AWS
+1855,Charlie Singh,OPS,Supply Chain Analyst,126181.16,4,Logistics|Lean|SQL|Agile
+1856,Charlie Turner,ENG,Software Engineer,201078.54,10,Kafka|SQL|Python
+1857,Julia Nguyen,FIN,FP&A Manager,133833.57,2,Forecasting|SQL|SAP
+1858,Sofia Phillips,ENG,DevOps Engineer,194247.7,12,Kubernetes
+1859,Ava Collins,ENG,Principal Engineer,201696.03,11,Scala|AWS|Kafka|Go
+1860,Olivia Mitchell,MKT,Growth Specialist,145679.04,11,SQL|Analytics|HubSpot|Campaigns
+1861,Ethan Kim,OPS,Supply Chain Analyst,141334.66,9,Logistics|Agile
+1862,Logan Abbott,MKT,Marketing Director,146532.69,7,Campaigns
+1863,Lucas Rodriguez,FIN,Financial Controller,136020.96,4,Excel|Forecasting
+1864,Nina Hall,HR,People Operations Specialist,135554.37,15,Compensation|Workday|Recruiting
+1865,Sophia Martinez,DAT,Senior Data Scientist,190051.58,14,TensorFlow|PyTorch|Python
+1866,Hannah Wu,DAT,Data Scientist,153589.37,5,PyTorch
+1867,Tara Ramirez,MKT,Marketing Director,147153.33,11,SEO
+1868,Yusuf Wu,DAT,Data Analyst,180793.62,11,Python
+1869,Michael Hall,FIN,Senior Financial Analyst,173493.5,16,Excel|Forecasting|Python|SQL
+1870,Olivia Parker,DAT,Data Analyst,139853.23,1,Python|PyTorch
+1871,Logan Edwards,MKT,Growth Specialist,177424.81,18,SEO|Campaigns
+1872,Liam Mitchell,ENG,DevOps Engineer,185831.66,7,Go|Scala
+1873,Priya Torres,OPS,Program Manager,149002.01,15,Lean|Agile|Tableau|Logistics
+1874,Alice Patel,OPS,Supply Chain Analyst,140565.88,9,Agile|SQL|Lean|Tableau
+1875,Charlie Singh,FIN,Financial Controller,146857.66,10,SQL
+1876,Elizabeth Parker,,Contractor,139919.9,7,Architecture|Security|Advisory
+1877,Avery Mitchell,ENG,Software Engineer,192564.43,11,Python|Scala|Go
+1878,Alice Stewart,DAT,Principal Data Scientist,161610.61,6,TensorFlow|Tableau|Python|R
+1879,Ethan Martinez,OPS,Program Manager,159089.27,15,Tableau|Agile|SQL
+1880,Laura Chen,ENG,Software Engineer,180418.8,7,Python|Kafka
+1881,Evelyn Baker,ENG,DevOps Engineer,198156.85,10,Java|SQL
+1882,Xena Kim,ENG,DevOps Engineer,173419.72,7,Spark|Kafka|SQL|Kubernetes
+1883,Sophia Singh,DAT,ML Engineer,156045.77,6,Spark|Statistics
+1884,Quentin Collins,HR,People Operations Specialist,121669.62,9,Workday
+1885,Evelyn Parker,HR,HR Business Partner,141855.46,14,Workday
+1886,Emma Ramirez,ENG,DevOps Engineer,213012.53,15,Java
+1887,Diana Young,OPS,Program Manager,153393.2,15,SQL|Agile|Logistics|Tableau
+1888,Sofia Walker,,Contractor,136880.26,3,Advisory|Security
+1889,Tara Wright,MKT,Marketing Director,119429.46,1,Campaigns
+1890,Charlotte Green,HR,HR Business Partner,113177.22,4,Recruiting|Onboarding|Compensation
+1891,Evan Stewart,MKT,Marketing Director,166512.95,15,Strategy
+1892,Charlie Nelson,ENG,Staff Engineer,166353.15,5,Python|Kafka|SQL|Go
+1893,Emma Wright,ENG,Staff Engineer,217835.25,18,Kubernetes|Spark|Kafka|Java
+1894,Oscar Stewart,FIN,Financial Controller,168176.05,15,SAP|Python|Excel|SQL
+1895,Amelia Martinez,DAT,Data Scientist,161061.44,7,Spark
+1896,Benjamin Rodriguez,OPS,Operations Manager,158211.69,17,Tableau|Lean|Logistics|Agile
+1897,Ian Kim,ENG,Software Engineer,209321.12,14,Kafka|Scala|Spark
+1898,Ava King,MKT,Brand Manager,163024.34,12,Strategy|Analytics
+1899,Mason Parker,HR,Talent Acquisition Lead,129526.51,12,Onboarding|Recruiting
+1900,Victoria Rodriguez,MKT,Content Strategist,157882.14,11,Campaigns|SEO|SQL
+1901,Victoria Singh,ENG,Staff Engineer,212566.05,16,Java
+1902,Abigail Walker,DAT,Senior Data Scientist,171358.61,8,TensorFlow|Spark|SQL
+1903,Laura Chen,DAT,Principal Data Scientist,181480.28,12,PyTorch
+1904,Samuel Mitchell,ENG,DevOps Engineer,193869.14,12,Java
+1905,Michael Hernandez,ENG,Software Engineer,174770.41,6,Scala|Java
+1906,Bob Garcia,HR,HR Business Partner,111103.13,1,Compensation|Workday
+1907,Hannah Green,OPS,Supply Chain Analyst,152175.73,15,SQL|Tableau|Agile
+1908,Evan Abbott,ENG,Senior Engineer,176372.46,7,Go|AWS|Kafka|Java
+1909,Charlotte Hall,OPS,Program Manager,138893.19,7,SQL|Agile|Logistics
+1910,Diana Young,HR,People Operations Specialist,140147.8,16,Compensation
+1911,Harper Wright,ENG,Principal Engineer,219016.04,17,Scala|Go|SQL|AWS
+1912,Lucas Carter,FIN,FP&A Manager,169648.92,16,Python|SAP|Excel|GAAP
+1913,Oscar Rodriguez,DAT,Senior Data Scientist,188830.83,13,TensorFlow|Tableau|Spark|PyTorch
+1914,Quentin Parker,ENG,Staff Engineer,192334.31,10,Java|Python|AWS
+1915,Mason Green,DAT,Data Analyst,196209.91,14,R|PyTorch|SQL|Python
+1916,Laura Mitchell,ENG,Staff Engineer,207590.28,12,AWS|Spark|Kubernetes
+1917,Rachel Walker,ENG,Staff Engineer,193779.17,12,Go|Java
+1918,Evelyn Green,ENG,Software Engineer,184595.84,7,AWS|Kafka
+1919,Alice King,ENG,Software Engineer,212271.93,13,SQL
+1920,Amelia Evans,,External Consultant,145710.7,13,Security|Chaos Theory
+1921,Lucas Edwards,FIN,FP&A Manager,167483.89,15,Forecasting
+1922,Michael Campbell,FIN,FP&A Manager,142474.45,7,Forecasting
+1923,Ian Collins,HR,Talent Acquisition Lead,105796.8,1,Workday|Recruiting|Onboarding
+1924,Emma Hill,FIN,Accountant,158135.73,11,SQL
+1925,Julia Green,MKT,Product Marketing Manager,166432.75,13,SQL|Strategy
+1926,Ethan Nelson,ENG,Staff Engineer,198306.68,11,Kafka|Spark|SQL|Python
+1927,Evelyn Parker,ENG,DevOps Engineer,209484.97,16,Spark|Kubernetes
+1928,Samuel Lee,ENG,DevOps Engineer,164691.29,3,AWS|Python|Spark
+1929,Umar Ramirez,DAT,Principal Data Scientist,159249.91,5,Spark|SQL|Statistics|R
+1930,Nina King,DAT,Data Analyst,164659.35,6,SQL|Tableau|R
+1931,Evelyn Roberts,ENG,Staff Engineer,172492.82,5,Java|Go|Kafka|AWS
+1932,Olivia Roberts,MKT,Marketing Director,151340.79,10,SEO|HubSpot|SQL|Campaigns
+1933,Laura Ramirez,ENG,DevOps Engineer,208436.36,14,Spark|Kubernetes
+1934,Abigail Kim,ENG,Senior Engineer,195370.89,9,Spark|Java|SQL
+1935,Liam Parker,ENG,Software Engineer,169503.02,3,Kubernetes|SQL|Spark
+1936,Quentin Lee,DAT,Data Analyst,134504.46,1,TensorFlow|PyTorch|R|SQL
+1937,Michael Hill,ENG,Software Engineer,172734.48,4,Go|SQL
+1938,Sophia Roberts,ENG,DevOps Engineer,188695.08,8,Scala|SQL|Kubernetes|AWS
+1939,Kevin Singh,HR,People Operations Specialist,108435.79,4,Compensation
+1940,Kevin Wright,MKT,Marketing Director,140205.94,9,Analytics|HubSpot|Strategy
+1941,Evelyn Torres,ENG,Staff Engineer,223283.97,17,Kubernetes
+1942,Abigail King,DAT,ML Engineer,134111.97,1,SQL|Spark|PyTorch|TensorFlow
+1943,Michael Lopez,ENG,Staff Engineer,154866.09,1,Spark|Java
+1944,George Singh,FIN,Financial Controller,166911.11,14,Forecasting|SAP|SQL
+1945,Mia Lee,OPS,Supply Chain Analyst,147377.31,14,Logistics|Agile
+1946,Umar Garcia,ENG,Software Engineer,155699.21,1,Java|Spark|Go|Scala
+1947,Amelia Adams,ENG,Senior Engineer,205935.66,14,Spark|Scala|SQL|Python
+1948,Jacob Scott,,Contractor,131493.3,5,Security|Chaos Theory|Advisory
+1949,Bob Stewart,OPS,Supply Chain Analyst,150731.97,13,Lean|Logistics
+1950,Oscar Martinez,MKT,Marketing Director,144782.34,10,Analytics|Campaigns|Strategy|SQL
+1951,Ian Adams,DAT,Senior Data Scientist,156678.63,5,SQL
+1952,Elizabeth Stewart,,Contractor,140245.49,11,Chaos Theory|Architecture|Advisory
+1953,Amelia Hernandez,FIN,Senior Financial Analyst,154228.1,11,SAP|Excel
+1954,Harper Hall,FIN,Senior Financial Analyst,163732.44,13,GAAP|Excel
+1955,Evan Phillips,ENG,Senior Engineer,163594.32,2,Java|Scala
+1956,Fiona Garcia,MKT,Growth Specialist,142618.79,8,HubSpot|SQL|SEO|Strategy
+1957,Elizabeth Rodriguez,ENG,Senior Engineer,182127.39,8,Java|Kafka|Kubernetes|AWS
+1958,Fiona Adams,DAT,Senior Data Scientist,205395.35,16,PyTorch|TensorFlow|SQL|Python
+1959,Avery Nelson,DAT,Principal Data Scientist,181856.27,10,PyTorch|Statistics
+1960,Yusuf Roberts,ENG,Software Engineer,206133.16,13,Spark|Go|AWS|SQL
+1961,Ava Rodriguez,ENG,Senior Engineer,149677.57,1,SQL|Kubernetes|Java
+1962,Zoe Adams,DAT,Data Scientist,148540.6,3,Spark
+1963,Yusuf Collins,ENG,Principal Engineer,193590.33,9,AWS|SQL|Go
+1964,Abigail Adams,MKT,Content Strategist,165770.63,14,SQL|Strategy
+1965,Xena Martinez,MKT,Growth Specialist,147436.97,9,SEO|Analytics
+1966,Jacob Edwards,OPS,Operations Manager,109756.58,1,Tableau
+1967,Zoe Edwards,,External Consultant,164573.08,17,Advisory|Security|Architecture|Chaos Theory
+1968,Mason Torres,MKT,Content Strategist,152742.93,10,Strategy
+1969,Charlotte Collins,FIN,Accountant,133115.45,5,Python|GAAP
+1970,Abigail King,ENG,Senior Engineer,209080.81,16,Kubernetes
+1971,Lucas Ramirez,MKT,Content Strategist,130822.42,6,HubSpot|Analytics
+1972,Michael Phillips,ENG,Staff Engineer,214156.81,15,Scala|Java
+1973,Diana Garcia,FIN,Senior Financial Analyst,157827.15,9,GAAP|SAP|Excel|Forecasting
+1974,Kevin Lopez,ENG,Principal Engineer,165817.08,4,Python|Java|SQL
+1975,Sophia Wu,ENG,Software Engineer,160117.38,1,Spark
+1976,Nina Turner,FIN,FP&A Manager,184468.13,17,GAAP|Python|Forecasting
+1977,Jacob Campbell,DAT,Data Scientist,189736.22,11,TensorFlow|SQL|Tableau
+1978,Diana Baker,HR,HR Business Partner,105110.71,1,Onboarding|Recruiting|Workday|Compensation
+1979,Abigail Hall,DAT,ML Engineer,206571.96,16,Python|R
+1980,Umar Martinez,MKT,Marketing Director,155096.87,11,Campaigns|SQL
+1981,Zoe Lopez,DAT,Data Analyst,158081.78,4,SQL|R|Spark
+1982,Lucas Collins,FIN,Financial Controller,136777.91,5,Forecasting
+1983,Evelyn Parker,,Contractor,142509.2,6,Security
+1984,Harper Torres,ENG,Senior Engineer,181385.37,6,Spark
+1985,Emma Martinez,ENG,Software Engineer,209399.83,13,Kafka|SQL
+1986,Harper Abbott,MKT,Product Marketing Manager,161947.07,16,Analytics|Campaigns|Strategy
+1987,Amelia Green,DAT,Data Analyst,222459.97,18,SQL|Spark|PyTorch|Python
+1988,Samuel Lopez,ENG,Software Engineer,185219.44,7,Go
+1989,Ian Scott,OPS,Program Manager,112861.67,1,Tableau|Lean
+1990,Umar Adams,FIN,Senior Financial Analyst,179297.66,17,Excel|GAAP
+1991,Alice Torres,HR,Talent Acquisition Lead,121258.37,5,Onboarding|Compensation|Workday
+1992,Julia Stewart,ENG,Staff Engineer,194136.71,11,Kafka
+1993,Emily Collins,DAT,Senior Data Scientist,202997.26,16,Python|TensorFlow|PyTorch|Spark
+1994,Emily Lee,HR,HR Business Partner,115170.53,2,Compensation|Workday
+1995,Zoe King,,External Consultant,127003.2,1,Security|Architecture|Advisory
+1996,William Hill,DAT,ML Engineer,176851.16,10,TensorFlow|Python
+1997,Ian Scott,FIN,Financial Controller,152742.74,10,SAP|SQL
+1998,Noah Carter,ENG,Senior Engineer,176795.74,7,Python|Go
+1999,Elizabeth Collins,ENG,Senior Engineer,212345.26,13,Scala|Python|SQL|AWS
+2000,Ava Garcia,OPS,Operations Manager,164512.68,17,SQL|Tableau|Logistics|Agile
