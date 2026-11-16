@@ -1,15 +1,15 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 3 — Joins")
+app = marimo.App(width="medium", app_title="DataFrames 5 — Joins")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 3: Joins
+    # DataFrames, Part 5: Joins
 
-    **Notebook 3 of 5** · before: `01_dataframe_basics.py`, `02_dataframe_aggregations.py` · next: `04_dataframes_with_claude.py`, `05_dataframe_advanced.py`
+    **Notebook 5 of 7** · before: `03_dataframe_basics.py`, `04_dataframe_aggregations.py` · next: `06_dataframes_with_claude.py`, `07_dataframe_advanced.py`
 
     Real data lives in **several tables**. A sale records only a `store_id` and a
     `product_id`; the store's city and the product's price live in other tables. A
@@ -24,7 +24,7 @@ def _(mo):
     sales.join(stores, on="store_id", how="inner")
     ```
 
-    **Our story:** *Bean & Leaf* (the coffee chain from Notebooks 1 and 2) keeps its data
+    **Our story:** *Bean & Leaf* (the coffee chain from Notebooks 3 and 4) keeps its data
     in three tables: `stores`, `products`, and `sales`. We want revenue by city and
     category, and we want to find data problems: sales for unknown stores or products,
     stores with no sales, products nobody buys.
@@ -541,7 +541,7 @@ def _(mo):
 
     **Question:** *revenue by city and category.* Revenue needs the `price` (in
     `products`); the city is in `stores`. Chain two joins, compute the revenue, then
-    `groupBy` (Notebook 2).
+    `groupBy` (Notebook 4).
     """)
     return
 
@@ -1016,8 +1016,8 @@ def _(mo):
     3. Are there `NULL` keys, and what should happen to them?
     4. After the join: did the row count change the way you expected?
 
-    **Next notebooks:** `04_dataframes_with_claude.py` (Spark + an LLM) and
-    `05_dataframe_advanced.py` (arrays, nested data, window functions, set operations, dates, writing data).
+    **Next notebooks:** `06_dataframes_with_claude.py` (Spark + an LLM) and
+    `07_dataframe_advanced.py` (arrays, nested data, window functions, set operations, dates, writing data).
     """)
     return
 

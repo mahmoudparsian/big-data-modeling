@@ -1,17 +1,17 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 5 — Advanced")
+app = marimo.App(width="medium", app_title="DataFrames 7 — Advanced")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 5: Advanced Transformations
+    # DataFrames, Part 7: Advanced Transformations
 
-    **Notebook 5 of 5** · before: `01_dataframe_basics.py` … `04_dataframes_with_claude.py`
+    **Notebook 7 of 7** · before: `03_dataframe_basics.py` … `06_dataframes_with_claude.py`
 
-    Notebooks 1–3 covered the transformations you use every day. This notebook fills in
+    Notebooks 3–5 covered the transformations you use every day. This notebook fills in
     the rest of the toolbox, again comparing each idea with the RDD code you know:
 
     1. **Arrays and `explode()`**: the DataFrame version of `flatMap()` (word count!)
@@ -136,7 +136,7 @@ def _(mo):
     | `F.explode(arr)` | one row per element; rows with an **empty or `NULL`** array disappear |
     | `F.explode_outer(arr)` | like `explode`, but keeps those rows (with `NULL`) |
     | `F.posexplode(arr)` | also returns the position of each element |
-    | `F.collect_list(col)` | the opposite of `explode`: rows back into an array (Notebook 2) |
+    | `F.collect_list(col)` | the opposite of `explode`: rows back into an array (Notebook 4) |
     """)
     return
 
@@ -173,7 +173,7 @@ def _(mo):
 
     **Careful:** the shorter `F.col("items")[0]` (or `F.element_at`) **fails the whole job**
     on an empty array in Spark 4 (`INVALID_ARRAY_INDEX`), the same strictness as `cast()` in
-    Notebook 1. Use `F.get()` (or `F.try_element_at()`) when an array may be too short.
+    Notebook 3. Use `F.get()` (or `F.try_element_at()`) when an array may be too short.
 
     Now compare `explode`, `explode_outer` and `posexplode`. Orders 104 and 105 **vanish**
     with `explode`, just like an empty list produces nothing in `flatMap()`. If you count
@@ -281,7 +281,7 @@ def _(mo):
     mo.md(r"""
     ## 3. Window functions
 
-    Notebook 2 gave a first look. A **window function** computes a value for each row from
+    Notebook 4 gave a first look. A **window function** computes a value for each row from
     a group of **related rows** (its *window*), **without** collapsing them like `groupBy`.
 
     ```python

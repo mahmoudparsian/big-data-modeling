@@ -1589,5 +1589,6 @@ table does not shuffle the big one; see [4.8](#48-broadcast-join).)
   this review, same data, same order of topics.
 * [`../dataframes_practice_questions/`](../dataframes_practice_questions): 10 sets of
   DataFrame practice questions with full answers (Set 10 is an exam-style mixed review).
-* [`../dataframes_notebooks/`](../dataframes_notebooks): five marimo notebooks that teach
-  DataFrames step by step, starting from RDDs.
+* [`../dataframes_notebooks/`](../dataframes_notebooks): eight notebooks that teach
+  DataFrames step by step, starting from RDDs, with every query in 1–5 shown both with the
+  DataFrame API and in Spark SQL.

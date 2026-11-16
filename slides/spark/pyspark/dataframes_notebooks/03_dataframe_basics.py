@@ -1,15 +1,15 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 1 — Basics")
+app = marimo.App(width="medium", app_title="DataFrames 3 — Basics")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 1: The Basics
+    # DataFrames, Part 3: The Basics
 
-    **Notebook 1 of 5** · next: `02_dataframe_aggregations.py`, `03_dataframe_joins.py`, `04_dataframes_with_claude.py`, `05_dataframe_advanced.py`
+    **Notebook 3 of 7** · before: the warm-ups `00_create_dataframe_python.py`, `01_create_dataframe_then_use_SQL.py`, `02_create_dataframe.py` · next: `04_dataframe_aggregations.py`, `05_dataframe_joins.py`, `06_dataframes_with_claude.py`, `07_dataframe_advanced.py`
 
     You already know **RDDs**: a distributed collection of Python objects that you
     transform with `map()`, `filter()`, `reduceByKey()`, and so on. This notebook
@@ -30,7 +30,7 @@ def _(mo):
     **Every query is shown twice:** first with the DataFrame API (`select`, `filter`, ...),
     then the same query in **Spark SQL** (`spark.sql("SELECT ...")`), with the same result.
 
-    **Run it:** `marimo edit 01_dataframe_basics.py` (or `python 01_dataframe_basics.py`).
+    **Run it:** `marimo edit 03_dataframe_basics.py` (or `python 03_dataframe_basics.py`).
     Output of `df.show()` appears under each cell.
     """)
     return
@@ -1066,7 +1066,7 @@ def _(mo):
     | Count | `rdd.count()` | `df.count()` |
     | Convert | `rdd.toDF(["a", "b"])` | `df.rdd` |
 
-    **Next notebook:** `02_dataframe_aggregations.py`: `groupBy()`, `agg()`, and how they
+    **Next notebook:** `04_dataframe_aggregations.py`: `groupBy()`, `agg()`, and how they
     replace `reduceByKey()`.
     """)
     return

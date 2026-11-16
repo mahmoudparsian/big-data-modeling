@@ -119,7 +119,7 @@ def _(mo, spark):
     SELECT sale_id, store_id, product, quantity, unit_price
     FROM sales_data
     WHERE category = 'Coffee'
-    ORDER BY unit_price DESC
+    ORDER BY unit_price DESC, sale_id  -- sale_id breaks the tie (sales 1 and 5 both cost 4.50)
     """
     df_filtered = spark.sql(query2)
 
@@ -134,7 +134,7 @@ def _(F, sales_df):
     (sales_df
         .filter(F.col("category") == "Coffee")
         .select("sale_id", "store_id", "product", "quantity", "unit_price")
-        .orderBy(F.desc("unit_price"))
+        .orderBy(F.desc("unit_price"), "sale_id")
         .show())
     return
 
@@ -147,7 +147,7 @@ def _(mo, spark):
     SELECT sale_id, store_id, product, quantity, unit_price
     FROM sales_data
     WHERE category = 'Coffee'
-    ORDER BY unit_price DESC
+    ORDER BY unit_price DESC, sale_id
     """
     df_filtered_22 = spark.sql(query22)
 
@@ -173,7 +173,7 @@ def _(F, sales_df):
         sales_df
         .filter(F.col("category") == "Coffee")
         .select("sale_id", "store_id", "product", "quantity", "unit_price")
-        .orderBy(F.desc("unit_price"))
+        .orderBy(F.desc("unit_price"), "sale_id")
     )
     print("df_filtered_22_api.collect()=", df_filtered_22_api.collect())
     return

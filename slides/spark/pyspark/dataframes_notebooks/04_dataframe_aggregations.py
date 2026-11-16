@@ -1,15 +1,15 @@
 import marimo
 
 __generated_with = "0.23.10"
-app = marimo.App(width="medium", app_title="DataFrames 2 — Aggregations")
+app = marimo.App(width="medium", app_title="DataFrames 4 — Aggregations")
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # DataFrames, Part 2: Aggregations
+    # DataFrames, Part 4: Aggregations
 
-    **Notebook 2 of 5** · before: `01_dataframe_basics.py` · next: `03_dataframe_joins.py`
+    **Notebook 4 of 7** · before: `03_dataframe_basics.py` · next: `05_dataframe_joins.py`
 
     With RDDs you summarized data with **reducers**: `reduceByKey()`, `groupByKey()`,
     `aggregateByKey()`, `combineByKey()`. You first had to build `(key, value)` pairs,
@@ -22,7 +22,7 @@ def _(mo):
     df.groupBy("key column(s)").agg(F.sum("x"), F.avg("y"), F.count("*"), ...)
     ```
 
-    **Our story:** the *Bean & Leaf* coffee chain (from Notebook 1) wants a sales report
+    **Our story:** the *Bean & Leaf* coffee chain (from Notebook 3) wants a sales report
     for October 1–3, 2026: revenue per store, per city, per category, tips, payment mix,
     and the best-selling products.
 
@@ -69,7 +69,7 @@ def _(mo):
     ## 1. The data
 
     18 clean sales from four stores over three days. Each row already carries the store's
-    `city` and the product's `category` (in Notebook 3 you will see how a **join** builds
+    `city` and the product's `category` (in Notebook 5 you will see how a **join** builds
     such a table from separate tables). `tip` is `NULL` when the customer did not leave a
     tip.
     """)
@@ -949,7 +949,7 @@ def _(mo):
     | Whole-data total | `rdd.map(...).sum()` | `df.agg(F.sum("v"))` |
     | Keep only big groups | `.filter(lambda kv: kv[1] > 30)` after reducing | `.filter(F.col("total") > 30)` after `agg` |
 
-    **Next notebook:** `03_dataframe_joins.py`, combining several tables.
+    **Next notebook:** `05_dataframe_joins.py`, combining several tables.
     """)
     return
 
