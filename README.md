@@ -66,7 +66,7 @@ intelligence for actionable insight. See the full
 
 ## 7.  [Course Description](./course_information/course_description.md)
 
-## 8.  [What is Big Data Modeling?](./what_is_big_data_modeling.md)
+## 8.  [What is Big Data Modeling?](./slides/big_data/01_what_is_big_data_modeling.md)
 
 ## 9.  [Course Outline 10 Weeks](./course_information/COURSE_OUTLINE_10_WEEKS.pdf)
 
