@@ -27,6 +27,9 @@ def _(mo):
     4. Choosing columns, adding columns, filtering rows, and sorting
     5. Cleaning messy real-world data, step by step
 
+    **Every query is shown twice:** first with the DataFrame API (`select`, `filter`, ...),
+    then the same query in **Spark SQL** (`spark.sql("SELECT ...")`), with the same result.
+
     **Run it:** `marimo edit 01_dataframe_basics.py` (or `python 01_dataframe_basics.py`).
     Output of `df.show()` appears under each cell.
     """)
@@ -175,6 +178,14 @@ def _(sc, spark):
     return sales, sales_rdd, sales_rows
 
 
+@app.cell
+def _(sales):
+    # Register `sales` as a temporary SQL view. From now on, spark.sql("... FROM sales ...")
+    # queries the same data as the `sales` DataFrame.
+    sales.createOrReplaceTempView("sales")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -212,6 +223,16 @@ def _(F, sales, sales_rdd):
 
     # DataFrame: names, column expressions
     sales.select("sale_id", (F.col("quantity") * F.col("unit_price")).alias("revenue")).show(3)
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL
+    spark.sql("""
+        SELECT sale_id, quantity * unit_price AS revenue
+        FROM   sales
+    """).show(3)
     return
 
 
@@ -379,6 +400,14 @@ def _(raw_csv_path, spark, stores_json_path):
     return raw_with_schema, stores
 
 
+@app.cell
+def _(raw_with_schema, stores):
+    # SQL views for the raw cash-register file and the stores
+    raw_with_schema.createOrReplaceTempView("raw_sales")
+    stores.createOrReplaceTempView("stores")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -460,6 +489,21 @@ def _(F, sales):
     return
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: spark.sql() is lazy too (it only builds a plan)
+    big_coffee_sales_sql = spark.sql("""
+        SELECT *
+        FROM   sales
+        WHERE  category = 'Coffee' AND quantity >= 2
+    """)
+    print(type(big_coffee_sales_sql))
+
+    # The action triggers the work:
+    print("big coffee sales:", big_coffee_sales_sql.count())
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -491,6 +535,20 @@ def _(F, sales):
     return
 
 
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    spark.sql("SELECT product, quantity FROM sales").show(3)
+
+    spark.sql("""
+        SELECT product,
+               UPPER(category)       AS CATEGORY,
+               quantity * unit_price AS revenue
+        FROM   sales
+    """).show(3)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -519,6 +577,19 @@ def _(F, sales):
     return
 
 
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: you list the columns you want to keep,
+    # rename with AS, and leave out the ones to drop (category)
+    spark.sql("""
+        SELECT sale_id, store_id, product, quantity,
+               unit_price            AS price,
+               quantity * unit_price AS revenue
+        FROM   sales
+    """).show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -532,6 +603,18 @@ def _(mo):
 @app.cell
 def _(sales):
     sales.selectExpr("product", "quantity * unit_price AS revenue", "quantity > 2 AS big_order").show(3)
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: the selectExpr() snippets become the SELECT list
+    spark.sql("""
+        SELECT product,
+               quantity * unit_price AS revenue,
+               quantity > 2          AS big_order
+        FROM   sales
+    """).show(3)
     return
 
 
@@ -567,6 +650,15 @@ def _(F, sales):
 
 
 @app.cell
+def _(spark):
+    # The same queries in Spark SQL: WHERE, with AND / OR / NOT written as words
+    spark.sql("SELECT * FROM sales WHERE category = 'Coffee'").show()
+
+    spark.sql("SELECT * FROM sales WHERE category = 'Coffee' AND quantity > 1").show()
+    return
+
+
+@app.cell
 def _(F, sales):
     # A few more useful conditions
     sales.where(F.col("store_id").isin("S01", "S04")).show()        # value in a list
@@ -574,6 +666,17 @@ def _(F, sales):
     sales.where(F.col("product").contains("Latte")).show()           # substring
     sales.where(~(F.col("category") == "Coffee")).show()             # NOT
     sales.where("quantity >= 3 AND category <> 'Coffee'").show()     # a SQL string works too
+    return
+
+
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    spark.sql("SELECT * FROM sales WHERE store_id IN ('S01', 'S04')").show()           # isin()
+    spark.sql("SELECT * FROM sales WHERE unit_price BETWEEN 3.0 AND 4.0").show()       # between()
+    spark.sql("SELECT * FROM sales WHERE product LIKE '%Latte%'").show()               # contains()
+    spark.sql("SELECT * FROM sales WHERE NOT (category = 'Coffee')").show()            # ~
+    spark.sql("SELECT * FROM sales WHERE quantity >= 3 AND category <> 'Coffee'").show()
     return
 
 
@@ -603,6 +706,18 @@ def _(F, sales):
     return
 
 
+@app.cell
+def _(spark):
+    # The same queries in Spark SQL
+    spark.sql("SELECT * FROM sales ORDER BY quantity DESC, sale_id").show()
+
+    spark.sql("SELECT DISTINCT category FROM sales ORDER BY category").show()
+
+    # One row per store: for a single column, DISTINCT gives the same result
+    spark.sql("SELECT DISTINCT store_id FROM sales ORDER BY store_id").show()
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -627,6 +742,25 @@ def _(F, sales):
         F.concat_ws(" - ", "store_id", "product").alias("label"),
         F.round(F.col("unit_price") * 1.1, 2).alias("price_after_10pct"),
     ).show(truncate=False)
+    return
+
+
+@app.cell
+def _(spark):
+    # The same query in Spark SQL: when/otherwise is CASE WHEN ... ELSE ... END,
+    # and lit("...") is just a literal value
+    spark.sql("""
+        SELECT product,
+               quantity,
+               CASE WHEN quantity >= 4 THEN 'large'
+                    WHEN quantity >= 2 THEN 'medium'
+                    ELSE 'small'
+               END                              AS order_size,
+               'Bean & Leaf'                    AS brand,
+               CONCAT_WS(' - ', store_id, product) AS label,
+               ROUND(unit_price * 1.1, 2)       AS price_after_10pct
+        FROM   sales
+    """).show(truncate=False)
     return
 
 
@@ -804,6 +938,46 @@ def _(F, clean_sales):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    **The same cleaning in Spark SQL.** Each step becomes one part of a `WITH` query
+    (a *common table expression*: a named step you can use in the next one). `DISTINCT`
+    removes duplicates, `TRY_CAST` and `TRY_TO_DATE` turn bad values into `NULL`,
+    `COALESCE(payment, 'unknown')` is the `fillna()`, and the `WHERE` clause does the
+    `dropna()` and the `quantity > 0` check.
+    """)
+    return
+
+
+@app.cell
+def _(spark):
+    # The same cleaning in Spark SQL (raw_sales = the raw file, all messy columns as strings)
+    spark.sql("""
+        WITH deduped AS (                              -- step 1
+            SELECT DISTINCT * FROM raw_sales
+        ),
+        typed AS (                                     -- steps 2-4 and the fillna of step 6
+            SELECT sale_id,
+                   COALESCE(TRY_TO_DATE(sale_date, 'yyyy-MM-dd'),
+                            TRY_TO_DATE(sale_date, 'MM/dd/yyyy'))         AS sale_date,
+                   store_id,
+                   INITCAP(TRIM(product))                                  AS product,
+                   TRY_CAST(quantity AS INT)                               AS quantity,
+                   TRY_CAST(REGEXP_REPLACE(unit_price, '[$]', '') AS DOUBLE) AS unit_price,
+                   COALESCE(LOWER(TRIM(payment)), 'unknown')               AS payment
+            FROM   deduped
+        )
+        SELECT *,
+               ROUND(quantity * unit_price, 2) AS revenue
+        FROM   typed
+        WHERE  quantity IS NOT NULL AND sale_date IS NOT NULL   -- dropna, step 6
+          AND  quantity > 0                                     -- step 7
+        ORDER BY sale_id
+    """).show()
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     In a real job you would write this as **one chain**, and save the result
     (e.g. `sales_clean.write.parquet("clean_sales/")`) so the next program does not have
     to clean the data again:
@@ -857,6 +1031,20 @@ def _(F, min_revenue, payment_choice, sales_clean):
         chosen = chosen.filter(F.col("payment") == payment_choice.value)
     print(f"{chosen.count()} matching sales")
     chosen.orderBy("sale_id").show()
+    return
+
+
+@app.cell
+def _(min_revenue, payment_choice, sales_clean, spark):
+    # The same filter in Spark SQL. The WHERE clause is built from the widget values
+    # (safe here: they come from a fixed dropdown and a slider, not from free text).
+    sales_clean.createOrReplaceTempView("sales_clean")
+    where = f"revenue >= {min_revenue.value}"
+    if payment_choice.value != "all":
+        where += f" AND payment = '{payment_choice.value}'"
+    chosen_sql = spark.sql(f"SELECT * FROM sales_clean WHERE {where} ORDER BY sale_id")
+    print(f"{chosen_sql.count()} matching sales  (SQL: ... WHERE {where})")
+    chosen_sql.show()
     return
 
 
@@ -925,19 +1113,26 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 1
         (sales.filter(F.col("category") == "Tea")
               .select("product", "unit_price")
               .orderBy(F.desc("unit_price"))
               .show())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT product, unit_price FROM sales
+            WHERE  category = 'Tea'
+            ORDER BY unit_price DESC
+        """).show()
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 2
         (sales.withColumn("total", F.col("quantity") * F.col("unit_price"))
@@ -945,27 +1140,44 @@ def _(F, sales, solution):
               .select("sale_id", "product", "total")
               .orderBy("sale_id")
               .show())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL: WHERE cannot use the alias `total`, so repeat the expression
+        spark.sql("""
+            SELECT sale_id, product, quantity * unit_price AS total
+            FROM   sales
+            WHERE  quantity * unit_price > 9
+            ORDER BY sale_id
+        """).show()
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 
 @app.cell(hide_code=True)
-def _(F, sales, solution):
+def _(F, sales, solution, spark):
     solution('''
         # Exercise 3
         print(sales.select("product").distinct().count())
-    ''', {"F": F, "sales": sales})
+
+        # The same in Spark SQL
+        print(spark.sql("SELECT COUNT(DISTINCT product) FROM sales").first()[0])
+    ''', {"F": F, "sales": sales, "spark": spark})
     return
 
 
 @app.cell(hide_code=True)
-def _(F, solution, stores):
+def _(F, solution, spark, stores):
     solution('''
         # Exercise 4
         (stores.filter((F.col("city") == "San Jose") & (F.col("opened") >= 2020))
                .select("name", "opened")
                .show())
-    ''', {"F": F, "stores": stores})
+
+        # The same in Spark SQL
+        spark.sql("""
+            SELECT name, opened FROM stores
+            WHERE  city = 'San Jose' AND opened >= 2020
+        """).show()
+    ''', {"F": F, "spark": spark, "stores": stores})
     return
 
 
