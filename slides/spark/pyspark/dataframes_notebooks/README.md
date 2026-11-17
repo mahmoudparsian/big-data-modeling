@@ -35,16 +35,19 @@ Two extra notebooks show how to move data from [DuckDB](https://duckdb.org) into
 | [`09_auto_insurance_analysis.py`](09_auto_insurance_analysis.py) | Export the `insurance` table of `auto_insurance_db.duckdb` to Parquet with DuckDB, read it with `spark.read.parquet()`, then answer 17 questions, each in Spark SQL **and** with the DataFrame API (the notebook checks that both give the same rows): 4 business questions (loss ratio, renewal conversion, top-3 outliers per state, tenure cohorts), 3 simple, 5 intermediate (`HAVING`, `CASE WHEN` buckets, `PIVOT`, scalar subquery, conditional aggregation) and 5 intermediate+ (percent of total, compare with the group average, `ROLLUP`, best offer per state, `NTILE` deciles with a running total). It writes the Parquet file to `./tmp_spark_staging/`, so run it from this folder |
 | [`10_dataframes_from_collection.py`](10_dataframes_from_collection.py) | DataFrame from a Collection |
 | [`11_dataframes_from_file.py`](11_dataframes_from_file.py) | DataFrame from a Data File |
-
+| [`12_books_ratings_analysis.py`](12_books_ratings_analysis.py) | DataFrame from DuckDB |
 ### Other files
 
 | File / folder | Contents |
 |---|---|
 | [`data/`](data) | The CSV and JSON files read by Notebooks 3 and 7 |
 | [`auto_insurance_db.duckdb`](auto_insurance_db.duckdb) | The DuckDB database used by `auto_insurance_analysis_pyspark.py` (needs DuckDB 2.0+) |
+| [`books_ratings_db.duckdb`](books_ratings_db.duckdb) | The DuckDB database used by `12_books_ratings_analysis.py` (needs DuckDB 2.0+) |
 | [`marimo_setup_guide_macbook.md`](marimo_setup_guide_macbook.md) | Step-by-step setup on macOS: Python, Java, a virtual environment, marimo, PySpark, DuckDB |
 | [`marimo_setup_guide_windows.md`](marimo_setup_guide_windows.md) | The same setup on Windows |
 | [`.env.example`](.env.example) | Template for Notebook 6's settings: copy it to `.env` and add your Anthropic API key |
+
+
 
 ## Running
 
