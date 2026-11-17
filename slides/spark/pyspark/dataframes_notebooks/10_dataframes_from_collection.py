@@ -448,6 +448,36 @@ def _(spark):
 
 
 @app.cell
+def _(spark):
+    # [7A - SPARK SQL] Departmental Salary Ranking & Comparison to Dept Average
+    # Find top-2 salary per dept
+    sql_win_df_2 = spark.sql("""
+        WITH ranked_emps AS (
+           SELECT 
+               name,
+               dept_id,
+               salary,
+               RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) 
+                   AS dept_salary_rank
+           FROM employees
+           WHERE dept_id IS NOT NULL    
+        )
+        SELECT 
+            name,
+            dept_id,
+            salary,
+            dept_salary_rank
+        FROM ranked_emps
+        WHERE dept_salary_rank <= 2
+        ORDER BY dept_id, dept_salary_rank
+    """)
+
+    print("=== [SQL] Window Functions ===")
+    sql_win_df_2.show(truncate=False)
+    return
+
+
+@app.cell
 def _(F, Window, emp_df):
     # [7B - FUNCTIONAL DATAFRAME API] Window Specification + .over(window_spec)
     dept_salary_window = Window.partitionBy("dept_id").orderBy(F.col("salary").desc())
