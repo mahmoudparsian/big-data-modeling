@@ -31,3 +31,9 @@
 #### &#x1F94E; Date: Monday, December 7, 2026
 #### &#x1F94E; Time: 5:45 PM - 7:45 PM PST
 #### &#x1F94E; Location: Room 306, Lucas Hall
+
+* Final Exam Coverage:
+	* ~10% MapReduce
+	* ~20% RDDs
+	* ~60% Spark DataFrames
+	* ~10% GraphFrames
