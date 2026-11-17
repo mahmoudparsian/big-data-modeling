@@ -77,6 +77,17 @@ def _(SparkSession):
 
 
 @app.cell
+def _():
+    return
+
+
+@app.cell
+def _(spark):
+    print("spark=", spark)
+    return
+
+
+@app.cell
 def _(mo):
     mo.md("""
     ---
@@ -123,13 +134,23 @@ def _(
     # Create the DataFrame 
     emp_df = spark.createDataFrame(data=raw_employees, schema=employee_schema)
 
-    # Register a Temporary View for Spark SQL
-    emp_df.createOrReplaceTempView("employees")
+    print("emp_df=", emp_df)
+    return (emp_df,)
 
+
+@app.cell
+def _(emp_df):
     # Inspect schema tree and display first 10 rows
     emp_df.printSchema()
     emp_df.show(truncate=False)
-    return (emp_df,)
+    return
+
+
+@app.cell
+def _(emp_df):
+    # Register a Temporary View for Spark SQL
+    emp_df.createOrReplaceTempView("employees")
+    return
 
 
 @app.cell
@@ -410,12 +431,15 @@ def _(spark):
             name,
             dept_id,
             salary,
-            DENSE_RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS dept_salary_rank,
+            RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) 
+                AS dept_salary_rank,
+            DENSE_RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) 
+                AS dept_salary_dense_rank,            
             ROUND(AVG(salary) OVER (PARTITION BY dept_id), 2) AS dept_avg_salary,
             ROUND(salary - AVG(salary) OVER (PARTITION BY dept_id), 2) AS diff_from_dept_avg
         FROM employees
         WHERE dept_id IS NOT NULL
-        ORDER BY dept_id, dept_salary_rank
+        ORDER BY dept_id, dept_salary_dense_rank
     """)
 
     print("=== [SQL] Window Functions ===")
@@ -497,8 +521,10 @@ def _(mo):
     ## Part 9: Interoperability — DataFrame $\leftrightarrow$ RDD Round-Trip Conversions
     Because DataFrames are built directly on top of RDDs, you can drop down to the RDD layer whenever you need custom unstructured parsing or fine-grained partition control, and then lift the result back into a structured DataFrame:
 
-    1. **DataFrame $    ightarrow$ RDD (`df.rdd`):** Yields an `RDD[Row]`. Each `Row` supports both attribute access (`row.salary`) and positional indexing (`row[4]`). Note that accessing `.rdd` deserializes Tungsten off-heap bytes back into Python `Row` objects.
-    2. **RDD $    ightarrow$ DataFrame (Two Ways):**
+    1. **DataFrame $
+    ightarrow$ RDD (`df.rdd`):** Yields an `RDD[Row]`. Each `Row` supports both attribute access (`row.salary`) and positional indexing (`row[4]`). Note that accessing `.rdd` deserializes Tungsten off-heap bytes back into Python `Row` objects.
+    2. **RDD $
+    ightarrow$ DataFrame (Two Ways):**
        * **Quick Inference (`.toDF(["col1", "col2"])`):** Convenient for interactive exploration; Spark scans a sample of the RDD to infer data types.
        * **Explicit Schema (`spark.createDataFrame(rdd, schema)`):** Production best practice; enforces exact types without scanning data twice.
     """)
